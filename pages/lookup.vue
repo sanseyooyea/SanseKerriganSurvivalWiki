@@ -15,8 +15,8 @@
       <p v-if="error" class="mt-2 text-sm text-red-500">{{ error }}</p>
     </div>
 
-    <template v-if="mmrData">
-      <div class="grid grid-cols-2 gap-4 mb-6">
+    <template v-if="mmrData || creditsData">
+      <div v-if="mmrData" class="grid grid-cols-2 gap-4 mb-6">
         <div class="wiki-card p-4">
           <div class="text-xs text-survivor-600 dark:text-survivor-400 mb-1">生存者</div>
           <div class="text-2xl font-bold text-survivor-700 dark:text-survivor-300">{{ mmrData.cores.survivor }}</div>
@@ -27,6 +27,10 @@
           <div class="text-2xl font-bold text-kerrigan-700 dark:text-kerrigan-300">{{ mmrData.cores.kerrigan }}</div>
           <div class="text-sm text-gray-500">{{ mmrData.ranks.kerrigan.tier }} · Top {{ mmrData.ranks.kerrigan.percentile }}%</div>
         </div>
+      </div>
+
+      <div v-else class="wiki-card p-4 mb-6 text-sm text-gray-500 dark:text-gray-400">
+        该玩家暂无天梯 MMR 数据（可能为外服玩家或未打过天梯），以下为积分信息。
       </div>
 
       <div v-if="creditsData" class="wiki-card p-4 mb-6">
@@ -75,10 +79,11 @@ async function search() {
   creditsData.value = null
   try {
     const [mmr, credits] = await Promise.all([
-      $fetch<any>('/api/mmr', { params: { handle: val } }),
+      $fetch<any>('/api/mmr', { params: { handle: val } }).catch(() => null),
       $fetch<any>('/api/credits', { params: { handle: val } }).catch(() => null),
     ])
-    if (!mmr) { error.value = '未找到该玩家'; return }
+    // MMR 与积分独立：只要有任一数据就展示（外服玩家常无 MMR 但有积分）
+    if (!mmr && !credits) { error.value = '未找到该玩家'; return }
     mmrData.value = mmr
     creditsData.value = credits
   } catch {
