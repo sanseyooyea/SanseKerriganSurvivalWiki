@@ -1,0 +1,1368 @@
+[
+  {
+    "id": 0,
+    "nameEn": "Kerrigan",
+    "nameZh": "凯瑞甘",
+    "heroUnits": [
+      "KerriganKerrigan"
+    ],
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-kerrigan.dds",
+    "portrait": "Assets\\Textures\\kerriganportrait_static.dds",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>凯瑞甘是一个强大的近战英雄，拥有多种不同的作战风格。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100,
+      "damage": 30,
+      "attackSpeed": 1,
+      "attackCount": 2,
+      "range": 0,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "KerriganRazorSwarm",
+      "KerriganInfection",
+      "KerriganFungalGrowth",
+      "KerriganTeleport",
+      "KerriganPrimalRoar",
+      "PrimalSlash"
+    ]
+  },
+  {
+    "id": 1,
+    "nameEn": "Scientist",
+    "nameZh": "科学家",
+    "heroUnits": [
+      "ScientistScientist"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\wireframe-terran-scientist00.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>科学家可以快速部署高度机动的步兵部队。 他的经济很简单，但可能需要大量的多线处理才能保持抵御攻击的能力。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "ScientistTrainMedivac",
+      "CommonBlinkHero"
+    ]
+  },
+  {
+    "id": 2,
+    "nameEn": "Dark Templar",
+    "nameZh": "黑暗圣堂武士",
+    "heroUnits": [
+      "DarkTemplarDT"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-darktemplar.dds",
+    "portrait": "",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>黑暗圣堂武士控制一个敏捷的英雄单位。<n/>黑暗圣堂武士的力量在于牵制和地图控制。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 150,
+      "speed": 3.25,
+      "armor": 0,
+      "energy": 100,
+      "damage": 60,
+      "attackSpeed": 1.2,
+      "range": 1.5,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "DTPsiStorm",
+      "DarkTemplarDash",
+      "DTShadowCharge",
+      "DarkTemplarShadowFuryKS2",
+      "DTVoidPrison",
+      "DarkTemplarShadowCleave"
+    ]
+  },
+  {
+    "id": 3,
+    "nameEn": "Ascendant",
+    "nameZh": "晋升者",
+    "heroUnits": [
+      "AscendantAscendant",
+      "AscendantVoidAscendant"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-hightemplar-taldarim.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">推荐给新玩家</c><n/><n/><c val=\"00FF00\">难度 - 鸡/10</c><n/><n/>晋升者被认为是游戏中最简单的职业，因为您可以使用 「云」为您的经济提供出色的掩护。 使用炮台获取瓦斯来加速你的经济，并且拥有出色的后期能力。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 150,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "AscendantBlink",
+      "AscendantAscend",
+      "AscendantSummonVoidRift"
+    ]
+  },
+  {
+    "id": 4,
+    "nameEn": "Spirit",
+    "nameZh": "灵魂",
+    "heroUnits": [
+      "Spirit"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-adept-purifier.dds",
+    "portrait": "",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>灵魂的发挥取决于运气。<n/>灵魂使用建筑作为唯一的攻防手段。但是她的建筑甚至可以控制地图，压退菌毯。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 100,
+      "speed": 5.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "SpiritDeflect",
+      "SpiritGlide",
+      "CommonBlinkHero"
+    ]
+  },
+  {
+    "id": 5,
+    "nameEn": "Ares",
+    "nameZh": "阿瑞斯",
+    "heroUnits": [
+      "AresAres"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-specialopsdropship.dds",
+    "portrait": "",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿瑞斯是一名飞行英雄，在矿场安排矿工来发展经济。 矿场本身很难隐藏，而且笨拙无法回收，但是阿瑞斯拥有游戏中最快的经济速度（之一）。 拥有非常强大的地面部队，但要提防虫族的飞行部队。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 150,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "AresTransport",
+      "AresEmergencyThrusters",
+      "AresHyperjump"
+    ]
+  },
+  {
+    "id": 6,
+    "nameEn": "Prophet",
+    "nameZh": "先知",
+    "heroUnits": [
+      "ProphetProphet"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-oracle.dds",
+    "portrait": "",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>先知是一个强大的法师，能够使用多种游戏风格。她可以为盟友提供视野、防御和经济支持，同时也能骚扰和攻击敌人。经济系统基于萃取结界，需要依赖盟友来共同发展经济。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 80,
+      "speed": 4.4,
+      "armor": 0,
+      "energy": 100,
+      "damage": 30,
+      "attackSpeed": 1.25,
+      "range": 4,
+      "energyRegen": 1.5
+    },
+    "abilities": [
+      "ProphetRevelation",
+      "ProphetWeapon",
+      "ProphetVortex"
+    ]
+  },
+  {
+    "id": 7,
+    "nameEn": "Stukov",
+    "nameZh": "斯托科夫",
+    "heroUnits": [
+      "StukovStukov"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-stukov.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>斯托科夫是一个需要仔细规划和策略才能生存的微操密集型英雄。<n/>斯托科夫生产成群的感染虫族，反抗虫群。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 350,
+      "speed": 3.25,
+      "armor": 2,
+      "energy": null,
+      "damage": 30,
+      "attackSpeed": 2,
+      "range": 4
+    },
+    "abilities": [
+      "StukovInfestedTerran",
+      "StukovInfestedCivilians",
+      "StukovInfestedAberration",
+      "StukovInfestedRavager",
+      "StukovSpawnNaktul",
+      "StukovSprint"
+    ]
+  },
+  {
+    "id": 8,
+    "nameEn": "Artanis",
+    "nameZh": "阿塔尼斯",
+    "heroUnits": [
+      "ArtanisArtanis"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-artanishero.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>阿塔尼斯是一个高度微操集约的英雄，需要对早期单位进行仔细管理。他的经济提供了隐身的实质性实用性，如果他变得强大，可以建造一支非常强大的军队。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.0,
+      "armor": 3,
+      "energy": 100,
+      "damage": 10,
+      "attackSpeed": 1,
+      "attackCount": 2,
+      "range": 0.1,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "MothershipMassRecall",
+      "ArtanisProtectiveShield",
+      "ArtanisEnergizerAura",
+      "ArtanisRadianceAura"
+    ]
+  },
+  {
+    "id": 9,
+    "nameEn": "Zagara",
+    "nameZh": "扎加拉",
+    "heroUnits": [
+      "ZagaraZagara"
+    ],
+    "category": "Defender",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-broodqueen.dds",
+    "portrait": "Assets\\Textures\\queenportrait_static.dds",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>更多的APM = 更多的作用。<n/>扎加拉需要保护基地，抵御生存者的攻击，铺菌毯等一系列职责。<n/>如果你毯子铺得很快，请选择扎加拉。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 0.55,
+      "armor": 0,
+      "energy": 100,
+      "damage": 30,
+      "attackSpeed": 0.9,
+      "range": 8,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "ZagaraEnsnare",
+      "ZagaraCreepTeleport",
+      "KerriganManaBurn"
+    ]
+  },
+  {
+    "id": 10,
+    "nameEn": "Engineer",
+    "nameZh": "工程师",
+    "heroUnits": [
+      "EngineerEngineer"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-deathhead.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>工程师是一位移动英雄，他几乎可以在地图上的任何位置建立基地。 他的高生命建筑为任何前哨基地都提供了相当大的保护，但是随着经济的增长，他的经济变得越来越难以管理。拥有强大的阵地能力。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 250,
+      "speed": 3.5,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": []
+  },
+  {
+    "id": 11,
+    "nameEn": "Team Nova",
+    "nameZh": "诺娃团队",
+    "heroUnits": [
+      "NovaNova",
+      "NovaTosh"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Buttons\\nova.dds",
+    "portrait": "",
+    "description": "难度 - <c val=\"FF0000\">9/10</c><n/><n/>诺娃团队是一对刺客：诺娃和托什，两者都需要持续关注和微操才能生存。他们唯一真正的逃脱方式是传送到对方身边，所以确保他们总是保持分离。<n/><n/><c val=\"00FF00\">由 Luminous 开发并维护。</c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 1,
+      "energy": 100,
+      "damage": 100,
+      "attackSpeed": 2,
+      "range": 7,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "NovaPersonalCloaking",
+      "NovaPenetratorRoundKS",
+      "NovaTeleport",
+      "NovaMindControl",
+      "NovaStimpack"
+    ]
+  },
+  {
+    "id": 12,
+    "nameEn": "Nomad",
+    "nameZh": "游牧民",
+    "heroUnits": [
+      "NomadNomad"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-raven.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>游牧民是一个飞行的进攻性建造者。他拥有相当标准的经济和军队，可以随时召唤。随着游牧民力量的增长，他最大的资产是他的法术施放。<n/><n/><c val=\"00FF00\">由 Luminous 开发和维护。</c>",
+    "stats": {
+      "hp": 200,
+      "speed": 2.75,
+      "armor": 0,
+      "energy": 150,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "NomadCalldownBlackhammer",
+      "NomadDefensiveMatrix",
+      "NomadSeekerMissile",
+      "NomadBuildAutoTurret",
+      "AresEmergencyThrusters"
+    ]
+  },
+  {
+    "id": 13,
+    "nameEn": "Dehaka",
+    "nameZh": "德哈卡",
+    "heroUnits": [
+      "DehakaDehaka"
+    ],
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-dehaka.dds",
+    "portrait": "Assets\\Textures\\dehakaportrait_static.dds",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>德哈卡是一个狡猾的刺客。需要大量关于德哈卡机制的知识才能玩。<n/>用你的风行术出其不意地攻击敌人，用你的拖拽抓住他们，并利用你的速度优势。<n/>德哈卡也可以攻击空中单位。<n/><n/>德哈卡擅长击杀单个目标，并追击敌人。<n/>德哈卡在攻击基地和面对正面对抗时表现相当差。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 3.24,
+      "armor": 2,
+      "energy": 100,
+      "damage": 25,
+      "attackSpeed": 1.25,
+      "range": 3,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "Drag",
+      "DehakaWindwalk",
+      "DehakaScorchingBreath",
+      "DehakaDash",
+      "KerriganManaBurn"
+    ]
+  },
+  {
+    "id": 14,
+    "nameEn": "Helios",
+    "nameZh": "赫利俄斯",
+    "heroUnits": [
+      "HeliosHelios"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-kerriganascended.dds",
+    "portrait": "",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>赫利俄斯提供非常安全的经济，但在建立军队方面存在一些挑战。<n/>任何军队都\"链接\"到一个建筑。当单位被杀死时，建筑可以开始重新生产它。如果建筑被杀死，单位也会被杀死。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": []
+  },
+  {
+    "id": 15,
+    "nameEn": "Random",
+    "nameZh": "随机",
+    "heroUnits": [],
+    "category": "Random",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\ui_battlenet_glue_icons_random_normal.dds",
+    "portrait": "",
+    "description": "随机一个建造者。",
+    "stats": {
+      "hp": null,
+      "speed": null,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": []
+  },
+  {
+    "id": 16,
+    "nameEn": "Thakras",
+    "nameZh": "塔克拉斯",
+    "heroUnits": [
+      "ThakrasThakras"
+    ],
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-defilerex3.dds",
+    "portrait": "Assets\\Textures\\defilerportrait_static.dds",
+    "description": "<c val=\"FFFF00\">难度 - 6/10</c><n/><n/>塔克拉斯是一个法术施放者，具有可以对敌方单位造成大量持续伤害并保护友方单位免受伤害的技能<n/>他可以消耗友方虫族单位来获得能量。<n/><n/>塔克拉斯擅长用黑暗群体破坏大型基地，并用他的瘟疫技能阻止激进支援者的骚扰。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100,
+      "attackSpeed": 1,
+      "attackCount": 1,
+      "range": 0,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "ThakrasDarkSwarm",
+      "ThakrasPlague",
+      "ThakrasBurrow",
+      "PrimalConsume",
+      "ThakrasConstrictingSlime",
+      "ThakrasConsumeUnit"
+    ]
+  },
+  {
+    "id": 17,
+    "nameEn": "Swann",
+    "nameZh": "斯旺",
+    "heroUnits": [
+      "SwannSwann",
+      "SwannKachinsky"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-marauderswann.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>斯旺是一个防御建造者，依靠静态防御作为他唯一的防御和攻击形式。<n/> 斯旺的掠夺者和前男友卡琴斯基让他能够在全地图制造压力并擅长基地建设。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 2,
+      "energy": null
+    },
+    "abilities": [
+      "SwannGrapple",
+      "SwannSprint",
+      "SwannStunGrenade",
+      "SwannSupercharge"
+    ]
+  },
+  {
+    "id": 18,
+    "nameEn": "Warden",
+    "nameZh": "监管者",
+    "heroUnits": [
+      "WardenWarden"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-fenix.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>监管者是一个强大的支援单位！厚的一批！随着等级的增长，监管者将越来越强大。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 500,
+      "speed": 3.0,
+      "armor": 3,
+      "energy": 100,
+      "damage": 10,
+      "attackSpeed": 0.1,
+      "range": 0.1,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "WardenWhirlwind",
+      "WardenThunderousCharge",
+      "WardenVexArmor",
+      "WardenArsenalOvercharge",
+      "WardenMirror",
+      "WardenExperimentalBarrier",
+      "WardenTaunt"
+    ]
+  },
+  {
+    "id": 19,
+    "nameEn": "Selendis",
+    "nameZh": "塞兰迪斯",
+    "heroUnits": [
+      "SelendisCore",
+      "SelendisMothershipForm"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-collection-purifier-mothershipcore.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>塞兰迪斯是一位会飞的建造者，她的经济建立在采集可升级的折跃晶体矿场之上。她的经济体系安全而紧凑，但她的部队需要良好的微操才能发挥最大效果。<n/><n/><c val=\"00FF00\">由 Hex 开发并维护。</c>",
+    "stats": {
+      "hp": 150,
+      "speed": 2.75,
+      "armor": 1,
+      "energy": 150,
+      "energyRegen": 1.5
+    },
+    "abilities": [
+      "SelendisTimeWarp",
+      "SelendisMorphtoMothership",
+      "SelendisRecall"
+    ]
+  },
+  {
+    "id": 20,
+    "nameEn": "Niadra",
+    "nameZh": "尼亚德拉",
+    "heroUnits": [
+      "NiadraNiadra"
+    ],
+    "category": "Defender",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-queen-mecha.dds",
+    "portrait": "Assets\\Textures\\queenportrait_static.dds",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>尼亚德拉可以防御和攻击。在菌毯外比扎加拉移动更快，但传送冷却时间更长。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 1.6,
+      "armor": 0,
+      "energy": 100,
+      "damage": 30,
+      "attackSpeed": 0.7,
+      "range": 5,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "QueenClassicParasite",
+      "KerriganPrimalRoar",
+      "KerriganTeleport",
+      "KerriganRazorSwarm"
+    ]
+  },
+  {
+    "id": 21,
+    "nameEn": "Mira",
+    "nameZh": "米拉",
+    "heroUnits": [
+      "MiraMira"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-tychusghost.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>米拉核弹轰炸。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 400,
+      "speed": 3.25,
+      "armor": 2,
+      "energy": null
+    },
+    "abilities": [
+      "MiraNuclearStrike",
+      "MiraCalldownCyclone",
+      "MiraDeflect",
+      "MiraPsionicTransfer"
+    ]
+  },
+  {
+    "id": 22,
+    "nameEn": "Scion",
+    "nameZh": "赛恩",
+    "heroUnits": [
+      "ScionScion",
+      "ScionElder"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-tassadar.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>赛恩是一个强大且多才多艺的法师。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "stats": {
+      "hp": 200,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": 100,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "ScionChainLightning",
+      "ScionSwap",
+      "ScionLifeExchange",
+      "ScionInspiration",
+      "ScionForceField",
+      "ScionPsiStorm",
+      "ScionKineticMatrix"
+    ]
+  },
+  {
+    "id": 23,
+    "nameEn": "Technician",
+    "nameZh": "技术员",
+    "heroUnits": [
+      "TechnicianTechnician"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\wireframe-terran-civilianmale.dds",
+    "portrait": "",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>技术员可以建造各种各样的建筑，其作用取决于周密计划、良好的游戏理解以及正确执行。<n/><n/><c val=\"00FF00\">开发者：Fatline。维护者：H5x9p。</c>",
+    "stats": {
+      "hp": 200,
+      "speed": 5.0,
+      "armor": 0,
+      "energy": 100,
+      "damage": 50,
+      "attackSpeed": 480,
+      "range": 4,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "PersonalCloakingTechnician",
+      "Detonate",
+      "TemporalZone",
+      "Hallucination"
+    ]
+  },
+  {
+    "id": 24,
+    "nameEn": "Warfield",
+    "nameZh": "沃菲尔德",
+    "heroUnits": [
+      "Warfield"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\wireframe-terran-marine-warfield.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 10/10</c><n/><n/>沃菲尔德依靠多功能的部队和建筑巩固自己的领土，这需要充分的准备、快速的反应和精准的执行。<n/><n/><c val=\"00FF00\">由 Fatline 开发。由 Kore 维护。</c>",
+    "stats": {
+      "hp": 425,
+      "speed": 3.35,
+      "armor": 0,
+      "energy": 200,
+      "damage": 30,
+      "attackSpeed": 1.5,
+      "range": 4,
+      "energyRegen": 1.5
+    },
+    "abilities": [
+      "WarfieldStickyBomb",
+      "WarfieldStimpack",
+      "WarfieldSummonXanthos"
+    ]
+  },
+  {
+    "id": 25,
+    "nameEn": "Champion",
+    "nameZh": "冠军",
+    "heroUnits": [
+      "ChampionSoul"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-ability-zeratul-disruptor-purificationnova.dds",
+    "portrait": "",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>冠军进入单位让他们更加强大！<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 100,
+      "speed": 4.0,
+      "armor": 0,
+      "energy": 100,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "ChampionGlide"
+    ]
+  },
+  {
+    "id": 26,
+    "nameEn": "Elementalist",
+    "nameZh": "元素使",
+    "heroUnits": [
+      "Elementalist"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-mutator-reanimator.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 8/10</c><n/><n/>元素使控制冰、火和风暴元素。他可以将它们组合成强大的法术来使用。他从任务中获得资源，从天赋中获得特殊效果，选择他想要的属性和元素，并且如果他能负担得起，可以升级他的法术。<n/><n/>当元素使不满血时，他的所有收入都被禁用，当受到伤害时会给虫族提供瓦斯<n/><n/><c val=\"00FF00\">由Fatline开发。由Sox维护。</c>",
+    "stats": {
+      "hp": 200,
+      "speed": 3.0,
+      "armor": 1,
+      "energy": 150,
+      "damage": 32,
+      "attackSpeed": 1.5,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "Fireball",
+      "Firestorm",
+      "ElementalistIceball",
+      "MeteorCast",
+      "FreezingField",
+      "Mirage",
+      "LightningStorm",
+      "Sleep",
+      "AuraofDamnedSouls"
+    ]
+  },
+  {
+    "id": 27,
+    "nameEn": "Brakk",
+    "nameZh": "巴拉克",
+    "heroUnits": [
+      "BrakkBrakk"
+    ],
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-brakk.dds",
+    "portrait": "Assets\\Textures\\primalzergkingportrait_static.dds",
+    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>巴拉克是一名凶猛的战士，看到他时拔腿就跑也不丢人！<n/><n/><c val=\"00FF00\">由 Fatline 开发。由 Kore 维护。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100,
+      "damage": 40,
+      "attackSpeed": 2,
+      "range": 2,
+      "energyRegen": 1.5
+    },
+    "abilities": [
+      "BrakkHardenedShell",
+      "BrakkCorrosiveCloud",
+      "BrakkSwap",
+      "BrakkSeismicShock"
+    ]
+  },
+  {
+    "id": 28,
+    "nameEn": "Glevig",
+    "nameZh": "格里维格",
+    "heroUnits": [
+      "GlevigGlevig"
+    ],
+    "category": "Defender",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-glevig.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>格里维格会向任何胆敢靠近的敌人喷吐烈焰。他可以强化自己的静态防御，但他唯一的移动方式是深度隧道。<n/><n/><c val=\"00FF00\">由 Fatline 开发。由 Kore 维护。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": null,
+      "armor": 1,
+      "energy": 150,
+      "damage": 50,
+      "attackSpeed": 2,
+      "range": 7,
+      "energyRegen": 1.5
+    },
+    "abilities": [
+      "GlevigTunnel",
+      "GlevigFirebreath",
+      "GlevigCorrosiveBile",
+      "GlevigRecallCrawlers",
+      "GlevigSpawnInfestor"
+    ]
+  },
+  {
+    "id": 29,
+    "nameEn": "Delta Squad",
+    "nameZh": "三角洲小队",
+    "heroUnits": [
+      "DSPhantom",
+      "DSLiberatorAA",
+      "DSLiberatorAG",
+      "DSArchangelAssault",
+      "DSArchangelFighter",
+      "DeltaSquadGorgon"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-bansheemercenary.dds",
+    "portrait": "",
+    "description": "<c val=\"FF8000\">难度 - 5/10</c><n/><n/>指挥一支精英人类舰队。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 200,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": 100,
+      "damage": 25,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "DeltaSquadDefensiveMatrix2",
+      "DeltaSquadPhantomOpenFire",
+      "DSHyperjump"
+    ]
+  },
+  {
+    "id": 30,
+    "nameEn": "Phaegore",
+    "nameZh": "菲戈尔",
+    "heroUnits": [
+      "PhaegorePhaegore",
+      "PhaegorePhaegoreBurrowed"
+    ],
+    "category": "Defender",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-ultralisk-torrasque.dds",
+    "portrait": "Assets\\Textures\\btn-unit-zerg-ultralisk-noxious.dds",
+    "description": "<c val=\"FF0000\">难度 - 8/10</c><n/><n/>一名近战防守者，对空能力有限，且没有传送或召回技能<n/><n/><c val=\"FF0000\">解锁要求:</c><n/>1. 使用扎加拉获胜1次<n/>2. 使用尼亚德拉获胜1次<n/>3. 使用伊兹莎或格里维格获胜1次<n/>或<n/>达到白银及以上段位<n/><c val=\"00FF00\">由 Templar 开发。由 Andrene 维护。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 1.25,
+      "armor": 0,
+      "energy": 100,
+      "damage": 50,
+      "attackSpeed": 0.9,
+      "range": 2,
+      "energyRegen": 1.5
+    },
+    "abilities": [
+      "PhaegoreSonicatingScreech",
+      "PhaegoreNurturingChant",
+      "PhaegoreKayonicCharge",
+      "PhaegoreBileSnot",
+      "PhaegoreBurrow"
+    ]
+  },
+  {
+    "id": 31,
+    "nameEn": "Alarak",
+    "nameZh": "阿拉纳克",
+    "heroUnits": [
+      "AlarakAlarak"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-alarak.dds",
+    "portrait": "",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿拉纳克，强大的战士，领导残暴的塔达琳部队。需要125点阳光。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 350,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100,
+      "damage": 20,
+      "attackSpeed": 1.5,
+      "attackCount": 1,
+      "range": 0,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "AlarakDestructionWave",
+      "AlarakACDeadlyCharge",
+      "AlarakSprint",
+      "AlarakSacrifice",
+      "AlarakPsionicTransfer"
+    ]
+  },
+  {
+    "id": 32,
+    "nameEn": "Izsha",
+    "nameZh": "伊兹莎",
+    "heroUnits": [
+      "IzshaIzsha"
+    ],
+    "category": "Defender",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-leviathan.dds",
+    "portrait": "Assets\\Textures\\btn-unit-zerg-leviathan.dds",
+    "description": "<c val=\"FF0000\">难度 - 9/10</c><n/><n/>伊兹莎的身体依靠利维坦提供能量。同样依靠利维坦分析，感受虫群和菌毯传来的任何讯号。作为凯瑞甘的技术支持和顾问，伊兹莎主宰天空，占领有利位置，扩散菌毯并为虫群带来胜利。<n/><n/><c val=\"00FF00\">开发者：susu。维护者：H5x9p。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 0.5,
+      "armor": 0,
+      "energy": 200,
+      "damage": 30,
+      "attackSpeed": 1,
+      "range": 6,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "IzshaCalldownInfestedBlimp",
+      "IzshaSummonCorruptedWall",
+      "IzshaSpawnBiotrap",
+      "IzshaIsolation"
+    ]
+  },
+  {
+    "id": 33,
+    "nameEn": "Malus",
+    "nameZh": "马吕斯",
+    "heroUnits": [
+      "MalusMalus"
+    ],
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\wireframe-zerg-blightbringer.dds",
+    "portrait": "Assets\\Textures\\blightbringerportrait_static.dds",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>阿巴瑟的失败之作。被遗忘许久后重出江湖。马吕斯可以复制自己，用阴谋诡计赢得胜利。<n/><n/><n/><c val=\"00FF00\">开发者：susu。维护者：H5x9p。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100,
+      "damage": 40,
+      "attackSpeed": 1,
+      "range": 0.5,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "MalusCorruptionBomb",
+      "MalusNightTerror",
+      "MalusOrdure",
+      "MalusParasitism",
+      "MalusColonize",
+      "MalusLeash",
+      "DevourUnit"
+    ]
+  },
+  {
+    "id": 34,
+    "nameEn": "Kraith",
+    "nameZh": "克雷斯",
+    "heroUnits": [
+      "KraithKraith"
+    ],
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\wireframe-zerg-kraith.dds",
+    "portrait": "Assets\\Textures\\kraithportrait_static.dds",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>派加兽之王，冲向敌人并有能力向毫无防备的猎物发射投射物。<n/><n/><n/><c val=\"00FF00\">由Templar开发，由Willdroyd维护。</c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 5,
+      "energy": 100,
+      "damage": 45,
+      "attackSpeed": 1.5,
+      "range": 1.5,
+      "energyRegen": 2
+    },
+    "abilities": [
+      "KraithSpineVolleyAbil",
+      "KraithCrashingChargeAbil",
+      "KraithSpikedHide",
+      "KraithOppressivePuke",
+      "KraithKingofPygalisk"
+    ]
+  },
+  {
+    "id": 35,
+    "nameEn": "Energizer",
+    "nameZh": "激励者",
+    "heroUnits": [
+      "Energizer",
+      "EnergizerGenerator",
+      "EnergizerAir",
+      "EMCSquare"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-collection-purifier-probe.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度  - 8/10</c><n/><n/>激励者只想在他的生命中多整点能量。我是说，作为一只探机的终极目标，整点能量。<n/><n/><c val=\"00FF00\">开发者：Fatline.维护者:Sox</c>",
+    "stats": {
+      "hp": null,
+      "speed": 2.8,
+      "armor": null,
+      "energy": null,
+      "damage": 35,
+      "attackSpeed": 1,
+      "range": 2,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "EnergizerOvercharge",
+      "EMCSquareDisintegrate",
+      "EMCSquareTothebrim"
+    ]
+  },
+  {
+    "id": 36,
+    "nameEn": "Andor",
+    "nameZh": "亚顿",
+    "heroUnits": [
+      "Andor"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-infestedbanshee.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>亚顿使用星灵单位对虫族制造混乱，然后使用清除机器人清理这些混乱。<n/><n/><c val=\"00FF00\">由Korneel开发和维护。</c>",
+    "stats": {
+      "hp": 200,
+      "speed": 2.75,
+      "armor": 0,
+      "energy": 100,
+      "damage": 45,
+      "attackSpeed": 6,
+      "range": 6,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "AndorCalldownSentinel",
+      "AndorPlacePointDefenseDrone",
+      "AndorCalldownAdepts",
+      "AndorCalldownArchon",
+      "AndorCalldownImmortal"
+    ]
+  },
+  {
+    "id": 37,
+    "nameEn": "DJ",
+    "nameZh": "DJ",
+    "heroUnits": [
+      "DJ"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-xelnaga-maar.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 8/10</c><n/><n/>DJ 是一名进攻性建造者。拥有独特的经济体系。<n/><n/>如果你持续高频率操作，将会有取之不尽用之不竭的粉丝和晶体矿。最终将能在你的敌人脸上跳舞。<n/><n/><c val=\"00FF00\">开发者及维护者Sox.</c>",
+    "stats": {
+      "hp": 400,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "RenewingTune",
+      "AttractFan",
+      "Doubletime",
+      "DJAllPartOfTheShow",
+      "DJBassDrop"
+    ]
+  },
+  {
+    "id": 38,
+    "nameEn": "Rattlesnake",
+    "nameZh": "响尾蛇",
+    "heroUnits": [
+      "RattlesnakeKevin"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-tychusmarauder.dds",
+    "portrait": "",
+    "description": "<c val=\"00FF00\">难度 - 4/10</c><n/><n/>响尾蛇是一位以另一个名字行事的战争老兵。<n/><n/><c val=\"00FF00\">由 Legacy 开发。由 Andrene 维护。</c>",
+    "stats": {
+      "hp": 400,
+      "speed": 3.15,
+      "armor": 3,
+      "energy": 100,
+      "damage": 70,
+      "attackSpeed": 1.5,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "RattlesnakeDeployRevitalizer",
+      "RattlesnakeSuperStimpack",
+      "RattlesnakeChronoRift",
+      "RattlesnakeStunShot",
+      "RattlesnakeJudgementBeam"
+    ]
+  },
+  {
+    "id": 39,
+    "nameEn": "SgtHammer",
+    "nameZh": "重锤军士",
+    "heroUnits": [
+      "HammerJunkerSiegeTankHammer",
+      "HammerJunkerSiegeTankAxe",
+      "SgtHammerArcliteTank",
+      "HammerCrucioTank",
+      "SgtHammerImperioSiegeTank",
+      "SgtHammerFenrirSiegeTank"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-siegetank-umojan.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 9/10</c><n/><n/>重锤军士和她的姐妹星斧组成了一对强力的攻城坦克搭档，统领着一支由可变形单位构成的凶猛大军。凭借模块化的经济与生产体系，她们拥有复杂而多样的建筑选择，足以应对各种局面。<n/><n/><n/><n/><c val=\"00FF00\">由 Archlei 开发。由 Hex 维护。</c>",
+    "stats": {
+      "hp": 400,
+      "speed": 3.25,
+      "armor": 1,
+      "energy": null,
+      "attackSpeed": 2,
+      "range": 3
+    },
+    "abilities": [
+      "CallDownSgtHammerSCV",
+      "HammerTankRush",
+      "SgtHammerResearch"
+    ]
+  },
+  {
+    "id": 40,
+    "nameEn": "Chew",
+    "nameZh": "秋伊",
+    "heroUnits": [
+      "Chew"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\wireframe-critter-matriarchsnowbeast.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - ????</c><n/><n/>秋伊在这干什么！? <n/><n/><n/><n/><c val=\"00FF00\">开发者及维护者：Sox.</c>",
+    "stats": {
+      "hp": 500,
+      "speed": 3.0,
+      "armor": 1,
+      "energy": null,
+      "damage": 10,
+      "attackSpeed": 0.7
+    },
+    "abilities": [
+      "CuddleJump",
+      "Meany",
+      "UnleashChewbie",
+      "Gottagofast",
+      "ChewFlex",
+      "FeignDeath",
+      "ChewCharge"
+    ]
+  },
+  {
+    "id": 41,
+    "nameEn": "Aewyn",
+    "nameZh": "艾尔文",
+    "heroUnits": [
+      "AewynAewyn"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-champion-carrier-purifier.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 6/10 </c> <n/><n/>艾尔文是一个强大的施法者，使用她的创造之力为自身和她的部队提供增益。<n/><n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "stats": {
+      "hp": 125,
+      "speed": 2.75,
+      "armor": null,
+      "energy": null,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "AewynEtherealTransit",
+      "AewynBless",
+      "AewynCurse",
+      "AewynEnchant",
+      "AewynRecall",
+      "AewynStasisField"
+    ]
+  },
+  {
+    "id": 42,
+    "nameEn": "Critter Lord",
+    "nameZh": "小动物主宰",
+    "heroUnits": [
+      "CritterLord"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\wireframe-critter-cardboardboxrunner.dds",
+    "portrait": "",
+    "description": "<c val=\"00FF00\">难度 - 2/10 </c> <n/><n/>小动物们尊他为王。<n/><n/><c val=\"00FF00\">开发者及维护者：Korneel.</c>",
+    "stats": {
+      "hp": 200,
+      "speed": 4.5,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "CritterLordTrainCritters",
+      "CommonBlinkHero"
+    ]
+  },
+  {
+    "id": 43,
+    "nameEn": "Nightingale",
+    "nameZh": "南丁格尔",
+    "heroUnits": [
+      "NightingaleNightingale"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-collection-mothership-golden.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 8/10 </c> <n/><n/>南丁格尔是一名飞行英雄，拥有惊人的速度和伤害，但操控难度很高。<n/><n/><c val=\"00FF00\">由 Luminous 开发。由 Thee Potato Lord 维护。</c>",
+    "stats": {
+      "hp": 125,
+      "speed": 10.0,
+      "armor": null,
+      "energy": null,
+      "damage": 30,
+      "attackSpeed": 1.7,
+      "attackCount": 2,
+      "range": 8,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "NightingaleJudgment",
+      "NightingaleIntervention",
+      "NightingaleSynthesize",
+      "NightingaleDistortion",
+      "NightingaleFocus",
+      "NightingaleDivineShield"
+    ]
+  },
+  {
+    "id": 44,
+    "nameEn": "Sjlerk",
+    "nameZh": "斯加拉克",
+    "heroUnits": [
+      "Sjlerk"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-hero-kerriganghost.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10 </c> <n/><n/>斯加拉克是一个拥有链式反应自动攻击的法师<n/><n/><c val=\"00FF00\">由Korneel开发和维护。</c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.0,
+      "armor": 1,
+      "energy": 150,
+      "damage": 50,
+      "attackSpeed": 1.5,
+      "energyRegen": 2.5
+    },
+    "abilities": [
+      "SjlerkKineticBlast",
+      "SjlerkBlink",
+      "SjlerkMend"
+    ]
+  },
+  {
+    "id": 45,
+    "nameEn": "Sophia",
+    "nameZh": "索菲亚",
+    "heroUnits": [
+      "SophiaTheIntern"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-blackops-femaleghost.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10 </c> <n/><n/>索菲亚是一个建造者，单位充能与经济建筑数量相关<n/><n/><c val=\"00FF00\">由Korneel开发。维护者： </c><c val=\"00FF00\">Thee Potato Lord. </c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": null,
+      "energy": null,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "CalldownVulture",
+      "SophiaCalldownAirFighter",
+      "SophiaCalldownTank",
+      "SophiaCalldownThor",
+      "SophiaWhereDoesTheTimeGo"
+    ]
+  },
+  {
+    "id": 46,
+    "nameEn": "Jinara",
+    "nameZh": "吉娜拉",
+    "heroUnits": [
+      "Jinara"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-adept-taldarim.dds",
+    "portrait": "",
+    "description": "<c val=\"FFFF00\">难度 - 5/10 </c> <n/><n/>吉娜拉是一个强大的英雄，从她军队的灵能支援中获得力量，必要时会夺取他们的生命。<n/><n/><c val=\"00FF00\">开发/维护者：</c><c val=\"00FF00\">Fern.</c>",
+    "stats": {
+      "hp": null,
+      "speed": null,
+      "armor": null,
+      "energy": null,
+      "damage": 24,
+      "attackSpeed": 1.5,
+      "range": 6,
+      "energyRegen": 1
+    },
+    "abilities": []
+  },
+  {
+    "id": 47,
+    "nameEn": "Sir Roachington",
+    "nameZh": "洛奇顿",
+    "heroUnits": [
+      "SirRoachingtonSirRoachington"
+    ],
+    "category": "Defender",
+    "team": "Kerrigan",
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-roach-corpser.dds",
+    "portrait": "Assets\\Textures\\btn-unit-zerg-roach-corpser.dds",
+    "description": "<c val=\"FFFF00\">难度 - 5/10 </c> <n/><n/>洛奇顿是一位专注于施法的英雄，拥有较慢的普通攻击，没有英雄召回能力，并且拥有独特的能力来强化蟑螂，赋予它们技能、额外属性和酷炫的帽子。 <n/><n/><c val=\"00FF00\">由Thee Potato Lord开发和维护 </c>",
+    "stats": {
+      "hp": 99999,
+      "speed": 1.1,
+      "armor": null,
+      "energy": null,
+      "damage": 50,
+      "attackSpeed": 2,
+      "range": 6,
+      "energyRegen": 1.5
+    },
+    "abilities": [
+      "SirRoachingtonCorrosiveBarrage",
+      "SirRoachingtonAcidicFlay",
+      "SirRoachingtonWebPull",
+      "SirRoachingtonHatTrick"
+    ]
+  },
+  {
+    "id": 48,
+    "nameEn": "Skitter",
+    "nameZh": "斯基特",
+    "heroUnits": [
+      "Skitter"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Buttons\\wireframe-critter-utilitybot-colorized.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 7/10 </c> <n/><n/>斯基特是一台失控的战斗 AI，指挥着一支储存在其内部、并会在时机成熟时释放的无人机军队。 <n/><n/><c val=\"00FF00\">由 Fern 开发并维护 </c>",
+    "stats": {
+      "hp": null,
+      "speed": null,
+      "armor": null,
+      "energy": null,
+      "damage": 100,
+      "attackSpeed": 10,
+      "range": 9
+    },
+    "abilities": []
+  }
+]

@@ -1,0 +1,255 @@
+{
+  "hero": "Technician",
+  "roleId": 23,
+  "nameZh": "技术员",
+  "economyType": "transmute",
+  "summary": "技术员的经济是一套主动闭环：防御塔击杀凯瑞甘单位获得气体，气体经倍增器放大后，喂入转化工厂将「矿+气」转化为更多矿，循环滚雪球。与加速技能强相关——加速使塔更快击杀、出气更快。",
+  "killBounty": {
+    "baseFormula": "ceil(被杀单位总造价(矿+气) / 5)",
+    "baseDescription": "塔击杀凯瑞甘单位时，按其总造价的 1/5 折算为基础气体收入。",
+    "awards": [
+      "气体",
+      "经验"
+    ],
+    "multiplier": {
+      "source": "倍增器（蓄电器 Accumulator）范围光环",
+      "radiusCells": 6,
+      "refreshSec": 4,
+      "buffDurationSec": 5,
+      "note": "范围内塔的击杀，气体与经验同时按倍数结算；技术员本体在塔附近(≤10格)时经验按(倍数-1)结算。",
+      "tiers": [
+        {
+          "level": "x2",
+          "multiplier": 2,
+          "buildCost": 125
+        },
+        {
+          "level": "x3",
+          "multiplier": 3,
+          "upgradeFromX2": 750
+        },
+        {
+          "level": "x4",
+          "multiplier": 4,
+          "upgradeFromX3": 1500
+        }
+      ],
+      "sellable": true
+    },
+    "customBounty": [
+      {
+        "target": "高级塔 (AdvancedTowers)",
+        "gas": 7
+      },
+      {
+        "target": "顶级塔 / 墙体 (SuperiorTowers / WallTechnician)",
+        "gas": 10
+      }
+    ]
+  },
+  "transmutation": {
+    "ability": "转化工厂 (TransmutationFactory)",
+    "transmuteDurationSec": 5,
+    "cooldownSec": 18,
+    "autoCast": true,
+    "autoUpgrade": true,
+    "autoUpgradeNote": "余矿足够支付「升级费 + 在产工厂转化所需矿」时，工厂自动逐级升档。",
+    "mineralReturnRule": "纯矿回报率 = 20% − 工厂级序%（+1=19% … +128=12%）",
+    "gasReturnRule": "矿气回报率 = 44% − 工厂级序×2%（+1=43% … +128=29%）",
+    "factories": [
+      {
+        "tier": 1,
+        "nameZh": "转化工厂 +1",
+        "id": "TechnicianTransmutationFactory1",
+        "buildCost": 25,
+        "upgradeCost": null,
+        "mineralRecipe": {
+          "in": 100,
+          "out": 119,
+          "net": 19,
+          "returnPct": 19.0,
+          "netPerSec": 3.8
+        },
+        "gasRecipe": {
+          "mineralIn": 100,
+          "gasIn": 1,
+          "out": 143,
+          "net": 43,
+          "returnPct": 43.0,
+          "netPerSec": 8.6,
+          "gasValue": 24.0
+        }
+      },
+      {
+        "tier": 2,
+        "nameZh": "转化工厂 +2",
+        "id": "TechnicianTransmutationFactory2",
+        "buildCost": 50,
+        "upgradeCost": 25,
+        "mineralRecipe": {
+          "in": 200,
+          "out": 236,
+          "net": 36,
+          "returnPct": 18.0,
+          "netPerSec": 7.2
+        },
+        "gasRecipe": {
+          "mineralIn": 200,
+          "gasIn": 2,
+          "out": 282,
+          "net": 82,
+          "returnPct": 41.0,
+          "netPerSec": 16.4,
+          "gasValue": 23.0
+        }
+      },
+      {
+        "tier": 4,
+        "nameZh": "转化工厂 +4",
+        "id": "TechnicianTransmutationFactory4",
+        "buildCost": 150,
+        "upgradeCost": 100,
+        "mineralRecipe": {
+          "in": 400,
+          "out": 468,
+          "net": 68,
+          "returnPct": 17.0,
+          "netPerSec": 13.6
+        },
+        "gasRecipe": {
+          "mineralIn": 400,
+          "gasIn": 4,
+          "out": 556,
+          "net": 156,
+          "returnPct": 39.0,
+          "netPerSec": 31.2,
+          "gasValue": 22.0
+        }
+      },
+      {
+        "tier": 8,
+        "nameZh": "转化工厂 +8",
+        "id": "TechnicianTransmutationFactory8",
+        "buildCost": 400,
+        "upgradeCost": 250,
+        "mineralRecipe": {
+          "in": 800,
+          "out": 928,
+          "net": 128,
+          "returnPct": 16.0,
+          "netPerSec": 25.6
+        },
+        "gasRecipe": {
+          "mineralIn": 800,
+          "gasIn": 8,
+          "out": 1096,
+          "net": 296,
+          "returnPct": 37.0,
+          "netPerSec": 59.2,
+          "gasValue": 21.0
+        }
+      },
+      {
+        "tier": 16,
+        "nameZh": "转化工厂 +16",
+        "id": "TechnicianTransmutationFactory16",
+        "buildCost": 1000,
+        "upgradeCost": 600,
+        "mineralRecipe": {
+          "in": 1600,
+          "out": 1840,
+          "net": 240,
+          "returnPct": 15.0,
+          "netPerSec": 48.0
+        },
+        "gasRecipe": {
+          "mineralIn": 1600,
+          "gasIn": 16,
+          "out": 2160,
+          "net": 560,
+          "returnPct": 35.0,
+          "netPerSec": 112.0,
+          "gasValue": 20.0
+        }
+      },
+      {
+        "tier": 32,
+        "nameZh": "转化工厂 +32",
+        "id": "TechnicianTransmutationFactory32",
+        "buildCost": 2400,
+        "upgradeCost": 1400,
+        "mineralRecipe": {
+          "in": 3200,
+          "out": 3648,
+          "net": 448,
+          "returnPct": 14.0,
+          "netPerSec": 89.6
+        },
+        "gasRecipe": {
+          "mineralIn": 3200,
+          "gasIn": 32,
+          "out": 4256,
+          "net": 1056,
+          "returnPct": 33.0,
+          "netPerSec": 211.2,
+          "gasValue": 19.0
+        }
+      },
+      {
+        "tier": 64,
+        "nameZh": "转化工厂 +64",
+        "id": "TechnicianTransmutationFactory64",
+        "buildCost": 5600,
+        "upgradeCost": 3200,
+        "mineralRecipe": {
+          "in": 6400,
+          "out": 7232,
+          "net": 832,
+          "returnPct": 13.0,
+          "netPerSec": 166.4
+        },
+        "gasRecipe": {
+          "mineralIn": 6400,
+          "gasIn": 64,
+          "out": 8384,
+          "net": 1984,
+          "returnPct": 31.0,
+          "netPerSec": 396.8,
+          "gasValue": 18.0
+        }
+      },
+      {
+        "tier": 128,
+        "nameZh": "转化工厂 +128",
+        "id": "TechnicianTransmutationFactory128",
+        "buildCost": 12800,
+        "upgradeCost": 7200,
+        "mineralRecipe": {
+          "in": 12800,
+          "out": 14336,
+          "net": 1536,
+          "returnPct": 12.0,
+          "netPerSec": 307.2
+        },
+        "gasRecipe": {
+          "mineralIn": 12800,
+          "gasIn": 128,
+          "out": 16512,
+          "net": 3712,
+          "returnPct": 29.0,
+          "netPerSec": 742.4,
+          "gasValue": 17.0
+        }
+      }
+    ]
+  },
+  "acceleration": {
+    "ability": "动能提升 (KineticBoost)",
+    "energyCost": 30,
+    "cooldownSec": 10,
+    "autoCast": true,
+    "rangeCells": 10,
+    "economyRelation": "加速提升塔的开火节奏 → 单位时间击杀更多 → 出气更快 → 转化更多矿。加速直接决定整套经济引擎的转速。"
+  },
+  "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-06-11)"
+}

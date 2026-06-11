@@ -1,0 +1,4279 @@
+{
+  "Aewyn": {
+    "troops": [
+      {
+        "id": "AewynWhisperBlue",
+        "nameZh": "耳语者-蓝",
+        "hp": 50,
+        "shield": 50,
+        "speed": 2.5
+      },
+      {
+        "id": "AewynSpiritMonkey",
+        "nameZh": "灵魂灵猴",
+        "hp": 50,
+        "shield": 50,
+        "speed": 2.75,
+        "damage": 15,
+        "attackSpeed": 1.764,
+        "range": 6
+      },
+      {
+        "id": "AewynSpiritCaterpillar",
+        "nameZh": "灵魂之虫",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.75,
+        "damage": 65,
+        "attackSpeed": 1.5,
+        "range": 9
+      },
+      {
+        "id": "AewynSpiritMegalith",
+        "nameZh": "灵魂巨石",
+        "hp": 200,
+        "shield": 150,
+        "speed": 3,
+        "damage": 100,
+        "attackSpeed": 1,
+        "range": 7
+      },
+      {
+        "id": "AewynSpiritWarrior",
+        "nameZh": "灵魂战士",
+        "hp": 1000,
+        "shield": 1000,
+        "speed": 3,
+        "damage": 250,
+        "attackSpeed": 1,
+        "range": 0.1
+      },
+      {
+        "id": "AewynHopeBlue",
+        "nameZh": "*希望*-蓝",
+        "hp": 75,
+        "shield": 75,
+        "speed": 2.75
+      },
+      {
+        "id": "AewynHarmonyBlue",
+        "nameZh": "*调和*-蓝",
+        "hp": 125,
+        "shield": 125,
+        "speed": 3
+      },
+      {
+        "id": "AewynMiracleBlue",
+        "nameZh": "*奇迹*-蓝",
+        "hp": 200,
+        "shield": 200,
+        "speed": 3.25
+      },
+      {
+        "id": "AewynSpiritCaterpillarScarab",
+        "nameZh": "金甲虫",
+        "hp": 10,
+        "speed": 6,
+        "damage": 65,
+        "attackSpeed": 0.833,
+        "range": 0.125
+      }
+    ],
+    "buildings": [
+      {
+        "id": "AewynFoundation",
+        "nameZh": "基地",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AewynAetherTower",
+        "nameZh": "以太之塔",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AewynEtherealLink",
+        "nameZh": "灵魂链接",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AewynKaleidoscope",
+        "nameZh": "万花筒",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AewynStormGate",
+        "nameZh": "风暴之门",
+        "hp": 150,
+        "shield": 150,
+        "armor": 1
+      },
+      {
+        "id": "AewynEtherealConduit",
+        "nameZh": "灵魂管道",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "AewynPurifier",
+        "nameZh": "净化者",
+        "hp": 150,
+        "shield": 150,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Alarak": {
+    "troops": [
+      {
+        "id": "AlarakProbe",
+        "nameZh": "探姬（红色小可爱限定）",
+        "hp": 20,
+        "shield": 20,
+        "speed": 2.8125
+      },
+      {
+        "id": "AlarakHavoc",
+        "nameZh": "浩劫",
+        "hp": 45,
+        "shield": 45,
+        "speed": 2.75,
+        "damage": 9,
+        "attackSpeed": 1.1
+      },
+      {
+        "id": "AlarakAdept",
+        "nameZh": "使徒",
+        "hp": 120,
+        "shield": 120,
+        "armor": 1,
+        "speed": 2.6015,
+        "damage": 40,
+        "attackSpeed": 2
+      },
+      {
+        "id": "AlarakArchon",
+        "nameZh": "执政官",
+        "hp": 50,
+        "shield": 1200,
+        "speed": 2.8125,
+        "damage": 150,
+        "attackSpeed": 1.754,
+        "range": 3
+      },
+      {
+        "id": "AlarakWrathwalker",
+        "nameZh": "天罚行者",
+        "hp": 200,
+        "shield": 150,
+        "armor": 1,
+        "speed": 2.5,
+        "damage": 100,
+        "attackSpeed": 1.65,
+        "range": 7
+      }
+    ],
+    "buildings": [
+      {
+        "id": "AlarakPsiMatrix16",
+        "nameZh": "灵能矩阵 +16",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakPsiMatrix32",
+        "nameZh": "灵能矩阵 +32",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakPsiMatrix8",
+        "nameZh": "灵能矩阵 +8",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakPsiMatrix2",
+        "nameZh": "灵能矩阵 +2",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakPsiMatrix4",
+        "nameZh": "灵能矩阵 +4",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "AlarakPsiMatrix1",
+        "nameZh": "灵能矩阵 +1",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakGateway",
+        "nameZh": "传送门",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "AlarakStargate",
+        "nameZh": "星门",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakForge",
+        "nameZh": "锻炉",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakTowerofMind",
+        "nameZh": "心灵之塔",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AlarakHomeBeacon",
+        "nameZh": "传送信标",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Andor": {
+    "troops": [
+      {
+        "id": "AndorSentinelWreckage",
+        "nameZh": "哨兵残骸",
+        "hp": 100,
+        "armor": 1
+      },
+      {
+        "id": "AndorSentinel",
+        "nameZh": "哨兵",
+        "hp": 75,
+        "shield": 50,
+        "speed": 2.75,
+        "damage": 12,
+        "attackSpeed": 1.2,
+        "range": 0.1
+      }
+    ],
+    "buildings": [
+      {
+        "id": "AndorSentryGun",
+        "nameZh": "岗哨机枪",
+        "hp": 125,
+        "armor": 1,
+        "attackSpeed": 1.25,
+        "range": 4
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      },
+      {
+        "id": "AndorXelNagaShrine",
+        "nameZh": "萨尔那加神庙",
+        "hp": 150
+      },
+      {
+        "id": "AndorArmory",
+        "nameZh": "被感染的军械库",
+        "hp": 150,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Ares": {
+    "troops": [
+      {
+        "id": "AresClassA",
+        "nameZh": "X103 (A级工人)",
+        "hp": 30,
+        "speed": 3.6992
+      },
+      {
+        "id": "ClassB",
+        "nameZh": "T55 (B级)",
+        "hp": 50,
+        "speed": 2.8203
+      },
+      {
+        "id": "ClassH",
+        "nameZh": "P35G (H级)",
+        "hp": 50,
+        "speed": 2.8203
+      },
+      {
+        "id": "AresVulture",
+        "nameZh": "秃鹫",
+        "hp": 50,
+        "speed": 4.25,
+        "damage": 10,
+        "attackSpeed": 1.694,
+        "range": 4
+      },
+      {
+        "id": "AresSiegeTank",
+        "nameZh": "阿瑞斯攻城坦克",
+        "hp": 350,
+        "speed": 2.25,
+        "attackSpeed": 1.04,
+        "range": 7
+      },
+      {
+        "id": "AresWeaponsArchiveTest",
+        "nameZh": "AresWeaponsArchiveTest"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "AresSiegeTankSieged",
+        "nameZh": "攻城坦克",
+        "hp": 350,
+        "damage": 75,
+        "attackSpeed": 1.25,
+        "range": 13
+      },
+      {
+        "id": "AresMiningOutpost",
+        "nameZh": "矿区",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "AresWeaponsArchive",
+        "nameZh": "武器库",
+        "hp": 250,
+        "armor": 1
+      },
+      {
+        "id": "AresArmory",
+        "nameZh": "军械库",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "AresWorkerTunnel",
+        "nameZh": "工人通道",
+        "hp": 200
+      }
+    ],
+    "economy": []
+  },
+  "Artanis": {
+    "troops": [
+      {
+        "id": "ArtanisWarpPrism",
+        "nameZh": "折跃棱镜",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.5
+      },
+      {
+        "id": "ArtanisMothershipCore",
+        "nameZh": "母舰核心 +4",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1,
+        "speed": 1.875
+      },
+      {
+        "id": "Mothership",
+        "nameZh": "Mothership"
+      },
+      {
+        "id": "ArtanisReaverScarab",
+        "nameZh": "金甲虫",
+        "hp": 10,
+        "speed": 6,
+        "damage": 200,
+        "attackSpeed": 0.833,
+        "range": 0.125
+      },
+      {
+        "id": "ArtanisStalker",
+        "nameZh": "追猎者",
+        "hp": 110,
+        "shield": 110,
+        "speed": 3,
+        "damage": 45,
+        "attackSpeed": 1.44,
+        "range": 6
+      },
+      {
+        "id": "ArtanisAdept",
+        "nameZh": "使徒",
+        "hp": 60,
+        "shield": 50,
+        "speed": 2.6015,
+        "damage": 15,
+        "attackSpeed": 2.25
+      },
+      {
+        "id": "ArtanisImmortal",
+        "nameZh": "不朽者",
+        "hp": 300,
+        "shield": 300,
+        "speed": 2.25,
+        "damage": 60,
+        "attackSpeed": 1.7,
+        "range": 6
+      },
+      {
+        "id": "ArtanisReaver",
+        "nameZh": "掠夺者",
+        "hp": 200,
+        "shield": 200,
+        "speed": 2,
+        "damage": 200,
+        "attackSpeed": 2,
+        "range": 8
+      },
+      {
+        "id": "ArtanisMothership",
+        "nameZh": "母舰 +30",
+        "hp": 200,
+        "shield": 200,
+        "armor": 2,
+        "speed": 1.4062
+      }
+    ],
+    "buildings": [
+      {
+        "id": "ArtanisGoldenNexus1",
+        "nameZh": "黄金星灵枢纽+1",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ArtanisNexus",
+        "nameZh": "星灵枢纽",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ArtanisPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "ArtanisWarpGate",
+        "nameZh": "折跃门",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ArtanisForge",
+        "nameZh": "锻炉",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ArtanisCyberneticsCore",
+        "nameZh": "控制核心",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ArtanisRoboticsFacility",
+        "nameZh": "机械台",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "RoboticsSupportBayArtanis",
+        "nameZh": "机械研究所",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "ArtanisGoldenAssimilator",
+        "nameZh": "黄金同化器 +20",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "ArtanisAssimilator",
+        "nameZh": "同化器 +6",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      }
+    ]
+  },
+  "Ascendant": {
+    "troops": [
+      {
+        "id": "AscendantCloud",
+        "nameZh": "云",
+        "hp": 150,
+        "shield": 150,
+        "speed": 3,
+        "damage": 15,
+        "attackSpeed": 1.5,
+        "range": 6
+      },
+      {
+        "id": "AscendantHybrid",
+        "nameZh": "混合体",
+        "hp": 55,
+        "shield": 55,
+        "speed": 3,
+        "damage": 10,
+        "attackSpeed": 0.9,
+        "range": 0.8608
+      },
+      {
+        "id": "AscendantHybridDestroyer",
+        "nameZh": "混合体毁灭者",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.8007,
+        "damage": 50,
+        "attackSpeed": 1,
+        "range": 7.5
+      },
+      {
+        "id": "AscendantHybridBehemoth",
+        "nameZh": "混合体巨兽",
+        "hp": 2000,
+        "shield": 1500,
+        "speed": 2.8125,
+        "damage": 100,
+        "attackSpeed": 0.9,
+        "range": 0.8
+      },
+      {
+        "id": "AscendantHybridNemesis",
+        "nameZh": "混合体天罚者",
+        "hp": 150,
+        "shield": 150,
+        "speed": 2.7968,
+        "damage": 20,
+        "attackSpeed": 1,
+        "range": 6
+      },
+      {
+        "id": "AscendantVoidAscendant",
+        "nameZh": "虚空晋升者",
+        "hp": 3000,
+        "shield": 3000,
+        "armor": 1,
+        "speed": 3,
+        "damage": 200,
+        "attackSpeed": 0.2,
+        "range": 20
+      }
+    ],
+    "buildings": [
+      {
+        "id": "AscendantVoidRift",
+        "nameZh": "虚空裂隙",
+        "hp": 100
+      },
+      {
+        "id": "AscendantPylon2",
+        "nameZh": "水晶塔 2",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AscendantObelisk32",
+        "nameZh": "方尖碑 +32",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AscendantObelisk2",
+        "nameZh": "方尖碑 +2",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AscendantObelisk4",
+        "nameZh": "方尖碑 +4",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AscendantObelisk8",
+        "nameZh": "方尖碑 +8",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AscendantObelisk16",
+        "nameZh": "方尖碑 +16",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AscendantPylon3",
+        "nameZh": "水晶塔 3",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "AscendantPylon4",
+        "nameZh": "水晶塔 4",
+        "hp": 400,
+        "shield": 400,
+        "armor": 1
+      },
+      {
+        "id": "AscendantPylon5",
+        "nameZh": "水晶塔 5",
+        "hp": 800,
+        "shield": 800,
+        "armor": 1
+      },
+      {
+        "id": "AscendantObelisk",
+        "nameZh": "方尖碑 +1",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "AscendantPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "AscendantShrine",
+        "nameZh": "虚空神殿",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "AscendantVoidCannon",
+        "nameZh": "虚空光子炮台",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1,
+        "damage": 20,
+        "attackSpeed": 1.25,
+        "range": 7
+      }
+    ],
+    "economy": []
+  },
+  "Champion": {
+    "troops": [
+      {
+        "id": "ChampionCenturion",
+        "nameZh": "百夫长",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.75,
+        "damage": 10,
+        "attackSpeed": 1.25,
+        "range": 0.1
+      },
+      {
+        "id": "ChampionStrider",
+        "nameZh": "跨步者",
+        "hp": 120,
+        "shield": 120,
+        "speed": 2.9492,
+        "damage": 30,
+        "attackSpeed": 1.44,
+        "range": 6
+      },
+      {
+        "id": "ChampionTaldarin",
+        "nameZh": "塔兰达尔",
+        "hp": 400,
+        "shield": 200,
+        "speed": 2.5,
+        "damage": 125,
+        "attackSpeed": 1.75,
+        "range": 6
+      },
+      {
+        "id": "ChampionTalis",
+        "nameZh": "塔里斯",
+        "hp": 200,
+        "shield": 150,
+        "speed": 2.75,
+        "damage": 30,
+        "attackSpeed": 1.5,
+        "range": 4
+      },
+      {
+        "id": "ChampionKhaldur",
+        "nameZh": "卡尔达利斯",
+        "hp": 3000,
+        "shield": 2000,
+        "speed": 2.5,
+        "damage": 80,
+        "attackSpeed": 1.1,
+        "range": 0.1
+      },
+      {
+        "id": "ChampionStoneAvatar",
+        "nameZh": "石像",
+        "hp": 1500,
+        "shield": 500,
+        "speed": 2
+      },
+      {
+        "id": "ChampionProbe",
+        "nameZh": "探机",
+        "hp": 20,
+        "shield": 20,
+        "speed": 2.8125
+      }
+    ],
+    "buildings": [
+      {
+        "id": "ChampionShard",
+        "nameZh": "水晶碎片 +2",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "ChampionCrystal",
+        "nameZh": "闪亮水晶塔 +10",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ChampionArtifact25",
+        "nameZh": "先古遗迹 +25",
+        "hp": 125,
+        "shield": 125,
+        "armor": 1
+      },
+      {
+        "id": "ChampionHoH",
+        "nameZh": "英雄大厅",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ChampionChamberofChampions",
+        "nameZh": "冠军殿堂",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "ChampionLeagueOfLegends",
+        "nameZh": "英雄联盟",
+        "hp": 400,
+        "shield": 400,
+        "armor": 1
+      },
+      {
+        "id": "ChampionCoreForge",
+        "nameZh": "锻造核心",
+        "hp": 150,
+        "shield": 150,
+        "armor": 1
+      },
+      {
+        "id": "ChampionBeacon",
+        "nameZh": "信标",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ChampionPillar",
+        "nameZh": "方尖碑",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Critter_Lord": {
+    "troops": [
+      {
+        "id": "CritterLordLavaCrab",
+        "nameZh": "熔岩蟹",
+        "hp": 50,
+        "speed": 3,
+        "attackSpeed": 0.7,
+        "range": 0.1
+      },
+      {
+        "id": "CritterLordGigablossom",
+        "nameZh": "巨花",
+        "hp": 600,
+        "speed": 3,
+        "damage": 50,
+        "attackSpeed": 10,
+        "range": 20
+      },
+      {
+        "id": "CritterLordKarak",
+        "nameZh": "卡拉兽",
+        "hp": 200,
+        "speed": 3,
+        "damage": 15,
+        "attackSpeed": 1,
+        "range": 0.1
+      },
+      {
+        "id": "CritterLordUrubu",
+        "nameZh": "黑秃鹫",
+        "hp": 40,
+        "speed": 3.5,
+        "attackSpeed": 0.7,
+        "range": 0.1
+      },
+      {
+        "id": "CritterLordPteragantua",
+        "nameZh": "翼手龙",
+        "hp": 200,
+        "armor": 1,
+        "speed": 3,
+        "damage": 25,
+        "attackSpeed": 1.5,
+        "range": 6
+      },
+      {
+        "id": "CritterLordSporeRay",
+        "nameZh": "孢子体",
+        "hp": 250,
+        "speed": 3,
+        "damage": 15,
+        "attackSpeed": 1.25,
+        "range": 10
+      },
+      {
+        "id": "CritterLordZerusianNeedler",
+        "nameZh": "泽鲁斯蜂针",
+        "hp": 70,
+        "speed": 3,
+        "damage": 15,
+        "attackSpeed": 1,
+        "range": 2
+      },
+      {
+        "id": "CritterLordProbe",
+        "nameZh": "探姬",
+        "hp": 30,
+        "shield": 30,
+        "speed": 4
+      }
+    ],
+    "buildings": [
+      {
+        "id": "CritterLordZerusianNeedlerRooted",
+        "nameZh": "泽鲁斯针-扎根",
+        "hp": 10,
+        "armor": 2
+      },
+      {
+        "id": "CritterLordCritterHive16",
+        "nameZh": "小动物主巢 16",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "CritterLordCritterHive2",
+        "nameZh": "小动物主巢 2",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "CritterLordCritterHive4",
+        "nameZh": "小动物主巢 4",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "CritterLordCritterHive32",
+        "nameZh": "小动物主巢 32",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "CritterLordCritterHive8",
+        "nameZh": "小动物主巢 8",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "CritterLordCritterHive1",
+        "nameZh": "小动物主巢 1",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "CritterLordLavaCrabStructure",
+        "nameZh": "熔岩蟹建筑",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "CritterLordPrimalWarden",
+        "nameZh": "原始监管者",
+        "hp": 400,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "DJ": {
+    "troops": [
+      {
+        "id": "DJCrowdPacifier",
+        "nameZh": "调停者",
+        "hp": 200,
+        "speed": 3,
+        "damage": 32,
+        "attackSpeed": 2,
+        "range": 6
+      },
+      {
+        "id": "DJSubwoofer",
+        "nameZh": "低音炮",
+        "hp": 450,
+        "armor": 1,
+        "speed": 2.25,
+        "damage": 40,
+        "attackSpeed": 1.6,
+        "range": 6
+      },
+      {
+        "id": "DJDiscoBall",
+        "nameZh": "蹦迪灯球",
+        "hp": 200,
+        "speed": 2.75
+      },
+      {
+        "id": "DJLaserShow",
+        "nameZh": "激光秀",
+        "hp": 800,
+        "speed": 2.5,
+        "damage": 250,
+        "attackSpeed": 1.8,
+        "range": 7
+      },
+      {
+        "id": "DJManager",
+        "nameZh": "管理者",
+        "hp": 350,
+        "speed": 3
+      }
+    ],
+    "buildings": [
+      {
+        "id": "DJFanQuarters",
+        "nameZh": "粉丝角",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "DJFanClub",
+        "nameZh": "粉丝俱乐部",
+        "hp": 175,
+        "armor": 1
+      },
+      {
+        "id": "DJFanVilla",
+        "nameZh": "粉丝别墅",
+        "hp": 200,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Energizer": {
+    "troops": [
+      {
+        "id": "BeybladeDriger@Unit",
+        "nameZh": "银爪白虎",
+        "hp": 675,
+        "shield": 225,
+        "speed": 2.75,
+        "damage": 90,
+        "attackSpeed": 0.8,
+        "range": 0.1
+      },
+      {
+        "id": "BeybladeDraciel@Unit",
+        "nameZh": "坚甲战龟",
+        "hp": 675,
+        "shield": 225,
+        "speed": 2.5,
+        "damage": 180,
+        "attackSpeed": 1.2,
+        "range": 0.1
+      },
+      {
+        "id": "BeybladeDragoon@Unit",
+        "nameZh": "龙骑兵",
+        "hp": 675,
+        "shield": 225,
+        "speed": 2.5,
+        "damage": 75,
+        "attackSpeed": 0.5,
+        "range": 0.1
+      },
+      {
+        "id": "EnergizerChargerHero",
+        "nameZh": "充能者",
+        "hp": 225,
+        "shield": 225,
+        "speed": 3
+      },
+      {
+        "id": "Probegizer",
+        "nameZh": "探机",
+        "hp": 25,
+        "shield": 100,
+        "speed": 3,
+        "damage": 20,
+        "attackSpeed": 1.5,
+        "range": 2
+      },
+      {
+        "id": "Beyblade",
+        "nameZh": "陀螺",
+        "hp": 75,
+        "shield": 25,
+        "speed": 2,
+        "damage": 30,
+        "attackSpeed": 1.5,
+        "range": 0.1
+      },
+      {
+        "id": "Dominatrix@Unit",
+        "nameZh": "支配者",
+        "hp": 35,
+        "shield": 35,
+        "speed": 3,
+        "damage": 6.9,
+        "attackSpeed": 1,
+        "range": 6
+      },
+      {
+        "id": "Teaser@Unit",
+        "nameZh": "戏耍者",
+        "hp": 25,
+        "shield": 25,
+        "speed": 3,
+        "damage": 15,
+        "attackSpeed": 2.8
+      },
+      {
+        "id": "Shocker@Unit",
+        "nameZh": "打击者",
+        "hp": 25,
+        "shield": 75,
+        "speed": 3,
+        "damage": 1,
+        "attackSpeed": 1.5,
+        "range": 3
+      },
+      {
+        "id": "Carrier@Unit",
+        "nameZh": "母舰",
+        "hp": 60,
+        "shield": 60,
+        "speed": 2.5
+      },
+      {
+        "id": "Discharger@Unit",
+        "nameZh": "释放者",
+        "hp": 25,
+        "shield": 25,
+        "speed": 3,
+        "damage": 9,
+        "attackSpeed": 1.754,
+        "range": 7
+      },
+      {
+        "id": "BeybladeTier2",
+        "nameZh": "爆旋陀螺",
+        "hp": 225,
+        "shield": 75,
+        "speed": 2,
+        "damage": 90,
+        "attackSpeed": 1.5,
+        "range": 0.1
+      },
+      {
+        "id": "EMCSquare",
+        "nameZh": "EMC方阵",
+        "speed": 2.8007,
+        "damage": 100,
+        "attackSpeed": 1.754
+      }
+    ],
+    "buildings": [
+      {
+        "id": "EnergyGenerator",
+        "nameZh": "能量发生器",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "EnergizerStargate",
+        "nameZh": "星门",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "EnergyDistributor",
+        "nameZh": "能量分配器",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "Dispenser",
+        "nameZh": "分配器",
+        "hp": 100,
+        "shield": 100,
+        "armor": -5
+      },
+      {
+        "id": "Switch",
+        "nameZh": "转换",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "VoltageTransformer",
+        "nameZh": "电压转换器",
+        "hp": 100,
+        "shield": 100,
+        "armor": -5
+      },
+      {
+        "id": "BattleStation",
+        "nameZh": "武器库",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "AltarOfHeroes",
+        "nameZh": "英雄之升",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "EnergizerGenerator",
+        "nameZh": "激励者",
+        "hp": 4000,
+        "shield": 1000
+      },
+      {
+        "id": "HyperspaceRelay",
+        "nameZh": "超空间转移",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "ResearchFacility",
+        "nameZh": "研究设备",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "ShieldGenerator",
+        "nameZh": "护盾生成器",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "EnergizerAcademy",
+        "nameZh": "学术研究所",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "EnergizerGeneratorFake",
+        "nameZh": "激励者生成器（假）"
+      }
+    ],
+    "economy": [
+      {
+        "id": "MineralConverter",
+        "nameZh": "精矿转换器",
+        "hp": 100,
+        "shield": 100,
+        "armor": -5
+      }
+    ]
+  },
+  "Engineer": {
+    "troops": [
+      {
+        "id": "EngineerWidowMine",
+        "nameZh": "寡妇雷",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "EngineerScienceFacilityFlying",
+        "nameZh": "科学工厂",
+        "hp": 1500,
+        "speed": 1.1015
+      }
+    ],
+    "buildings": [
+      {
+        "id": "EngineerWidowMineBurrowed",
+        "nameZh": "寡妇雷（埋地小可爱）",
+        "hp": 60
+      },
+      {
+        "id": "EngineerFactoryFlying",
+        "nameZh": "工程师重工厂（飞行）",
+        "hp": 350,
+        "speed": 1.3007
+      },
+      {
+        "id": "EngineerFactory",
+        "nameZh": "重工厂",
+        "hp": 350
+      },
+      {
+        "id": "EngineerStarport",
+        "nameZh": "星港",
+        "hp": 800
+      },
+      {
+        "id": "EngineerArmory",
+        "nameZh": "军械库",
+        "hp": 100,
+        "armor": 1
+      },
+      {
+        "id": "EngineerStarportFlying",
+        "nameZh": "工程师星港（飞行）",
+        "hp": 800,
+        "speed": 1.1015
+      }
+    ],
+    "economy": []
+  },
+  "Helios": {
+    "troops": [
+      {
+        "id": "HeliosAnnihilator",
+        "nameZh": "歼灭者",
+        "hp": 500,
+        "shield": 500,
+        "speed": 2.25,
+        "damage": 40,
+        "attackSpeed": 0.3,
+        "range": 6
+      },
+      {
+        "id": "HeliosCorsair",
+        "nameZh": "海盗船",
+        "hp": 150,
+        "shield": 120,
+        "speed": 4,
+        "attackSpeed": 0.55
+      },
+      {
+        "id": "HeliosArchon",
+        "nameZh": "执政官",
+        "hp": 10,
+        "shield": 350,
+        "speed": 2.6015,
+        "damage": 50,
+        "attackSpeed": 1.4,
+        "range": 2.5
+      },
+      {
+        "id": "HeliosZealot",
+        "nameZh": "狂热者",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.75,
+        "damage": 14,
+        "attackSpeed": 1.2,
+        "range": 0.1
+      },
+      {
+        "id": "HeliosDragoon",
+        "nameZh": "龙骑兵",
+        "hp": 60,
+        "shield": 60,
+        "speed": 2.25,
+        "damage": 15,
+        "attackSpeed": 1.4,
+        "range": 6
+      },
+      {
+        "id": "HeliosMoon",
+        "nameZh": "月球",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1,
+        "speed": 3
+      },
+      {
+        "id": "HeliosSun",
+        "nameZh": "太阳",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1,
+        "speed": 2.2382
+      },
+      {
+        "id": "HeliosPriest",
+        "nameZh": "圣徒",
+        "hp": 50,
+        "shield": 50,
+        "speed": 2.25
+      },
+      {
+        "id": "HeliosHaven",
+        "nameZh": "海文",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.25
+      },
+      {
+        "id": "HeliosPreserver",
+        "nameZh": "赫利俄斯保护者",
+        "hp": 25,
+        "shield": 25,
+        "speed": 2.25
+      }
+    ],
+    "buildings": [
+      {
+        "id": "HeliosCore",
+        "nameZh": "核心",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "HeliosGate",
+        "nameZh": "门",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "HeliosTempleOfHonor",
+        "nameZh": "荣誉之殿",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "HeliosPsionicNexus",
+        "nameZh": "灵能星灵枢纽",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "HeliosStargate",
+        "nameZh": "星际之门",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "HeliosAdvancedRobotics",
+        "nameZh": "高级机器人",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "HeliosStarSystem",
+        "nameZh": "星系",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "HeliosSolarCannon",
+        "nameZh": "太阳大炮",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1,
+        "damage": 20,
+        "attackSpeed": 1.25,
+        "range": 7
+      }
+    ],
+    "economy": []
+  },
+  "Jinara": {
+    "troops": [
+      {
+        "id": "JinaraSupplicant",
+        "nameZh": "死徒",
+        "hp": 100,
+        "shield": 125,
+        "speed": 3,
+        "damage": 9,
+        "attackSpeed": 1.2,
+        "range": 3
+      },
+      {
+        "id": "JinaraSlayer",
+        "nameZh": "杀戮者",
+        "hp": 70,
+        "shield": 90,
+        "speed": 3,
+        "damage": 40,
+        "attackSpeed": 1.44,
+        "range": 6
+      },
+      {
+        "id": "JinaraObserver",
+        "nameZh": "观察者",
+        "hp": 40,
+        "shield": 40,
+        "speed": 1.75
+      },
+      {
+        "id": "JinaraJinara",
+        "nameZh": "吉娜拉",
+        "hp": 200,
+        "shield": 200,
+        "speed": 3.25,
+        "damage": 24,
+        "attackSpeed": 1.5,
+        "range": 6
+      }
+    ],
+    "buildings": [
+      {
+        "id": "JinaraTemple",
+        "nameZh": "祭祀神庙",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "JinaraHallOfAscension",
+        "nameZh": "晋升之殿",
+        "hp": 150,
+        "shield": 150
+      }
+    ],
+    "economy": [
+      {
+        "id": "JinaraAssimilator25",
+        "nameZh": "同化器 +25",
+        "hp": 75,
+        "shield": 175
+      },
+      {
+        "id": "JinaraAssimilator10",
+        "nameZh": "同化器 +10",
+        "hp": 75,
+        "shield": 125
+      },
+      {
+        "id": "JinaraAssimilator2",
+        "nameZh": "同化器 +2",
+        "hp": 75,
+        "shield": 75
+      }
+    ]
+  },
+  "Mira": {
+    "troops": [
+      {
+        "id": "MiraSCV",
+        "nameZh": "SCV",
+        "hp": 30,
+        "speed": 3.6992
+      },
+      {
+        "id": "Separatist",
+        "nameZh": "Separatist"
+      },
+      {
+        "id": "MiraSiegeBreakerTank",
+        "nameZh": "破城者",
+        "hp": 350,
+        "speed": 2.25,
+        "damage": 70,
+        "attackSpeed": 1.04,
+        "range": 7
+      },
+      {
+        "id": "MiraNuke",
+        "nameZh": "核弹",
+        "hp": 100
+      },
+      {
+        "id": "MiraHyperspaceTunnel",
+        "nameZh": "MiraHyperspaceTunnel"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "MiraEngineeringBay",
+        "nameZh": "工程湾",
+        "hp": 200
+      },
+      {
+        "id": "MiraNukeSilo",
+        "nameZh": "核弹发射井",
+        "hp": 200
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      }
+    ],
+    "economy": [
+      {
+        "id": "MiraMineralCompound4",
+        "nameZh": "晶矿合成器+4",
+        "hp": 250
+      },
+      {
+        "id": "MiraMineralCompound8",
+        "nameZh": "晶矿合成器+8",
+        "hp": 250
+      },
+      {
+        "id": "MiraMineralCompound16",
+        "nameZh": "晶矿合成器+16",
+        "hp": 250
+      },
+      {
+        "id": "MiraMineralCompound32",
+        "nameZh": "晶矿合成器+32",
+        "hp": 250
+      },
+      {
+        "id": "MiraMineralCompound64",
+        "nameZh": "晶矿合成器+64",
+        "hp": 250
+      },
+      {
+        "id": "MiraMineralCompound128",
+        "nameZh": "晶矿合成器+128",
+        "hp": 250
+      }
+    ]
+  },
+  "Nomad": {
+    "troops": [],
+    "buildings": [
+      {
+        "id": "NomadOrbitalCommand",
+        "nameZh": "轨道控制基地",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "NomadCommandCenter",
+        "nameZh": "指挥中心",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "NomadLaboratory4",
+        "nameZh": "实验室 +4",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NomadFusionCore",
+        "nameZh": "聚变核心",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      },
+      {
+        "id": "NomadAcademy",
+        "nameZh": "幽灵军校",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NomadEngineeringBay",
+        "nameZh": "工程湾",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NomadLaboratory8",
+        "nameZh": "实验室 +8",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NomadLaboratory16",
+        "nameZh": "实验室 +16",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NomadLaboratory32",
+        "nameZh": "实验室 +32",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NomadLaboratory64",
+        "nameZh": "实验室 +64",
+        "hp": 200,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Scientist": {
+    "troops": [
+      {
+        "id": "ScientistMedivac",
+        "nameZh": "医疗艇",
+        "hp": 200,
+        "speed": 2.5
+      },
+      {
+        "id": "ScientistMagellan",
+        "nameZh": "麦哲伦",
+        "hp": 400,
+        "speed": 2.5
+      },
+      {
+        "id": "ScientistMarine",
+        "nameZh": "好兄弟",
+        "hp": 45,
+        "speed": 2.8007,
+        "damage": 10,
+        "attackSpeed": 1
+      },
+      {
+        "id": "ScientistReaper",
+        "nameZh": "死神",
+        "hp": 50,
+        "speed": 3.5,
+        "damage": 4,
+        "attackSpeed": 1.1,
+        "range": 4.5
+      },
+      {
+        "id": "ScientistGhost",
+        "nameZh": "幽灵",
+        "hp": 140,
+        "speed": 3,
+        "damage": 45,
+        "attackSpeed": 2,
+        "range": 6
+      },
+      {
+        "id": "ScientistMarauder",
+        "nameZh": "光头哥",
+        "hp": 350,
+        "speed": 2.8007,
+        "damage": 65,
+        "attackSpeed": 1.5,
+        "range": 6
+      },
+      {
+        "id": "ScientistMedic",
+        "nameZh": "医疗兵",
+        "hp": 150,
+        "speed": 2.8007
+      },
+      {
+        "id": "ScientistSCV",
+        "nameZh": "SCV",
+        "hp": 30,
+        "speed": 3.6992
+      },
+      {
+        "id": "ScientistFirebat",
+        "nameZh": "火蝠",
+        "hp": 150,
+        "speed": 2.8007,
+        "damage": 20,
+        "attackSpeed": 1.4,
+        "range": 3
+      }
+    ],
+    "buildings": [
+      {
+        "id": "ScientistWallLowered",
+        "nameZh": "墙",
+        "hp": 100
+      },
+      {
+        "id": "ScientistBunker",
+        "nameZh": "麻将馆",
+        "hp": 500,
+        "armor": 1
+      },
+      {
+        "id": "ScientistEngineeringBay",
+        "nameZh": "工程湾",
+        "hp": 200,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "ScientistMineralReactor1",
+        "nameZh": "晶体矿反应堆 +1",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "ScientistMineralReactor2",
+        "nameZh": "晶体矿反应堆 +2",
+        "hp": 150
+      },
+      {
+        "id": "ScientistMineralReactor4",
+        "nameZh": "晶体矿反应堆 +4",
+        "hp": 150
+      },
+      {
+        "id": "ScientistMineralReactor8",
+        "nameZh": "晶体矿反应堆 +8",
+        "hp": 150
+      },
+      {
+        "id": "ScientistMineralReactor16",
+        "nameZh": "晶体矿反应堆 +16",
+        "hp": 150
+      },
+      {
+        "id": "ScientistMineralReactor32",
+        "nameZh": "晶体矿反应堆 +32",
+        "hp": 150
+      }
+    ]
+  },
+  "Selendis": {
+    "troops": [
+      {
+        "id": "SelendisBasicProbe",
+        "nameZh": "基础探机",
+        "hp": 25,
+        "shield": 25,
+        "speed": 2
+      },
+      {
+        "id": "SelendisProbe",
+        "nameZh": "中级探机",
+        "hp": 25,
+        "shield": 25,
+        "speed": 2
+      },
+      {
+        "id": "SelendisAdvancedProbe",
+        "nameZh": "高级探机",
+        "hp": 25,
+        "shield": 25,
+        "speed": 2
+      },
+      {
+        "id": "SelendisExpertProbe",
+        "nameZh": "专家探机",
+        "hp": 25,
+        "shield": 25,
+        "speed": 2
+      },
+      {
+        "id": "SelendisProbius",
+        "nameZh": "普罗比斯",
+        "hp": 50,
+        "shield": 50,
+        "speed": 2
+      },
+      {
+        "id": "SelendisMothershipForm",
+        "nameZh": "塞兰迪斯",
+        "hp": 300,
+        "shield": 300,
+        "armor": 1,
+        "speed": 2.75,
+        "damage": 38,
+        "attackSpeed": 1.3,
+        "range": 10
+      },
+      {
+        "id": "SelendisZealot",
+        "nameZh": "狂热者",
+        "hp": 100,
+        "shield": 110,
+        "speed": 2.75,
+        "damage": 8,
+        "attackSpeed": 1.2,
+        "range": 0.1
+      },
+      {
+        "id": "SelendisStalker",
+        "nameZh": "追猎者",
+        "hp": 90,
+        "shield": 100,
+        "speed": 3,
+        "damage": 35,
+        "attackSpeed": 1.2,
+        "range": 6
+      },
+      {
+        "id": "SelendisSentry",
+        "nameZh": "机械哨兵",
+        "hp": 35,
+        "shield": 50,
+        "speed": 2.25,
+        "damage": 10,
+        "attackSpeed": 1,
+        "range": 6
+      },
+      {
+        "id": "SelendisScout",
+        "nameZh": "侦察机",
+        "hp": 100,
+        "shield": 60,
+        "speed": 2.8125,
+        "damage": 30,
+        "attackSpeed": 1.25,
+        "range": 4
+      },
+      {
+        "id": "SelendisImmortal",
+        "nameZh": "不朽者",
+        "hp": 300,
+        "shield": 300,
+        "speed": 2.25,
+        "damage": 40,
+        "attackSpeed": 0.9
+      },
+      {
+        "id": "SelendisColossus",
+        "nameZh": "巨像",
+        "hp": 400,
+        "shield": 300,
+        "speed": 2.25,
+        "damage": 15,
+        "attackSpeed": 1.65,
+        "range": 7
+      },
+      {
+        "id": "SelendisCybros",
+        "nameZh": "赛布罗斯",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.75
+      }
+    ],
+    "buildings": [
+      {
+        "id": "SelendisPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "SelendisNexus",
+        "nameZh": "星灵枢纽",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "SelendisPhotonCannon",
+        "nameZh": "光子炮台",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1,
+        "damage": 20,
+        "attackSpeed": 1.25,
+        "range": 7
+      },
+      {
+        "id": "SelendisSolarForge",
+        "nameZh": "太阳能锻炉",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "SelendisMineralField1",
+        "nameZh": "矿区 +1",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SelendisSolarReactor",
+        "nameZh": "太阳能反应堆",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "SelendisMineralField2",
+        "nameZh": "晶体矿场 +2",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SelendisMineralField4",
+        "nameZh": "晶矿场 +4",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SelendisMineralField8",
+        "nameZh": "矿区 +8",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SelendisMineralField16",
+        "nameZh": "晶矿场 +16",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SelendisMineralField32",
+        "nameZh": "晶矿场 +32",
+        "hp": 150,
+        "armor": 1
+      }
+    ]
+  },
+  "SgtHammer": {
+    "troops": [
+      {
+        "id": "SgtHammerMarauderMineUnburrowed",
+        "nameZh": "掠夺者地雷",
+        "hp": 60,
+        "speed": 2.6992
+      },
+      {
+        "id": "SgtHammerAssaultViking",
+        "nameZh": "重锤维京战机",
+        "hp": 150,
+        "speed": 1.1015,
+        "damage": 10,
+        "attackSpeed": 0.905,
+        "range": 3
+      },
+      {
+        "id": "SgtHammerHellion",
+        "nameZh": "重锤恶火",
+        "hp": 275,
+        "speed": 3.75,
+        "damage": 40,
+        "attackSpeed": 1.25,
+        "range": 6
+      },
+      {
+        "id": "SgtHammerHellbat",
+        "nameZh": "重锤恶蝠",
+        "hp": 300,
+        "speed": 2,
+        "damage": 15,
+        "attackSpeed": 1.45,
+        "range": 2
+      },
+      {
+        "id": "SgtHammerThorson",
+        "nameZh": "雷神",
+        "hp": 800,
+        "speed": 2,
+        "damage": 65,
+        "attackSpeed": 1.5,
+        "range": 10
+      },
+      {
+        "id": "SgtHammerThorsonAP",
+        "nameZh": "雷神-δόρυ της αιωνιότητας",
+        "hp": 800,
+        "speed": 2,
+        "damage": 75,
+        "attackSpeed": 3.5,
+        "range": 8
+      },
+      {
+        "id": "HammerJunkerSiegeTankAxe",
+        "nameZh": "重锤废铁攻城坦克（星斧）",
+        "hp": 400,
+        "armor": 1,
+        "speed": 3.25,
+        "damage": 50,
+        "attackSpeed": 2,
+        "range": 3
+      },
+      {
+        "id": "HammerSCV",
+        "nameZh": "重锤SCV",
+        "hp": 30,
+        "speed": 4.25
+      },
+      {
+        "id": "SgtHammerFighterViking",
+        "nameZh": "重锤维京",
+        "hp": 45,
+        "speed": 3.6992,
+        "damage": 12,
+        "attackSpeed": 1,
+        "range": 4
+      },
+      {
+        "id": "SgtHammerFenrirDroneA",
+        "nameZh": "芬里尔无人机 A",
+        "speed": 4.0507,
+        "damage": 30,
+        "attackSpeed": 0.5,
+        "range": 10
+      },
+      {
+        "id": "SgtHammerFenrirDroneB",
+        "nameZh": "芬里尔无人机 B",
+        "speed": 4.0507,
+        "damage": 30,
+        "attackSpeed": 0.5,
+        "range": 10
+      },
+      {
+        "id": "SgtHammerFenrirSiegeTankSieged",
+        "nameZh": "芬里尔",
+        "hp": 4000,
+        "shield": 2000,
+        "armor": 25
+      },
+      {
+        "id": "SgtHammerFenrirSiegeTank",
+        "nameZh": "重锤军士芬里尔攻城坦克",
+        "hp": 4000,
+        "shield": 2000,
+        "armor": 25,
+        "speed": 4.0507,
+        "damage": 150,
+        "attackSpeed": 0.25,
+        "range": 7
+      },
+      {
+        "id": "HammerCrucioTank",
+        "nameZh": "βασάνισα-钻心",
+        "hp": 600,
+        "armor": 1,
+        "speed": 3.4492,
+        "damage": 80,
+        "attackSpeed": 1.5
+      },
+      {
+        "id": "SgtHammerArcliteTank",
+        "nameZh": "τόξο-弧光",
+        "hp": 500,
+        "armor": 1,
+        "speed": 3.3515,
+        "damage": 65,
+        "attackSpeed": 1.75,
+        "range": 4
+      },
+      {
+        "id": "SgtHammerImperioSiegeTank",
+        "nameZh": "重锤军士王权攻城坦克",
+        "hp": 1000,
+        "armor": 5,
+        "speed": 3.75,
+        "damage": 95,
+        "attackSpeed": 0.25,
+        "range": 7
+      },
+      {
+        "id": "SgtHammerImperioSiegeTankSieged",
+        "nameZh": "帝国坦克",
+        "hp": 1000,
+        "armor": 5
+      },
+      {
+        "id": "HammerCrucioTankSieged",
+        "nameZh": "重锤钻心坦克（攻城模式）",
+        "hp": 600,
+        "armor": 5,
+        "damage": 250,
+        "attackSpeed": 2.5,
+        "range": 17
+      },
+      {
+        "id": "SgtHammerArcliteTankSieged",
+        "nameZh": "重锤军士弧光坦克（攻城模式）",
+        "hp": 500,
+        "armor": 5,
+        "damage": 100,
+        "attackSpeed": 2.75,
+        "range": 15
+      },
+      {
+        "id": "BarracksTechLab",
+        "nameZh": "BarracksTechLab"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "HammerReactorDetached",
+        "nameZh": "重锤反应堆未连接",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerTechLabEcoFactory",
+        "nameZh": "重锤科技实验室经济工厂",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerTechLabEcoStarport",
+        "nameZh": "重锤科技实验室经济星港",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerTechLabEcoBarracks",
+        "nameZh": "重锤科技实验室经济兵营",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "SgtHammerEcoFactoryFlying",
+        "nameZh": "经济工厂",
+        "hp": 250,
+        "armor": 1,
+        "speed": 1.375
+      },
+      {
+        "id": "SgtHammerEcoStarportFlying",
+        "nameZh": "经济星港",
+        "hp": 300,
+        "armor": 1,
+        "speed": 1.375
+      },
+      {
+        "id": "SgtHammerEcoBarracks",
+        "nameZh": "经济兵营",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "HammerTechLabFactory",
+        "nameZh": "重锤科技实验室工厂",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerTechLabDetached",
+        "nameZh": "重锤科技实验室未连接",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "SgtHammerHammerFactory",
+        "nameZh": "重锤工厂",
+        "hp": 250,
+        "armor": 1
+      },
+      {
+        "id": "HammerTechLabBarracks",
+        "nameZh": "重锤科技实验室兵营",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "SgtHammerHammerBarracks",
+        "nameZh": "重锤兵营",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "HammerLightBeacon",
+        "nameZh": "光明信标",
+        "hp": 50
+      },
+      {
+        "id": "SgtHammerSupplyDepotLowered",
+        "nameZh": "重锤补给站",
+        "hp": 200
+      },
+      {
+        "id": "SgtHammerMuscleArmory",
+        "nameZh": "武装军械库。",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "SgtHammerOrbitalCommand",
+        "nameZh": "重锤军士-轨道指挥中心",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SgtHammerRoboticsBay",
+        "nameZh": "重锤军士机械湾",
+        "hp": 200,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerLightbulb",
+        "nameZh": "灯球",
+        "hp": 50
+      }
+    ],
+    "economy": [
+      {
+        "id": "HammerReactorFactory",
+        "nameZh": "重锤工厂反应堆",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerReactorEcoBarracks",
+        "nameZh": "重锤经济兵营反应堆",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerReactorEcoFactory",
+        "nameZh": "重锤经济工厂反应堆",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerReactorEcoStarport",
+        "nameZh": "重锤经济星港反应堆",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "HammerReactorBarracks",
+        "nameZh": "重锤兵营反应堆",
+        "hp": 50,
+        "armor": 1
+      },
+      {
+        "id": "SgtHammerReactorDeprecated",
+        "nameZh": "重锤军士反应堆",
+        "hp": 100,
+        "armor": 1
+      },
+      {
+        "id": "MineralDrill1Deprecated",
+        "nameZh": "矿物钻井 +1",
+        "hp": 150,
+        "armor": 1
+      }
+    ]
+  },
+  "Sophia": {
+    "troops": [
+      {
+        "id": "SophiaSCV",
+        "nameZh": "SCV",
+        "hp": 30,
+        "speed": 3.6992
+      },
+      {
+        "id": "SophiaLaserSiegeTankUnsieged",
+        "nameZh": "激光攻城坦克（坦克模式）",
+        "hp": 500,
+        "armor": 1,
+        "speed": 2.25
+      }
+    ],
+    "buildings": [
+      {
+        "id": "SophiaBeaconwithCloak",
+        "nameZh": "带斗篷的信标",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "SophiaSpiderMineBurrowed",
+        "nameZh": "索菲亚蜘蛛雷（钻地）",
+        "hp": 25
+      },
+      {
+        "id": "SophiaLaserSiegeTankSieged",
+        "nameZh": "激光攻城坦克（攻城模式）",
+        "hp": 500,
+        "armor": 1,
+        "damage": 100,
+        "attackSpeed": 1.5,
+        "range": 12
+      },
+      {
+        "id": "SophiaBeaconWithGlasses",
+        "nameZh": "戴眼镜的信标",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "SophiaBeacon",
+        "nameZh": "信标",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      },
+      {
+        "id": "SophiaArmory",
+        "nameZh": "军械库",
+        "hp": 100,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "SophiaCDMercCompound2",
+        "nameZh": "雇佣兵基地 +2",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SophiaCDMercCompound4",
+        "nameZh": "雇佣兵基地 +4",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SophiaCDMercCompound16",
+        "nameZh": "雇佣兵基地 +16",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SophiaCDMercCompound32",
+        "nameZh": "雇佣兵基地 +32",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SophiaMercCompound64",
+        "nameZh": "雇佣兵基地 +64",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SophiaMercCompound8",
+        "nameZh": "雇佣兵基地 +8",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SophiaMercCompound1",
+        "nameZh": "雇佣兵基地 +1",
+        "hp": 150,
+        "armor": 1
+      }
+    ]
+  },
+  "Spirit": {
+    "troops": [],
+    "buildings": [
+      {
+        "id": "SpiritPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "SpiritCrystalBall",
+        "nameZh": "水晶球",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "SpiritForge",
+        "nameZh": "锻炉",
+        "hp": 50,
+        "shield": 50
+      },
+      {
+        "id": "SpiritCasino",
+        "nameZh": "奇迹熔炉",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "SpiritMarket",
+        "nameZh": "股市",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "SpiritKhaydarinMonolith",
+        "nameZh": "凯达琳巨石",
+        "hp": 50,
+        "shield": 50,
+        "attackSpeed": 2,
+        "range": 5.5
+      },
+      {
+        "id": "SpiritShieldBattery",
+        "nameZh": "护盾电池",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "SpiritHighKhaydarinMonolith",
+        "nameZh": "高凯达林巨石",
+        "hp": 50,
+        "shield": 50,
+        "damage": 35,
+        "attackSpeed": 2,
+        "range": 5.5
+      },
+      {
+        "id": "SpiritExchange",
+        "nameZh": "证券交易所",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "SpiritBank",
+        "nameZh": "银行",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      }
+    ]
+  },
+  "Stukov": {
+    "troops": [
+      {
+        "id": "StukovRavager",
+        "nameZh": "破坏者",
+        "hp": 250,
+        "armor": 1,
+        "speed": 2.75,
+        "damage": 50,
+        "attackSpeed": 1.1,
+        "range": 6
+      },
+      {
+        "id": "StukovNaktul",
+        "nameZh": "纳克图尔",
+        "hp": 400,
+        "armor": 1,
+        "speed": 3,
+        "damage": 10,
+        "attackSpeed": 1,
+        "range": 7
+      },
+      {
+        "id": "StukovInfestedCivilian",
+        "nameZh": "被感染的公民",
+        "hp": 50,
+        "speed": 2,
+        "damage": 5,
+        "attackSpeed": 1,
+        "range": 0.1
+      },
+      {
+        "id": "StukovAberration",
+        "nameZh": "畸变体",
+        "hp": 1000,
+        "speed": 3,
+        "damage": 200,
+        "attackSpeed": 1,
+        "range": 1.5
+      },
+      {
+        "id": "StukovInfestedTerranKS",
+        "nameZh": "被感染的50块",
+        "hp": 80,
+        "speed": 2.75,
+        "damage": 12,
+        "attackSpeed": 1.6
+      }
+    ],
+    "buildings": [
+      {
+        "id": "StukovSpawningPool",
+        "nameZh": "孵化池",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "StukovInfestedDen",
+        "nameZh": "感染巢穴",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "StukovAberrationCavern",
+        "nameZh": "畸变洞窟",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "StukovInfestedPit",
+        "nameZh": "感染深渊",
+        "hp": 175,
+        "armor": 1
+      },
+      {
+        "id": "StukovEvolutionChamber",
+        "nameZh": "进化腔",
+        "hp": 150,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Swann": {
+    "troops": [
+      {
+        "id": "SwannPredator",
+        "nameZh": "掠食者",
+        "hp": 200,
+        "armor": 1,
+        "speed": 2.75
+      },
+      {
+        "id": "SwannKachinsky",
+        "nameZh": "卡琴斯基",
+        "hp": 300,
+        "armor": 2,
+        "speed": 3.25
+      }
+    ],
+    "buildings": [
+      {
+        "id": "SwannJunkPile",
+        "nameZh": "垃圾堆",
+        "hp": 400
+      },
+      {
+        "id": "SwannStonePile",
+        "nameZh": "碎石堆",
+        "hp": 1000
+      },
+      {
+        "id": "SwannDiamondHeap",
+        "nameZh": "金刚石堆",
+        "hp": 5000
+      },
+      {
+        "id": "SwannFissureMine",
+        "nameZh": "钻井",
+        "hp": 300
+      },
+      {
+        "id": "SwannScienceFacility",
+        "nameZh": "科学设施",
+        "hp": 200
+      },
+      {
+        "id": "SwannDrakkenLaserDrill",
+        "nameZh": "德拉肯激光钻机！",
+        "hp": 300,
+        "armor": 1,
+        "damage": 40,
+        "attackSpeed": 0.4,
+        "range": 20
+      },
+      {
+        "id": "SwannDevastationTurret",
+        "nameZh": "毁灭炮塔",
+        "hp": 100,
+        "damage": 35,
+        "attackSpeed": 2,
+        "range": 6
+      },
+      {
+        "id": "SwannFlamingBetty",
+        "nameZh": "热辣贝蒂",
+        "hp": 150,
+        "armor": 1,
+        "damage": 30,
+        "attackSpeed": 1.5,
+        "range": 6
+      }
+    ],
+    "economy": [
+      {
+        "id": "SwannRefinery25",
+        "nameZh": "乔瑞姆精炼厂 +25",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "SwannRefinery2",
+        "nameZh": "精炼厂 +2",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "SwannAcceleratedRefinery10",
+        "nameZh": "加速精炼厂 +10",
+        "hp": 150,
+        "armor": 1
+      }
+    ]
+  },
+  "Technician": {
+    "troops": [
+      {
+        "id": "TechnicianTrainee",
+        "nameZh": "实习生",
+        "hp": 30,
+        "speed": 3.5
+      },
+      {
+        "id": "SuperiorLaserTower",
+        "nameZh": "灼烧激光塔",
+        "hp": 200,
+        "damage": 55,
+        "attackSpeed": 0.33,
+        "range": 11
+      },
+      {
+        "id": "SuperiorRocketTower",
+        "nameZh": "爆裂火箭塔",
+        "hp": 200,
+        "damage": 40,
+        "attackSpeed": 2,
+        "range": 11
+      },
+      {
+        "id": "SuperiorShockingTower",
+        "nameZh": "瓦解震荡塔",
+        "hp": 200,
+        "damage": 5,
+        "attackSpeed": 1.5,
+        "range": 13
+      },
+      {
+        "id": "SuperiorDisintegrationTower",
+        "nameZh": "湮灭崩解塔",
+        "hp": 200,
+        "damage": 5,
+        "attackSpeed": 1.5,
+        "range": 13
+      },
+      {
+        "id": "SuperiorSiegeTower",
+        "nameZh": "毁灭攻城塔",
+        "hp": 200,
+        "damage": 60,
+        "attackSpeed": 3,
+        "range": 14
+      },
+      {
+        "id": "SmallLaserTower",
+        "nameZh": "小型激光塔",
+        "hp": 100,
+        "damage": 20,
+        "attackSpeed": 0.6
+      },
+      {
+        "id": "AdvancedDisintegrationTower",
+        "nameZh": "先进崩解塔",
+        "hp": 150,
+        "damage": 5,
+        "attackSpeed": 2.5,
+        "range": 11
+      },
+      {
+        "id": "AdvancedLaserTower",
+        "nameZh": "先进激光塔",
+        "hp": 150,
+        "damage": 45,
+        "attackSpeed": 0.4,
+        "range": 9
+      },
+      {
+        "id": "AdvancedRocketTower",
+        "nameZh": "先进火箭塔",
+        "hp": 150,
+        "damage": 35,
+        "attackSpeed": 2.5,
+        "range": 9
+      },
+      {
+        "id": "AdvancedShockingTower",
+        "nameZh": "先进震荡塔",
+        "hp": 150,
+        "damage": 5,
+        "attackSpeed": 2,
+        "range": 11
+      },
+      {
+        "id": "AdvancedSiegeTower",
+        "nameZh": "先进攻城塔",
+        "hp": 150,
+        "damage": 40,
+        "attackSpeed": 3,
+        "range": 12
+      },
+      {
+        "id": "DisintegrationTower",
+        "nameZh": "崩解塔",
+        "hp": 125,
+        "damage": 5,
+        "attackSpeed": 2.5,
+        "range": 9
+      },
+      {
+        "id": "LaserTower",
+        "nameZh": "激光塔",
+        "hp": 125,
+        "damage": 35,
+        "attackSpeed": 0.5,
+        "range": 7
+      },
+      {
+        "id": "RocketTower",
+        "nameZh": "火箭塔",
+        "hp": 125,
+        "damage": 30,
+        "attackSpeed": 3,
+        "range": 7
+      },
+      {
+        "id": "ShockingTower",
+        "nameZh": "震荡塔",
+        "hp": 125,
+        "damage": 5,
+        "attackSpeed": 2.5,
+        "range": 9
+      },
+      {
+        "id": "SiegeTower",
+        "nameZh": "攻城塔",
+        "hp": 125,
+        "damage": 20,
+        "attackSpeed": 3,
+        "range": 10
+      }
+    ],
+    "buildings": [
+      {
+        "id": "Keystone",
+        "nameZh": "钥石",
+        "hp": 5000
+      },
+      {
+        "id": "VisionTower4",
+        "nameZh": "视野塔+4",
+        "hp": 50
+      },
+      {
+        "id": "TechnicianAccumulatorx4",
+        "nameZh": "蓄电器 x4",
+        "hp": 100
+      },
+      {
+        "id": "GiantWallTechnician",
+        "nameZh": "巨墙",
+        "hp": 1000
+      },
+      {
+        "id": "VisionTower3",
+        "nameZh": "视野塔 +3",
+        "hp": 50
+      },
+      {
+        "id": "VisionTower2",
+        "nameZh": "视野塔 +2",
+        "hp": 50
+      },
+      {
+        "id": "TechnicianAccumulatorx3",
+        "nameZh": "蓄电器 x3",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianCliffPortal",
+        "nameZh": "传送门",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianTechnologyArsenal",
+        "nameZh": "科技军械库",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianTransmutationFactory1",
+        "nameZh": "转化工厂 +1",
+        "hp": 150
+      },
+      {
+        "id": "GateTechnician",
+        "nameZh": "门",
+        "hp": 100
+      },
+      {
+        "id": "WallTechnician",
+        "nameZh": "墙",
+        "hp": 500
+      },
+      {
+        "id": "VisionTower",
+        "nameZh": "视野塔 +1",
+        "hp": 50
+      },
+      {
+        "id": "TechnicianAccumulatorx2",
+        "nameZh": "蓄电器 x2",
+        "hp": 100
+      },
+      {
+        "id": "GateTechnicianLowered",
+        "nameZh": "门（收起）",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianTransmutationFactory2",
+        "nameZh": "转化工厂 +2",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory4",
+        "nameZh": "转化工厂 +4",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory8",
+        "nameZh": "转化工厂 +8",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory16",
+        "nameZh": "转化工厂 +16",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory32",
+        "nameZh": "转化工厂 +32",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory64",
+        "nameZh": "转化工厂 +64",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory128",
+        "nameZh": "转化工厂 +128",
+        "hp": 150
+      },
+      {
+        "id": "FlameTrap",
+        "nameZh": "火焰陷阱",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianEngineeringBay",
+        "nameZh": "工程舱",
+        "hp": 100
+      }
+    ],
+    "economy": []
+  },
+  "Warfield": {
+    "troops": [
+      {
+        "id": "Xanthos",
+        "nameZh": "大黄蜂",
+        "hp": 1025,
+        "speed": 3.5,
+        "damage": 50,
+        "attackSpeed": 1.5,
+        "range": 7
+      },
+      {
+        "id": "WarfieldMurlocMarine",
+        "nameZh": "鱼人陆战队",
+        "hp": 60,
+        "speed": 3,
+        "damage": 15,
+        "attackSpeed": 1
+      },
+      {
+        "id": "WarfieldHellion",
+        "nameZh": "恶火",
+        "hp": 150,
+        "speed": 3.5,
+        "damage": 30,
+        "attackSpeed": 1.15,
+        "range": 6
+      },
+      {
+        "id": "WarfieldHerc",
+        "nameZh": "HERC",
+        "hp": 275,
+        "armor": 1,
+        "speed": 3.25,
+        "damage": 55,
+        "attackSpeed": 1.5
+      },
+      {
+        "id": "WarfieldSentryBot",
+        "nameZh": "灭绝者",
+        "hp": 625,
+        "armor": 3,
+        "speed": 2.8984,
+        "damage": 7,
+        "attackSpeed": 3,
+        "range": 7
+      },
+      {
+        "id": "WarfieldLaserTank",
+        "nameZh": "镭射坦克",
+        "hp": 1175,
+        "speed": 3,
+        "damage": 250,
+        "attackSpeed": 2.2,
+        "range": 6
+      },
+      {
+        "id": "WarfieldEidolon",
+        "nameZh": "灵体",
+        "hp": 250,
+        "armor": 4,
+        "speed": 3.25,
+        "damage": 70,
+        "attackSpeed": 1.6,
+        "range": 6.5
+      },
+      {
+        "id": "SpiderMineWarfield",
+        "nameZh": "蜘蛛雷",
+        "hp": 100,
+        "speed": 9,
+        "damage": 100,
+        "attackSpeed": 0.833,
+        "range": 0.1
+      }
+    ],
+    "buildings": [
+      {
+        "id": "SpiderMineBurrowedWarfield",
+        "nameZh": "沃菲尔德蜘蛛雷（钻地）",
+        "hp": 100,
+        "damage": 100,
+        "attackSpeed": 0.833,
+        "range": 0.1
+      },
+      {
+        "id": "WarfieldBarracks",
+        "nameZh": "兵营",
+        "hp": 200,
+        "armor": -3
+      },
+      {
+        "id": "BarracksWarfieldFlying",
+        "nameZh": "沃菲尔德兵营（飞行）",
+        "hp": 200,
+        "armor": -3,
+        "speed": 0.9375
+      },
+      {
+        "id": "WarfieldOuthouse",
+        "nameZh": "外屋",
+        "hp": 200,
+        "armor": -3
+      },
+      {
+        "id": "WarfieldArmory",
+        "nameZh": "军械库",
+        "hp": 100,
+        "armor": 1
+      },
+      {
+        "id": "PlanetaryFortressWarfield",
+        "nameZh": "沃菲尔德行星要塞",
+        "hp": 1250,
+        "armor": -5,
+        "damage": 60,
+        "attackSpeed": 1.8,
+        "range": 6
+      }
+    ],
+    "economy": []
+  },
+  "Glevig": {
+    "troops": [
+      {
+        "id": "SwarmCreepTumor",
+        "nameZh": "菌毯肿瘤",
+        "hp": 150
+      },
+      {
+        "id": "GlevigMegaInfestor",
+        "nameZh": "感染者",
+        "hp": 5000,
+        "speed": 1
+      }
+    ],
+    "buildings": [],
+    "economy": []
+  },
+  "Izsha": {
+    "troops": [
+      {
+        "id": "IzshaInfestedBlimpSeigeModeLevel4",
+        "nameZh": "被感染的飞船",
+        "hp": 1000,
+        "armor": 12
+      }
+    ],
+    "buildings": [
+      {
+        "id": "IzshaBiotrapBurrow2",
+        "nameZh": "生物陷阱",
+        "hp": 100
+      },
+      {
+        "id": "IzshaCorruptedWall2",
+        "nameZh": "被感染的地堡",
+        "hp": 2000,
+        "armor": 3
+      }
+    ],
+    "economy": []
+  },
+  "Phaegore": {
+    "troops": [
+      {
+        "id": "PhaegorePhaegore",
+        "nameZh": "菲戈尔",
+        "hp": 99999,
+        "speed": 1.25,
+        "damage": 50,
+        "attackSpeed": 0.9,
+        "range": 2
+      }
+    ],
+    "buildings": [],
+    "economy": []
+  },
+  "Ghost": {
+    "troops": [
+      {
+        "id": "GhostSCV",
+        "nameZh": "SCV",
+        "hp": 150,
+        "speed": 3.1015
+      },
+      {
+        "id": "GhostMedic",
+        "nameZh": "医疗兵",
+        "hp": 150,
+        "armor": 1,
+        "speed": 3
+      },
+      {
+        "id": "GhostBuilderObserver",
+        "nameZh": "侦察器",
+        "hp": 60,
+        "shield": 60,
+        "speed": 2.3984
+      },
+      {
+        "id": "GhostBloodHunter",
+        "nameZh": "猎人",
+        "hp": 80,
+        "shield": 125,
+        "armor": 1,
+        "speed": 3.5,
+        "damage": 50,
+        "attackSpeed": 1.5,
+        "range": 0.1
+      },
+      {
+        "id": "GhostBaneling",
+        "nameZh": "爆虫",
+        "hp": 100,
+        "speed": 2.9531,
+        "damage": 100,
+        "attackSpeed": 0.2,
+        "range": 0.25
+      },
+      {
+        "id": "GhostPhoenix",
+        "nameZh": "凤凰",
+        "hp": 120,
+        "shield": 60,
+        "speed": 4.25,
+        "damage": 10,
+        "attackSpeed": 1.1
+      },
+      {
+        "id": "ColonelSanders",
+        "nameZh": "桑德斯上校",
+        "hp": 200,
+        "speed": 3
+      },
+      {
+        "id": "GhostGhostNova",
+        "nameZh": "诺娃",
+        "hp": 300,
+        "armor": 2,
+        "speed": 2.25,
+        "damage": 50,
+        "attackSpeed": 1.5,
+        "range": 7
+      },
+      {
+        "id": "GhostPrism",
+        "nameZh": "棱镜",
+        "hp": 100,
+        "shield": 100,
+        "speed": 2.5
+      },
+      {
+        "id": "GhostSanta",
+        "nameZh": "红帽白胡子的圣诞老人！圣诞快乐!",
+        "hp": 150,
+        "speed": 2.8007
+      }
+    ],
+    "buildings": [
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      },
+      {
+        "id": "GhostHairsprayLighterBase",
+        "nameZh": "末日火焰喷射器",
+        "hp": 50,
+        "damage": 20,
+        "attackSpeed": 2
+      },
+      {
+        "id": "GhostKFZ",
+        "nameZh": "KFZ",
+        "hp": 200,
+        "armor": 1,
+        "damage": 70,
+        "attackSpeed": 0.6,
+        "range": 7
+      },
+      {
+        "id": "GhostHairsprayLighter3",
+        "nameZh": "末日光炮 +3",
+        "hp": 50,
+        "damage": 50,
+        "attackSpeed": 0.9
+      },
+      {
+        "id": "GhostHairsprayLighter",
+        "nameZh": "末日火焰喷射器 +1",
+        "hp": 50,
+        "damage": 30,
+        "attackSpeed": 1.6
+      },
+      {
+        "id": "GhostHairsprayLighter2",
+        "nameZh": "末日光炮 +2",
+        "hp": 50,
+        "damage": 40,
+        "attackSpeed": 1.3
+      },
+      {
+        "id": "GhostMissileTurret",
+        "nameZh": "导弹塔",
+        "hp": 200,
+        "damage": 50,
+        "attackSpeed": 0.8608,
+        "range": 7
+      }
+    ],
+    "economy": [
+      {
+        "id": "GhostMineralReactor32",
+        "nameZh": "晶体矿反应堆 +32",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "GhostMineralReactor4",
+        "nameZh": "晶体矿反应堆 +4",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "GhostMineralReactor8",
+        "nameZh": "晶体矿反应堆 +8",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "GhostMineralReactor16",
+        "nameZh": "晶体矿反应堆 +16",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "GhostMineralReactor2",
+        "nameZh": "晶体矿反应堆 +2",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "GhostMineralReactor1",
+        "nameZh": "晶体矿反应堆 +1",
+        "hp": 150,
+        "armor": 1
+      }
+    ]
+  },
+  "Malus": {
+    "troops": [],
+    "buildings": [
+      {
+        "id": "MalusMaldus1",
+        "nameZh": "马吕斯网络",
+        "hp": 1500,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Thakras": {
+    "troops": [
+      {
+        "id": "ThakrasBurrowed",
+        "nameZh": "ThakrasBurrowed"
+      }
+    ],
+    "buildings": [],
+    "economy": []
+  },
+  "Chew": {
+    "troops": [
+      {
+        "id": "Chewbie",
+        "nameZh": "秋伊小跟班",
+        "hp": 40,
+        "speed": 3,
+        "damage": 10,
+        "attackSpeed": 0.7
+      },
+      {
+        "id": "ChewAir",
+        "nameZh": "秋伊 - 空",
+        "hp": 600,
+        "armor": 1,
+        "speed": 3.1015
+      },
+      {
+        "id": "Chew",
+        "nameZh": "秋伊",
+        "hp": 500,
+        "armor": 1,
+        "speed": 3,
+        "damage": 10,
+        "attackSpeed": 0.7
+      }
+    ],
+    "buildings": [
+      {
+        "id": "ChewIceCave3",
+        "nameZh": "冰洞",
+        "hp": 250
+      },
+      {
+        "id": "ChewProtez",
+        "nameZh": "普罗特兹",
+        "hp": 150
+      },
+      {
+        "id": "ChewStatue",
+        "nameZh": "秋伊雕像",
+        "hp": 1666,
+        "armor": 6
+      },
+      {
+        "id": "ChewAsqaz",
+        "nameZh": "阿斯卡兹",
+        "hp": 150
+      }
+    ],
+    "economy": []
+  },
+  "Dark_Templar": {
+    "troops": [
+      {
+        "id": "DarkTemplarProbe",
+        "nameZh": "探机",
+        "hp": 20,
+        "shield": 20,
+        "speed": 2.8125
+      }
+    ],
+    "buildings": [
+      {
+        "id": "DTVoidPylon",
+        "nameZh": "黑暗水晶塔",
+        "hp": 50,
+        "shield": 50
+      },
+      {
+        "id": "DTAncientLibrary",
+        "nameZh": "古代图书馆",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "DTShadowCouncil",
+        "nameZh": "暗影议会",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "DTEssenceSanctuary50",
+        "nameZh": "精华圣所 +50",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "DTShieldBattery",
+        "nameZh": "护盾电池",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "DTEssenceTemple",
+        "nameZh": "精华神庙 +1",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "DarkTemplarShadowCannon",
+        "nameZh": "暗影光子炮",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1,
+        "damage": 20,
+        "attackSpeed": 1.25,
+        "range": 7
+      },
+      {
+        "id": "DTAnvil",
+        "nameZh": "锻炉",
+        "hp": 100,
+        "shield": 200
+      },
+      {
+        "id": "DarkTemplarVolatileShard",
+        "nameZh": "不稳定裂片",
+        "hp": 200
+      },
+      {
+        "id": "DarkTemplarLighthouse",
+        "nameZh": "灯塔",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "DarkTemplarEssenceAssimilator",
+        "nameZh": "精华同化器+10",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      }
+    ]
+  },
+  "Delta_Squad": {
+    "troops": [
+      {
+        "id": "DSSCV",
+        "nameZh": "SCV",
+        "hp": 30,
+        "speed": 3.6992
+      },
+      {
+        "id": "DSLiberatorAA",
+        "nameZh": "袭掠解放者",
+        "hp": 250,
+        "speed": 3.5,
+        "damage": 10,
+        "attackSpeed": 1.8
+      },
+      {
+        "id": "DSArchangelFighter",
+        "nameZh": "大天使（战机形态）",
+        "hp": 550,
+        "armor": 1,
+        "speed": 3
+      },
+      {
+        "id": "DeltaSquadGorgon",
+        "nameZh": "戈尔贡（无敌版）",
+        "hp": 1000,
+        "speed": 2.1015,
+        "damage": 50,
+        "attackSpeed": 1,
+        "range": 6
+      },
+      {
+        "id": "DSGrimReaper",
+        "nameZh": "死神",
+        "hp": 250,
+        "armor": 1,
+        "speed": 2.25
+      },
+      {
+        "id": "DSArchangelAssault",
+        "nameZh": "大天使（突击形态）",
+        "hp": 600,
+        "armor": 1,
+        "speed": 1.875,
+        "damage": 30,
+        "attackSpeed": 3,
+        "range": 10
+      },
+      {
+        "id": "DSStarportFlying",
+        "nameZh": "DSStarportFlying"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "DSStarport",
+        "nameZh": "星港",
+        "hp": 250,
+        "armor": 1
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      },
+      {
+        "id": "DSArmory",
+        "nameZh": "军械库",
+        "hp": 200,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "DSCommerceCenter32",
+        "nameZh": "交易中心 +32",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "DSCommerceCenter64",
+        "nameZh": "交易中心 +64",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "DSCommerceCenter8",
+        "nameZh": "任务指挥中心 +8",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "DSCommerceCenter16",
+        "nameZh": "交易中心 +16",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "DSCommerceCenter4",
+        "nameZh": "交易中心 +4",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "DSCommerceCenter",
+        "nameZh": "交易中心 +2",
+        "hp": 300,
+        "armor": 1
+      }
+    ]
+  },
+  "Elementalist": {
+    "troops": [
+      {
+        "id": "FireOrb",
+        "nameZh": "火元素球"
+      },
+      {
+        "id": "IceOrb",
+        "nameZh": "冰元素球"
+      },
+      {
+        "id": "StormOrb",
+        "nameZh": "雷元素球"
+      }
+    ],
+    "buildings": [],
+    "economy": []
+  },
+  "Nightingale": {
+    "troops": [
+      {
+        "id": "NightingaleNullifier",
+        "nameZh": "净化者",
+        "hp": 70,
+        "shield": 70,
+        "speed": 2.5,
+        "damage": 10,
+        "attackSpeed": 1.5,
+        "range": 4
+      },
+      {
+        "id": "NightingaleDisciple",
+        "nameZh": "使徒",
+        "hp": 150,
+        "shield": 150,
+        "speed": 3,
+        "damage": 100,
+        "attackSpeed": 1.25,
+        "range": 7
+      }
+    ],
+    "buildings": [
+      {
+        "id": "NightingaleSkylink16",
+        "nameZh": "天基信标 +16",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink2",
+        "nameZh": "天基信标 +2",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink4",
+        "nameZh": "天基信标 +4",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink32",
+        "nameZh": "天基信标 +32",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink8",
+        "nameZh": "天基信标 +8",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleNexus",
+        "nameZh": "星灵枢纽",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleTribunal",
+        "nameZh": "审判所",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleCloudCluster",
+        "nameZh": "星云团",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleObelisk",
+        "nameZh": "方尖碑",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleFlare",
+        "nameZh": "照明弹",
+        "hp": 30,
+        "shield": 30
+      },
+      {
+        "id": "NightingaleSpark",
+        "nameZh": "火花",
+        "hp": 30,
+        "shield": 30
+      },
+      {
+        "id": "NightingaleNullPointStabilizer",
+        "nameZh": "零点稳定器",
+        "hp": 150,
+        "shield": 150,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleBurst",
+        "nameZh": "爆破点",
+        "hp": 50,
+        "shield": 50
+      },
+      {
+        "id": "NightingaleSkylink",
+        "nameZh": "天基信标 +1",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      }
+    ],
+    "economy": [
+      {
+        "id": "NightingaleReactor",
+        "nameZh": "反应堆",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      }
+    ]
+  },
+  "Prophet": {
+    "troops": [],
+    "buildings": [
+      {
+        "id": "ProphetExtractionWard",
+        "nameZh": "萃取结界",
+        "hp": 30,
+        "shield": 30
+      },
+      {
+        "id": "ProphetVisionWard",
+        "nameZh": "视野结界",
+        "hp": 30,
+        "shield": 30
+      },
+      {
+        "id": "ProphetStasisWard",
+        "nameZh": "静滞结界",
+        "hp": 30,
+        "shield": 30
+      },
+      {
+        "id": "ProphetStargate",
+        "nameZh": "星门",
+        "hp": 50,
+        "shield": 50,
+        "armor": 5
+      },
+      {
+        "id": "ProphetHighAltar",
+        "nameZh": "祭坛",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ProphetProphecyArchives",
+        "nameZh": "预言库",
+        "hp": 100,
+        "shield": 100,
+        "armor": 5
+      },
+      {
+        "id": "ProphetPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "ProphetExplosiveWard",
+        "nameZh": "爆炸结界",
+        "hp": 50,
+        "shield": 50
+      },
+      {
+        "id": "ProphetLaboratory",
+        "nameZh": "实验室",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ProphetChronoWard",
+        "nameZh": "时空结界",
+        "hp": 30,
+        "shield": 30
+      },
+      {
+        "id": "ProphetParticleAccelerator",
+        "nameZh": "粒子加速器",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "ProphetAntimatterFacility",
+        "nameZh": "反物质设施",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      }
+    ],
+    "economy": []
+  },
+  "Rattlesnake": {
+    "troops": [
+      {
+        "id": "RattlesnakeSCV",
+        "nameZh": "SCV",
+        "hp": 30,
+        "speed": 3.6992
+      },
+      {
+        "id": "RattlesnakeWallLowered",
+        "nameZh": "RattlesnakeWallLowered"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "RattlesnakeDominionStarport8",
+        "nameZh": "核心星站 +8",
+        "hp": 200,
+        "armor": 2
+      },
+      {
+        "id": "RattlesnakeDominionStarport16",
+        "nameZh": "核心星站 +16",
+        "hp": 200,
+        "armor": 2
+      },
+      {
+        "id": "RattlesnakeDominionStarport32",
+        "nameZh": "核心星站+32",
+        "hp": 200,
+        "armor": 2
+      },
+      {
+        "id": "RattlesnakeDominionStarport4",
+        "nameZh": "核心星站 +4",
+        "hp": 200,
+        "armor": 2
+      },
+      {
+        "id": "RattlesnakeArmory",
+        "nameZh": "军械库",
+        "hp": 250,
+        "armor": 1
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      }
+    ],
+    "economy": []
+  },
+  "Scion": {
+    "troops": [
+      {
+        "id": "ScionPhoenix",
+        "nameZh": "凤凰",
+        "hp": 150,
+        "shield": 150,
+        "speed": 3.25
+      },
+      {
+        "id": "ScionElder",
+        "nameZh": "长者",
+        "hp": 250,
+        "shield": 250,
+        "speed": 3,
+        "damage": 30,
+        "attackSpeed": 1.25,
+        "range": 8
+      },
+      {
+        "id": "ScionTempest",
+        "nameZh": "风暴战舰",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1,
+        "speed": 1.8007,
+        "damage": 20,
+        "attackSpeed": 2.8,
+        "range": 10
+      }
+    ],
+    "buildings": [
+      {
+        "id": "ScionNexus1",
+        "nameZh": "星灵枢纽 +1",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "ScionPortal",
+        "nameZh": "传送门",
+        "hp": 25,
+        "shield": 25
+      },
+      {
+        "id": "ScionPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "ScionTempleOfSecrets",
+        "nameZh": "奥秘神庙",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "ScionEnergyReservoir",
+        "nameZh": "储能器",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "ScionManaWell",
+        "nameZh": "魔法之井",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "ScionLibrary",
+        "nameZh": "图书馆",
+        "hp": 100,
+        "shield": 100
+      },
+      {
+        "id": "ScionShieldBattery",
+        "nameZh": "护盾电池",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "ScionConservationBarrier",
+        "nameZh": "保护屏障",
+        "hp": 1000,
+        "shield": 300
+      },
+      {
+        "id": "ScionSentryPost",
+        "nameZh": "哨所",
+        "hp": 30,
+        "shield": 30
+      },
+      {
+        "id": "ScionReflectiveBarrier",
+        "nameZh": "反射屏障",
+        "hp": 300,
+        "shield": 50
+      },
+      {
+        "id": "ScionNexus32",
+        "nameZh": "星灵枢纽 +32",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "ScionNexus2",
+        "nameZh": "星灵枢纽 +2",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "ScionNexus4",
+        "nameZh": "星灵枢纽 +4",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "ScionNexus8",
+        "nameZh": "星灵枢纽 +8",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "ScionNexus16",
+        "nameZh": "星灵枢纽 +16",
+        "hp": 75,
+        "shield": 75
+      }
+    ],
+    "economy": []
+  },
+  "Sjlerk": {
+    "troops": [
+      {
+        "id": "SjlerkSCV",
+        "nameZh": "SCV",
+        "hp": 30,
+        "speed": 3.6992
+      }
+    ],
+    "buildings": [
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      },
+      {
+        "id": "SjlerkVisionArchive",
+        "nameZh": "视野档案馆视野",
+        "hp": 125,
+        "shield": 25,
+        "armor": 1
+      },
+      {
+        "id": "SjlerkEngineeringBay",
+        "nameZh": "工程站",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "SjlerkArchive",
+        "nameZh": "档案馆",
+        "hp": 100,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "SjlerkBlindingArchive",
+        "nameZh": "致盲档案馆",
+        "hp": 75
+      },
+      {
+        "id": "SjlerkSlowingArchive",
+        "nameZh": "减速档案馆",
+        "hp": 50
+      }
+    ],
+    "economy": []
+  },
+  "Team_Nova": {
+    "troops": [
+      {
+        "id": "NovaSCV",
+        "nameZh": "SCV",
+        "hp": 30,
+        "speed": 3.6992
+      },
+      {
+        "id": "NovaTinkerRebuild",
+        "nameZh": "KP45 \"无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaKP45A",
+        "nameZh": "KP45A \"隐形无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaKP45D",
+        "nameZh": "KP45D \"统治无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaKP45G",
+        "nameZh": "KP45G \"收集无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaKP45J",
+        "nameZh": "KP45J \"干扰无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaKP45N",
+        "nameZh": "KP45N \"照明无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaKP45H",
+        "nameZh": "KP45H \"治疗无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaKP45B",
+        "nameZh": "KP45B \"修复无人机\"",
+        "hp": 60,
+        "speed": 2.8125
+      },
+      {
+        "id": "NovaAccumulationSatellite",
+        "nameZh": "NovaAccumulationSatellite"
+      },
+      {
+        "id": "DeltaSquadDeflector",
+        "nameZh": "DeltaSquadDeflector"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "NovaMissionCommand32",
+        "nameZh": "任务指挥部 +32",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NovaMissionCommand2",
+        "nameZh": "任务指挥部 +2",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NovaMissionCommand4",
+        "nameZh": "任务指挥部 +4",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NovaMissionCommand8",
+        "nameZh": "任务指挥部 +8",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NovaMissionCommand16",
+        "nameZh": "任务指挥部 +16",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NovaMissionCommand1",
+        "nameZh": "任务指挥部 +1",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "NovaResearchFacility",
+        "nameZh": "研究设施",
+        "hp": 200
+      },
+      {
+        "id": "NovaPsiLinkLab",
+        "nameZh": "无人机实验室",
+        "hp": 300,
+        "armor": 1
+      },
+      {
+        "id": "NovaEquipmentCenter",
+        "nameZh": "设备中心",
+        "hp": 200,
+        "armor": 1
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      }
+    ],
+    "economy": []
+  },
+  "Warden": {
+    "troops": [
+      {
+        "id": "WardenHawk",
+        "nameZh": "鹰",
+        "hp": 200,
+        "shield": 200,
+        "speed": 3,
+        "damage": 30,
+        "attackSpeed": 1,
+        "range": 6
+      },
+      {
+        "id": "WardenAltar64",
+        "nameZh": "WardenAltar64"
+      }
+    ],
+    "buildings": [
+      {
+        "id": "WardenLucidConstruct",
+        "nameZh": "「澄净」",
+        "hp": 25,
+        "shield": 25
+      },
+      {
+        "id": "WardenAccelerationConstruct",
+        "nameZh": "「加速」",
+        "hp": 50,
+        "shield": 50
+      },
+      {
+        "id": "WardenAltar32",
+        "nameZh": "祭坛 +32",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "WardenAltar2",
+        "nameZh": "祭坛 +2",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "WardenAltar4",
+        "nameZh": "祭坛 +4",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "WardenAltar8",
+        "nameZh": "祭坛 +8s",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "WardenAltar16",
+        "nameZh": "祭坛 +16",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "WardenAltar1",
+        "nameZh": "祭坛 +1",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "WardenCoreMatrix",
+        "nameZh": "核心矩阵",
+        "hp": 75,
+        "shield": 75
+      },
+      {
+        "id": "WardenAccelerationPrototype",
+        "nameZh": "「加速」原型",
+        "hp": 50,
+        "shield": 50
+      },
+      {
+        "id": "WardenPylon",
+        "nameZh": "水晶塔",
+        "hp": 50,
+        "shield": 50,
+        "armor": 1
+      },
+      {
+        "id": "ScionShieldBattery",
+        "nameZh": "护盾电池",
+        "hp": 200,
+        "shield": 200,
+        "armor": 1
+      },
+      {
+        "id": "WardenLucidPrototype",
+        "nameZh": "「澄净」原型",
+        "hp": 25,
+        "shield": 25
+      }
+    ],
+    "economy": []
+  }
+}

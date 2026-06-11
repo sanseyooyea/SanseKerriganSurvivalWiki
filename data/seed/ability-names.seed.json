@@ -1,0 +1,17 @@
+{
+  "_comment": "Hand-curated ability name fallbacks for abilities the map has NO GameStrings name for. Only used when the map yields no Chinese name AND the auto-derived English (from the id) is worse than these. Sourced from the pre-refactor abilities.json so '以现有数据为准' holds. Maintain by hand.",
+  "PrimalSlash": "Primal Slash",
+  "DTShadowCharge": "Shadow Charge",
+  "ProphetWeapon": "Activate Weapon",
+  "MothershipMassRecall": "Mass Recall",
+  "NovaPersonalCloaking": "Personal Cloaking",
+  "NovaTeleport": "Teleport",
+  "Drag": "Drag",
+  "WardenMirror": "Warden Mirror",
+  "SelendisMorphtoMothership": "Morph to Mothership",
+  "MiraNuclearStrike": "Nuclear Strike",
+  "WarfieldSummonXanthos": "Summon Xanthos",
+  "IzshaSummonCorruptedWall": "Summon Corrupted Wall",
+  "SgtHammerResearch": "SgtHammer Research",
+  "UnleashChewbie": "Unleash Chewbie"
+}

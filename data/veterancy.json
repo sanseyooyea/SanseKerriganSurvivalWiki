@@ -1,0 +1,194 @@
+{
+  "ArtanisVeterancy": {
+    "str": 4,
+    "agi": 2,
+    "int": 1,
+    "heroes": [
+      "Artanis"
+    ]
+  },
+  "CloudVeterancy": {
+    "str": 2,
+    "agi": 1,
+    "int": 4,
+    "heroes": [
+      "Ascendant"
+    ]
+  },
+  "DTVeterancy": {
+    "str": 1,
+    "agi": 3,
+    "int": 2,
+    "heroes": [
+      "DarkTemplar"
+    ]
+  },
+  "HeliosMoonVeterancy": {
+    "str": 2,
+    "agi": 2,
+    "int": 3,
+    "heroes": [
+      "Helios"
+    ]
+  },
+  "SunVeterancy": {
+    "str": 3,
+    "agi": 1,
+    "int": 3,
+    "heroes": [
+      "Helios Sun"
+    ]
+  },
+  "NomadVeterancy": {
+    "str": 2,
+    "agi": 2,
+    "int": 3,
+    "heroes": [
+      "Nomad"
+    ]
+  },
+  "ProphetVeterancy": {
+    "str": 2,
+    "agi": 1,
+    "int": 4,
+    "heroes": [
+      "Prophet"
+    ]
+  },
+  "AresVeterancy": {
+    "str": 5,
+    "agi": 1,
+    "int": 1,
+    "heroes": [
+      "Ares"
+    ]
+  },
+  "MadMaxVeterancy": {
+    "str": 1,
+    "agi": 5,
+    "int": 1,
+    "heroes": [
+      "Mira"
+    ]
+  },
+  "SelendisVeterancy": {
+    "str": 2,
+    "agi": 1,
+    "int": 4,
+    "heroes": [
+      "Selendis"
+    ]
+  },
+  "StukovVeterancy": {
+    "str": 4,
+    "agi": 3,
+    "int": 0,
+    "heroes": [
+      "Stukov"
+    ]
+  },
+  "SpiritVeterancy": {
+    "str": 3,
+    "agi": 4,
+    "int": 0,
+    "heroes": [
+      "Spirit"
+    ]
+  },
+  "WardenVeterancy": {
+    "str": 4,
+    "agi": 2,
+    "int": 1,
+    "heroes": [
+      "Warden"
+    ]
+  },
+  "WardenHawkVeterancy": {
+    "str": 1,
+    "agi": 2,
+    "int": 3,
+    "heroes": [
+      "Warden Hawk"
+    ]
+  },
+  "AlarakVeterancy": {
+    "str": 4,
+    "agi": 2,
+    "int": 1,
+    "heroes": [
+      "Alarak"
+    ]
+  },
+  "NovaVeterancy": {
+    "str": 3,
+    "agi": 1,
+    "int": 2,
+    "heroes": [
+      "TeamNova"
+    ]
+  },
+  "ChampionVeterancy": {
+    "str": 2,
+    "agi": 2,
+    "int": 2,
+    "heroes": [
+      "Champion"
+    ]
+  },
+  "DSPhantomVet": {
+    "str": 1,
+    "agi": 2,
+    "int": 2,
+    "heroes": [
+      "DeltaSquad Phantom"
+    ]
+  },
+  "DSArchangelVeterancy": {
+    "str": 3,
+    "agi": 1,
+    "int": 2,
+    "heroes": [
+      "DeltaSquad Archangel"
+    ]
+  },
+  "DSGorgonVeterancy": {
+    "str": 3,
+    "agi": 1,
+    "int": 2,
+    "heroes": [
+      "DeltaSquad Gorgon"
+    ]
+  },
+  "DSLibVet": {
+    "str": 3,
+    "agi": 1,
+    "int": 2,
+    "heroes": [
+      "DeltaSquad Liberator"
+    ]
+  },
+  "SgtHammerVeterancy": {
+    "str": 2,
+    "agi": 1,
+    "int": 1,
+    "heroes": [
+      "SgtHammer"
+    ]
+  },
+  "KerriganVeterancyKS2": {
+    "str": 3,
+    "agi": 1,
+    "int": 2,
+    "heroes": [
+      "Kerrigan"
+    ]
+  },
+  "DehakaKerriganVeterancy": {
+    "str": 1,
+    "agi": 3,
+    "int": 2,
+    "heroes": [
+      "Dehaka"
+    ]
+  }
+}

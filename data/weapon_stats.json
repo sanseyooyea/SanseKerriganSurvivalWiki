@@ -1,0 +1,331 @@
+{
+  "Aewyn": {
+    "damage": 0,
+    "period": 1.0,
+    "attackCount": 1,
+    "range": 0.1,
+    "dps": 0.0
+  },
+  "Alarak": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 0,
+    "dps": 0.0
+  },
+  "Andor": {
+    "damage": 0,
+    "period": 0.8,
+    "attackCount": 1,
+    "range": 1.0,
+    "dps": 0.0
+  },
+  "Ares": {
+    "damage": 0,
+    "period": 1.25,
+    "attackCount": 1,
+    "range": 13.0,
+    "dps": 0.0
+  },
+  "Artanis": {
+    "damage": 60.0,
+    "period": 1.7,
+    "attackCount": 1,
+    "range": 6.0,
+    "dps": 35.3
+  },
+  "Ascendant": {
+    "damage": 0,
+    "period": 1.5,
+    "attackCount": 1,
+    "range": 6.0,
+    "dps": 0.0
+  },
+  "Champion": {
+    "damage": 0,
+    "period": 1.5,
+    "attackCount": 1,
+    "range": 4.0,
+    "dps": 0.0
+  },
+  "Critter_Lord": {
+    "damage": 0,
+    "period": 0.7,
+    "attackCount": 1,
+    "range": 0.1,
+    "dps": 0.0
+  },
+  "DJ": {
+    "damage": 0,
+    "period": 1.0,
+    "attackCount": 1,
+    "range": 3.0,
+    "dps": 0.0
+  },
+  "Energizer": {
+    "damage": 0,
+    "period": 1.754,
+    "attackCount": 1,
+    "range": 0,
+    "dps": 0.0
+  },
+  "Engineer": {
+    "damage": 0,
+    "period": 1.25,
+    "attackCount": 1,
+    "range": 0,
+    "dps": 0.0
+  },
+  "Helios": {
+    "damage": 40.0,
+    "period": 0.3,
+    "attackCount": 1,
+    "range": 6.0,
+    "dps": 133.3
+  },
+  "Jinara": {
+    "damage": 0,
+    "period": 1.1,
+    "attackCount": 1,
+    "range": 1.5,
+    "dps": 0.0
+  },
+  "Mira": {
+    "damage": 0,
+    "period": 0.9,
+    "attackCount": 1,
+    "range": 8.0,
+    "dps": 0.0
+  },
+  "Nomad": {
+    "damage": 0,
+    "period": 0.0,
+    "attackCount": 1,
+    "range": 8.0,
+    "dps": 0
+  },
+  "Scientist": {
+    "damage": 0,
+    "period": 1.4,
+    "attackCount": 1,
+    "range": 3.0,
+    "dps": 0.0
+  },
+  "Selendis": {
+    "damage": 0,
+    "period": 1.694,
+    "attackCount": 1,
+    "range": 4.0,
+    "dps": 0.0
+  },
+  "SgtHammer": {
+    "damage": 0,
+    "period": 0.5,
+    "attackCount": 2,
+    "range": 10.0,
+    "dps": 0.0
+  },
+  "Sophia": {
+    "damage": 0,
+    "period": 6.0,
+    "attackCount": 1,
+    "range": 4.0,
+    "dps": 0.0
+  },
+  "Spirit": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 5.5,
+    "dps": 0.0
+  },
+  "Stukov": {
+    "damage": 0,
+    "period": 1.0,
+    "attackCount": 1,
+    "range": 7.0,
+    "dps": 0.0
+  },
+  "Swann": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 6.0,
+    "dps": 0.0
+  },
+  "Technician": {
+    "damage": 50.0,
+    "period": 480.0,
+    "attackCount": 1,
+    "range": 4.0,
+    "dps": 0.1
+  },
+  "Warfield": {
+    "damage": 0,
+    "period": 1.6,
+    "attackCount": 1,
+    "range": 6.5,
+    "dps": 0.0
+  },
+  "Glevig": {
+    "damage": 0,
+    "period": 0.55,
+    "attackCount": 1,
+    "range": 0.3,
+    "dps": 0.0
+  },
+  "Izsha": {
+    "damage": 30.0,
+    "period": 2.0,
+    "attackCount": 4,
+    "range": 0,
+    "dps": 60.0
+  },
+  "Phaegore": {
+    "damage": 0,
+    "period": 0.9,
+    "attackCount": 1,
+    "range": 2.0,
+    "dps": 0.0
+  },
+  "Sir_Roachington": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 1.5,
+    "dps": 0.0
+  },
+  "Zagara": {
+    "damage": 0,
+    "period": 0.9,
+    "attackCount": 1,
+    "range": 8.0,
+    "dps": 0.0
+  },
+  "Ghost": {
+    "damage": 100.0,
+    "period": 0.2,
+    "attackCount": 1,
+    "range": 0.25,
+    "dps": 500.0
+  },
+  "Brakk": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 2.0,
+    "dps": 0.0
+  },
+  "Dehaka": {
+    "damage": 0,
+    "period": 1.25,
+    "attackCount": 1,
+    "range": 3.0,
+    "dps": 0.0
+  },
+  "Kerrigan": {
+    "damage": 30.0,
+    "period": 1.0,
+    "attackCount": 2,
+    "range": 0.0,
+    "dps": 60.0
+  },
+  "Kraith": {
+    "damage": 45.0,
+    "period": 1.5,
+    "attackCount": 1,
+    "range": 1.5,
+    "dps": 30.0
+  },
+  "Malus": {
+    "damage": 0,
+    "period": 0.5,
+    "attackCount": 2,
+    "range": 0.5,
+    "dps": 0.0
+  },
+  "Thakras": {
+    "damage": 0,
+    "period": 1.0,
+    "attackCount": 1,
+    "range": 0.0,
+    "dps": 0.0
+  },
+  "Chew": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 0,
+    "dps": 0.0
+  },
+  "Dark_Templar": {
+    "damage": 0,
+    "period": 1.25,
+    "attackCount": 1,
+    "range": 7.0,
+    "dps": 0.0
+  },
+  "Delta_Squad": {
+    "damage": 0,
+    "period": 1.0,
+    "attackCount": 1,
+    "range": 6.0,
+    "dps": 0.0
+  },
+  "Elementalist": {
+    "damage": 1.0,
+    "period": 1.5,
+    "attackCount": 1,
+    "range": 0,
+    "dps": 0.7
+  },
+  "Nightingale": {
+    "damage": 0,
+    "period": 1.5,
+    "attackCount": 1,
+    "range": 4.0,
+    "dps": 0.0
+  },
+  "Prophet": {
+    "damage": 0,
+    "period": 1.25,
+    "attackCount": 1,
+    "range": 4.0,
+    "dps": 0.0
+  },
+  "Rattlesnake": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 6.0,
+    "dps": 0.0
+  },
+  "Scion": {
+    "damage": 20.0,
+    "period": 2.8,
+    "attackCount": 1,
+    "range": 10.0,
+    "dps": 7.1
+  },
+  "Sjlerk": {
+    "damage": 0,
+    "period": 0.64,
+    "attackCount": 1,
+    "range": 8.0,
+    "dps": 0.0
+  },
+  "Team_Nova": {
+    "damage": 0,
+    "period": 2.0,
+    "attackCount": 1,
+    "range": 7.0,
+    "dps": 0.0
+  },
+  "Warden": {
+    "damage": 0,
+    "period": 0.1,
+    "attackCount": 1,
+    "range": 0.1,
+    "dps": 0.0
+  }
+}

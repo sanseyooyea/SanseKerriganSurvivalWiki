@@ -1,0 +1,794 @@
+{
+  "translations": {
+    "158": {
+      "title": "拯救三角洲小队",
+      "description": "- 防御矩阵现在可以以三角洲小队自身的单位为目标",
+      "close_reason": ""
+    },
+    "157": {
+      "title": "Sophia +64 移除",
+      "description": "移除 Sophia 将 +32 升级为 +64 的能力\n\n理由：对于一个拥有隐形经济的职业来说，经济密度过高。若非 Sophia 的 +64 本身也是她最高效的经济手段之一，这个问题尚可接受。其他隐形经济职业虽有更紧凑的经济选项，但代价是效率明显低于其低阶经济。",
+      "close_reason": ""
+    },
+    "156": {
+      "title": "Aewyn 经验光球重平衡",
+      "description": "为 Aewyn 经验光球添加新被动：创建时立即给予 Aewyn 本人 25/150/500/1500 点经验\n\n理由：取消 Aewyn 给自身提供经验的能力是对该英雄的重大削弱。旧版本鼓励挂机刷经济，改为无需靠近即可获得经验可避免这一问题。Aewyn 给自身的经验量相比以前有所降低（原为 50/300/1000/3000），因为经验光球仍保留给予队友经验的功能，以鼓励团队协作。",
+      "close_reason": ""
+    },
+    "155": {
+      "title": "Dehaka 削弱",
+      "description": "拖拽技能等级需求：2/4/6/8 -> 2/4/7/10\n\n满级拖拽是一种有毒的赌运玩法，不应过于强力。",
+      "close_reason": ""
+    },
+    "154": {
+      "title": "削弱黑暗圣堂武士",
+      "description": "将 3GF 黑暗圣堂武士的费用提高 12500 矿物。\n降低其伤害成长。\n降低其后期发展潜力。",
+      "close_reason": "钻石议会提案必须提供精确数值，而非方向性描述，方向性建议请前往游戏建议区。"
+    },
+    "153": {
+      "title": "如何获得提案权限",
+      "description": "我目前是宗师段位玩家，但似乎失去了在钻石议会创建提案或分享想法的能力。\n请求审核并恢复我的提案权限。我有若干想法和建议，相信有助于改善游戏和社区。",
+      "close_reason": "不是投票池"
+    },
+    "152": {
+      "title": "Energizer 英雄单位",
+      "description": "恢复 Energizer 旧版单位英雄（陀螺英雄除外）\n\n同时只能存在一个，英雄死亡后可重新创建，但会失去所有经验值。",
+      "close_reason": ""
+    },
+    "151": {
+      "title": "Skitter 削弱",
+      "description": "- 将 Skitter 基础生命值从 400 降至 300\n\n理由：他在不处于可能被击杀的范围内，就能过早骚扰防御者或猎手。",
+      "close_reason": ""
+    },
+    "150": {
+      "title": "Sophia 隐形信标上限调整",
+      "description": "Sophia 隐形信标数量上限改为 8 个\n理由：资源充足时无限隐形信标在后期极度强力。",
+      "close_reason": ""
+    },
+    "149": {
+      "title": "Jinara 削弱",
+      "description": "攻击/护甲升级研究时间 5秒 -> 15秒\nRakshir 研究时间 5秒 -> 20秒\n\nJinara 是为数不多拥有如此快速升级研究时间的职业之一。",
+      "close_reason": ""
+    },
+    "148": {
+      "title": "团队凯瑞甘削弱",
+      "description": "移除团队凯瑞甘的自动经济",
+      "close_reason": ""
+    },
+    "147": {
+      "title": "Sophia 隐身",
+      "description": "移除 Sophia 的隐身能力，建造者本身拥有强力经济且能隐身，再加上即时召唤单位，组合起来并不合理。",
+      "close_reason": ""
+    },
+    "146": {
+      "title": "索菲亚空中战机调整",
+      "description": "给索菲亚空中战机添加一个对地攻击，伤害1，攻击间隔2秒。\n原因：飞行途中击杀霸主无需操作过于强力，应让其在无操作时卡在攻击地面单位上。",
+      "close_reason": ""
+    },
+    "145": {
+      "title": "Sir Roachington 帽子强化",
+      "description": "将Sir Roachington帽子的能量消耗从\n120/120/120/120降低至100/90/80/70",
+      "close_reason": ""
+    },
+    "144": {
+      "title": "小动物后期强化",
+      "description": "为小动物添加一个15000/100的升级，使其供应上限增加50",
+      "close_reason": ""
+    },
+    "143": {
+      "title": "凯瑞甘/Thakras削弱",
+      "description": "使寄生虫只能释放在辅助英雄身上",
+      "close_reason": ""
+    },
+    "142": {
+      "title": "索菲亚信标削弱",
+      "description": "将隐形的费用从150提高至500",
+      "close_reason": ""
+    },
+    "141": {
+      "title": "阿塔尼斯控制核心调整",
+      "description": "将阿塔尼斯控制核心的费用从200降低至175，使其能像其他主动职业一样在虫卵波中坚守",
+      "close_reason": ""
+    },
+    "140": {
+      "title": "Kraith Pyga强化",
+      "description": "将Kraith Pyga强化改为随等级提升的效果：\n4级 - 生命值+50\n6级 - 生命值+100\n8级 - 视野范围+1.5",
+      "close_reason": ""
+    },
+    "139": {
+      "title": "Jinara伤害减免升级调整",
+      "description": "将Jinara Rakshir升级的伤害减免从80%降低至50%",
+      "close_reason": ""
+    },
+    "138": {
+      "title": "Izsha隔离削弱",
+      "description": "Izsha隔离充能次数 3/6/9/12 -> 所有等级固定为4次\nIzsha隔离范围 1.5/2/2.5/3 -> 所有等级固定为2",
+      "close_reason": ""
+    },
+    "137": {
+      "title": "恢复Izsha在矿石上减速的效果",
+      "description": "Izsha难度9/10，选她的玩家水平足够自行注意英雄的走路路径。",
+      "close_reason": ""
+    },
+    "136": {
+      "title": "添加新建造者",
+      "description": "添加一个混沌建造者，循环随机切换建造者身份，并可建造该职业的静态防御单位。\n\n拥有一个可升级且无法被摧毁的气矿，用气体可购买波次单位，这些单位波次结束后消失，但会提供永久收入加成，收入在每波结束后结算。\n\n静态防御单位将参与抵御己方发出的波次，以及随波次增强的混合虫族单位。若建造者获胜，存活单位将进攻中路。",
+      "close_reason": "Squadron TD vs Zealots"
+    },
+    "135": {
+      "title": "添加新猎手",
+      "description": "星灵猎手：\n技能：扫描、幽灵步伐、隐形、传送。\n幽灵步伐：提升移速并隐形10秒，攻击后解除。\n隐形：5秒隐形，全局仅3次充能，不可被探测器发现。\n传送：传送至中路，冷却180秒。\n虫道替换为工厂，出售星灵专属道具。\n星灵拥有6个道具栏。\n商店可购买：靴子、视野戒指、刀刃、手套、生命、护甲、回复。\n通过造成伤害获得经济。",
+      "close_reason": "we are NOT playing Probes vs Zealots"
+    },
+    "134": {
+      "title": "jinara 伤害减免升级",
+      "description": "从jinara身上移除rakshir升级\n即80%伤害减免，这个效果没有任何存在的理由",
+      "close_reason": ""
+    },
+    "133": {
+      "title": "Maldus网络削弱",
+      "description": "- Maldus网络在4级不再获得雷达\n- 4级血量从4000提升至5000\n- 4级视野半径从6提升至7",
+      "close_reason": "其他相关及并行改动已包含此内容"
+    },
+    "132": {
+      "title": "攻击优先级",
+      "description": "给予手电筒与经济建筑相同的攻击优先级",
+      "close_reason": ""
+    },
+    "131": {
+      "title": "宗师应该改名",
+      "description": "改为Grandmauster",
+      "close_reason": "不相关"
+    },
+    "130": {
+      "title": "元素法师冰球减速",
+      "description": "当有1个法球正在移动时，不允许激活Freezing Field",
+      "close_reason": ""
+    },
+    "129": {
+      "title": "元素法师视野法球",
+      "description": "移除技能 revelations、storm orb 以及 storm orb mastery 的制高点视野",
+      "close_reason": ""
+    },
+    "128": {
+      "title": "禁用Izsha",
+      "description": "再读一遍名字",
+      "close_reason": ""
+    },
+    "127": {
+      "title": "禁用Malus",
+      "description": "读一读名字",
+      "close_reason": ""
+    },
+    "126": {
+      "title": "禁用Sjlerk",
+      "description": "这个角色只会坑队友\n\n不允许有乐趣",
+      "close_reason": ""
+    },
+    "125": {
+      "title": "科学家SCV",
+      "description": "恢复科学家SCV使用探测器建造的功能",
+      "close_reason": "重复提案，其他投票已通过，创建者申请关闭"
+    },
+    "124": {
+      "title": "移除冠军自动编组",
+      "description": "移除冠军在载入单位后的自动编组功能。不是所有人都用1号键操控英雄，每次载入单位都会取消我的1号编组",
+      "close_reason": ""
+    },
+    "123": {
+      "title": "拯救Selendis",
+      "description": "将Selendis所有单位的移动速度设为3",
+      "close_reason": ""
+    },
+    "122": {
+      "title": "降低收割者费用",
+      "description": "提案#121通过后，将科学家收割者费用从24降至23",
+      "close_reason": "提案#121未通过"
+    },
+    "121": {
+      "title": "降低收割者费用",
+      "description": "将科学家收割者费用从25降至24",
+      "close_reason": ""
+    },
+    "120": {
+      "title": "加强垃圾虫生命值",
+      "description": "300/400/500/600",
+      "close_reason": ""
+    },
+    "119": {
+      "title": "移除自动蔓延菌毯",
+      "description": "停止菌毯扩散，移除自动蔓延菌毯，让防守方专注于防御和手动蔓延菌毯。我们已经把太多失误带入这场游戏。",
+      "close_reason": ""
+    },
+    "118": {
+      "title": "团队凯瑞甘整体强化",
+      "description": "将提取器费用从250降至225\n原因：自气体公式调整后，团队凯瑞甘在获取气体方面愈发困难",
+      "close_reason": ""
+    },
+    "117": {
+      "title": "拯救ks2",
+      "description": "提升以下单位移速：TN(+0.25)、斯托科夫(+0.25)、米拉(+0.25)、冠军(+1)、锤击(每辆坦克+0.3/0.4/0.5)、DJ(+0.25)、充能器(+0.25)、斯旺(+0.25)",
+      "close_reason": ""
+    },
+    "116": {
+      "title": "科学家供给上限强化",
+      "description": "将科学家最大供给从200提升至250",
+      "close_reason": ""
+    },
+    "115": {
+      "title": "科学家供给上限强化",
+      "description": "将供给从200提升至250或300，或为科学家添加可升级最大供给上限的科技",
+      "close_reason": "投票选项不明确——须确定一个具体数值"
+    },
+    "114": {
+      "title": "科学家供给强化",
+      "description": "无法正常游戏",
+      "close_reason": "投票发起者主动申请关闭此投票，以便重新发起有效投票。"
+    },
+    "113": {
+      "title": "迪哈卡移速与供给",
+      "description": "迪哈卡移速从3.25降至3.1\n最大供给从120提升至140",
+      "close_reason": ""
+    },
+    "112": {
+      "title": "布拉克劈砍",
+      "description": "将布拉克劈砍技能改为按等级缩放：40/50/60/70%，取代原有固定75%",
+      "close_reason": ""
+    },
+    "111": {
+      "title": "超凡者云端建造",
+      "description": "为超凡者云端添加5000/100的升级，使其可以建造建筑",
+      "close_reason": "已关闭"
+    },
+    "110": {
+      "title": "拯救科学家",
+      "description": "为科学家的SCV恢复探针建造功能。",
+      "close_reason": ""
+    },
+    "109": {
+      "title": "削弱全部回收",
+      "description": "将全部回收的回收时间增加至8.5秒。",
+      "close_reason": ""
+    },
+    "108": {
+      "title": "恢复最佳沃菲尔德",
+      "description": "将Warfield回滚至最早版本，即通过外屋单位获得经济、建造聚变核心触发Chrono经济。我认为原版Warfield在职业机制上最具创意且最连贯。",
+      "close_reason": "单纯DC一个职业重做并不简单"
+    },
+    "107": {
+      "title": "移除索菲亚经济单位的隐形",
+      "description": "请在不隐形的前提下平衡索菲亚的经济机制。",
+      "close_reason": ""
+    },
+    "106": {
+      "title": "吉纳拉侦测器冷却",
+      "description": "为吉纳拉的侦察机生成技能添加30秒的生成间隔冷却。",
+      "close_reason": "用不同的削弱方式修复问题，此提案已无必要，2.668"
+    },
+    "105": {
+      "title": "遏制移速膨胀",
+      "description": "将游戏中所有单位的移动速度降低5%。",
+      "close_reason": ""
+    },
+    "104": {
+      "title": "凯瑞甘移速膨胀",
+      "description": "原始咆哮不再提升英雄单位的移动速度。\n\n原因：在移速膨胀改动后，猎手获得任何移速加成都极为强力。",
+      "close_reason": ""
+    },
+    "103": {
+      "title": "布拉克移速膨胀",
+      "description": "移除布拉克换位后的移速加成。\n移速膨胀改动后，猎手获得任何移速加成都极为强力。",
+      "close_reason": ""
+    },
+    "102": {
+      "title": "追猎者移速膨胀",
+      "description": "将塞伦迪斯、阿塔尼斯和吉纳拉的追猎者移速统一调整为3.0。\n阿塔尼斯和塞伦迪斯追猎者：2.95 → 3.0\n吉纳拉追猎者：3.25 → 3.0\nKS2中不应出现追猎者移速膨胀问题。",
+      "close_reason": ""
+    },
+    "101": {
+      "title": "移除虫族移速膨胀",
+      "description": "跳虫移速加成：0.5 → 0.3\n蜂巢移速加成：0.5 → 0.3",
+      "close_reason": ""
+    },
+    "100": {
+      "title": "安多尔单位费用",
+      "description": "安多尔单位当前费用：\n狂热者：50/5\n执政官：75/10\n\n获得香蕉后：狂热者费用 → 75/5\n获得执政官复活后：执政官 → 100/10",
+      "close_reason": ""
+    },
+    "99": {
+      "title": "灵魂经济调整",
+      "description": "银行：移除1000/7选项\nT2银行：包含T1银行所有选项，新增1000/7选项，占地3x3\nT3银行：包含T2银行所有选项，新增2000/13选项，占地4x4\n\n原因：灵魂目前在寻找经济点上投入过少，在经济层面很难被针对。此改动将增加灵魂经济运营的难度。",
+      "close_reason": ""
+    },
+    "86": {
+      "title": "Jinara 传送门",
+      "description": "将传送门费用从75/75降至50/50",
+      "close_reason": ""
+    },
+    "85": {
+      "title": "Champion 增益",
+      "description": "将Champion传送门费用从50矿降至25矿\n\nChampion早期没有防墙手段，而且作为Chrono职业缺乏视野或诱饵墙\n性价比不高",
+      "close_reason": ""
+    },
+    "84": {
+      "title": "Spirit 削弱",
+      "description": "Spirit的攻击升级（伤害/攻速）不再作用于已建造的防御塔",
+      "close_reason": ""
+    },
+    "83": {
+      "title": "虫族削弱",
+      "description": "完全移除自动经济切换功能（自动造虫除外）",
+      "close_reason": ""
+    },
+    "82": {
+      "title": "战场Eidolon单位的召回",
+      "description": "将其从Herc召回改为母舰召回\n当前存在较多bug",
+      "close_reason": "这是bug问题，不属于钻石议会提案范畴。"
+    },
+    "81": {
+      "title": "新音乐",
+      "description": "将Tana 2隐猫之歌设为默认曲目，无法关闭，且对所有玩家强制播放",
+      "close_reason": "这首歌对KS2来说太好听了"
+    },
+    "80": {
+      "title": "科技经济替代调整方案",
+      "description": "撤销2.644版本对科技经济的削弱，改为将高级经济的矿石转化比率从1.19(+1) 1.18 1.17 1.16(+8) .... 1.12(+128) 调整为 1.16(+8) 1.14(+16) ... 1.08(+128)",
+      "close_reason": ""
+    },
+    "79": {
+      "title": "Sophia 隐形经济建筑",
+      "description": "Sophia的建筑不应具有隐形效果",
+      "close_reason": ""
+    },
+    "78": {
+      "title": "元素法师矿石重新缩放",
+      "description": "将元素法师的矿石产出按5:1比例缩减，避免其在13分钟阵亡时发送5万矿",
+      "close_reason": "正在重做中，矿石缩放机制已纳入重做范围"
+    },
+    "77": {
+      "title": "生化陷阱增加5分钟持续时间",
+      "description": "生化陷阱在全程叠加会导致Izsha防线几乎无法突破，应设置到期时间",
+      "close_reason": ""
+    },
+    "76": {
+      "title": "寄生虫豁免",
+      "description": "使寄生虫无法施放于Selendis",
+      "close_reason": ""
+    },
+    "75": {
+      "title": "Sgt. Hammer削弱",
+      "description": "经济工厂费用从500提升至600",
+      "close_reason": ""
+    },
+    "50": {
+      "title": "Malus削弱",
+      "description": "爆虫吞噬移动速度加成 10% -> 5%",
+      "close_reason": ""
+    },
+    "49": {
+      "title": "Nyadra削弱",
+      "description": "Nyadra在蔓延之外能节省约1秒移动时间\n这对击杀生还者影响巨大\n削弱为原来的50%或33%时长\n（抱歉不清楚具体秒数，暂用百分比表示）",
+      "close_reason": ""
+    },
+    "48": {
+      "title": "黑暗圣堂武士回血",
+      "description": "给予黑暗圣堂武士1点基础生命恢复",
+      "close_reason": ""
+    },
+    "47": {
+      "title": "将灵魂速度降至3",
+      "description": "将灵魂移动速度从5降至3\n所有英雄应统一为3移速",
+      "close_reason": ""
+    },
+    "46": {
+      "title": "降低Warfield移速",
+      "description": "将Warfield移速从3.35降至3\n\n原因：回滚速度膨胀",
+      "close_reason": ""
+    },
+    "45": {
+      "title": "降低Hammer移速",
+      "description": "将Axe移动速度从3.3降至3，Arclight移动速度从3.4降至3.1\n\n原因：撤销速度膨胀",
+      "close_reason": ""
+    },
+    "44": {
+      "title": "虫族蔓延削弱",
+      "description": "目前游戏蔓延扩散过快\n预组队局虫族可在15分钟内覆盖2/3地图\n公共局约20分钟\n而且在没有扫描的情况下生还者很难清除大量蔓延（虽然有单位视野）\n自动蔓延间隔 80秒 -> 100秒\n蔓延血量 150 -> 125\n自动蔓延生成量 全量 -> 80%",
+      "close_reason": "lumi否决，认为削弱过度"
+    },
+    "43": {
+      "title": "移除Shopia Thor的对空攻击",
+      "description": "移除Shopia Thor的对空攻击，对腐化者威胁过强",
+      "close_reason": ""
+    },
+    "42": {
+      "title": "飞升者增强 🐈",
+      "description": "使飞升者的水晶塔费用降至10矿\n理由 --> 早期游戏多20矿对其起步帮助很大",
+      "close_reason": "Lumi否决"
+    },
+    "41": {
+      "title": "Jinara单位生产",
+      "description": "将Jinara的单位生产恢复为旧版",
+      "close_reason": ""
+    },
+    "40": {
+      "title": "Alarak增强",
+      "description": "将Alarak移动速度从3.0提升至3.3",
+      "close_reason": ""
+    },
+    "39": {
+      "title": "Scion防御强化削弱",
+      "description": "护盾：300/600/1200/2400 -> 200/400/800/1500\n护盾护甲：5/10/15/20 -> 3/5/7/10",
+      "close_reason": ""
+    },
+    "38": {
+      "title": "重新启用 Sjlerk",
+      "description": "闪烁：\n- 移除充能次数限制\n- 使用后提供递增的移动速度加成（30/40/50/60%），持续 5/6/7/8 秒；2 秒后达到最大速度\n- 冷却时间：30 秒 → 60 秒\n- 能量消耗：50 → 75",
+      "close_reason": ""
+    },
+    "37": {
+      "title": "还原 2.608 版本 Swann 改动",
+      "description": "还原 2.608 版本的 Swann 改动，并将钻头范围改为 3x3 作为削弱",
+      "close_reason": ""
+    },
+    "36": {
+      "title": "还原虫群血条显示",
+      "description": "还原小狗血量条显示",
+      "close_reason": ""
+    },
+    "35": {
+      "title": "Swann 掠夺者削弱",
+      "description": "当英雄不在掠夺者内部时，掠夺者不再能够保持隐形状态。此改动旨在防止滥用隐形建造者——该建造者可以在地图上以较快速度自由移动，构建优质防线和经济单位",
+      "close_reason": ""
+    },
+    "34": {
+      "title": "Swann Drakken 钻头",
+      "description": "Swann 的 Drakken 钻头现在可以像空中单位一样被攻击（与科技塔相同）",
+      "close_reason": ""
+    },
+    "33": {
+      "title": "生物领主调整",
+      "description": "巨型花蕾获得停火选项",
+      "close_reason": ""
+    },
+    "32": {
+      "title": "技师塔调整",
+      "description": "降低科技侦察塔首个视野升级的费用：100 → 50，供给：5 → 3\n同时科技扫描塔升级供给消耗：2 → 1",
+      "close_reason": ""
+    },
+    "31": {
+      "title": "移除 Jinara 的全部回收功能",
+      "description": "Jinara 是非常强力的职业，全部回收按钮对 Jinara 来说属于不必要的特权",
+      "close_reason": "我们正在为所有职业开发通用解决方案"
+    },
+    "30": {
+      "title": "Mira 核弹强化",
+      "description": "将双倍伤害核弹升级从工程海湾迁移至核弹发射井。\n\n在核弹发射井新增一个花费 1000/10 的升级，使 Mira 核弹的施法距离翻倍。",
+      "close_reason": ""
+    },
+    "29": {
+      "title": "Mira 核弹削弱",
+      "description": "Mira 核弹不应无视护甲",
+      "close_reason": ""
+    },
+    "28": {
+      "title": "Sophia 经济削弱",
+      "description": "移除 Sophia 的 +64 供给，Sophia 拥有隐形经济单位，无需额外的 +64 供给",
+      "close_reason": ""
+    },
+    "27": {
+      "title": "技师基础塔供给调整",
+      "description": "将技师基础塔供给从 2 降低至 1.5，经验供给减少 10",
+      "close_reason": "我们正在为所有职业开发通用解决方案"
+    },
+    "26": {
+      "title": "测试",
+      "description": "https://tenor.com/view/samdwich-markus-s%C3%B6der-soder-soeder-gif-21180372",
+      "close_reason": "无效提案"
+    },
+    "25": {
+      "title": "Helios建造提速升级",
+      "description": "新增1000/10或500/10升级，加快Helios建筑的建造速度。由于小狗数量过多，在建建筑经常被随机攻击到。",
+      "close_reason": ""
+    },
+    "24": {
+      "title": "卫士冲刺去除费用",
+      "description": "移除卫士冲刺的能量消耗（50能量→0能量）。",
+      "close_reason": ""
+    },
+    "23": {
+      "title": "移除凯瑞甘的风暴",
+      "description": "不应过度强化KS2。凯瑞甘本已是最强猎手，拥有众多强力技能，无需风暴也已足够。",
+      "close_reason": ""
+    },
+    "22": {
+      "title": "飞升者强化",
+      "description": "飞升者水晶塔费用从20降至10；虚空裂隙费用从50降至25。",
+      "close_reason": ""
+    },
+    "21": {
+      "title": "Stukov后期强化",
+      "description": "加：新增畸变体升级（费用：20000/200）——赋予畸变体范围攻击，类似飞升者的Behemots。\n减：移除Stukov二级人口升级。\n\n理由：Stukov前期良好，但后期即使资源充裕也因缺乏AOE单位与单体DPS不足而乏力。范围攻击可有效应对小狗/蟑螂，奖励资源充足的Stukov，使其在后期仍保持强大威慑力。",
+      "close_reason": ""
+    },
+    "20": {
+      "title": "辅助职业削弱",
+      "description": "所有辅助职业开局减少50矿。",
+      "close_reason": "具体改动已否决，lumi采用了其他方案"
+    },
+    "19": {
+      "title": "Stukov射程升级",
+      "description": "Stukov射程升级从1500费/+15射程改为500费/+10射程。",
+      "close_reason": ""
+    },
+    "18": {
+      "title": "Scion风暴解锁等级限制",
+      "description": "将Scion风暴锁定在2级后解锁。",
+      "close_reason": ""
+    },
+    "17": {
+      "title": "Stukov旧版矿池",
+      "description": "其魔法数值为25。",
+      "close_reason": ""
+    },
+    "16": {
+      "title": "Scion防御强化调整",
+      "description": "护盾值：300/600/1200/2400→300/600/900/1200；护盾护甲：5/10/15/20→2/4/7/10；持续时间：15/20/25/30秒→统一20秒；充能次数：3/4/5/6→2/3/4/5。",
+      "close_reason": ""
+    },
+    "15": {
+      "title": "DJ（Sox建议）",
+      "description": "激光秀：基础属性及升级成长（伤害/生命）降低15-20%；赋予其类似巨像的悬崖行走能力；每级DJ强化值增加2点（非飞行英雄可适当提升最大生命值）；经济二级升级费用提高10-15%。",
+      "close_reason": ""
+    },
+    "14": {
+      "title": "TN",
+      "description": "将TN传送回城冷却时间从30秒增加至1分钟",
+      "close_reason": "否决"
+    },
+    "13": {
+      "title": "拯救Warfield",
+      "description": "恢复旧版小屋Warfield经济模式，但改为通过6个升级项为小屋添加对应经济加成与增益效果，并为小屋添加拆除回收功能。与旧版可放入多个单位类似，这些升级项也可多次叠加购买（如6次鱼人经济升级、3次秃鹫升级……每次升级为小屋额外提供+10血量）",
+      "close_reason": ""
+    },
+    "12": {
+      "title": "精灵喝醉",
+      "description": "为Spirit Beer添加自动释放选项",
+      "close_reason": "Lumi认定此为恶意提案"
+    },
+    "11": {
+      "title": "歌利亚与维京人调整",
+      "description": "Ares维京人血量提高100、攻击伤害降低10、攻击间隔从1.2调整为1.5；歌利亚对地攻击伤害提高10、对地攻击间隔从1.5调整为1.2、移动速度调整为3",
+      "close_reason": "否决"
+    },
+    "10": {
+      "title": "降低Scion神族风暴舰移速0.2",
+      "description": "Scion跟随1级猎手简直是绝佳游戏体验",
+      "close_reason": ""
+    },
+    "9": {
+      "title": "将工人隧道气体费用提升至5",
+      "description": "a",
+      "close_reason": ""
+    },
+    "8": {
+      "title": "Ascendant增益",
+      "description": "赋予Ascendant对任意经济建筑永久100%时间加速",
+      "close_reason": "恶意提案"
+    },
+    "7": {
+      "title": "移除NG闪烁",
+      "description": "a",
+      "close_reason": "已在讨论/制作/重做中"
+    },
+    "6": {
+      "title": "将Kachinsky费用提升至1000/10",
+      "description": "a",
+      "close_reason": ""
+    },
+    "5": {
+      "title": "将TN传送回城冷却时间提升至5分钟",
+      "description": "a",
+      "close_reason": "30秒→5分钟？绝对不行"
+    },
+    "4": {
+      "title": "使TN传送回城进入共享冷却",
+      "description": "a",
+      "close_reason": "否决"
+    },
+    "3": {
+      "title": "给Sci和Ascendant拆除回收返还3点气体",
+      "description": "a",
+      "close_reason": "未指明拆除类型"
+    },
+    "2": {
+      "title": "测试",
+      "description": "这是一个测试案例。",
+      "close_reason": "测试"
+    },
+    "1": {
+      "title": "测试",
+      "description": "这是一个测试案例。",
+      "close_reason": "测试"
+    },
+    "98": {
+      "title": "Brakk 交换速度",
+      "description": "将交换速度持续时间从3秒改为5秒",
+      "close_reason": "什么是交换速度？不明白这在说什么"
+    },
+    "97": {
+      "title": "Brakk",
+      "description": "保留Brakk，将射程改为4/5/6/7，冷却改为30/25/20/15秒，云雾改为-3/-6/-9/-12护甲削减",
+      "close_reason": "2.662"
+    },
+    "96": {
+      "title": "Brakk",
+      "description": "保留Brakk，将射程改为4/5/6/7，冷却改为30/25/20/15秒，云雾改为-3/-6/-9/-12护甲削减",
+      "close_reason": "Brakk需要先有专属开发"
+    },
+    "95": {
+      "title": "三角洲小队 死神",
+      "description": "保留死神但做以下调整：\n无法击杀重型单位（SOMF/Omega）\n灵魂捕获区域光环不作用于友方单位\n单位不再有计时生命，改为持续扣血\n处于光环中的单位会获得治疗（治疗量等于扣除的血量）",
+      "close_reason": "抱歉，这个机制或许可用在别处，但不适合三角洲小队"
+    },
+    "94": {
+      "title": "降低虫族速度膨胀",
+      "description": "将Dehaka基础移速从3.25降至3\n理由：KS2不应该走速度膨胀路线",
+      "close_reason": ""
+    },
+    "93": {
+      "title": "移除全体回收",
+      "description": "移除所有幸存者的全体回收功能",
+      "close_reason": ""
+    },
+    "92": {
+      "title": "锤击军士",
+      "description": "移除锤击等级，但每次锤击升级增加0.5移速，例如：\n垃圾佬 → 移速3\nArclite → 移速3.5",
+      "close_reason": ""
+    },
+    "91": {
+      "title": "冠军防线",
+      "description": "费用改为25-20矿\n添加回收选项",
+      "close_reason": ""
+    },
+    "90": {
+      "title": "禁用Sjlerk",
+      "description": "禁用Sjlerk，其技能组在充分重做前仍存在问题",
+      "close_reason": ""
+    },
+    "89": {
+      "title": "Selendis削弱",
+      "description": "将狂热者费用从55矿提升至75矿",
+      "close_reason": ""
+    },
+    "88": {
+      "title": "所有猫系职业获得九条命",
+      "description": "所有猫系职业死亡时不再直接阵亡，而是根据其猫性程度最多复活8次",
+      "close_reason": "描述不够具体"
+    },
+    "87": {
+      "title": "移除飞行",
+      "description": "移除游戏中所有单位和英雄的飞行能力，改用Helios风格移动方式。\n\n移除腐化者。",
+      "close_reason": ""
+    },
+    "74": {
+      "title": "建筑起飞时的隐形问题",
+      "description": "工程师、锤击中士和沃菲尔德的建筑在起飞动画期间不应获得隐形效果。这意味着若建筑因遭受虫族攻击而起飞，虫族将保持对该建筑的视野。",
+      "close_reason": ""
+    },
+    "73": {
+      "title": "黑暗圣堂武士治疗技能",
+      "description": "为黑暗圣堂武士新增一个引导技能：引导期间每秒恢复5/10/15/20点生命值，持续最多10秒，每秒消耗5点能量，引导期间获得50%伤害减免",
+      "close_reason": ""
+    },
+    "72": {
+      "title": "Maldus 寻路",
+      "description": "单位应能在 Maldus Network 上行走",
+      "close_reason": ""
+    },
+    "71": {
+      "title": "降低灵魂范围",
+      "description": "每级升级的灵魂范围从1.0降低至0.75",
+      "close_reason": ""
+    },
+    "70": {
+      "title": "灵视",
+      "description": "灵视升级范围从1缩小至0.5",
+      "close_reason": ""
+    },
+    "69": {
+      "title": "马鲁斯削弱",
+      "description": "马鲁斯\n4/2/1 → 3/1/1\n-腐蚀炸弹伤害减免 全级65 → 30/35/45/55\n-腐蚀炸弹范围 4/5/6/7 → 4/5/5/5\n-腐蚀炸弹冷却 60/30/15/0 → 60/50/40/35\n-腐蚀炸弹持续时间 全级12秒 → 6/8/10/11秒\n-马鲁斯网络建造时间改为5秒\n-移除马鲁斯网络蔓延爬行体\n-马鲁斯网络生命值 1k/1.5k/2k/4k → 1.5k/1.75k/2k/2.25k\n-吞噬 削弱潜伏者AOE溅射伤害 2→1\n-吞噬 削弱毒爆虫移速 7.5→5\n-吞噬 削弱刺蛇攻速 10→9\n-吞噬 冷却时间和buff持续时间均减半",
+      "close_reason": ""
+    },
+    "68": {
+      "title": "伊莎削弱",
+      "description": "伊莎\n- 天赋选择 2/1/4 → 2/0/3\n- 基础最大能量 200 → 150\n- 飞艇在小地图上可见\n- 修复伊莎在高低地交界处卡墙时生成单位的交互异常\n- 触手伤害 45/67.5/101.25 → 20/50/100，射程 1/2/3\n- 攻击速度 2 → 2.4\n- 远程攻击射程 5 → 6\n- 爬行虫膜上移速 4 → 3.5\n- 生物陷阱气体补给 2 → 3\n- 生物陷阱生命值 50/100/150/200 → 各级统一 100\n- 生物陷阱范围 12/16/20/24 → 各级统一 16\n- 飞艇生命值 400/600/800/1000 → 各级统一 600，新增护甲加成\n- 飞艇与地堡人口占用 2 → 1",
+      "close_reason": ""
+    },
+    "67": {
+      "title": "移除灵魂冲刺",
+      "description": "灵魂（Spirit）近乎无敌，应通过移除冲刺来惩罚操作失误。",
+      "close_reason": ""
+    },
+    "65": {
+      "title": "移除元素雷达",
+      "description": "如果前15分钟无法与该职业交战，至少让玩家能出奇制胜",
+      "close_reason": ""
+    },
+    "64": {
+      "title": "测试",
+      "description": "测试",
+      "close_reason": ""
+    },
+    "63": {
+      "title": "凯瑞甘队伍削弱",
+      "description": "残暴兽造价提升 150/30→225/40\nT3单位造价过低且强力。当虫族已升至蜂巢时，150矿石实在太便宜。",
+      "close_reason": ""
+    },
+    "62": {
+      "title": "对Sgt的削弱建议",
+      "description": "移除锤式红色Thor防空的范围溅射伤害",
+      "close_reason": ""
+    },
+    "61": {
+      "title": "clara",
+      "description": "禁用克拉拉，直到她在对抗中真正达到平衡",
+      "close_reason": ""
+    },
+    "60": {
+      "title": "删除Spirit",
+      "description": "Spirit是一个应被删除的职业",
+      "close_reason": ""
+    },
+    "59": {
+      "title": "移除所有支援单位的防空能力",
+      "description": "移除所有支援单位的防空能力",
+      "close_reason": ""
+    },
+    "58": {
+      "title": "三角洲小队",
+      "description": "将所有解放者升级的费用各降低250矿物",
+      "close_reason": ""
+    },
+    "57": {
+      "title": "Andor 香蕉",
+      "description": "香蕉弹射需要目标视野",
+      "close_reason": ""
+    },
+    "56": {
+      "title": "禁用Malus直至重做",
+      "description": "a",
+      "close_reason": ""
+    },
+    "55": {
+      "title": "克拉拉调整",
+      "description": "使克拉拉能够（再次）在猎手指令下生产单位。（消耗猎手的矿物/气体）",
+      "close_reason": ""
+    },
+    "54": {
+      "title": "撤销幽灵改动",
+      "description": "将幽灵恢复至2.614版本前的状态",
+      "close_reason": ""
+    },
+    "52": {
+      "title": "重做科学家",
+      "description": "将科学家改为防御塔建造者。让Lumi来施展拳脚",
+      "close_reason": "提案不够具体，以无效提案关闭"
+    },
+    "51": {
+      "title": "冠军卡尔度",
+      "description": "卡尔度费用增加1000\n卡尔度移动速度降低0.2\n卡尔度生命值/护盾增加750/500\n卡尔度伤害增加50\n\n卡尔度rush强度过高，基本相当于12分钟出现在中路的3-3守卫，直接清除你的科技建筑。卡尔度应作为后期单位重新平衡。此外它体型巨大如同狂热者，理应非常缓慢。KS2不应出现移动速度通货膨胀的问题。",
+      "close_reason": ""
+    },
+    "66": {
+      "title": "救援飞升者",
+      "description": "虚空飞升者终态造价从40000提升至50000矿物\n水晶塔造价从20降至10矿物\n杂交毁灭者添加1000/10升级，解锁\"兴奋剂\"技能（攻击速度+移动速度增益），消耗全部护盾",
+      "close_reason": ""
+    },
+    "53": {
+      "title": "先知静滞结界",
+      "description": "先知凭借一个大脑就能永久锁定多达150人口的单位于时间囚禁中，而唯一的反制手段是猎手亲自走进去——这让自己暴露在巨大风险下，同时身边又没有任何单位防守，因为人口已经满了。",
+      "close_reason": "投票不能有\"两个选项\"，必须提出1个具体的改动方案"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# 依赖与构建产物
+node_modules/
+.output/
+.nuxt/
+.npm-cache/
+dist/
+*.log
+
+# 编辑器
+.idea/
+.vscode/
+.DS_Store
+
+# 用户数据库（含账号/邮箱/密码哈希，绝不提交）
+data/wiki.db
+data/wiki.db-shm
+data/wiki.db-wal
+
+# 部署产物
+*.tar.gz
+
+# 部署脚本（含服务器地址/密码逻辑，本地保留不公开）
+deploy_paramiko.py
+
+# 个人申请稿（私人材料，不随仓库公开）
+KS2-Backend-Dev-Application.md
+
+# Python 缓存
+__pycache__/
+*.pyc
+scripts/__pycache__/
+
+# 环境变量与密钥
+.env
+.env.*
+!.env.example
+
+# 临时文件
+tmp_*
+*.tmp
