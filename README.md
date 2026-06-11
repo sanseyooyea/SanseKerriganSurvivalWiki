@@ -24,6 +24,20 @@ npm run dev
 
 访问 http://localhost:3000
 
+## 开发注意事项
+
+### Tailwind 自定义色板档位
+`tailwind.config.ts` 中 `kerrigan` / `survivor` 自定义色仅有 `50/100/200/500/600/700/800` 档位，**没有 300/400**。使用前确认档位存在，否则 class 不生成颜色。
+
+### 避免动态拼接 Tailwind class
+`:class="cond ? 'from-survivor-500 to-survivor-600' : ...'"` 这类**动态拼接**的 class 会被 Tailwind 的 purge 机制清除（静态扫描无法识别），导致样式在生产构建中丢失。需要条件色/渐变时，改用语义 class + 组件 `<style scoped>` 里的真实 CSS。
+
+### Wiki 文章排版
+Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwindcss/typography`（prose）插件，而是在页面 `<style scoped>` 中用 `:deep()` 自定义实现（终端手册风格 + 自动侧边目录）。修改文章样式时编辑该页面的 scoped 样式，不要依赖 prose 类。
+
+### 外部数据源解耦
+玩家 MMR（`/api/mmr`）与积分（`/api/credits`）来自 194823.xyz 的**两个独立数据源**，互不保证同时存在（如外服玩家常无 MMR 但有积分）。前端展示需各自独立判空，不可"无 MMR 即视为玩家不存在"。
+
 ## 功能模块
 
 ### 职业系统 `/classes`

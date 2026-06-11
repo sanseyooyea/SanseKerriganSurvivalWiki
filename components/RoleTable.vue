@@ -7,7 +7,8 @@
       <span class="text-sm font-mono font-bold text-gray-900 dark:text-gray-100 w-14 text-right">{{ r.mmr }}</span>
       <div class="flex-1 mx-2">
         <div class="h-1.5 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden">
-          <div class="h-full rounded-full" :class="team === 'survivor' ? 'bg-survivor-400' : 'bg-kerrigan-400'"
+          <div class="h-full rounded-full transition-all duration-500 bar-fill"
+            :class="team === 'survivor' ? 'bar-survivor' : 'bar-kerrigan'"
             :style="`width: ${Math.min(r.win_rate * 100, 100)}%`" />
         </div>
       </div>
@@ -38,3 +39,13 @@ function roleName(name: string): string {
   return map[name] || map[name.replace(/ /g, '_')] || name
 }
 </script>
+
+<style scoped>
+/* 用 scoped CSS 定义进度条颜色，避免 Tailwind 动态 class 被 purge 掉 */
+.bar-fill { box-shadow: 0 0 6px rgba(0,0,0,0.06); }
+.bar-survivor { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.bar-kerrigan { background: linear-gradient(90deg, #ef4444, #dc2626); }
+:global(.dark) .bar-survivor { background: linear-gradient(90deg, #60a5fa, #3b82f6); }
+:global(.dark) .bar-kerrigan { background: linear-gradient(90deg, #f87171, #ef4444); }
+</style>
+
