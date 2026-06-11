@@ -42,6 +42,23 @@ npm run dev
 - Markdown编辑器
 - 版本历史与回滚
 - 评论系统
+- 内置治理文档（开发者行为准则、开发者申请指南）
+
+### 钻石议会 `/council`
+- 展示钻石及以上玩家对游戏改动的提案与投票
+- 红蓝拔河投票条（赞成/反对实时占比）、按状态筛选（投票中/已实装/已关闭）
+- 提案内容自动中文化（预翻译脚本 `scripts/translate_council.py` + 后端 merge）
+- 投票方法弹窗：游戏内 `-vote` 指令、投票资格/权重/裁决规则
+- 数据源 194823.xyz/api/proposal_votes_cn.json（后端代理 + 缓存）
+
+### 更新日志 `/changelog`
+- 分页展示版本更新记录
+- 数据源 194823.xyz/api/patchnotes（后端代理 + 缓存）
+
+### 建议反馈 `/feedback`
+- 登录用户提交建议/Bug/数据纠错，按分类管理
+- 点赞、管理员标记处理进度（待处理/已采纳/已完成/不采纳）+ 回复
+- 用户可查看提案进度，全员公开可见
 
 ### 玩家查询 `/lookup`
 - MMR段位查询（游客可用）
@@ -78,18 +95,24 @@ npm run dev
 │   ├── classes/           # 职业系统
 │   ├── units/             # 兵种详情
 │   ├── wiki/              # Wiki文章
+│   ├── council/           # 钻石议会（提案投票）
+│   ├── changelog/         # 更新日志
+│   ├── feedback/          # 建议反馈
 │   ├── player/            # 玩家详情 + 分享图
 │   └── economy/           # 经济系统
-├── components/            # Vue组件（11个）
-├── composables/           # 组合式函数（6个）
+├── components/            # Vue组件
+├── composables/           # 组合式函数
 ├── server/api/            # 服务端API
 │   ├── auth/              # 认证（登录/注册/用户信息）
 │   ├── admin/             # 管理接口
 │   ├── classes/           # 职业数据API
 │   ├── wiki/              # Wiki文章API
+│   ├── feedback/          # 建议反馈API（列表/提交/点赞/管理）
 │   ├── mmr.get.ts         # MMR数据
 │   ├── credits.get.ts     # 积分数据
 │   ├── leaderboard.get.ts # 天梯排行榜（代理 194823.xyz）
+│   ├── council.get.ts     # 钻石议会（代理 + 中文 merge）
+│   ├── patchnotes.get.ts  # 更新日志（代理 194823.xyz）
 │   └── comments.ts        # 评论管理
 ├── data/                  # 静态数据 + SQLite数据库
 │   ├── seed/              # 人工维护的策划数据（数据刷新的唯一真源）
@@ -178,3 +201,9 @@ python scripts/build_all.py
 ## API文档
 
 详见 [docs/API.md](docs/API.md)
+
+## 开源许可
+
+本项目采用 [MIT License](LICENSE) 开源。欢迎社区贡献。
+
+> 注：游戏数据（职业/技能/兵种等）来自《凯瑞甘生存2》地图，版权归地图作者与暴雪所有；本仓库的开源许可仅覆盖本 Wiki 的代码。
