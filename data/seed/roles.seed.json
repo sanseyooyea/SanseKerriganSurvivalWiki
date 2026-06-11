@@ -1,0 +1,1488 @@
+[
+  {
+    "id": 0,
+    "nameEn": "Kerrigan",
+    "nameZh": "凯瑞甘",
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "KerriganKerrigan"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-kerrigan.dds",
+    "portrait": "Assets\\Textures\\kerriganportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "7A3A7726"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100
+    },
+    "abilities": [
+      "KerriganRazorSwarm",
+      "KerriganInfection",
+      "KerriganFungalGrowth",
+      "KerriganTeleport",
+      "KerriganPrimalRoar",
+      "PrimalSlash"
+    ]
+  },
+  {
+    "id": 1,
+    "nameEn": "Scientist",
+    "nameZh": "科学家",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "ScientistScientist"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-terran-scientist00.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "C5657A62"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "ScientistTrainMedivac",
+      "CommonBlinkHero"
+    ]
+  },
+  {
+    "id": 2,
+    "nameEn": "Dark Templar",
+    "nameZh": "黑暗圣堂武士",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "DarkTemplarDT"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-darktemplar.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "97F0E1EA"
+      ]
+    },
+    "baseStats": {
+      "hp": 150,
+      "speed": 3.25,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "DTPsiStorm",
+      "DarkTemplarDash",
+      "DTShadowCharge",
+      "DarkTemplarShadowFuryKS2",
+      "DTVoidPrison",
+      "DarkTemplarShadowCleave"
+    ]
+  },
+  {
+    "id": 3,
+    "nameEn": "Ascendant",
+    "nameZh": "晋升者",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "AscendantAscendant",
+      "AscendantVoidAscendant"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-hightemplar-taldarim.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "555EDCA7"
+      ]
+    },
+    "baseStats": {
+      "hp": 150,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "AscendantBlink",
+      "AscendantAscend",
+      "AscendantSummonVoidRift"
+    ]
+  },
+  {
+    "id": 4,
+    "nameEn": "Spirit",
+    "nameZh": "灵魂",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "Spirit"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-adept-purifier.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "1EBAC525"
+      ]
+    },
+    "baseStats": {
+      "hp": 100,
+      "speed": 5.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "SpiritDeflect",
+      "SpiritGlide",
+      "CommonBlinkHero"
+    ]
+  },
+  {
+    "id": 5,
+    "nameEn": "Ares",
+    "nameZh": "阿瑞斯",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "AresAres"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-specialopsdropship.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "88A6A53C"
+      ]
+    },
+    "baseStats": {
+      "hp": 150,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "AresTransport",
+      "AresEmergencyThrusters",
+      "AresHyperjump"
+    ]
+  },
+  {
+    "id": 6,
+    "nameEn": "Prophet",
+    "nameZh": "先知",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "ProphetProphet"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-oracle.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "D7FA74B7"
+      ]
+    },
+    "baseStats": {
+      "hp": 80,
+      "speed": 4.4,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "ProphetRevelation",
+      "ProphetWeapon",
+      "ProphetVortex"
+    ]
+  },
+  {
+    "id": 7,
+    "nameEn": "Stukov",
+    "nameZh": "斯托科夫",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "StukovStukov"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-stukov.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "6EBF4638"
+      ]
+    },
+    "baseStats": {
+      "hp": 350,
+      "speed": 3.25,
+      "armor": 2,
+      "energy": null
+    },
+    "abilities": [
+      "StukovInfestedTerran",
+      "StukovInfestedCivilians",
+      "StukovInfestedAberration",
+      "StukovInfestedRavager",
+      "StukovSpawnNaktul",
+      "StukovSprint"
+    ]
+  },
+  {
+    "id": 8,
+    "nameEn": "Artanis",
+    "nameZh": "阿塔尼斯",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "ArtanisArtanis"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-artanishero.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "0E4AAF85"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.0,
+      "armor": 3,
+      "energy": 100
+    },
+    "abilities": [
+      "MothershipMassRecall",
+      "ArtanisProtectiveShield",
+      "ArtanisEnergizerAura",
+      "ArtanisRadianceAura"
+    ]
+  },
+  {
+    "id": 9,
+    "nameEn": "Zagara",
+    "nameZh": "扎加拉",
+    "category": "Defender",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "ZagaraZagara"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-broodqueen.dds",
+    "portrait": "Assets\\Textures\\queenportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "E79D191C"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 0.55,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "ZagaraEnsnare",
+      "ZagaraCreepTeleport",
+      "KerriganManaBurn"
+    ]
+  },
+  {
+    "id": 10,
+    "nameEn": "Engineer",
+    "nameZh": "工程师",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "EngineerEngineer"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-deathhead.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "B23E4F70"
+      ]
+    },
+    "baseStats": {
+      "hp": 250,
+      "speed": 3.5,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": []
+  },
+  {
+    "id": 11,
+    "nameEn": "Team Nova",
+    "nameZh": "诺娃团队",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "NovaNova",
+      "NovaTosh"
+    ],
+    "unitIcon": "Assets\\Buttons\\nova.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "2657317C"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 1,
+      "energy": 100
+    },
+    "abilities": [
+      "NovaPersonalCloaking",
+      "NovaPenetratorRoundKS",
+      "NovaTeleport",
+      "NovaMindControl",
+      "NovaStimpack"
+    ]
+  },
+  {
+    "id": 12,
+    "nameEn": "Nomad",
+    "nameZh": "游牧民",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "NomadNomad"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-raven.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "6DC024B4"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 2.75,
+      "armor": 0,
+      "energy": 150
+    },
+    "abilities": [
+      "NomadCalldownBlackhammer",
+      "NomadDefensiveMatrix",
+      "NomadSeekerMissile",
+      "NomadBuildAutoTurret",
+      "AresEmergencyThrusters"
+    ]
+  },
+  {
+    "id": 13,
+    "nameEn": "Dehaka",
+    "nameZh": "德哈卡",
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "DehakaDehaka"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-dehaka.dds",
+    "portrait": "Assets\\Textures\\dehakaportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "38FB48A1"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 3.24,
+      "armor": 2,
+      "energy": 100
+    },
+    "abilities": [
+      "Drag",
+      "DehakaWindwalk",
+      "DehakaScorchingBreath",
+      "DehakaDash",
+      "KerriganManaBurn"
+    ]
+  },
+  {
+    "id": 14,
+    "nameEn": "Helios",
+    "nameZh": "赫利俄斯",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "HeliosHelios"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-kerriganascended.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "AAD107B7"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": []
+  },
+  {
+    "id": 15,
+    "nameEn": "Random",
+    "nameZh": "随机",
+    "category": "Random",
+    "team": "Survivor",
+    "heroUnits": [],
+    "unitIcon": "Assets\\Textures\\ui_battlenet_glue_icons_random_normal.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "5847FD27"
+      ]
+    },
+    "baseStats": {
+      "hp": null,
+      "speed": null,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": []
+  },
+  {
+    "id": 16,
+    "nameEn": "Thakras",
+    "nameZh": "塔克拉斯",
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "ThakrasThakras"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-defilerex3.dds",
+    "portrait": "Assets\\Textures\\defilerportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "9AAC2A76"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100
+    },
+    "abilities": [
+      "ThakrasDarkSwarm",
+      "ThakrasPlague",
+      "ThakrasBurrow",
+      "PrimalConsume",
+      "ThakrasConstrictingSlime",
+      "ThakrasConsumeUnit"
+    ]
+  },
+  {
+    "id": 17,
+    "nameEn": "Swann",
+    "nameZh": "斯旺",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "SwannSwann",
+      "SwannKachinsky"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-marauderswann.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "67FE7ED5"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 2,
+      "energy": null
+    },
+    "abilities": [
+      "SwannGrapple",
+      "SwannSprint",
+      "SwannStunGrenade",
+      "SwannSupercharge"
+    ]
+  },
+  {
+    "id": 18,
+    "nameEn": "Warden",
+    "nameZh": "监管者",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "WardenWarden"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-fenix.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "BAD09F82"
+      ]
+    },
+    "baseStats": {
+      "hp": 500,
+      "speed": 3.0,
+      "armor": 3,
+      "energy": 100
+    },
+    "abilities": [
+      "WardenWhirlwind",
+      "WardenThunderousCharge",
+      "WardenVexArmor",
+      "WardenArsenalOvercharge",
+      "WardenMirror",
+      "WardenExperimentalBarrier",
+      "WardenTaunt"
+    ]
+  },
+  {
+    "id": 19,
+    "nameEn": "Selendis",
+    "nameZh": "塞兰迪斯",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "SelendisCore",
+      "SelendisMothershipForm"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-collection-purifier-mothershipcore.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "2D004A1B"
+      ]
+    },
+    "baseStats": {
+      "hp": 150,
+      "speed": 2.75,
+      "armor": 1,
+      "energy": 150
+    },
+    "abilities": [
+      "SelendisTimeWarp",
+      "SelendisMorphtoMothership",
+      "SelendisRecall"
+    ]
+  },
+  {
+    "id": 20,
+    "nameEn": "Niadra",
+    "nameZh": "尼亚德拉",
+    "category": "Defender",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "NiadraNiadra"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-queen-mecha.dds",
+    "portrait": "Assets\\Textures\\queenportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "9971FD7A"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 1.6,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "QueenClassicParasite",
+      "KerriganPrimalRoar",
+      "KerriganTeleport",
+      "KerriganRazorSwarm"
+    ]
+  },
+  {
+    "id": 21,
+    "nameEn": "Mira",
+    "nameZh": "米拉",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "MiraMira"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-tychusghost.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "62B1CB41"
+      ]
+    },
+    "baseStats": {
+      "hp": 400,
+      "speed": 3.25,
+      "armor": 2,
+      "energy": null
+    },
+    "abilities": [
+      "MiraNuclearStrike",
+      "MiraCalldownCyclone",
+      "MiraDeflect",
+      "MiraPsionicTransfer"
+    ]
+  },
+  {
+    "id": 22,
+    "nameEn": "Scion",
+    "nameZh": "赛恩",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "ScionScion",
+      "ScionElder"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-tassadar.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "8D3B5041"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "ScionChainLightning",
+      "ScionSwap",
+      "ScionLifeExchange",
+      "ScionInspiration",
+      "ScionForceField",
+      "ScionPsiStorm",
+      "ScionKineticMatrix"
+    ]
+  },
+  {
+    "id": 23,
+    "nameEn": "Technician",
+    "nameZh": "技术员",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "TechnicianTechnician"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-terran-civilianmale.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "AD9593D4"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 5.0,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "PersonalCloakingTechnician",
+      "Detonate",
+      "TemporalZone",
+      "Hallucination"
+    ]
+  },
+  {
+    "id": 24,
+    "nameEn": "Warfield",
+    "nameZh": "沃菲尔德",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "Warfield"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-terran-marine-warfield.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "150638D9"
+      ]
+    },
+    "baseStats": {
+      "hp": 425,
+      "speed": 3.35,
+      "armor": 0,
+      "energy": 200
+    },
+    "abilities": [
+      "WarfieldStickyBomb",
+      "WarfieldStimpack",
+      "WarfieldSummonXanthos"
+    ]
+  },
+  {
+    "id": 25,
+    "nameEn": "Champion",
+    "nameZh": "冠军",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "ChampionSoul"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-ability-zeratul-disruptor-purificationnova.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "27CDEDD0"
+      ]
+    },
+    "baseStats": {
+      "hp": 100,
+      "speed": 4.0,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "ChampionGlide"
+    ]
+  },
+  {
+    "id": 26,
+    "nameEn": "Elementalist",
+    "nameZh": "元素使",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "Elementalist"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-mutator-reanimator.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "4B2F243A"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 3.0,
+      "armor": 1,
+      "energy": 150
+    },
+    "abilities": [
+      "Fireball",
+      "Firestorm",
+      "ElementalistIceball",
+      "MeteorCast",
+      "FreezingField",
+      "Mirage",
+      "LightningStorm",
+      "Sleep",
+      "AuraofDamnedSouls"
+    ]
+  },
+  {
+    "id": 27,
+    "nameEn": "Brakk",
+    "nameZh": "巴拉克",
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "BrakkBrakk"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-brakk.dds",
+    "portrait": "Assets\\Textures\\primalzergkingportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "39661C87"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100
+    },
+    "abilities": [
+      "BrakkHardenedShell",
+      "BrakkCorrosiveCloud",
+      "BrakkSwap",
+      "BrakkSeismicShock"
+    ]
+  },
+  {
+    "id": 28,
+    "nameEn": "Glevig",
+    "nameZh": "格里维格",
+    "category": "Defender",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "GlevigGlevig"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-glevig.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "AB05F64A"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": null,
+      "armor": 1,
+      "energy": 150
+    },
+    "abilities": [
+      "GlevigTunnel",
+      "GlevigFirebreath",
+      "GlevigCorrosiveBile",
+      "GlevigRecallCrawlers",
+      "GlevigSpawnInfestor"
+    ]
+  },
+  {
+    "id": 29,
+    "nameEn": "Delta Squad",
+    "nameZh": "三角洲小队",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "DSPhantom",
+      "DSLiberatorAA",
+      "DSLiberatorAG",
+      "DSArchangelAssault",
+      "DSArchangelFighter",
+      "DeltaSquadGorgon"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-bansheemercenary.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "2125E5BB"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "DeltaSquadDefensiveMatrix2",
+      "DeltaSquadPhantomOpenFire",
+      "DSHyperjump"
+    ]
+  },
+  {
+    "id": 30,
+    "nameEn": "Phaegore",
+    "nameZh": "菲戈尔",
+    "category": "Defender",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "PhaegorePhaegore",
+      "PhaegorePhaegoreBurrowed"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-ultralisk-torrasque.dds",
+    "portrait": "Assets\\Textures\\btn-unit-zerg-ultralisk-noxious.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "D7884056"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 1.25,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "PhaegoreSonicatingScreech",
+      "PhaegoreNurturingChant",
+      "PhaegoreKayonicCharge",
+      "PhaegoreBileSnot",
+      "PhaegoreBurrow"
+    ]
+  },
+  {
+    "id": 31,
+    "nameEn": "Alarak",
+    "nameZh": "阿拉纳克",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "AlarakAlarak"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-alarak.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "DF92E31B"
+      ]
+    },
+    "baseStats": {
+      "hp": 350,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100
+    },
+    "abilities": [
+      "AlarakDestructionWave",
+      "AlarakACDeadlyCharge",
+      "AlarakSprint",
+      "AlarakSacrifice",
+      "AlarakPsionicTransfer"
+    ]
+  },
+  {
+    "id": 32,
+    "nameEn": "Izsha",
+    "nameZh": "伊兹莎",
+    "category": "Defender",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "IzshaIzsha"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-leviathan.dds",
+    "portrait": "Assets\\Textures\\btn-unit-zerg-leviathan.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "EA4C7050"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 0.5,
+      "armor": 0,
+      "energy": 200
+    },
+    "abilities": [
+      "IzshaCalldownInfestedBlimp",
+      "IzshaSummonCorruptedWall",
+      "IzshaSpawnBiotrap",
+      "IzshaIsolation"
+    ]
+  },
+  {
+    "id": 33,
+    "nameEn": "Malus",
+    "nameZh": "马吕斯",
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "MalusMalus"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-zerg-blightbringer.dds",
+    "portrait": "Assets\\Textures\\blightbringerportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "4A4BF815"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 2,
+      "energy": 100
+    },
+    "abilities": [
+      "MalusCorruptionBomb",
+      "MalusNightTerror",
+      "MalusOrdure",
+      "MalusParasitism",
+      "MalusColonize",
+      "MalusLeash",
+      "DevourUnit"
+    ]
+  },
+  {
+    "id": 34,
+    "nameEn": "Kraith",
+    "nameZh": "克雷斯",
+    "category": "Hunter",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "KraithKraith"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-zerg-kraith.dds",
+    "portrait": "Assets\\Textures\\kraithportrait_static.dds",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "0588A176"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 3.0,
+      "armor": 5,
+      "energy": 100
+    },
+    "abilities": [
+      "KraithSpineVolleyAbil",
+      "KraithCrashingChargeAbil",
+      "KraithSpikedHide",
+      "KraithOppressivePuke",
+      "KraithKingofPygalisk"
+    ]
+  },
+  {
+    "id": 35,
+    "nameEn": "Energizer",
+    "nameZh": "激励者",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "Energizer",
+      "EnergizerGenerator",
+      "EnergizerAir",
+      "EMCSquare"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-collection-purifier-probe.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "DAD44D63"
+      ]
+    },
+    "baseStats": {
+      "hp": null,
+      "speed": 2.8,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": [
+      "EnergizerOvercharge",
+      "EMCSquareDisintegrate",
+      "EMCSquareTothebrim"
+    ]
+  },
+  {
+    "id": 36,
+    "nameEn": "Andor",
+    "nameZh": "亚顿",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "Andor"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-infestedbanshee.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "16A6D9FF"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 2.75,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "AndorCalldownSentinel",
+      "AndorPlacePointDefenseDrone",
+      "AndorCalldownAdepts",
+      "AndorCalldownArchon",
+      "AndorCalldownImmortal"
+    ]
+  },
+  {
+    "id": 37,
+    "nameEn": "DJ",
+    "nameZh": "DJ",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "DJ"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-xelnaga-maar.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "E8C0FA48"
+      ]
+    },
+    "baseStats": {
+      "hp": 400,
+      "speed": 3.0,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "RenewingTune",
+      "AttractFan",
+      "Doubletime",
+      "DJAllPartOfTheShow",
+      "DJBassDrop"
+    ]
+  },
+  {
+    "id": 38,
+    "nameEn": "Rattlesnake",
+    "nameZh": "响尾蛇",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "RattlesnakeKevin"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-tychusmarauder.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "BCCB7E35"
+      ]
+    },
+    "baseStats": {
+      "hp": 400,
+      "speed": 3.15,
+      "armor": 3,
+      "energy": 100
+    },
+    "abilities": [
+      "RattlesnakeDeployRevitalizer",
+      "RattlesnakeSuperStimpack",
+      "RattlesnakeChronoRift",
+      "RattlesnakeStunShot",
+      "RattlesnakeJudgementBeam"
+    ]
+  },
+  {
+    "id": 39,
+    "nameEn": "SgtHammer",
+    "nameZh": "重锤军士",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "HammerJunkerSiegeTankHammer",
+      "HammerJunkerSiegeTankAxe",
+      "SgtHammerArcliteTank",
+      "HammerCrucioTank",
+      "SgtHammerImperioSiegeTank",
+      "SgtHammerFenrirSiegeTank"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-siegetank-umojan.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "0BD195B8"
+      ]
+    },
+    "baseStats": {
+      "hp": 400,
+      "speed": 3.25,
+      "armor": 1,
+      "energy": null
+    },
+    "abilities": [
+      "CallDownSgtHammerSCV",
+      "HammerTankRush",
+      "SgtHammerResearch"
+    ]
+  },
+  {
+    "id": 40,
+    "nameEn": "Chew",
+    "nameZh": "秋伊",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "Chew"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-critter-matriarchsnowbeast.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "46A4FD74"
+      ]
+    },
+    "baseStats": {
+      "hp": 500,
+      "speed": 3.0,
+      "armor": 1,
+      "energy": null
+    },
+    "abilities": [
+      "CuddleJump",
+      "Meany",
+      "UnleashChewbie",
+      "Gottagofast",
+      "ChewFlex",
+      "FeignDeath",
+      "ChewCharge"
+    ]
+  },
+  {
+    "id": 41,
+    "nameEn": "Aewyn",
+    "nameZh": "艾尔文",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "AewynAewyn"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-champion-carrier-purifier.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "9CCCF909"
+      ]
+    },
+    "baseStats": {
+      "hp": 125,
+      "speed": 2.75,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": [
+      "AewynEtherealTransit",
+      "AewynBless",
+      "AewynCurse",
+      "AewynEnchant",
+      "AewynRecall",
+      "AewynStasisField"
+    ]
+  },
+  {
+    "id": 42,
+    "nameEn": "Critter Lord",
+    "nameZh": "小动物主宰",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "CritterLord"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-critter-cardboardboxrunner.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "AB960114"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 4.5,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "CritterLordTrainCritters",
+      "CommonBlinkHero"
+    ]
+  },
+  {
+    "id": 43,
+    "nameEn": "Nightingale",
+    "nameZh": "南丁格尔",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "NightingaleNightingale"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-collection-mothership-golden.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "30907C8A"
+      ]
+    },
+    "baseStats": {
+      "hp": 125,
+      "speed": 10.0,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": [
+      "NightingaleJudgment",
+      "NightingaleIntervention",
+      "NightingaleSynthesize",
+      "NightingaleDistortion",
+      "NightingaleFocus",
+      "NightingaleDivineShield"
+    ]
+  },
+  {
+    "id": 44,
+    "nameEn": "Sjlerk",
+    "nameZh": "斯加拉克",
+    "category": "Support",
+    "team": "Survivor",
+    "heroUnits": [
+      "Sjlerk"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-hero-kerriganghost.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "DFE56009"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.0,
+      "armor": 1,
+      "energy": 150
+    },
+    "abilities": [
+      "SjlerkKineticBlast",
+      "SjlerkBlink",
+      "SjlerkMend"
+    ]
+  },
+  {
+    "id": 45,
+    "nameEn": "Sophia",
+    "nameZh": "索菲亚",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "SophiaTheIntern"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-blackops-femaleghost.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "22EB40C3",
+        "B6A7764C"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": [
+      "CalldownVulture",
+      "SophiaCalldownAirFighter",
+      "SophiaCalldownTank",
+      "SophiaCalldownThor",
+      "SophiaWhereDoesTheTimeGo"
+    ]
+  },
+  {
+    "id": 46,
+    "nameEn": "Jinara",
+    "nameZh": "吉娜拉",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "Jinara"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-protoss-adept-taldarim.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "param",
+      "keys": [
+        "9757CB02",
+        "2AE15D6F"
+      ]
+    },
+    "baseStats": {
+      "hp": null,
+      "speed": null,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": []
+  },
+  {
+    "id": 47,
+    "nameEn": "Sir Roachington",
+    "nameZh": "洛奇顿",
+    "category": "Defender",
+    "team": "Kerrigan",
+    "heroUnits": [
+      "SirRoachingtonSirRoachington"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-zerg-roach-corpser.dds",
+    "portrait": "Assets\\Textures\\btn-unit-zerg-roach-corpser.dds",
+    "descKeys": {
+      "type": "docstr",
+      "keys": [
+        "DOCSTR_RoachingtonDesc"
+      ]
+    },
+    "baseStats": {
+      "hp": 99999,
+      "speed": 1.1,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": [
+      "SirRoachingtonCorrosiveBarrage",
+      "SirRoachingtonAcidicFlay",
+      "SirRoachingtonWebPull",
+      "SirRoachingtonHatTrick"
+    ]
+  },
+  {
+    "id": 48,
+    "nameEn": "Skitter",
+    "nameZh": "斯基特",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "Skitter"
+    ],
+    "unitIcon": "Assets\\Buttons\\wireframe-critter-utilitybot-colorized.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "docstr",
+      "keys": [
+        "DOCSTR_SkitterDesc"
+      ]
+    },
+    "baseStats": {
+      "hp": null,
+      "speed": null,
+      "armor": null,
+      "energy": null
+    },
+    "abilities": []
+  }
+]

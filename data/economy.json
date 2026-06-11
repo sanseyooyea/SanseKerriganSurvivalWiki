@@ -1,0 +1,1241 @@
+[
+  {
+    "hero": "Artanis",
+    "incomeModel": "阿塔尼斯通过经济建筑被动产矿。同化器（基础+6和黄金+20）每5秒产出固定晶矿。基础同化器可升级为黄金同化器。此外拥有经济兵种：母舰核心（宝宝船，+4/5s）可升级为母舰（妈妈船，+30/5s），是移动的经济单位。",
+    "buildings": [
+      {
+        "id": "ArtanisAssimilator",
+        "nameZh": "同化器 +6",
+        "income": 6,
+        "incomePeriod": 5,
+        "cost": 150,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "ArtanisGoldenAssimilator",
+        "notes": "Basic economy building. Costs 3 gas. Can be upgraded to Golden Assimilator via morph (5s). Has CommonSalvage ability. Bounty multiplier: 3x.",
+        "gasCost": 3
+      },
+      {
+        "id": "ArtanisGoldenAssimilator",
+        "nameZh": "黄金同化器 +20",
+        "income": 20,
+        "incomePeriod": 5,
+        "cost": 900,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Top-tier economy building. Costs 10 gas. Can be built directly (900 minerals) or upgraded from ArtanisAssimilator (morph takes 5s). No further upgrades available.",
+        "gasCost": 10
+      },
+      {
+        "id": "ArtanisGoldenNexus1",
+        "nameZh": "黄金星灵枢纽+1",
+        "income": 1,
+        "incomePeriod": 5,
+        "cost": 75,
+        "buildTime": 5,
+        "food": 15,
+        "upgradeTo": null,
+        "notes": "Upgraded from ArtanisNexus (which costs 25 minerals, provides no income/food). Morph takes 5s. Provides 15 supply. Has Chrono Boost, Mass Recall, and can train units (Mothership). Primary role is production/utility rather than income.",
+        "gasCost": 0
+      },
+      {
+        "id": "ArtanisMothershipCore",
+        "nameZh": "母舰核心（宝宝船）+4",
+        "income": 4,
+        "incomePeriod": 5,
+        "cost": 175,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "ArtanisMothership",
+        "notes": "经济兵种。100生命+100护盾，1护甲。可升级为母舰。从黄金星灵枢纽训练。",
+        "gasCost": 5
+      },
+      {
+        "id": "ArtanisMothership",
+        "nameZh": "母舰（妈妈船）+30",
+        "income": 30,
+        "incomePeriod": 5,
+        "cost": 1375,
+        "buildTime": 15,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "经济兵种。200生命+200护盾，2护甲。从母舰核心升级而来。拥有隐形力场。",
+        "gasCost": 25
+      }
+    ]
+  },
+  {
+    "hero": "Energizer",
+    "incomeModel": "激励者使用能量回路系统经济。能量发生器被动产能（基础2.0/s，可升级），能量通过回路流向精矿转换器，自动将能量转化为晶矿。转化比率分层：5能量→3矿、25能量→13矿、125能量→50矿、625能量→200矿、3125能量→800矿。高级转化需要范围内有能量分配器。收入取决于能量供给速率，没有固定周期。",
+    "buildings": [
+      {
+        "id": "MineralConverter",
+        "nameZh": "精矿转换器",
+        "income": 3,
+        "incomePeriod": null,
+        "cost": 10,
+        "buildTime": 7,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Converts energy to minerals via autocast abilities. Base: 5 energy -> 3 minerals. With EnergyDistributor in range, unlocks higher tiers: 25E->13M, 125E->50M, 625E->200M, 3125E->800M. Max energy: 2505. Must be connected to energy circuit (EnergyGenerator/EnergyDistributor) to receive energy. Income rate depends entirely on energy supply rate, not a fixed timer. CostCategory: Economy. 2x2 footprint, can be loaded into Carrier.",
+        "gasCost": 0
+      }
+    ]
+  },
+  {
+    "hero": "Jinara",
+    "incomeModel": "吉娜拉使用星灵风格的同化器，每3秒被动产矿。建筑分3级（+2→+10→+25），每级提供更高收入。所有等级都可以直接建造或从低级升级。",
+    "buildings": [
+      {
+        "id": "JinaraAssimilator2",
+        "nameZh": "同化器 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 125,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "JinaraAssimilator10",
+        "notes": "Base tier economy building. Tooltip: 每3秒获得2晶体矿. Has CommonSalvage ability for refund.",
+        "gasCost": 0
+      },
+      {
+        "id": "JinaraAssimilator10",
+        "nameZh": "同化器 +10",
+        "income": 10,
+        "incomePeriod": 3,
+        "cost": 425,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "JinaraAssimilator25",
+        "notes": "Mid tier. Costs 425 minerals + 10 vespene. Tooltip: 每3秒获得10晶体矿. Can be built directly or upgraded from +2.",
+        "gasCost": 10
+      },
+      {
+        "id": "JinaraAssimilator25",
+        "nameZh": "同化器 +25",
+        "income": 25,
+        "incomePeriod": 3,
+        "cost": 1075,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "Top tier. Costs 1075 minerals + 35 vespene. Tooltip: 每3秒获得25晶体矿. Can be built directly or upgraded from +10. No further upgrades.",
+        "gasCost": 35
+      }
+    ]
+  },
+  {
+    "hero": "Mira",
+    "incomeModel": "米拉的经济建筑晶矿合成器每5秒自动产出固定数量的晶矿。建筑分6个等级（+4到+128），可以直接建造任意等级，也可以从低级升级（5秒）。每个建筑同时具有生产模式，开启生产兵种时会停止产矿。建筑被摧毁后会重生为最低级（+4）。",
+    "buildings": [
+      {
+        "id": "MiraMineralCompound4",
+        "nameZh": "晶矿合成器+4",
+        "income": 4,
+        "incomePeriod": 5,
+        "cost": 150,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "MiraMineralCompound8",
+        "notes": "基础经济建筑，可直接建造。开启生产哨兵(Sentinel)时停止产矿。被摧毁后不会重生为更低级(这是最低级)。升级到+8耗时5秒。",
+        "gasCost": 0
+      },
+      {
+        "id": "MiraMineralCompound8",
+        "nameZh": "晶矿合成器+8",
+        "income": 8,
+        "incomePeriod": 5,
+        "cost": 350,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "MiraMineralCompound16",
+        "notes": "可直接建造或从+4升级(5秒)。开启生产突袭者(Raider)时停止产矿。被摧毁后重生为+4。",
+        "gasCost": 0
+      },
+      {
+        "id": "MiraMineralCompound16",
+        "nameZh": "晶矿合成器+16",
+        "income": 16,
+        "incomePeriod": 5,
+        "cost": 800,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "MiraMineralCompound32",
+        "notes": "可直接建造或从+8升级(5秒)。开启生产猎手(Hunter)时停止产矿。被摧毁后重生为+4。",
+        "gasCost": 0
+      },
+      {
+        "id": "MiraMineralCompound32",
+        "nameZh": "晶矿合成器+32",
+        "income": 32,
+        "incomePeriod": 5,
+        "cost": 2000,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "MiraMineralCompound64",
+        "notes": "可直接建造或从+16升级(5秒)。开启生产攻城破坏者(SiegeBreaker)时停止产矿。被摧毁后重生为+4。",
+        "gasCost": 0
+      },
+      {
+        "id": "MiraMineralCompound64",
+        "nameZh": "晶矿合成器+64",
+        "income": 64,
+        "incomePeriod": 5,
+        "cost": 4700,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "MiraMineralCompound128",
+        "notes": "可直接建造或从+32升级(5秒)。开启生产旋风(Cyclone)时停止产矿。被摧毁后重生为+4。",
+        "gasCost": 0
+      },
+      {
+        "id": "MiraMineralCompound128",
+        "nameZh": "晶矿合成器+128",
+        "income": 128,
+        "incomePeriod": 5,
+        "cost": 10700,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "最高级经济建筑，可直接建造或从+64升级(5秒)。这是升级链的终点。被摧毁后重生为+4。拥有que5队列能力(可排队5个生产指令)。",
+        "gasCost": 0
+      }
+    ],
+    "chrono": {
+      "timeScale": 1.5,
+      "gasCost": 5,
+      "duration": "permanent",
+      "name": "星空加速"
+    }
+  },
+  {
+    "hero": "Scientist",
+    "incomeModel": "科学家使用升级链经济。SCV 建造基础晶体矿反应堆（+1），然后通过变形逐级升级（+2、+4、+8、+16、+32），每级每 3 秒产矿一次。反应堆拥有星空加速能力（每次消耗 5 气体），将产矿速度提升至 1.75 倍。",
+    "buildings": [
+      {
+        "id": "ScientistMineralReactor1",
+        "nameZh": "晶体矿反应堆 +1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "ScientistMineralReactor2",
+        "notes": "Base economy building, built by SCV. Has Chrono Boost ability. Has 150 HP, 1 armor.",
+        "gasCost": 0
+      },
+      {
+        "id": "ScientistMineralReactor2",
+        "nameZh": "晶体矿反应堆 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "ScientistMineralReactor4",
+        "notes": "Morphed from Reactor +1. Requires upgrade SciHaveBuilt2. Has Chrono Boost.",
+        "gasCost": 0
+      },
+      {
+        "id": "ScientistMineralReactor4",
+        "nameZh": "晶体矿反应堆 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 350,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "ScientistMineralReactor8",
+        "notes": "Morphed from Reactor +2. Requires upgrade SciHaveBuilt4. Has auto-cast morph support.",
+        "gasCost": 0
+      },
+      {
+        "id": "ScientistMineralReactor8",
+        "nameZh": "晶体矿反应堆 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 800,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "ScientistMineralReactor16",
+        "notes": "Morphed from Reactor +4. Has Chrono Boost.",
+        "gasCost": 0
+      },
+      {
+        "id": "ScientistMineralReactor16",
+        "nameZh": "晶体矿反应堆 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 2000,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "ScientistMineralReactor32",
+        "notes": "Morphed from Reactor +8. Has a 30-second cooldown on the upgrade ability to +32.",
+        "gasCost": 0
+      },
+      {
+        "id": "ScientistMineralReactor32",
+        "nameZh": "晶体矿反应堆 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 5000,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "IncomeGenerator64",
+        "notes": "Morphed from Reactor +16. Can upgrade to +64 (IncomeGenerator64). Has Chrono Boost.",
+        "gasCost": 0
+      }
+    ],
+    "chrono": {
+      "timeScale": 1.75,
+      "gasCost": 5,
+      "duration": "permanent",
+      "name": "星空加速"
+    }
+  },
+  {
+    "hero": "Selendis",
+    "incomeModel": "塞兰迪斯使用探针采集经济：晶体矿区本身不会自动产矿，需要探机主动采集并运回基地。矿区分 6 个等级（+1 到 +32），等级越高探机单次采集的矿量越大。探机分 4 种，造价与采集效率各不相同，没有时间加速。",
+    "buildings": [
+      {
+        "id": "SelendisMineralField1",
+        "nameZh": "矿区 +1",
+        "income": 1,
+        "incomePeriod": null,
+        "cost": 50,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SelendisMineralField2",
+        "gasCost": 0,
+        "notes": "矿区采集点，探机每趟采集 1 晶矿运回基地。"
+      },
+      {
+        "id": "SelendisMineralField2",
+        "nameZh": "矿区 +2",
+        "income": 2,
+        "incomePeriod": null,
+        "cost": 100,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SelendisMineralField4",
+        "gasCost": 0,
+        "notes": "矿区采集点，探机每趟采集 2 晶矿运回基地。"
+      },
+      {
+        "id": "SelendisMineralField4",
+        "nameZh": "矿区 +4",
+        "income": 4,
+        "incomePeriod": null,
+        "cost": 250,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SelendisMineralField8",
+        "gasCost": 0,
+        "notes": "矿区采集点，探机每趟采集 4 晶矿运回基地。"
+      },
+      {
+        "id": "SelendisMineralField8",
+        "nameZh": "矿区 +8",
+        "income": 8,
+        "incomePeriod": null,
+        "cost": 625,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SelendisMineralField16",
+        "gasCost": 0,
+        "notes": "矿区采集点，探机每趟采集 8 晶矿运回基地。"
+      },
+      {
+        "id": "SelendisMineralField16",
+        "nameZh": "矿区 +16",
+        "income": 16,
+        "incomePeriod": null,
+        "cost": 2375,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "矿区采集点，探机每趟采集 16 晶矿运回基地。"
+      }
+    ],
+    "harvestEconomy": true,
+    "probes": [
+      {
+        "id": "SelendisBasicProbe",
+        "nameZh": "普通探机",
+        "cost": 10,
+        "gasCost": 0,
+        "efficiency": "1.0×",
+        "note": "采集耗时 ×0.833，基准采集速率",
+        "amountMult": 1.0,
+        "mineTime": 2.5
+      },
+      {
+        "id": "SelendisAdvancedProbe",
+        "nameZh": "高级探机",
+        "cost": 0,
+        "gasCost": 5,
+        "efficiency": "1.67×",
+        "note": "采集耗时 ×0.5，约为普通探机的 1.67 倍速",
+        "amountMult": 1.0,
+        "mineTime": 1.5
+      },
+      {
+        "id": "SelendisExpertProbe",
+        "nameZh": "专家探机",
+        "cost": 750,
+        "gasCost": 25,
+        "efficiency": "1.83×",
+        "note": "采集耗时 ×0.5 且单次采集量 ×1.1",
+        "amountMult": 1.1,
+        "mineTime": 1.5
+      },
+      {
+        "id": "SelendisProbius",
+        "nameZh": "普罗比斯",
+        "cost": 1000,
+        "gasCost": 50,
+        "efficiency": "2.0×",
+        "note": "采集耗时 ×0.5 且单次采集量 ×1.2，最高采集效率",
+        "amountMult": 1.2,
+        "mineTime": 1.5
+      }
+    ]
+  },
+  {
+    "hero": "SgtHammer",
+    "incomeModel": "重锤军士使用建筑被动产矿经济。经济建筑（兵营/工厂/星港）通过反应堆附件获得产矿能力。反应堆建造后永久为对应建筑提供收入。拥有休眠加速模式（×5速率，持续200秒）。",
+    "buildings": [
+      {
+        "id": "SgtHammerEcoBarracks",
+        "nameZh": "经济兵营",
+        "income": 2,
+        "cost": 150,
+        "incomePeriod": 3,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Base income 2 minerals/3s. With TechLab add-on, unlocks 3 minerals/3s tier. Can lift off. Has Reactor add-on option for queue size. Tinted orange.",
+        "upgradeTo": null,
+        "gasCost": null
+      },
+      {
+        "id": "SgtHammerEcoFactory",
+        "nameZh": "经济工厂",
+        "income": 10,
+        "cost": 500,
+        "incomePeriod": 3,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Base income 10 minerals/3s. With TechLab add-on, unlocks 15 minerals/3s tier. Costs 4 vespene. Can lift off. Tinted green.",
+        "upgradeTo": null,
+        "gasCost": 4
+      },
+      {
+        "id": "SgtHammerEcoStarport",
+        "nameZh": "经济星港",
+        "income": 50,
+        "cost": 3500,
+        "incomePeriod": 3,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Base income 50 minerals/3s. With TechLab add-on, unlocks 75 minerals/3s tier. Costs 50 vespene. Can lift off. Tinted blue. Highest tier eco building.",
+        "upgradeTo": null,
+        "gasCost": 50
+      },
+      {
+        "id": "HammerTechLabEcoBarracks",
+        "nameZh": "经济兵营科技实验室",
+        "income": null,
+        "cost": 20,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Add-on for Eco Barracks. Unlocks 3 mineral/3s income tier. Costs 5 vespene. Also provides research capability.",
+        "upgradeTo": null,
+        "gasCost": 5
+      },
+      {
+        "id": "HammerTechLabEcoFactory",
+        "nameZh": "经济工厂科技实验室",
+        "income": null,
+        "cost": 20,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Add-on for Eco Factory. Unlocks 15 mineral/3s income tier. Costs 5 vespene.",
+        "upgradeTo": null,
+        "gasCost": 5
+      },
+      {
+        "id": "HammerTechLabEcoStarport",
+        "nameZh": "经济星港科技实验室",
+        "income": null,
+        "cost": 20,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Add-on for Eco Starport. Unlocks 75 mineral/3s income tier. Costs 5 vespene.",
+        "upgradeTo": null,
+        "gasCost": 5
+      },
+      {
+        "id": "HammerReactorEcoBarracks",
+        "nameZh": "经济兵营反应堆",
+        "income": null,
+        "cost": 200,
+        "incomePeriod": null,
+        "buildTime": 20,
+        "food": null,
+        "notes": "Add-on for Eco Barracks. Provides extra queue slot. Costs 10 vespene.",
+        "upgradeTo": null,
+        "gasCost": 10
+      },
+      {
+        "id": "HammerReactorEcoFactory",
+        "nameZh": "经济工厂反应堆",
+        "income": null,
+        "cost": 200,
+        "incomePeriod": null,
+        "buildTime": 20,
+        "food": null,
+        "notes": "Add-on for Eco Factory. Provides extra queue slot. Costs 10 vespene.",
+        "upgradeTo": null,
+        "gasCost": 10
+      },
+      {
+        "id": "HammerReactorEcoStarport",
+        "nameZh": "经济星港反应堆",
+        "income": null,
+        "cost": 200,
+        "incomePeriod": null,
+        "buildTime": 20,
+        "food": null,
+        "notes": "Add-on for Eco Starport. Provides extra queue slot. Costs 10 vespene.",
+        "upgradeTo": null,
+        "gasCost": 10
+      },
+      {
+        "id": "SgtHammerHammerBarracks",
+        "nameZh": "军事兵营",
+        "income": null,
+        "cost": 25,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Army production building. Trains Vikings, Mines, Flying Vikings, SCVs. Can lift off. Has TechLab/Reactor add-on slots.",
+        "upgradeTo": null,
+        "gasCost": null
+      },
+      {
+        "id": "SgtHammerHammerFactory",
+        "nameZh": "军事工厂",
+        "income": null,
+        "cost": 300,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Army production building. Trains Hellions, Hellbats, Thorsons, SCVs. Can lift off. Has TechLab/Reactor add-on slots.",
+        "upgradeTo": null,
+        "gasCost": null
+      },
+      {
+        "id": "SgtHammerSupplyDepot",
+        "nameZh": "补给站",
+        "income": null,
+        "cost": 115,
+        "incomePeriod": null,
+        "buildTime": 10,
+        "food": 8,
+        "notes": "Provides 8 supply. Can lower/raise. Can be cloaked for 500 minerals (loses 70% HP). Upgradeable with Reinforcements (+100 HP), Shields (+50 shields, +50 HP), and Garor Walls (+5 armor, +100 HP, +5 regen).",
+        "upgradeTo": null,
+        "gasCost": null
+      },
+      {
+        "id": "SgtHammerMuscleArmory",
+        "nameZh": "军械库",
+        "income": null,
+        "cost": 150,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Research building. Provides all weapon/armor upgrades, unit-specific upgrades (mine speed, hellion dash, thorson shields, viking range, etc).",
+        "upgradeTo": null,
+        "gasCost": null
+      },
+      {
+        "id": "HammerLightbulb",
+        "nameZh": "灯泡(前哨站)",
+        "income": null,
+        "cost": 10,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Basic vision structure. 5 sight, detector range 6. Can upgrade to Light Beacon for 200 minerals. 1x1 footprint.",
+        "upgradeTo": "HammerLightBeacon",
+        "gasCost": null
+      },
+      {
+        "id": "HammerLightBeacon",
+        "nameZh": "灯塔(升级后前哨站)",
+        "income": null,
+        "cost": 110,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": -1,
+        "notes": "Upgraded from Lightbulb. 9 sight, 20 vision height, detector range 9. Has Vision Flare ability (2 charges, 60s recharge, reveals area). Provides -1 food (frees 1 supply).",
+        "upgradeTo": null,
+        "gasCost": null
+      },
+      {
+        "id": "SgtHammerOrbitalCommand",
+        "nameZh": "轨道指挥中心",
+        "income": null,
+        "cost": 500,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Resource drop-off point. Costs 10 vespene. Small footprint (2x2). No special income abilities in this version.",
+        "upgradeTo": null,
+        "gasCost": 10
+      },
+      {
+        "id": "SgtHammerRoboticsBay",
+        "nameZh": "机械研究所",
+        "income": null,
+        "cost": 100,
+        "incomePeriod": null,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Technology building. 200 HP + 50 shields. Protoss-style building with shield regeneration. 2x2 footprint.",
+        "upgradeTo": null,
+        "gasCost": null
+      },
+      {
+        "id": "MineralDrill1Deprecated",
+        "nameZh": "矿物钻机(已弃用)",
+        "income": 1,
+        "cost": 75,
+        "incomePeriod": 2,
+        "buildTime": 5,
+        "food": null,
+        "notes": "Legacy income building. Has SgtHammerIncome1 behavior generating 1 mineral/2s passively. Can build Reactor add-on. Has Chrono Boost ability. 2x2 footprint. Deprecated but still in data.",
+        "upgradeTo": null,
+        "gasCost": null
+      }
+    ],
+    "chrono": {
+      "timeScale": 5,
+      "energyCost": 0,
+      "duration": "200",
+      "name": "休眠加速"
+    }
+  },
+  {
+    "hero": "Sophia - The Intern",
+    "incomeModel": "索菲亚使用佣兵营地升级链经济。每个佣兵营地等级每5秒产出固定晶矿。建筑分7级（+1到+64），可直接建造或从低级升级。高级建筑需要更多气体投入。",
+    "buildings": [
+      {
+        "id": "SophiaMercCompound1",
+        "nameZh": "佣兵营地 Lv1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "SophiaMercCompound2",
+        "notes": "Base income building. Can upgrade to Lv2. Has Chrono Boost reactor. Provides Alias_Merc_2 (not a typo - it counts as tier 2 for requirements after first upgrade from SCV build).",
+        "gasCost": 0
+      },
+      {
+        "id": "SophiaMercCompound2",
+        "nameZh": "佣兵营地 Lv2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": "SophiaMercCompound4",
+        "notes": "Can upgrade to Lv4 (free morph) or pay 1 vespene to reduce Spider Mine Carrier calldown cooldown (CD variant). Has Chrono Boost reactor.",
+        "gasCost": 0
+      },
+      {
+        "id": "SophiaMercCompound4",
+        "nameZh": "佣兵营地 Lv4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 325,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": "SophiaMercCompound8",
+        "notes": "Total cost includes 4 vespene. Can upgrade to Lv8 or pay 2 vespene to reduce Vulture calldown cooldown. Unlocks Vulture calldown requirement.",
+        "gasCost": 4
+      },
+      {
+        "id": "SophiaMercCompound8",
+        "nameZh": "佣兵营地 Lv8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 725,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": "SophiaMercCompound16",
+        "notes": "Total cost includes 8 vespene. Can upgrade to Lv16. Has Chrono Boost reactor.",
+        "gasCost": 8
+      },
+      {
+        "id": "SophiaMercCompound16",
+        "nameZh": "佣兵营地 Lv16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 1825,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": "SophiaMercCompound32",
+        "notes": "Total cost includes 20 vespene. Can upgrade to Lv32 or pay 4 vespene to reduce Air Fighter calldown cooldown. Unlocks Air Fighter calldown.",
+        "gasCost": 20
+      },
+      {
+        "id": "SophiaMercCompound32",
+        "nameZh": "佣兵营地 Lv32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 3725,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": "SophiaMercCompound64",
+        "notes": "Total cost includes 30 vespene. Can upgrade to Lv64 or pay 8 vespene to reduce Siege Tank/Thor calldown cooldown. Unlocks Siege Tank and Thor calldowns.",
+        "gasCost": 30
+      },
+      {
+        "id": "SophiaMercCompound64",
+        "nameZh": "佣兵营地 Lv64",
+        "income": 64,
+        "incomePeriod": 3,
+        "cost": 7225,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Total cost includes 45 vespene. Maximum tier. No further upgrades. Has Chrono Boost reactor.",
+        "gasCost": 45
+      },
+      {
+        "id": "SophiaBeacon",
+        "nameZh": "信标",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 100,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "SophiaBeaconWithGlasses",
+        "notes": "Provides power field (radius 7) required for unit calldowns. Can upgrade to add detection+vision (5 vespene) or cloak (150 minerals). 300 HP.",
+        "gasCost": 0
+      },
+      {
+        "id": "SophiaBeaconWithGlasses",
+        "nameZh": "信标(侦测型)",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 100,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Upgraded beacon with detector (range 10), sight 8, vision height 9, and power field. Total cost 100+5 vespene.",
+        "gasCost": 5
+      },
+      {
+        "id": "SophiaBeaconwithCloak",
+        "nameZh": "信标(隐形型)",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 250,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Upgraded beacon with permanent cloak. 300 HP. No power field. Cost is 100 base + 150 mineral upgrade.",
+        "gasCost": 0
+      },
+      {
+        "id": "SophiaArmory",
+        "nameZh": "军械库",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 100,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Research building. Provides 13 upgrades: Weapons Lv1-3, Armor Lv1-3, Calldown Charges, Advanced Drop, Spider Mine Storage, Vision, Destruction Beam Range, Bombardment Damage, Composite Boosters.",
+        "gasCost": 0
+      }
+    ],
+    "chrono": {
+      "timeScale": 1.75,
+      "energyCost": 25,
+      "duration": "permanent",
+      "name": "时间加速"
+    }
+  },
+  {
+    "hero": "Spirit",
+    "incomeModel": "灵魂使用银行/投资系统经济，而非传统的被动产矿建筑。",
+    "buildings": [
+      {
+        "id": "SpiritBank",
+        "nameZh": "灵魂银行",
+        "income": null,
+        "incomePeriod": 3.5,
+        "cost": 25,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "Not a traditional income building. Works as a savings account with compound interest. Players deposit minerals into the bank, and it earns 1% interest on its balance every 3.5 seconds (AddInterest behavior). Interest is compounded (added back to balance, not given to player directly). Players must withdraw to access funds. Balance capped at 1,000,000,000. On salvage, returns a fraction of the stored balance. The bank has Deposit (100/500/1000/2000/All) and Withdraw (100/500/1000/2000/All) buttons.",
+        "gasCost": 0
+      }
+    ]
+  },
+  {
+    "hero": "Swann",
+    "incomeModel": "斯旺使用3级精炼厂升级链经济。每个精炼厂被动产矿，可从基础精炼厂（+2/5s）升级到加速精炼厂（+10/5s）再到乔瑞姆精炼厂（+25/5s）。拥有时间加速能力。",
+    "buildings": [
+      {
+        "id": "SwannRefinery2",
+        "nameZh": "精炼厂 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 125,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "SwannAcceleratedRefinery10",
+        "notes": "Tier 1 economy building. Has ChronoBoost2 ability (1.75x speed). Can upgrade to SwannAcceleratedRefinery10 (30s cooldown between upgrades). 150 HP, 1 armor.",
+        "gasCost": 0
+      },
+      {
+        "id": "SwannAcceleratedRefinery10",
+        "nameZh": "加速精炼厂 +10",
+        "income": 10,
+        "incomePeriod": 3,
+        "cost": 500,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "SwannRefinery25",
+        "notes": "Tier 2 economy building. Costs 500 minerals + 5 gas. Has ChronoBoost ability. Can be built directly or upgraded from SwannRefinery2. Upgrades to SwannRefinery25. Has que5 (auto-queue). 150 HP, 1 armor.",
+        "gasCost": 5
+      },
+      {
+        "id": "SwannRefinery25",
+        "nameZh": "乔瑞姆精炼厂 +25",
+        "income": 25,
+        "incomePeriod": 3,
+        "cost": 1750,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "Tier 3 (final) economy building. Costs 1750 minerals + 10 gas. Has JoriumRefineryChronoBoost ability. Can be built directly or upgraded from SwannAcceleratedRefinery10. Has que5 and ScientistUpgradeIncomeGenerator4 ability. 200 HP, 1 armor.",
+        "gasCost": 10
+      }
+    ],
+    "chrono": {
+      "timeScale": 1.75,
+      "energyCost": 25,
+      "duration": "permanent",
+      "name": "时间加速"
+    }
+  },
+  {
+    "hero": "Ghost",
+    "incomeModel": "幽灵使用升级链经济。SCV 建造基础晶体矿反应堆（+1），然后逐级升级（+2、+4、+8、+16、+32），每级每 3 秒产矿。反应堆拥有自动施放的星空加速（每次消耗 5 气体），将产矿速度提升至 1.75 倍。",
+    "buildings": [
+      {
+        "id": "GhostMineralReactor1",
+        "nameZh": "晶体矿反应堆 +1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "GhostMineralReactor2",
+        "notes": "Base economy building, built by Ghost SCV. Can be upgraded to +2. Has ChronoBoost ability (1.75x speed for 5 gas). Salvageable for 90% refund.",
+        "gasCost": 0
+      },
+      {
+        "id": "GhostMineralReactor2",
+        "nameZh": "晶体矿反应堆 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "GhostMineralReactor4",
+        "notes": "Morphed from +1. Upgrade time 5s. Has ChronoBoost and can upgrade to +4.",
+        "gasCost": 0
+      },
+      {
+        "id": "GhostMineralReactor4",
+        "nameZh": "晶体矿反应堆 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 350,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "GhostMineralReactor8",
+        "notes": "Morphed from +2. Upgrade time 5s. Has ChronoBoost and can upgrade to +8.",
+        "gasCost": 0
+      },
+      {
+        "id": "GhostMineralReactor8",
+        "nameZh": "晶体矿反应堆 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 800,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "GhostMineralReactor16",
+        "notes": "Morphed from +4. Upgrade time 5s. Has ChronoBoost and can upgrade to +16.",
+        "gasCost": 0
+      },
+      {
+        "id": "GhostMineralReactor16",
+        "nameZh": "晶体矿反应堆 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 2000,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "GhostMineralReactor32",
+        "notes": "Morphed from +8. Upgrade time 5s. Has ChronoBoost and can upgrade to +32.",
+        "gasCost": 0
+      },
+      {
+        "id": "GhostMineralReactor32",
+        "nameZh": "晶体矿反应堆 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 5000,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "Max tier reactor. Morphed from +16. Upgrade time 5s. Has ChronoBoost. Final upgrade in the chain.",
+        "gasCost": 0
+      }
+    ],
+    "chrono": {
+      "timeScale": 1.75,
+      "gasCost": 5,
+      "duration": "permanent",
+      "name": "星空加速（自动）"
+    }
+  },
+  {
+    "hero": "Dark Templar",
+    "incomeModel": "暗黑圣堂使用被动产矿经济。精华同化器每5秒产出晶矿，分多个等级。拥有时间加速能力。",
+    "buildings": [
+      {
+        "id": "DTEssenceTemple",
+        "nameZh": "精华神庙 +1",
+        "income": 1,
+        "incomePeriod": 4,
+        "cost": 75,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "DarkTemplarEssenceAssimilator",
+        "notes": "Lowest tier economy building. Uses behavior 'DarkTemplar1' with PeriodicEffect 'MineralIncome1'. HP 75, Shield 75, Armor 1. SelectAlias group 'DTEssenceTemple'.",
+        "gasCost": 0
+      },
+      {
+        "id": "DarkTemplarEssenceAssimilator",
+        "nameZh": "精华同化器+10",
+        "income": 10,
+        "incomePeriod": 4,
+        "cost": 375,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "DTEssenceSanctuary50",
+        "notes": "Mid tier economy building. Uses behavior 'DarkTemplar10' with PeriodicEffect 'MineralIncome10'. HP 75, Shield 75, Armor 1. CostCategory: Economy. SelectAlias 'DTEssenceTemple'. This is the primary known economy unit ID (also referenced as DTEssenceAssimilator in actor data).",
+        "gasCost": 6
+      },
+      {
+        "id": "DTEssenceSanctuary50",
+        "nameZh": "精华圣所 +50",
+        "income": 50,
+        "incomePeriod": 4,
+        "cost": 2400,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Highest tier economy building. Uses behavior 'DarkTemplar50' with PeriodicEffect 'MineralIncome50'. HP 200, Shield 200, Armor 1. SelectAlias 'DTEssenceTemple'. Has a requirement validator 'CountUnitDTEssenceSanctuary50CompleteOnly' suggesting a build limit.",
+        "gasCost": 50
+      }
+    ]
+  },
+  {
+    "hero": "Delta Squad",
+    "incomeModel": "三角洲小队使用升级链经济。SCV建造基础交易中心（+2），然后逐级升级（+4、+8、+16、+32、+64）。每级每5秒产矿。拥有自动时间加速（×2）。",
+    "buildings": [
+      {
+        "id": "DSCommerceCenter",
+        "nameZh": "交易中心 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "DSCommerceCenter4",
+        "notes": "Base economy building, built by SCV via DSBuild ability. Has DeltaSquadChronoBoost and ChronoBlast abilities. Upgrade chain starts here.",
+        "gasCost": 0
+      },
+      {
+        "id": "DSCommerceCenter4",
+        "nameZh": "交易中心 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 300,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "DSCommerceCenter8",
+        "notes": "Morphed from DSCommerceCenter. Upgrade cost is 150 minerals (300 total - 150 base). Has ChronoBoost/ChronoBlast.",
+        "gasCost": 0
+      },
+      {
+        "id": "DSCommerceCenter8",
+        "nameZh": "任务指挥中心 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 700,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "DSCommerceCenter16",
+        "notes": "Morphed from DSCommerceCenter4. Upgrade cost is 400 minerals (700 total - 300). Different Chinese name (Mission Command Center). Has ChronoBoost/ChronoBlast.",
+        "gasCost": 0
+      },
+      {
+        "id": "DSCommerceCenter16",
+        "nameZh": "交易中心 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 1500,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "DSCommerceCenter32",
+        "notes": "Morphed from DSCommerceCenter8. Upgrade cost is 800 minerals (1500 total - 700). Has ChronoBoost/ChronoBlast.",
+        "gasCost": 0
+      },
+      {
+        "id": "DSCommerceCenter32",
+        "nameZh": "交易中心 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 3500,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "DSCommerceCenter64",
+        "notes": "Morphed from DSCommerceCenter16. Upgrade cost is 2000 minerals (3500 total - 1500). Requires DSCommerceCenter32 for certain upgrades (Life, Ship Weapons). Has ChronoBoost/ChronoBlast.",
+        "gasCost": 0
+      },
+      {
+        "id": "DSCommerceCenter64",
+        "nameZh": "交易中心 +64",
+        "income": 64,
+        "incomePeriod": 3,
+        "cost": 7500,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "Final tier. Morphed from DSCommerceCenter32. Upgrade cost is 4000 minerals (7500 total - 3500). Max income building. Has ChronoBoost/ChronoBlast.",
+        "gasCost": 0
+      }
+    ],
+    "chrono": [
+      {
+        "name": "时间加速（5气）",
+        "timeScale": 1.5,
+        "gasCost": 5,
+        "energyCost": 0,
+        "duration": "permanent"
+      },
+      {
+        "name": "时间爆发（15气）",
+        "timeScale": 2,
+        "gasCost": 15,
+        "energyCost": 0,
+        "duration": "permanent"
+      }
+    ]
+  },
+  {
+    "hero": "Nightingale",
+    "incomeModel": "夜莺使用天链建筑产矿经济。天链建筑每3秒产出晶矿，分多个等级。拥有时间加速能力。",
+    "buildings": [
+      {
+        "id": "NightingaleNexus",
+        "nameZh": "星灵枢纽",
+        "income": 1,
+        "incomePeriod": 3.5,
+        "cost": 50,
+        "food": null,
+        "buildTime": 5,
+        "upgradeTo": null,
+        "notes": "主基地，可训练无效者和门徒，提供资源投递点，每3.5秒产出1矿"
+      },
+      {
+        "id": "NightingaleSkylink",
+        "nameZh": "天链 Lv1",
+        "income": 1,
+        "incomePeriod": 3.5,
+        "cost": 75,
+        "food": null,
+        "buildTime": 5,
+        "upgradeTo": "NightingaleSkylink2",
+        "notes": "基础经济建筑，每3.5秒产出1矿，可升级到Lv2"
+      },
+      {
+        "id": "NightingaleSkylink2",
+        "nameZh": "天链 Lv2",
+        "income": 2,
+        "incomePeriod": 3.5,
+        "cost": 150,
+        "food": null,
+        "buildTime": 5,
+        "upgradeTo": "NightingaleSkylink4",
+        "notes": "每3.5秒产出2矿，可升级到Lv4"
+      },
+      {
+        "id": "NightingaleSkylink4",
+        "nameZh": "天链 Lv4",
+        "income": 4,
+        "incomePeriod": 3.5,
+        "cost": 350,
+        "food": null,
+        "buildTime": 5,
+        "upgradeTo": "NightingaleSkylink8",
+        "notes": "每3.5秒产出4矿，可升级到Lv8"
+      },
+      {
+        "id": "NightingaleSkylink8",
+        "nameZh": "天链 Lv8",
+        "income": 8,
+        "incomePeriod": 3.5,
+        "cost": 800,
+        "food": null,
+        "buildTime": 5,
+        "upgradeTo": "NightingaleSkylink16",
+        "notes": "每3.5秒产出8矿，可升级到Lv16"
+      },
+      {
+        "id": "NightingaleSkylink16",
+        "nameZh": "天链 Lv16",
+        "income": 16,
+        "incomePeriod": 3.5,
+        "cost": 2000,
+        "food": null,
+        "buildTime": 5,
+        "upgradeTo": "NightingaleSkylink32",
+        "notes": "每3.5秒产出16矿，可升级到Lv32"
+      },
+      {
+        "id": "NightingaleSkylink32",
+        "nameZh": "天链 Lv32",
+        "income": 32,
+        "incomePeriod": 3.5,
+        "cost": 5000,
+        "food": null,
+        "buildTime": 5,
+        "upgradeTo": null,
+        "notes": "最高级经济建筑，每3.5秒产出32矿，无法继续升级"
+      },
+      {
+        "id": "NightingaleObelisk",
+        "nameZh": "方尖碑",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 50,
+        "food": null,
+        "buildTime": 10,
+        "upgradeTo": null,
+        "notes": "研究建筑，提供武器/护甲/能量升级及各种科技研究"
+      },
+      {
+        "id": "NightingaleTribunal",
+        "nameZh": "裁决所",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 1000,
+        "food": 25,
+        "buildTime": 10,
+        "upgradeTo": null,
+        "notes": "科技建筑，解锁爆裂(Burst)建造，提供高效合成研究。需要枢纽"
+      },
+      {
+        "id": "NightingaleCloudCluster",
+        "nameZh": "云团",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 2500,
+        "food": 25,
+        "buildTime": 10,
+        "upgradeTo": null,
+        "notes": "科技建筑(20气)，解锁火花(Spark)和反应堆建造，提供通量叶片/悬浮推进器/扩展合成研究。需要裁决所"
+      },
+      {
+        "id": "NightingaleReactor",
+        "nameZh": "反应堆",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 3000,
+        "food": 25,
+        "buildTime": 10,
+        "upgradeTo": null,
+        "notes": "科技建筑(30气)，解锁零点稳定器和干涉技能，提供幻影力场隐形。需要云团",
+        "gasCost": 30
+      },
+      {
+        "id": "NightingaleNullPointStabilizer",
+        "nameZh": "零点稳定器",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 4000,
+        "food": 25,
+        "buildTime": 10,
+        "upgradeTo": null,
+        "notes": "高级科技建筑(50气)，解锁扭曲技能，提供深层漩涡/坚不可摧/预知研究。需要反应堆"
+      },
+      {
+        "id": "NightingaleFlare",
+        "nameZh": "照明弹",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 25,
+        "food": null,
+        "buildTime": 3,
+        "upgradeTo": null,
+        "notes": "侦察建筑，激活后提供视野加成(+6)，永久隐形，15秒冷却。需要枢纽"
+      },
+      {
+        "id": "NightingaleSpark",
+        "nameZh": "火花",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 100,
+        "food": null,
+        "buildTime": 3,
+        "upgradeTo": null,
+        "notes": "辅助建筑(5气)，激活后为范围内友军提供时间加速(+15%速度)，30秒冷却。需要云团"
+      },
+      {
+        "id": "NightingaleBurst",
+        "nameZh": "爆裂",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 50,
+        "food": null,
+        "buildTime": 6,
+        "upgradeTo": null,
+        "notes": "攻击建筑(2气)，激活后提供伤害加成(+5%)，可引爆造成300范围伤害，永久隐形，20秒冷却。需要裁决所"
+      }
+    ],
+    "chrono": {
+      "timeScale": 1.5,
+      "energyCost": 25,
+      "duration": "permanent",
+      "name": "时间加速"
+    }
+  }
+]
