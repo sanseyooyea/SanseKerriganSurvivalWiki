@@ -1,0 +1,166 @@
+{
+  "hero": "Spirit",
+  "roleId": 4,
+  "nameZh": "灵魂",
+  "economyType": "finance",
+  "summary": "灵魂是 KS2 最特殊的经济英雄——不依赖传统被动产矿，而是一套「金融投资 + 运气」体系。核心是用矿物作本金，通过银行复利、股市/证券交易所投资、赌场博彩来增值。贯穿所有系统的隐藏变量是「运气值」，由水晶球设定，直接影响股市收益率和所有赌博的胜率/赔率。高风险高回报，运营得当可滚雪球式暴富，也可能一夜归零。",
+  "luckNote": "运气值（luck）范围约 -0.15 ~ +0.45，由水晶球的四种占卜设定。它影响：股市每周期乘数（+运气/5）、双倍或全无胜率（+运气/2）、彩票胜率（+运气/10）、买酒坏事概率（-运气）。⚠️ 运气有时效：每次占卜赋予的运气只持续 120 秒，到期或水晶塔被摧毁会立即清零归 0。要维持高运气需每约 120 秒重新占卜，并保护好水晶塔。120 秒约等于 2 个股市投资周期（每周期 60 秒）。",
+  "bank": {
+    "id": "SpiritBank",
+    "nameZh": "灵魂银行",
+    "cost": 25,
+    "buildTime": 5,
+    "type": "储蓄复利",
+    "interestPeriodSec": 3.5,
+    "balanceCap": 1000000000,
+    "compound": true,
+    "depositTiers": [100, 500, 1000, 2000, "全部"],
+    "withdrawTiers": [100, 500, 1000, 2000, "全部"],
+    "salvageReturn": "拆除返还全部余额",
+    "interestRule": "利息按整数计算，分两档：余额 ≤ 10000 时，利息 = 四舍五入(余额/100)（即余额除以100后，余数 ≥50 进位、<50 舍去）；余额 > 10000 时，利息 = 整数除法(余额/100)（直接截断小数，不进位）。利息每 3.5 秒结算并复利存回。",
+    "desc": "把矿物存入银行，每 3.5 秒结算一次利息并自动复利存回。利息约为余额的 1%，但按整数计算：余额 ≤ 10000 时四舍五入（余数≥50进位），余额 > 10000 时直接向下取整。余额上限 10 亿。利息不直接给玩家，需手动取款才能动用。余额越高利息越多（复利滚雪球），不受运气影响，是最稳健的增值方式。",
+    "examples": [
+      { "balance": 149, "interestPerTick": 1, "note": "≤1万档：149/100=1.49→四舍五入=1" },
+      { "balance": 150, "interestPerTick": 2, "note": "≤1万档：150/100=1.5→进位=2" },
+      { "balance": 1050, "interestPerTick": 11, "note": "≤1万档：1050/100=10.5→进位=11" },
+      { "balance": 10000, "interestPerTick": 100, "note": "≤1万档：恰好100" },
+      { "balance": 10550, "interestPerTick": 105, "note": ">1万档：整数除法截断=105（不进位）" },
+      { "balance": 1000000, "interestPerTick": 10000, "note": ">1万档：每 3.5s +1万" }
+    ]
+  },
+  "market": {
+    "ids": ["SpiritMarket", "SpiritExchange"],
+    "nameZh": "股市 / 证券交易所",
+    "marketCost": "25 矿",
+    "exchangeCost": "250 矿 + 1 气",
+    "type": "周期投资",
+    "baseMultiplier": 1.0925,
+    "luckBonus": "运气 / 5",
+    "multiplierFormula": "每周期乘数 = 1.0925 + 运气/5",
+    "tickPeriodSec": 9.9,
+    "ticksPerCycle": 6,
+    "lockDurationSec": 60,
+    "powerRequirement": "必须在水晶（Pylon）的供能范围内才运作",
+    "depositGasNote": "存款（投资）需消耗气体作为手续费，按档位收取，金额越大费率越低；取款免费。",
+    "depositTiers": [
+      { "minerals": 100, "gas": 1, "rate": "1%" },
+      { "minerals": 500, "gas": 4, "rate": "0.8%" },
+      { "minerals": 1000, "gas": 7, "rate": "0.7%" },
+      { "minerals": 2000, "gas": 13, "rate": "0.65%" },
+      { "minerals": "全部", "gas": 100, "rate": "固定100气" }
+    ],
+    "withdrawNote": "取款（100/500/1000/2000/全部）免费，不消耗气体。",
+    "exchangeNote": "证券交易所是股市的高价版（250矿+1气 vs 25矿），与股市共享同一套余额、存款手续费与机制。",
+    "desc": "把矿物投入股市，每 9.9 秒复利一次、60 秒内共 6 次，到期自动平仓返还。0 运气时乘数 1.0925（单周期约 +70%），运气每点提升 0.2 乘数。两个关键成本：① 投资需按档位付气体手续费（投得越多费率越低，全投固定100气）；② 必须建在水晶（Pylon）供能范围内才结算。取款免费。气体是股市的入场资源，没气就无法投资。",
+    "multiplierExamples": [
+      { "luck": -0.4, "multiplier": 1.0125, "pctPerCycle": "+7.7%" },
+      { "luck": 0, "multiplier": 1.0925, "pctPerCycle": "+70%" },
+      { "luck": 0.215, "multiplier": 1.1355, "pctPerCycle": "+114%" },
+      { "luck": 0.45, "multiplier": 1.1825, "pctPerCycle": "+173%" }
+    ]
+  },
+  "casino": {
+    "id": "SpiritCasino",
+    "nameZh": "奇迹熔炉（赌场）",
+    "cost": 50,
+    "desc": "提供六种博彩玩法 + 古老遗物。每种玩法都需消耗赌注（矿物和/或气体）。运气影响双倍或全无、彩票、买酒的概率。期望收益已扣除赌注，仅供参考——博彩有风险，下注需谨慎。",
+    "games": [
+      {
+        "nameZh": "双倍或全无",
+        "stake": "25 气 + 押上全部矿物",
+        "stakeGas": 25,
+        "winChanceFormula": "0.5 + 运气/2",
+        "baseWinChance": 0.5,
+        "result": "赢→矿物翻倍；输→矿物清零",
+        "luckAffected": true,
+        "desc": "花 25 气，押上全部身家赌一把。基础 50% 胜率，运气满（+0.4）时约 70%。赢了矿物翻倍、输了归零，身家 ≥1万 时全场公告。最刺激也最危险。"
+      },
+      {
+        "nameZh": "彩票",
+        "stake": "1 气",
+        "stakeGas": 1,
+        "winChanceFormula": "0.01 + 运气/10",
+        "baseWinChance": 0.01,
+        "payoutFormula": "游戏时长^(1.3~1.4) / 3",
+        "result": "中奖得大额矿物，奖金随游戏时长指数增长",
+        "luckAffected": true,
+        "desc": "花 1 气买一张。基础 1% 中奖率，运气满时约 5%。奖金 = 游戏时间的 1.3~1.4 次方 ÷ 3，越到后期奖池越夸张。"
+      },
+      {
+        "nameZh": "买酒",
+        "stake": "10 矿",
+        "stakeMinerals": 10,
+        "badChanceFormula": "0.25 - 运气",
+        "result": "前 4 杯安全；第 5 杯起有概率随机炸死一个灵魂单位",
+        "luckAffected": true,
+        "desc": "花 10 矿喝一杯。前 4 杯无风险，第 5 杯起坏事概率 = 0.25 - 运气（正运气可降到 0）。坏事=随机杀死你的一个灵魂单位。喝满 10 杯触发全场公告。"
+      },
+      {
+        "nameZh": "扑克",
+        "stake": "50 矿 + 1 气",
+        "stakeMinerals": 50,
+        "stakeGas": 1,
+        "baseWinChance": 0.5,
+        "winAmount": "50~100 矿",
+        "luckAffected": false,
+        "desc": "花 50 矿 + 1 气，50% 概率赢 50~100 矿（赢额均值 75）。"
+      },
+      {
+        "nameZh": "黑杰克",
+        "stake": "75 矿 + 1 气",
+        "stakeMinerals": 75,
+        "stakeGas": 1,
+        "baseWinChance": 0.45,
+        "winAmount": "150~300 矿",
+        "luckAffected": false,
+        "desc": "花 75 矿 + 1 气，约 45% 概率赢 150~300 矿（结算分段：<30% 赢 / 30-45% 平 / 45-60% 又赢 / >60% 输）。"
+      },
+      {
+        "nameZh": "轮盘",
+        "stake": "75 矿 + 1 气",
+        "stakeMinerals": 75,
+        "stakeGas": 1,
+        "baseWinChance": 0.45,
+        "winAmount": "150~300 矿（普通）/ 750~1500 矿（绿色大奖）",
+        "luckAffected": false,
+        "desc": "花 75 矿 + 1 气，3% 概率触发绿色大奖（750~1500 矿），另 42% 概率普通赢（150~300 矿），合计约 45% 赢率。赢额期望最高的玩法。"
+      }
+    ]
+  },
+  "crystalBall": {
+    "id": "SpiritCrystalBall",
+    "nameZh": "水晶球",
+    "cost": 25,
+    "desc": "运气系统的核心。四种占卜各需花费矿物+气体，从各自的随机分布抽取并设定你的运气值。规律：花费越高，运气期望越好、上限越高。运气会改变股市收益与赌博胜率。「古老遗物」则是高风险随机大事件。",
+    "divinationNote": "每次占卜会【重置】运气为新抽取的值（不是叠加）。⚠️ 运气仅持续 120 秒，到期或水晶塔被摧毁立即清零归 0——需每约 120 秒重新占卜来维持。运气值 = 抽取值，范围与期望随价位提升。",
+    "divinations": [
+      { "nameZh": "施舍", "id": "GiveAlms", "cost": "1 矿 + 1 气", "luckRange": "-0.01 ~ +0.06", "luckMean": 0.024, "negChance": 0.14, "desc": "最便宜的占卜。小幅波动，均值 +0.024，约 14% 概率抽到轻微负运气。适合没钱时凑合刷一下。" },
+      { "nameZh": "手相", "id": "PalmReading", "cost": "5 矿 + 5 气", "luckRange": "-0.04 ~ +0.15", "luckMean": 0.059, "negChance": 0.14, "desc": "廉价占卜。以小幅正运气为主，均值 +0.059，上限 +0.15，约 14% 概率小负。" },
+      { "nameZh": "茶叶占卜", "id": "TeaLeaves", "cost": "15 矿 + 15 气", "luckRange": "-0.10 ~ +0.30", "luckMean": 0.130, "negChance": 0.13, "desc": "中档占卜。范围更大、偏正，均值 +0.130，上限 +0.30。性价比与上限的平衡选择。" },
+      { "nameZh": "水晶球占卜", "id": "CrystalBall", "cost": "35 矿 + 35 气", "luckRange": "-0.15 ~ +0.45", "luckMean": 0.215, "negChance": 0.07, "desc": "最贵的占卜。均值最高 +0.215、上限 +0.45，负运气概率仅 7%。想冲高运气搏股市/赌场就用它。" }
+    ],
+    "luckTiers": [
+      { "range": "< -0.2", "label": "极度不幸" },
+      { "range": "-0.2 ~ -0.05", "label": "不幸" },
+      { "range": "-0.05 ~ +0.05", "label": "中立" },
+      { "range": "+0.05 ~ +0.2", "label": "幸运" },
+      { "range": "+0.2 ~ +0.4", "label": "非常幸运" },
+      { "range": "> +0.4", "label": "极度幸运" }
+    ],
+    "ancientRelic": {
+      "nameZh": "古老遗物",
+      "cost": "2000 矿 + 10 气",
+      "desc": "在赌场购买（2000 矿 + 10 气）的高风险随机大事件，触发后随机发生以下之一：",
+      "events": [
+        { "chance": 0.20, "effect": "触发一次彩票大奖", "good": true },
+        { "chance": 0.10, "effect": "强制执行一次双倍或全无（玩家无法控制）", "good": null },
+        { "chance": 0.10, "effect": "银行/股市崩盘：杀掉所有银行和股市，投资清零", "good": false },
+        { "chance": 0.05, "effect": "复制所有现有灵魂单位（数量翻倍）", "good": true },
+        { "chance": 0.05, "effect": "英雄眩晕 10~30 秒", "good": false },
+        { "chance": 0.10, "effect": "灵魂全灭：杀死所有灵魂单位", "good": false }
+      ]
+    }
+  },
+  "_note": "锻炉(SpiritForge)与护盾充能器(SpiritShieldBattery)不属于经济建筑，归类于战斗/防御系统（锻炉提供 6 类共 10 级升级，并随升级抬高建筑造价），不在本经济页展示。",
+  "_source": "从 凯瑞甘生存2 最新版.SC2Map 的 Galaxy 脚本(spirit_unsplit.galaxy 等)与 GameData 提取，2026-06-16 核实。"
+}

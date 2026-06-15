@@ -65,6 +65,11 @@ def find_tooltip(ab_id):
         return clean_tooltip(button_tooltips[ab_id])
     if ab_id.lower() in tooltips_lower:
         return clean_tooltip(tooltips_lower[ab_id.lower()])
+    # the ability's own button face (e.g. SpiritCloneSpirit -> SpiritClone,
+    # CommonBlinkHero -> SurvivorBlink): the tooltip lives on the face, not the id
+    face = ABIL.get(ab_id, {}).get('CmdButtonArray.DefaultButtonFace')
+    if face and face in button_tooltips:
+        return clean_tooltip(button_tooltips[face])
     for suffix in ('KS2', 'Ks2', 'ks2'):
         key = (ab_id + suffix).lower()
         if key in tooltips_lower:

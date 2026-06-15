@@ -1,0 +1,8 @@
+{
+  "name": "ks2-wiki-runner",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "better-sqlite3": "12.10.0"
+  }
+}

@@ -4,15 +4,20 @@
     "nameEn": "Razor Swarm",
     "tooltip": "在区域内召唤一场风暴，对敌人造成伤害。<n/><c val=\"FF6B6B\">不会对建筑造成伤害。</c><n/><c val=\"FF8080\">每秒伤害:</c>|||（每英雄等级+%）<n/><c val=\"E6E6E6\">冷却时间: </c><c val=\"E6E6E6\">30秒</c>|<c val=\"E6E6E6\">26秒</c>|<c val=\"E6E6E6\">22秒</c>|<c val=\"E6E6E6\">18秒</c><n/><c val=\"8FC7FF\">能量消耗:</c> <c val=\"8FC7FF\">50</c>|<c val=\"8FC7FF\">40</c>|<c val=\"8FC7FF\">30</c>|<c val=\"8FC7FF\">20</c><n/><c val=\"E6E6E6\">半径: </c><c val=\"E6E6E6\">3.25</c>|<c val=\"E6E6E6\">3.25</c>|<c val=\"E6E6E6\">3.5</c>|<c val=\"E6E6E6\">3.75</c><n/><c val=\"E6E6E6\">持续时间: </c><c val=\"E6E6E6\">3.5秒</c>|<c val=\"E6E6E6\">4秒</c>|<c val=\"E6E6E6\">4.5秒</c>|<c val=\"E6E6E6\">5秒</c>"
   },
-  "KerriganInfection": {
-    "nameZh": "寄生",
-    "nameEn": "Parasite",
-    "tooltip": ""
+  "KerriganManaBurn": {
+    "nameZh": "能量反蚀",
+    "nameEn": "Mana Burn",
+    "tooltip": "根据目标的最大能量汲取其能量。<n/><c val=\"FF8080\">若目标当前能量达到 1000 或以上，此技能将改为汲取 1000 点能量。</c><n/><c val=\"ff6161\">在 30 秒内无法对同一目标再次施放。</c><n/><c val=\"8FC7FF\">汲取能量:</c> <c val=\"8FC7FF\">40%</c>|<c val=\"8FC7FF\">50%</c>|<c val=\"8FC7FF\">60%</c>|<c val=\"8FC7FF\">70%</c><n/><c val=\"E6E6E6\">射程: </c><c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c><n/><c val=\"8FC7FF\">能量消耗: 25 </c><n/><c val=\"E6E6E6\">冷却时间: 10s</c>"
   },
   "KerriganFungalGrowth": {
     "nameZh": "霉菌滋生",
     "nameEn": "Fungal Growth",
     "tooltip": "定身目标单位。但是目标单位仍然能够使用闪现，或者释放技能。<n/><c val=\"E6E6E6\">定身持续时间: 2s</c><n/><c val=\"E6E6E6\">冷却时间:</c><c val=\"E6E6E6\">60s</c>|<c val=\"E6E6E6\">50s</c>|<c val=\"E6E6E6\">40s</c>|<c val=\"E6E6E6\">30s</c><n/><c val=\"8FC7FF\">能量消耗: </c><c val=\"8FC7FF\">50</c>|<c val=\"8FC7FF\">40</c>|<c val=\"8FC7FF\">30</c>|<c val=\"8FC7FF\">20</c>"
+  },
+  "DehakaDash": {
+    "nameZh": "德哈卡突进",
+    "nameEn": "Dehaka Dash",
+    "tooltip": "突进"
   },
   "KerriganTeleport": {
     "nameZh": "传送",
@@ -24,11 +29,6 @@
     "nameEn": "Primal Roar",
     "tooltip": "短时间内增加范围内友方单位的攻击速度和移动速度.<n/><c val=\"90EE90\">移动速度:</c> <c val=\"90EE90\">+15%</c>|<c val=\"90EE90\">+25%</c>|<c val=\"90EE90\">+35%</c>|<c val=\"90EE90\">+45%</c><n/><c val=\"90EE90\">攻击速度:</c> <c val=\"90EE90\">+25%</c>|<c val=\"90EE90\">+35%</c>|<c val=\"90EE90\">+45%</c>|<c val=\"90EE90\">+55%</c><n/><c val=\"E6E6E6\">冷却: </c><c val=\"E6E6E6\">60s</c>|<c val=\"E6E6E6\">50s</c>|<c val=\"E6E6E6\">40s</c>|<c val=\"E6E6E6\">30s</c><n/><c val=\"E6E6E6\">半径:</c> <c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c>|<c val=\"E6E6E6\">9</c>|<c val=\"E6E6E6\">10</c><n/><c val=\"8FC7FF\">能量花费: 50</c><n/><c val=\"E6E6E6\">持续时间: 10s</c>"
   },
-  "PrimalSlash": {
-    "nameZh": "Primal Slash",
-    "nameEn": "Primal Slash",
-    "tooltip": ""
-  },
   "ScientistTrainMedivac": {
     "nameZh": "训练 医疗运输机",
     "nameEn": "Train Medivac",
@@ -37,12 +37,12 @@
   "CommonBlinkHero": {
     "nameZh": "闪现",
     "nameEn": "Blink",
-    "tooltip": ""
+    "tooltip": "短距离传送\n\n5 分钟冷却时间!"
   },
   "DTPsiStorm": {
     "nameZh": "灵能风暴",
     "nameEn": "Psi Storm",
-    "tooltip": ""
+    "tooltip": "在目标区域制造一场灵能风暴，每秒造成伤害，持续 [?]秒。\n\n每跳伤害： [?]|[?]|[?]|[?]（每英雄等级+[?]%）\n能量消耗： [?]|[?]|[?]|[?]\n冷却时间： [?]秒|[?]秒|[?]秒|[?]秒"
   },
   "DarkTemplarDash": {
     "nameZh": "突进",
@@ -84,25 +84,20 @@
     "nameEn": "召唤虚空裂隙",
     "tooltip": "从虚空召唤混合体。"
   },
-  "SpiritDeflect": {
-    "nameZh": "偏折",
-    "nameEn": "Deflect",
-    "tooltip": "使目标单位远离灵魂。驱离目标单位。但是可以被手动操作覆盖。\n\n对英雄单位无效。"
-  },
-  "SpiritGlide": {
-    "nameZh": "滑翔",
-    "nameEn": "Glide",
-    "tooltip": "在8秒内移动速度提高。"
+  "SpiritCloneSpirit": {
+    "nameZh": "分裂灵魂",
+    "nameEn": "Clone Spirit",
+    "tooltip": "召唤一个拥有灵魂全部能力的黑暗灵魂分身。分身与灵魂共享命运：任一死亡，则两者皆亡。\n\n两道阴影，同一灵魂。"
   },
   "AresTransport": {
     "nameZh": "卸载所有单位",
     "nameEn": "Load-Unload",
-    "tooltip": ""
+    "tooltip": "卸载所有单位."
   },
   "AresEmergencyThrusters": {
     "nameZh": "后燃充能",
     "nameEn": "Emergency Thrusters",
-    "tooltip": ""
+    "tooltip": "短时间增加阿瑞斯的移动速度！\n\n狂飙开始！涡轮全送！"
   },
   "AresHyperjump": {
     "nameZh": "超级跃迁",
@@ -127,27 +122,27 @@
   "StukovInfestedTerran": {
     "nameZh": "生产被感染的人类",
     "nameEn": "Infested Terran",
-    "tooltip": ""
+    "tooltip": "补给消耗: [?]\n生产 [?] 被感染的人类。远程作战单位。\n\n可以对地或对空。"
   },
   "StukovInfestedCivilians": {
     "nameZh": "生产感染平民",
     "nameEn": "Infested Civilian",
-    "tooltip": ""
+    "tooltip": "补给消耗:[?]\n生产 [?]感染的人类。他们可以用来击杀小狗（为什么要杀萌萌狗！）或阻挡虫族英雄。\n\n可以对地。"
   },
   "StukovInfestedAberration": {
     "nameZh": "生产畸变体",
     "nameEn": "Infested Aberration",
-    "tooltip": ""
+    "tooltip": "补给消耗: [?]\n畸变体是坚固可靠的肉盾单位，同时也能造成大量伤害.\n\n可以对地"
   },
   "StukovInfestedRavager": {
     "nameZh": "生产破坏者",
     "nameEn": "Infested Ravager",
-    "tooltip": ""
+    "tooltip": "补给消耗: [?] \n生成破坏者，远程战斗单位。\n\n可以对地。"
   },
   "StukovSpawnNaktul": {
     "nameZh": "生产虫后",
     "nameEn": "Spawn Naktul",
-    "tooltip": ""
+    "tooltip": "补给消耗: [?]\n生产跟斯托科夫作用相近的单位（老婆）。\n\n可以对地或对空。"
   },
   "StukovSprint": {
     "nameZh": "冲刺",
@@ -162,7 +157,7 @@
   "ArtanisProtectiveShield": {
     "nameZh": "耐力光环",
     "nameEn": "Protective Shield",
-    "tooltip": ""
+    "tooltip": "降低阿塔尼斯及附近友军受到的伤害。\n\n持续时间：[?]秒\n半径：|||\n\n伤害减免：%|%|%|%"
   },
   "ArtanisEnergizerAura": {
     "nameZh": "激励者光环",
@@ -183,11 +178,6 @@
     "nameZh": "菌毯传送",
     "nameEn": "Creep Teleport",
     "tooltip": "传送至任何有视野的菌毯位置。<n/><c val=\"FFFF00\">冷却:</c> <c val=\"FFFF00\" validator=\"CreepTeleportLevel1\">30秒</c>/<c val=\"FFFF00\" validator=\"CreepTeleportLevel2\">20秒</c>/<c val=\"FFFF00\" validator=\"CreepTeleportLevel3\">15秒</c>/<c val=\"FFFF00\" validator=\"CreepTeleportLevel4\">10秒</c><n/><c val=\"BB77FF\">能量消耗:</c> <c val=\"BB77FF\" validator=\"CreepTeleportLevel1\">40</c>/<c val=\"BB77FF\" validator=\"CreepTeleportLevel2\">30</c>/<c val=\"BB77FF\" validator=\"CreepTeleportLevel3\">25</c>/<c val=\"BB77FF\" validator=\"CreepTeleportLevel4\">20</c>"
-  },
-  "KerriganManaBurn": {
-    "nameZh": "能量反蚀",
-    "nameEn": "Mana Burn",
-    "tooltip": "按目标最大能量的比例抽取其能量。<n/><c val=\"FF8080\">若目标当前能量达到或超过1000，则改为抽取1000点能量。</c><n/><c val=\"8FC7FF\">抽取能量：</c> <c val=\"8FC7FF\">40%</c>|<c val=\"8FC7FF\">50%</c>|<c val=\"8FC7FF\">60%</c>|<c val=\"8FC7FF\">70%</c><n/><c val=\"E6E6E6\">范围：</c><c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c><n/><c val=\"8FC7FF\">能量消耗：25 </c><n/><c val=\"E6E6E6\">冷却时间：15秒</c>"
   },
   "NovaPersonalCloaking": {
     "nameZh": "Personal Cloaking",
@@ -212,12 +202,12 @@
   "NovaStimpack": {
     "nameZh": "兴奋剂",
     "nameEn": "Stimpack",
-    "tooltip": ""
+    "tooltip": "增加移动和攻击速度。\n\n攻击速度：[?]%|[?]%|[?]%|[?]%\n移动速度：[?]%|[?]%|[?]%|[?]%\n持续时间：[?]秒\n\n能量消耗：25%"
   },
   "NomadCalldownBlackhammer": {
     "nameZh": "雇佣黑色战锤",
     "nameEn": "Calldown Blackhammer",
-    "tooltip": ""
+    "tooltip": "空投一台黑色战锤。消耗[?] 补给。"
   },
   "NomadDefensiveMatrix": {
     "nameZh": "防御矩阵",
@@ -232,7 +222,7 @@
   "NomadBuildAutoTurret": {
     "nameZh": "自动炮塔",
     "nameEn": "Place Auto Turret",
-    "tooltip": ""
+    "tooltip": "建造一个自动炮台。\n\n炮台生命值：[?]|[?]|[?]|[?]\n炮台伤害：[?]|[?]|[?]|[?]\n炮台攻击速度：|||\n 炮台攻击射程 ：[?]|[?]|[?]|[?]\n炮台视野范围：[?]|[?]|[?]|[?]\n冷却时间：[?]"
   },
   "Drag": {
     "nameZh": "Drag",
@@ -248,11 +238,6 @@
     "nameZh": "烈焰吐息",
     "nameEn": "Scorching Breath",
     "tooltip": "灼烧地面，对路径上的所有敌方地面单位造成伤害。<n/><c val=\"FF0000\">不影响建筑。</c><n/><c val=\"ff6161\">伤害：</c><c val=\"ff6161\" validator=\"ScorchingBreathLevel1\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel2\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel3\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel4\"></c>（每级+10%）<n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"ScorchingBreathLevel1\">45秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel2\">35秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel3\">25秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel4\">20秒</c><n/><c val=\"BB77FF\">能量消耗：</c><c val=\"BB77FF\" validator=\"ScorchingBreathLevel1\">50</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel2\">45</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel3\">40</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel4\">35</c><n/><c val=\"FFFF00\">范围：</c> <c val=\"BB77FF\" validator=\"ScorchingBreathLevel1\">5</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel2\">6</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel3\">7</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel4\">8</c>"
-  },
-  "DehakaDash": {
-    "nameZh": "德哈卡突进",
-    "nameEn": "Dehaka Dash",
-    "tooltip": "突进"
   },
   "ThakrasDarkSwarm": {
     "nameZh": "黑暗虫群",
@@ -272,7 +257,7 @@
   "PrimalConsume": {
     "nameZh": "吞噬",
     "nameEn": "PrimalConsume",
-    "tooltip": ""
+    "tooltip": "将友方单位的生命值转换为塔克拉斯的能量。\n\n每1点生命值转换为1点能量\n冷却时间：20秒"
   },
   "ThakrasConstrictingSlime": {
     "nameZh": "抑制黏液",
@@ -282,7 +267,7 @@
   "ThakrasConsumeUnit": {
     "nameZh": "吞噬",
     "nameEn": "Consume Unit",
-    "tooltip": ""
+    "tooltip": "将友方单位的生命值转换为塔克拉斯的能量。\n\n每1点生命值转换为1点能量\n冷却时间：20秒"
   },
   "SwannGrapple": {
     "nameZh": "钩爪",
@@ -407,7 +392,7 @@
   "ScionPsiStorm": {
     "nameZh": "灵能风暴",
     "nameEn": "Psi Storm",
-    "tooltip": ""
+    "tooltip": "灵能风暴每秒造成伤害。\n\n伤害: [?] (每英雄等级+[?]%)\n充能: [?]|[?]|[?]|[?]\n充能冷却时间: [?]秒|[?]秒|[?]秒|[?]秒\n半径: \n持续时间: [?]秒\n\n能量消耗: [?]"
   },
   "ScionKineticMatrix": {
     "nameZh": "动能矩阵",
@@ -417,7 +402,7 @@
   "PersonalCloakingTechnician": {
     "nameZh": "脱色",
     "nameEn": "Personal CloakingTechnician",
-    "tooltip": ""
+    "tooltip": "解除隐身使其对敌人可见.\n\n隐身状态只能移动\n\n花费: [?]/[?]/[?]/[?]/[?] 能量"
   },
   "Detonate": {
     "nameZh": "自爆",
@@ -472,7 +457,7 @@
   "MeteorCast": {
     "nameZh": "陨石术",
     "nameEn": "MeteorCast",
-    "tooltip": ""
+    "tooltip": "召唤一颗巨大的陨石，向目标方向坠落。\n\n陨石每秒对 [?] 范围内所有敌方单位造成 4 次伤害\n\n对建筑仅造成 50% 伤害\n\n伤害会提升体积与范围\n\n溅射伤害：（半径 - 百分比）\n - [?]%\n - [?]%\n - [?]%\n\n陨石伤害从 25% 起步，并会根据行进距离提高，最高至 [?]%\n\n每次伤害还会为友方单位与建筑施加能量提升，使其造成的伤害提高，持续 [?]s，最多叠加 [?]x\n\n每跳伤害： + 每个火元素球增加 （[?]） = [?]\n能量提升： 每个冰元素球增加 [?]%（[?]） = [?]% 每层\n基础消耗：[?] + 每个火元素球增加 [?]（[?]） + 每个冰元素球增加 [?]（[?]） = [?]\n\n次要效果倍数：([?])\n最大距离百分比：每个倍数 50% = [?]%\n能量提升持续时间：每个倍数 [?]s = [?]s\n消耗增加：每个倍数-1增加 +[?]%"
   },
   "FreezingField": {
     "nameZh": "霜冻领域",
@@ -522,12 +507,12 @@
   "GlevigTunnel": {
     "nameZh": "深层隧道",
     "nameEn": "Deep Tunnel",
-    "tooltip": ""
+    "tooltip": "格里维格钻地至目标地点并破土而出，将敌人击退。\n\n冷却时间为（8 + 0.175 * 行进距离）秒"
   },
   "GlevigFirebreath": {
     "nameZh": "灼烧酸液",
     "nameEn": "Firebreath",
-    "tooltip": ""
+    "tooltip": "在目标地面铺设火焰，对敌人造成周期性伤害。使其受到来自 法术 和溅射伤害的伤害提高。持续[?]秒。\n\n长度： [?] | [?] | [?] | [?]\n宽度： [?] | [?] | [?] | [?]\n能量消耗： [?]| [?] | [?] | [?]\n冷却时间： [?]秒 |[?]秒 |[?]秒 | [?]秒\n每秒固定伤害： [?] | [?] | [?] | [?] \n当前生命值伤害： % | % | % | %"
   },
   "GlevigCorrosiveBile": {
     "nameZh": "腐蚀打击",
@@ -542,22 +527,22 @@
   "GlevigSpawnInfestor": {
     "nameZh": "生产感染者",
     "nameEn": "Spawn Infestor",
-    "tooltip": ""
+    "tooltip": "召唤一个感染者。可以施放霉菌滋生、神经寄生和召回单位\n\n消耗：75/60/45/30能量\n冷却时间：100秒/80秒/60秒/40秒"
   },
   "DeltaSquadDefensiveMatrix2": {
     "nameZh": "防御矩阵",
     "nameEn": "Defensive Matrix",
-    "tooltip": ""
+    "tooltip": "为目标友方单位创建临时护盾。无法对自己的单位施放。\n\n持续时间: [?]秒\n护盾: [?]/[?]/[?]/[?]\n护盾护甲: [?]/[?]/[?]/[?]"
   },
   "DeltaSquadPhantomOpenFire": {
     "nameZh": "开火",
     "nameEn": "Open Fire",
-    "tooltip": ""
+    "tooltip": "短时间内激活女妖的武器系统。\n\n持续时间: [?]s/[?]s/[?]s/[?]s\n冷却: [?]s/[?]s/[?]s/[?]s \n能量消耗: [?]"
   },
   "DSHyperjump": {
     "nameZh": "超级弹跳",
     "nameEn": "HyperJump",
-    "tooltip": ""
+    "tooltip": "传送一小段距离.\n\n更高的等级会增加距离并减少冷却时间."
   },
   "PhaegoreSonicatingScreech": {
     "nameZh": "刺耳尖啸",
@@ -582,7 +567,7 @@
   "PhaegoreBurrow": {
     "nameZh": "掘地",
     "nameEn": "Burrow",
-    "tooltip": "在潜地时，菲戈尔失去此能力，获得新的能力。"
+    "tooltip": "将单位埋入地下。钻地单位无法移动或攻击，但没有探测就无法被看见。"
   },
   "AlarakDestructionWave": {
     "nameZh": "毁灭浪潮",
@@ -592,7 +577,7 @@
   "AlarakACDeadlyCharge": {
     "nameZh": "致命冲锋",
     "nameEn": "Alarak Ac Deadly Charge",
-    "tooltip": ""
+    "tooltip": "短距离冲锋。撞击时造成伤害。\n\n伤害: [?] (+[?]% 每英雄等级)"
   },
   "AlarakSprint": {
     "nameZh": "冲刺",
@@ -662,17 +647,17 @@
   "DevourUnit": {
     "nameZh": "吞噬",
     "nameEn": "DevourUnit",
-    "tooltip": ""
+    "tooltip": "吞噬一个虫族单位，消耗其精华以获得临时强化。\n每次吞噬根据被消耗单位类型赋予持续60秒的增益效果。\n\n最大充能次数：[?]/[?]/[?]/[?]\n充能冷却时间：[?]/[?]/[?]/[?]秒\n增益持续时间：60秒\n每种增益最大叠加数：[?]\n\n王虫 - 补给加成：[?]\n工虫 - 获得气矿：+[?]\n跳虫 - 能量再生加成：\n爆虫 - 移动速度加成：%\n蟑螂 - 生命护甲加成：[?]\n刺蛇 - 攻击速度加成：%\n派加兽 - 伤害减免：%\n潜伏者 - 范围攻击概率加成： 并获得范围攻击武器\n腐化者 - 视野加成：\n莽兽 - 武器射程加成： 并获得对空武器\nS.O.M.F - 总伤害加成：%\n欧米茄雷兽 - 护盾加成：[?]"
   },
   "KraithSpineVolleyAbil": {
     "nameZh": "脊刺齐射",
     "nameEn": "Spine Volley",
-    "tooltip": ""
+    "tooltip": "克雷斯向目标区域发射一阵脊刺，并对受影响单位施加钉住。\n\n对[?]%（轻甲）、[?]%（重甲）和[?]%（英雄）造成伤害。\n\n不会对建筑单位造成伤害\n\n引导技能（例如，无法取消）\n\n钉住:\n受影响单位的移动速度降低[?]%，且无法使用近战或远程武器攻击。隐形单位会被显形，雷达特性会被禁用。\n\n冷却时间: [?]秒|[?]秒|[?]秒|[?]秒\n伤害（每枚导弹）: ||| （每英雄等级+[?]%）\n持续时间: [?]秒\n能量消耗: [?]|[?]|[?]|[?]\n半径: [?]|[?]|[?]|[?]\n距离: 3 -> [?]|[?]|[?]|[?]"
   },
   "KraithCrashingChargeAbil": {
     "nameZh": "毁灭冲刺",
     "nameEn": "Crashing Charge",
-    "tooltip": ""
+    "tooltip": "克雷斯向前冲锋，对单位造成伤害并将其击退。\n\n冲锋需要2格可通行的间隙\n\n英雄单位受到的伤害降低[?]%\n\n冷却时间： [?]|[?]|[?]|[?]\n伤害： [?]|[?]|[?]|[?] （每英雄等级+[?]%）\n能量消耗： [?]|[?]|[?]|[?]\n击退：3\n距离（可通行）： [?]|[?]|[?]|[?]\n半径： [?]|[?]|[?]|[?]"
   },
   "KraithSpikedHide": {
     "nameZh": "隐蔽尖刺",
@@ -707,32 +692,32 @@
   "AndorCalldownSentinel": {
     "nameZh": "雇佣哨兵",
     "nameEn": "Calldown Sentinel",
-    "tooltip": ""
+    "tooltip": "呼叫 [?]名哨兵。消耗[?] 补给。"
   },
   "AndorPlacePointDefenseDrone": {
     "nameZh": "定点防御靶机",
     "nameEn": "Place Point Defense Drone",
-    "tooltip": ""
+    "tooltip": "使用激光击落敌方导弹。\n无法拦截特殊攻击。\n\n在 [?] 秒后失效。\n\nPDD能量: [?]|[?]|[?]|[?]\n\n每次射击消耗等于被阻挡伤害的能量。\n定点防御无人机需要视野来阻挡不是针对无人机的投射物。"
   },
   "AndorCalldownAdepts": {
     "nameZh": "雇佣使徒",
     "nameEn": "Calldown Adepts",
-    "tooltip": ""
+    "tooltip": "呼叫 [?] 名使徒。消耗[?] 补给。"
   },
   "AndorCalldownArchon": {
     "nameZh": "雇佣执政官",
     "nameEn": "Calldown Archon",
-    "tooltip": ""
+    "tooltip": "呼叫1名 ，消耗[?] 补给。"
   },
   "AndorCalldownImmortal": {
     "nameZh": "雇佣不朽者",
     "nameEn": "Calldown Immortal",
-    "tooltip": ""
+    "tooltip": "召唤[?]个不朽者。消耗[?]补给。"
   },
   "RenewingTune": {
     "nameZh": "治愈咏叹！",
     "nameEn": "Renewing Tune",
-    "tooltip": ""
+    "tooltip": "为单位持续恢复生命值。\n\n范围:  [?]| [?]| [?]\n生命恢复量/秒: [?]|[?]|[?]\n护盾恢复量/秒: [?]|[?]| [?]\n持续时间: [?]|[?]|[?]\n\n目标单位: 你的单位| 你和友方的单位| 所有友方单位和建筑"
   },
   "AttractFan": {
     "nameZh": "吸引粉丝",
@@ -757,17 +742,17 @@
   "RattlesnakeDeployRevitalizer": {
     "nameZh": "部署恢复器",
     "nameEn": "Deploy Revitalizer",
-    "tooltip": ""
+    "tooltip": "在地面放置一个建筑物，治疗建筑物周围区域内的所有友方单位。同时减缓附近敌方单位的移动速度。\n\n治疗量: [?]|[?]|[?]|[?]\n减缓量: [?]%\n冷却时间: [?]|[?]|[?]|[?]\n能量:[?]|[?]|[?]|[?]\n使用次数: [?]|[?]|[?]|[?]"
   },
   "RattlesnakeSuperStimpack": {
     "nameZh": "秘密储藏兴奋剂",
     "nameEn": "SuperStimpack",
-    "tooltip": ""
+    "tooltip": "增加响尾蛇收到的治疗效果[?]%，增加射程[?],并且造成[?]%，持续[?] 秒。\n\n与重锤弹药共享冷却时间。"
   },
   "RattlesnakeChronoRift": {
     "nameZh": "时间梭装置",
     "nameEn": "Chrono Rift",
-    "tooltip": ""
+    "tooltip": "作用于时间的原型装置。友方单位不会受到移速减少，但是在其范围内的所有飞弹飞行速度减少至[?]%。在范围内的敌方单位移动速度变为[?]%。\n\n冷却:[?]|[?]|[?]|[?]\n充能: [?]|[?]|[?]|[?]\n能量消耗: [?]|[?]|[?]|[?]\n\n[?]"
   },
   "RattlesnakeStunShot": {
     "nameZh": "震撼弹",
@@ -782,7 +767,7 @@
   "CallDownSgtHammerSCV": {
     "nameZh": "呼叫重锤SCV",
     "nameEn": "CallDownSgtHammerSCV",
-    "tooltip": ""
+    "tooltip": "召唤一个SCV。用于建造东西。"
   },
   "HammerTankRush": {
     "nameZh": "重锤坦克冲锋",
@@ -832,7 +817,7 @@
   "AewynEtherealTransit": {
     "nameZh": "灵魂化身",
     "nameEn": "Ethereal Transit",
-    "tooltip": ""
+    "tooltip": "从实体形态转换为虚化形态。在虚化形态下，单位隐身且可移动，但无法产生矿物。\n\n实体形态冷却时间：[?]"
   },
   "AewynBless": {
     "nameZh": "祝福",
@@ -852,7 +837,7 @@
   "AewynRecall": {
     "nameZh": "短距召回",
     "nameEn": "Short Recall",
-    "tooltip": ""
+    "tooltip": "将目标区域内的附近单位召回至艾尔文的位置。\n\n施法范围: [?]\n搜索范围: [?]/[?]/[?]/[?]"
   },
   "AewynStasisField": {
     "nameZh": "静滞立场",
@@ -877,7 +862,7 @@
   "NightingaleSynthesize": {
     "nameZh": "合成",
     "nameEn": "Synthesize",
-    "tooltip": ""
+    "tooltip": "将目标单位和建筑加速 %，持续  秒。\n被加速的经济建筑会为南丁格尔生成矿物收入。\n\n更有价值的友方收入建筑会提供更多矿物。"
   },
   "NightingaleDistortion": {
     "nameZh": "扭曲",
@@ -942,7 +927,7 @@
   "SirRoachingtonAcidicFlay": {
     "nameZh": "取消酸性剥皮",
     "nameEn": "Acidic Flay",
-    "tooltip": ""
+    "tooltip": "取消酸性剥皮"
   },
   "SirRoachingtonWebPull": {
     "nameZh": "蛛网拉拽",
@@ -952,6 +937,6 @@
   "SirRoachingtonHatTrick": {
     "nameZh": "洛奇顿帽子戏法",
     "nameEn": "Hat Trick",
-    "tooltip": "给3只蟑螂戴上帽子，使其解锁召回并提升属性。4级时解锁腐蚀打击<n/><c val=\"FF6B6B\">只能以蟑螂为目标</c><n/><c val=\"E6E6E6\">视野提升</c>: <c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c><n/><c val=\"00FF7F\">生命值提升</c>: <c val=\"00FF7F\">50</c>|<c val=\"00FF7F\">300</c>|<c val=\"00FF7F\">500</c>|<c val=\"00FF7F\">800</c><n/><c val=\"00FF7F\">生命回复倍率</c>: <c val=\"00FF7F\">x</c>|<c val=\"00FF7F\">x</c>|<c val=\"00FF7F\">x2</c>|<c val=\"00FF7F\">x3</c><n/><c val=\"E6E6E6\">攻击距离提升</c>: ||<c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c><n/><c val=\"E6E6E6\">冷却时间</c>: <c val=\"E6E6E6\">90</c>|<c val=\"E6E6E6\">80</c>|<c val=\"E6E6E6\">70</c>|<c val=\"E6E6E6\">60</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"E6E6E6\">120</c>|<c val=\"E6E6E6\">120</c>|<c val=\"E6E6E6\">120</c>|<c val=\"E6E6E6\">120</c><n/><c val=\"FFD700\">我们拯救了蟑螂</c>"
+    "tooltip": "给3只蟑螂戴上帽子，使其解锁召回并提升属性。4级时解锁腐蚀打击<n/><c val=\"FF6B6B\">只能以蟑螂为目标</c><n/><c val=\"E6E6E6\">视野提升</c>: <c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c><n/><c val=\"00FF7F\">生命值提升</c>: <c val=\"00FF7F\">50</c>|<c val=\"00FF7F\">300</c>|<c val=\"00FF7F\">500</c>|<c val=\"00FF7F\">800</c><n/><c val=\"00FF7F\">生命回复倍率</c>: <c val=\"00FF7F\">x</c>|<c val=\"00FF7F\">x</c>|<c val=\"00FF7F\">x2</c>|<c val=\"00FF7F\">x3</c><n/><c val=\"E6E6E6\">攻击距离提升</c>: ||<c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c><n/><c val=\"E6E6E6\">冷却时间</c>: <c val=\"E6E6E6\">90</c>|<c val=\"E6E6E6\">80</c>|<c val=\"E6E6E6\">70</c>|<c val=\"E6E6E6\">60</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"E6E6E6\">100</c>|<c val=\"E6E6E6\">90</c>|<c val=\"E6E6E6\">80</c>|<c val=\"E6E6E6\">70</c><n/><c val=\"FFD700\">我们拯救了蟑螂</c>"
   }
 }
