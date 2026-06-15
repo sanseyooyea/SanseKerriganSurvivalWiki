@@ -40,6 +40,39 @@ docker compose up -d
 
 ## 更新部署（保留用户数据）
 
+> ⚠️ **2G 内存服务器必读**：生产服务器内存仅 2G 且无 swap，**不能在容器内跑 `nuxt build`**
+> （会 OOM 把整机磁盘 IO 打满假死，需控制台重启）。请改用下方「本地构建部署」。原始的
+> 服务器端构建方式（`Dockerfile` + `docker-compose.yml`）仅适合内存充足的机器。
+
+### 本地构建部署（推荐，绕开服务器 OOM）
+
+本机（内存充足）先 `nuxt build` 出 `.output`，打进部署包；服务器端只用 `Dockerfile.runner`
+安装唯一的原生依赖 `better-sqlite3`（Linux 预编译二进制），**不在服务器跑 nuxt build**。
+
+```bash
+# 1. 本地构建 + 打包（pack-local.sh 内部已 npm run build，并用 tar -h 解引用 nitro 软链接）
+bash pack-local.sh
+
+# 2. 上传 + 远程部署（密码走环境变量，绝不写进文件）
+KS2_PW='服务器密码' python deploy_paramiko.py deploy
+# 也可先 precheck / 查状态 / 看日志：
+KS2_PW='...' python deploy_paramiko.py precheck
+KS2_PW='...' python deploy_paramiko.py logs
+```
+
+关键文件：`Dockerfile.runner`、`Dockerfile.runner.dockerignore`（不排除 `.output`）、
+`docker-compose.runner.yml`、`package.runner.json`。三个易踩的坑：
+1. `tar` 必须加 `-h`：nitro 的 `.output/server/node_modules` 是指向 `.nitro/` 的**绝对路径软链接**，
+   不解引用会导致 Linux 容器里 `Cannot find module`（如 `entities/decode`，表现为 500）。
+2. 本地 `.output` 里的 `better_sqlite3.node` 是 Windows 二进制，`Dockerfile.runner` 会用容器内
+   `npm install` 出的 Linux 版覆盖它。
+3. 默认 `.dockerignore` 排除了 `.output`，所以用专属的 `Dockerfile.runner.dockerignore`。
+
+`deploy_paramiko.py deploy` 会：上传 → 备份 `wiki.db` → 排除用户数据解压 → `docker compose
+-f docker-compose.runner.yml build`（仅装原生依赖，秒级）→ `up -d` → 清理。全程不跑 nuxt build。
+
+### 服务器端构建部署（仅限内存充足的机器）
+
 更新流程已封装进 `update.sh`，会自动备份数据库、排除用户数据、重建并重启容器。
 
 **1. 本地打包**

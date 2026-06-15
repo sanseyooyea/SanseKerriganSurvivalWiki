@@ -1,0 +1,15 @@
+services:
+  wiki:
+    image: ks2-wiki
+    build:
+      context: .
+      dockerfile: Dockerfile.runner
+    container_name: ks2-wiki
+    restart: unless-stopped
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=${JWT_SECRET:?需要在环境中设置 JWT_SECRET}

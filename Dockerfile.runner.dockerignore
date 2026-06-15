@@ -1,0 +1,17 @@
+# Dockerfile.runner 专用 ignore（BuildKit 优先用 <Dockerfile>.dockerignore）。
+# 关键：本地构建版必须把 .output 纳入构建上下文，所以这里【不】排除 .output。
+# node_modules 用 /node_modules 锚定到根，避免误伤 .output/server/node_modules
+# （better-sqlite3 的 lib 在那里）。
+/node_modules
+.nuxt
+.git
+tmp_cache
+*.log
+.npm-cache
+ks2-wiki-deploy.tar.gz
+*.SC2Map
+*.SC2Map.bak*
+data/wiki.db
+data/wiki.db-shm
+data/wiki.db-wal
+

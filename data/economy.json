@@ -775,24 +775,6 @@
     }
   },
   {
-    "hero": "Spirit",
-    "incomeModel": "灵魂使用银行/投资系统经济，而非传统的被动产矿建筑。",
-    "buildings": [
-      {
-        "id": "SpiritBank",
-        "nameZh": "灵魂银行",
-        "income": null,
-        "incomePeriod": 3.5,
-        "cost": 25,
-        "buildTime": 5,
-        "food": 0,
-        "upgradeTo": null,
-        "notes": "Not a traditional income building. Works as a savings account with compound interest. Players deposit minerals into the bank, and it earns 1% interest on its balance every 3.5 seconds (AddInterest behavior). Interest is compounded (added back to balance, not given to player directly). Players must withdraw to access funds. Balance capped at 1,000,000,000. On salvage, returns a fraction of the stored balance. The bank has Deposit (100/500/1000/2000/All) and Withdraw (100/500/1000/2000/All) buttons.",
-        "gasCost": 0
-      }
-    ]
-  },
-  {
     "hero": "Swann",
     "incomeModel": "斯旺使用3级精炼厂升级链经济。每个精炼厂被动产矿，可从基础精炼厂（+2/5s）升级到加速精炼厂（+10/5s）再到乔瑞姆精炼厂（+25/5s）。拥有时间加速能力。",
     "buildings": [

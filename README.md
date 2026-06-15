@@ -42,15 +42,17 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 
 ### 职业系统 `/classes`
 - 49个职业的完整数据（属性、技能、兵种、经济建筑）
-- 属性成长系统（力量/敏捷/智力，每级加成）
+- 属性成长系统（力量/敏捷/智力，每级加成）——**注意：并非所有英雄都有等级系统**，无等级的英雄（如灵魂/晋升者/赫利俄斯/米拉）不显示成长表
 - 能量恢复速度（受智力影响）
 - 按阵营（凯瑞甘/生存者）和分类（猎手/建造者/辅助/防御者）筛选
 
 ### 经济系统 `/economy`
-- 14个英雄的经济建筑完整数据
-- 收入/每秒效率/建造费用（晶矿+气体）/回本时间/加速回本
+- 常规英雄的经济建筑数据：收入/每秒效率/建造费用（晶矿+气体）/回本时间/加速回本
 - 投资回报比（每1矿/秒收入的成本）
 - 经济加速机制（时间加速倍率、消耗、持续时间）
+- **技术员**：独特的转化型经济（击杀得气 → 转化工厂放大），专属展示组件
+- **灵魂**：独特的金融/投资型经济（银行复利、股市/证券交易所、赌场博彩、水晶球运气），
+  含**经济路径规划器**——输入矿/气/剩余时间，按已核实的游戏数值推演最优发展路线
 
 ### Wiki文章系统 `/wiki`
 - Markdown编辑器
@@ -137,7 +139,9 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   ├── roles.json         # 职业定义（49个，由 build_roles 生成）
 │   ├── abilities.json     # 技能数据（191个，由 build_abilities 生成）
 │   ├── units.json         # 兵种数据（由 build_units 生成）
-│   ├── economy.json       # 经济系统数据（人工维护）
+│   ├── economy.json       # 常规英雄经济数据（人工维护）
+│   ├── technician-economy.json  # 技术员专属转化经济（人工维护）
+│   ├── spirit-economy.json # 灵魂专属金融经济：银行/股市/赌场/水晶球（从地图脚本核实）
 │   ├── veterancy.json     # 军衔成长数据（由 build_veterancy 生成）
 │   └── wiki.db            # SQLite数据库
 ├── public/
@@ -157,7 +161,7 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 | 数据 | 来源 |
 |------|------|
 | 职业/技能/兵种/军衔 | `data/seed/` 策划数据 + SC2Map 提取（`scripts/build_all.py`，已脱离 BankEditor） |
-| 经济 | `data/economy.json`（人工维护） |
+| 经济 | `data/economy.json`（常规英雄，人工维护）；技术员 `technician-economy.json`、灵魂 `spirit-economy.json`（灵魂数据从 SC2Map 的 Galaxy 脚本核实） |
 | MMR数据 | 194823.xyz/api/player |
 | 积分数据 | 194823.xyz/api/credits |
 | 天梯排行榜 | 194823.xyz/api/leaderboard |
@@ -181,7 +185,7 @@ python scripts/build_all.py
 |------|------|
 | `roles.seed.json` | 49 职业：基础属性(血/速/甲/能量，策划值)、分类、阵营、英雄单位、图标/立绘、描述 key、技能清单 |
 | `units.seed.json` | 每英雄 troops/buildings/economy 的成员归属，并保留旧值作逐字段兜底 |
-| `veterancy.seed.json` | 力/敏/智成长（策划值，与地图 CBehaviorVeterancy 不符，以种子为准） |
+| `veterancy.seed.json` | 力/敏/智成长（策划值，与地图 CBehaviorVeterancy 不符，以种子为准）。**仅含真有等级系统的英雄**；build_veterancy 会校验各英雄单位是否真挂 veterancy 行为，发现残留误标会告警 |
 | `ability-names.seed.json` | 地图无中文名的约 14 个技能的人工兜底名（PrimalSlash、监管者镜像等） |
 
 技能清单、分类、经济这类策划数据改动时，手动编辑对应的 seed 文件即可。

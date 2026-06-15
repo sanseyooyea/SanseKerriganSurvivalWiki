@@ -1,0 +1,29 @@
+# 本地构建版：本机已 `npm run build` 出 .output，服务器不跑 nuxt build（避免 2G 内存 OOM）。
+# 服务器只做一件事：为 better-sqlite3 装 Linux 原生二进制（prebuild-install 下载预编译包，秒级，
+# 无需编译工具链）。.output 里的 Windows 版 better_sqlite3.node 会被覆盖掉。
+FROM docker.1ms.run/library/node:22-slim AS runner
+
+WORKDIR /app
+
+# 只安装运行期唯一的原生依赖 better-sqlite3（Linux 预编译二进制）
+COPY package.runner.json ./package.json
+RUN npm install --omit=dev --registry=https://registry.npmmirror.com \
+ && npm cache clean --force
+
+# 本地构建好的产物与数据
+COPY .output ./.output
+COPY data ./data
+
+# 用 Linux 版 better-sqlite3 覆盖 .output 内打包的 Windows 版二进制
+RUN set -e; \
+    SRC=$(find node_modules/better-sqlite3 -name 'better_sqlite3.node' | head -1); \
+    DST=$(find .output -name 'better_sqlite3.node' | head -1); \
+    if [ -n "$SRC" ] && [ -n "$DST" ]; then cp -f "$SRC" "$DST"; echo "patched $DST"; \
+    else echo "WARN: better_sqlite3.node not found (src=$SRC dst=$DST)"; fi
+
+ENV HOST=0.0.0.0
+ENV PORT=3000
+ENV NODE_ENV=production
+
+EXPOSE 3000
+CMD ["node", ".output/server/index.mjs"]
