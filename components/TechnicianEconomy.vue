@@ -80,7 +80,7 @@
             <th class="seg-min">纯矿转化</th>
             <th class="seg-min">回报</th>
             <th class="seg-min" title="纯矿配方每秒净产出 = 单次净赚 ÷ 20s 周期">净产/s</th>
-            <th class="seg-min" title="建造成本 ÷ 纯矿每秒净产出，挂机多久赚回建造费">回本</th>
+            <th class="seg-min" title="（建造费 + 单次投入矿）÷ 纯矿每秒净产出，多久赚回总成本">回本</th>
             <th class="seg-gas">矿+气转化</th>
             <th class="seg-gas">回报</th>
             <th class="seg-gas">每点气价值</th>

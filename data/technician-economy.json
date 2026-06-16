@@ -61,7 +61,7 @@
     "autoUpgradeNote": "余矿足够支付「升级费 + 在产工厂转化所需矿」时，工厂自动逐级升档。",
     "mineralReturnRule": "纯矿回报率固定 +20%（投入N矿 → 1.2N矿，所有档位一致）",
     "gasReturnRule": "矿气回报率固定 +44%（投入N矿+0.01N气 → 1.44N矿，所有档位一致）",
-    "paybackNote": "回本时间 = 建造成本 ÷ 纯矿每秒净产出（净产出 = 单次净赚 ÷ 20s 周期）。",
+    "paybackNote": "回本时间 = 总成本 ÷ 纯矿每秒净产出；总成本 = 建造费 + 单次投入矿（净产出 = 单次净赚 ÷ 20s 周期）。",
     "factories": [
       {
         "tier": 1,
@@ -69,7 +69,8 @@
         "id": "TechnicianTransmutationFactory1",
         "buildCost": 25,
         "upgradeCost": null,
-        "paybackSec": 25,
+        "totalCost": 125,
+        "paybackSec": 125,
         "mineralRecipe": {
           "in": 100,
           "out": 120,
@@ -93,7 +94,8 @@
         "id": "TechnicianTransmutationFactory2",
         "buildCost": 50,
         "upgradeCost": 25,
-        "paybackSec": 25,
+        "totalCost": 250,
+        "paybackSec": 125,
         "mineralRecipe": {
           "in": 200,
           "out": 240,
@@ -117,7 +119,8 @@
         "id": "TechnicianTransmutationFactory4",
         "buildCost": 150,
         "upgradeCost": 100,
-        "paybackSec": 38,
+        "totalCost": 550,
+        "paybackSec": 138,
         "mineralRecipe": {
           "in": 400,
           "out": 480,
@@ -141,7 +144,8 @@
         "id": "TechnicianTransmutationFactory8",
         "buildCost": 400,
         "upgradeCost": 250,
-        "paybackSec": 50,
+        "totalCost": 1200,
+        "paybackSec": 150,
         "mineralRecipe": {
           "in": 800,
           "out": 960,
@@ -165,7 +169,8 @@
         "id": "TechnicianTransmutationFactory16",
         "buildCost": 1000,
         "upgradeCost": 600,
-        "paybackSec": 62,
+        "totalCost": 2600,
+        "paybackSec": 162,
         "mineralRecipe": {
           "in": 1600,
           "out": 1920,
@@ -189,7 +194,8 @@
         "id": "TechnicianTransmutationFactory32",
         "buildCost": 2400,
         "upgradeCost": 1400,
-        "paybackSec": 75,
+        "totalCost": 5600,
+        "paybackSec": 175,
         "mineralRecipe": {
           "in": 3200,
           "out": 3840,
@@ -213,7 +219,8 @@
         "id": "TechnicianTransmutationFactory64",
         "buildCost": 5600,
         "upgradeCost": 3200,
-        "paybackSec": 88,
+        "totalCost": 12000,
+        "paybackSec": 188,
         "mineralRecipe": {
           "in": 6400,
           "out": 7680,
@@ -237,7 +244,8 @@
         "id": "TechnicianTransmutationFactory128",
         "buildCost": 12800,
         "upgradeCost": 7200,
-        "paybackSec": 100,
+        "totalCost": 25600,
+        "paybackSec": 200,
         "mineralRecipe": {
           "in": 12800,
           "out": 15360,
