@@ -34,17 +34,7 @@
           </div>
         </div>
 
-        <div v-if="hero.addons" class="mb-3 px-3 py-2 rounded-lg bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30">
-          <div class="text-[11px] text-blue-700 dark:text-blue-300 font-medium mb-1">经济挂件（放大基础产矿）</div>
-          <div v-for="(a, i) in hero.addons" :key="i" class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-blue-800 dark:text-blue-300" :class="i > 0 ? 'mt-1' : ''">
-            <span>{{ a.nameZh }}: <b class="font-mono">×{{ a.multiplier }}</b></span>
-            <span>造价: <b class="font-mono">{{ a.cost }}矿<template v-if="a.gasCost">+{{ a.gasCost }}g</template></b></span>
-            <span class="text-blue-600/80 dark:text-blue-400/80">{{ a.note }}</span>
-          </div>
-          <div v-if="hero.addonNote" class="text-[11px] text-blue-600/70 dark:text-blue-400/70 mt-1.5">{{ hero.addonNote }}</div>
-        </div>
-
-        <div v-if="!hero.harvestEconomy" class="overflow-x-auto -mx-5 px-5">
+        <div v-if="!hero.harvestEconomy && !hero.addonEconomy" class="overflow-x-auto -mx-5 px-5">
           <table class="w-full text-sm min-w-[560px]">
             <thead>
               <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
@@ -153,6 +143,44 @@
             </div>
           </div>
         </div>
+
+        <!-- 挂件型经济（坦克）：建筑 × 挂件 回本/投资比矩阵 -->
+        <div v-if="hero.addonEconomy" class="overflow-x-auto -mx-5 px-5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
+            挂件矩阵 · 经济建筑 × 挂件（投资比越低越划算）
+          </div>
+          <table class="w-full text-sm min-w-[560px] border-separate border-spacing-1">
+            <thead>
+              <tr>
+                <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-400 pb-1 pl-1">建筑 \ 挂件</th>
+                <th v-for="col in addonCols" :key="col.key" class="text-center text-xs font-medium text-gray-600 dark:text-gray-300 pb-1">
+                  {{ col.label }}
+                  <span v-if="col.cost" class="block font-mono text-[0.6rem] text-gray-400 dark:text-gray-500 font-normal">+{{ col.cost }}矿<template v-if="col.gasCost">+{{ col.gasCost }}g</template></span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="b in hero.buildings" :key="b.id">
+                <td class="py-1.5 pl-2 pr-3 rounded-lg bg-gray-50 dark:bg-gray-800/60 whitespace-nowrap">
+                  <span class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">{{ b.nameZh }}</span>
+                  <span class="font-mono text-xs text-gray-400 dark:text-gray-500 ml-2">{{ b.cost }}矿 · {{ b.income }}/{{ b.incomePeriod }}s</span>
+                </td>
+                <td v-for="col in addonCols" :key="col.key"
+                  class="text-center rounded-lg bg-gray-50/60 dark:bg-gray-800/40">
+                  <div class="font-mono text-sm" :class="addonRoiCellClass(b, col)">{{ addonRoi(b, col) }}矿</div>
+                  <div class="font-mono text-[0.65rem] text-gray-400 dark:text-gray-500">
+                    {{ addonPerSec(b, col).toFixed(2) }}/s · {{ formatTime(addonPayback(b, col)) }}
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
+            每个经济建筑限挂一个挂件（科技实验室 / 反应堆，二选一）。
+            投资比 =（建筑造价 + 挂件造价）÷ 每秒产矿（买"1 矿/秒"持续收入的总投入，越低越划算，仅计晶矿）；
+            小字为每秒产矿与回本时间。挂件气体消耗见表头。
+          </p>
+        </div>
       </div>
     </div>
 
@@ -256,6 +284,41 @@ function roiCellClass(field: any, probe: any, probes: any[]) {
   const v = harvestRoi(field, probe) as number
   if (max === min) return 'text-survivor-600 dark:text-survivor-400'
   const t = (v - min) / (max - min) // 0=最划算
+  if (t < 0.34) return 'text-emerald-600 dark:text-emerald-400 font-semibold'
+  if (t < 0.67) return 'text-survivor-600 dark:text-survivor-400'
+  return 'text-gray-400 dark:text-gray-500'
+}
+
+// —— 坦克挂件经济 ——
+// 三档：无挂件(×1,0矿) / 科技实验室(×1.5,+20矿+5气) / 反应堆(×2,+200矿+10气)。
+// 每秒产矿 = 基础income × 倍率 ÷ 周期(3s)；
+// 投资比/回本 = (建筑造价 + 挂件造价) ÷ 每秒产矿（仅计晶矿，与通用表 roi 口径一致）。
+const addonCols = [
+  { key: 'none', label: '无挂件', multiplier: 1, cost: 0, gasCost: 0 },
+  { key: 'tech', label: '科技实验室 ×1.5', multiplier: 1.5, cost: 20, gasCost: 5 },
+  { key: 'reactor', label: '反应堆 ×2', multiplier: 2, cost: 200, gasCost: 10 },
+]
+function addonPerSec(b: any, col: any) {
+  if (!b.income || !b.incomePeriod) return 0
+  return (b.income * col.multiplier) / b.incomePeriod
+}
+function addonRoi(b: any, col: any) {
+  const ips = addonPerSec(b, col)
+  if (!ips) return null
+  return Math.round((b.cost + col.cost) / ips)
+}
+function addonPayback(b: any, col: any) {
+  const ips = addonPerSec(b, col)
+  if (!ips) return 0
+  return Math.round((b.cost + col.cost) / ips)
+}
+// 着色：同一建筑行内，投资比越低越“绿”
+function addonRoiCellClass(b: any, col: any) {
+  const vals = addonCols.map(c => addonRoi(b, c) as number)
+  const min = Math.min(...vals), max = Math.max(...vals)
+  const v = addonRoi(b, col) as number
+  if (max === min) return 'text-survivor-600 dark:text-survivor-400'
+  const t = (v - min) / (max - min)
   if (t < 0.34) return 'text-emerald-600 dark:text-emerald-400 font-semibold'
   if (t < 0.67) return 'text-survivor-600 dark:text-survivor-400'
   return 'text-gray-400 dark:text-gray-500'
