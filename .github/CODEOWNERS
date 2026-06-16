@@ -1,0 +1,17 @@
+# 代码所有者 —— 这些路径的 PR 需对应所有者 review 后才能合并。
+# 语法：路径   @用户名
+
+# 默认：所有改动
+*                       @sanseyooyea
+
+# 安全 / 管线敏感路径（强制 owner 审核）
+/server/                @sanseyooyea
+/scripts/               @sanseyooyea
+/.github/               @sanseyooyea
+*.config.ts             @sanseyooyea
+/nuxt.config.ts         @sanseyooyea
+/Dockerfile*            @sanseyooyea
+/docker-compose*.yml    @sanseyooyea
+
+# 数据 seed —— 可在仓库设置里放宽给数据贡献者团队
+# /data/seed/           @sanseyooyea @数据贡献者

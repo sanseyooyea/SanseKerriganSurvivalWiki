@@ -1,0 +1,37 @@
+name: CI
+
+# PR 到 main 或推送到 main 时触发：构建 + 数据校验。
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: 构建 (Nuxt)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: 安装依赖
+        run: npm ci
+      - name: 构建
+        run: npm run build
+        env:
+          # 构建期不需要真实密钥，但 nuxt.config 之外的代码可能读取；给占位值避免误报
+          NUXT_IGNORE_LOCK: '1'
+
+  validate-data:
+    name: 数据校验
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 校验 data/*.json
+        run: python scripts/validate_data.py
