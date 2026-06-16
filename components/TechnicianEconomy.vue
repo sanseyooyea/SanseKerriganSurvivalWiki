@@ -136,13 +136,10 @@ import techData from '~/data/technician-economy.json'
 
 const data = techData as any
 
-// 回报率热力色：纯矿用青、矿气用绿，数值越高越饱和
-function pctStyle(pct: number, kind: 'min' | 'gas') {
-  const range = kind === 'min' ? [12, 19] : [29, 43]
-  const t = (pct - range[0]) / (range[1] - range[0])
+// 回报率固定色：纯矿青、矿气绿（所有档位回报率统一 +20% / +44%，无梯度）
+function pctStyle(_pct: number, kind: 'min' | 'gas') {
   const hue = kind === 'min' ? 190 : 152
-  const light = 62 - t * 22
-  return { color: `hsl(${hue} 70% ${light}%)`, fontWeight: 700 }
+  return { color: `hsl(${hue} 70% 48%)`, fontWeight: 700 }
 }
 </script>
 
