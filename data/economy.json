@@ -464,223 +464,60 @@
   },
   {
     "hero": "SgtHammer",
-    "incomeModel": "重锤军士使用建筑被动产矿经济。经济建筑（兵营/工厂/星港）通过反应堆附件获得产矿能力。反应堆建造后永久为对应建筑提供收入。拥有休眠加速模式（×5速率，持续200秒）。",
+    "incomeModel": "重锤军士使用经济建筑被动产矿。三种经济建筑（经济兵营/经济工厂/经济星港）按固定周期（每3秒）产出晶矿。每个经济建筑可挂载一个挂件（二选一）：科技实验室使产矿×1.5，反应堆使产矿×2。此外拥有休眠加速模式（×5速率，持续200秒）。表中收入为基础档，挂件倍率见下方说明。",
+    "addons": [
+      {
+        "nameZh": "科技实验室",
+        "multiplier": 1.5,
+        "cost": 20,
+        "gasCost": 5,
+        "note": "经济建筑产矿 ×1.5"
+      },
+      {
+        "nameZh": "反应堆",
+        "multiplier": 2,
+        "cost": 200,
+        "gasCost": 10,
+        "note": "经济建筑产矿 ×2（双倍经济）"
+      }
+    ],
+    "addonNote": "每个经济建筑限挂一个挂件（科技实验室 / 反应堆，二选一，最高 ×2）。",
     "buildings": [
       {
         "id": "SgtHammerEcoBarracks",
         "nameZh": "经济兵营",
         "income": 2,
-        "cost": 150,
         "incomePeriod": 3,
+        "cost": 150,
         "buildTime": 5,
         "food": null,
-        "notes": "Base income 2 minerals/3s. With TechLab add-on, unlocks 3 minerals/3s tier. Can lift off. Has Reactor add-on option for queue size. Tinted orange.",
         "upgradeTo": null,
-        "gasCost": null
+        "gasCost": null,
+        "notes": "基础产矿 2/3s。可挂科技实验室(×1.5→3/3s)或反应堆(×2→4/3s)。可起飞。"
       },
       {
         "id": "SgtHammerEcoFactory",
         "nameZh": "经济工厂",
         "income": 10,
-        "cost": 500,
         "incomePeriod": 3,
+        "cost": 500,
         "buildTime": 5,
         "food": null,
-        "notes": "Base income 10 minerals/3s. With TechLab add-on, unlocks 15 minerals/3s tier. Costs 4 vespene. Can lift off. Tinted green.",
         "upgradeTo": null,
-        "gasCost": 4
+        "gasCost": 4,
+        "notes": "基础产矿 10/3s。可挂科技实验室(×1.5→15/3s)或反应堆(×2→20/3s)。可起飞。"
       },
       {
         "id": "SgtHammerEcoStarport",
         "nameZh": "经济星港",
         "income": 50,
-        "cost": 3500,
         "incomePeriod": 3,
+        "cost": 3500,
         "buildTime": 5,
         "food": null,
-        "notes": "Base income 50 minerals/3s. With TechLab add-on, unlocks 75 minerals/3s tier. Costs 50 vespene. Can lift off. Tinted blue. Highest tier eco building.",
         "upgradeTo": null,
-        "gasCost": 50
-      },
-      {
-        "id": "HammerTechLabEcoBarracks",
-        "nameZh": "经济兵营科技实验室",
-        "income": null,
-        "cost": 20,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Add-on for Eco Barracks. Unlocks 3 mineral/3s income tier. Costs 5 vespene. Also provides research capability.",
-        "upgradeTo": null,
-        "gasCost": 5
-      },
-      {
-        "id": "HammerTechLabEcoFactory",
-        "nameZh": "经济工厂科技实验室",
-        "income": null,
-        "cost": 20,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Add-on for Eco Factory. Unlocks 15 mineral/3s income tier. Costs 5 vespene.",
-        "upgradeTo": null,
-        "gasCost": 5
-      },
-      {
-        "id": "HammerTechLabEcoStarport",
-        "nameZh": "经济星港科技实验室",
-        "income": null,
-        "cost": 20,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Add-on for Eco Starport. Unlocks 75 mineral/3s income tier. Costs 5 vespene.",
-        "upgradeTo": null,
-        "gasCost": 5
-      },
-      {
-        "id": "HammerReactorEcoBarracks",
-        "nameZh": "经济兵营反应堆",
-        "income": null,
-        "cost": 200,
-        "incomePeriod": null,
-        "buildTime": 20,
-        "food": null,
-        "notes": "Add-on for Eco Barracks. Provides extra queue slot. Costs 10 vespene.",
-        "upgradeTo": null,
-        "gasCost": 10
-      },
-      {
-        "id": "HammerReactorEcoFactory",
-        "nameZh": "经济工厂反应堆",
-        "income": null,
-        "cost": 200,
-        "incomePeriod": null,
-        "buildTime": 20,
-        "food": null,
-        "notes": "Add-on for Eco Factory. Provides extra queue slot. Costs 10 vespene.",
-        "upgradeTo": null,
-        "gasCost": 10
-      },
-      {
-        "id": "HammerReactorEcoStarport",
-        "nameZh": "经济星港反应堆",
-        "income": null,
-        "cost": 200,
-        "incomePeriod": null,
-        "buildTime": 20,
-        "food": null,
-        "notes": "Add-on for Eco Starport. Provides extra queue slot. Costs 10 vespene.",
-        "upgradeTo": null,
-        "gasCost": 10
-      },
-      {
-        "id": "SgtHammerHammerBarracks",
-        "nameZh": "军事兵营",
-        "income": null,
-        "cost": 25,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Army production building. Trains Vikings, Mines, Flying Vikings, SCVs. Can lift off. Has TechLab/Reactor add-on slots.",
-        "upgradeTo": null,
-        "gasCost": null
-      },
-      {
-        "id": "SgtHammerHammerFactory",
-        "nameZh": "军事工厂",
-        "income": null,
-        "cost": 300,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Army production building. Trains Hellions, Hellbats, Thorsons, SCVs. Can lift off. Has TechLab/Reactor add-on slots.",
-        "upgradeTo": null,
-        "gasCost": null
-      },
-      {
-        "id": "SgtHammerSupplyDepot",
-        "nameZh": "补给站",
-        "income": null,
-        "cost": 115,
-        "incomePeriod": null,
-        "buildTime": 10,
-        "food": 8,
-        "notes": "Provides 8 supply. Can lower/raise. Can be cloaked for 500 minerals (loses 70% HP). Upgradeable with Reinforcements (+100 HP), Shields (+50 shields, +50 HP), and Garor Walls (+5 armor, +100 HP, +5 regen).",
-        "upgradeTo": null,
-        "gasCost": null
-      },
-      {
-        "id": "SgtHammerMuscleArmory",
-        "nameZh": "军械库",
-        "income": null,
-        "cost": 150,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Research building. Provides all weapon/armor upgrades, unit-specific upgrades (mine speed, hellion dash, thorson shields, viking range, etc).",
-        "upgradeTo": null,
-        "gasCost": null
-      },
-      {
-        "id": "HammerLightbulb",
-        "nameZh": "灯泡(前哨站)",
-        "income": null,
-        "cost": 10,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Basic vision structure. 5 sight, detector range 6. Can upgrade to Light Beacon for 200 minerals. 1x1 footprint.",
-        "upgradeTo": "HammerLightBeacon",
-        "gasCost": null
-      },
-      {
-        "id": "HammerLightBeacon",
-        "nameZh": "灯塔(升级后前哨站)",
-        "income": null,
-        "cost": 110,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": -1,
-        "notes": "Upgraded from Lightbulb. 9 sight, 20 vision height, detector range 9. Has Vision Flare ability (2 charges, 60s recharge, reveals area). Provides -1 food (frees 1 supply).",
-        "upgradeTo": null,
-        "gasCost": null
-      },
-      {
-        "id": "SgtHammerOrbitalCommand",
-        "nameZh": "轨道指挥中心",
-        "income": null,
-        "cost": 500,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Resource drop-off point. Costs 10 vespene. Small footprint (2x2). No special income abilities in this version.",
-        "upgradeTo": null,
-        "gasCost": 10
-      },
-      {
-        "id": "SgtHammerRoboticsBay",
-        "nameZh": "机械研究所",
-        "income": null,
-        "cost": 100,
-        "incomePeriod": null,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Technology building. 200 HP + 50 shields. Protoss-style building with shield regeneration. 2x2 footprint.",
-        "upgradeTo": null,
-        "gasCost": null
-      },
-      {
-        "id": "MineralDrill1Deprecated",
-        "nameZh": "矿物钻机(已弃用)",
-        "income": 1,
-        "cost": 75,
-        "incomePeriod": 2,
-        "buildTime": 5,
-        "food": null,
-        "notes": "Legacy income building. Has SgtHammerIncome1 behavior generating 1 mineral/2s passively. Can build Reactor add-on. Has Chrono Boost ability. 2x2 footprint. Deprecated but still in data.",
-        "upgradeTo": null,
-        "gasCost": null
+        "gasCost": 50,
+        "notes": "基础产矿 50/3s。可挂科技实验室(×1.5→75/3s)或反应堆(×2→100/3s)。最高级经济建筑，可起飞。"
       }
     ],
     "chrono": {
