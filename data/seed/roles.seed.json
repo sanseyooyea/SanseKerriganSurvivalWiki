@@ -1079,15 +1079,23 @@
       ]
     },
     "baseStats": {
-      "hp": null,
-      "speed": 2.8,
+      "hp": 150,
+      "speed": 3.25,
       "armor": null,
-      "energy": null
+      "energy": 200000
     },
     "abilities": [
       "EnergizerOvercharge",
+      "EnergizerDistributionField",
+      "EnergizerEnergizePlating",
+      "EnergizerGeneratorPurify",
+      "EnergizerGeneratorMassPurification",
       "EMCSquareDisintegrate",
-      "EMCSquareTothebrim"
+      "EMCSquareToTheBrim",
+      "Emc2Omnipotence",
+      "Emc2BigBang",
+      "EnergizerGeneratorShieldAura",
+      "EnergizerRapidFire"
     ]
   },
   {

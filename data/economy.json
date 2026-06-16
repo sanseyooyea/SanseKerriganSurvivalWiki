@@ -67,18 +67,78 @@
   },
   {
     "hero": "Energizer",
-    "incomeModel": "激励者使用能量回路系统经济。能量发生器被动产能（基础2.0/s，可升级），能量通过回路流向精矿转换器，自动将能量转化为晶矿。转化比率分层：5能量→3矿、25能量→13矿、125能量→50矿、625能量→200矿、3125能量→800矿。高级转化需要范围内有能量分配器。收入取决于能量供给速率，没有固定周期。",
+    "incomeModel": "激励者使用能量回路系统经济。能量发生器被动产能（基础1.0/s，可通过升级阶梯提升至 2/8/32/64/128/256/s），激励者生成器（主基地）产能高达 250/s。能量通过回路（CircuitStructure）流向精矿转换器，转换器自动将能量转化为晶矿。转化分5档：5能量→3矿（基础默认开启）、25能量→13矿、125能量→50矿、625能量→200矿、3125能量→800矿（高级档需先启用，并增加转换器能量上限）。低档单位产矿率更高（0.6矿/能量），高档单价低但单次吞吐大，适合高产能时避免溢出。收入取决于能量供给速率，没有固定周期。时空加速可临时提升能量再生 +25%/50%/75%/100%。",
     "buildings": [
+      {
+        "id": "EnergizerGenerator",
+        "nameZh": "激励者生成器（主基地）",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 4000,
+        "buildTime": 7,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "Energizer 的主基地。被动产能 250 能量/秒，能量上限 500000，4000 生命，自带 20 范围侦测。5x5 占地。是整条能量回路的核心产能源。",
+        "gasCost": 0
+      },
+      {
+        "id": "EnergyGenerator",
+        "nameZh": "能量发生器",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 50,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "被动产能建筑。基础能量再生 1/秒，可通过 UpgradeEnergyRegen 升级阶梯提升（2/8/32/64/128/256/s）。能量上限 99999，造价仅 50 矿，是铺量产能的主力。2x2 占地，CostCategory: Economy。",
+        "gasCost": 0
+      },
+      {
+        "id": "EnergyDistributor",
+        "nameZh": "能量分配器",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 10,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "能量回路节点（CircuitStructure），能量上限 2500。在其范围内可解锁精矿转换器的高级转化档位。可用「回收连接的建筑」一键回收所有连接到它的建筑（对能量发生器无效）。2x2 占地。",
+        "gasCost": 0
+      },
       {
         "id": "MineralConverter",
         "nameZh": "精矿转换器",
         "income": 3,
         "incomePeriod": null,
-        "cost": 10,
+        "cost": 5,
         "buildTime": 7,
         "food": null,
         "upgradeTo": null,
-        "notes": "Converts energy to minerals via autocast abilities. Base: 5 energy -> 3 minerals. With EnergyDistributor in range, unlocks higher tiers: 25E->13M, 125E->50M, 625E->200M, 3125E->800M. Max energy: 2505. Must be connected to energy circuit (EnergyGenerator/EnergyDistributor) to receive energy. Income rate depends entirely on energy supply rate, not a fixed timer. CostCategory: Economy. 2x2 footprint, can be loaded into Carrier.",
+        "notes": "把能量转化为晶矿（autocast）。基础 5能量→3矿（默认开启）。启用高级档需在能量分配器范围内：25E→13M、125E→50M、625E→200M、3125E→800M，每启用一档增加转换器能量上限。能量上限 2505，护甲 -5。必须连接能量回路才能获得能量。收入取决于能量供给速率，非固定计时。2x2 占地，可装入航母，CostCategory: Economy。",
+        "gasCost": 0
+      },
+      {
+        "id": "EnergizerAcademy",
+        "nameZh": "学术研究所",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 10,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "科技/升级建筑（CircuitStructure），能量上限 2600。提供产能、护甲、护盾、再生、补给等各类升级研究。2x2 占地。",
+        "gasCost": 0
+      },
+      {
+        "id": "EnergizerStargate",
+        "nameZh": "星门",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 250,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "空中单位生产建筑（CircuitStructure），能量上限 3575。4x4 占地。",
         "gasCost": 0
       }
     ]

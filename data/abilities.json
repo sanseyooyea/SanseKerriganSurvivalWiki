@@ -679,15 +679,55 @@
     "nameEn": "Overcharge",
     "tooltip": "目标单位将被过载10秒\n在此期间该单位将拥有加速属性：\n移动速度：-0.5\n攻击速度：2倍\n伤害：+40%\n生命值/护盾：+50%\n能量吸取：1:1\n冷却刷新率：+50%\n\n持续时间结束后该单位将死亡"
   },
+  "EnergizerDistributionField": {
+    "nameZh": "分散立场",
+    "nameEn": "EnergizerDistributionField",
+    "tooltip": "分散立场激活时，每个单位每秒最多向附近单位输送 100 点能量\n该技能只能为能量不超过其最大能量 80% 的单位提供能量\n分散立场激活期间，激励者无法移动"
+  },
+  "EnergizerEnergizePlating": {
+    "nameZh": "激励装甲",
+    "nameEn": "EnergizerEnergizePlating",
+    "tooltip": "护甲和生命值提高 50%\n移动速度降为 0\n生命值低于 75% 时自动施放\n持续 5 秒"
+  },
+  "EnergizerGeneratorPurify": {
+    "nameZh": "净化",
+    "nameEn": "EnergizerGeneratorPurify",
+    "tooltip": "向目标单位引导能量光束，对0.5半径内的敌人造成每秒1000伤害，对2半径内造成25%伤害<n/><c val=\"FFFF00\">攻击敌方英雄时不造成溅射伤害</c><n/><c val=\"FFFF00\">可以通过右键点击敌方目标施放</c><n/>（智能命令默认热键 = 右键点击）"
+  },
+  "EnergizerGeneratorMassPurification": {
+    "nameZh": "大规模净化",
+    "nameEn": "EnergizerGeneratorMassPurification",
+    "tooltip": "向目标位置发射巨型纯能量光束，充能需2秒。<n/>需要至少50000能量才能使用<n/><c val=\"FF4040\">引导中<n/>EMC方阵的能量将周期性传输至大规模净化</c><n/>每秒损失当前能量的6%<n/>能量低于1000时死亡<n/>受到伤害时额外消耗 5倍能量<n/>每秒造成等于当前能量2%的伤害<n/>（半径 - 伤害百分比）<n/>1 - 100%<n/>3 - 70%<n/>5 - 40%<n/>7 - 10%<n/>9 - 5%"
+  },
   "EMCSquareDisintegrate": {
     "nameZh": "崩解",
     "nameEn": "Disintegrate",
     "tooltip": "牺牲区域内的己方单位，将其能量消耗 + 当前能量添加到EMC方阵能量池中。"
   },
-  "EMCSquareTothebrim": {
+  "EMCSquareToTheBrim": {
     "nameZh": "满载",
-    "nameEn": "EMCSquareTothebrim",
+    "nameEn": "ToTheBrim",
     "tooltip": "EMC方阵向单位传输能量直至其能量达到上限\n\n若EMC方阵能量不足，则仅进行部分传输"
+  },
+  "Emc2Omnipotence": {
+    "nameZh": "全能",
+    "nameEn": "Emc2Omnipotence",
+    "tooltip": "为指定受术者（默认为自身）实体化目标单位\n\n能量消耗等于该单位水晶矿费用的10倍，瓦斯消耗等于其瓦斯费用的3倍。"
+  },
+  "Emc2BigBang": {
+    "nameZh": "大爆炸",
+    "nameEn": "Emc2BigBang",
+    "tooltip": "对 50 半径内的所有敌方单位造成 1000 点伤害。<n/>存活的单位将额外每秒受到 200 点伤害，持续 10秒。"
+  },
+  "EnergizerGeneratorShieldAura": {
+    "nameZh": "护盾光环",
+    "nameEn": "护盾光环",
+    "tooltip": "增加范围内你的所有单位 20%最大护盾"
+  },
+  "EnergizerRapidFire": {
+    "nameZh": "快速射击",
+    "nameEn": "快速射击",
+    "tooltip": "每次攻击提升10%攻击速度，最多叠加10次\n持续6秒\n攻击刷新持续时间"
   },
   "AndorCalldownSentinel": {
     "nameZh": "雇佣哨兵",

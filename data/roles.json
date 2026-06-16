@@ -990,10 +990,10 @@
     "portrait": "",
     "description": "<c val=\"FF0000\">难度  - 8/10</c><n/><n/>激励者只想在他的生命中多整点能量。我是说，作为一只探机的终极目标，整点能量。<n/><n/><c val=\"00FF00\">开发者：Fatline.维护者:Sox</c>",
     "stats": {
-      "hp": null,
-      "speed": 2.8,
+      "hp": 150,
+      "speed": 3.25,
       "armor": null,
-      "energy": null,
+      "energy": 200000,
       "damage": 35,
       "attackSpeed": 1,
       "range": 2,
@@ -1001,8 +1001,16 @@
     },
     "abilities": [
       "EnergizerOvercharge",
+      "EnergizerDistributionField",
+      "EnergizerEnergizePlating",
+      "EnergizerGeneratorPurify",
+      "EnergizerGeneratorMassPurification",
       "EMCSquareDisintegrate",
-      "EMCSquareTothebrim"
+      "EMCSquareToTheBrim",
+      "Emc2Omnipotence",
+      "Emc2BigBang",
+      "EnergizerGeneratorShieldAura",
+      "EnergizerRapidFire"
     ]
   },
   {
