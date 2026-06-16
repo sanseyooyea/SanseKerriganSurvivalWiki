@@ -200,11 +200,20 @@ function roleName(name: string): string {
   return map[name] || map[name.replace(/ /g, '_')] || name
 }
 
-function copyCode() {
+async function copyCode() {
   showCode.value = true
   if (creditsData.value?.code) {
-    navigator.clipboard.writeText(`-lucy ${creditsData.value.code}`)
+    await copyText(`-lucy ${creditsData.value.code}`)
   }
+}
+
+function downloadBlob(blob: Blob) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `ks2-${handle}.png`
+  a.click()
+  URL.revokeObjectURL(url)
 }
 
 async function shareAsImage() {
@@ -237,16 +246,19 @@ async function shareAsImage() {
 
     const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/png'))
     if (blob) {
-      try {
-        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
-        shareText.value = '已复制!'
-      } catch {
-        const url = URL.createObjectURL(blob)
-        const a = document.createElement('a')
-        a.href = url
-        a.download = `ks2-${handle}.png`
-        a.click()
-        URL.revokeObjectURL(url)
+      // 图片剪贴板（ClipboardItem）仅安全上下文可用，无 execCommand 回退；
+      // 非安全上下文或写入失败时回退为下载。
+      const canCopyImage = window.isSecureContext && !!navigator.clipboard && typeof ClipboardItem !== 'undefined'
+      if (canCopyImage) {
+        try {
+          await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+          shareText.value = '已复制!'
+        } catch {
+          downloadBlob(blob)
+          shareText.value = '已下载!'
+        }
+      } else {
+        downloadBlob(blob)
         shareText.value = '已下载!'
       }
     }
