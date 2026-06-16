@@ -65,15 +65,18 @@ for t in TIERS:
     gas_value = round((g_out - m_out) / g_gas, 2)  # 每 1 点气换来的额外矿
     min_net_per_sec = round(mineral_net / CYCLE_SEC, 2)
     gas_net_per_sec = round(gas_net / CYCLE_SEC, 2)
-    # 回本时间 = 建造成本 / 每秒净产出（纯矿配方挂机多久赚回一次性建造费）
-    payback_sec = round(BUILD[t] / min_net_per_sec) if min_net_per_sec else None
+    # 回本时间 = 总成本 ÷ 每秒净产出。总成本 = 建造费 + 单次投入矿（纯矿配方投入 = m_in）。
+    # 投入资金计入成本（用户要求）：建好工厂并垫付一次投入，多久靠净赚赚回这总投入。
+    total_cost = BUILD[t] + m_in
+    payback_sec = round(total_cost / min_net_per_sec) if min_net_per_sec else None
     factories.append({
         "tier": t,
         "nameZh": f"转化工厂 +{t}",
         "id": f"TechnicianTransmutationFactory{t}",
         "buildCost": BUILD[t],
         "upgradeCost": UPGRADE.get(t),  # None for +1 (base, built directly)
-        "paybackSec": payback_sec,      # 建造费回本秒数（基于纯矿每秒净产出）
+        "totalCost": total_cost,        # 建造费 + 单次投入矿（回本分子）
+        "paybackSec": payback_sec,      # 回本秒数 = 总成本 ÷ 纯矿每秒净产出
         "mineralRecipe": {
             "in": m_in, "out": m_out, "net": mineral_net,
             "returnPct": round(mineral_net / m_in * 100, 1),
@@ -128,7 +131,7 @@ data = {
         "autoUpgradeNote": "余矿足够支付「升级费 + 在产工厂转化所需矿」时，工厂自动逐级升档。",
         "mineralReturnRule": "纯矿回报率固定 +20%（投入N矿 → 1.2N矿，所有档位一致）",
         "gasReturnRule": "矿气回报率固定 +44%（投入N矿+0.01N气 → 1.44N矿，所有档位一致）",
-        "paybackNote": "回本时间 = 建造成本 ÷ 纯矿每秒净产出（净产出 = 单次净赚 ÷ 20s 周期）。",
+        "paybackNote": "回本时间 = 总成本 ÷ 纯矿每秒净产出；总成本 = 建造费 + 单次投入矿（净产出 = 单次净赚 ÷ 20s 周期）。",
         "factories": factories
     },
     "acceleration": {
