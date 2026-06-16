@@ -124,16 +124,7 @@
     <div class="wiki-card p-5 mb-6">
       <div class="section-title">技能 · {{ displayAbilities.length }}</div>
       <div class="space-y-2">
-        <template v-if="override?.abilities">
-          <div v-for="(ab, i) in override.abilities" :key="i"
-            class="rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2.5">
-            <div class="text-sm font-medium text-gray-800 dark:text-gray-200">{{ ab.nameZh || ab.nameEn }}</div>
-            <div v-if="ab.tooltip" class="text-xs text-gray-500 dark:text-gray-400 mt-1" v-html="parseDescription(ab.tooltip)" />
-          </div>
-        </template>
-        <template v-else>
-          <AbilityCard v-for="aid in cls.abilities" :key="aid" :ability-id="aid" />
-        </template>
+        <AbilityCard v-for="aid in displayAbilities" :key="aid" :ability-id="aid" />
       </div>
     </div>
 
@@ -237,24 +228,16 @@ const categoryLabel = computed(() =>
 
 const { data: override } = await useFetch(`/api/classes/${route.params.id}`)
 
+// 双轨制：description/notes 取在线编辑的 override（文案，维护员可改）；
+// 技能、兵种/建筑等结构化数据只读 git base（与地图绑定，不接受在线覆盖）。
 const displayDesc = computed(() => override.value?.description || cls.value?.description)
 const parsedDesc = computed(() =>
   displayDesc.value ? parseDescription(displayDesc.value) : ''
 )
 
-const displayAbilities = computed(() => {
-  if (override.value?.abilities) return override.value.abilities
-  return cls.value?.abilities || []
-})
+const displayAbilities = computed(() => cls.value?.abilities || [])
 
-const displayUnits = computed(() => {
-  const base = heroUnits.value
-  return {
-    troops: override.value?.troops || base.troops,
-    buildings: override.value?.buildings || base.buildings,
-    economy: override.value?.economy || base.economy,
-  }
-})
+const displayUnits = computed(() => heroUnits.value)
 
 const renderedNotes = computed(() => {
   const notes = override.value?.notes

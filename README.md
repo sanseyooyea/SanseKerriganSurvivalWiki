@@ -220,6 +220,19 @@ python scripts/build_all.py
 
 详见 [docs/API.md](docs/API.md)
 
+## 参与协作
+
+项目采用**双轨制**维护，两类贡献者各有入口：
+
+- **开发者**（写代码、改数据管线）→ [CONTRIBUTING.md](CONTRIBUTING.md)
+  分支 + PR 流程、数据管线（seed → build_all）、CI 校验、安全红线。
+- **数据维护人员**（更新职业简介、攻略文案）→ [docs/DATA_MAINTENANCE.md](docs/DATA_MAINTENANCE.md)
+  网页在线编辑，只改文案，无需懂代码。
+- **角色与权限** → [docs/ROLES.md](docs/ROLES.md)
+
+> 边界：属性数值 / 技能 / 兵种等**结构化数据走 git + seed**（开发者维护，有 CI 校验）；
+> 职业简介 / 攻略等**文案走在线编辑**（数据维护员维护）。两者不重叠、不互相覆盖。
+
 ## 开源许可
 
 本项目采用 [MIT License](LICENSE) 开源。欢迎社区贡献。
