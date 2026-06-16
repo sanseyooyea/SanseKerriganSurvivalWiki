@@ -34,6 +34,16 @@
           </div>
         </div>
 
+        <div v-if="hero.addons" class="mb-3 px-3 py-2 rounded-lg bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30">
+          <div class="text-[11px] text-blue-700 dark:text-blue-300 font-medium mb-1">经济挂件（放大基础产矿）</div>
+          <div v-for="(a, i) in hero.addons" :key="i" class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-blue-800 dark:text-blue-300" :class="i > 0 ? 'mt-1' : ''">
+            <span>{{ a.nameZh }}: <b class="font-mono">×{{ a.multiplier }}</b></span>
+            <span>造价: <b class="font-mono">{{ a.cost }}矿<template v-if="a.gasCost">+{{ a.gasCost }}g</template></b></span>
+            <span class="text-blue-600/80 dark:text-blue-400/80">{{ a.note }}</span>
+          </div>
+          <div v-if="hero.addonNote" class="text-[11px] text-blue-600/70 dark:text-blue-400/70 mt-1.5">{{ hero.addonNote }}</div>
+        </div>
+
         <div v-if="!hero.harvestEconomy" class="overflow-x-auto -mx-5 px-5">
           <table class="w-full text-sm min-w-[560px]">
             <thead>
