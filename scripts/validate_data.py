@@ -90,12 +90,18 @@ def main():
             seen_en[en] = rid
 
     # 4) economy 校验
+    # 注：economy 的 hero 不一定是职业。有些是特殊游戏机制（如 Ghost = 角色
+    # 死亡后的幽灵形态 SCV 经济），它们对不上 roles 是正常的，列入白名单不报警。
+    NON_ROLE_ECONOMY = {'Ghost'}
     if economy is not None and roles is not None:
         role_names = {r.get('nameEn') for r in roles}
+        role_names_zh = {r.get('nameZh') for r in roles}
         for e in economy:
             hero = e.get('hero')
-            if hero not in role_names:
-                warn(f"economy.json 的 hero '{hero}' 在 roles.json 找不到对应 nameEn")
+            if (hero not in role_names and hero not in role_names_zh
+                    and hero not in NON_ROLE_ECONOMY):
+                warn(f"economy.json 的 hero '{hero}' 在 roles.json 找不到对应职业"
+                     f"（若是特殊机制非职业，请加入 validate 的 NON_ROLE_ECONOMY 白名单）")
             for b in e.get('buildings', []):
                 for field in ('id', 'nameZh', 'cost'):
                     if field not in b or b[field] is None:
