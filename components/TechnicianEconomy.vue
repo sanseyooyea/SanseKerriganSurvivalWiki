@@ -50,7 +50,7 @@
     <!-- 倍增器 -->
     <div class="tech-section-label">
       <span>倍增器 · 累积光环</span>
-      <span class="tech-section-meta">范围 {{ data.killBounty.multiplier.radiusCells }} 格 · 击杀气体与经验同步翻倍</span>
+      <span class="tech-section-meta">{{ data.killBounty.multiplier.radiusNote }} · 击杀气体与经验同步按倍数结算</span>
     </div>
     <div class="tech-mult-grid">
       <div v-for="m in data.killBounty.multiplier.tiers" :key="m.level" class="tech-mult-card" :class="`mult-${m.multiplier}`">
@@ -61,6 +61,7 @@
           <template v-else-if="m.upgradeFromX3">升级 {{ m.upgradeFromX3 }}</template>
           <span class="tech-mult-unit">矿</span>
         </div>
+        <div class="tech-mult-range">范围 {{ m.radiusCells }} 格</div>
       </div>
     </div>
 
@@ -245,6 +246,11 @@ function pctStyle(_pct: number, kind: 'min' | 'gas') {
 }
 .dark .tech-mult-cost { color: rgb(203,213,225); }
 .tech-mult-unit { font-size: 0.6rem; color: rgb(156,163,175); margin-left: 0.15rem; }
+.tech-mult-range {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  color: rgb(156,163,175); margin-top: 0.15rem;
+}
+.dark .tech-mult-range { color: rgb(148,163,184); }
 
 /* 转化工厂阶梯表 */
 .tech-table-wrap { overflow-x: auto; margin: 0 -0.25rem; }

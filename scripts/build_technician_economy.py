@@ -101,14 +101,14 @@ data = {
         "awards": ["气体", "经验"],
         "multiplier": {
             "source": "倍增器（蓄电器 Accumulator）范围光环",
-            "radiusCells": 6,
+            "radiusNote": "范围随等级递增：x2=6 / x3=8 / x4=10 格",
             "refreshSec": 4,
             "buffDurationSec": 5,
             "note": "范围内塔的击杀，气体与经验同时按倍数结算；技术员本体在塔附近(≤10格)时经验按(倍数-1)结算。",
             "tiers": [
-                {"level": "x2", "multiplier": 2, "buildCost": 125},
-                {"level": "x3", "multiplier": 3, "upgradeFromX2": 750},
-                {"level": "x4", "multiplier": 4, "upgradeFromX3": 1500}
+                {"level": "x2", "multiplier": 2, "buildCost": 125, "radiusCells": 6},
+                {"level": "x3", "multiplier": 3, "upgradeFromX2": 250, "radiusCells": 8},
+                {"level": "x4", "multiplier": 4, "upgradeFromX3": 500, "radiusCells": 10}
             ],
             "sellable": True
         },
