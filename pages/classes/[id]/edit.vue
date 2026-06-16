@@ -16,94 +16,18 @@
         编辑：{{ cls.nameZh || cls.nameEn }}
       </h1>
 
+      <!-- 边界提示：双轨制 -->
+      <div class="rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20 px-4 py-3 mb-4 text-sm text-amber-800 dark:text-amber-200">
+        在线编辑仅用于<strong>职业简介</strong>和<strong>社区攻略</strong>。
+        属性数值、技能、兵种/建筑数据来自游戏地图，如需修正请
+        <NuxtLink to="/feedback" class="underline">提交反馈</NuxtLink>，由开发者核实后更新。
+      </div>
+
       <!-- Description -->
       <section class="wiki-card p-5 mb-4">
         <div class="section-title">职业描述</div>
         <textarea v-model="form.description" rows="3"
           class="edit-textarea" />
-      </section>
-
-      <!-- Stats -->
-      <section class="wiki-card p-5 mb-4">
-        <div class="section-title">基础属性</div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div v-for="sf in statFields" :key="sf.key">
-            <label class="text-xs text-gray-500 dark:text-gray-400 block mb-1">{{ sf.label }}</label>
-            <input v-model.number="form.stats[sf.key]" type="number" step="any" class="edit-input" />
-          </div>
-        </div>
-      </section>
-
-      <!-- Abilities -->
-      <section class="wiki-card p-5 mb-4">
-        <div class="flex items-center justify-between mb-3">
-          <div class="section-title mb-0">技能</div>
-          <button @click="addAbility" class="edit-add-btn">+ 添加技能</button>
-        </div>
-        <div class="space-y-2">
-          <div v-for="(ab, i) in form.abilities" :key="i"
-            class="flex items-center gap-2 p-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
-            <div class="flex-1 grid grid-cols-2 gap-2">
-              <input v-model="ab.nameZh" placeholder="中文名" class="edit-input text-xs" />
-              <input v-model="ab.nameEn" placeholder="英文名/ID" class="edit-input text-xs" />
-            </div>
-            <input v-model="ab.tooltip" placeholder="描述" class="flex-[2] edit-input text-xs" />
-            <button @click="form.abilities.splice(i, 1)" class="edit-del-btn">×</button>
-          </div>
-        </div>
-      </section>
-<!-- PLACEHOLDER_UNITS -->
-      <!-- Troops -->
-      <section class="wiki-card p-5 mb-4">
-        <div class="flex items-center justify-between mb-3">
-          <div class="section-title mb-0">兵种</div>
-          <button @click="addUnit('troops')" class="edit-add-btn">+ 添加兵种</button>
-        </div>
-        <div class="space-y-2">
-          <div v-for="(u, i) in form.troops" :key="i"
-            class="flex items-center gap-2 p-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
-            <input v-model="u.nameZh" placeholder="名称" class="w-28 edit-input text-xs" />
-            <input v-model.number="u.hp" placeholder="HP" type="number" class="w-16 edit-input text-xs" />
-            <input v-model.number="u.shield" placeholder="护盾" type="number" class="w-16 edit-input text-xs" />
-            <input v-model.number="u.damage" placeholder="伤害" type="number" class="w-16 edit-input text-xs" />
-            <input v-model.number="u.attackSpeed" placeholder="攻速" type="number" step="0.01" class="w-16 edit-input text-xs" />
-            <button @click="form.troops.splice(i, 1)" class="edit-del-btn">×</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Buildings -->
-      <section class="wiki-card p-5 mb-4">
-        <div class="flex items-center justify-between mb-3">
-          <div class="section-title mb-0">建筑</div>
-          <button @click="addUnit('buildings')" class="edit-add-btn">+ 添加建筑</button>
-        </div>
-        <div class="space-y-2">
-          <div v-for="(u, i) in form.buildings" :key="i"
-            class="flex items-center gap-2 p-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
-            <input v-model="u.nameZh" placeholder="名称" class="w-28 edit-input text-xs" />
-            <input v-model.number="u.hp" placeholder="HP" type="number" class="w-16 edit-input text-xs" />
-            <input v-model.number="u.shield" placeholder="护盾" type="number" class="w-16 edit-input text-xs" />
-            <button @click="form.buildings.splice(i, 1)" class="edit-del-btn">×</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Economy -->
-      <section class="wiki-card p-5 mb-4">
-        <div class="flex items-center justify-between mb-3">
-          <div class="section-title mb-0">经济建筑</div>
-          <button @click="addUnit('economy')" class="edit-add-btn">+ 添加经济建筑</button>
-        </div>
-        <div class="space-y-2">
-          <div v-for="(u, i) in form.economy" :key="i"
-            class="flex items-center gap-2 p-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
-            <input v-model="u.nameZh" placeholder="名称" class="w-28 edit-input text-xs" />
-            <input v-model.number="u.hp" placeholder="HP" type="number" class="w-16 edit-input text-xs" />
-            <input v-model.number="u.shield" placeholder="护盾" type="number" class="w-16 edit-input text-xs" />
-            <button @click="form.economy.splice(i, 1)" class="edit-del-btn">×</button>
-          </div>
-        </div>
       </section>
 
       <!-- Notes -->
@@ -131,32 +55,13 @@ const route = useRoute()
 const classId = Number(route.params.id)
 const { canEdit, authHeaders } = useAuth()
 const { getById } = useClassData()
-const { getAbility } = useAbilityData()
-const { getForHero: getUnitsForHero } = useUnitData()
 
 const cls = computed(() => getById(classId))
 
-const statFields = [
-  { key: 'hp', label: '生命值' },
-  { key: 'speed', label: '移动速度' },
-  { key: 'armor', label: '护甲' },
-  { key: 'energy', label: '能量' },
-  { key: 'damage', label: '攻击伤害' },
-  { key: 'attackSpeed', label: '攻击间隔' },
-  { key: 'attackCount', label: '攻击次数' },
-  { key: 'range', label: '射程' },
-]
-
-interface AbilEntry { nameZh: string; nameEn: string; tooltip: string }
-interface UnitEntry { id: string; nameZh: string; hp?: number; shield?: number; damage?: number; attackSpeed?: number }
-
+// 双轨制：在线编辑只改文案（职业简介 + 社区攻略）。
+// 属性/技能/兵种等结构化数据走 git + seed，不在此编辑。
 const form = reactive({
   description: '',
-  stats: {} as Record<string, number | null>,
-  abilities: [] as AbilEntry[],
-  troops: [] as UnitEntry[],
-  buildings: [] as UnitEntry[],
-  economy: [] as UnitEntry[],
   notes: '',
 })
 
@@ -164,34 +69,13 @@ const saving = ref(false)
 const error = ref('')
 const saved = ref(false)
 
-function addAbility() {
-  form.abilities.push({ nameZh: '', nameEn: '', tooltip: '' })
-}
-function addUnit(list: 'troops' | 'buildings' | 'economy') {
-  form[list].push({ id: '', nameZh: '' })
-}
-
 onMounted(async () => {
   if (!cls.value) return
   form.description = cls.value.description || ''
-  form.stats = { ...cls.value.stats }
-  form.abilities = cls.value.abilities.map(aid => {
-    const ab = getAbility(aid)
-    return { nameZh: ab?.nameZh || '', nameEn: ab?.nameEn || aid, tooltip: ab?.tooltip || '' }
-  })
-  const units = getUnitsForHero(cls.value.nameEn)
-  form.troops = units.troops.map(u => ({ ...u }))
-  form.buildings = units.buildings.map(u => ({ ...u }))
-  form.economy = units.economy.map(u => ({ ...u }))
   try {
     const ov = await $fetch<any>(`/api/classes/${classId}`)
     if (ov) {
       if (ov.description) form.description = ov.description
-      if (ov.stats) Object.assign(form.stats, ov.stats)
-      if (ov.abilities) form.abilities = ov.abilities
-      if (ov.troops) form.troops = ov.troops
-      if (ov.buildings) form.buildings = ov.buildings
-      if (ov.economy) form.economy = ov.economy
       if (ov.notes) form.notes = ov.notes
     }
   } catch {}
@@ -207,11 +91,6 @@ async function save() {
       headers: authHeaders.value,
       body: {
         description: form.description,
-        stats: form.stats,
-        abilities: form.abilities,
-        troops: form.troops,
-        buildings: form.buildings,
-        economy: form.economy,
         notes: form.notes,
       },
     })
