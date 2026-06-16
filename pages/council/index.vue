@@ -216,11 +216,11 @@ function openVote(p: any, vote: 1 | -1) {
 }
 
 async function copyCmd() {
-  try {
-    await navigator.clipboard.writeText(voteCmd.value)
+  const ok = await copyText(voteCmd.value)
+  if (ok) {
     copied.value = true
     setTimeout(() => (copied.value = false), 1600)
-  } catch {}
+  }
 }
 
 // 弹窗开启时锁定背景滚动 + 支持 Esc 关闭
