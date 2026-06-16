@@ -28,7 +28,7 @@
       <div>
         <label class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 block">预览</label>
         <div class="border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 min-h-[20rem] overflow-auto bg-white dark:bg-gray-800">
-          <div class="prose prose-sm dark:prose-invert max-w-none" v-html="preview" />
+          <div class="wk-preview" v-html="preview" />
         </div>
       </div>
     </div>
