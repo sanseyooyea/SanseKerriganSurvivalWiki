@@ -13,7 +13,7 @@
     ],
     "multiplier": {
       "source": "倍增器（蓄电器 Accumulator）范围光环",
-      "radiusCells": 6,
+      "radiusNote": "范围随等级递增：x2=6 / x3=8 / x4=10 格",
       "refreshSec": 4,
       "buffDurationSec": 5,
       "note": "范围内塔的击杀，气体与经验同时按倍数结算；技术员本体在塔附近(≤10格)时经验按(倍数-1)结算。",
@@ -21,17 +21,20 @@
         {
           "level": "x2",
           "multiplier": 2,
-          "buildCost": 125
+          "buildCost": 125,
+          "radiusCells": 6
         },
         {
           "level": "x3",
           "multiplier": 3,
-          "upgradeFromX2": 750
+          "upgradeFromX2": 250,
+          "radiusCells": 8
         },
         {
           "level": "x4",
           "multiplier": 4,
-          "upgradeFromX3": 1500
+          "upgradeFromX3": 500,
+          "radiusCells": 10
         }
       ],
       "sellable": true
@@ -56,9 +59,9 @@
     "autoCast": true,
     "autoUpgrade": true,
     "autoUpgradeNote": "余矿足够支付「升级费 + 在产工厂转化所需矿」时，工厂自动逐级升档。",
-    "mineralReturnRule": "纯矿回报率 = 20% − 工厂级序%（+1=19% … +128=12%）",
-    "gasReturnRule": "矿气回报率 = 44% − 工厂级序×2%（+1=43% … +128=29%）",
-    "paybackNote": "回本时间 = 建造成本 ÷ 纯矿每秒净产出（净产出 = 单次净赚 ÷ 20s 周期）。",
+    "mineralReturnRule": "纯矿回报率固定 +20%（投入N矿 → 1.2N矿，所有档位一致）",
+    "gasReturnRule": "矿气回报率固定 +44%（投入N矿+0.01N气 → 1.44N矿，所有档位一致）",
+    "paybackNote": "回本时间 = 总成本 ÷ 纯矿每秒净产出；总成本 = 建造费 + 单次投入矿（净产出 = 单次净赚 ÷ 20s 周期）。",
     "factories": [
       {
         "tier": 1,
@@ -66,21 +69,22 @@
         "id": "TechnicianTransmutationFactory1",
         "buildCost": 25,
         "upgradeCost": null,
-        "paybackSec": 26,
+        "totalCost": 125,
+        "paybackSec": 125,
         "mineralRecipe": {
           "in": 100,
-          "out": 119,
-          "net": 19,
-          "returnPct": 19.0,
-          "netPerSec": 0.95
+          "out": 120,
+          "net": 20,
+          "returnPct": 20.0,
+          "netPerSec": 1.0
         },
         "gasRecipe": {
           "mineralIn": 100,
           "gasIn": 1,
-          "out": 143,
-          "net": 43,
-          "returnPct": 43.0,
-          "netPerSec": 2.15,
+          "out": 144,
+          "net": 44,
+          "returnPct": 44.0,
+          "netPerSec": 2.2,
           "gasValue": 24.0
         }
       },
@@ -90,22 +94,23 @@
         "id": "TechnicianTransmutationFactory2",
         "buildCost": 50,
         "upgradeCost": 25,
-        "paybackSec": 28,
+        "totalCost": 250,
+        "paybackSec": 125,
         "mineralRecipe": {
           "in": 200,
-          "out": 236,
-          "net": 36,
-          "returnPct": 18.0,
-          "netPerSec": 1.8
+          "out": 240,
+          "net": 40,
+          "returnPct": 20.0,
+          "netPerSec": 2.0
         },
         "gasRecipe": {
           "mineralIn": 200,
           "gasIn": 2,
-          "out": 282,
-          "net": 82,
-          "returnPct": 41.0,
-          "netPerSec": 4.1,
-          "gasValue": 23.0
+          "out": 288,
+          "net": 88,
+          "returnPct": 44.0,
+          "netPerSec": 4.4,
+          "gasValue": 24.0
         }
       },
       {
@@ -114,22 +119,23 @@
         "id": "TechnicianTransmutationFactory4",
         "buildCost": 150,
         "upgradeCost": 100,
-        "paybackSec": 44,
+        "totalCost": 550,
+        "paybackSec": 138,
         "mineralRecipe": {
           "in": 400,
-          "out": 468,
-          "net": 68,
-          "returnPct": 17.0,
-          "netPerSec": 3.4
+          "out": 480,
+          "net": 80,
+          "returnPct": 20.0,
+          "netPerSec": 4.0
         },
         "gasRecipe": {
           "mineralIn": 400,
           "gasIn": 4,
-          "out": 556,
-          "net": 156,
-          "returnPct": 39.0,
-          "netPerSec": 7.8,
-          "gasValue": 22.0
+          "out": 576,
+          "net": 176,
+          "returnPct": 44.0,
+          "netPerSec": 8.8,
+          "gasValue": 24.0
         }
       },
       {
@@ -138,22 +144,23 @@
         "id": "TechnicianTransmutationFactory8",
         "buildCost": 400,
         "upgradeCost": 250,
-        "paybackSec": 62,
+        "totalCost": 1200,
+        "paybackSec": 150,
         "mineralRecipe": {
           "in": 800,
-          "out": 928,
-          "net": 128,
-          "returnPct": 16.0,
-          "netPerSec": 6.4
+          "out": 960,
+          "net": 160,
+          "returnPct": 20.0,
+          "netPerSec": 8.0
         },
         "gasRecipe": {
           "mineralIn": 800,
           "gasIn": 8,
-          "out": 1096,
-          "net": 296,
-          "returnPct": 37.0,
-          "netPerSec": 14.8,
-          "gasValue": 21.0
+          "out": 1152,
+          "net": 352,
+          "returnPct": 44.0,
+          "netPerSec": 17.6,
+          "gasValue": 24.0
         }
       },
       {
@@ -162,22 +169,23 @@
         "id": "TechnicianTransmutationFactory16",
         "buildCost": 1000,
         "upgradeCost": 600,
-        "paybackSec": 83,
+        "totalCost": 2600,
+        "paybackSec": 162,
         "mineralRecipe": {
           "in": 1600,
-          "out": 1840,
-          "net": 240,
-          "returnPct": 15.0,
-          "netPerSec": 12.0
+          "out": 1920,
+          "net": 320,
+          "returnPct": 20.0,
+          "netPerSec": 16.0
         },
         "gasRecipe": {
           "mineralIn": 1600,
           "gasIn": 16,
-          "out": 2160,
-          "net": 560,
-          "returnPct": 35.0,
-          "netPerSec": 28.0,
-          "gasValue": 20.0
+          "out": 2304,
+          "net": 704,
+          "returnPct": 44.0,
+          "netPerSec": 35.2,
+          "gasValue": 24.0
         }
       },
       {
@@ -186,22 +194,23 @@
         "id": "TechnicianTransmutationFactory32",
         "buildCost": 2400,
         "upgradeCost": 1400,
-        "paybackSec": 107,
+        "totalCost": 5600,
+        "paybackSec": 175,
         "mineralRecipe": {
           "in": 3200,
-          "out": 3648,
-          "net": 448,
-          "returnPct": 14.0,
-          "netPerSec": 22.4
+          "out": 3840,
+          "net": 640,
+          "returnPct": 20.0,
+          "netPerSec": 32.0
         },
         "gasRecipe": {
           "mineralIn": 3200,
           "gasIn": 32,
-          "out": 4256,
-          "net": 1056,
-          "returnPct": 33.0,
-          "netPerSec": 52.8,
-          "gasValue": 19.0
+          "out": 4608,
+          "net": 1408,
+          "returnPct": 44.0,
+          "netPerSec": 70.4,
+          "gasValue": 24.0
         }
       },
       {
@@ -210,22 +219,23 @@
         "id": "TechnicianTransmutationFactory64",
         "buildCost": 5600,
         "upgradeCost": 3200,
-        "paybackSec": 135,
+        "totalCost": 12000,
+        "paybackSec": 188,
         "mineralRecipe": {
           "in": 6400,
-          "out": 7232,
-          "net": 832,
-          "returnPct": 13.0,
-          "netPerSec": 41.6
+          "out": 7680,
+          "net": 1280,
+          "returnPct": 20.0,
+          "netPerSec": 64.0
         },
         "gasRecipe": {
           "mineralIn": 6400,
           "gasIn": 64,
-          "out": 8384,
-          "net": 1984,
-          "returnPct": 31.0,
-          "netPerSec": 99.2,
-          "gasValue": 18.0
+          "out": 9216,
+          "net": 2816,
+          "returnPct": 44.0,
+          "netPerSec": 140.8,
+          "gasValue": 24.0
         }
       },
       {
@@ -234,22 +244,23 @@
         "id": "TechnicianTransmutationFactory128",
         "buildCost": 12800,
         "upgradeCost": 7200,
-        "paybackSec": 167,
+        "totalCost": 25600,
+        "paybackSec": 200,
         "mineralRecipe": {
           "in": 12800,
-          "out": 14336,
-          "net": 1536,
-          "returnPct": 12.0,
-          "netPerSec": 76.8
+          "out": 15360,
+          "net": 2560,
+          "returnPct": 20.0,
+          "netPerSec": 128.0
         },
         "gasRecipe": {
           "mineralIn": 12800,
           "gasIn": 128,
-          "out": 16512,
-          "net": 3712,
-          "returnPct": 29.0,
-          "netPerSec": 185.6,
-          "gasValue": 17.0
+          "out": 18432,
+          "net": 5632,
+          "returnPct": 44.0,
+          "netPerSec": 281.6,
+          "gasValue": 24.0
         }
       }
     ]

@@ -50,7 +50,7 @@
     <!-- 倍增器 -->
     <div class="tech-section-label">
       <span>倍增器 · 累积光环</span>
-      <span class="tech-section-meta">范围 {{ data.killBounty.multiplier.radiusCells }} 格 · 击杀气体与经验同步翻倍</span>
+      <span class="tech-section-meta">{{ data.killBounty.multiplier.radiusNote }} · 击杀气体与经验同步按倍数结算</span>
     </div>
     <div class="tech-mult-grid">
       <div v-for="m in data.killBounty.multiplier.tiers" :key="m.level" class="tech-mult-card" :class="`mult-${m.multiplier}`">
@@ -61,6 +61,7 @@
           <template v-else-if="m.upgradeFromX3">升级 {{ m.upgradeFromX3 }}</template>
           <span class="tech-mult-unit">矿</span>
         </div>
+        <div class="tech-mult-range">范围 {{ m.radiusCells }} 格</div>
       </div>
     </div>
 
@@ -79,7 +80,7 @@
             <th class="seg-min">纯矿转化</th>
             <th class="seg-min">回报</th>
             <th class="seg-min" title="纯矿配方每秒净产出 = 单次净赚 ÷ 20s 周期">净产/s</th>
-            <th class="seg-min" title="建造成本 ÷ 纯矿每秒净产出，挂机多久赚回建造费">回本</th>
+            <th class="seg-min" title="（建造费 + 单次投入矿）÷ 纯矿每秒净产出，多久赚回总成本">回本</th>
             <th class="seg-gas">矿+气转化</th>
             <th class="seg-gas">回报</th>
             <th class="seg-gas">每点气价值</th>
@@ -136,13 +137,10 @@ import techData from '~/data/technician-economy.json'
 
 const data = techData as any
 
-// 回报率热力色：纯矿用青、矿气用绿，数值越高越饱和
-function pctStyle(pct: number, kind: 'min' | 'gas') {
-  const range = kind === 'min' ? [12, 19] : [29, 43]
-  const t = (pct - range[0]) / (range[1] - range[0])
+// 回报率固定色：纯矿青、矿气绿（所有档位回报率统一 +20% / +44%，无梯度）
+function pctStyle(_pct: number, kind: 'min' | 'gas') {
   const hue = kind === 'min' ? 190 : 152
-  const light = 62 - t * 22
-  return { color: `hsl(${hue} 70% ${light}%)`, fontWeight: 700 }
+  return { color: `hsl(${hue} 70% 48%)`, fontWeight: 700 }
 }
 </script>
 
@@ -248,6 +246,11 @@ function pctStyle(pct: number, kind: 'min' | 'gas') {
 }
 .dark .tech-mult-cost { color: rgb(203,213,225); }
 .tech-mult-unit { font-size: 0.6rem; color: rgb(156,163,175); margin-left: 0.15rem; }
+.tech-mult-range {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  color: rgb(156,163,175); margin-top: 0.15rem;
+}
+.dark .tech-mult-range { color: rgb(148,163,184); }
 
 /* 转化工厂阶梯表 */
 .tech-table-wrap { overflow-x: auto; margin: 0 -0.25rem; }
