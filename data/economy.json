@@ -164,11 +164,11 @@
         "nameZh": "同化器 +10",
         "income": 10,
         "incomePeriod": 3,
-        "cost": 425,
+        "cost": 475,
         "buildTime": 5,
         "food": 0,
         "upgradeTo": "JinaraAssimilator25",
-        "notes": "Mid tier. Costs 425 minerals + 10 vespene. Tooltip: 每3秒获得10晶体矿. Can be built directly or upgraded from +2.",
+        "notes": "Mid tier. Costs 475 minerals + 10 vespene. Tooltip: 每3秒获得10晶体矿. Can be built directly or upgraded from +2.",
         "gasCost": 10
       },
       {
@@ -176,11 +176,11 @@
         "nameZh": "同化器 +25",
         "income": 25,
         "incomePeriod": 3,
-        "cost": 1075,
+        "cost": 1175,
         "buildTime": 5,
         "food": 0,
         "upgradeTo": null,
-        "notes": "Top tier. Costs 1075 minerals + 35 vespene. Tooltip: 每3秒获得25晶体矿. Can be built directly or upgraded from +10. No further upgrades.",
+        "notes": "Top tier. Costs 1175 minerals + 35 vespene. Tooltip: 每3秒获得25晶体矿. Can be built directly or upgraded from +10. No further upgrades.",
         "gasCost": 35
       }
     ]
