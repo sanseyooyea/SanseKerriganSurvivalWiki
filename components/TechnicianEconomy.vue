@@ -67,7 +67,7 @@
     <!-- 转化工厂阶梯表 -->
     <div class="tech-section-label">
       <span>转化工厂 · 八级转化链</span>
-      <span class="tech-section-meta">转化耗时 {{ data.transmutation.transmuteDurationSec }}s · 可自动施放 / 自动升级</span>
+      <span class="tech-section-meta">投入 {{ data.transmutation.investSec }}s + 转化 {{ data.transmutation.transmuteSec }}s（周期 {{ data.transmutation.cycleSec }}s）· 可自动施放 / 自动升级</span>
     </div>
     <div class="tech-table-wrap">
       <table class="tech-table">
@@ -78,6 +78,8 @@
             <th>升级</th>
             <th class="seg-min">纯矿转化</th>
             <th class="seg-min">回报</th>
+            <th class="seg-min" title="纯矿配方每秒净产出 = 单次净赚 ÷ 20s 周期">净产/s</th>
+            <th class="seg-min" title="建造成本 ÷ 纯矿每秒净产出，挂机多久赚回建造费">回本</th>
             <th class="seg-gas">矿+气转化</th>
             <th class="seg-gas">回报</th>
             <th class="seg-gas">每点气价值</th>
@@ -92,6 +94,8 @@
             <td class="seg-min">
               <span class="tech-pct" :style="pctStyle(f.mineralRecipe.returnPct, 'min')">+{{ f.mineralRecipe.returnPct }}%</span>
             </td>
+            <td class="tech-num seg-min">{{ f.mineralRecipe.netPerSec }}<span class="tech-g">矿/s</span></td>
+            <td class="tech-num seg-min">{{ f.paybackSec }}<span class="tech-g">s</span></td>
             <td class="tech-num seg-gas">{{ f.gasRecipe.mineralIn }}+{{ f.gasRecipe.gasIn }}<span class="tech-g">g</span> → {{ f.gasRecipe.out }}</td>
             <td class="seg-gas">
               <span class="tech-pct" :style="pctStyle(f.gasRecipe.returnPct, 'gas')">+{{ f.gasRecipe.returnPct }}%</span>
@@ -109,12 +113,19 @@
     <!-- 加速关联 -->
     <div class="tech-accel">
       <div class="tech-accel-ico">⚡</div>
-      <div>
+      <div class="flex-1 min-w-0">
         <div class="tech-accel-title">
-          {{ data.acceleration.ability }}
-          <span class="tech-accel-spec">{{ data.acceleration.energyCost }} 能量 · 冷却 {{ data.acceleration.cooldownSec }}s · 自动施放</span>
+          {{ data.acceleration.ability }} <span class="tech-accel-pct">+{{ data.acceleration.speedupPct }}%</span>
+          <span class="tech-accel-spec">持续 {{ data.acceleration.durationSec }}s · {{ data.acceleration.gasCost }} 气 / {{ data.acceleration.energyCost }} 能量 · 冷却 {{ data.acceleration.cooldownSec }}s · 自动施放</span>
         </div>
         <p class="tech-accel-desc">{{ data.acceleration.economyRelation }}</p>
+        <div class="tech-accel-levels">
+          <div v-for="lv in data.acceleration.levels" :key="lv.level" class="tech-accel-lv">
+            <span class="tech-accel-lv-tag">Lv{{ lv.level }}</span>
+            <span class="tech-accel-lv-val">半径 {{ lv.radiusCells }} · 最多 {{ lv.maxStructures }} 建筑</span>
+          </div>
+        </div>
+        <p class="tech-accel-note">{{ data.acceleration.effectNote }}</p>
       </div>
     </div>
   </section>
@@ -308,6 +319,29 @@ function pctStyle(pct: number, kind: 'min' | 'gas') {
   color: rgb(120,113,108);
 }
 .dark .tech-accel-desc { color: rgb(168,162,158); }
+.tech-accel-pct {
+  font-size: 0.8rem; font-weight: 800; color: rgb(202,138,4);
+}
+.dark .tech-accel-pct { color: rgb(250,204,21); }
+.tech-accel-levels {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;
+}
+.tech-accel-lv {
+  display: inline-flex; align-items: baseline; gap: 0.3rem;
+  padding: 0.2rem 0.5rem; border-radius: 0.4rem;
+  background: rgba(250,204,21,0.1); border: 1px solid rgba(250,204,21,0.2);
+  font-size: 0.66rem;
+}
+.tech-accel-lv-tag {
+  font-family: 'JetBrains Mono', monospace; font-weight: 700; color: rgb(146,64,14);
+}
+.dark .tech-accel-lv-tag { color: rgb(253,224,71); }
+.tech-accel-lv-val { color: rgb(120,113,108); }
+.dark .tech-accel-lv-val { color: rgb(168,162,158); }
+.tech-accel-note {
+  margin-top: 0.4rem; font-size: 0.66rem; color: rgb(161,98,7); font-style: italic;
+}
+.dark .tech-accel-note { color: rgb(202,138,4); }
 
 @media (max-width: 480px) {
   .tech-loop-desc { display: none; }
