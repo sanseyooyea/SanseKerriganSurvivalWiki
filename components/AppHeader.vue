@@ -2,9 +2,8 @@
   <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-surface-200 dark:border-gray-700 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between">
       <NuxtLink to="/" class="flex items-center gap-2 group shrink-0" @click="menuOpen = false">
-        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-kerrigan-600 to-survivor-600 flex items-center justify-center">
-          <span class="text-white text-xs font-bold">K2</span>
-        </div>
+        <img src="/logo.svg" alt="凯瑞甘生存2 Wiki"
+          class="w-7 h-7 object-contain group-hover:scale-105 transition-transform" />
         <span class="text-base font-bold text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
           <span class="hidden sm:inline">凯瑞甘生存2 Wiki</span>
           <span class="sm:hidden">KS2 Wiki</span>
