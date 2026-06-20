@@ -80,5 +80,21 @@ function initSchema(db: Database.Database) {
       created_at TEXT DEFAULT (datetime('now')),
       PRIMARY KEY (feedback_id, user_id)
     );
+
+    -- 流量统计：每次客户端页面浏览打一条点。
+    -- day(本地日 YYYY-MM-DD) 便于按日聚合；visitor 是 IP+UA+day 的哈希，
+    -- 含 day 盐 → 无法跨天追踪同一访客，UV 口径为「按日去重」，兼顾隐私。
+    -- ref 仅存来源站点 host（不含完整 URL/参数），避免泄露敏感路径。
+    CREATE TABLE IF NOT EXISTS page_views (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      day TEXT NOT NULL,
+      path TEXT NOT NULL,
+      visitor TEXT NOT NULL,
+      ref TEXT NOT NULL DEFAULT '',
+      created_at TEXT DEFAULT (datetime('now'))
+    );
+    CREATE INDEX IF NOT EXISTS idx_pv_day ON page_views(day);
+    CREATE INDEX IF NOT EXISTS idx_pv_day_visitor ON page_views(day, visitor);
+    CREATE INDEX IF NOT EXISTS idx_pv_path ON page_views(path);
   `)
 }
