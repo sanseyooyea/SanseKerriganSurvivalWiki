@@ -2700,6 +2700,128 @@
         "nameZh": "实习生",
         "hp": 30,
         "speed": 3.5
+      }
+    ],
+    "buildings": [
+      {
+        "id": "Keystone",
+        "nameZh": "钥石",
+        "hp": 5000
+      },
+      {
+        "id": "VisionTower4",
+        "nameZh": "视野塔+4",
+        "hp": 50
+      },
+      {
+        "id": "TechnicianAccumulatorx4",
+        "nameZh": "蓄电器 x4",
+        "hp": 100
+      },
+      {
+        "id": "GiantWallTechnician",
+        "nameZh": "巨墙",
+        "hp": 1000
+      },
+      {
+        "id": "VisionTower3",
+        "nameZh": "视野塔 +3",
+        "hp": 50
+      },
+      {
+        "id": "VisionTower2",
+        "nameZh": "视野塔 +2",
+        "hp": 50
+      },
+      {
+        "id": "TechnicianAccumulatorx3",
+        "nameZh": "蓄电器 x3",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianCliffPortal",
+        "nameZh": "传送门",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianTechnologyArsenal",
+        "nameZh": "科技军械库",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianTransmutationFactory1",
+        "nameZh": "转化工厂 +1",
+        "hp": 150
+      },
+      {
+        "id": "GateTechnician",
+        "nameZh": "门",
+        "hp": 100
+      },
+      {
+        "id": "WallTechnician",
+        "nameZh": "墙",
+        "hp": 500
+      },
+      {
+        "id": "VisionTower",
+        "nameZh": "视野塔 +1",
+        "hp": 50
+      },
+      {
+        "id": "TechnicianAccumulatorx2",
+        "nameZh": "蓄电器 x2",
+        "hp": 100
+      },
+      {
+        "id": "GateTechnicianLowered",
+        "nameZh": "门（收起）",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianTransmutationFactory2",
+        "nameZh": "转化工厂 +2",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory4",
+        "nameZh": "转化工厂 +4",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory8",
+        "nameZh": "转化工厂 +8",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory16",
+        "nameZh": "转化工厂 +16",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory32",
+        "nameZh": "转化工厂 +32",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory64",
+        "nameZh": "转化工厂 +64",
+        "hp": 150
+      },
+      {
+        "id": "TechnicianTransmutationFactory128",
+        "nameZh": "转化工厂 +128",
+        "hp": 150
+      },
+      {
+        "id": "FlameTrap",
+        "nameZh": "火焰陷阱",
+        "hp": 100
+      },
+      {
+        "id": "TechnicianEngineeringBay",
+        "nameZh": "工程舱",
+        "hp": 100
       },
       {
         "id": "SuperiorLaserTower",
@@ -2827,128 +2949,6 @@
         "damage": 20,
         "attackSpeed": 3,
         "range": 10
-      }
-    ],
-    "buildings": [
-      {
-        "id": "Keystone",
-        "nameZh": "钥石",
-        "hp": 5000
-      },
-      {
-        "id": "VisionTower4",
-        "nameZh": "视野塔+4",
-        "hp": 50
-      },
-      {
-        "id": "TechnicianAccumulatorx4",
-        "nameZh": "蓄电器 x4",
-        "hp": 100
-      },
-      {
-        "id": "GiantWallTechnician",
-        "nameZh": "巨墙",
-        "hp": 1000
-      },
-      {
-        "id": "VisionTower3",
-        "nameZh": "视野塔 +3",
-        "hp": 50
-      },
-      {
-        "id": "VisionTower2",
-        "nameZh": "视野塔 +2",
-        "hp": 50
-      },
-      {
-        "id": "TechnicianAccumulatorx3",
-        "nameZh": "蓄电器 x3",
-        "hp": 100
-      },
-      {
-        "id": "TechnicianCliffPortal",
-        "nameZh": "传送门",
-        "hp": 100
-      },
-      {
-        "id": "TechnicianTechnologyArsenal",
-        "nameZh": "科技军械库",
-        "hp": 100
-      },
-      {
-        "id": "TechnicianTransmutationFactory1",
-        "nameZh": "转化工厂 +1",
-        "hp": 150
-      },
-      {
-        "id": "GateTechnician",
-        "nameZh": "门",
-        "hp": 100
-      },
-      {
-        "id": "WallTechnician",
-        "nameZh": "墙",
-        "hp": 500
-      },
-      {
-        "id": "VisionTower",
-        "nameZh": "视野塔 +1",
-        "hp": 50
-      },
-      {
-        "id": "TechnicianAccumulatorx2",
-        "nameZh": "蓄电器 x2",
-        "hp": 100
-      },
-      {
-        "id": "GateTechnicianLowered",
-        "nameZh": "门（收起）",
-        "hp": 100
-      },
-      {
-        "id": "TechnicianTransmutationFactory2",
-        "nameZh": "转化工厂 +2",
-        "hp": 150
-      },
-      {
-        "id": "TechnicianTransmutationFactory4",
-        "nameZh": "转化工厂 +4",
-        "hp": 150
-      },
-      {
-        "id": "TechnicianTransmutationFactory8",
-        "nameZh": "转化工厂 +8",
-        "hp": 150
-      },
-      {
-        "id": "TechnicianTransmutationFactory16",
-        "nameZh": "转化工厂 +16",
-        "hp": 150
-      },
-      {
-        "id": "TechnicianTransmutationFactory32",
-        "nameZh": "转化工厂 +32",
-        "hp": 150
-      },
-      {
-        "id": "TechnicianTransmutationFactory64",
-        "nameZh": "转化工厂 +64",
-        "hp": 150
-      },
-      {
-        "id": "TechnicianTransmutationFactory128",
-        "nameZh": "转化工厂 +128",
-        "hp": 150
-      },
-      {
-        "id": "FlameTrap",
-        "nameZh": "火焰陷阱",
-        "hp": 100
-      },
-      {
-        "id": "TechnicianEngineeringBay",
-        "nameZh": "工程舱",
-        "hp": 100
       }
     ],
     "economy": []
