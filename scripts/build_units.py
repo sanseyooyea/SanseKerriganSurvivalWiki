@@ -17,7 +17,7 @@ DATA = os.path.join(WIKI, 'data')
 SEED = os.path.join(DATA, 'seed', 'units.seed.json')
 OUT = os.path.join(DATA, 'units.json')
 
-STAT_FIELDS = ('hp', 'shield', 'armor', 'speed', 'damage', 'attackSpeed', 'range')
+STAT_FIELDS = ('hp', 'shield', 'armor', 'speed', 'damage', 'attackSpeed', 'attackCount', 'range')
 
 archive = L.open_map()
 catalog = L.build_catalog(archive)
@@ -44,10 +44,13 @@ def build_stats(uid):
     if sp:
         s['speed'] = sp
     ws = L.weapon_stats(CU, CW, CE, uid)
-    # units.json uses damage/attackSpeed/range (no attackCount column)
+    # damage/attackSpeed/range 直采；attackCount 仅当 >1（多连击单位如攻城塔）才带，
+    # 避免给单发单位添冗余字段。
     for k in ('damage', 'attackSpeed', 'range'):
         if k in ws:
             s[k] = ws[k]
+    if ws.get('attackCount', 1) and ws.get('attackCount', 1) > 1:
+        s['attackCount'] = ws['attackCount']
     return s
 
 

@@ -16,12 +16,31 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 import lib_map as L
 
 TIERS = [1, 2, 4, 8, 16, 32, 64, 128]
-BUILD = {1: 25, 2: 50, 4: 150, 8: 400, 16: 1000, 32: 2400, 64: 5600, 128: 12800}
-UPGRADE = {2: 25, 4: 100, 8: 250, 16: 600, 32: 1400, 64: 3200, 128: 7200}
 
 # 从地图按钮文本解析转化配方（每档投入矿固定 = TIER 基数 ×100）
 _ar = L.open_map()
 _gs = L.game_strings(_ar)
+_cat = L.build_catalog(_ar)
+_CU = _cat.get('Unit', {})
+_CA = _cat.get('Abil', {})
+
+
+def _factory_costs():
+    """从地图提取各档工厂造价，杜绝硬编码（教训：CONTRIBUTING「别硬编码」）。
+    BUILD = 工厂单位从零建造价 CUnit.CostResource；
+    UPGRADE = 升级链 CAbil TechnicianUpgradeToTransmutationFactory<N>.Cost.Resource。"""
+    build, upgrade = {}, {}
+    for t in TIERS:
+        uc = L.num(_CU.get(f'TechnicianTransmutationFactory{t}', {}).get('CostResource'))
+        if uc is not None:
+            build[t] = uc
+        ac = L.num(_CA.get(f'TechnicianUpgradeToTransmutationFactory{t}', {}).get('Cost.Resource'))
+        if ac is not None:
+            upgrade[t] = ac
+    return build, upgrade
+
+
+BUILD, UPGRADE = _factory_costs()
 
 
 def _parse_recipes():

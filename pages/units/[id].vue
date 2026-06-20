@@ -48,7 +48,9 @@
           <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
             <tr>
               <td class="py-2 text-gray-600 dark:text-gray-400">伤害</td>
-              <td class="py-2 text-right font-mono font-semibold text-red-600 dark:text-red-400">{{ unit.damage }}</td>
+              <td class="py-2 text-right font-mono font-semibold text-red-600 dark:text-red-400">
+                {{ unit.damage }}<span v-if="unit.attackCount && unit.attackCount > 1" class="text-gray-400 font-normal"> ×{{ unit.attackCount }}</span>
+              </td>
             </tr>
             <tr v-if="unit.attackSpeed">
               <td class="py-2 text-gray-600 dark:text-gray-400">攻击间隔</td>
@@ -60,7 +62,7 @@
             </tr>
             <tr v-if="unit.damage && unit.attackSpeed">
               <td class="py-2 text-gray-600 dark:text-gray-400">DPS</td>
-              <td class="py-2 text-right font-mono font-semibold text-orange-600 dark:text-orange-400">{{ (unit.damage / unit.attackSpeed).toFixed(1) }}</td>
+              <td class="py-2 text-right font-mono font-semibold text-orange-600 dark:text-orange-400">{{ (unit.damage * (unit.attackCount || 1) / unit.attackSpeed).toFixed(1) }}</td>
             </tr>
           </tbody>
         </table>
