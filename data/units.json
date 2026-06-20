@@ -285,6 +285,7 @@
         "speed": 2.75,
         "damage": 12,
         "attackSpeed": 1.2,
+        "attackCount": 2,
         "range": 0.1
       }
     ],
@@ -723,6 +724,7 @@
         "speed": 2.75,
         "damage": 10,
         "attackSpeed": 1.25,
+        "attackCount": 2,
         "range": 0.1
       },
       {
@@ -763,6 +765,7 @@
         "speed": 2.5,
         "damage": 80,
         "attackSpeed": 1.1,
+        "attackCount": 2,
         "range": 0.1
       },
       {
@@ -863,6 +866,7 @@
         "speed": 3,
         "damage": 50,
         "attackSpeed": 10,
+        "attackCount": 13,
         "range": 20
       },
       {
@@ -890,6 +894,7 @@
         "speed": 3,
         "damage": 25,
         "attackSpeed": 1.5,
+        "attackCount": 2,
         "range": 6
       },
       {
@@ -899,6 +904,7 @@
         "speed": 3,
         "damage": 15,
         "attackSpeed": 1.25,
+        "attackCount": 2,
         "range": 10
       },
       {
@@ -1117,7 +1123,8 @@
         "shield": 25,
         "speed": 3,
         "damage": 15,
-        "attackSpeed": 2.8
+        "attackSpeed": 2.8,
+        "attackCount": 2
       },
       {
         "id": "Shocker@Unit",
@@ -1350,6 +1357,7 @@
         "speed": 2.75,
         "damage": 14,
         "attackSpeed": 1.2,
+        "attackCount": 2,
         "range": 0.1
       },
       {
@@ -1720,6 +1728,7 @@
         "speed": 3.5,
         "damage": 4,
         "attackSpeed": 1.1,
+        "attackCount": 2,
         "range": 4.5
       },
       {
@@ -1861,6 +1870,7 @@
         "speed": 2.75,
         "damage": 38,
         "attackSpeed": 1.3,
+        "attackCount": 6,
         "range": 10
       },
       {
@@ -1871,6 +1881,7 @@
         "speed": 2.75,
         "damage": 8,
         "attackSpeed": 1.2,
+        "attackCount": 2,
         "range": 0.1
       },
       {
@@ -1901,6 +1912,7 @@
         "speed": 2.8125,
         "damage": 30,
         "attackSpeed": 1.25,
+        "attackCount": 2,
         "range": 4
       },
       {
@@ -1920,6 +1932,7 @@
         "speed": 2.25,
         "damage": 15,
         "attackSpeed": 1.65,
+        "attackCount": 2,
         "range": 7
       },
       {
@@ -2024,6 +2037,7 @@
         "speed": 1.1015,
         "damage": 10,
         "attackSpeed": 0.905,
+        "attackCount": 2,
         "range": 3
       },
       {
@@ -2042,6 +2056,7 @@
         "speed": 2,
         "damage": 15,
         "attackSpeed": 1.45,
+        "attackCount": 2,
         "range": 2
       },
       {
@@ -2051,6 +2066,7 @@
         "speed": 2,
         "damage": 65,
         "attackSpeed": 1.5,
+        "attackCount": 4,
         "range": 10
       },
       {
@@ -2060,6 +2076,7 @@
         "speed": 2,
         "damage": 75,
         "attackSpeed": 3.5,
+        "attackCount": 4,
         "range": 8
       },
       {
@@ -2093,6 +2110,7 @@
         "speed": 4.0507,
         "damage": 30,
         "attackSpeed": 0.5,
+        "attackCount": 2,
         "range": 10
       },
       {
@@ -2101,6 +2119,7 @@
         "speed": 4.0507,
         "damage": 30,
         "attackSpeed": 0.5,
+        "attackCount": 2,
         "range": 10
       },
       {
@@ -2715,6 +2734,7 @@
         "hp": 200,
         "damage": 40,
         "attackSpeed": 2,
+        "attackCount": 2,
         "range": 11
       },
       {
@@ -2723,7 +2743,7 @@
         "hp": 200,
         "damage": 5,
         "attackSpeed": 1.5,
-        "range": 13
+        "range": 11
       },
       {
         "id": "SuperiorDisintegrationTower",
@@ -2731,7 +2751,7 @@
         "hp": 200,
         "damage": 5,
         "attackSpeed": 1.5,
-        "range": 13
+        "range": 11
       },
       {
         "id": "SuperiorSiegeTower",
@@ -2739,7 +2759,8 @@
         "hp": 200,
         "damage": 60,
         "attackSpeed": 3,
-        "range": 14
+        "attackCount": 3,
+        "range": 11
       },
       {
         "id": "SmallLaserTower",
@@ -2754,7 +2775,7 @@
         "hp": 150,
         "damage": 5,
         "attackSpeed": 2.5,
-        "range": 11
+        "range": 9
       },
       {
         "id": "AdvancedLaserTower",
@@ -2770,6 +2791,7 @@
         "hp": 150,
         "damage": 35,
         "attackSpeed": 2.5,
+        "attackCount": 2,
         "range": 9
       },
       {
@@ -2778,7 +2800,7 @@
         "hp": 150,
         "damage": 5,
         "attackSpeed": 2,
-        "range": 11
+        "range": 9
       },
       {
         "id": "AdvancedSiegeTower",
@@ -2786,7 +2808,8 @@
         "hp": 150,
         "damage": 40,
         "attackSpeed": 3,
-        "range": 12
+        "attackCount": 3,
+        "range": 9
       },
       {
         "id": "DisintegrationTower",
@@ -2794,7 +2817,7 @@
         "hp": 125,
         "damage": 5,
         "attackSpeed": 2.5,
-        "range": 9
+        "range": 7
       },
       {
         "id": "LaserTower",
@@ -2810,6 +2833,7 @@
         "hp": 125,
         "damage": 30,
         "attackSpeed": 3,
+        "attackCount": 2,
         "range": 7
       },
       {
@@ -2818,7 +2842,7 @@
         "hp": 125,
         "damage": 5,
         "attackSpeed": 2.5,
-        "range": 9
+        "range": 7
       },
       {
         "id": "SiegeTower",
@@ -2826,7 +2850,8 @@
         "hp": 125,
         "damage": 20,
         "attackSpeed": 3,
-        "range": 10
+        "attackCount": 3,
+        "range": 7
       }
     ],
     "buildings": [
@@ -2998,6 +3023,7 @@
         "speed": 2.8984,
         "damage": 7,
         "attackSpeed": 3,
+        "attackCount": 8,
         "range": 7
       },
       {
@@ -3180,7 +3206,8 @@
         "shield": 60,
         "speed": 4.25,
         "damage": 10,
-        "attackSpeed": 1.1
+        "attackSpeed": 1.1,
+        "attackCount": 2
       },
       {
         "id": "ColonelSanders",
@@ -3261,6 +3288,7 @@
         "hp": 200,
         "damage": 50,
         "attackSpeed": 0.8608,
+        "attackCount": 2,
         "range": 7
       }
     ],
@@ -3482,7 +3510,8 @@
         "hp": 250,
         "speed": 3.5,
         "damage": 10,
-        "attackSpeed": 1.8
+        "attackSpeed": 1.8,
+        "attackCount": 2
       },
       {
         "id": "DSArchangelFighter",

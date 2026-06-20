@@ -39,7 +39,9 @@
         </div>
         <div v-if="unit.damage" class="flex justify-between">
           <span class="text-gray-500">伤害</span>
-          <span class="font-mono text-red-600 dark:text-red-400">{{ unit.damage }}</span>
+          <span class="font-mono text-red-600 dark:text-red-400">
+            {{ unit.damage }}<span v-if="unit.attackCount && unit.attackCount > 1" class="text-gray-400">×{{ unit.attackCount }}</span>
+          </span>
         </div>
         <div v-if="unit.attackSpeed" class="flex justify-between">
           <span class="text-gray-500">攻击间隔</span>
@@ -63,7 +65,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  unit: { id: string; nameZh: string; hp?: number; shield?: number; armor?: number; speed?: number; damage?: number; attackSpeed?: number; range?: number }
+  unit: { id: string; nameZh: string; hp?: number; shield?: number; armor?: number; speed?: number; damage?: number; attackSpeed?: number; attackCount?: number; range?: number }
   isBuilding?: boolean
 }>()
 const expanded = ref(false)
