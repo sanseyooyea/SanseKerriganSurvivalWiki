@@ -641,10 +641,14 @@
       "energyRegen": 1
     },
     "abilities": [
+      "Accelerate",
       "PersonalCloakingTechnician",
-      "Detonate",
-      "TemporalZone",
-      "Hallucination"
+      "TransferEnergy",
+      "Hallucination",
+      "FixEverything",
+      "RestructuredIntegrity",
+      "CloakingField",
+      "TechnicianBuildKeystone"
     ]
   },
   {

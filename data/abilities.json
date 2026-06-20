@@ -399,25 +399,45 @@
     "nameEn": "Kinetic Matrix",
     "tooltip": "增加长者的护盾。<n/><c val=\"87CEEB\">额外护盾</c>: <c val=\"87CEEB\">250</c>|<c val=\"87CEEB\">500</c>|<c val=\"87CEEB\">1000</c>|<c val=\"87CEEB\">2000</c><n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">50</c>"
   },
+  "Accelerate": {
+    "nameZh": "加速",
+    "nameEn": "Accelerate",
+    "tooltip": "加速技术员所有指定建筑的运作速度。<n/>对单位的效果仅为 1/4。<n/>对盟友的效果仅为 1/4。<n/>加速量: 400%<n/>持续时间: 10s<n/>冷却时间: 120s/105s/90s/75s/60s<n/>半径: 2/3/4/5/6"
+  },
   "PersonalCloakingTechnician": {
     "nameZh": "脱色",
     "nameEn": "Personal CloakingTechnician",
     "tooltip": "解除隐身使其对敌人可见.\n\n隐身状态只能移动\n\n花费: [?]/[?]/[?]/[?]/[?] 能量"
   },
-  "Detonate": {
-    "nameZh": "自爆",
-    "nameEn": "Detonate",
-    "tooltip": "技术员引爆了他所有的炸药，炸毁了区域内的所有东西<n/>造成: (6.4 * 等级 * 等级*等级) = <c val=\"FFFF00\">50 伤害</c><n/>在6,11,16,21级时获得+1半径。<n/><c val=\"FF0000\">也会杀死自己和盟友的单位<n/>不能获得气体<n/>技术员和其他幸存者在至少保留1生命。<n/>闪现或者解除隐身的 5秒之内不能使用</c>"
-  },
-  "TemporalZone": {
-    "nameZh": "减速时空",
-    "nameEn": "TemporalZone",
-    "tooltip": "在技术员附近创建一个减速时空持续 10秒，减速区域内的所有敌方单位<n/>防止敌人冲刺<n/><c val=\"FFFF00\">减慢技术员的速度 30%<n/>禁用所有能力</c>"
+  "TransferEnergy": {
+    "nameZh": "转移能量",
+    "nameEn": "TransferEnergy",
+    "tooltip": "技术员将能量转移到目标单位<n/>每刻转移10能量<n/>范围： 10/15/20/25/30<n/>起始能量花费： 5/4/3/2/1 <n/>频率: 2s/1.6s/1.2s/0.8s/0.4s"
   },
   "Hallucination": {
     "nameZh": "幻象",
     "nameEn": "Hallucination",
     "tooltip": "隐身目标盟军单位持续 [?]秒并在原处创建幻影分身。\n\n施法范围: [?]/[?]/[?]/[?]/[?]\n冷却: [?]s/[?]s/[?]s/[?]s/[?]s\n分身持续时间: [?]s/[?]s/[?]s/[?]s/[?]s"
+  },
+  "FixEverything": {
+    "nameZh": "修复所有问题",
+    "nameEn": "FixEverything",
+    "tooltip": "技术员为附近所有友方单位提供快速再生，直到取消或能量耗尽<n/>技术员的建筑也获得<c val=\"E6E6E6\">30%</c>远程伤害减免<n/><c val=\"FF0000\">禁用所有其他行动，5秒后才能取消</c><n/><c val=\"E6E6E6\">每秒消耗5能量</c><n/><c val=\"E6E6E6\">半径</c>：<c val=\"E6E6E6\">4/5/6/7/8<n/></c><c val=\"00FF7F\">治疗</c>：<c val=\"00FF7F\">20/40/60/80/100</c></s>每秒。"
+  },
+  "RestructuredIntegrity": {
+    "nameZh": "重组完整性",
+    "nameEn": "RestructuredIntegrity",
+    "tooltip": "目标区域内的所有玩家和盟友非英雄单位和建筑将他们的生命值和护盾合并在一起，持续 5s, 但禁用任何形式的生命值或护盾的增益和再生。<n/>花费: 100/80/60/40/20能量<n/>冷却: 120s/95s/70s/45s/20s"
+  },
+  "CloakingField": {
+    "nameZh": "隐形立场",
+    "nameEn": "Cloaking Field",
+    "tooltip": "技术员制造一个隐形立场，隐形在立场内的单位3s。\n\n半径: ////\n持续时间: [?]s/[?]s/[?]s/[?]s/[?]s\n消耗: [?]/[?]/[?]/[?]/[?] 能量\n冷却: [?]s/[?]s/[?]s/[?]s/[?]s"
+  },
+  "TechnicianBuildKeystone": {
+    "nameZh": "建造拱心石",
+    "nameEn": "建造拱心石",
+    "tooltip": "建造钥石，即可获得上厕所的机会"
   },
   "WarfieldStickyBomb": {
     "nameZh": "粘性炸弹",
