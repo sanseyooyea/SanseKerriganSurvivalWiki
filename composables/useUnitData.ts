@@ -9,6 +9,7 @@ export interface HeroUnit {
   speed?: number
   damage?: number
   attackSpeed?: number
+  attackCount?: number
   range?: number
 }
 
