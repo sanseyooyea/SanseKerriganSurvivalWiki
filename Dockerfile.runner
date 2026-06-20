@@ -5,10 +5,18 @@ FROM docker.1ms.run/library/node:22-slim AS runner
 
 WORKDIR /app
 
-# 只安装运行期唯一的原生依赖 better-sqlite3（Linux 预编译二进制）
+# 只安装运行期唯一的原生依赖 better-sqlite3。
+# 优先走 prebuild-install 下载 Linux 预编译二进制（秒级）；若网络拉不到（国内服务器
+# 连 GitHub releases 常超时），回退到 node-gyp 从源码编译——better-sqlite3 的 sqlite3.c
+# 随 npm 包自带，编译不依赖外网。故装上 python3/make/g++ 工具链兜底，编译后卸掉控制体积。
 COPY package.runner.json ./package.json
-RUN npm install --omit=dev --registry=https://registry.npmmirror.com \
- && npm cache clean --force
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends python3 make g++ \
+ && npm install --omit=dev --registry=https://registry.npmmirror.com \
+ && npm cache clean --force \
+ && apt-get purge -y python3 make g++ \
+ && apt-get autoremove -y \
+ && rm -rf /var/lib/apt/lists/*
 
 # 本地构建好的产物与数据
 COPY .output ./.output
