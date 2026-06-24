@@ -1,0 +1,455 @@
+{
+  "generated_at": "2026-06-25T04:28:06",
+  "dump_through": "2026-06-25 02:00:00",
+  "low_sample_threshold": 30,
+  "global": {
+    "survivor_wins": 147785,
+    "kerrigan_wins": 112368,
+    "games": 260153,
+    "survivor_win_rate": 0.5681,
+    "kerrigan_win_rate": 0.4319
+  },
+  "heroes": [
+    {
+      "role_id": 0,
+      "role": "Kerrigan",
+      "team": 1,
+      "plays": 100879,
+      "wins": 44088,
+      "win_rate": 0.437,
+      "low_sample": false
+    },
+    {
+      "role_id": 1,
+      "role": "Scientist",
+      "team": 0,
+      "plays": 95448,
+      "wins": 54537,
+      "win_rate": 0.5714,
+      "low_sample": false
+    },
+    {
+      "role_id": 2,
+      "role": "Dark_Templar",
+      "team": 0,
+      "plays": 62592,
+      "wins": 36306,
+      "win_rate": 0.58,
+      "low_sample": false
+    },
+    {
+      "role_id": 3,
+      "role": "Ascendant",
+      "team": 0,
+      "plays": 201155,
+      "wins": 112526,
+      "win_rate": 0.5594,
+      "low_sample": false
+    },
+    {
+      "role_id": 4,
+      "role": "Spirit",
+      "team": 0,
+      "plays": 122498,
+      "wins": 69156,
+      "win_rate": 0.5645,
+      "low_sample": false
+    },
+    {
+      "role_id": 5,
+      "role": "Ares",
+      "team": 0,
+      "plays": 33258,
+      "wins": 18771,
+      "win_rate": 0.5644,
+      "low_sample": false
+    },
+    {
+      "role_id": 6,
+      "role": "Prophet",
+      "team": 0,
+      "plays": 150503,
+      "wins": 84272,
+      "win_rate": 0.5599,
+      "low_sample": false
+    },
+    {
+      "role_id": 7,
+      "role": "Stukov",
+      "team": 0,
+      "plays": 93167,
+      "wins": 53714,
+      "win_rate": 0.5765,
+      "low_sample": false
+    },
+    {
+      "role_id": 8,
+      "role": "Artanis",
+      "team": 0,
+      "plays": 51885,
+      "wins": 30045,
+      "win_rate": 0.5791,
+      "low_sample": false
+    },
+    {
+      "role_id": 9,
+      "role": "Zagara",
+      "team": 1,
+      "plays": 55100,
+      "wins": 25180,
+      "win_rate": 0.457,
+      "low_sample": false
+    },
+    {
+      "role_id": 10,
+      "role": "Engineer",
+      "team": 0,
+      "plays": 16047,
+      "wins": 9256,
+      "win_rate": 0.5768,
+      "low_sample": false
+    },
+    {
+      "role_id": 11,
+      "role": "Team_Nova",
+      "team": 0,
+      "plays": 34769,
+      "wins": 20343,
+      "win_rate": 0.5851,
+      "low_sample": false
+    },
+    {
+      "role_id": 12,
+      "role": "Nomad",
+      "team": 0,
+      "plays": 83051,
+      "wins": 46726,
+      "win_rate": 0.5626,
+      "low_sample": false
+    },
+    {
+      "role_id": 13,
+      "role": "Dehaka",
+      "team": 1,
+      "plays": 85956,
+      "wins": 36941,
+      "win_rate": 0.4298,
+      "low_sample": false
+    },
+    {
+      "role_id": 14,
+      "role": "Helios",
+      "team": 0,
+      "plays": 31014,
+      "wins": 17563,
+      "win_rate": 0.5663,
+      "low_sample": false
+    },
+    {
+      "role_id": 16,
+      "role": "Thakras",
+      "team": 1,
+      "plays": 30918,
+      "wins": 14618,
+      "win_rate": 0.4728,
+      "low_sample": false
+    },
+    {
+      "role_id": 17,
+      "role": "Swann",
+      "team": 0,
+      "plays": 41974,
+      "wins": 23902,
+      "win_rate": 0.5694,
+      "low_sample": false
+    },
+    {
+      "role_id": 18,
+      "role": "Warden",
+      "team": 0,
+      "plays": 63282,
+      "wins": 36152,
+      "win_rate": 0.5713,
+      "low_sample": false
+    },
+    {
+      "role_id": 19,
+      "role": "Selendis",
+      "team": 0,
+      "plays": 158984,
+      "wins": 90703,
+      "win_rate": 0.5705,
+      "low_sample": false
+    },
+    {
+      "role_id": 20,
+      "role": "Niadra",
+      "team": 1,
+      "plays": 138980,
+      "wins": 57657,
+      "win_rate": 0.4149,
+      "low_sample": false
+    },
+    {
+      "role_id": 21,
+      "role": "Mira",
+      "team": 0,
+      "plays": 52374,
+      "wins": 30287,
+      "win_rate": 0.5783,
+      "low_sample": false
+    },
+    {
+      "role_id": 22,
+      "role": "Scion",
+      "team": 0,
+      "plays": 18739,
+      "wins": 10524,
+      "win_rate": 0.5616,
+      "low_sample": false
+    },
+    {
+      "role_id": 23,
+      "role": "Technician",
+      "team": 0,
+      "plays": 61961,
+      "wins": 34900,
+      "win_rate": 0.5633,
+      "low_sample": false
+    },
+    {
+      "role_id": 24,
+      "role": "Warfield",
+      "team": 0,
+      "plays": 49735,
+      "wins": 29343,
+      "win_rate": 0.59,
+      "low_sample": false
+    },
+    {
+      "role_id": 25,
+      "role": "Champion",
+      "team": 0,
+      "plays": 50766,
+      "wins": 28645,
+      "win_rate": 0.5643,
+      "low_sample": false
+    },
+    {
+      "role_id": 26,
+      "role": "Elementalist",
+      "team": 0,
+      "plays": 40965,
+      "wins": 23147,
+      "win_rate": 0.565,
+      "low_sample": false
+    },
+    {
+      "role_id": 27,
+      "role": "Brakk",
+      "team": 1,
+      "plays": 10787,
+      "wins": 4424,
+      "win_rate": 0.4101,
+      "low_sample": false
+    },
+    {
+      "role_id": 28,
+      "role": "Glevig",
+      "team": 1,
+      "plays": 38935,
+      "wins": 17363,
+      "win_rate": 0.4459,
+      "low_sample": false
+    },
+    {
+      "role_id": 29,
+      "role": "Delta_Squad",
+      "team": 0,
+      "plays": 20248,
+      "wins": 11104,
+      "win_rate": 0.5484,
+      "low_sample": false
+    },
+    {
+      "role_id": 30,
+      "role": "Phaegore",
+      "team": 1,
+      "plays": 7703,
+      "wins": 3080,
+      "win_rate": 0.3998,
+      "low_sample": false
+    },
+    {
+      "role_id": 31,
+      "role": "Alarak",
+      "team": 0,
+      "plays": 37152,
+      "wins": 21050,
+      "win_rate": 0.5666,
+      "low_sample": false
+    },
+    {
+      "role_id": 32,
+      "role": "Izsha",
+      "team": 1,
+      "plays": 10619,
+      "wins": 5172,
+      "win_rate": 0.4871,
+      "low_sample": false
+    },
+    {
+      "role_id": 33,
+      "role": "Malus",
+      "team": 1,
+      "plays": 4038,
+      "wins": 1516,
+      "win_rate": 0.3754,
+      "low_sample": false
+    },
+    {
+      "role_id": 34,
+      "role": "Kraith",
+      "team": 1,
+      "plays": 27573,
+      "wins": 10781,
+      "win_rate": 0.391,
+      "low_sample": false
+    },
+    {
+      "role_id": 35,
+      "role": "Energizer",
+      "team": 0,
+      "plays": 30826,
+      "wins": 17451,
+      "win_rate": 0.5661,
+      "low_sample": false
+    },
+    {
+      "role_id": 36,
+      "role": "Andor",
+      "team": 0,
+      "plays": 55984,
+      "wins": 31817,
+      "win_rate": 0.5683,
+      "low_sample": false
+    },
+    {
+      "role_id": 37,
+      "role": "DJ",
+      "team": 0,
+      "plays": 30136,
+      "wins": 17312,
+      "win_rate": 0.5745,
+      "low_sample": false
+    },
+    {
+      "role_id": 38,
+      "role": "Rattlesnake",
+      "team": 0,
+      "plays": 51264,
+      "wins": 29061,
+      "win_rate": 0.5669,
+      "low_sample": false
+    },
+    {
+      "role_id": 39,
+      "role": "SgtHammer",
+      "team": 0,
+      "plays": 75016,
+      "wins": 44514,
+      "win_rate": 0.5934,
+      "low_sample": false
+    },
+    {
+      "role_id": 40,
+      "role": "Chew",
+      "team": 0,
+      "plays": 20412,
+      "wins": 11201,
+      "win_rate": 0.5487,
+      "low_sample": false
+    },
+    {
+      "role_id": 41,
+      "role": "Aewyn",
+      "team": 0,
+      "plays": 16553,
+      "wins": 9125,
+      "win_rate": 0.5513,
+      "low_sample": false
+    },
+    {
+      "role_id": 42,
+      "role": "Critter_Lord",
+      "team": 0,
+      "plays": 77745,
+      "wins": 43857,
+      "win_rate": 0.5641,
+      "low_sample": false
+    },
+    {
+      "role_id": 43,
+      "role": "Nightingale",
+      "team": 0,
+      "plays": 12271,
+      "wins": 6666,
+      "win_rate": 0.5432,
+      "low_sample": false
+    },
+    {
+      "role_id": 44,
+      "role": "Sjlerk",
+      "team": 0,
+      "plays": 24835,
+      "wins": 14033,
+      "win_rate": 0.565,
+      "low_sample": false
+    },
+    {
+      "role_id": 45,
+      "role": "Sophia",
+      "team": 0,
+      "plays": 38016,
+      "wins": 21613,
+      "win_rate": 0.5685,
+      "low_sample": false
+    },
+    {
+      "role_id": 46,
+      "role": "Jinara",
+      "team": 0,
+      "plays": 35636,
+      "wins": 20368,
+      "win_rate": 0.5716,
+      "low_sample": false
+    },
+    {
+      "role_id": 47,
+      "role": "Sir_Roachington",
+      "team": 1,
+      "plays": 8814,
+      "wins": 3916,
+      "win_rate": 0.4443,
+      "low_sample": false
+    },
+    {
+      "role_id": 48,
+      "role": "Skitter",
+      "team": 0,
+      "plays": 36185,
+      "wins": 20158,
+      "win_rate": 0.5571,
+      "low_sample": false
+    },
+    {
+      "role_id": 49,
+      "role": "Raszagal",
+      "team": 0,
+      "plays": 0,
+      "wins": 0,
+      "win_rate": null,
+      "low_sample": true
+    }
+  ]
+}
