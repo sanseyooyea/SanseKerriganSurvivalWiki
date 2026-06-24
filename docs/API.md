@@ -162,6 +162,27 @@
 
 两个榜单各 50 条，按 `mmr` 降序。`handles[0]` 用于跳转玩家详情或拉取详细数据。
 
+### GET /api/played_like?handle=xxx
+查询玩家最近对局的「等效 MMR」（每局实际打出的水平）。数据来自本地只读库 `data/stats.db`（官方网关不暴露此数据，离线从生产库转储生成，见 [STATS_PIPELINE.md](STATS_PIPELINE.md)）。缓存 5 分钟。
+
+句柄经 `handles` 表解析为 `identity`（battle_tag），无绑定则回退句柄本身。`data/stats.db` 缺失时优雅降级返回空 `games`。
+
+**响应:**
+```json
+{
+  "identity": "贪婪的猛狮#58421",
+  "through": "2026-06-24 09:02:49",
+  "games": [
+    { "date": "2026-06-24 04:54:38", "role": "Kerrigan", "team": 1,
+      "estimated": 3000, "played_like": 2624.76 }
+  ]
+}
+```
+
+- `games`：最近 50 局，按时间倒序。`role` 为英文枚举名（前端经 `role-name-map.json` 转中文）。
+- `estimated`：赛前估值 MMR；`played_like`：该局打出的水平。`played_like > estimated` 即超常发挥。
+- `through`：数据截至时点（静态快照，需新转储刷新）。
+
 ---
 
 ## 评论
