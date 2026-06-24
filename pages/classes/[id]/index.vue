@@ -41,6 +41,32 @@
       </div>
     </div>
 
+    <!-- Win rate -->
+    <NuxtLink v-if="balance && balance.plays > 0" to="/balance"
+      class="wiki-card p-4 mb-6 flex items-center gap-4 hover:shadow-card-hover transition group"
+      :class="{ 'opacity-60': balance.low_sample }">
+      <div class="flex flex-col">
+        <span class="text-xs text-gray-500 dark:text-gray-400">官方胜率</span>
+        <span class="text-2xl font-mono font-bold"
+          :class="(balance.win_rate ?? 0) >= 0.5 ? 'text-green-600' : 'text-red-500'">
+          {{ balance.win_rate == null ? '—' : (balance.win_rate * 100).toFixed(1) + '%' }}
+        </span>
+      </div>
+      <div class="flex-1">
+        <div class="h-2 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden">
+          <div class="h-full rounded-full" :class="cls.team === 'Kerrigan' ? 'wr-bar-k' : 'wr-bar-s'"
+            :style="`width: ${Math.min((balance.win_rate ?? 0) * 100, 100)}%`" />
+        </div>
+        <div class="mt-1.5 flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+          <span>{{ balance.plays.toLocaleString() }} 场样本</span>
+          <span v-if="balance.low_sample" class="text-amber-500">· 样本不足，仅供参考</span>
+        </div>
+      </div>
+      <svg class="w-4 h-4 text-gray-300 dark:text-gray-600 group-hover:text-survivor-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+      </svg>
+    </NuxtLink>
+
     <!-- Stats Panel (unified) -->
     <div class="wiki-card p-5 mb-6">
       <div class="section-title">属性与成长</div>
@@ -182,8 +208,10 @@ const { canEdit } = useAuth()
 const { getById } = useClassData()
 const { getForHero } = useVeterancyData()
 const { getForHero: getUnitsForHero } = useUnitData()
+const { getByRoleId } = useBalanceData()
 
 const cls = computed(() => getById(Number(route.params.id)))
+const balance = computed(() => getByRoleId(Number(route.params.id)))
 const vet = computed(() => cls.value ? getForHero(cls.value.nameEn) : undefined)
 const heroUnits = computed(() => cls.value ? getUnitsForHero(cls.value.nameEn) : { troops: [], buildings: [], economy: [] })
 
@@ -245,3 +273,11 @@ const renderedNotes = computed(() => {
   return DOMPurify.sanitize(marked.parse(notes) as string)
 })
 </script>
+
+<style scoped>
+/* 胜率进度条颜色用 scoped CSS，避免 Tailwind 动态 class 被 purge */
+.wr-bar-s { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.wr-bar-k { background: linear-gradient(90deg, #ef4444, #dc2626); }
+:global(.dark) .wr-bar-s { background: linear-gradient(90deg, #60a5fa, #3b82f6); }
+:global(.dark) .wr-bar-k { background: linear-gradient(90deg, #f87171, #ef4444); }
+</style>

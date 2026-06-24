@@ -17,7 +17,13 @@
           </div>
           <div class="text-xs text-gray-400 dark:text-gray-500">{{ data.nameEn }}</div>
         </div>
-        <span class="text-xs text-gray-400 dark:text-gray-500 font-medium">{{ categoryLabel }}</span>
+        <div class="flex flex-col items-end gap-0.5">
+          <span v-if="winRate != null" class="text-xs font-mono font-semibold"
+            :class="winRate >= 0.5 ? 'text-green-600 dark:text-green-500' : 'text-red-500 dark:text-red-400'">
+            {{ (winRate * 100).toFixed(0) }}%
+          </span>
+          <span class="text-xs text-gray-400 dark:text-gray-500 font-medium">{{ categoryLabel }}</span>
+        </div>
       </div>
     </div>
   </NuxtLink>
@@ -27,6 +33,13 @@
 import type { ClassInfo } from '~/composables/useClassData'
 
 const props = defineProps<{ data: ClassInfo }>()
+
+const { getByRoleId } = useBalanceData()
+// 样本不足的不显示，避免误导
+const winRate = computed(() => {
+  const b = getByRoleId(props.data.id)
+  return b && !b.low_sample ? b.win_rate : null
+})
 
 const teamDotClass = computed(() =>
   props.data.team === 'Kerrigan' ? 'bg-kerrigan-500' : 'bg-survivor-500'
