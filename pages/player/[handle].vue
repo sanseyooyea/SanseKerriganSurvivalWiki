@@ -71,6 +71,10 @@
           <div class="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
             <span v-if="playedLikeAvg">均值 <span class="font-mono font-semibold text-gray-600 dark:text-gray-300">{{ playedLikeAvg }}</span></span>
             <span v-if="playedLikeThrough">截至 {{ playedLikeThrough }}</span>
+            <button @click="sharePlayedLike" :disabled="playedSharing"
+              class="px-2.5 py-1 text-xs font-medium border border-gray-300 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              {{ playedShareText }}
+            </button>
           </div>
         </div>
         <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 mb-3">
@@ -165,11 +169,37 @@
           <div class="share-footer">KS2 Wiki · 最强角色: {{ topRoleChinese }}</div>
         </div>
       </div>
+
+      <!-- Hidden played_like share card -->
+      <div ref="playedShareRef" class="pl-share" aria-hidden="true">
+        <div class="pl-share-head">
+          <div>
+            <div class="pl-share-title">{{ handle }}</div>
+            <div class="pl-share-sub">凯瑞甘生存2 · 最近对局等效MMR</div>
+          </div>
+          <div v-if="playedLikeAvg" class="pl-share-avg">
+            <div class="pl-share-avg-num">{{ playedLikeAvg }}</div>
+            <div class="pl-share-avg-label">近{{ recentGames.length }}局均值</div>
+          </div>
+        </div>
+        <div class="pl-share-rows">
+          <div v-for="(g, i) in recentForShare" :key="i" class="pl-share-row">
+            <span class="pl-share-date">{{ gameDate(g.date) }}</span>
+            <img :src="`/icons/${roleIcon(g.role)}.png`" class="pl-share-icon" />
+            <span class="pl-share-role">{{ roleName(g.role) }}</span>
+            <span class="pl-share-team" :class="g.team === 1 ? 'tk' : 'ts'">{{ g.team === 1 ? '凯' : '人' }}</span>
+            <span class="pl-share-mmr" :style="`color:${plColor(g)}`">{{ g.played_like == null ? '—' : Math.round(g.played_like) }}</span>
+            <span class="pl-share-delta" :style="`color:${plColor(g)}`">{{ plDelta(g) }}</span>
+          </div>
+        </div>
+        <div class="pl-share-foot">KS2 Wiki · 等效MMR=每局打出的水平 · 数据截至 {{ playedLikeThrough }}</div>
+      </div>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { Ref } from 'vue'
 import iconMap from '~/data/role-icon-map.json'
 import nameMap from '~/data/role-name-map.json'
 
@@ -184,6 +214,9 @@ const playerData = ref<any>(null)
 const creditsData = ref<any>(null)
 const playedLikeData = ref<any>(null)
 const shareRef = ref<HTMLElement>()
+const playedShareRef = ref<HTMLElement>()
+const playedSharing = ref(false)
+const playedShareText = ref('分享图')
 
 // 最近对局等效MMR（played_like）：每局玩家实际打出的水平，对比赛前估值
 const recentGames = computed<any[]>(() => playedLikeData.value?.games || [])
@@ -200,6 +233,17 @@ const playedLikeThrough = computed(() => {
 function gameDate(s: string): string {
   const d = new Date(String(s).replace(' ', 'T'))
   return isNaN(d.getTime()) ? s : d.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' })
+}
+// 分享图只放最近 8 局，避免过长
+const recentForShare = computed<any[]>(() => recentGames.value.slice(0, 8))
+function plColor(g: any): string {
+  if (g.estimated == null || g.played_like == null) return '#cbd5e1'
+  return g.played_like >= g.estimated ? '#16a34a' : '#dc2626'
+}
+function plDelta(g: any): string {
+  if (g.estimated == null || g.played_like == null) return ''
+  const d = Math.round(g.played_like - g.estimated)
+  return (d >= 0 ? '▲' : '▼') + Math.abs(d)
 }
 
 const topSurvivor = computed(() => (playerData.value?.roles_survivor || []).slice(0, 5))
@@ -265,22 +309,28 @@ async function copyCode() {
   }
 }
 
-function downloadBlob(blob: Blob) {
+function downloadBlob(blob: Blob, suffix = '') {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `ks2-${handle}.png`
+  a.download = `ks2-${handle}${suffix}.png`
   a.click()
   URL.revokeObjectURL(url)
 }
 
-async function shareAsImage() {
-  if (!shareRef.value || sharing.value) return
-  sharing.value = true
-  shareText.value = '生成中...'
+// 通用截图分享：把隐藏卡片渲染为 PNG，优先写入剪贴板，否则下载。
+async function captureShare(
+  el: HTMLElement | undefined,
+  text: Ref<string>,
+  busy: Ref<boolean>,
+  idle: string,
+  suffix: string,
+) {
+  if (!el || busy.value) return
+  busy.value = true
+  text.value = '生成中...'
   try {
     const { default: html2canvas } = await import('html2canvas')
-    const el = shareRef.value
     el.style.position = 'fixed'
     el.style.left = '0'
     el.style.top = '0'
@@ -310,23 +360,31 @@ async function shareAsImage() {
       if (canCopyImage) {
         try {
           await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
-          shareText.value = '已复制!'
+          text.value = '已复制!'
         } catch {
-          downloadBlob(blob)
-          shareText.value = '已下载!'
+          downloadBlob(blob, suffix)
+          text.value = '已下载!'
         }
       } else {
-        downloadBlob(blob)
-        shareText.value = '已下载!'
+        downloadBlob(blob, suffix)
+        text.value = '已下载!'
       }
     }
   } catch (e) {
     console.error('Share failed:', e)
-    shareText.value = '分享失败'
+    text.value = '分享失败'
   } finally {
-    sharing.value = false
-    setTimeout(() => { shareText.value = '复制分享图' }, 2000)
+    busy.value = false
+    setTimeout(() => { text.value = idle }, 2000)
   }
+}
+
+function shareAsImage() {
+  return captureShare(shareRef.value, shareText, sharing, '复制分享图', '')
+}
+
+function sharePlayedLike() {
+  return captureShare(playedShareRef.value, playedShareText, playedSharing, '分享图', '-recent')
 }
 </script>
 
@@ -452,6 +510,81 @@ async function shareAsImage() {
   color: #475569;
   margin-top: 8px;
   padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ---- played_like 分享卡 ---- */
+.pl-share {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  opacity: 0;
+  width: 480px;
+  padding: 22px 26px 16px;
+  border-radius: 16px;
+  font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+  color: #e2e8f0;
+  background: linear-gradient(135deg, #0f1923 0%, #1a2a3a 100%);
+  box-sizing: border-box;
+}
+.pl-share-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.pl-share-title { font-size: 18px; font-weight: 700; color: #fff; }
+.pl-share-sub { font-size: 10px; color: #64748b; margin-top: 2px; }
+.pl-share-avg { text-align: right; }
+.pl-share-avg-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1;
+}
+.pl-share-avg-label { font-size: 9px; color: #94a3b8; margin-top: 3px; }
+.pl-share-rows { display: flex; flex-direction: column; gap: 2px; }
+.pl-share-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.pl-share-date {
+  width: 36px;
+  font-size: 11px;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+}
+.pl-share-icon { width: 20px; height: 20px; border-radius: 4px; }
+.pl-share-role { flex: 1; font-size: 12px; color: #cbd5e1; }
+.pl-share-team {
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.pl-share-team.tk { background: rgba(225,29,72,0.2); color: #fb7185; }
+.pl-share-team.ts { background: rgba(16,185,129,0.18); color: #34d399; }
+.pl-share-mmr {
+  width: 42px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.pl-share-delta {
+  width: 40px;
+  text-align: right;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.pl-share-foot {
+  font-size: 9px;
+  color: #475569;
+  margin-top: 10px;
+  padding-top: 7px;
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 </style>
