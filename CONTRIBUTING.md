@@ -52,6 +52,10 @@ fix: 修复 HTTP 访问下剪贴板复制失效
   缩进写错会导致整个文件重格式化，产生巨型无意义 diff。
 - **图标**：稳定，地图职业图标变了才单独跑 `extract_icons.py`。
 
+### 第二条管线：对局统计（胜率 / played_like）
+
+`data/balance.json` 和 `data/stats.db` 是**从官方生产库转储**生成的（`build_balance.py` / `build_stats_db.py`），**不走 `build_all.py`、也不从地图/seed 来**，只在拿到新转储时手动刷新。官方胜率口径、刷新流程详见 [docs/STATS_PIPELINE.md](docs/STATS_PIPELINE.md)。
+
 ### 数值优先从地图提取，别硬编码
 
 写数据脚本（如 `build_technician_economy.py`）时，**数值应从地图 catalog / GameStrings 解析，不要手写常量或臆测公式**。
