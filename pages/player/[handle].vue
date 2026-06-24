@@ -65,6 +65,44 @@
         <RoleTable :roles="playerData.roles_kerrigan" team="kerrigan" />
       </div>
 
+      <div v-if="recentGames.length" class="wiki-card p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="section-title !mb-0">最近对局 · 等效MMR</div>
+          <div class="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
+            <span v-if="playedLikeAvg">均值 <span class="font-mono font-semibold text-gray-600 dark:text-gray-300">{{ playedLikeAvg }}</span></span>
+            <span v-if="playedLikeThrough">截至 {{ playedLikeThrough }}</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 mb-3">
+          每局实际打出的水平估值；高于赛前估值（▲）为超常发挥，低于（▼）为失常。
+        </p>
+        <div class="space-y-1 max-h-96 overflow-y-auto pr-1">
+          <div v-for="(g, i) in recentGames" :key="i"
+            class="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+            <span class="text-xs font-mono text-gray-400 w-10 shrink-0">{{ gameDate(g.date) }}</span>
+            <img :src="`/icons/${roleIcon(g.role)}.png`" class="w-6 h-6 rounded shrink-0" :alt="g.role" />
+            <span class="text-sm text-gray-700 dark:text-gray-300 flex-1 truncate">{{ roleName(g.role) }}</span>
+            <span class="text-xs px-1.5 py-0.5 rounded shrink-0"
+              :class="g.team === 1
+                ? 'bg-kerrigan-50 text-kerrigan-600 dark:bg-kerrigan-900/30 dark:text-kerrigan-400'
+                : 'bg-survivor-50 text-survivor-600 dark:bg-survivor-900/30 dark:text-survivor-400'">
+              {{ g.team === 1 ? '凯' : '人' }}
+            </span>
+            <span class="text-sm font-mono font-bold w-14 text-right shrink-0"
+              :class="g.estimated != null && g.played_like != null
+                ? (g.played_like >= g.estimated ? 'text-green-600' : 'text-red-500')
+                : 'text-gray-700 dark:text-gray-300'">
+              {{ g.played_like == null ? '—' : Math.round(g.played_like) }}
+            </span>
+            <span class="text-xs w-12 text-right shrink-0 text-gray-400 dark:text-gray-500">
+              <template v-if="g.estimated != null && g.played_like != null">
+                {{ g.played_like >= g.estimated ? '▲' : '▼' }}{{ Math.abs(Math.round(g.played_like - g.estimated)) }}
+              </template>
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div v-if="creditsData" class="wiki-card p-5 mb-6">
         <div class="section-title">积分信息</div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
@@ -144,7 +182,25 @@ const shareText = ref('复制分享图')
 const showCode = ref(false)
 const playerData = ref<any>(null)
 const creditsData = ref<any>(null)
+const playedLikeData = ref<any>(null)
 const shareRef = ref<HTMLElement>()
+
+// 最近对局等效MMR（played_like）：每局玩家实际打出的水平，对比赛前估值
+const recentGames = computed<any[]>(() => playedLikeData.value?.games || [])
+const playedLikeAvg = computed(() => {
+  const vals = recentGames.value.map(g => g.played_like).filter((v: any) => v != null)
+  return vals.length ? Math.round(vals.reduce((a: number, b: number) => a + b, 0) / vals.length) : null
+})
+const playedLikeThrough = computed(() => {
+  const t = playedLikeData.value?.through
+  if (!t) return ''
+  const d = new Date(String(t).replace(' ', 'T'))
+  return isNaN(d.getTime()) ? '' : d.toLocaleDateString('zh-CN')
+})
+function gameDate(s: string): string {
+  const d = new Date(String(s).replace(' ', 'T'))
+  return isNaN(d.getTime()) ? s : d.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' })
+}
 
 const topSurvivor = computed(() => (playerData.value?.roles_survivor || []).slice(0, 5))
 const topKerrigan = computed(() => (playerData.value?.roles_kerrigan || []).slice(0, 5))
@@ -180,12 +236,14 @@ watch(topRoleAvatar, (url) => {
 
 onMounted(async () => {
   try {
-    const [mmr, credits] = await Promise.all([
+    const [mmr, credits, playedLike] = await Promise.all([
       $fetch('/api/mmr', { params: { handle } }),
       $fetch('/api/credits', { params: { handle } }).catch(() => null),
+      $fetch<any>('/api/played_like', { params: { handle } }).catch(() => null),
     ])
     playerData.value = mmr
     creditsData.value = credits
+    playedLikeData.value = playedLike
   } catch {}
   loading.value = false
 })
