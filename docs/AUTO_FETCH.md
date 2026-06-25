@@ -99,8 +99,11 @@ python scripts/fetch_dump.py --force
 ```
 
 脚本**只 commit、不 push**：拉到新转储重建后会自动 `git add data/balance.json data/stats.db`
-并 commit（提交信息带 `dump_through` 日期）。**push / 开 PR / 部署仍由你手动走**
-（见 [DEPLOY.md](./DEPLOY.md)），符合仓库协作规范。
+并 commit（提交信息带 `dump_through` 日期）。
+
+**官方数据更新的发布约定**：这类数据刷新**不走 PR**——人工 review 确认无误后，
+直接 `git push origin HEAD:main`（main 设了"必须 PR"保护，但维护者账号有 bypass 权限可直推）。
+随后按需 [部署](./DEPLOY.md)。push 这一步仍是人工确认的动作，脚本不自动 push。
 
 ## 定时任务
 

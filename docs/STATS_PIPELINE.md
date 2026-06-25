@@ -89,12 +89,15 @@ python scripts/build_stats_db.py [path/to/dump.sql.gz]
 
 ## 刷新流程（拿到新转储时）
 
+> 现已自动化：开发组把新转储传到授权 Drive 后，`scripts/fetch_dump.py`（每日计划任务）
+> 会自动下载 + 重建 + commit。见 [AUTO_FETCH.md](./AUTO_FETCH.md)。下面是等价的手动步骤。
+
 ```bash
 python scripts/build_balance.py   <新转储路径>
 python scripts/build_stats_db.py  <新转储路径>
 git add data/balance.json data/stats.db
 git commit -m "data: 刷新对局统计(胜率/played_like)至 <日期>"
-# 走正常 PR + 部署流程（见 docs/DEPLOY.md）
+# 官方数据更新不走 PR：review 无误后直接 git push origin HEAD:main，再按需部署（docs/DEPLOY.md）
 ```
 
 ## 重要约束
