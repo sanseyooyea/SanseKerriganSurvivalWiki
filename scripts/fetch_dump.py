@@ -126,6 +126,21 @@ def git(*args, capture=False):
     return run(cmd)
 
 
+def sync_branch():
+    """Best-effort fast-forward of the current branch to its upstream, so the
+    auto data commit stacks on top of the latest origin (the daily task lives on
+    main). Never fatal: if it can't ff (diverged / offline) we log and continue,
+    and the divergence surfaces at push time. Working tree is clean here (the
+    download only touched DEST, which is outside the repo)."""
+    try:
+        git('fetch', '--quiet')
+        git('merge', '--ff-only', '--quiet', '@{u}')
+        log('branch fast-forwarded to upstream')
+    except subprocess.CalledProcessError:
+        log('WARN: could not fast-forward to upstream (diverged/offline/no upstream?) '
+            '— continuing on current HEAD; reconcile before pushing')
+
+
 def commit_if_changed():
     """git add + commit the data files if they actually changed. No push."""
     status = git('status', '--porcelain', *DATA_FILES, capture=True).strip()
@@ -141,7 +156,8 @@ def commit_if_changed():
         pass
     git('add', *DATA_FILES)
     git('commit', '-m', f'data: 刷新对局统计(胜率/played_like)至 {through}')
-    log(f'committed refreshed stats (dump_through={through}). Push/PR is left to you.')
+    log(f'committed refreshed stats (dump_through={through}). '
+        f'Review, then `git push origin HEAD:main` (no PR) when ready.')
 
 
 def main():
@@ -193,6 +209,9 @@ def main():
     if no_build:
         log('--no-build: skipping rebuild and commit')
         return 0
+
+    # land the rebuilt data on top of latest origin before building/committing
+    sync_branch()
 
     for script in BUILD_SCRIPTS:
         log(f'running {script}...')
