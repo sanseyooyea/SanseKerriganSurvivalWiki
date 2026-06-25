@@ -1102,7 +1102,7 @@
         "hp": 75,
         "shield": 25,
         "speed": 2,
-        "damage": 30,
+        "damage": 18,
         "attackSpeed": 1.5,
         "range": 0.1
       },
@@ -1159,7 +1159,7 @@
         "hp": 225,
         "shield": 75,
         "speed": 2,
-        "damage": 90,
+        "damage": 55,
         "attackSpeed": 1.5,
         "range": 0.1
       },
@@ -2366,7 +2366,9 @@
         "nameZh": "激光攻城坦克（坦克模式）",
         "hp": 500,
         "armor": 1,
-        "speed": 2.25
+        "speed": 2.25,
+        "damage": 50,
+        "attackSpeed": 1
       }
     ],
     "buildings": [
@@ -2669,8 +2671,8 @@
         "nameZh": "德拉肯激光钻机！",
         "hp": 300,
         "armor": 1,
-        "damage": 40,
-        "attackSpeed": 0.4,
+        "damage": 30,
+        "attackSpeed": 0.5,
         "range": 20
       },
       {
@@ -2881,7 +2883,7 @@
         "hp": 200,
         "damage": 60,
         "attackSpeed": 3,
-        "attackCount": 3,
+        "attackCount": 4,
         "range": 11
       },
       {
@@ -2930,7 +2932,7 @@
         "hp": 150,
         "damage": 40,
         "attackSpeed": 3,
-        "attackCount": 3,
+        "attackCount": 4,
         "range": 9
       },
       {
@@ -2972,7 +2974,7 @@
         "hp": 125,
         "damage": 20,
         "attackSpeed": 3,
-        "attackCount": 3,
+        "attackCount": 4,
         "range": 7
       }
     ],
