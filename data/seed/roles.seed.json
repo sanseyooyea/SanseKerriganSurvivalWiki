@@ -711,12 +711,9 @@
     "abilities": [
       "Accelerate",
       "PersonalCloakingTechnician",
-      "TransferEnergy",
-      "Hallucination",
       "FixEverything",
       "RestructuredIntegrity",
-      "CloakingField",
-      "TechnicianBuildKeystone"
+      "CloakingField"
     ]
   },
   {
