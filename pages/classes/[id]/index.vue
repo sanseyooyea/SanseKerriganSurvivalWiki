@@ -147,11 +147,18 @@
     </div>
 
     <!-- Abilities Section -->
-    <div class="wiki-card p-5 mb-6">
+    <div v-if="displayAbilities.length || displayConditional.length" class="wiki-card p-5 mb-6">
       <div class="section-title">技能 · {{ displayAbilities.length }}</div>
       <div class="space-y-2">
         <AbilityCard v-for="aid in displayAbilities" :key="aid" :ability-id="aid" />
       </div>
+      <template v-if="displayConditional.length">
+        <div class="section-title mt-5">情境技能 · 需建筑解锁</div>
+        <div class="space-y-2">
+          <AbilityCard v-for="c in displayConditional" :key="c.id" :ability-id="c.id"
+            :badge="'需 ' + c.requires.map((r) => r.nameZh).join(' / ')" />
+        </div>
+      </template>
     </div>
 
     <!-- Units Section -->
@@ -264,6 +271,11 @@ const parsedDesc = computed(() =>
 )
 
 const displayAbilities = computed(() => cls.value?.abilities || [])
+
+interface ConditionalAbility { id: string; requires: { id: string; nameZh: string }[] }
+const displayConditional = computed<ConditionalAbility[]>(
+  () => (cls.value as { conditionalAbilities?: ConditionalAbility[] })?.conditionalAbilities || []
+)
 
 const displayUnits = computed(() => heroUnits.value)
 

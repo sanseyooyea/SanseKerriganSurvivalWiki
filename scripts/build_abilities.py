@@ -124,7 +124,8 @@ seed = json.load(open(SEED, encoding='utf-8'))
 ab_ids = []
 seen = set()
 for role in seed:
-    for aid in role.get('abilities', []):
+    cond_ids = [c['id'] for c in role.get('conditionalAbilities', [])]
+    for aid in list(role.get('abilities', [])) + cond_ids:
         if aid not in seen:
             seen.add(aid)
             ab_ids.append(aid)

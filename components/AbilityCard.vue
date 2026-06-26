@@ -16,6 +16,10 @@
           class="text-xs text-gray-500 dark:text-gray-400">
           {{ ability.nameEn }}
         </span>
+        <span v-if="badge"
+          class="text-xs px-1.5 py-0.5 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300 whitespace-nowrap">
+          {{ badge }}
+        </span>
       </div>
       <svg class="w-4 h-4 text-gray-400 transition-transform duration-200"
         :class="expanded ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ abilityId: string }>()
+const props = defineProps<{ abilityId: string; badge?: string }>()
 const { getAbility } = useAbilityData()
 const ability = computed(() => getAbility(props.abilityId))
 const expanded = ref(false)

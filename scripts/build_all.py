@@ -42,7 +42,19 @@ def run(step):
         sys.exit(r.returncode)
 
 
+def drift_check():
+    """非致命：检查英雄技能 seed 是否与地图命令卡漂移(防废弃技能残留/新技能漏列)。
+    只报告不改动——新增/情境技能需人工策展，确认后跑 sync_hero_skills.py --write。"""
+    print(f'\n{"=" * 60}\n  漂移检查 sync_hero_skills.py (只读，地图更新后请关注)\n{"=" * 60}')
+    env = dict(os.environ, PYTHONUTF8='1')
+    env['PYTHONPATH'] = SCRIPTS + os.pathsep + env.get('PYTHONPATH', '')
+    subprocess.run([sys.executable, os.path.join(SCRIPTS, 'sync_hero_skills.py')],
+                   cwd=WIKI, env=env)
+
+
 if __name__ == '__main__':
     for step in STEPS:
         run(step)
-    print(f'\n{"=" * 60}\n  All data rebuilt. Run `npm run build` to verify.\n{"=" * 60}')
+    drift_check()
+    print(f'\n{"=" * 60}\n  All data rebuilt. Run `npm run build` to verify.\n'
+          f'  若上方漂移检查有变更项，核对后跑 sync_hero_skills.py --write 再重建。\n{"=" * 60}')

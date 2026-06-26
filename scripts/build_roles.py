@@ -92,6 +92,9 @@ for role in seed:
         'stats': stats,
         'abilities': role['abilities'],
     })
+    # 情境技能(建筑解锁)单独列出，前端标注「需建筑解锁」
+    if role.get('conditionalAbilities'):
+        out[-1]['conditionalAbilities'] = role['conditionalAbilities']
 
 json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 
