@@ -106,8 +106,7 @@
     },
     "abilities": [
       "AscendantBlink",
-      "AscendantAscend",
-      "AscendantSummonVoidRift"
+      "AscendantAscend"
     ]
   },
   {
@@ -131,6 +130,17 @@
     "abilities": [
       "CommonBlinkHero",
       "SpiritCloneSpirit"
+    ],
+    "conditionalAbilities": [
+      {
+        "id": "SpiritDeflect",
+        "requires": [
+          {
+            "id": "SpiritCrystalBall",
+            "nameZh": "水晶球"
+          }
+        ]
+      }
     ]
   },
   {
@@ -180,9 +190,27 @@
       "energyRegen": 1.5
     },
     "abilities": [
-      "ProphetRevelation",
-      "ProphetWeapon",
-      "ProphetVortex"
+      "ProphetWeapon"
+    ],
+    "conditionalAbilities": [
+      {
+        "id": "ProphetRevelation",
+        "requires": [
+          {
+            "id": "ProphetProphecyArchives",
+            "nameZh": "预言库"
+          }
+        ]
+      },
+      {
+        "id": "ProphetVortex",
+        "requires": [
+          {
+            "id": "ProphetAntimatterFacility",
+            "nameZh": "反物质设施"
+          }
+        ]
+      }
     ]
   },
   {
@@ -207,12 +235,38 @@
       "range": 4
     },
     "abilities": [
-      "StukovInfestedTerran",
       "StukovInfestedCivilians",
-      "StukovInfestedAberration",
-      "StukovInfestedRavager",
       "StukovSpawnNaktul",
       "StukovSprint"
+    ],
+    "conditionalAbilities": [
+      {
+        "id": "StukovInfestedTerran",
+        "requires": [
+          {
+            "id": "StukovInfestedDen",
+            "nameZh": "感染巢穴"
+          }
+        ]
+      },
+      {
+        "id": "StukovInfestedRavager",
+        "requires": [
+          {
+            "id": "StukovInfestedPit",
+            "nameZh": "感染深渊"
+          }
+        ]
+      },
+      {
+        "id": "StukovInfestedAberration",
+        "requires": [
+          {
+            "id": "StukovAberrationCavern",
+            "nameZh": "畸变洞窟"
+          }
+        ]
+      }
     ]
   },
   {
@@ -239,10 +293,24 @@
       "energyRegen": 1
     },
     "abilities": [
-      "MothershipMassRecall",
       "ArtanisProtectiveShield",
       "ArtanisEnergizerAura",
       "ArtanisRadianceAura"
+    ],
+    "conditionalAbilities": [
+      {
+        "id": "MothershipMassRecall",
+        "requires": [
+          {
+            "id": "ArtanisGoldenNexus1",
+            "nameZh": "黄金星灵枢纽+1"
+          },
+          {
+            "id": "ArtanisNexus",
+            "nameZh": "星灵枢纽"
+          }
+        ]
+      }
     ]
   },
   {
@@ -348,7 +416,8 @@
       "NomadDefensiveMatrix",
       "NomadSeekerMissile",
       "NomadBuildAutoTurret",
-      "AresEmergencyThrusters"
+      "AresEmergencyThrusters",
+      "NomadPlacePointDefenseDrone"
     ]
   },
   {
@@ -377,8 +446,7 @@
       "Drag",
       "DehakaWindwalk",
       "DehakaScorchingBreath",
-      "DehakaDash",
-      "KerriganManaBurn"
+      "DehakaDash"
     ]
   },
   {
@@ -444,10 +512,10 @@
     "abilities": [
       "ThakrasDarkSwarm",
       "ThakrasPlague",
-      "ThakrasBurrow",
-      "PrimalConsume",
       "ThakrasConstrictingSlime",
-      "ThakrasConsumeUnit"
+      "ThakrasConsumeUnit",
+      "KerriganTeleport",
+      "KerriganManaBurn"
     ]
   },
   {
@@ -471,7 +539,6 @@
     },
     "abilities": [
       "SwannGrapple",
-      "SwannSprint",
       "SwannStunGrenade",
       "SwannSupercharge"
     ]
@@ -502,10 +569,9 @@
       "WardenWhirlwind",
       "WardenThunderousCharge",
       "WardenVexArmor",
-      "WardenArsenalOvercharge",
-      "WardenMirror",
       "WardenExperimentalBarrier",
-      "WardenTaunt"
+      "WardenTaunt",
+      "WardenSprint"
     ]
   },
   {
@@ -585,7 +651,11 @@
       "MiraNuclearStrike",
       "MiraCalldownCyclone",
       "MiraDeflect",
-      "MiraPsionicTransfer"
+      "MiraPsionicTransfer",
+      "MiraCalldownSentinel",
+      "MiraCalldownRaider",
+      "MiraCalldownHunter",
+      "MiraCalldownSiegeBreaker"
     ]
   },
   {
@@ -615,7 +685,7 @@
       "ScionInspiration",
       "ScionForceField",
       "ScionPsiStorm",
-      "ScionKineticMatrix"
+      "ScionDefensiveAugment"
     ]
   },
   {
@@ -673,7 +743,9 @@
     "abilities": [
       "WarfieldStickyBomb",
       "WarfieldStimpack",
-      "WarfieldSummonXanthos"
+      "WarfieldSummonXanthos",
+      "WarfieldRecallToOuthouse",
+      "WarfieldBlink"
     ]
   },
   {
@@ -695,9 +767,7 @@
       "energy": 100,
       "energyRegen": 1
     },
-    "abilities": [
-      "ChampionGlide"
-    ]
+    "abilities": []
   },
   {
     "id": 26,
@@ -724,12 +794,14 @@
       "Fireball",
       "Firestorm",
       "ElementalistIceball",
-      "MeteorCast",
       "FreezingField",
       "Mirage",
       "LightningStorm",
       "Sleep",
-      "AuraofDamnedSouls"
+      "AuraofDamnedSouls",
+      "ElementalistTeleportationMark",
+      "Meteor",
+      "ElementalistBlink"
     ]
   },
   {
@@ -757,8 +829,7 @@
     "abilities": [
       "BrakkHardenedShell",
       "BrakkCorrosiveCloud",
-      "BrakkSwap",
-      "BrakkSeismicShock"
+      "BrakkSwap"
     ]
   },
   {
@@ -849,7 +920,6 @@
       "PhaegoreSonicatingScreech",
       "PhaegoreNurturingChant",
       "PhaegoreKayonicCharge",
-      "PhaegoreBileSnot",
       "PhaegoreBurrow"
     ]
   },
@@ -880,8 +950,7 @@
       "AlarakDestructionWave",
       "AlarakACDeadlyCharge",
       "AlarakSprint",
-      "AlarakSacrifice",
-      "AlarakPsionicTransfer"
+      "AlarakSacrifice"
     ]
   },
   {
@@ -937,12 +1006,9 @@
     },
     "abilities": [
       "MalusCorruptionBomb",
-      "MalusNightTerror",
       "MalusOrdure",
-      "MalusParasitism",
-      "MalusColonize",
-      "MalusLeash",
-      "DevourUnit"
+      "DevourUnit",
+      "PrimalDevour"
     ]
   },
   {
@@ -971,8 +1037,7 @@
       "KraithSpineVolleyAbil",
       "KraithCrashingChargeAbil",
       "KraithSpikedHide",
-      "KraithOppressivePuke",
-      "KraithKingofPygalisk"
+      "KraithOppressivePuke"
     ]
   },
   {
@@ -1038,10 +1103,10 @@
     },
     "abilities": [
       "AndorCalldownSentinel",
-      "AndorPlacePointDefenseDrone",
       "AndorCalldownAdepts",
       "AndorCalldownArchon",
-      "AndorCalldownImmortal"
+      "AndorCalldownImmortal",
+      "Rapidfire"
     ]
   },
   {
@@ -1066,7 +1131,6 @@
       "RenewingTune",
       "AttractFan",
       "Doubletime",
-      "DJAllPartOfTheShow",
       "DJBassDrop"
     ]
   },
@@ -1094,9 +1158,10 @@
     "abilities": [
       "RattlesnakeDeployRevitalizer",
       "RattlesnakeSuperStimpack",
-      "RattlesnakeChronoRift",
       "RattlesnakeStunShot",
-      "RattlesnakeJudgementBeam"
+      "RattlesnakeExperimentalPlasmaGun",
+      "RattlesnakeEmptyClip",
+      "RattlesnakeHammerBullets"
     ]
   },
   {
@@ -1127,7 +1192,8 @@
     "abilities": [
       "CallDownSgtHammerSCV",
       "HammerTankRush",
-      "SgtHammerResearch"
+      "SgtHammerResearch",
+      "SgtHammerJunkertoArcliteTankUpgrade"
     ]
   },
   {
@@ -1152,12 +1218,10 @@
     },
     "abilities": [
       "CuddleJump",
-      "Meany",
-      "UnleashChewbie",
       "Gottagofast",
       "ChewFlex",
-      "FeignDeath",
-      "ChewCharge"
+      "MeanyUnit",
+      "ChewbieGo"
     ]
   },
   {
@@ -1180,12 +1244,12 @@
       "energyRegen": 1
     },
     "abilities": [
-      "AewynEtherealTransit",
       "AewynBless",
       "AewynCurse",
       "AewynEnchant",
-      "AewynRecall",
-      "AewynStasisField"
+      "AewynStasisField",
+      "AewynBlink",
+      "AewynTransport"
     ]
   },
   {
@@ -1235,12 +1299,46 @@
       "energyRegen": 1
     },
     "abilities": [
-      "NightingaleJudgment",
-      "NightingaleIntervention",
       "NightingaleSynthesize",
-      "NightingaleDistortion",
-      "NightingaleFocus",
-      "NightingaleDivineShield"
+      "NightingaleFocus"
+    ],
+    "conditionalAbilities": [
+      {
+        "id": "NightingaleJudgment",
+        "requires": [
+          {
+            "id": "NightingaleTribunal",
+            "nameZh": "审判所"
+          }
+        ]
+      },
+      {
+        "id": "NightingaleIntervention",
+        "requires": [
+          {
+            "id": "NightingaleReactor",
+            "nameZh": "反应堆"
+          }
+        ]
+      },
+      {
+        "id": "NightingaleDivineShield",
+        "requires": [
+          {
+            "id": "NightingaleCloudCluster",
+            "nameZh": "星云团"
+          }
+        ]
+      },
+      {
+        "id": "NightingaleDistortion",
+        "requires": [
+          {
+            "id": "NightingaleNullPointStabilizer",
+            "nameZh": "零点稳定器"
+          }
+        ]
+      }
     ]
   },
   {
@@ -1294,7 +1392,9 @@
       "SophiaCalldownAirFighter",
       "SophiaCalldownTank",
       "SophiaCalldownThor",
-      "SophiaWhereDoesTheTimeGo"
+      "SophiaWhereDoesTheTimeGo",
+      "SophiaBlink",
+      "AccelerationZone"
     ]
   },
   {
@@ -1371,6 +1471,14 @@
       "attackSpeed": 10,
       "range": 9
     },
-    "abilities": []
+    "abilities": [
+      "SkitterSkitterCommandWasps",
+      "SkitterSkitterRecallUnits",
+      "SkitterSkitterCommandStingers",
+      "SkitterSkitterCommandMantises",
+      "SkitterSkitterCommandMammoths",
+      "SkitterSkitterSpecialize",
+      "SkitterSkitterBlink"
+    ]
   }
 ]
