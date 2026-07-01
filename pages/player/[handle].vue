@@ -65,6 +65,34 @@
         <RoleTable :roles="playerData.roles_kerrigan" team="kerrigan" />
       </div>
 
+      <div v-if="mmrSeries.length" class="wiki-card p-5 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-1">
+          <div class="section-title !mb-0">MMR 走势</div>
+          <div class="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
+            <span v-if="mmrThrough">截至 {{ mmrThrough }}</span>
+            <button @click="shareMmr" :disabled="mmrSharing"
+              class="px-2.5 py-1 text-xs font-medium border border-gray-300 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+              {{ mmrShareText }}
+            </button>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 mb-3">
+          核心分随时间变化；点选下方角色叠加该角色有效分（核心分 + 角色调整）曲线。
+        </p>
+        <LineChart :series="mmrSeries" :height="260" :x-format="fmtTs" :y-format="(y:number)=>String(Math.round(y))" />
+        <div v-if="mmrRoleNames.length" class="flex flex-wrap gap-1.5 mt-4">
+          <button v-for="(name, i) in mmrRoleNames" :key="name" @click="toggleMmrRole(name)"
+            class="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs border transition"
+            :class="selectedRoles.includes(name)
+              ? 'border-transparent text-white'
+              : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'"
+            :style="selectedRoles.includes(name) ? `background:${roleColor(name)}` : ''">
+            <img :src="`/icons/${roleIcon(name)}.png`" class="w-4 h-4 rounded" :alt="name" />
+            {{ roleName(name) }}
+          </button>
+        </div>
+      </div>
+
       <div v-if="recentGames.length" class="wiki-card p-5 mb-6">
         <div class="flex items-center justify-between flex-wrap gap-2">
           <div class="section-title !mb-0">最近对局 · 等效MMR</div>
@@ -194,6 +222,36 @@
         </div>
         <div class="pl-share-foot">KS2 Wiki · 等效MMR=每局打出的水平 · 数据截至 {{ playedLikeThrough }}</div>
       </div>
+
+      <!-- Hidden MMR-trend share card -->
+      <div ref="mmrShareRef" class="mmr-share" aria-hidden="true">
+        <div class="mmr-share-head">
+          <div>
+            <div class="mmr-share-title">{{ handle }}</div>
+            <div class="mmr-share-sub">凯瑞甘生存2 · MMR 走势</div>
+          </div>
+          <div v-if="currentCore" class="mmr-share-cores">
+            <div class="mmr-share-core mmr-share-core-s">
+              <div class="mmr-share-core-label">生存核心</div>
+              <div class="mmr-share-core-val">{{ currentCore[1] }}</div>
+            </div>
+            <div class="mmr-share-core mmr-share-core-k">
+              <div class="mmr-share-core-label">凯瑞甘核心</div>
+              <div class="mmr-share-core-val">{{ currentCore[2] }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="mmr-share-chart">
+          <LineChart v-if="mmrSeries.length" :series="mmrSeries" :height="220"
+            :x-format="fmtTs" :y-format="(y:number)=>String(Math.round(y))" />
+        </div>
+        <div v-if="selectedRoles.length" class="mmr-share-legend">
+          <span v-for="name in selectedRoles" :key="name" class="mmr-share-leg-item">
+            <span class="mmr-share-leg-dot" :style="`background:${roleColor(name)}`"></span>{{ roleName(name) }}
+          </span>
+        </div>
+        <div class="mmr-share-foot">KS2 Wiki · 角色分含核心调整 · 数据截至 {{ mmrThrough }}</div>
+      </div>
     </template>
   </div>
 </template>
@@ -213,10 +271,14 @@ const showCode = ref(false)
 const playerData = ref<any>(null)
 const creditsData = ref<any>(null)
 const playedLikeData = ref<any>(null)
+const mmrHistoryData = ref<any>(null)
 const shareRef = ref<HTMLElement>()
 const playedShareRef = ref<HTMLElement>()
 const playedSharing = ref(false)
 const playedShareText = ref('分享图')
+const mmrShareRef = ref<HTMLElement>()
+const mmrSharing = ref(false)
+const mmrShareText = ref('分享图')
 
 // 最近对局等效MMR（played_like）：每局玩家实际打出的水平，对比赛前估值
 const recentGames = computed<any[]>(() => playedLikeData.value?.games || [])
@@ -245,6 +307,55 @@ function plDelta(g: any): string {
   const d = Math.round(g.played_like - g.estimated)
   return (d >= 0 ? '▲' : '▼') + Math.abs(d)
 }
+
+// ---- MMR 走势 ----
+const ROLE_PALETTE = ['#f59e0b', '#8b5cf6', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#14b8a6', '#a855f7']
+const selectedRoles = ref<string[]>([])
+
+const mmrThrough = computed(() => {
+  const t = mmrHistoryData.value?.through
+  if (!t) return ''
+  const d = new Date(String(t).replace(' ', 'T'))
+  return isNaN(d.getTime()) ? '' : d.toLocaleDateString('zh-CN')
+})
+// 角色按数据点数排序（玩得最多的在前）
+const mmrRoleNames = computed<string[]>(() => {
+  const roles = mmrHistoryData.value?.roles || {}
+  return Object.keys(roles).sort((a, b) => (roles[b]?.length || 0) - (roles[a]?.length || 0))
+})
+function roleColor(name: string): string {
+  const i = mmrRoleNames.value.indexOf(name)
+  return ROLE_PALETTE[((i < 0 ? 0 : i) % ROLE_PALETTE.length)]
+}
+function toggleMmrRole(name: string) {
+  const i = selectedRoles.value.indexOf(name)
+  if (i >= 0) selectedRoles.value.splice(i, 1)
+  else selectedRoles.value.push(name)
+}
+function fmtTs(ts: number): string {
+  const d = new Date(ts * 1000)
+  return isNaN(d.getTime()) ? '' : d.toLocaleDateString('zh-CN', { year: '2-digit', month: 'numeric' })
+}
+// 最新核心分快照 [ts, 生存, 凯]，用于分享图头部
+const currentCore = computed<number[] | null>(() => {
+  const core = mmrHistoryData.value?.core || []
+  return core.length ? core[core.length - 1] : null
+})
+const mmrSeries = computed<any[]>(() => {
+  const core = mmrHistoryData.value?.core || []
+  if (!core.length) return []
+  const out: any[] = [
+    { label: '生存核心', color: '#16a34a', points: core.map((c: number[]) => [c[0], c[1]]) },
+    { label: '凯瑞甘核心', color: '#dc2626', points: core.map((c: number[]) => [c[0], c[2]]) },
+  ]
+  const roles = mmrHistoryData.value?.roles || {}
+  for (const name of selectedRoles.value) {
+    if (roles[name]?.length) {
+      out.push({ label: roleName(name), color: roleColor(name), points: roles[name] })
+    }
+  }
+  return out
+})
 
 const topSurvivor = computed(() => (playerData.value?.roles_survivor || []).slice(0, 5))
 const topKerrigan = computed(() => (playerData.value?.roles_kerrigan || []).slice(0, 5))
@@ -280,14 +391,16 @@ watch(topRoleAvatar, (url) => {
 
 onMounted(async () => {
   try {
-    const [mmr, credits, playedLike] = await Promise.all([
+    const [mmr, credits, playedLike, mmrHist] = await Promise.all([
       $fetch('/api/mmr', { params: { handle } }),
       $fetch('/api/credits', { params: { handle } }).catch(() => null),
       $fetch<any>('/api/played_like', { params: { handle } }).catch(() => null),
+      $fetch<any>('/api/mmr_history', { params: { handle } }).catch(() => null),
     ])
     playerData.value = mmr
     creditsData.value = credits
     playedLikeData.value = playedLike
+    mmrHistoryData.value = mmrHist
   } catch {}
   loading.value = false
 })
@@ -338,7 +451,10 @@ async function captureShare(
     el.style.opacity = '1'
     el.style.pointerEvents = 'none'
 
-    await new Promise(r => setTimeout(r, 200))
+    // 等 Web 字体(DM Sans / Noto Sans SC / JetBrains Mono)与图标加载完成再截图：
+    // 否则字体异步加载后文字回流，html2canvas 已按旧高度抓了背景 → 文字与背景高度错位。
+    try { await (document as any).fonts?.ready } catch {}
+    await new Promise(r => setTimeout(r, 250))
     const canvas = await html2canvas(el, {
       backgroundColor: '#0f1923',
       scale: 2,
@@ -385,6 +501,10 @@ function shareAsImage() {
 
 function sharePlayedLike() {
   return captureShare(playedShareRef.value, playedShareText, playedSharing, '分享图', '-recent')
+}
+
+function shareMmr() {
+  return captureShare(mmrShareRef.value, mmrShareText, mmrSharing, '分享图', '-mmr')
 }
 </script>
 
@@ -551,7 +671,11 @@ function sharePlayedLike() {
   gap: 8px;
   padding: 4px 0;
   border-bottom: 1px solid rgba(255,255,255,0.04);
+  /* line-height:1 让行框紧贴文字：html2canvas 对 line-height:normal 会把字渲染到
+     行框底部(偏下)，flex 居中也无法补偿；设为 1 后各列文字才真正垂直居中。 */
+  line-height: 1;
 }
+.pl-share-row > * { line-height: 1; }
 .pl-share-date {
   width: 36px;
   font-size: 11px;
@@ -562,8 +686,12 @@ function sharePlayedLike() {
 .pl-share-role { flex: 1; font-size: 12px; color: #cbd5e1; }
 .pl-share-team {
   font-size: 9px;
-  padding: 1px 5px;
+  padding: 0 6px;
   border-radius: 4px;
+  /* 单行文字用 line-height 撑起徽章高度并垂直居中：比上下 padding 更能让
+     html2canvas 把「人/凯」渲染在绿/红背景框正中(padding 方式会偏移)。 */
+  line-height: 16px;
+  height: 16px;
 }
 .pl-share-team.tk { background: rgba(225,29,72,0.2); color: #fb7185; }
 .pl-share-team.ts { background: rgba(16,185,129,0.18); color: #34d399; }
@@ -581,6 +709,46 @@ function sharePlayedLike() {
   font-family: 'JetBrains Mono', monospace;
 }
 .pl-share-foot {
+  font-size: 9px;
+  color: #475569;
+  margin-top: 10px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ---- MMR 走势分享卡 ---- */
+.mmr-share {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  opacity: 0;
+  width: 560px;
+  padding: 22px 26px 16px;
+  border-radius: 16px;
+  font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+  color: #e2e8f0;
+  background: linear-gradient(135deg, #0f1923 0%, #1a2a3a 100%);
+  box-sizing: border-box;
+}
+.mmr-share-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.mmr-share-title { font-size: 18px; font-weight: 700; color: #fff; }
+.mmr-share-sub { font-size: 10px; color: #64748b; margin-top: 2px; }
+.mmr-share-cores { display: flex; gap: 8px; }
+.mmr-share-core { padding: 6px 12px; border-radius: 8px; text-align: center; }
+.mmr-share-core-s { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); }
+.mmr-share-core-k { background: rgba(225,29,72,0.15); border: 1px solid rgba(225,29,72,0.4); }
+.mmr-share-core-label { font-size: 9px; opacity: 0.75; }
+.mmr-share-core-val { font-size: 18px; font-weight: 800; color: #fff; font-family: 'JetBrains Mono', monospace; }
+.mmr-share-chart { width: 100%; }
+.mmr-share-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.mmr-share-leg-item { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: #cbd5e1; }
+.mmr-share-leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+.mmr-share-foot {
   font-size: 9px;
   color: #475569;
   margin-top: 10px;
