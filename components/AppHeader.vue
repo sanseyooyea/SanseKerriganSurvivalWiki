@@ -163,6 +163,7 @@ const NAV_GROUPS = [
     items: [
       { to: '/classes', label: '职业列表', icon: '◆' },
       { to: '/balance', label: '英雄胜率', icon: '%' },
+      { to: '/balance/trends', label: '版本Meta', icon: '∿' },
       { to: '/economy', label: '经济系统', icon: '$' },
       { to: '/wiki', label: 'Wiki', icon: '#' },
     ],

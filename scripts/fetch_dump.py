@@ -43,8 +43,8 @@ CONFIG = os.path.join(TOOLS, 'fetch_config.json')  # private, NOT in repo
 STATE = os.path.join(TOOLS, '.fetch_state.json')   # remembers last-downloaded Drive file (outside repo)
 DEST = r'D:\starcraft2\ks_prod_no_performance_stats.sql.gz'  # path the build scripts default to
 
-BUILD_SCRIPTS = ['build_balance.py', 'build_stats_db.py']
-DATA_FILES = ['data/balance.json', 'data/stats.db']
+BUILD_SCRIPTS = ['build_balance.py', 'build_stats_db.py', 'build_meta.py']
+DATA_FILES = ['data/balance.json', 'data/stats.db', 'data/meta-history.json']
 
 
 def _load_config():
