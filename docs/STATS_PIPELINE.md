@@ -62,9 +62,17 @@ python scripts/build_balance.py [path/to/dump.sql.gz]   # 默认路径见脚本�
   "global": { "survivor_wins": N, "kerrigan_wins": N, "games": N,
               "survivor_win_rate": 0.xx, "kerrigan_win_rate": 0.xx },
   "heroes": [ { "role_id": 4, "role": "Spirit", "team": 0,
-                "plays": N, "wins": N, "win_rate": 0.xxxx, "low_sample": false } ]
+                "plays": N, "wins": N, "win_rate": 0.xxxx, "low_sample": false } ],
+  "weekly": {
+    "weeks": ["2024-09-02", ...],   // 每 ISO 周的周一日期，按时间排序
+    "regions": ["cn", "intl"],      // cn=国服(China)，intl=外服(欧/美/韩)
+    "global":  { "cn": [[surv,kerr], ...], "intl": [...] },   // 与 weeks[] 对齐
+    "heroes":  { "4": { "cn": [[plays,wins], ...], "intl": [...] }, ... }
+  }
 }
 ```
+
+`global`/`heroes` 是**全时段全服**聚合（向后兼容，英雄详情页/职业卡片仍用它）。`weekly` 把同样的口径**按 ISO 周 × 服务器分组**预分桶：前端在所选周区间上跨所选服务器组求和，即可算出任意时间段、国服/外服的胜率——无需为每个时间窗预计算。全时段全服求和恒等于顶层 `global`/`heroes`。产物用 compact JSON（约 84KB，含 96 周）。
 
 ### `scripts/build_stats_db.py` → `data/stats.db`
 
@@ -80,8 +88,8 @@ python scripts/build_stats_db.py [path/to/dump.sql.gz]
 
 | 文件 | 用途 |
 |---|---|
-| `composables/useBalanceData.ts` | 构建期 `import data/balance.json`，按 `role_id` 索引 |
-| `pages/balance/index.vue` | 总览页：全局阵营胜率 + 可排序分英雄胜率表 |
+| `composables/useBalanceData.ts` | 构建期 `import data/balance.json`；按 `role_id` 索引，另暴露 `weekly` 与 `aggregate(start,end,region)` 周区间×服务器聚合助手 |
+| `pages/balance/index.vue` | 总览页：全局阵营胜率 + 可排序分英雄胜率表；**服务器(全部/国服/外服) + 时间段(预设/自定义起止周)筛选** |
 | `pages/classes/[id]/index.vue` | 英雄详情页胜率块 |
 | `components/ClassCard.vue` | 职业列表卡片胜率（样本不足隐藏） |
 | `server/api/played_like.get.ts` | 句柄 → 最近 50 局 played_like（读 `data/stats.db`） |
