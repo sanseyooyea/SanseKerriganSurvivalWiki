@@ -21,17 +21,16 @@ export interface GlobalBalance {
   kerrigan_win_rate: number | null
 }
 
-// Region group of the weekly buckets. cn = 国服(China), intl = 外服(EU+NA+KR).
+// Region group of the daily buckets. cn = 国服(China), intl = 外服(EU+NA+KR).
 export type RegionGroup = 'cn' | 'intl'
 export type RegionFilter = 'all' | RegionGroup
 
-type Pair = [number, number] // [survivor/plays, kerrigan/wins]
-
-interface Weekly {
-  weeks: string[] // Monday date "YYYY-MM-DD" per ISO week, chronological
+interface Daily {
+  days: string[] // contiguous "YYYY-MM-DD", chronological
   regions: RegionGroup[]
-  global: Record<RegionGroup, Pair[]> // grp -> aligned [surv_wins, kerr_wins]
-  heroes: Record<string, Record<RegionGroup, Pair[]>> // role_id -> grp -> [plays, wins]
+  // flat per-day arrays aligned to days[]
+  global: Record<RegionGroup, { s: number[]; k: number[] }> // survivor/kerrigan wins
+  heroes: Record<string, Record<RegionGroup, { p: number[]; w: number[] }>> // plays/wins
 }
 
 const REGION_GROUPS: RegionGroup[] = ['cn', 'intl']
@@ -47,7 +46,7 @@ export function useBalanceData() {
     low_sample_threshold: number
     global: GlobalBalance
     heroes: HeroBalance[]
-    weekly: Weekly
+    daily: Daily
   }
 
   const threshold = data.low_sample_threshold
@@ -57,39 +56,42 @@ export function useBalanceData() {
   const getByRoleId = (id: number | string): HeroBalance | undefined =>
     byId.get(typeof id === 'string' ? parseInt(id, 10) : id)
 
-  const weekly = data.weekly
-  const weekCount = weekly.weeks.length
+  const daily = data.daily
+  const dayCount = daily.days.length
 
-  // Sum a pair-series over the inclusive week range [start, end].
-  function sumRange(series: Pair[], start: number, end: number): Pair {
-    let a = 0
-    let b = 0
-    for (let i = start; i <= end; i++) {
-      const c = series[i]
-      if (c) {
-        a += c[0]
-        b += c[1]
-      }
-    }
-    return [a, b]
+  // Inclusive sum of a flat per-day array over [start, end].
+  function sumRange(series: number[], start: number, end: number): number {
+    let acc = 0
+    for (let i = start; i <= end; i++) acc += series[i] || 0
+    return acc
+  }
+
+  // Map a "YYYY-MM-DD" date to a day index, clamped into range. Since days are
+  // contiguous we can offset from days[0] instead of scanning.
+  function dayToIndex(date: string): number {
+    if (!dayCount) return 0
+    const base = Date.parse(daily.days[0] + 'T00:00:00')
+    const t = Date.parse(date + 'T00:00:00')
+    if (isNaN(t)) return 0
+    const idx = Math.round((t - base) / 86_400_000)
+    return Math.max(0, Math.min(idx, dayCount - 1))
   }
 
   /**
-   * Aggregate the weekly buckets over the inclusive week range [start, end] and
+   * Aggregate the daily buckets over the inclusive day range [start, end] and
    * the given region filter, returning the same shape as the all-time
    * `global` + `heroes` so the page can render either interchangeably.
    */
   function aggregate(start: number, end: number, region: RegionFilter) {
-    const s = Math.max(0, Math.min(start, weekCount - 1))
-    const e = Math.max(s, Math.min(end, weekCount - 1))
+    const s = Math.max(0, Math.min(start, dayCount - 1))
+    const e = Math.max(s, Math.min(end, dayCount - 1))
     const grps = regionsFor(region)
 
     let survWins = 0
     let kerrWins = 0
     for (const g of grps) {
-      const [sw, kw] = sumRange(weekly.global[g], s, e)
-      survWins += sw
-      kerrWins += kw
+      survWins += sumRange(daily.global[g].s, s, e)
+      kerrWins += sumRange(daily.global[g].k, s, e)
     }
     const games = survWins + kerrWins
     const global: GlobalBalance = {
@@ -101,14 +103,13 @@ export function useBalanceData() {
     }
 
     const heroes: HeroBalance[] = data.heroes.map(h => {
-      const hw = weekly.heroes[String(h.role_id)]
+      const hw = daily.heroes[String(h.role_id)]
       let plays = 0
       let wins = 0
       if (hw) {
         for (const g of grps) {
-          const [p, w] = sumRange(hw[g], s, e)
-          plays += p
-          wins += w
+          plays += sumRange(hw[g].p, s, e)
+          wins += sumRange(hw[g].w, s, e)
         }
       }
       return {
@@ -132,8 +133,9 @@ export function useBalanceData() {
     lowSampleThreshold: threshold,
     getByRoleId,
     // time × region
-    weeks: weekly.weeks,
-    weekCount,
+    days: daily.days,
+    dayCount,
+    dayToIndex,
     aggregate,
   }
 }
