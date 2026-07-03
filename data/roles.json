@@ -232,7 +232,7 @@
       "energy": null,
       "damage": 30,
       "attackSpeed": 2,
-      "range": 4
+      "range": 2
     },
     "abilities": [
       "StukovInfestedCivilians",

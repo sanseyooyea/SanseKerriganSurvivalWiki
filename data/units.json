@@ -2593,7 +2593,7 @@
       {
         "id": "StukovSpawningPool",
         "nameZh": "孵化池",
-        "hp": 150,
+        "hp": 125,
         "armor": 1
       },
       {
