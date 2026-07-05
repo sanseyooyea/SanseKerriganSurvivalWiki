@@ -108,8 +108,24 @@
         <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 mb-3">
           每局实际打出的水平估值；高于赛前估值（▲）为超常发挥，低于（▼）为失常。
         </p>
+        <div v-if="availableCategories.length > 1" class="flex flex-wrap gap-1.5 mb-3">
+          <button @click="roleFilter = 'All'"
+            class="px-2.5 py-1 rounded-lg text-xs border transition"
+            :class="roleFilter === 'All'
+              ? 'border-transparent bg-survivor-600 text-white'
+              : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'">
+            全部 <span class="opacity-60">{{ recentGames.length }}</span>
+          </button>
+          <button v-for="c in availableCategories" :key="c" @click="roleFilter = c"
+            class="px-2.5 py-1 rounded-lg text-xs border transition"
+            :class="roleFilter === c
+              ? 'border-transparent bg-survivor-600 text-white'
+              : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'">
+            {{ CATEGORY_LABELS[c] || c }} <span class="opacity-60">{{ categoryCount(c) }}</span>
+          </button>
+        </div>
         <div class="space-y-1 max-h-96 overflow-y-auto pr-1">
-          <div v-for="(g, i) in recentGames" :key="i"
+          <div v-for="(g, i) in filteredGames" :key="i"
             class="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition">
             <span class="text-xs font-mono text-gray-400 w-10 shrink-0">{{ gameDate(g.date) }}</span>
             <img :src="`/icons/${roleIcon(g.role)}.png`" class="w-6 h-6 rounded shrink-0" :alt="g.role" />
@@ -203,11 +219,11 @@
         <div class="pl-share-head">
           <div>
             <div class="pl-share-title">{{ handle }}</div>
-            <div class="pl-share-sub">凯瑞甘生存2 · 最近对局等效MMR</div>
+            <div class="pl-share-sub">凯瑞甘生存2 · 最近对局等效MMR{{ roleFilter !== 'All' ? ' · ' + (CATEGORY_LABELS[roleFilter] || roleFilter) : '' }}</div>
           </div>
           <div v-if="playedLikeAvg" class="pl-share-avg">
             <div class="pl-share-avg-num">{{ playedLikeAvg }}</div>
-            <div class="pl-share-avg-label">近{{ recentGames.length }}局均值</div>
+            <div class="pl-share-avg-label">近{{ filteredGames.length }}局均值</div>
           </div>
         </div>
         <div class="pl-share-rows">
@@ -282,8 +298,40 @@ const mmrShareText = ref('分享图')
 
 // 最近对局等效MMR（played_like）：每局玩家实际打出的水平，对比赛前估值
 const recentGames = computed<any[]>(() => playedLikeData.value?.games || [])
+
+// 按角色定位（猎手/建造者/辅助/防御者）筛选。functional_role 用下划线名(Team_Nova)，
+// roles.json 用空格名(Team Nova)，两种键都登记以便匹配。
+const { classes: allClasses } = useClassData()
+const CATEGORY_LABELS: Record<string, string> = {
+  Hunter: '猎手', Builder: '建造者', Support: '辅助', Defender: '防御者', Random: '随机',
+}
+const CATEGORY_ORDER = ['Hunter', 'Builder', 'Support', 'Defender', 'Random']
+const roleCategoryMap: Record<string, string> = {}
+for (const c of allClasses) {
+  roleCategoryMap[c.nameEn] = c.category
+  roleCategoryMap[c.nameEn.replace(/ /g, '_')] = c.category
+}
+function gameCategory(role: string): string {
+  return roleCategoryMap[role] || roleCategoryMap[role.replace(/ /g, '_')] || ''
+}
+const roleFilter = ref<string>('All')
+// 只显示该玩家实际打过的定位，避免出现空筛选
+const availableCategories = computed<string[]>(() => {
+  const set = new Set<string>()
+  for (const g of recentGames.value) { const c = gameCategory(g.role); if (c) set.add(c) }
+  return CATEGORY_ORDER.filter(c => set.has(c))
+})
+function categoryCount(cat: string): number {
+  return recentGames.value.filter(g => gameCategory(g.role) === cat).length
+}
+// 应用筛选后的对局：列表、均值、分享图都基于它
+const filteredGames = computed<any[]>(() =>
+  roleFilter.value === 'All'
+    ? recentGames.value
+    : recentGames.value.filter(g => gameCategory(g.role) === roleFilter.value))
+
 const playedLikeAvg = computed(() => {
-  const vals = recentGames.value.map(g => g.played_like).filter((v: any) => v != null)
+  const vals = filteredGames.value.map(g => g.played_like).filter((v: any) => v != null)
   return vals.length ? Math.round(vals.reduce((a: number, b: number) => a + b, 0) / vals.length) : null
 })
 const playedLikeThrough = computed(() => {
@@ -296,8 +344,8 @@ function gameDate(s: string): string {
   const d = new Date(String(s).replace(' ', 'T'))
   return isNaN(d.getTime()) ? s : d.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' })
 }
-// 分享图只放最近 8 局，避免过长
-const recentForShare = computed<any[]>(() => recentGames.value.slice(0, 8))
+// 分享图只放最近 8 局，避免过长；跟随当前筛选
+const recentForShare = computed<any[]>(() => filteredGames.value.slice(0, 8))
 function plColor(g: any): string {
   if (g.estimated == null || g.played_like == null) return '#cbd5e1'
   return g.played_like >= g.estimated ? '#16a34a' : '#dc2626'
