@@ -524,7 +524,7 @@
   },
   {
     "hero": "Sophia",
-    "incomeModel": "索菲亚使用佣兵营地升级链经济。每个佣兵营地等级每5秒产出固定晶矿。建筑分7级（+1到+64），可直接建造或从低级升级。高级建筑需要更多气体投入。",
+    "incomeModel": "索菲亚使用佣兵营地升级链经济。营地每3秒被动产出固定晶矿，分7级（+1到+64），可直接建造或从低级升级，高级建筑需要更多气体投入。营地自带时空加速反应堆：消耗4气体，产矿提速1.75倍。信标、军械库等为侦查/科技建筑，不计入经济产出。",
     "buildings": [
       {
         "id": "SophiaMercCompound1",
@@ -609,66 +609,18 @@
         "upgradeTo": null,
         "notes": "Total cost includes 45 vespene. Maximum tier. No further upgrades. Has Chrono Boost reactor.",
         "gasCost": 45
-      },
-      {
-        "id": "SophiaBeacon",
-        "nameZh": "信标",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 100,
-        "buildTime": 5,
-        "food": null,
-        "upgradeTo": "SophiaBeaconWithGlasses",
-        "notes": "Provides power field (radius 7) required for unit calldowns. Can upgrade to add detection+vision (5 vespene) or cloak (150 minerals). 300 HP.",
-        "gasCost": 0
-      },
-      {
-        "id": "SophiaBeaconWithGlasses",
-        "nameZh": "信标(侦测型)",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 100,
-        "buildTime": 5,
-        "food": null,
-        "upgradeTo": null,
-        "notes": "Upgraded beacon with detector (range 10), sight 8, vision height 9, and power field. Total cost 100+5 vespene.",
-        "gasCost": 5
-      },
-      {
-        "id": "SophiaBeaconwithCloak",
-        "nameZh": "信标(隐形型)",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 250,
-        "buildTime": 5,
-        "food": null,
-        "upgradeTo": null,
-        "notes": "Upgraded beacon with permanent cloak. 300 HP. No power field. Cost is 100 base + 150 mineral upgrade.",
-        "gasCost": 0
-      },
-      {
-        "id": "SophiaArmory",
-        "nameZh": "军械库",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 100,
-        "buildTime": 10,
-        "food": null,
-        "upgradeTo": null,
-        "notes": "Research building. Provides 13 upgrades: Weapons Lv1-3, Armor Lv1-3, Calldown Charges, Advanced Drop, Spider Mine Storage, Vision, Destruction Beam Range, Bombardment Damage, Composite Boosters.",
-        "gasCost": 0
       }
     ],
     "chrono": {
       "timeScale": 1.75,
-      "energyCost": 25,
+      "gasCost": 4,
       "duration": "permanent",
-      "name": "时间加速"
+      "name": "时空加速"
     }
   },
   {
     "hero": "Swann",
-    "incomeModel": "斯旺使用3级精炼厂升级链经济。每个精炼厂被动产矿，可从基础精炼厂（+2/5s）升级到加速精炼厂（+10/5s）再到乔瑞姆精炼厂（+25/5s）。拥有时间加速能力。",
+    "incomeModel": "斯旺使用3级精炼厂升级链经济。精炼厂每3秒被动产矿，从基础精炼厂（+2）升级到加速精炼厂（+10）再到乔瑞姆精炼厂（+25）。精炼厂自带时空加速，产矿提速1.75倍，各级每次消耗1/5/15气体。此外英雄技能【超级过载】可对单个非英雄友方单位或建筑施放，15秒内提速1.5倍（消耗3气体），可临时加速经济。",
     "buildings": [
       {
         "id": "SwannRefinery2",
@@ -707,12 +659,74 @@
         "gasCost": 10
       }
     ],
-    "chrono": {
-      "timeScale": 1.75,
-      "energyCost": 25,
-      "duration": "permanent",
-      "name": "时间加速"
-    }
+    "chrono": [
+      {
+        "timeScale": 1.75,
+        "gasCost": "1/5/15",
+        "duration": "permanent",
+        "name": "时空加速（精炼厂）"
+      },
+      {
+        "timeScale": 1.5,
+        "gasCost": 3,
+        "duration": 15,
+        "name": "超级过载"
+      }
+    ]
+  },
+  {
+    "hero": "Stukov",
+    "incomeModel": "斯托科夫使用感染结构经济：每种生产结构在解锁对应兵种「即时充能生产」的同时，被动产出晶矿(每3秒)。同类结构每多一座，为该兵种提供5%充能冷却缩减(叠乘，最低5秒)，越造越快。充能兵是免费单位(不耗矿气)，供应上限300；斯托科夫等级越高，各结构可积攒的充能上限越高(平民/士兵每级+2，破坏者/畸变体每级+1)。无时间加速能力。",
+    "buildings": [
+      {
+        "id": "StukovSpawningPool",
+        "nameZh": "孵化池",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「被感染的平民」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×2。",
+        "gasCost": 0
+      },
+      {
+        "id": "StukovInfestedDen",
+        "nameZh": "感染巢穴",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 200,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「被感染的士兵」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×2。",
+        "gasCost": 3
+      },
+      {
+        "id": "StukovInfestedPit",
+        "nameZh": "感染深渊",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 825,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「破坏者」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×1。(建造按钮为「破坏者巢穴」)",
+        "gasCost": 10
+      },
+      {
+        "id": "StukovAberrationCavern",
+        "nameZh": "畸变洞窟",
+        "income": 64,
+        "incomePeriod": 3,
+        "cost": 4000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「畸变体」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×1。",
+        "gasCost": 40
+      }
+    ]
   },
   {
     "hero": "Ghost",
@@ -936,7 +950,7 @@
   },
   {
     "hero": "Nightingale",
-    "incomeModel": "夜莺使用天链建筑产矿经济。天链建筑每3秒产出晶矿，分多个等级。拥有时间加速能力。",
+    "incomeModel": "夜莺使用天链建筑产矿经济。天链每3.5秒产出晶矿，分多个等级（星灵枢纽为主基地兼产矿）。拥有时空加速：消耗2气体，产矿提速1.5倍。方尖碑、裁决所、反应堆、火花等为科技/辅助建筑，不计入经济产出。",
     "buildings": [
       {
         "id": "NightingaleNexus",
@@ -1014,102 +1028,13 @@
         "buildTime": 5,
         "upgradeTo": null,
         "notes": "最高级经济建筑，每3.5秒产出32矿，无法继续升级"
-      },
-      {
-        "id": "NightingaleObelisk",
-        "nameZh": "方尖碑",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 50,
-        "food": null,
-        "buildTime": 10,
-        "upgradeTo": null,
-        "notes": "研究建筑，提供武器/护甲/能量升级及各种科技研究"
-      },
-      {
-        "id": "NightingaleTribunal",
-        "nameZh": "裁决所",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 1000,
-        "food": 25,
-        "buildTime": 10,
-        "upgradeTo": null,
-        "notes": "科技建筑，解锁爆裂(Burst)建造，提供高效合成研究。需要枢纽"
-      },
-      {
-        "id": "NightingaleCloudCluster",
-        "nameZh": "云团",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 2500,
-        "food": 25,
-        "buildTime": 10,
-        "upgradeTo": null,
-        "notes": "科技建筑(20气)，解锁火花(Spark)和反应堆建造，提供通量叶片/悬浮推进器/扩展合成研究。需要裁决所"
-      },
-      {
-        "id": "NightingaleReactor",
-        "nameZh": "反应堆",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 3000,
-        "food": 25,
-        "buildTime": 10,
-        "upgradeTo": null,
-        "notes": "科技建筑(30气)，解锁零点稳定器和干涉技能，提供幻影力场隐形。需要云团",
-        "gasCost": 30
-      },
-      {
-        "id": "NightingaleNullPointStabilizer",
-        "nameZh": "零点稳定器",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 4000,
-        "food": 25,
-        "buildTime": 10,
-        "upgradeTo": null,
-        "notes": "高级科技建筑(50气)，解锁扭曲技能，提供深层漩涡/坚不可摧/预知研究。需要反应堆"
-      },
-      {
-        "id": "NightingaleFlare",
-        "nameZh": "照明弹",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 25,
-        "food": null,
-        "buildTime": 3,
-        "upgradeTo": null,
-        "notes": "侦察建筑，激活后提供视野加成(+6)，永久隐形，15秒冷却。需要枢纽"
-      },
-      {
-        "id": "NightingaleSpark",
-        "nameZh": "火花",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 100,
-        "food": null,
-        "buildTime": 3,
-        "upgradeTo": null,
-        "notes": "辅助建筑(5气)，激活后为范围内友军提供时间加速(+15%速度)，30秒冷却。需要云团"
-      },
-      {
-        "id": "NightingaleBurst",
-        "nameZh": "爆裂",
-        "income": null,
-        "incomePeriod": null,
-        "cost": 50,
-        "food": null,
-        "buildTime": 6,
-        "upgradeTo": null,
-        "notes": "攻击建筑(2气)，激活后提供伤害加成(+5%)，可引爆造成300范围伤害，永久隐形，20秒冷却。需要裁决所"
       }
     ],
     "chrono": {
       "timeScale": 1.5,
-      "energyCost": 25,
+      "gasCost": 2,
       "duration": "permanent",
-      "name": "时间加速"
+      "name": "时空加速"
     }
   }
 ]
