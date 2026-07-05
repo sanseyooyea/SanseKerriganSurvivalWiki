@@ -3654,48 +3654,6 @@
     ],
     "buildings": [
       {
-        "id": "NightingaleSkylink16",
-        "nameZh": "天基信标 +16",
-        "hp": 75,
-        "shield": 75,
-        "armor": 1
-      },
-      {
-        "id": "NightingaleSkylink2",
-        "nameZh": "天基信标 +2",
-        "hp": 75,
-        "shield": 75,
-        "armor": 1
-      },
-      {
-        "id": "NightingaleSkylink4",
-        "nameZh": "天基信标 +4",
-        "hp": 75,
-        "shield": 75,
-        "armor": 1
-      },
-      {
-        "id": "NightingaleSkylink32",
-        "nameZh": "天基信标 +32",
-        "hp": 75,
-        "shield": 75,
-        "armor": 1
-      },
-      {
-        "id": "NightingaleSkylink8",
-        "nameZh": "天基信标 +8",
-        "hp": 75,
-        "shield": 75,
-        "armor": 1
-      },
-      {
-        "id": "NightingaleNexus",
-        "nameZh": "星灵枢纽",
-        "hp": 100,
-        "shield": 100,
-        "armor": 1
-      },
-      {
         "id": "NightingaleTribunal",
         "nameZh": "审判所",
         "hp": 100,
@@ -3742,19 +3700,61 @@
         "shield": 50
       },
       {
-        "id": "NightingaleSkylink",
-        "nameZh": "天基信标 +1",
-        "hp": 75,
-        "shield": 75,
+        "id": "NightingaleReactor",
+        "nameZh": "反应堆",
+        "hp": 200,
+        "shield": 200,
         "armor": 1
       }
     ],
     "economy": [
       {
-        "id": "NightingaleReactor",
-        "nameZh": "反应堆",
-        "hp": 200,
-        "shield": 200,
+        "id": "NightingaleNexus",
+        "nameZh": "星灵枢纽",
+        "hp": 100,
+        "shield": 100,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink",
+        "nameZh": "天基信标 +1",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink2",
+        "nameZh": "天基信标 +2",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink4",
+        "nameZh": "天基信标 +4",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink8",
+        "nameZh": "天基信标 +8",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink16",
+        "nameZh": "天基信标 +16",
+        "hp": 75,
+        "shield": 75,
+        "armor": 1
+      },
+      {
+        "id": "NightingaleSkylink32",
+        "nameZh": "天基信标 +32",
+        "hp": 75,
+        "shield": 75,
         "armor": 1
       }
     ]

@@ -18,9 +18,10 @@
             <span v-else class="font-semibold text-gray-900 dark:text-gray-100">{{ hero.hero }}</span>
             <div class="text-xs text-gray-400 dark:text-gray-500">{{ hero.hero }}</div>
           </div>
-          <div v-if="hero.chrono" class="text-right">
-            <span class="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800">
-              {{ hero.chrono.name }} ×{{ hero.chrono.timeScale }}
+          <div v-if="heroChronos(hero).length" class="text-right flex flex-wrap justify-end gap-1">
+            <span v-for="(c, i) in heroChronos(hero)" :key="i"
+              class="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800">
+              {{ c.name }} ×{{ c.timeScale }}
             </span>
           </div>
         </div>
