@@ -675,6 +675,60 @@
     ]
   },
   {
+    "hero": "Stukov",
+    "incomeModel": "斯托科夫使用感染结构经济：每种生产结构在解锁对应兵种「即时充能生产」的同时，被动产出晶矿(每3秒)。同类结构每多一座，为该兵种提供5%充能冷却缩减(叠乘，最低5秒)，越造越快。充能兵是免费单位(不耗矿气)，供应上限300；斯托科夫等级越高，各结构可积攒的充能上限越高(平民/士兵每级+2，破坏者/畸变体每级+1)。无时间加速能力。",
+    "buildings": [
+      {
+        "id": "StukovSpawningPool",
+        "nameZh": "孵化池",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「被感染的平民」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×2。",
+        "gasCost": 0
+      },
+      {
+        "id": "StukovInfestedDen",
+        "nameZh": "感染巢穴",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 200,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「被感染的士兵」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×2。",
+        "gasCost": 3
+      },
+      {
+        "id": "StukovInfestedPit",
+        "nameZh": "感染深渊",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 825,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「破坏者」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×1。(建造按钮为「破坏者巢穴」)",
+        "gasCost": 10
+      },
+      {
+        "id": "StukovAberrationCavern",
+        "nameZh": "畸变洞窟",
+        "income": 64,
+        "incomePeriod": 3,
+        "cost": 4000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "解锁「畸变体」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×1。",
+        "gasCost": 40
+      }
+    ]
+  },
+  {
     "hero": "Ghost",
     "incomeModel": "幽灵使用升级链经济。SCV 建造基础晶体矿反应堆（+1），然后逐级升级（+2、+4、+8、+16、+32），每级每 3 秒产矿。反应堆拥有自动施放的星空加速（每次消耗 5 气体），将产矿速度提升至 1.75 倍。",
     "buildings": [
