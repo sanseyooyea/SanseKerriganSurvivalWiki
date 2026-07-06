@@ -185,6 +185,12 @@
       </div>
     </div>
 
+    <!-- Economy Analysis Section（收入/回本/加速/投资比，来自 /economy 共享组件） -->
+    <div v-if="hasEconomy(cls.nameEn)" class="wiki-card p-5 mb-6">
+      <div class="section-title">经济体系</div>
+      <HeroEconomy :name="cls.nameEn" :show-intro="true" />
+    </div>
+
     <!-- Description Section -->
     <div v-if="displayDesc" class="wiki-card p-5 mb-6">
       <div class="section-title">职业描述</div>
@@ -216,6 +222,7 @@ const { getById } = useClassData()
 const { getForHero } = useVeterancyData()
 const { getForHero: getUnitsForHero } = useUnitData()
 const { getByRoleId } = useBalanceData()
+const { hasEconomy } = useEconomyData()
 
 const cls = computed(() => getById(Number(route.params.id)))
 const balance = computed(() => getByRoleId(Number(route.params.id)))
