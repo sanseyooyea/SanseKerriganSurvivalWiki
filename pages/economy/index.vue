@@ -1,428 +1,134 @@
 <template>
   <div>
     <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">经济系统</h1>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
-      生存者方通过建造经济建筑获取晶矿收入，不同职业拥有不同的经济体系。
+    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      生存者方通过建造经济建筑获取晶矿收入，不同职业拥有不同的经济体系。点击英雄展开其经济详情。
     </p>
 
-    <div class="space-y-6">
-      <div v-for="hero in econHeroes" :key="hero.hero" class="wiki-card p-5 stagger-item">
-        <div class="flex items-center gap-3 mb-3">
-          <img v-if="hero.roleId >= 0" :src="`/icons/${String(hero.roleId).padStart(2, '0')}.png`"
-            class="w-9 h-9 rounded-lg shadow-sm" />
-          <div class="flex-1">
-            <NuxtLink v-if="hero.roleId >= 0" :to="`/classes/${hero.roleId}`"
-              class="font-semibold text-gray-900 dark:text-gray-100 hover:text-survivor-600 dark:hover:text-survivor-400 transition-colors">
-              {{ hero.nameZh }}
-            </NuxtLink>
-            <span v-else class="font-semibold text-gray-900 dark:text-gray-100">{{ hero.hero }}</span>
-            <div class="text-xs text-gray-400 dark:text-gray-500">{{ hero.hero }}</div>
-          </div>
-          <div v-if="heroChronos(hero).length" class="text-right flex flex-wrap justify-end gap-1">
-            <span v-for="(c, i) in heroChronos(hero)" :key="i"
-              class="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800">
-              {{ c.name }} ×{{ c.timeScale }}
-            </span>
-          </div>
-        </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400 mb-3 leading-relaxed">{{ hero.incomeModel }}</p>
-
-        <div v-if="heroChronos(hero).length" class="mb-3 px-3 py-2 rounded-lg bg-yellow-50/50 dark:bg-yellow-900/10 border border-yellow-100 dark:border-yellow-900/30">
-          <div v-for="(c, i) in heroChronos(hero)" :key="i" class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-yellow-800 dark:text-yellow-300" :class="i > 0 ? 'mt-1.5 pt-1.5 border-t border-yellow-100 dark:border-yellow-800/50' : ''">
-            <span>{{ c.name }}: <b class="font-mono">×{{ c.timeScale }}</b></span>
-            <span>消耗: <b class="font-mono">{{ chronoCostLabel(c) }}</b></span>
-            <span>持续: <b class="font-mono">{{ c.duration === 'permanent' ? '永久' : c.duration + 's' }}</b></span>
-          </div>
-        </div>
-
-        <div v-if="!hero.harvestEconomy && !hero.addonEconomy && !hero.minerEconomy" class="overflow-x-auto -mx-5 px-5">
-          <table class="w-full text-sm min-w-[560px]">
-            <thead>
-              <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
-                <th class="text-left font-medium pb-2 pl-1">建筑</th>
-                <th class="text-right font-medium pb-2">收入</th>
-                <th class="text-right font-medium pb-2">每秒</th>
-                <th class="text-right font-medium pb-2">费用</th>
-                <th class="text-right font-medium pb-2" title="购买1矿/秒收入所需的总投入（晶矿+气体），越低性价比越高">投资比</th>
-                <th class="text-right font-medium pb-2">回本时间</th>
-                <th v-if="heroChronos(hero).length" class="text-right font-medium pb-2 pr-1">加速回本</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-50 dark:divide-gray-700/50">
-              <tr v-for="b in hero.buildings" :key="b.id">
-                <td class="py-2 pl-1 text-gray-700 dark:text-gray-300">
-                  {{ b.nameZh }}
-                  <span v-if="b.upgradeTo" class="text-xs text-gray-400"> →</span>
-                </td>
-                <td class="py-2 text-right font-mono font-semibold"
-                  :class="b.income ? 'text-green-600 dark:text-green-400' : 'text-gray-400'">
-                  {{ b.income ? `+${b.income}/${b.incomePeriod || '?'}s` : '-' }}
-                </td>
-                <td class="py-2 text-right font-mono text-emerald-600 dark:text-emerald-400">
-                  {{ incomePerSec(b) || '-' }}
-                </td>
-                <td class="py-2 text-right font-mono text-gray-600 dark:text-gray-300">
-                  <template v-if="b.cost != null">
-                    {{ b.cost }}<span v-if="b.gasCost" class="text-green-600 dark:text-green-500">+{{ b.gasCost }}g</span>
-                  </template>
-                  <template v-else>-</template>
-                </td>
-                <td class="py-2 text-right font-mono text-purple-600 dark:text-purple-400">
-                  {{ roi(b) || '-' }}
-                </td>
-                <td class="py-2 text-right font-mono text-blue-600 dark:text-blue-400">
-                  {{ paybackTime(b) || '-' }}
-                </td>
-                <td v-if="heroChronos(hero).length" class="py-2 pr-1 text-right font-mono text-yellow-600 dark:text-yellow-400">
-                  <span v-for="(c, i) in heroChronos(hero)" :key="i">
-                    <span v-if="i > 0"> / </span>{{ paybackTimeBoosted(b, c) || '-' }}
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 采集型经济（塞兰迪斯）：矿区×探机 投资比矩阵 + 探机参数 -->
-        <div v-if="hero.harvestEconomy" class="space-y-4">
-          <!-- 投资比矩阵 -->
-          <div class="overflow-x-auto -mx-5 px-5">
-            <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
-              投资比矩阵 · 矿区 × 探机（数值越低越划算）
-            </div>
-            <table class="w-full text-sm min-w-[560px] border-separate border-spacing-1">
-              <thead>
-                <tr>
-                  <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-400 pb-1 pl-1">矿区 \ 探机</th>
-                  <th v-for="p in hero.probes" :key="p.id" class="text-center text-xs font-medium text-gray-600 dark:text-gray-300 pb-1">
-                    {{ p.nameZh }}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="b in hero.buildings" :key="b.id">
-                  <td class="py-1.5 pl-2 pr-3 rounded-lg bg-gray-50 dark:bg-gray-800/60 whitespace-nowrap">
-                    <span class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">{{ b.nameZh }}</span>
-                    <span class="font-mono text-xs text-gray-400 dark:text-gray-500 ml-2">{{ b.cost }}矿 · +{{ b.income }}/趟</span>
-                  </td>
-                  <td v-for="p in hero.probes" :key="p.id"
-                    class="text-center rounded-lg bg-gray-50/60 dark:bg-gray-800/40">
-                    <div class="font-mono text-sm" :class="roiCellClass(b, p, hero.probes)">{{ harvestRoi(b, p) }}</div>
-                    <div class="font-mono text-[0.65rem] text-gray-400 dark:text-gray-500">{{ harvestPerSec(b, p).toFixed(0) }}/s</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
-              投资比 =（矿区造价 + 探机造价）÷ 每秒采集量（买“1 矿/秒”持续收入的总投入，越低越划算）；下方小字为该组合每秒采集量。
-              假设探机采集运回一趟基准 <b class="font-mono">0.1s</b>，实际每趟 = 0.1 × 探机耗时倍率。矿区最高 +16，无 +32。
-              真实速率还受探机往返距离（地图布局）影响，此处为统一基准下的横向对比。
-            </p>
-          </div>
-
-          <!-- 探机参数 -->
-          <div>
-            <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
-              采集探机 · 造价与参数
-            </div>
-            <div class="grid gap-2 sm:grid-cols-2">
-              <div v-for="p in hero.probes" :key="p.id"
-                class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-baseline gap-2">
-                    <span class="text-sm font-semibold text-gray-800 dark:text-gray-100">{{ p.nameZh }}</span>
-                    <span class="font-mono text-xs font-bold text-survivor-600 dark:text-survivor-400">{{ p.efficiency }}</span>
-                  </div>
-                  <div class="font-mono text-[0.7rem] text-gray-400 dark:text-gray-500 mt-0.5">
-                    采矿{{ p.mineTime }}s · 单趟量×{{ p.amountMult }}
-                  </div>
-                </div>
-                <div class="font-mono text-xs text-gray-600 dark:text-gray-300 shrink-0 text-right">
-                  <span v-if="p.cost">{{ p.cost }}矿</span><span v-if="p.cost && p.gasCost"> </span><span v-if="p.gasCost" class="text-green-600 dark:text-green-400">{{ p.gasCost }}气</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 挂件型经济（坦克）：建筑 × 挂件 回本/投资比矩阵 -->
-        <div v-if="hero.addonEconomy" class="overflow-x-auto -mx-5 px-5">
-          <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
-            挂件矩阵 · 经济建筑 × 挂件（投资比越低越划算）
-          </div>
-          <table class="w-full text-sm min-w-[560px] border-separate border-spacing-1">
-            <thead>
-              <tr>
-                <th class="text-left text-xs font-medium text-gray-500 dark:text-gray-400 pb-1 pl-1">建筑 \ 挂件</th>
-                <th v-for="col in addonCols" :key="col.key" class="text-center text-xs font-medium text-gray-600 dark:text-gray-300 pb-1">
-                  {{ col.label }}
-                  <span v-if="col.cost" class="block font-mono text-[0.6rem] text-gray-400 dark:text-gray-500 font-normal">+{{ col.cost }}矿<template v-if="col.gasCost">+{{ col.gasCost }}g</template></span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="b in hero.buildings" :key="b.id">
-                <td class="py-1.5 pl-2 pr-3 rounded-lg bg-gray-50 dark:bg-gray-800/60 whitespace-nowrap">
-                  <span class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">{{ b.nameZh }}</span>
-                  <span class="font-mono text-xs text-gray-400 dark:text-gray-500 ml-2">{{ b.cost }}矿 · {{ b.income }}/{{ b.incomePeriod }}s</span>
-                </td>
-                <td v-for="col in addonCols" :key="col.key"
-                  class="text-center rounded-lg bg-gray-50/60 dark:bg-gray-800/40">
-                  <div class="font-mono text-sm" :class="addonRoiCellClass(b, col)">{{ addonRoi(b, col) }}矿</div>
-                  <div class="font-mono text-[0.65rem] text-gray-400 dark:text-gray-500">
-                    {{ addonPerSec(b, col).toFixed(2) }}/s · {{ formatTime(addonPayback(b, col)) }}
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
-            每个经济建筑限挂一个挂件（科技实验室 / 反应堆，二选一）。
-            投资比 =（建筑造价 + 挂件造价）÷ 每秒产矿（买"1 矿/秒"持续收入的总投入，越低越划算，仅计晶矿）；
-            小字为每秒产矿与回本时间。挂件气体消耗见表头。
-          </p>
-        </div>
-
-        <!-- 装填型经济（阿瑞斯）：矿区容器 + 工人产矿，货舱格数受限 -->
-        <div v-if="hero.minerEconomy" class="space-y-4">
-          <!-- 矿区容器 -->
-          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-survivor-50/60 dark:bg-survivor-900/10 border border-survivor-100 dark:border-survivor-900/30">
-            <div class="flex-1 min-w-0">
-              <div class="flex items-baseline gap-2 flex-wrap">
-                <span class="text-sm font-semibold text-survivor-700 dark:text-survivor-300">{{ hero.outpost.nameZh }}</span>
-                <span class="font-mono text-xs font-bold text-survivor-600 dark:text-survivor-400">货舱 {{ hero.outpost.cargoSpace }} 格</span>
-                <span v-if="hero.outpost.cargoUpgrade" class="font-mono text-[0.65rem] text-emerald-600 dark:text-emerald-400">升级后 {{ hero.outpost.cargoUpgrade.cargoSpace }} 格</span>
-              </div>
-              <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">{{ hero.outpost.notes }}</div>
-              <div v-if="hero.outpost.cargoUpgrade" class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">
-                <span class="text-emerald-600 dark:text-emerald-400">{{ hero.outpost.cargoUpgrade.nameZh }}</span>：货舱扩至 {{ hero.outpost.cargoUpgrade.cargoSpace }} 格 ·
-                {{ hero.outpost.cargoUpgrade.cost }}矿<template v-if="hero.outpost.cargoUpgrade.gasCost">+{{ hero.outpost.cargoUpgrade.gasCost }}气</template> · 研究 {{ hero.outpost.cargoUpgrade.researchTime }}s
-              </div>
-            </div>
-            <div class="font-mono text-xs text-gray-600 dark:text-gray-300 shrink-0 text-right">
-              {{ hero.outpost.cost }}矿<template v-if="hero.outpost.gasCost">+{{ hero.outpost.gasCost }}g</template>
-              <span class="block text-[0.65rem] text-gray-400">建造 {{ hero.outpost.buildTime }}s</span>
-            </div>
-          </div>
-
-          <!-- 工人对比表 -->
-          <div class="overflow-x-auto -mx-5 px-5">
-            <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
-              工人 · 产矿与货舱效率
-            </div>
-            <table class="w-full text-sm min-w-[560px]">
-              <thead>
-                <tr class="text-left text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700/60">
-                  <th class="font-medium pb-2">工人</th>
-                  <th class="text-right font-medium pb-2 pr-1">产矿</th>
-                  <th class="text-right font-medium pb-2 pr-1">每秒</th>
-                  <th class="text-right font-medium pb-2 pr-1">造价</th>
-                  <th class="text-right font-medium pb-2 pr-1">占格</th>
-                  <th class="text-right font-medium pb-2 pr-1">每格效率</th>
-                  <th class="text-right font-medium pb-2 pr-1">回本</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-50 dark:divide-gray-800/60">
-                <tr v-for="m in hero.miners" :key="m.id">
-                  <td class="py-2 font-medium text-gray-800 dark:text-gray-100">{{ m.nameZh }}</td>
-                  <td class="py-2 pr-1 text-right font-mono text-gray-600 dark:text-gray-300">+{{ m.income }}/{{ m.incomePeriod }}s</td>
-                  <td class="py-2 pr-1 text-right font-mono text-gray-600 dark:text-gray-300">{{ minerPerSec(m).toFixed(2) }}</td>
-                  <td class="py-2 pr-1 text-right font-mono">
-                    {{ m.cost }}<span v-if="m.gasCost" class="text-green-600 dark:text-green-500">+{{ m.gasCost }}g</span>
-                  </td>
-                  <td class="py-2 pr-1 text-right font-mono text-gray-500 dark:text-gray-400">{{ m.cargoSize }}</td>
-                  <td class="py-2 pr-1 text-right font-mono font-semibold" :class="minerPerSpaceCellClass(m, hero.miners)">{{ minerPerSpace(m).toFixed(2) }}/s</td>
-                  <td class="py-2 pr-1 text-right font-mono text-gray-600 dark:text-gray-300">{{ formatTime(minerPayback(m)) }}</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
-              工人装入矿区后按其等级周期性产矿。<b>每格效率</b> = 每秒产矿 ÷ 占格数 ——矿区货舱有限，故它才是真正的优化指标：等级越高越省格（H 级为 A 级的 10 倍）。
-              三档工人的<b>矿物回本</b>都恰好 100 秒，差别只在货舱效率与气体消耗。
-              满编方案：{{ hero.outpost.cargoSpace }} 格塞 1 名 H 级 + 1 名 B 级 = <b class="font-mono text-survivor-600 dark:text-survivor-400">12 矿/秒</b>；升级到 {{ hero.outpost.cargoUpgrade?.cargoSpace }} 格后可塞 2 名 H 级 = <b class="font-mono text-emerald-600 dark:text-emerald-400">20 矿/秒</b>（单矿区上限）。
-            </p>
-          </div>
-
-          <!-- 工人通道 -->
-          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
-            <div class="flex-1 min-w-0">
-              <div class="text-sm font-semibold text-gray-800 dark:text-gray-100">{{ hero.tunnel.nameZh }}</div>
-              <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">{{ hero.tunnel.notes }}</div>
-            </div>
-            <div class="font-mono text-xs text-gray-600 dark:text-gray-300 shrink-0 text-right">
-              {{ hero.tunnel.cost }}矿<template v-if="hero.tunnel.gasCost">+{{ hero.tunnel.gasCost }}g</template>
-              <span class="block text-[0.65rem] text-gray-400">建造 {{ hero.tunnel.buildTime }}s</span>
-            </div>
-          </div>
-        </div>
+    <!-- 工具条：搜索 + 一键展开/收起 -->
+    <div class="flex flex-col sm:flex-row gap-2 sm:items-center mb-4">
+      <div class="relative flex-1 min-w-[180px]">
+        <svg class="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input v-model="search" type="text" placeholder="搜索英雄 / 经济类型…"
+          class="w-full border border-surface-200 dark:border-gray-600 rounded-lg pl-8 pr-3 py-1.5 text-sm bg-surface-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-survivor-200 dark:focus:ring-survivor-800 transition" />
+      </div>
+      <div class="flex gap-2">
+        <button type="button" @click="expandAll"
+          class="px-3 py-1.5 text-sm rounded-lg border border-surface-200 dark:border-gray-600 bg-surface-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-surface-100 dark:hover:bg-gray-600 transition">
+          全部展开
+        </button>
+        <button type="button" @click="collapseAll"
+          class="px-3 py-1.5 text-sm rounded-lg border border-surface-200 dark:border-gray-600 bg-surface-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-surface-100 dark:hover:bg-gray-600 transition">
+          全部收起
+        </button>
       </div>
     </div>
 
-    <!-- 技术员：独特的转化型经济（独立结构，不套用上方收入表） -->
-    <TechnicianEconomy />
+    <!-- 手风琴 -->
+    <div class="space-y-3">
+      <div v-for="hero in filtered" :key="hero.hero" :id="slug(hero.hero)" class="wiki-card overflow-hidden stagger-item">
+        <button type="button" @click="toggle(hero.hero)"
+          class="w-full flex items-center gap-3 p-4 text-left hover:bg-surface-50 dark:hover:bg-gray-700/30 transition-colors">
+          <img v-if="hero.roleId >= 0" :src="`/icons/${String(hero.roleId).padStart(2, '0')}.png`"
+            class="w-9 h-9 rounded-lg shadow-sm shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-semibold text-gray-900 dark:text-gray-100">{{ hero.nameZh }}</span>
+              <span class="inline-flex items-center text-[0.65rem] px-1.5 py-0.5 rounded font-medium" :class="badgeClass(hero.type)">
+                {{ hero.typeLabel }}
+              </span>
+            </div>
+            <div class="text-xs text-gray-400 dark:text-gray-500">{{ hero.hero }}</div>
+          </div>
+          <div class="hidden sm:block text-xs font-mono text-gray-500 dark:text-gray-400 text-right shrink-0">
+            {{ hero.headline }}
+          </div>
+          <svg class="w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200" :class="{ 'rotate-180': isOpen(hero.hero) }"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
 
-    <!-- 灵魂：独特的金融/投资型经济（银行/股市/赌场/水晶球运气） -->
-    <SpiritEconomy />
+        <div v-if="isOpen(hero.hero)" class="px-5 pb-5 border-t border-surface-200 dark:border-gray-700">
+          <div class="pt-4">
+            <NuxtLink v-if="hero.roleId >= 0" :to="`/classes/${hero.roleId}`"
+              class="inline-block mb-3 text-xs text-survivor-600 dark:text-survivor-400 hover:underline">
+              查看 {{ hero.nameZh }} 完整职业详情 →
+            </NuxtLink>
+            <HeroEconomy :name="hero.hero" />
+          </div>
+        </div>
+      </div>
+
+      <p v-if="!filtered.length" class="text-center text-gray-500 dark:text-gray-400 py-8">
+        没有匹配的英雄
+      </p>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import econData from '~/data/economy.json'
+const { allEconomyHeroes } = useEconomyData()
+const route = useRoute()
 
-const { classes } = useClassData()
+// 经济类型徽章配色（全静态 class，避免 Tailwind purge 丢失）
+const TYPE_BADGE: Record<string, string> = {
+  generic: 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+  harvest: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
+  addon: 'bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300',
+  miner: 'bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300',
+  technician: 'bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
+  spirit: 'bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300',
+}
+function badgeClass(type: string) {
+  return TYPE_BADGE[type] || TYPE_BADGE.generic
+}
 
-const econHeroes = computed(() => {
-  return (econData as any[]).map((hero: any) => {
-    const role = classes.find(c => c.nameEn === hero.hero || c.nameZh === hero.hero)
-    return {
-      ...hero,
-      roleId: role?.id ?? -1,
-      nameZh: role?.nameZh || hero.hero,
-    }
-  }).sort((a: any, b: any) => a.hero.localeCompare(b.hero))
+const search = ref('')
+const filtered = computed(() => {
+  const q = search.value.trim().toLowerCase()
+  if (!q) return allEconomyHeroes.value
+  return allEconomyHeroes.value.filter(h =>
+    h.hero.toLowerCase().includes(q) ||
+    (h.nameZh && h.nameZh.toLowerCase().includes(q)) ||
+    (h.typeLabel && h.typeLabel.toLowerCase().includes(q)),
+  )
 })
 
-function heroChronos(hero: any): any[] {
-  if (!hero.chrono) return []
-  return Array.isArray(hero.chrono) ? hero.chrono : [hero.chrono]
+// 折叠状态（reassign new Set 触发响应式）
+const openSet = ref<Set<string>>(new Set())
+function isOpen(key: string) {
+  return openSet.value.has(key)
+}
+function toggle(key: string) {
+  const s = new Set(openSet.value)
+  s.has(key) ? s.delete(key) : s.add(key)
+  openSet.value = s
+}
+function expandAll() {
+  openSet.value = new Set(filtered.value.map(h => h.hero))
+}
+function collapseAll() {
+  openSet.value = new Set()
 }
 
-function chronoCostLabel(chrono: any) {
-  if (chrono.gasCost) return `${chrono.gasCost} 气体/次`
-  if (chrono.energyCost > 0) return `${chrono.energyCost} 能量`
-  return '无'
+function slug(name: string) {
+  return name.toLowerCase().replace(/\s+/g, '-')
 }
 
-function incomePerSec(b: any) {
-  if (!b.income || !b.incomePeriod) return null
-  const ips = b.income / b.incomePeriod
-  return `${ips % 1 === 0 ? ips : ips.toFixed(2)}/s`
-}
-
-function roi(b: any) {
-  if (!b.income || !b.incomePeriod || b.cost == null) return null
-  const ips = b.income / b.incomePeriod
-  const totalCost = b.cost + (b.gasCost || 0)
-  const costPer1ps = Math.round(totalCost / ips)
-  return `${costPer1ps}矿`
-}
-
-function paybackTime(b: any) {
-  if (!b.income || !b.cost || !b.incomePeriod) return null
-  const incomePerSec = b.income / b.incomePeriod
-  const seconds = Math.round(b.cost / incomePerSec)
-  return formatTime(seconds)
-}
-
-function paybackTimeBoosted(b: any, chrono: any) {
-  if (!b.income || !b.cost || !b.incomePeriod || !chrono) return null
-  const incomePerSec = (b.income / b.incomePeriod) * chrono.timeScale
-  const seconds = Math.round(b.cost / incomePerSec)
-  return formatTime(seconds)
-}
-
-function formatTime(seconds: number) {
-  if (seconds >= 60) {
-    const m = Math.floor(seconds / 60)
-    const s = seconds % 60
-    return s > 0 ? `${m}m${s}s` : `${m}m`
-  }
-  return `${seconds}s`
-}
-
-// —— 塞兰迪斯采集经济 ——
-// 一趟 = 采矿 + 运输往返。
-//   采矿耗时 = 探机各自的固定采矿时间（游戏实测：普通2.5s / 高级·专家·普罗比斯1.5s）
-//   运输往返 = 0.1s（完成采矿到运回基地）
-//   每秒采集 = 矿区单趟量 × 单趟量倍率 ÷ 一趟总时长
-const TRIP_TRANSPORT = 0.1  // 运输往返(s)
-
-function tripTime(probe: any) {
-  return (probe.mineTime || 0) + TRIP_TRANSPORT
-}
-function harvestPerSec(field: any, probe: any) {
-  return (field.income * probe.amountMult) / tripTime(probe)
-}
-// 投资比 = (矿区造价 + 探机造价 + 探机气耗) ÷ 每秒采集量
-// 含探机成本：要达到该采集速率，矿区和探机都得买（气矿按现有页面惯例直接相加）
-function harvestRoi(field: any, probe: any) {
-  const ips = harvestPerSec(field, probe)
-  if (!ips) return null
-  const totalCost = field.cost + (probe.cost || 0) + (probe.gasCost || 0)
-  return Math.round(totalCost / ips)
-}
-// 着色：同一矿区行内，投资比越低越“绿”，越高越“暗”
-function roiCellClass(field: any, probe: any, probes: any[]) {
-  const vals = probes.map(p => harvestRoi(field, p) as number)
-  const min = Math.min(...vals), max = Math.max(...vals)
-  const v = harvestRoi(field, probe) as number
-  if (max === min) return 'text-survivor-600 dark:text-survivor-400'
-  const t = (v - min) / (max - min) // 0=最划算
-  if (t < 0.34) return 'text-emerald-600 dark:text-emerald-400 font-semibold'
-  if (t < 0.67) return 'text-survivor-600 dark:text-survivor-400'
-  return 'text-gray-400 dark:text-gray-500'
-}
-
-// —— 坦克挂件经济 ——
-// 三档：无挂件(×1,0矿) / 科技实验室(×1.5,+20矿+5气) / 反应堆(×2,+200矿+10气)。
-// 每秒产矿 = 基础income × 倍率 ÷ 周期(3s)；
-// 投资比/回本 = (建筑造价 + 挂件造价) ÷ 每秒产矿（仅计晶矿，与通用表 roi 口径一致）。
-const addonCols = [
-  { key: 'none', label: '无挂件', multiplier: 1, cost: 0, gasCost: 0 },
-  { key: 'tech', label: '科技实验室 ×1.5', multiplier: 1.5, cost: 20, gasCost: 5 },
-  { key: 'reactor', label: '反应堆 ×2', multiplier: 2, cost: 200, gasCost: 10 },
-]
-function addonPerSec(b: any, col: any) {
-  if (!b.income || !b.incomePeriod) return 0
-  return (b.income * col.multiplier) / b.incomePeriod
-}
-function addonRoi(b: any, col: any) {
-  const ips = addonPerSec(b, col)
-  if (!ips) return null
-  return Math.round((b.cost + col.cost) / ips)
-}
-function addonPayback(b: any, col: any) {
-  const ips = addonPerSec(b, col)
-  if (!ips) return 0
-  return Math.round((b.cost + col.cost) / ips)
-}
-// 着色：同一建筑行内，投资比越低越“绿”
-function addonRoiCellClass(b: any, col: any) {
-  const vals = addonCols.map(c => addonRoi(b, c) as number)
-  const min = Math.min(...vals), max = Math.max(...vals)
-  const v = addonRoi(b, col) as number
-  if (max === min) return 'text-survivor-600 dark:text-survivor-400'
-  const t = (v - min) / (max - min)
-  if (t < 0.34) return 'text-emerald-600 dark:text-emerald-400 font-semibold'
-  if (t < 0.67) return 'text-survivor-600 dark:text-survivor-400'
-  return 'text-gray-400 dark:text-gray-500'
-}
-
-// —— 阿瑞斯装填经济 ——
-// 工人装入矿区后周期性产矿；矿区货舱仅 6 格，工人按体型占格，
-// 故“每格效率”（每秒产矿 ÷ 占格）才是真正的优化指标。三档工人矿物回本均为 100s。
-function minerPerSec(m: any) {
-  if (!m.income || !m.incomePeriod) return 0
-  return m.income / m.incomePeriod
-}
-function minerPerSpace(m: any) {
-  if (!m.cargoSize) return 0
-  return minerPerSec(m) / m.cargoSize
-}
-function minerPayback(m: any) {
-  const ips = minerPerSec(m)
-  if (!ips || m.cost == null) return 0
-  return Math.round(m.cost / ips)
-}
-// 着色：每格效率越高越“绿”
-function minerPerSpaceCellClass(m: any, miners: any[]) {
-  const vals = miners.map(x => minerPerSpace(x))
-  const min = Math.min(...vals), max = Math.max(...vals)
-  const v = minerPerSpace(m)
-  if (max === min) return 'text-survivor-600 dark:text-survivor-400'
-  const t = (v - min) / (max - min) // 1=最高效
-  if (t > 0.66) return 'text-emerald-600 dark:text-emerald-400'
-  if (t > 0.33) return 'text-survivor-600 dark:text-survivor-400'
-  return 'text-gray-400 dark:text-gray-500'
-}
+// 深链：/economy#ares 自动展开并滚动到该英雄
+onMounted(() => {
+  const h = route.hash?.replace('#', '')
+  if (!h) return
+  const hero = allEconomyHeroes.value.find(x => slug(x.hero) === h)
+  if (!hero) return
+  const s = new Set(openSet.value)
+  s.add(hero.hero)
+  openSet.value = s
+  nextTick(() => {
+    document.getElementById(slug(hero.hero))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+})
 </script>
