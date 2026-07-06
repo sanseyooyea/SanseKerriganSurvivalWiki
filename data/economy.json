@@ -1243,5 +1243,53 @@
       "buildTime": 10,
       "notes": "运输工人到其他工人通道，快速转移矿工。若所有通道被摧毁，货舱中的单位将死亡。"
     }
+  },
+  {
+    "hero": "Helios",
+    "incomeModel": "赫利俄斯（神族主题）提供全游戏最安全的经济：所有部队都「链接」到生产建筑——单位阵亡后建筑可重新生产它，而建筑被摧毁则链接的单位也随之死亡。经济由三档被动产矿建筑构成（每 4 秒产一次矿）：保护者（+1）、圣徒（+10）、海文（+75），均由折跃传送（HeliosTrain）产出、无数量上限。每座建筑都能自行施放「时空加速」（时间流速 ×1.5，永久生效）加快产矿，气耗随建筑递增：保护者 1 气、圣徒 6 气、海文 50 气。圣徒在折跃加速状态下还可用于建造科技/生产建筑。赫利俄斯无等级系统（属性成长型）。",
+    "chrono": {
+      "timeScale": 1.5,
+      "gasCost": "1/6/50",
+      "duration": "permanent",
+      "name": "时空加速"
+    },
+    "buildings": [
+      {
+        "id": "HeliosPreserver",
+        "nameZh": "保护者",
+        "income": 1,
+        "incomePeriod": 4,
+        "cost": 75,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "+1 矿/4s。折跃产出，无上限。可施放时空加速（1 气，×1.5 永久）。"
+      },
+      {
+        "id": "HeliosPriest",
+        "nameZh": "圣徒",
+        "income": 10,
+        "incomePeriod": 4,
+        "cost": 500,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 10,
+        "notes": "+10 矿/4s。折跃产出。可施放时空加速（6 气，×1.5 永久）；加速状态下还能建造科技/生产建筑。"
+      },
+      {
+        "id": "HeliosHaven",
+        "nameZh": "海文",
+        "income": 75,
+        "incomePeriod": 4,
+        "cost": 3000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 40,
+        "notes": "+75 矿/4s，最高档产矿建筑。折跃产出。可施放时空加速（50 气，×1.5 永久）。"
+      }
+    ]
   }
 ]
