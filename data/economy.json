@@ -1036,5 +1036,101 @@
       "duration": "permanent",
       "name": "时空加速"
     }
+  },
+  {
+    "hero": "Ascendant",
+    "incomeModel": "晋升者通过「方尖碑」被动产矿：每座方尖碑每 3 秒产出固定晶矿，可从 +1 逐级形态升级到 +2/+4/+8/+16/+32（每次升级耗时 5 秒）。所有方尖碑需「水晶塔」供能才能运作。方尖碑可消耗高能瓦斯施放「时空加速」（时间流速 ×1.75，永久生效）以加快产矿；瓦斯主要靠「虚空光子炮台」击杀敌人积累（每击杀获得瓦斯赏金，最多叠 10 层）。",
+    "chrono": {
+      "timeScale": 1.75,
+      "gasCost": 5,
+      "duration": "permanent",
+      "name": "时空加速"
+    },
+    "buildings": [
+      {
+        "id": "AscendantObelisk",
+        "nameZh": "方尖碑 +1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "AscendantObelisk2",
+        "notes": "基础收入建筑，直接建造（5秒）。每 3 秒 +1 晶矿。需水晶塔供能。可拆除回收（CommonSalvage），可施放时空加速。",
+        "gasCost": 0
+      },
+      {
+        "id": "AscendantObelisk2",
+        "nameZh": "方尖碑 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "AscendantObelisk4",
+        "notes": "由方尖碑 +1 形态升级而来（5秒）。每 3 秒 +2 晶矿。",
+        "gasCost": 0
+      },
+      {
+        "id": "AscendantObelisk4",
+        "nameZh": "方尖碑 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 350,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "AscendantObelisk8",
+        "notes": "由方尖碑 +2 形态升级而来（5秒）。每 3 秒 +4 晶矿。",
+        "gasCost": 0
+      },
+      {
+        "id": "AscendantObelisk8",
+        "nameZh": "方尖碑 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 800,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "AscendantObelisk16",
+        "notes": "由方尖碑 +4 形态升级而来（5秒）。每 3 秒 +8 晶矿。",
+        "gasCost": 0
+      },
+      {
+        "id": "AscendantObelisk16",
+        "nameZh": "方尖碑 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 2000,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "AscendantObelisk32",
+        "notes": "由方尖碑 +8 形态升级而来（5秒）。每 3 秒 +16 晶矿。",
+        "gasCost": 0
+      },
+      {
+        "id": "AscendantObelisk32",
+        "nameZh": "方尖碑 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 5000,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "顶级收入建筑，由方尖碑 +16 形态升级而来（5秒）。每 3 秒 +32 晶矿。",
+        "gasCost": 0
+      },
+      {
+        "id": "AscendantVoidCannon",
+        "nameZh": "虚空光子炮台",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 25,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": null,
+        "notes": "防御兼瓦斯来源：光子炮台，击杀敌人积累瓦斯赏金（最多叠 10 层）。瓦斯用于施放时空加速（5 气/次）加速方尖碑产矿。",
+        "gasCost": 0
+      }
+    ]
   }
 ]
