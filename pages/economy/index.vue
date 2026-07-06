@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div v-if="!hero.harvestEconomy && !hero.addonEconomy" class="overflow-x-auto -mx-5 px-5">
+        <div v-if="!hero.harvestEconomy && !hero.addonEconomy && !hero.minerEconomy" class="overflow-x-auto -mx-5 px-5">
           <table class="w-full text-sm min-w-[560px]">
             <thead>
               <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
@@ -182,6 +182,79 @@
             小字为每秒产矿与回本时间。挂件气体消耗见表头。
           </p>
         </div>
+
+        <!-- 装填型经济（阿瑞斯）：矿区容器 + 工人产矿，货舱格数受限 -->
+        <div v-if="hero.minerEconomy" class="space-y-4">
+          <!-- 矿区容器 -->
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-survivor-50/60 dark:bg-survivor-900/10 border border-survivor-100 dark:border-survivor-900/30">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-baseline gap-2 flex-wrap">
+                <span class="text-sm font-semibold text-survivor-700 dark:text-survivor-300">{{ hero.outpost.nameZh }}</span>
+                <span class="font-mono text-xs font-bold text-survivor-600 dark:text-survivor-400">货舱 {{ hero.outpost.cargoSpace }} 格</span>
+                <span v-if="hero.outpost.cargoUpgrade" class="font-mono text-[0.65rem] text-emerald-600 dark:text-emerald-400">升级后 {{ hero.outpost.cargoUpgrade.cargoSpace }} 格</span>
+              </div>
+              <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">{{ hero.outpost.notes }}</div>
+              <div v-if="hero.outpost.cargoUpgrade" class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">
+                <span class="text-emerald-600 dark:text-emerald-400">{{ hero.outpost.cargoUpgrade.nameZh }}</span>：货舱扩至 {{ hero.outpost.cargoUpgrade.cargoSpace }} 格 ·
+                {{ hero.outpost.cargoUpgrade.cost }}矿<template v-if="hero.outpost.cargoUpgrade.gasCost">+{{ hero.outpost.cargoUpgrade.gasCost }}气</template> · 研究 {{ hero.outpost.cargoUpgrade.researchTime }}s
+              </div>
+            </div>
+            <div class="font-mono text-xs text-gray-600 dark:text-gray-300 shrink-0 text-right">
+              {{ hero.outpost.cost }}矿<template v-if="hero.outpost.gasCost">+{{ hero.outpost.gasCost }}g</template>
+              <span class="block text-[0.65rem] text-gray-400">建造 {{ hero.outpost.buildTime }}s</span>
+            </div>
+          </div>
+
+          <!-- 工人对比表 -->
+          <div class="overflow-x-auto -mx-5 px-5">
+            <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
+              工人 · 产矿与货舱效率
+            </div>
+            <table class="w-full text-sm min-w-[560px]">
+              <thead>
+                <tr class="text-left text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700/60">
+                  <th class="font-medium pb-2">工人</th>
+                  <th class="text-right font-medium pb-2 pr-1">产矿</th>
+                  <th class="text-right font-medium pb-2 pr-1">每秒</th>
+                  <th class="text-right font-medium pb-2 pr-1">造价</th>
+                  <th class="text-right font-medium pb-2 pr-1">占格</th>
+                  <th class="text-right font-medium pb-2 pr-1">每格效率</th>
+                  <th class="text-right font-medium pb-2 pr-1">回本</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-50 dark:divide-gray-800/60">
+                <tr v-for="m in hero.miners" :key="m.id">
+                  <td class="py-2 font-medium text-gray-800 dark:text-gray-100">{{ m.nameZh }}</td>
+                  <td class="py-2 pr-1 text-right font-mono text-gray-600 dark:text-gray-300">+{{ m.income }}/{{ m.incomePeriod }}s</td>
+                  <td class="py-2 pr-1 text-right font-mono text-gray-600 dark:text-gray-300">{{ minerPerSec(m).toFixed(2) }}</td>
+                  <td class="py-2 pr-1 text-right font-mono">
+                    {{ m.cost }}<span v-if="m.gasCost" class="text-green-600 dark:text-green-500">+{{ m.gasCost }}g</span>
+                  </td>
+                  <td class="py-2 pr-1 text-right font-mono text-gray-500 dark:text-gray-400">{{ m.cargoSize }}</td>
+                  <td class="py-2 pr-1 text-right font-mono font-semibold" :class="minerPerSpaceCellClass(m, hero.miners)">{{ minerPerSpace(m).toFixed(2) }}/s</td>
+                  <td class="py-2 pr-1 text-right font-mono text-gray-600 dark:text-gray-300">{{ formatTime(minerPayback(m)) }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
+              工人装入矿区后按其等级周期性产矿。<b>每格效率</b> = 每秒产矿 ÷ 占格数 ——矿区货舱有限，故它才是真正的优化指标：等级越高越省格（H 级为 A 级的 10 倍）。
+              三档工人的<b>矿物回本</b>都恰好 100 秒，差别只在货舱效率与气体消耗。
+              满编方案：{{ hero.outpost.cargoSpace }} 格塞 1 名 H 级 + 1 名 B 级 = <b class="font-mono text-survivor-600 dark:text-survivor-400">12 矿/秒</b>；升级到 {{ hero.outpost.cargoUpgrade?.cargoSpace }} 格后可塞 2 名 H 级 = <b class="font-mono text-emerald-600 dark:text-emerald-400">20 矿/秒</b>（单矿区上限）。
+            </p>
+          </div>
+
+          <!-- 工人通道 -->
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
+            <div class="flex-1 min-w-0">
+              <div class="text-sm font-semibold text-gray-800 dark:text-gray-100">{{ hero.tunnel.nameZh }}</div>
+              <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">{{ hero.tunnel.notes }}</div>
+            </div>
+            <div class="font-mono text-xs text-gray-600 dark:text-gray-300 shrink-0 text-right">
+              {{ hero.tunnel.cost }}矿<template v-if="hero.tunnel.gasCost">+{{ hero.tunnel.gasCost }}g</template>
+              <span class="block text-[0.65rem] text-gray-400">建造 {{ hero.tunnel.buildTime }}s</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -322,6 +395,34 @@ function addonRoiCellClass(b: any, col: any) {
   const t = (v - min) / (max - min)
   if (t < 0.34) return 'text-emerald-600 dark:text-emerald-400 font-semibold'
   if (t < 0.67) return 'text-survivor-600 dark:text-survivor-400'
+  return 'text-gray-400 dark:text-gray-500'
+}
+
+// —— 阿瑞斯装填经济 ——
+// 工人装入矿区后周期性产矿；矿区货舱仅 6 格，工人按体型占格，
+// 故“每格效率”（每秒产矿 ÷ 占格）才是真正的优化指标。三档工人矿物回本均为 100s。
+function minerPerSec(m: any) {
+  if (!m.income || !m.incomePeriod) return 0
+  return m.income / m.incomePeriod
+}
+function minerPerSpace(m: any) {
+  if (!m.cargoSize) return 0
+  return minerPerSec(m) / m.cargoSize
+}
+function minerPayback(m: any) {
+  const ips = minerPerSec(m)
+  if (!ips || m.cost == null) return 0
+  return Math.round(m.cost / ips)
+}
+// 着色：每格效率越高越“绿”
+function minerPerSpaceCellClass(m: any, miners: any[]) {
+  const vals = miners.map(x => minerPerSpace(x))
+  const min = Math.min(...vals), max = Math.max(...vals)
+  const v = minerPerSpace(m)
+  if (max === min) return 'text-survivor-600 dark:text-survivor-400'
+  const t = (v - min) / (max - min) // 1=最高效
+  if (t > 0.66) return 'text-emerald-600 dark:text-emerald-400'
+  if (t > 0.33) return 'text-survivor-600 dark:text-survivor-400'
   return 'text-gray-400 dark:text-gray-500'
 }
 </script>
