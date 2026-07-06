@@ -1132,5 +1132,53 @@
         "gasCost": 0
       }
     ]
+  },
+  {
+    "hero": "Engineer",
+    "incomeModel": "工程师使用可升空的泰伦生产建筑经济：重工厂 / 星港 / 科学工厂在训练兵种的同时被动产矿（落地时每 4 秒产一次，见下表）。这些建筑可「升空」飞行躲避危险，但升空后产矿速度降为 1/3（改为每 12 秒才产一次），落地即恢复。每座生产建筑都能施放「时空加速」（时间流速 ×1.5，永久生效）加快产矿，气耗随建筑递增：重工厂 3 气、星港 10 气、科学工厂 30 气。所有建筑由 SCV（10 矿）建造。",
+    "chrono": {
+      "timeScale": 1.5,
+      "gasCost": "3/10/30",
+      "duration": "permanent",
+      "name": "时空加速"
+    },
+    "buildings": [
+      {
+        "id": "EngineerFactory",
+        "nameZh": "重工厂",
+        "income": 2,
+        "incomePeriod": 4,
+        "cost": 100,
+        "buildTime": 10,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "落地 +2 矿/4s；升空飞行时降为 +2 矿/12s（1/3 速度）。训练机械兵种。可施放时空加速（3 气，×1.5 永久）。"
+      },
+      {
+        "id": "EngineerStarport",
+        "nameZh": "星港",
+        "income": 10,
+        "incomePeriod": 4,
+        "cost": 400,
+        "buildTime": 15,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 5,
+        "notes": "落地 +10 矿/4s；升空飞行时降为 +10 矿/12s（1/3 速度）。训练空军。可施放时空加速（10 气，×1.5 永久）。"
+      },
+      {
+        "id": "EngineerScienceFacility",
+        "nameZh": "科学工厂",
+        "income": 25,
+        "incomePeriod": 4,
+        "cost": 1000,
+        "buildTime": 15,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 15,
+        "notes": "落地 +25 矿/4s；升空飞行时降为 +25 矿/12s（1/3 速度）。最高级生产建筑。可施放时空加速（30 气，×1.5 永久）。"
+      }
+    ]
   }
 ]
