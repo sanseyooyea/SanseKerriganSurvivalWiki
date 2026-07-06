@@ -1,6 +1,6 @@
 # 凯瑞甘生存2 Wiki
 
-星际争霸2自定义地图「凯瑞甘生存2」的社区Wiki，提供职业数据、技能、兵种、经济系统查询，以及玩家MMR/积分查询。
+星际争霸2自定义地图「凯瑞甘生存2」的社区Wiki，提供职业数据、技能、兵种、经济系统查询，英雄胜率/平衡性统计，以及玩家MMR/积分/等效MMR查询。
 
 **线上地址**: https://wiki.ks2.top
 
@@ -47,7 +47,7 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 - 按阵营（凯瑞甘/生存者）和分类（猎手/建造者/辅助/防御者）筛选
 
 ### 经济系统 `/economy`
-- 常规英雄的经济建筑数据：收入/每秒效率/建造费用（晶矿+气体）/回本时间/加速回本
+- 常规英雄（9 位，含斯托科夫）的经济建筑数据：收入/每秒效率/建造费用（晶矿+气体）/回本时间/加速回本
 - 投资回报比（每1矿/秒收入的成本）
 - 经济加速机制（时间加速倍率、消耗、持续时间）
 - **技术员**：独特的转化型经济（击杀得气 → 转化工厂放大），专属展示组件
@@ -76,6 +76,11 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 - 点赞、管理员标记处理进度（待处理/已采纳/已完成/不采纳）+ 回复
 - 用户可查看提案进度，全员公开可见
 
+### 英雄胜率 · 平衡性 `/balance`
+- **英雄胜率榜**：按已核实的官方口径离线自算的全局英雄胜率，支持时间段（日粒度）与国服/外服筛选
+- **跨版本走势**（`/balance/trends`）：英雄胜率随版本变化的曲线 + 版本 Meta（上下场率/使用率）标签页
+- 数据来自**生产库转储离线预计算**（`data/balance.json` / `data/meta-history.json`，见「对局统计数据管线」），运行时零外部依赖
+
 ### 玩家查询 `/lookup`
 - MMR段位查询（游客可用）
 - Lucy积分查询
@@ -89,6 +94,8 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 
 ### 玩家详情 `/player/[handle]`
 - 完整玩家数据展示
+- **最近对局等效 MMR**（played_like）：玩家每局打出的等效水平，可按主力角色定位筛选（来自 `data/stats.db`）
+- **MMR 历史趋势**（mmr_history）
 - 分享图片生成（含角色娘化立绘）
 - HTTPS环境复制到剪贴板，HTTP降级为下载PNG
 
@@ -114,21 +121,25 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   ├── council/           # 钻石议会（提案投票）
 │   ├── changelog/         # 更新日志
 │   ├── feedback/          # 建议反馈
+│   ├── balance/           # 英雄胜率·平衡性（胜率榜 + 跨版本走势/Meta）
 │   ├── player/            # 玩家详情 + 分享图
 │   └── economy/           # 经济系统
 ├── components/            # Vue组件
-├── composables/           # 组合式函数
+├── composables/           # 组合式函数（useBalanceData / useMetaHistory 等）
 ├── server/api/            # 服务端API
 │   ├── auth/              # 认证（登录/注册/用户信息）
 │   ├── admin/             # 管理接口
 │   ├── classes/           # 职业数据API
 │   ├── wiki/              # Wiki文章API
 │   ├── feedback/          # 建议反馈API（列表/提交/点赞/管理）
-│   ├── mmr.get.ts         # MMR数据
+│   ├── mmr.get.ts         # MMR数据（代理 194823.xyz）
+│   ├── mmr_history.get.ts # MMR历史趋势（读 data/stats.db）
+│   ├── played_like.get.ts # 最近对局等效MMR（读 data/stats.db）
 │   ├── credits.get.ts     # 积分数据
 │   ├── leaderboard.get.ts # 天梯排行榜（代理 194823.xyz）
 │   ├── council.get.ts     # 钻石议会（代理 + 中文 merge）
 │   ├── patchnotes.get.ts  # 更新日志（代理 194823.xyz）
+│   ├── track.post.ts      # 访问埋点
 │   └── comments.ts        # 评论管理
 ├── data/                  # 静态数据 + SQLite数据库
 │   ├── seed/              # 人工维护的策划数据（数据刷新的唯一真源）
@@ -143,14 +154,21 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   ├── technician-economy.json  # 技术员专属转化经济（人工维护）
 │   ├── spirit-economy.json # 灵魂专属金融经济：银行/股市/赌场/水晶球（从地图脚本核实）
 │   ├── veterancy.json     # 军衔成长数据（由 build_veterancy 生成）
-│   └── wiki.db            # SQLite数据库
+│   ├── balance.json       # 英雄/阵营胜率（由 build_balance 从生产库转储生成）
+│   ├── meta-history.json  # 跨版本 Meta 走势（由 build_meta 生成）
+│   ├── stats.db           # 对局统计只读库：played_like / mmr_history（由 build_stats_db 生成）
+│   └── wiki.db            # SQLite数据库（用户/文章/评论/反馈，运行时写入）
 ├── public/
 │   ├── avatars/           # 48个角色娘化立绘 (1024x1024)
 │   └── icons/             # 角色图标 (64x64)
 ├── scripts/               # 数据提取/刷新脚本（一键 build_all.py，见下方"数据刷新流程"）
 ├── docs/                  # 文档
 │   ├── API.md             # API文档
-│   └── DEPLOY.md          # 部署指南
+│   ├── DEPLOY.md          # 部署指南
+│   ├── STATS_PIPELINE.md  # 对局统计数据管线（胜率/played_like）
+│   ├── AUTO_FETCH.md      # 生产库转储自动拉取
+│   ├── DATA_MAINTENANCE.md# 数据维护员指南（在线编辑）
+│   └── ROLES.md           # 角色与权限
 ├── Dockerfile             # Docker构建 (node:22)
 ├── docker-compose.yml     # Docker编排（端口8080:3000）
 └── pack.sh                # 打包脚本
@@ -162,6 +180,8 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 |------|------|
 | 职业/技能/兵种/军衔 | `data/seed/` 策划数据 + SC2Map 提取（`scripts/build_all.py`，已脱离 BankEditor） |
 | 经济 | `data/economy.json`（常规英雄，人工维护）；技术员 `technician-economy.json`、灵魂 `spirit-economy.json`（灵魂数据从 SC2Map 的 Galaxy 脚本核实） |
+| 英雄胜率 / 平衡 | `data/balance.json` + `data/meta-history.json`（从官方生产库转储离线预计算，见「对局统计数据管线」） |
+| 等效MMR / MMR历史 | `data/stats.db`（played_like / mmr_history，从生产库转储生成） |
 | MMR数据 | 194823.xyz/api/player |
 | 积分数据 | 194823.xyz/api/credits |
 | 天梯排行榜 | 194823.xyz/api/leaderboard |
@@ -205,6 +225,25 @@ python scripts/build_all.py
 完成后用 `npm run build` 验证（期望 EXIT 0）。**若有 dev 服务器在跑**，构建会因 Nuxt dev 锁报 "Another Nuxt dev is already running"。优先用 `NUXT_IGNORE_LOCK=1 npm run build` 让构建与 dev 并存（无需停服务器）；或 git-bash 下 `taskkill //PID <n> //F`（双斜杠）停掉它。
 
 > 注：地图里约 15 个技能（如 PrimalSlash、核打击）确实无中文，保留英文显示；部分施法英雄无普攻武器，故无攻击属性，均属正常。技能总数 191（旧版 221，少的 30 个为建造/训练/加点等非战斗菜单按钮，无英雄引用）。
+
+## 对局统计数据管线（胜率 / 等效MMR）
+
+除了上面「地图 + seed」那条管线，Wiki 还有**第二条独立数据管线**，专门产出对局统计（英雄胜率、`played_like` 等效MMR、跨版本 Meta）。官方统计后端（代号 **Lucy**）只对外开放了少量网关端点，全局/聚合胜率与 `played_like` 历史并不暴露，因此这些数据改为**从官方生产库转储离线预计算**成静态文件，随仓库/部署包发布，运行时零外部依赖。
+
+- 数据源：`pg_dump` 转储（`*.sql.gz`，~283MB，**不入库**，由维护者私下保管）。
+- 胜率**必须照官方口径算**（去重 `balance_*` 表、`outcome IN (0,1)`、分英雄按 `roles.team == outcome` 判胜），否则与官方对不上。
+
+拿到新转储后手动运行（**不并入 `build_all.py`**）：
+
+```bash
+python scripts/build_balance.py    # → data/balance.json（英雄/阵营胜率）
+python scripts/build_stats_db.py   # → data/stats.db（played_like / mmr_history）
+python scripts/build_meta.py       # → data/meta-history.json（跨版本 Meta 走势）
+```
+
+两个纯标准库脚本流式解析 `pg_dump` 的 `COPY ... FROM stdin` 块，内存聚合，无需 Postgres。转储的自动拉取（Google Drive → 重建 → 提交）由 `scripts/fetch_dump.py` + Windows 计划任务 `KS2WikiFetchDump` 处理（需本地代理访问 Google）。
+
+详见 [docs/STATS_PIPELINE.md](docs/STATS_PIPELINE.md)（口径与脚本）与 [docs/AUTO_FETCH.md](docs/AUTO_FETCH.md)（自动拉取）。
 
 ## 部署
 
