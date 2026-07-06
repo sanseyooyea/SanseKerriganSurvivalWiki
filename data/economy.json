@@ -1180,5 +1180,68 @@
         "notes": "落地 +25 矿/4s；升空飞行时不产矿（需落地）。最高级生产建筑。可施放时空加速（30 气，×1.5 永久）。"
       }
     ]
+  },
+  {
+    "hero": "Ares",
+    "minerEconomy": true,
+    "incomeModel": "阿瑞斯是飞行英雄，靠「矿区」+「工人」发展经济，是全游戏最快的经济之一。先建造矿区（25 矿，10 秒），再训练工人并把工人装入矿区——每装入一名工人，矿区就按其等级周期性产矿。矿区货舱初始 6 格，可研究「升级采矿扩展」（2500 矿+15 气）扩大到 8 格。工人按体型占格（A 级 1 格 / B 级 2 格 / H 级 4 格）：6 格时最多塞 1 名 H 级+1 名 B 级（12 矿/秒）；升到 8 格后可塞 2 名 H 级，单矿区上限达 20 矿/秒。工人等级越高、单位货舱格产矿越多，因此后期用 H 级工人塞满矿区效率最高。矿区无法回收且难以隐藏，是阿瑞斯的弱点。另有「工人通道」（100 矿+1 气）可在多座通道间快速转移工人。阿瑞斯没有经济加速能力（其急速推进/超空间跳跃为机动技能）。",
+    "outpost": {
+      "id": "AresMiningOutpost",
+      "nameZh": "矿区",
+      "cost": 25,
+      "gasCost": 0,
+      "buildTime": 10,
+      "cargoSpace": 6,
+      "notes": "货舱 6 格，装入工人产矿。无法回收、难隐藏。",
+      "cargoSpaceUpgraded": 8,
+      "cargoUpgrade": {
+        "id": "AresMiningExpansion",
+        "nameZh": "升级采矿扩展",
+        "cost": 2500,
+        "gasCost": 15,
+        "researchTime": 10,
+        "cargoSpace": 8
+      }
+    },
+    "miners": [
+      {
+        "id": "AresClassA",
+        "nameZh": "A 级工人",
+        "income": 1,
+        "incomePeriod": 4,
+        "cost": 25,
+        "gasCost": 0,
+        "cargoSize": 1,
+        "trainTime": 1
+      },
+      {
+        "id": "ClassB",
+        "nameZh": "B 级工人",
+        "income": 10,
+        "incomePeriod": 5,
+        "cost": 200,
+        "gasCost": 3,
+        "cargoSize": 2,
+        "trainTime": 3
+      },
+      {
+        "id": "ClassH",
+        "nameZh": "H 级工人",
+        "income": 50,
+        "incomePeriod": 5,
+        "cost": 1000,
+        "gasCost": 15,
+        "cargoSize": 4,
+        "trainTime": 10
+      }
+    ],
+    "tunnel": {
+      "id": "AresWorkerTunnel",
+      "nameZh": "工人通道",
+      "cost": 100,
+      "gasCost": 1,
+      "buildTime": 10,
+      "notes": "运输工人到其他工人通道，快速转移矿工。若所有通道被摧毁，货舱中的单位将死亡。"
+    }
   }
 ]
