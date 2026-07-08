@@ -28,7 +28,14 @@ _CA = _cat.get('Abil', {})
 def _factory_costs():
     """从地图提取各档工厂造价，杜绝硬编码（教训：CONTRIBUTING「别硬编码」）。
     BUILD = 工厂单位从零建造价 CUnit.CostResource；
-    UPGRADE = 升级链 CAbil TechnicianUpgradeToTransmutationFactory<N>.Cost.Resource。"""
+    UPGRADE = 升级 morph 花费。
+
+    升级是 CAbilMorph。旧版把 Cost.Resource 硬编码成「高档−低档」建造差价
+    （如 +1→+2 = 150−50 = 100）；新版(2026-07-09)删掉了显式 Cost.Resource，
+    改由引擎按 morph 的「目标单位造价 − 当前单位造价」自动扣费。因此当显式
+    Cost.Resource 缺失时，回退到建造差价 build[t] − build[prev]（两版结果一致，
+    且保持「直接造 == 逐级升上来」总价相等的自洽经济）。免费升级会破坏经济
+    （+1 造25 一路升到 +128 仅25），故不能取 0。"""
     build, upgrade = {}, {}
     for t in TIERS:
         uc = L.num(_CU.get(f'TechnicianTransmutationFactory{t}', {}).get('CostResource'))
@@ -37,6 +44,13 @@ def _factory_costs():
         ac = L.num(_CA.get(f'TechnicianUpgradeToTransmutationFactory{t}', {}).get('Cost.Resource'))
         if ac is not None:
             upgrade[t] = ac
+    # 回退：显式升级花费缺失时，用建造差价（引擎实际扣费口径）。
+    for i, t in enumerate(TIERS):
+        if i == 0:
+            continue  # +1 直接建造，无升级来源
+        prev = TIERS[i - 1]
+        if upgrade.get(t) is None and build.get(t) is not None and build.get(prev) is not None:
+            upgrade[t] = build[t] - build[prev]
     return build, upgrade
 
 
