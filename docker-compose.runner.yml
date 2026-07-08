@@ -13,3 +13,11 @@ services:
     environment:
       - NODE_ENV=production
       - JWT_SECRET=${JWT_SECRET:?需要在环境中设置 JWT_SECRET}
+    # 2G 无 swap 机器兜底：单容器内存上限，防止一个容器把整机拖死
+    mem_limit: 768m
+    # 日志轮转，防止 json 日志无上限撑爆磁盘
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
