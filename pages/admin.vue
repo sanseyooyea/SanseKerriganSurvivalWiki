@@ -41,7 +41,43 @@
               </select>
             </td>
             <td class="px-4 py-3 text-gray-500 dark:text-gray-400">{{ formatDate(u.created_at) }}</td>
-            <td class="px-4 py-3 text-xs text-gray-400">ID: {{ u.id }}</td>
+            <td class="px-4 py-3 text-xs">
+              <button @click="toggleExpand(u.id)"
+                class="inline-flex items-center gap-1 text-survivor-600 dark:text-survivor-400 hover:underline">
+                管理
+                <svg class="w-3 h-3 transition-transform" :class="{ 'rotate-180': expanded === u.id }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <span class="ml-2 text-gray-300">ID: {{ u.id }}</span>
+            </td>
+          </tr>
+          <tr v-if="expanded === u.id" :key="`panel-${u.id}`">
+            <td colspan="5" class="px-4 py-4 bg-gray-50 dark:bg-gray-800/50">
+              <div class="flex flex-col gap-3 max-w-2xl">
+                <!-- 句柄编辑 -->
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs text-gray-500 dark:text-gray-400 w-16 shrink-0">句柄</span>
+                  <input v-model="u._handleDraft" type="text" placeholder="5-S2-1-1194668"
+                    class="text-xs border border-gray-200 dark:border-gray-600 rounded px-2 py-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 flex-1 min-w-[180px] font-mono" />
+                  <button @click="saveHandle(u)" :disabled="u._busy"
+                    class="text-xs px-3 py-1.5 rounded bg-survivor-500 text-white hover:bg-survivor-600 disabled:opacity-50">保存</button>
+                  <button @click="clearHandle(u)" :disabled="u._busy"
+                    class="text-xs px-3 py-1.5 rounded border border-gray-200 dark:border-gray-600 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50">清空</button>
+                </div>
+                <!-- 重置密码 -->
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs text-gray-500 dark:text-gray-400 w-16 shrink-0">新密码</span>
+                  <input v-model="u._pwDraft" type="text" placeholder="至少 6 位"
+                    class="text-xs border border-gray-200 dark:border-gray-600 rounded px-2 py-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 flex-1 min-w-[180px]" />
+                  <button @click="resetPassword(u)" :disabled="u._busy"
+                    class="text-xs px-3 py-1.5 rounded bg-kerrigan-500 text-white hover:bg-kerrigan-600 disabled:opacity-50">重置密码</button>
+                  <span class="text-[11px] text-gray-400 w-full">重置后该用户已登录的旧会话最长 7 天后失效</span>
+                </div>
+                <!-- 行内反馈 -->
+                <p v-if="u._msg" class="text-xs" :class="u._ok ? 'text-green-600 dark:text-green-400' : 'text-red-500'">{{ u._msg }}</p>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -128,10 +164,25 @@ const tabs = [
 ]
 const tab = ref<'users' | 'stats'>('users')
 
+const expanded = ref<number | null>(null)
+
+function toggleExpand(id: number) {
+  expanded.value = expanded.value === id ? null : id
+}
+
 async function loadUsers() {
   try {
     const res = await $fetch<any>('/api/admin/users', { headers: authHeaders.value })
-    users.value = res.users || res
+    const list = res.users || res
+    // 附加每行的草稿/状态字段
+    users.value = list.map((u: any) => ({
+      ...u,
+      _handleDraft: u.handle || '',
+      _pwDraft: '',
+      _busy: false,
+      _msg: '',
+      _ok: false,
+    }))
   } catch {}
 }
 
@@ -140,10 +191,54 @@ async function changeRole(userId: number, role: string) {
     await $fetch('/api/admin/users', {
       method: 'PATCH',
       headers: authHeaders.value,
-      body: { userId, role },
+      body: { action: 'setRole', userId, role },
     })
     await loadUsers()
   } catch {}
+}
+
+async function runAction(u: any, body: any, okMsg: string) {
+  u._busy = true
+  u._msg = ''
+  try {
+    const res = await $fetch<any>('/api/admin/users', {
+      method: 'PATCH',
+      headers: authHeaders.value,
+      body: { userId: u.id, ...body },
+    })
+    u._ok = true
+    u._msg = res?.note || okMsg
+    return res
+  } catch (e: any) {
+    u._ok = false
+    u._msg = e?.data?.message || e?.statusMessage || '操作失败'
+    return null
+  } finally {
+    u._busy = false
+  }
+}
+
+async function saveHandle(u: any) {
+  const res = await runAction(u, { action: 'setHandle', handle: u._handleDraft }, '句柄已保存')
+  if (res?.success) u.handle = res.handle
+}
+
+async function clearHandle(u: any) {
+  const res = await runAction(u, { action: 'setHandle', handle: '' }, '句柄已清空')
+  if (res?.success) {
+    u.handle = ''
+    u._handleDraft = ''
+  }
+}
+
+async function resetPassword(u: any) {
+  if (!u._pwDraft || u._pwDraft.length < 6) {
+    u._ok = false
+    u._msg = '密码至少 6 位'
+    return
+  }
+  const res = await runAction(u, { action: 'resetPassword', password: u._pwDraft }, '密码已重置')
+  if (res?.success) u._pwDraft = ''
 }
 
 // 流量统计
