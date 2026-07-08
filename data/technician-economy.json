@@ -59,8 +59,8 @@
     "autoCast": true,
     "autoUpgrade": true,
     "autoUpgradeNote": "余矿足够支付「升级费 + 在产工厂转化所需矿」时，工厂自动逐级升档。",
-    "mineralReturnRule": "纯矿回报率固定 +20%（投入N矿 → 1.2N矿，所有档位一致）",
-    "gasReturnRule": "矿气回报率固定 +44%（投入N矿+0.01N气 → 1.44N矿，所有档位一致）",
+    "mineralReturnRule": "纯矿回报率逐档递减：+1 为 +19%，每升一档 -1%，+128 为 +12%",
+    "gasReturnRule": "矿气回报率逐档递减：+1 为 +43%，每升一档 -2%，+128 为 +29%（每点气价值同步从 24 递减到约 17）",
     "paybackNote": "回本时间 = 总成本 ÷ 纯矿每秒净产出；总成本 = 建造费 + 单次投入矿（净产出 = 单次净赚 ÷ 20s 周期）。",
     "factories": [
       {
@@ -70,21 +70,21 @@
         "buildCost": 25,
         "upgradeCost": null,
         "totalCost": 125,
-        "paybackSec": 125,
+        "paybackSec": 132,
         "mineralRecipe": {
           "in": 100,
-          "out": 120,
-          "net": 20,
-          "returnPct": 20.0,
-          "netPerSec": 1.0
+          "out": 119,
+          "net": 19,
+          "returnPct": 19.0,
+          "netPerSec": 0.95
         },
         "gasRecipe": {
           "mineralIn": 100,
           "gasIn": 1,
-          "out": 144,
-          "net": 44,
-          "returnPct": 44.0,
-          "netPerSec": 2.2,
+          "out": 143,
+          "net": 43,
+          "returnPct": 43.0,
+          "netPerSec": 2.15,
           "gasValue": 24.0
         }
       },
@@ -95,22 +95,22 @@
         "buildCost": 50,
         "upgradeCost": 25,
         "totalCost": 250,
-        "paybackSec": 125,
+        "paybackSec": 139,
         "mineralRecipe": {
           "in": 200,
-          "out": 240,
-          "net": 40,
-          "returnPct": 20.0,
-          "netPerSec": 2.0
+          "out": 236,
+          "net": 36,
+          "returnPct": 18.0,
+          "netPerSec": 1.8
         },
         "gasRecipe": {
           "mineralIn": 200,
           "gasIn": 2,
-          "out": 288,
-          "net": 88,
-          "returnPct": 44.0,
-          "netPerSec": 4.4,
-          "gasValue": 24.0
+          "out": 282,
+          "net": 82,
+          "returnPct": 41.0,
+          "netPerSec": 4.1,
+          "gasValue": 23.0
         }
       },
       {
@@ -120,22 +120,22 @@
         "buildCost": 150,
         "upgradeCost": 100,
         "totalCost": 550,
-        "paybackSec": 138,
+        "paybackSec": 162,
         "mineralRecipe": {
           "in": 400,
-          "out": 480,
-          "net": 80,
-          "returnPct": 20.0,
-          "netPerSec": 4.0
+          "out": 468,
+          "net": 68,
+          "returnPct": 17.0,
+          "netPerSec": 3.4
         },
         "gasRecipe": {
           "mineralIn": 400,
           "gasIn": 4,
-          "out": 576,
-          "net": 176,
-          "returnPct": 44.0,
-          "netPerSec": 8.8,
-          "gasValue": 24.0
+          "out": 556,
+          "net": 156,
+          "returnPct": 39.0,
+          "netPerSec": 7.8,
+          "gasValue": 22.0
         }
       },
       {
@@ -145,22 +145,22 @@
         "buildCost": 400,
         "upgradeCost": 250,
         "totalCost": 1200,
-        "paybackSec": 150,
+        "paybackSec": 188,
         "mineralRecipe": {
           "in": 800,
-          "out": 960,
-          "net": 160,
-          "returnPct": 20.0,
-          "netPerSec": 8.0
+          "out": 928,
+          "net": 128,
+          "returnPct": 16.0,
+          "netPerSec": 6.4
         },
         "gasRecipe": {
           "mineralIn": 800,
           "gasIn": 8,
-          "out": 1152,
-          "net": 352,
-          "returnPct": 44.0,
-          "netPerSec": 17.6,
-          "gasValue": 24.0
+          "out": 1096,
+          "net": 296,
+          "returnPct": 37.0,
+          "netPerSec": 14.8,
+          "gasValue": 21.0
         }
       },
       {
@@ -170,22 +170,22 @@
         "buildCost": 1000,
         "upgradeCost": 600,
         "totalCost": 2600,
-        "paybackSec": 162,
+        "paybackSec": 217,
         "mineralRecipe": {
           "in": 1600,
-          "out": 1920,
-          "net": 320,
-          "returnPct": 20.0,
-          "netPerSec": 16.0
+          "out": 1840,
+          "net": 240,
+          "returnPct": 15.0,
+          "netPerSec": 12.0
         },
         "gasRecipe": {
           "mineralIn": 1600,
           "gasIn": 16,
-          "out": 2304,
-          "net": 704,
-          "returnPct": 44.0,
-          "netPerSec": 35.2,
-          "gasValue": 24.0
+          "out": 2160,
+          "net": 560,
+          "returnPct": 35.0,
+          "netPerSec": 28.0,
+          "gasValue": 20.0
         }
       },
       {
@@ -195,22 +195,22 @@
         "buildCost": 2400,
         "upgradeCost": 1400,
         "totalCost": 5600,
-        "paybackSec": 175,
+        "paybackSec": 250,
         "mineralRecipe": {
           "in": 3200,
-          "out": 3840,
-          "net": 640,
-          "returnPct": 20.0,
-          "netPerSec": 32.0
+          "out": 3648,
+          "net": 448,
+          "returnPct": 14.0,
+          "netPerSec": 22.4
         },
         "gasRecipe": {
           "mineralIn": 3200,
           "gasIn": 32,
-          "out": 4608,
-          "net": 1408,
-          "returnPct": 44.0,
-          "netPerSec": 70.4,
-          "gasValue": 24.0
+          "out": 4256,
+          "net": 1056,
+          "returnPct": 33.0,
+          "netPerSec": 52.8,
+          "gasValue": 19.0
         }
       },
       {
@@ -220,22 +220,22 @@
         "buildCost": 5600,
         "upgradeCost": 3200,
         "totalCost": 12000,
-        "paybackSec": 188,
+        "paybackSec": 288,
         "mineralRecipe": {
           "in": 6400,
-          "out": 7680,
-          "net": 1280,
-          "returnPct": 20.0,
-          "netPerSec": 64.0
+          "out": 7232,
+          "net": 832,
+          "returnPct": 13.0,
+          "netPerSec": 41.6
         },
         "gasRecipe": {
           "mineralIn": 6400,
           "gasIn": 64,
-          "out": 9216,
-          "net": 2816,
-          "returnPct": 44.0,
-          "netPerSec": 140.8,
-          "gasValue": 24.0
+          "out": 8384,
+          "net": 1984,
+          "returnPct": 31.0,
+          "netPerSec": 99.2,
+          "gasValue": 18.0
         }
       },
       {
@@ -245,22 +245,22 @@
         "buildCost": 12800,
         "upgradeCost": 7200,
         "totalCost": 25600,
-        "paybackSec": 200,
+        "paybackSec": 333,
         "mineralRecipe": {
           "in": 12800,
-          "out": 15360,
-          "net": 2560,
-          "returnPct": 20.0,
-          "netPerSec": 128.0
+          "out": 14337,
+          "net": 1537,
+          "returnPct": 12.0,
+          "netPerSec": 76.85
         },
         "gasRecipe": {
           "mineralIn": 12800,
           "gasIn": 128,
-          "out": 18432,
-          "net": 5632,
-          "returnPct": 44.0,
-          "netPerSec": 281.6,
-          "gasValue": 24.0
+          "out": 16512,
+          "net": 3712,
+          "returnPct": 29.0,
+          "netPerSec": 185.6,
+          "gasValue": 16.99
         }
       }
     ]

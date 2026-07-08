@@ -137,7 +137,8 @@ import techData from '~/data/technician-economy.json'
 
 const data = techData as any
 
-// 回报率固定色：纯矿青、矿气绿（所有档位回报率统一 +20% / +44%，无梯度）
+// 回报率按类着色：纯矿青、矿气绿。回报率逐档递减（纯矿 +19%→+12%、
+// 矿气 +43%→+29%），数值由 JSON 驱动，颜色只区分两类配方。
 function pctStyle(_pct: number, kind: 'min' | 'gas') {
   const hue = kind === 'min' ? 190 : 152
   return { color: `hsl(${hue} 70% 48%)`, fontWeight: 700 }
