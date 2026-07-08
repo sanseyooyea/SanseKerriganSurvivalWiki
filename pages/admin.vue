@@ -26,7 +26,8 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
-          <tr v-for="u in users" :key="u.id">
+          <template v-for="u in users" :key="u.id">
+          <tr>
             <td class="px-4 py-3 text-gray-900 dark:text-gray-100 font-medium">{{ u.username }}</td>
             <td class="px-4 py-3 text-xs text-gray-500">
               <NuxtLink v-if="u.handle" :to="`/player/${u.handle}`" class="text-survivor-600 hover:underline">{{ u.handle }}</NuxtLink>
@@ -52,7 +53,7 @@
               <span class="ml-2 text-gray-300">ID: {{ u.id }}</span>
             </td>
           </tr>
-          <tr v-if="expanded === u.id" :key="`panel-${u.id}`">
+          <tr v-if="expanded === u.id">
             <td colspan="5" class="px-4 py-4 bg-gray-50 dark:bg-gray-800/50">
               <div class="flex flex-col gap-3 max-w-2xl">
                 <!-- 句柄编辑 -->
@@ -79,6 +80,7 @@
               </div>
             </td>
           </tr>
+          </template>
         </tbody>
       </table>
     </div>
