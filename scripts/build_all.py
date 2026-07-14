@@ -8,7 +8,9 @@ Order:
   4. build_units.py       seed membership + map -> data/units.json
   5. build_veterancy.py   seed (verbatim) -> data/veterancy.json
 
-economy.json is hand-maintained and not touched here.
+economy.json is hand-maintained EXCEPT the "Team Nova" entry, which
+build_nova_economy.py extracts from the map and rewrites in-place (other entries
+untouched). build_technician_economy.py writes its own standalone JSON.
 Icons are stable; run extract_icons.py separately if the map's class icons change.
 
 Usage:  python scripts/build_all.py        (run from the Wiki root)
@@ -27,6 +29,7 @@ STEPS = [
     'build_units.py',
     'build_veterancy.py',
     'build_technician_economy.py',
+    'build_nova_economy.py',
 ]
 
 

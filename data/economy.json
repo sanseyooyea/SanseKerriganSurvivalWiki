@@ -1291,5 +1291,83 @@
         "notes": "+75 矿/4s，最高档产矿建筑。折跃产出。可施放时空加速（50 气，×1.5 永久）。"
       }
     ]
+  },
+  {
+    "hero": "Team Nova",
+    "incomeModel": "诺娃团队是刺客型「双货币」经济：矿由「任务指挥部」直接产出，气则靠精神控制与本体攻击从敌方单位身上榨取，把敌人的造价转化成自己的经济。\n\n【矿 · 任务指挥部】共 +1/+2/+4/+8/+16/+32 六档直接产矿建筑，每 3 秒产出对应档位的晶矿（+1 每 3 秒产 1，+32 每 3 秒产 32），无需 SCV 采集；+8 起额外需要少量气体建造。各档通过升级链逐级 morph（引擎按造价差扣费），并可拆解回收。\n\n【气 · 精神控制 / 攻击】诺娃或托什对敌方单位施放「精神控制」完成时获得气体 = ⌈目标总造价(矿+气) ÷ 5⌉；夺取敌方建筑时封顶为 min(赏金×2, 10) ÷ 2。此外本体攻击击杀敌方单位同样可获得气体。气用于建造高档指挥中心并支撑刺杀 / 支配战术。",
+    "buildings": [
+      {
+        "id": "NovaMissionCommand1",
+        "nameZh": "任务指挥部 +1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "NovaMissionCommand2",
+        "gasCost": 0,
+        "notes": "直接产矿建筑，每 3 秒产出 1 晶矿（≈0.33 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +2」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NovaMissionCommand2",
+        "nameZh": "任务指挥部 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "NovaMissionCommand4",
+        "gasCost": 0,
+        "notes": "直接产矿建筑，每 3 秒产出 2 晶矿（≈0.67 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +4」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NovaMissionCommand4",
+        "nameZh": "任务指挥部 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 300,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "NovaMissionCommand8",
+        "gasCost": 0,
+        "notes": "直接产矿建筑，每 3 秒产出 4 晶矿（≈1.33 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +8」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NovaMissionCommand8",
+        "nameZh": "任务指挥部 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 650,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "NovaMissionCommand16",
+        "gasCost": 2,
+        "notes": "直接产矿建筑，每 3 秒产出 8 晶矿（≈2.67 矿/秒），无需 SCV 采集。建造额外需 2 气。可升级为「任务指挥部 +16」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NovaMissionCommand16",
+        "nameZh": "任务指挥部 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 1600,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "NovaMissionCommand32",
+        "gasCost": 4,
+        "notes": "直接产矿建筑，每 3 秒产出 16 晶矿（≈5.33 矿/秒），无需 SCV 采集。建造额外需 4 气。可升级为「任务指挥部 +32」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NovaMissionCommand32",
+        "nameZh": "任务指挥部 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 4000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 8,
+        "notes": "直接产矿建筑，每 3 秒产出 32 晶矿（≈10.67 矿/秒），无需 SCV 采集。建造额外需 8 气。最高档，无更高升级。可拆解回收(CommonSalvage)。"
+      }
+    ]
   }
 ]
