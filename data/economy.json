@@ -1369,5 +1369,95 @@
         "notes": "直接产矿建筑，每 3 秒产出 32 晶矿（≈10.67 矿/秒），无需 SCV 采集。建造额外需 8 气。最高档，无更高升级。可拆解回收(CommonSalvage)。"
       }
     ]
+  },
+  {
+    "hero": "Nomad",
+    "incomeModel": "游牧民是纯「建筑收入」型经济：所有经济建筑被动直接产矿，无需 SCV 采集，也没有额外的气体获取机制。\n\n【指挥中心链】指挥中心（每 3 秒产 1 矿）可 morph 升级为轨道控制基地（每 3 秒产 2 矿）。\n\n【实验室】分 +4/+8/+16/+32/+64 五档独立建造，每 3 秒产出对应档位的晶矿，档位越高单位矿产出的性价比越好（各级实验室回本均约 150 秒），但高档需要大量气体建造（实验室 +64 需 70 气）。所有产矿建筑均可拆解(CommonSalvage)回收。",
+    "buildings": [
+      {
+        "id": "NomadCommandCenter",
+        "nameZh": "指挥中心",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 100,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "NomadOrbitalCommand",
+        "gasCost": 0,
+        "notes": "直接产矿建筑，每 3 秒产出 1 晶矿（≈0.33 矿/秒），无需 SCV 采集。可升级为「轨道控制基地」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NomadOrbitalCommand",
+        "nameZh": "轨道控制基地",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 1,
+        "notes": "直接产矿建筑，每 3 秒产出 2 晶矿（≈0.67 矿/秒），无需 SCV 采集。建造额外需 1 气。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NomadLaboratory4",
+        "nameZh": "实验室 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 200,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 4,
+        "notes": "直接产矿建筑，每 3 秒产出 4 晶矿（≈1.33 矿/秒），无需 SCV 采集。建造额外需 4 气。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NomadLaboratory8",
+        "nameZh": "实验室 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 400,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 8,
+        "notes": "直接产矿建筑，每 3 秒产出 8 晶矿（≈2.67 矿/秒），无需 SCV 采集。建造额外需 8 气。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NomadLaboratory16",
+        "nameZh": "实验室 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 800,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 18,
+        "notes": "直接产矿建筑，每 3 秒产出 16 晶矿（≈5.33 矿/秒），无需 SCV 采集。建造额外需 18 气。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NomadLaboratory32",
+        "nameZh": "实验室 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 1600,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 38,
+        "notes": "直接产矿建筑，每 3 秒产出 32 晶矿（≈10.67 矿/秒），无需 SCV 采集。建造额外需 38 气。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "NomadLaboratory64",
+        "nameZh": "实验室 +64",
+        "income": 64,
+        "incomePeriod": 3,
+        "cost": 3200,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 70,
+        "notes": "直接产矿建筑，每 3 秒产出 64 晶矿（≈21.33 矿/秒），无需 SCV 采集。建造额外需 70 气。可拆解回收(CommonSalvage)。"
+      }
+    ]
   }
 ]
