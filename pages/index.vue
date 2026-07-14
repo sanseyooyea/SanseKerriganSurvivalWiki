@@ -7,10 +7,16 @@
       <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-survivor-50/40 dark:from-survivor-800/20 to-transparent rounded-full translate-y-1/2 -translate-x-1/3"></div>
 
       <div class="relative text-center max-w-2xl mx-auto">
-        <!-- Role icons marquee -->
-        <div class="flex justify-center gap-2 mb-6 opacity-60">
-          <img v-for="i in heroIcons" :key="i" :src="`/icons/${String(i).padStart(2, '0')}.png`"
-            class="w-9 h-9 rounded-lg shadow-sm" loading="lazy" />
+        <!-- Role icons marquee: 全部职业无缝轮播，进场后随机打乱顺序 -->
+        <div class="marquee-mask mb-6">
+          <div class="marquee-track flex gap-2 w-max">
+            <NuxtLink v-for="(id, i) in iconRow" :key="i" :to="`/classes/${id}`"
+              class="shrink-0 opacity-55 hover:opacity-100 hover:scale-110 transition-all duration-200"
+              :aria-hidden="i >= iconOrder.length" :tabindex="i >= iconOrder.length ? -1 : 0">
+              <img :src="`/icons/${String(id).padStart(2, '0')}.png`" :alt="iconName(id)" :title="iconName(id)"
+                class="w-9 h-9 rounded-lg shadow-sm" loading="lazy" />
+            </NuxtLink>
+          </div>
         </div>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-gray-800 border border-surface-200 dark:border-gray-700 shadow-card text-xs font-medium text-gray-600 dark:text-gray-300 mb-5">
           <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
@@ -108,7 +114,20 @@ const { classes } = useClassData()
 const kerriganCount = computed(() => classes.filter(c => c.team === 'Kerrigan').length)
 const survivorCount = computed(() => classes.filter(c => c.team === 'Survivor').length)
 
-const heroIcons = [1, 5, 9, 13, 17, 21, 25, 33, 37, 41]
+// 英雄图标轮播：全部职业。SSR 用自然顺序，挂载后客户端随机打乱（每次访问不同，且避免 hydration 抖动）
+const iconOrder = ref<number[]>(classes.map(c => c.id))
+// 复制一份拼接，保证 translateX(-50%) 时首尾无缝衔接
+const iconRow = computed(() => [...iconOrder.value, ...iconOrder.value])
+const iconName = (id: number) => classes.find(c => c.id === id)?.nameZh ?? ''
+
+onMounted(() => {
+  const a = [...iconOrder.value]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  iconOrder.value = a
+})
 
 const categories = computed(() => [
   { key: 'Hunter', label: '猎手', count: classes.filter(c => c.category === 'Hunter').length },
@@ -117,3 +136,26 @@ const categories = computed(() => [
   { key: 'Defender', label: '防御者', count: classes.filter(c => c.category === 'Defender').length },
 ])
 </script>
+
+<style scoped>
+/* 两侧渐隐，让轮播融入背景 */
+.marquee-mask {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+/* 轨道含两份图标，位移 -50% 即无缝循环 */
+.marquee-track {
+  animation: marquee 48s linear infinite;
+  will-change: transform;
+}
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+</style>
