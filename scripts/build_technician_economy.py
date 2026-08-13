@@ -63,18 +63,23 @@ def _parse_recipes():
     """从 galaxy 脚本解析真实转化产出（游戏运行时实际发放的矿）。
 
     脚本按投入基数把产出写死为 CeilingI(N * 倍率)，倍率【逐档递减】：
-      纯矿  lv_tRANSMUTIN_MINERALS_<N> = CeilingI(N*1.19..1.12)  → +19%..+12%
-      矿气  lv_tRANSMUTIN_GAS_<N>      = CeilingI(N*1.43..1.29)  → +43%..+29%
+      纯矿  lv_tRANSMUTIN_MINERALS_<N> = CeilingI(N*1.20..1.06)      → +20%..+6%
+      矿气  lv_tRANSMUTIN_GAS_<N>      = CeilingI(N*(1.20..1.06+0.24)) → +44%..+30%
     按钮文本(Button/Name)是显示标签，地图更新后没同步(仍写死 +20%/+44%)，
     故必须以脚本倍率为准。返回 {min_in:(min_in,min_out)} 与
     {min_in:(min_in,gas,gas_out)}；矿气档的气投入 = 投入矿 / 100（=tier）。"""
     import math
 
     def grab(prefix):
+        # 兼容两种倍率写法：纯矿 CeilingI(N*1.20)；矿气(2026-08 起)改为加法表达式
+        # CeilingI(N*(1.20+0.24))——固定 +0.24 气加成叠加逐档递减的基数。旧正则只认
+        # 单浮点 N*mult，遇括号表达式失配 → GAS 全空。改为抓 CeilingI(...) 内整段
+        # 表达式并安全求值（白名单仅数字与算符），两种写法通吃。
         out = {}
-        for m in re.finditer(re.escape(prefix) + r'(\d+)\s*=\s*[^;]*?(\d+)\s*\*\s*([\d.]+)', _GALAXY):
-            n, base, mult = int(m.group(1)), int(m.group(2)), float(m.group(3))
-            out[n] = math.ceil(base * mult)
+        for m in re.finditer(re.escape(prefix) + r'(\d+)\s*=\s*CeilingI\(([^;]+)\)\s*;', _GALAXY):
+            n, expr = int(m.group(1)), m.group(2)
+            if re.fullmatch(r'[\d.+\-*/() ]+', expr):
+                out[n] = math.ceil(eval(expr))
         return out
 
     min_out = grab('lv_tRANSMUTIN_MINERALS_')
@@ -168,8 +173,8 @@ data = {
         "autoCast": True,
         "autoUpgrade": True,
         "autoUpgradeNote": "余矿足够支付「升级费 + 在产工厂转化所需矿」时，工厂自动逐级升档。",
-        "mineralReturnRule": "纯矿回报率逐档递减：+1 为 +19%，每升一档 -1%，+128 为 +12%",
-        "gasReturnRule": "矿气回报率逐档递减：+1 为 +43%，每升一档 -2%，+128 为 +29%（每点气价值同步从 24 递减到约 17）",
+        "mineralReturnRule": "纯矿回报率逐档递减：+1 为 +20%，每升一档 -2%，+128 为 +6%",
+        "gasReturnRule": "矿气回报率逐档递减：+1 为 +44%，每升一档 -2%，+128 为 +30%（每点气价值恒定 24）",
         "paybackNote": "回本时间 = 总成本 ÷ 纯矿每秒净产出；总成本 = 建造费 + 单次投入矿（净产出 = 单次净赚 ÷ 20s 周期）。",
         "factories": factories
     },
@@ -197,7 +202,7 @@ data = {
         "economyRelation": ("加速提升塔的开火节奏 → 单位时间击杀更多 → 出气更快 → "
                             "转化更多矿。加速直接决定整套经济引擎的转速。")
     },
-    "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-06-11)"
+    "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-08-14)"
 }
 
 with open('data/technician-economy.json', 'w', encoding='utf-8') as f:
