@@ -1651,5 +1651,89 @@
       "duration": "permanent",
       "gasCost": 3
     }
+  },
+  {
+    "hero": "Scion",
+    "incomeModel": "赛恩是「建筑收入 + 星灵折跃加速（手动）」型经济：唯一的经济建筑是『星灵枢纽』，被动直接产矿、无需 SCV 采集，也没有英雄独有的产气建筑。（与监管者同款结构。）\n\n【星灵枢纽升级链】只能建造星灵枢纽 +1（75 矿），随后沿 +1→+2→+4→+8→+16→+32 单线升级，不能跨级直建；升级按「目标造价 − 当前造价」扣费。每档每 3 秒产出等于档位数的晶矿（星灵枢纽 +32 = 每 3 秒 32 矿）。枢纽建造只花晶矿、不需气体。\n\n【星灵折跃加速】每座枢纽都带一个手动主动技能（花 5 气 + 1 充能，用后即锁、无法重复施放），对该枢纽施加**永久** +75% 运作速度（TimeScale ×1.75），产矿节奏随之加快约 75%——即「加速回本」列所示的回本时间。是否施放由玩家按气体是否充裕决定；因是可选操作，故头条产矿数字仍按未加速计，加速效果单列展示。\n\n气体主要通过全局机制（如通用击杀奖励）获得，而非本英雄的专属产气建筑。所有枢纽均可拆解(CommonSalvage)回收。",
+    "buildings": [
+      {
+        "id": "ScionNexus1",
+        "nameZh": "星灵枢纽 +1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "ScionNexus2",
+        "gasCost": 0,
+        "notes": "唯一可直接建造的星灵枢纽。每 3s 产出 1 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +2」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "ScionNexus2",
+        "nameZh": "星灵枢纽 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "ScionNexus4",
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 2 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +4」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "ScionNexus4",
+        "nameZh": "星灵枢纽 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 350,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "ScionNexus8",
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 4 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +8」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "ScionNexus8",
+        "nameZh": "星灵枢纽 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 800,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "ScionNexus16",
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +16」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "ScionNexus16",
+        "nameZh": "星灵枢纽 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 2000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "ScionNexus32",
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +32」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "ScionNexus32",
+        "nameZh": "星灵枢纽 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 5000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可拆解回收(CommonSalvage)。"
+      }
+    ],
+    "chrono": {
+      "name": "星灵折跃加速",
+      "timeScale": 1.75,
+      "duration": "permanent",
+      "gasCost": 5
+    }
   }
 ]
