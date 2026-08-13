@@ -1783,5 +1783,65 @@
       "duration": "permanent",
       "costLabel": "水晶碎片 1 气 / 闪亮水晶塔 4 气 / 先古遗迹 10 气（随建筑档位）"
     }
+  },
+  {
+    "hero": "Rattlesnake",
+    "incomeModel": "响尾蛇是「SCV 建造 + 升级链产矿建筑 + 能量折跃加速（限时可重复）」型经济：由 SCV（15 矿）建造经济建筑，唯一经济建筑是『核心星站』，被动直接产矿、无需采集，也没有英雄专属的产气建筑。\n\n【核心星站升级链】SCV 只能直接建造核心星站 +4（200 矿），随后沿 +4→+8→+16→+32 单线升级，不能跨级直建；升级按「目标造价 − 当前造价」扣费。每档每 3 秒产出等于档位数的晶矿（核心星站 +32 = 每 3 秒 32 矿）。注意本英雄从 +4 起步，没有 +1/+2 小档。\n\n【能量折跃加速——限时爆发，非永久】每座星站都带一个主动技能，消耗建筑**自身 100 能量**（不是气体）对自身施加**限时 15 秒**的 +100% 运作速度（TimeScale ×2），加速期间产矿翻倍；有 15 秒冷却、随建筑能量回复可反复施放（另可用 1 气升级能量回复，最多 14 次）。与监管者/赛恩/冠军的永久加速不同，这是限时爆发，因此下表「加速回本」列表示的是**加速生效期间**的最优回本，并非长期稳态值。\n\n气体主要通过全局机制（如通用击杀奖励）获得，而非本英雄的专属产气建筑。所有星站均可拆解(CommonSalvage)回收。",
+    "buildings": [
+      {
+        "id": "RattlesnakeDominionStarport4",
+        "nameZh": "核心星站 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 200,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "RattlesnakeDominionStarport8",
+        "gasCost": 0,
+        "notes": "由 SCV(15 矿)直接建造的入门级核心星站。每 3s 产出 4 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可升级为「核心星站 +8」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "RattlesnakeDominionStarport8",
+        "nameZh": "核心星站 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 500,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "RattlesnakeDominionStarport16",
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可升级为「核心星站 +16」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "RattlesnakeDominionStarport16",
+        "nameZh": "核心星站 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 1300,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "RattlesnakeDominionStarport32",
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可升级为「核心星站+32」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "RattlesnakeDominionStarport32",
+        "nameZh": "核心星站+32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 3300,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可拆解回收(CommonSalvage)。"
+      }
+    ],
+    "chrono": {
+      "name": "能量折跃加速",
+      "timeScale": 2,
+      "duration": 15,
+      "energyCost": 100
+    }
   }
 ]
