@@ -82,7 +82,7 @@
   "SpiritCloneSpirit": {
     "nameZh": "分裂灵魂",
     "nameEn": "Clone Spirit",
-    "tooltip": "召唤一个拥有灵魂全部能力的黑暗灵魂分身。分身与灵魂共享命运：任一死亡，则两者皆亡。\n\n两道阴影，同一灵魂。"
+    "tooltip": "召唤一个拥有灵魂全部技能的黑暗灵魂，使灵魂获得第二条命，并解锁大型凯达林巨石。\n\n只能购买一次。只要任意一个灵魂存活，灵魂就不会死亡。"
   },
   "SpiritDeflect": {
     "nameZh": "偏折",
@@ -242,12 +242,12 @@
   "DehakaScorchingBreath": {
     "nameZh": "烈焰吐息",
     "nameEn": "Scorching Breath",
-    "tooltip": "灼烧地面，对路径上的所有敌方地面单位造成伤害。<n/><c val=\"FF0000\">不影响建筑。</c><n/><c val=\"ff6161\">伤害：</c><c val=\"ff6161\" validator=\"ScorchingBreathLevel1\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel2\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel3\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel4\"></c>（每级+10%）<n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"ScorchingBreathLevel1\">45秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel2\">35秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel3\">25秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel4\">20秒</c><n/><c val=\"BB77FF\">能量消耗：</c><c val=\"BB77FF\" validator=\"ScorchingBreathLevel1\">50</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel2\">45</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel3\">40</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel4\">35</c><n/><c val=\"FFFF00\">范围：</c> <c val=\"BB77FF\" validator=\"ScorchingBreathLevel1\">5</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel2\">6</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel3\">7</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel4\">8</c>"
+    "tooltip": "灼烧地面，对路径上的所有敌方地面单位造成伤害。<n/><c val=\"FF0000\">不影响建筑。</c><n/><c val=\"ff6161\">伤害：</c><c val=\"ff6161\" validator=\"ScorchingBreathLevel1\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel2\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel3\"></c>|<c val=\"ff6161\" validator=\"ScorchingBreathLevel4\"></c>（每级+10%）<n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"ScorchingBreathLevel1\">45秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel2\">35秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel3\">25秒</c>|<c val=\"FFFF00\" validator=\"ScorchingBreathLevel4\">20秒</c><n/><c val=\"BB77FF\">能量消耗：</c><c val=\"BB77FF\" validator=\"ScorchingBreathLevel1\">40</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel2\">35</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel3\">30</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel4\">25</c><n/><c val=\"FFFF00\">范围：</c> <c val=\"BB77FF\" validator=\"ScorchingBreathLevel1\">5</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel2\">6</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel3\">7</c>|<c val=\"BB77FF\" validator=\"ScorchingBreathLevel4\">8</c>"
   },
   "ThakrasDarkSwarm": {
     "nameZh": "黑暗虫群",
     "nameEn": "Dark Swarm",
-    "tooltip": "制造一股黑暗虫群生物云，保护其中的友方单位免于伤害.<n/><c val=\"FF0000\">无法减免近战武器以及溅射伤害</c><n/><c val=\"FFFFFF\">85% 概率免受远程以及法术伤害<n/><c val=\"FFFFFF\">持续时间: 10s</c></c><n/><c val=\"FFFF00\">冷却: </c><c val=\"FFFF00\" validator=\"DarkSwarmLevel1\">30s</c>|<c val=\"FFFF00\" validator=\"DarkSwarmLevel2\">25s</c>|<c val=\"FFFF00\" validator=\"DarkSwarmLevel3\">20s</c>|<c val=\"FFFF00\" validator=\"DarkSwarmLevel4\">15s</c><n/><c val=\"BB77FF\">能量消耗: 50</c><n/><c val=\"FFFF00\">范围: 6</c>"
+    "tooltip": "制造一大片黑暗虫群云雾，保护其中的友方和敌方单位免受远程攻击与法术伤害，伤害降低85%。<n/><c val=\"FF0000\">无法防御近战攻击</c><n/><c val=\"FFFFFF\">除近战外的所有伤害降低85%<n/><c val=\"FFFFFF\">持续时间：10秒</c></c><n/><c val=\"FFFF00\">冷却时间：</c><c val=\"FFFF00\" validator=\"DarkSwarmLevel1\">30秒</c>|<c val=\"FFFF00\" validator=\"DarkSwarmLevel2\">25秒</c>|<c val=\"FFFF00\" validator=\"DarkSwarmLevel3\">20秒</c>|<c val=\"FFFF00\" validator=\"DarkSwarmLevel4\">15秒</c><n/><c val=\"BB77FF\">能量消耗：50</c><n/><c val=\"FFFF00\">半径：6</c>"
   },
   "ThakrasPlague": {
     "nameZh": "瘟疫",
@@ -277,7 +277,7 @@
   "SwannSupercharge": {
     "nameZh": "超级过载",
     "nameEn": "Supercharge",
-    "tooltip": "加速一个非英雄友方单位或建筑。<n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15秒</c><n/><c val=\"90EE90\">时空效果</c>: <c val=\"90EE90\">50%</c>"
+    "tooltip": "加速一个非英雄友方单位或建筑。<n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15秒</c><n/><c val=\"90EE90\">时空效果</c>: <c val=\"90EE90\">50%</c><n/><c val=\"ff6161\">增益结束后，必须等待 30 秒才能再次对同一目标施放。</c>"
   },
   "WardenWhirlwind": {
     "nameZh": "闪电旋风劈",
@@ -382,7 +382,7 @@
   "ScionLifeExchange": {
     "nameZh": "生命分流",
     "nameEn": "Life Exchange",
-    "tooltip": "以生命为代价恢复能量。<n/><c val=\"00FF7F\">生命消耗</c>: <c val=\"00FF7F\">40%</c>|<c val=\"00FF7F\">35%</c>|<c val=\"00FF7F\">30%</c>|<c val=\"00FF7F\">25%</c><n/><c val=\"8FC7FF\">恢复能量</c>: <c val=\"8FC7FF\">30%</c>|<c val=\"8FC7FF\">35%</c>|<c val=\"8FC7FF\">40%</c>|<c val=\"8FC7FF\">45%</c><n/><c val=\"FFD700\">最强大的魔法需要最大的牺牲。</c>"
+    "tooltip": "以生命为代价恢复能量。<n/><c val=\"00FF7F\">生命消耗</c>: <c val=\"00FF7F\">40%</c>|<c val=\"00FF7F\">35%</c>|<c val=\"00FF7F\">30%</c>|<c val=\"00FF7F\">25%</c><n/><c val=\"8FC7FF\">恢复能量</c>: <c val=\"8FC7FF\">35%</c>|<c val=\"8FC7FF\">40%</c>|<c val=\"8FC7FF\">45%</c>|<c val=\"8FC7FF\">50%</c><n/><c val=\"FFD700\">最强大的魔法需要最大的牺牲。</c>"
   },
   "ScionInspiration": {
     "nameZh": "时空光环",
@@ -392,7 +392,7 @@
   "ScionForceField": {
     "nameZh": "力场",
     "nameEn": "Force Field",
-    "tooltip": "创建一个阻挡单位的力场。<n/><c val=\"FF6B6B\">向虫族供应气体</c><n/><c val=\"FF6B6B\">气体供应</c>: <c val=\"FF6B6B\">3</c>|<c val=\"FF6B6B\">4</c>|<c val=\"FF6B6B\">5</c>|<c val=\"FF6B6B\">5</c><n/><c val=\"00FF7F\">力场生命值</c>: |||<n/><c val=\"E6E6E6\">充能</c>: <c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c>|<c val=\"E6E6E6\">5</c><n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">7秒</c><n/><c val=\"8FC7FF\">能量消耗: 35</c>"
+    "tooltip": "创建一道阻挡单位的力场。<n/><c val=\"FF6B6B\">向虫族提供瓦斯</c><n/><c val=\"FF6B6B\">瓦斯供给</c>：<c val=\"FF6B6B\">3</c>|<c val=\"FF6B6B\">4</c>|<c val=\"FF6B6B\">5</c>|<c val=\"FF6B6B\">5</c><n/><c val=\"00FF7F\">力场生命值</c>：|||<n/><c val=\"E6E6E6\">充能次数</c>：<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c>|<c val=\"E6E6E6\">5</c><n/><c val=\"90EE90\">充能冷却时间</c>：<c val=\"90EE90\">30秒</c>|<c val=\"90EE90\">25秒</c>|<c val=\"90EE90\">20秒</c>|<c val=\"90EE90\">15秒</c><n/><c val=\"E6E6E6\">持续时间</c>：<c val=\"E6E6E6\">7秒</c><n/><c val=\"8FC7FF\">能量消耗：35</c>"
   },
   "ScionPsiStorm": {
     "nameZh": "灵能风暴",
@@ -407,7 +407,7 @@
   "Accelerate": {
     "nameZh": "加速",
     "nameEn": "Accelerate",
-    "tooltip": "加速技术员所有指定建筑的运作速度。<n/>对单位的效果仅为 1/4。<n/>对盟友的效果仅为 1/4。<n/>加速量: 400%<n/>持续时间: 10s<n/>冷却时间: 120s/105s/90s/75s/60s<n/>半径: 2/3/4/5/6"
+    "tooltip": "使技术员选中的所有建筑运作得更快。<n/>对单位的效果只有1/4。<n/>对盟友的效果只有1/4。<n/>加速幅度：25%<n/>持续时间：秒<n/>冷却时间：秒/秒/秒/秒/秒<n/>半径：2/3/4/5/6"
   },
   "PersonalCloakingTechnician": {
     "nameZh": "脱色",
@@ -428,6 +428,11 @@
     "nameZh": "隐形立场",
     "nameEn": "Cloaking Field",
     "tooltip": "技术员制造一个隐形立场，隐形在立场内的单位3s。\n\n半径: ////\n持续时间: [?]s/[?]s/[?]s/[?]s/[?]s\n消耗: [?]/[?]/[?]/[?]/[?] 能量\n冷却: [?]s/[?]s/[?]s/[?]s/[?]s"
+  },
+  "SlowSell": {
+    "nameZh": "快速回收",
+    "nameEn": "SlowSell",
+    "tooltip": "在7秒内回收目标建筑，返还其建造成本的80%，包括转化工厂中正在转化的资源。\n\n传送门和科技军械库仅返还默认成本"
   },
   "WarfieldStickyBomb": {
     "nameZh": "粘性炸弹",
@@ -462,7 +467,7 @@
   "Firestorm": {
     "nameZh": "火焰风暴",
     "nameEn": "Firestorm",
-    "tooltip": "在目标地点放置一个对半径 1.7 内的敌人造成持续伤害的火焰风暴。<n/>对建筑造成双倍伤害。<n/>火焰风暴朝元素使移动方向的反方向移动。<n/>制造新的火焰风暴会使之前的一个火焰风暴结束。<n/><c val=\"FFFF00\">速度</c>: 3 + <c val=\"5555AA\">0.2 *雷元素球等级 ()</c> = <c val=\"FFFF00\">3</c><n/><c val=\"FFFF00\">DPS</c>: 20 + <c val=\"FF8800\">20 *火元素球等级 ()</c> = <c val=\"FFFF00\">20</c><n/><c val=\"FFFF00\">基础花费</c>: 150 + <c val=\"FF8800\">110 *火元素球等级 ()</c> + <c val=\"5555AA\">25 *雷元素球等级 ()</c> = <n/>次级倍增器效果:  (1)<n/><c val=\"FFFF00\">持续时间</c>: 3.5 + 1.5 * 倍增器等级 = <c val=\"FFFF00\">5s</c><n/><c val=\"FFFF00\">花费增加</c>: +50% *（倍增器等级-1）"
+    "tooltip": "在目标位置放置一个火焰风暴，对半径 1.7 内造成周期性伤害。<n/>火焰风暴会朝与元素使移动方向相反的方向移动<n/>如果在上一个火焰风暴仍然存在时施放新的火焰风暴，旧的火焰风暴会结束<n/><c val=\"FFFF00\">速度</c>: 3 + <c val=\"5555AA\">每个雷元素球 0.2（）</c> = <c val=\"FFFF00\">3</c><n/><c val=\"FFFF00\">每秒伤害</c>: 20 + <c val=\"FF8800\">每个火元素球 20（）</c> = <c val=\"FFFF00\">20</c><n/><c val=\"FFFF00\">基础消耗</c>: 150 + <c val=\"FF8800\">每个火元素球 110（）</c> + <c val=\"5555AA\">每个雷元素球 25（）</c> = <n/>次级效果倍增器:  (1)<n/><c val=\"FFFF00\">持续时间</c>: 3.5 + 每级倍增器 1.5 = <c val=\"FFFF00\">5s</c><n/><c val=\"FFFF00\">消耗增加</c>: 每级倍增器+50%"
   },
   "ElementalistIceball": {
     "nameZh": "滚雪球",
@@ -477,7 +482,7 @@
   "Mirage": {
     "nameZh": "影分身",
     "nameEn": "Mirage",
-    "tooltip": "召唤两个可控制的元素使分身，可以与他交换位置。<n/><c val=\"FFFF00\">速度</c>: 3 + <c val=\"5555AA\">0.2 每雷元素球 ()</c> = <c val=\"FFFF00\">3</c><n/><c val=\"FFFF00\">生命百分比</c>: 50% + <c val=\"AAFFFF\">10% 每冰元素球 ()</c> = <c val=\"FFFF00\">%</c><n/><c val=\"FFFF00\">基础消耗</c>: 90 + <c val=\"5555AA\">100 每雷元素球 ()</c> + <c val=\"AAFFFF\">100 每冰元素球 ()</c> + <c val=\"FF8800\">150 每火元素球 ()</c> = <n/>效果倍增器：(1)<n/><c val=\"FFFF00\">护甲</c>:  + 3 每倍增器-1 = <c val=\"FFFF00\">s</c><n/><c val=\"FFFF00\">消耗增加</c>: +30% 每倍增器-1<n/>次级效果倍增器：(1)<n/><c val=\"FFFF00\">持续时间</c>: 20 + 3 每倍增器 = <c val=\"FFFF00\">23秒</c><n/><c val=\"FFFF00\">消耗增加</c>: +30% 每倍增器-1"
+    "tooltip": "召唤两个可控制的元素使分身，它们拥有与元素使相同的属性点。它们还会获得元素使当前拥有的元素球和元素球效果。<n/>这些分身拥有元素使 10% 的伤害（每级效果倍增器为10%）<n/><c val=\"FFFF00\">消耗增加</c>: 每级倍增器+100%<n/>次级效果倍增器:  (1)<n/><c val=\"FFFF00\">持续时间</c>: 20 + 每级倍增器 3 = <c val=\"FFFF00\">23s</c><n/><c val=\"FFFF00\">消耗增加</c>: 每级倍增器+30%"
   },
   "LightningStorm": {
     "nameZh": "闪电风暴",
@@ -487,7 +492,7 @@
   "Sleep": {
     "nameZh": "催眠",
     "nameEn": "Sleep",
-    "tooltip": "使目标区域内的非英雄敌方单位进入催眠，并在同样持续时间内使其减速且受到所有伤害时易伤。<n/>范围半径为 4.5<n/>对沉睡单位造成伤害会打破催眠，但不会结束减速和易伤效果<n/><c val=\"FFFF00\">减速</c>：20% + <c val=\"AAFFFF\">每个冰元素球增加 3%（）</c> = <c val=\"FFFF00\">20%</c><n/><c val=\"FFFF00\">易伤</c>：10% + <c val=\"FF8800\">每个火元素球增加 5%（）</c> = <c val=\"FFFF00\">10%</c><n/><c val=\"FFFF00\">基础消耗</c>：100 + <c val=\"FF8800\">每个火元素球增加 200（）</c> + <c val=\"AAFFFF\">每个冰元素球增加 200（）</c> = <n/><c val=\"FFFF00\">持续时间</c>：3 + 每点倍数 2 = <c val=\"FFFF00\">5秒</c><n/><c val=\"FFFF00\">消耗增加</c>：+50% *（倍数-1）"
+    "tooltip": "使目标区域内的非英雄敌方单位陷入沉睡。<n/>区域半径为 2.8<n/>对沉睡单位造成伤害会打破沉睡效果<n/><c val=\"FFFF00\">基础消耗</c>: 100 + <c val=\"FF8800\">每个火元素球 150（）</c> + <c val=\"AAFFFF\">每个冰元素球 175（）</c><n/><c val=\"FFFF00\">持续时间</c>: 3 + <c val=\"AAFFFF\">每个冰元素球 0.5（）</c> = <c val=\"FFFF00\">3s</c><n/><c val=\"FFFF00\">范围:</c> 2.8 + <c val=\"FF8800\">每个火元素球 0.2（）</c> = <c val=\"FFFF00\">2.8</c>"
   },
   "AuraofDamnedSouls": {
     "nameZh": "亡魂诅咒光环",
@@ -504,25 +509,35 @@
     "nameEn": "Meteor",
     "tooltip": "召唤一颗巨大的陨石，向目标方向坠落。<n/>陨石每秒对 3 范围内所有敌方单位造成 4 次伤害<n/>对建筑仅造成 50% 伤害<n/><c val=\"FFFF00\">伤害会提升体积与范围<n/>溅射伤害：（半径 - 百分比）<n/>0.5 - 100%<n/>1.5 - 50%<n/>2.5 - 25%<n/>陨石伤害从 25% 起步，并会根据行进距离提高，最高至 100%<n/>每次伤害还会为友方单位与建筑施加能量提升，使其造成的伤害提高，持续 2s，最多叠加 5x<n/><c val=\"FFFF00\">每跳伤害</c>：10 + <c val=\"FF8800\">每个火元素球增加 15（）</c> = <c val=\"FFFF00\">10</c><n/><c val=\"FFFF00\">能量提升</c>： <c val=\"AAFFFF\">每个冰元素球增加 1%（）</c> = <c val=\"FFFF00\">% 每层</c><n/><c val=\"FFFF00\">基础消耗</c>：250 + <c val=\"FF8800\">每个火元素球增加 100（）</c> + <c val=\"AAFFFF\">每个冰元素球增加 50（）</c> = <n/>次要效果倍数：(1)<n/><c val=\"FFFF00\">最大距离百分比</c>：每个倍数 50% = <c val=\"FFFF00\">100%</c><n/><c val=\"FFFF00\">能量提升持续时间</c>：每个倍数 2s = <c val=\"FFFF00\">2s</c><n/><c val=\"FFFF00\">消耗增加</c>：每个倍数-1增加 +100%"
   },
-  "ElementalistBlink": {
-    "nameZh": "闪现",
-    "nameEn": "Blink",
-    "tooltip": "传送至地图任意位置.\n\n只能在游戏的前5分钟使用!"
-  },
   "BrakkHardenedShell": {
-    "nameZh": "硬化甲壳",
-    "nameEn": "Hardened Shell",
-    "tooltip": "将巴拉克包裹在保护壳中，降低所受伤害，免疫减速效果，并为巴拉克的自动攻击增加劈砍效果。<n/><c val=\"98FB98\">提供减速免疫</c><n/><c val=\"00FF7F\">伤害减免</c>：<c val=\"00FF7F\">180%</c>|<c val=\"00FF7F\">170%</c>|<c val=\"00FF7F\">160%</c>|<c val=\"00FF7F\">150%</c><n/><c val=\"FF8080\">地面攻击劈砍</c>：<c val=\"FF8080\">40%攻击伤害</c><n/><c val=\"8FC7FF\">每秒能量消耗</c>：<c val=\"8FC7FF\">-5</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">30</c>|<c val=\"E6E6E6\">20</c>|<c val=\"E6E6E6\">10</c>|<c val=\"E6E6E6\">5</c>"
-  },
-  "BrakkCorrosiveCloud": {
-    "nameZh": "腐蚀毒云",
-    "nameEn": "CorrosiveCloud",
-    "tooltip": "在巴拉克前方创建一条云雾线，可以显示敌方单位、消耗能量、禁用时间扭曲效果并降低护甲。\n影响空中和地面单位。\n禁用时间扭曲效果。\n\n持续时间：[?]秒。\n护甲降低：[?]|[?]|[?]|[?]\n魔法消耗：%|%|%|%\n\n能量消耗：[?]|[?]|[?]|[?]\n冷却时间：[?]秒|[?]秒|[?]秒|[?]秒\n\n\"职业选手最大云雾\""
+    "nameZh": "顺劈",
+    "nameEn": "Cleave",
+    "tooltip": "使巴拉克的普通攻击获得顺劈。<n/><c val=\"FF8080\">顺劈</c>：<c val=\"FF8080\">33%</c>|<c val=\"FF8080\">44%</c>|<c val=\"FF8080\">56%</c>|<c val=\"FF8080\">67%</c>的攻击伤害会对附近地面敌人造成顺劈伤害</s><n/><c val=\"E6E6E6\">持续时间</c>：<c val=\"E6E6E6\">10秒</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">35</c>|<c val=\"8FC7FF\">40</c>|<c val=\"8FC7FF\">45</c>|<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">35秒</c>|<c val=\"E6E6E6\">30秒</c>|<c val=\"E6E6E6\">25秒</c>|<c val=\"E6E6E6\">20秒</c>"
   },
   "BrakkSwap": {
     "nameZh": "交换",
     "nameEn": "Swap",
-    "tooltip": "将巴拉克与一个友方单位互换位置。 <n/><c val=\"E6E6E6\">射程</c>: <c val=\"E6E6E6\">4</c>|<c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">25</c><n/><c val=\"E6E6E6\">冷却时间</c>: <c val=\"E6E6E6\">30s</c>|<c val=\"E6E6E6\">25s</c>|<c val=\"E6E6E6\">20s</c>|<c val=\"E6E6E6\">15s</c>"
+    "tooltip": "将巴拉克与一个友方单位互换位置。 <n/><c val=\"E6E6E6\">射程</c>: <c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c>|<c val=\"E6E6E6\">9</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">25</c><n/><c val=\"E6E6E6\">冷却时间</c>: <c val=\"E6E6E6\">30s</c>|<c val=\"E6E6E6\">25s</c>|<c val=\"E6E6E6\">20s</c>|<c val=\"E6E6E6\">15s</c>"
+  },
+  "BrakkPrimalStrength": {
+    "nameZh": "原始力量",
+    "nameEn": "Primal Strength",
+    "tooltip": "使<c val=\"E6E6E6\">9射程</c>内的友方非英雄单位（不包括巴拉克）获得<c val=\"FF8080\">额外伤害</c>，持续<c val=\"E6E6E6\">10秒</c>。<n/><c val=\"FF8080\">伤害：</c> <c val=\"FF8080\">10%</c>|<c val=\"FF8080\">15%</c>|<c val=\"FF8080\">20%</c>|<c val=\"FF8080\">25%</c>"
+  },
+  "BrakkPrimalAgility": {
+    "nameZh": "原始敏捷",
+    "nameEn": "Primal Agility",
+    "tooltip": "使巴拉克和<c val=\"E6E6E6\">9射程</c>内的友方非英雄单位获得<c val=\"40A8FF\">额外移动速度</c>，持续<c val=\"E6E6E6\">10秒</c>。<n/><c val=\"80C8FF\">移动速度：</c><c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel1\">+0.2</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel2\">+0.3</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel3\">+0.4</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel4\">+0.5</c>"
+  },
+  "BrakkPrimalVitality": {
+    "nameZh": "原始活力",
+    "nameEn": "Primal Vitality",
+    "tooltip": "使<c val=\"E6E6E6\">9射程</c>内的友方非英雄单位（不包括巴拉克）获得<c val=\"00FF7F\">额外最大生命值</c>，持续<c val=\"E6E6E6\">10秒</c>。<n/><c val=\"00FF7F\">最大生命值：</c> <c val=\"00FF7F\">10%</c>|<c val=\"00FF7F\">15%</c>|<c val=\"00FF7F\">20%</c>|<c val=\"00FF7F\">25%</c>"
+  },
+  "BrakkCharge": {
+    "nameZh": "原始冲锋",
+    "nameEn": "Primal Charge",
+    "tooltip": "巴拉克向目标点冲锋，对沿途敌人造成伤害并将其撞开。抵达后，他会在<c val=\"E6E6E6\">4半径</c>内施加强力击退。<n/><c val=\"FF8080\">伤害</c>：|||<n/><c val=\"E6E6E6\">射程</c>：<c val=\"E6E6E6\">9</c>|<c val=\"E6E6E6\">11</c>|<c val=\"E6E6E6\">13</c>|<c val=\"E6E6E6\">15</c><n/><c val=\"00FF7F\">伤害减免</c>：<c val=\"00FF7F\">100.5%，在冲锋期间和抵达后2秒内生效。</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">30秒</c><n/><c val=\"FF6B6B\">巴拉克在冲锋期间无法被下达命令。</c>"
   },
   "GlevigTunnel": {
     "nameZh": "深层隧道",
@@ -587,12 +602,12 @@
   "AlarakDestructionWave": {
     "nameZh": "毁灭浪潮",
     "nameEn": "Destruction Wave",
-    "tooltip": "释放一道沿直线前进的强大冲击波，对路径上的敌人造成伤害并将其击退。\n\n伤害: [?] (+[?]% 每英雄等级)"
+    "tooltip": "沿直线释放一道强大的原力冲击波，对路径上的敌人造成伤害并将其击退。\n\n每次施放后消耗增加1点气体。可通过致命冲锋 II 击杀或牺牲锻炉来降低该消耗（不会低于基础值）。\n\n伤害：[?]（每英雄等级+[?]%）"
   },
   "AlarakACDeadlyCharge": {
     "nameZh": "致命冲锋",
     "nameEn": "Alarak Ac Deadly Charge",
-    "tooltip": "短距离冲锋。撞击时造成伤害。\n\n伤害: [?] (+[?]% 每英雄等级)"
+    "tooltip": "向前短距离冲锋。冲击时造成伤害。\n\n伤害：[?] (每英雄等级+[?]%)"
   },
   "AlarakSprint": {
     "nameZh": "冲刺",
@@ -602,12 +617,27 @@
   "AlarakSacrifice": {
     "nameZh": "牺牲",
     "nameEn": "Sacrifice",
-    "tooltip": "牺牲一个单位让阿拉纳克获得经验。"
+    "tooltip": "牺牲一个单位，为阿拉纳克提供经验值。\n\n经验值: 探机 25 / 浩劫 50 / 使徒 150 / 天罚行者 400 / 执政官 1000\n\n牺牲锻炉会使随层数成长的技能气体消耗减少1点（不提供经验值或能量，且不会低于基础值）。"
+  },
+  "AlarakForkedLightning": {
+    "nameZh": "叉状闪电",
+    "nameEn": "Forked Lightning",
+    "tooltip": "以闪电轰击目标，并在其后方的锥形范围内向最多额外<c val=\"E6E6E6\">2</c>、<c val=\"E6E6E6\">4</c>和<c val=\"E6E6E6\">8</c>个敌人分叉弹射。每次分叉造成<c val=\"FF8080\">+25%</c>基础伤害。<n/>非英雄敌人会陷入感电，眩晕<c val=\"E6E6E6\">1</c>秒，并在<c val=\"E6E6E6\">10</c>秒内使后续叉状闪电对其造成的伤害提高<c val=\"FF8080\">+50%</c>。<n/><c val=\"E6E6E6\">每施放2次后消耗增加1点气体。可通过致命冲锋 II 击杀或牺牲锻炉来降低该消耗（不会低于基础值）。</c><n/><c val=\"FF8080\">伤害：</c>（每英雄等级+10%）"
+  },
+  "AlarakWrathOfTheHighlord": {
+    "nameZh": "高阶领主之怒",
+    "nameEn": "Wrath of the Highlord",
+    "tooltip": "阿拉纳克进入灵能狂热状态，施法能力增强，但机动性会下降。<n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15秒</c><n/><c val=\"8FC7FF\">能量回复</c>: <c val=\"8FC7FF\">300%</c><n/><c val=\"98FB98\">攻击性技能无冷却时间（不包括冲刺和牺牲）</c><n/><c val=\"90EE90\">移动速度</c>: <c val=\"90EE90\">2</c><n/><c val=\"FF6B6B\">冲刺被禁用。</c><n/><c val=\"98FB98\">持续期间灵魂吸收生效。</c><n/><c val=\"E6E6E6\">每次施放后消耗增加5点气体。可通过致命冲锋 II 击杀或牺牲锻炉来降低该消耗（不会低于基础值）。</c><n/><c val=\"E6E6E6\">与泰拉津狂乱共享冷却时间。</c>牺牲可使剩余冷却时间减少<c val=\"E6E6E6\">2秒</c>。"
+  },
+  "AlarakTerrazineInsanity": {
+    "nameZh": "泰拉津狂乱",
+    "nameEn": "Terrazine Insanity",
+    "tooltip": "阿拉纳克进入泰拉津狂乱状态，攻击能力大幅增强，但也会更容易受到攻击。<n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15秒</c><n/><c val=\"98FB98\">基础攻击获得地面顺劈</c>（<c val=\"E6E6E6\">2</c>半径）<n/><c val=\"FF8080\">总攻击伤害</c>: <c val=\"FF8080\">+25%</c><n/><c val=\"FF8080\">受到伤害</c>: <c val=\"FF8080\">+10%</c><n/><c val=\"90EE90\">移动速度</c>: <c val=\"90EE90\">+10%</c><n/><c val=\"98FB98\">持续期间灵魂吸收生效。</c><n/><c val=\"E6E6E6\">每次施放后消耗增加5点气体。可通过致命冲锋 II 击杀或牺牲锻炉来降低该消耗（不会低于基础值）。</c><n/><c val=\"E6E6E6\">与高阶领主之怒共享冷却时间。</c>牺牲可使剩余冷却时间减少<c val=\"E6E6E6\">2秒</c>。"
   },
   "IzshaCalldownInfestedBlimp": {
     "nameZh": "呼叫被感染的飞船",
     "nameEn": "Calldown Infested Blimp",
-    "tooltip": "呼叫被感染的飞船。<n/><c val=\"98FB98\">可以使用远视、腐蚀喷射和生成菌毯。</c><n/><c val=\"FF0000\">处于远视状态的飞船无法移动，无法返回之前的形态，但会获得额外技能。</c><n/><c val=\"E6E6E6\">腐蚀喷射</c>：等级2<n/><c val=\"E6E6E6\">生成菌毯</c>：等级3<n/><c val=\"00FF00\">生命值：</c> <c val=\"00FF00\" validator=\"IzshaInfestedBlimp1\">400</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp2\">600</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp3\">800</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp4\">1000</c><n/><c val=\"FFFF00\">远视视野：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">9</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">12</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">15</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">18</c><n/><c val=\"FFFF00\">人口消耗：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">2</c> <n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">45秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">40秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">35秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">30秒</c><n/><c val=\"BB77FF\">能量消耗：</c> <c val=\"BB77FF\" validator=\"IzshaInfestedBlimp1\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp2\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp3\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp4\">50</c>"
+    "tooltip": "呼叫被感染的飞船。<n/><c val=\"98FB98\">可以使用远视、腐蚀喷射和生成菌毯。</c><n/><c val=\"FF0000\">处于远视状态的飞船无法移动，无法返回之前的形态，但会获得额外技能。</c><n/><c val=\"E6E6E6\">腐蚀喷射</c>：等级2<n/><c val=\"E6E6E6\">生成菌毯</c>：等级3<n/><c val=\"00FF00\">生命值：</c> <c val=\"00FF00\" validator=\"IzshaInfestedBlimp1\">400</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp2\">600</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp3\">800</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp4\">1000</c><n/><c val=\"FFFF00\">远视视野：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">10</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">12</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">14</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">16</c><n/><c val=\"FFFF00\">人口消耗：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">2</c> <n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">45秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">40秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">35秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">30秒</c><n/><c val=\"BB77FF\">能量消耗：</c> <c val=\"BB77FF\" validator=\"IzshaInfestedBlimp1\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp2\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp3\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp4\">50</c>"
   },
   "IzshaSummonCorruptedWall": {
     "nameZh": "Summon Corrupted Wall",
@@ -632,17 +662,17 @@
   "MalusOrdure": {
     "nameZh": "污秽",
     "nameEn": "Ordure",
-    "tooltip": "释放令人恐惧的恶臭，击退附近敌方单位并造成伤害。<n/>臭气将持续 30 秒，在此期间向附近友方单位提供增益效果（基于吞噬），同时对敌方单位造成伤害。<n/><c val=\"FFFF00\">蟑螂</c> - 生命护甲加成：<c val=\"FFFF00\">2.5</c><n/><c val=\"FFFF00\">刺蛇</c> - 攻击速度加成：<c val=\"FFFF00\">10%</c><n/><c val=\"FFFF00\">派加兽</c> - 伤害减免：<c val=\"FFFF00\">5%</c><n/><c val=\"FFFF00\">S.O.M.F</c> - 总伤害加成：<c val=\"FFFF00\">25%</c><n/><c val=\"FF8080\">伤害</c>：<c val=\"FF8080\" validator=\"MalusOrdure\"></c>|<c val=\"FF8080\" validator=\"MalusOrdure2\"></c>|<c val=\"FF8080\" validator=\"MalusOrdure3\"></c>|<c val=\"FF8080\" validator=\"MalusOrdure4\"></c> （每英雄等级+5%）<n/><c val=\"FF8080\">伤害</c>：<c val=\"FF8080\" validator=\"MalusOrdure\">5</c>|<c val=\"FF8080\" validator=\"MalusOrdure2\">10</c>|<c val=\"FF8080\" validator=\"MalusOrdure3\">10</c>|<c val=\"FF8080\" validator=\"MalusOrdure4\">15</c> (+1% 当前生命值)<n/><c val=\"FFFF00\">击飞持续时间</c>：<c val=\"FFFF00\" validator=\"MalusOrdure\">1</c>|<c val=\"FFFF00\" validator=\"MalusOrdure2\">1.25</c>|<c val=\"FFFF00\" validator=\"MalusOrdure3\">1.5</c>|<c val=\"FFFF00\" validator=\"MalusOrdure4\">1.75</c><n/><c val=\"BB77FF\">能量消耗</c>：<c val=\"BB77FF\" validator=\"MalusOrdure\">60</c>|<c val=\"BB77FF\" validator=\"MalusOrdure2\">55</c>|<c val=\"BB77FF\" validator=\"MalusOrdure3\">50</c>|<c val=\"BB77FF\" validator=\"MalusOrdure4\">45</c><n/><c val=\"FFFF00\">冷却时间</c>：<c val=\"FFFF00\" validator=\"MalusOrdure\">45</c>|<c val=\"FFFF00\" validator=\"MalusOrdure2\">40</c>|<c val=\"FFFF00\" validator=\"MalusOrdure3\">35</c>|<c val=\"FFFF00\" validator=\"MalusOrdure4\">30</c><n/><c val=\"FFFF00\">范围</c>：<c val=\"FFFF00\" validator=\"MalusOrdure\">4</c>|<c val=\"FFFF00\" validator=\"MalusOrdure2\">5</c>|<c val=\"FFFF00\" validator=\"MalusOrdure3\">6</c>|<c val=\"FFFF00\" validator=\"MalusOrdure4\">7</c>"
+    "tooltip": "释放出可怖的恶臭，击退并伤害附近的敌方单位。<n/>恶臭将持续 30 秒，在对敌方单位造成伤害的同时，为附近友方单位提供增益效果（基于吞噬）。<n/><c val=\"FFFF00\">虫后</c> - 生命恢复：<c val=\"FFFF00\">5</c><n/><c val=\"FFFF00\">蟑螂</c> - 生命护甲加成：<c val=\"FFFF00\">2.5</c><n/><c val=\"FFFF00\">刺蛇</c> - 攻击速度加成：<c val=\"FFFF00\">10%</c><n/><c val=\"FFFF00\">派加兽</c> - 伤害减免：<c val=\"FFFF00\">5%</c><n/><c val=\"FFFF00\">S.O.M.F</c> - 总伤害加成：<c val=\"FFFF00\">25%</c><n/><c val=\"FF8080\">伤害</c>：<c val=\"FF8080\" validator=\"MalusOrdure\"></c>|<c val=\"FF8080\" validator=\"MalusOrdure2\"></c>|<c val=\"FF8080\" validator=\"MalusOrdure3\"></c>|<c val=\"FF8080\" validator=\"MalusOrdure4\"></c>（每英雄等级 +5%）<n/><c val=\"FF8080\">持续伤害</c>：<c val=\"FF8080\" validator=\"MalusOrdure\">5</c>|<c val=\"FF8080\" validator=\"MalusOrdure2\">10</c>|<c val=\"FF8080\" validator=\"MalusOrdure3\">10</c>|<c val=\"FF8080\" validator=\"MalusOrdure4\">15</c>（+1%当前生命值）<n/><c val=\"FFFF00\">击飞持续时间</c>：<c val=\"FFFF00\" validator=\"MalusOrdure\">1</c>|<c val=\"FFFF00\" validator=\"MalusOrdure2\">1.25</c>|<c val=\"FFFF00\" validator=\"MalusOrdure3\">1.5</c>|<c val=\"FFFF00\" validator=\"MalusOrdure4\">1.75</c><n/><c val=\"BB77FF\">能量消耗</c>：<c val=\"BB77FF\" validator=\"MalusOrdure\">60</c>|<c val=\"BB77FF\" validator=\"MalusOrdure2\">55</c>|<c val=\"BB77FF\" validator=\"MalusOrdure3\">50</c>|<c val=\"BB77FF\" validator=\"MalusOrdure4\">45</c><n/><c val=\"FFFF00\">冷却时间</c>：<c val=\"FFFF00\" validator=\"MalusOrdure\">45</c>|<c val=\"FFFF00\" validator=\"MalusOrdure2\">40</c>|<c val=\"FFFF00\" validator=\"MalusOrdure3\">35</c>|<c val=\"FFFF00\" validator=\"MalusOrdure4\">30</c><n/><c val=\"FFFF00\">范围</c>：<c val=\"FFFF00\" validator=\"MalusOrdure\">4</c>|<c val=\"FFFF00\" validator=\"MalusOrdure2\">5</c>|<c val=\"FFFF00\" validator=\"MalusOrdure3\">6</c>|<c val=\"FFFF00\" validator=\"MalusOrdure4\">7</c>"
   },
   "DevourUnit": {
-    "nameZh": "吞噬",
+    "nameZh": "吞噬助手",
     "nameEn": "DevourUnit",
-    "tooltip": "吞噬一个虫族单位，消耗其精华以获得临时强化。\n每次吞噬根据被消耗单位类型赋予持续60秒的增益效果。\n\n最大充能次数：[?]/[?]/[?]/[?]\n充能冷却时间：[?]/[?]/[?]/[?]秒\n增益持续时间：60秒\n每种增益最大叠加数：[?]\n\n王虫 - 补给加成：[?]\n工虫 - 获得气矿：+[?]\n跳虫 - 能量再生加成：\n爆虫 - 移动速度加成：%\n蟑螂 - 生命护甲加成：[?]\n刺蛇 - 攻击速度加成：%\n派加兽 - 伤害减免：%\n潜伏者 - 范围攻击概率加成： 并获得范围攻击武器\n腐化者 - 视野加成：\n莽兽 - 武器射程加成： 并获得对空武器\nS.O.M.F - 总伤害加成：%\n欧米茄雷兽 - 护盾加成：[?]"
+    "tooltip": "当你难以吞噬单个单位时，使用此按钮。"
   },
   "PrimalDevour": {
     "nameZh": "吞噬",
     "nameEn": "Devour",
-    "tooltip": "吞噬一个虫族单位，消耗其精华以获得临时强化。\n每次吞噬根据被消耗单位类型赋予持续60秒的增益效果。\n\n最大充能次数：[?]/[?]/[?]/[?]\n充能冷却时间：[?]/[?]/[?]/[?]秒\n增益持续时间：60秒\n每种增益最大叠加数：[?]\n\n王虫 - 补给加成：[?]\n工虫 - 获得气矿：+[?]\n跳虫 - 能量再生加成：\n爆虫 - 移动速度加成：%\n蟑螂 - 生命护甲加成：[?]\n刺蛇 - 攻击速度加成：%\n派加兽 - 伤害减免：%\n潜伏者 - 范围攻击概率加成： 并获得范围攻击武器\n腐化者 - 视野加成：\n莽兽 - 武器射程加成： 并获得对空武器\nS.O.M.F - 总伤害加成：%\n欧米茄雷兽 - 护盾加成：[?]"
+    "tooltip": "吞噬一个虫族单位，吸收其精华以获得暂时的力量。\n每次吞噬都会根据被吞噬单位的类型获得一个持续 60 秒的增益效果。\n\n最大充能：[?]/[?]/[?]/[?]\n充能冷却时间：[?]/[?]/[?]/[?]秒\n增益持续时间：60秒\n每种增益最大层数：[?]\n\n王虫 - 补给加成：[?]\n工蜂 - 获得瓦斯：+[?]\n虫后 - 生成马吕斯幼虫：1/[?]秒\n跳虫 - 能量再生加成：\n爆虫 - 移动速度加成：%\n蟑螂 - 生命护甲加成：[?]\n刺蛇 - 攻击速度加成：%\n派加兽 - 伤害减免：%\n潜伏者 - 范围伤害几率加成：，并获得范围武器\n腐化者 - 视野加成：\n莽兽 - 武器射程加成：，并获得对空武器\nS.O.M.F - 总伤害加成：%\n欧米茄雷兽 - 护盾加成：[?]"
   },
   "KraithSpineVolleyAbil": {
     "nameZh": "脊刺齐射",
@@ -687,17 +717,17 @@
   "EnergizerGeneratorMassPurification": {
     "nameZh": "大规模净化",
     "nameEn": "EnergizerGeneratorMassPurification",
-    "tooltip": "向目标位置发射巨型纯能量光束，充能需2秒。<n/>需要至少50000能量才能使用<n/><c val=\"FF4040\">引导中<n/>EMC方阵的能量将周期性传输至大规模净化</c><n/>每秒损失当前能量的6%<n/>能量低于1000时死亡<n/>受到伤害时额外消耗 5倍能量<n/>每秒造成等于当前能量2%的伤害<n/>（半径 - 伤害百分比）<n/>1 - 100%<n/>3 - 70%<n/>5 - 40%<n/>7 - 10%<n/>9 - 5%"
+    "tooltip": "在目标位置发射一道巨大的纯净能量光束。需耗时 2 秒充能。<n/>至少需要 50000 点能量才能使用<n/><c val=\"FF4040\">引导施法<n/>来自 E=mc² 的能量会定期转移给大规模净化</c><n/>每秒失去当前能量的 6%<n/>能量低于 1000 时死亡<n/>受到伤害时，改为损失 5 倍的能量<n/>造成相当于当前能量 2% 的每秒伤害<n/>(半径 - 伤害百分比)<n/>1 - 100%<n/>3 - 70%<n/>5 - 40%<n/>7 - 10%<n/>9 - 5%"
   },
   "EMCSquareDisintegrate": {
     "nameZh": "崩解",
     "nameEn": "Disintegrate",
-    "tooltip": "牺牲区域内的己方单位，将其能量消耗 + 当前能量添加到EMC方阵能量池中。"
+    "tooltip": "献祭区域内你的单位，并将其耗能值与当前能量之和加入 E=mc² 能量池。"
   },
   "EMCSquareToTheBrim": {
     "nameZh": "满载",
     "nameEn": "ToTheBrim",
-    "tooltip": "EMC方阵将其能量传输给范围内的单位和建筑，直到它们达到各自的最大容量（每个目标最多传输10000点）\n\n如果EMC方阵没有足够的能量，则只会进行部分传输"
+    "tooltip": "E=mc² 将其能量传输给区域内的单位和建筑，直到它们达到最大容量（每个目标最多传输 10000）\n\n如果 E=mc² 没有足够的所需能量，则只会进行部分传输"
   },
   "Emc2Omnipotence": {
     "nameZh": "全能",
@@ -707,7 +737,7 @@
   "Emc2BigBang": {
     "nameZh": "大爆炸",
     "nameEn": "Emc2BigBang",
-    "tooltip": "对 50 半径内的所有敌方单位造成 1000 点伤害。<n/>存活的单位将额外每秒受到 200 点伤害，持续 10秒。"
+    "tooltip": "对半径 50 内的所有敌方单位和建筑造成 1000 点伤害。<n/>存活下来的单位会在 10 内每秒额外受到 200 点伤害（对建筑为25%）。"
   },
   "EnergizerGeneratorShieldAura": {
     "nameZh": "护盾光环",

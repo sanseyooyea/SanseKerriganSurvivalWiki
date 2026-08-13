@@ -163,9 +163,9 @@
         "id": "AlarakArchon",
         "nameZh": "执政官",
         "hp": 50,
-        "shield": 1200,
+        "shield": 1250,
         "speed": 2.8125,
-        "damage": 150,
+        "damage": 180,
         "attackSpeed": 1.754,
         "range": 3
       },
@@ -177,7 +177,7 @@
         "armor": 1,
         "speed": 2.5,
         "damage": 100,
-        "attackSpeed": 1.65,
+        "attackSpeed": 2,
         "range": 7
       }
     ],
@@ -1113,7 +1113,7 @@
         "shield": 35,
         "speed": 3,
         "damage": 6.9,
-        "attackSpeed": 1,
+        "attackSpeed": 2,
         "range": 6
       },
       {
@@ -1139,8 +1139,8 @@
       {
         "id": "Carrier@Unit",
         "nameZh": "母舰",
-        "hp": 60,
-        "shield": 60,
+        "hp": 40,
+        "shield": 40,
         "speed": 2.5
       },
       {
@@ -1150,7 +1150,7 @@
         "shield": 25,
         "speed": 3,
         "damage": 9,
-        "attackSpeed": 1.754,
+        "attackSpeed": 2.5,
         "range": 7
       },
       {
@@ -1165,8 +1165,8 @@
       },
       {
         "id": "EMCSquare",
-        "nameZh": "EMC方阵",
-        "speed": 2.8007,
+        "nameZh": "E=mc²",
+        "speed": 2.5,
         "damage": 100,
         "attackSpeed": 1.754
       }
@@ -1261,8 +1261,8 @@
       {
         "id": "MineralConverter",
         "nameZh": "精矿转换器",
-        "hp": 100,
-        "shield": 100,
+        "hp": 25,
+        "shield": 75,
         "armor": -5
       }
     ]
@@ -1735,7 +1735,7 @@
         "id": "ScientistGhost",
         "nameZh": "幽灵",
         "hp": 140,
-        "speed": 3,
+        "speed": 2.8,
         "damage": 45,
         "attackSpeed": 2,
         "range": 6
@@ -3043,8 +3043,8 @@
         "hp": 250,
         "armor": 4,
         "speed": 3.25,
-        "damage": 70,
-        "attackSpeed": 1.6,
+        "damage": 50,
+        "attackSpeed": 3,
         "range": 6.5
       },
       {
