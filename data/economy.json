@@ -1735,5 +1735,53 @@
       "duration": "permanent",
       "gasCost": 5
     }
+  },
+  {
+    "hero": "Champion",
+    "incomeModel": "冠军是「探机建造 + 独立产矿建筑 + 星灵折跃加速（手动）」型经济：由探机（25 矿）建造经济建筑，建筑被动直接产矿、无需采集，也没有英雄专属的产气建筑。\n\n【三档产矿建筑——并列、非升级链】水晶碎片 +2（100 矿）、闪亮水晶塔 +10（400 矿 + 4 气）、先古遗迹 +25（1200 矿 + 10 气）各自独立、可直接建造，不是逐级升级的关系；每座每 4 秒产出对应数量的晶矿（+2 / +10 / +25）。高档建筑建造需要额外气体。\n\n【星灵折跃加速】每座建筑都带一个手动主动技能，对自身施加**永久** +50% 运作速度（TimeScale ×1.5），产矿节奏随之加快约 50%——即「加速回本」列所示的回本时间。三座倍率一致，但气耗随档位不同：水晶碎片 1 气、水晶塔 4 气、遗迹 10 气（各 1 充能、可回充；因加速永久，施一次即长效）。是否施放由玩家按气体是否充裕决定，故头条产矿数字不折算加速。\n\n气体主要通过全局机制（如通用击杀奖励）获得，而非本英雄的专属产气建筑。所有建筑均可拆解(CommonSalvage)回收。",
+    "buildings": [
+      {
+        "id": "ChampionShard",
+        "nameZh": "水晶碎片 +2",
+        "income": 2,
+        "incomePeriod": 4,
+        "cost": 100,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 2 晶矿。可施放「星灵折跃加速」（1 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "ChampionCrystal",
+        "nameZh": "闪亮水晶塔 +10",
+        "income": 10,
+        "incomePeriod": 4,
+        "cost": 400,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 4,
+        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 10 晶矿。可施放「星灵折跃加速」（4 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。建造额外需 4 气。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "ChampionArtifact25",
+        "nameZh": "先古遗迹 +25",
+        "income": 25,
+        "incomePeriod": 4,
+        "cost": 1200,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 10,
+        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 25 晶矿。可施放「星灵折跃加速」（10 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。建造额外需 10 气。可拆解回收(CommonSalvage)。"
+      }
+    ],
+    "chrono": {
+      "name": "星灵折跃加速",
+      "timeScale": 1.5,
+      "duration": "permanent",
+      "costLabel": "水晶碎片 1 气 / 闪亮水晶塔 4 气 / 先古遗迹 10 气（随建筑档位）"
+    }
   }
 ]
