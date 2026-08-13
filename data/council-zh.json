@@ -834,6 +834,81 @@
       "title": "移除对友军的加速",
       "description": "移除技术员对友方单位使用「加速」时提供的 200% 时间流速增益。",
       "close_reason": ""
+    },
+    "168": {
+      "title": "科学家破坏平衡的Bug修复",
+      "description": "死神人口占用 2 → 1",
+      "close_reason": ""
+    },
+    "169": {
+      "title": "米拉调整",
+      "description": "米拉的暗影在菌毯上的移动速度 100% → 50%\n取消关闭单位生产的费用\n\n削弱菌毯暗影基本能消除中期恶心的 All-in 打法，从而有助于加强米拉较弱的地图控制和基地流打法。至于具体实现上的额外改动，或许可以削弱 +32 费用、加强 +64 费用。",
+      "close_reason": ""
+    },
+    "170": {
+      "title": "Pteragantua 生命回复",
+      "description": "将 Pteragantua 的生命回复从 0 → 1\n\n救救 Pteragantua 开局吧，那可是 200 矿啊拜托。",
+      "close_reason": ""
+    },
+    "171": {
+      "title": "Chew 增强",
+      "description": "基础生命回复 2 → 3\n新增一个 2000/30 的升级，使技能「Chewbie Go」可存储 3 层充能",
+      "close_reason": ""
+    },
+    "172": {
+      "title": "Maulus 增强",
+      "description": "Maulus 基础伤害提升 5\nMaulus 在前期较弱时需要一些额外的强度。",
+      "close_reason": ""
+    },
+    "173": {
+      "title": "学徒修理",
+      "description": "学徒的修理速度降低 25%\n学徒不再能治疗友方单位\n\n理由：学徒的治疗量过高，且其治疗友方单位有时过于压制，没有存在的必要。",
+      "close_reason": ""
+    },
+    "174": {
+      "title": "Energizer 免费英雄",
+      "description": "移除 Energizer 每 8 分钟获得一个免费英雄的机制，使英雄始终需要花钱：\n\n理由：他的主英雄、最终形态、单位、经济、生存手段、地图控制和生产都已经很强了，至少让英雄花点矿吧 <3",
+      "close_reason": ""
+    },
+    "175": {
+      "title": "技术员人口调整",
+      "description": "移除防御塔的人口占用\n技术员初始人口上限 100 → 20（技术员人口上限 60）\n人口升级 50 → 20\n学徒人口 5 → 2\n理由：作为塔类建造者，由于塔无法移动，需要能够无限建塔的能力。",
+      "close_reason": ""
+    },
+    "176": {
+      "title": "技术员削弱 #1",
+      "description": "瓦解塔的减护甲 debuff：-5（一级）-10（二级）-15（三级），每级武器升级额外 -(1, 2, 3) → -3（一级）-6（二级）-9（三级），每级武器升级额外 -(0.5, 1, 2)",
+      "close_reason": ""
+    },
+    "177": {
+      "title": "技术员削弱 #2",
+      "description": "火箭塔在特殊升级中的 100% 溅射升级 +0.1 → +0.05",
+      "close_reason": ""
+    },
+    "178": {
+      "title": "技术员削弱 #3",
+      "description": "移除瓦解塔（来自特殊升级）的增伤 debuff",
+      "close_reason": ""
+    },
+    "179": {
+      "title": "技术员削弱 #4",
+      "description": "移除对友方的加速",
+      "close_reason": "..."
+    },
+    "180": {
+      "title": "技术员削弱 #4",
+      "description": "技术员的加速不再对友方生效",
+      "close_reason": ""
+    },
+    "181": {
+      "title": "技术员削弱 #5",
+      "description": "gate 价格从 10 → 15 矿",
+      "close_reason": ""
+    },
+    "182": {
+      "title": "Alarak 体验优化",
+      "description": "增加一个可见的飞升层数计数器，类似元素使的农场层数计数器\n\n让「献祭」的自动施法仅在阿拉拉克法力值较低时触发",
+      "close_reason": ""
     }
   }
 }
