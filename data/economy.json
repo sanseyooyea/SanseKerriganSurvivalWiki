@@ -1459,5 +1459,47 @@
         "notes": "直接产矿建筑，每 3 秒产出 64 晶矿（≈21.33 矿/秒），无需 SCV 采集。建造额外需 70 气。可拆解回收(CommonSalvage)。"
       }
     ]
+  },
+  {
+    "hero": "Andor",
+    "incomeModel": "亚顿是「建筑产矿 + 召唤打气」双线经济，本质仍是建筑收入型（并非独特经济）。\n\n【产矿建筑】三种建筑被动直接产矿、无需采集、均可拆解回收(CommonSalvage)：岗哨机枪（125矿，1×1，每12秒产8矿）自带机枪可攻击敌人；萨尔那加神庙·小（500矿+5气，2×2，每3秒产10矿）；萨尔那加神庙·大（2800矿+10气，2×3，每3秒产50矿）。三者独立建造、无升级链，投资比（买1矿/秒的总投入）相近（约150~190矿），神庙越大越省占地。\n\n【召唤打气】气的唯一来源是「召唤兵种打怪」：亚顿用充能召唤哨兵(10气)/使徒(5气)/执政官(300矿)/不朽者(15气)，召唤物击杀凯瑞甘单位时触发全体幸存者通用的击杀产气（气=ceil(死亡单位总造价÷5)，单次≤10气）。岗哨机枪自带武器也能击杀刷气——故「既产矿又打气」。花气召唤的兵种需打出净正的气收益，花矿召唤的则把矿转化为战力与气。",
+    "buildings": [
+      {
+        "id": "AndorSentryGun",
+        "nameZh": "岗哨机枪",
+        "income": 8,
+        "incomePeriod": 12,
+        "cost": 125,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "1×1 直接产矿建筑，每12秒产8晶矿(≈0.67矿/秒)。自带机枪(10伤/1.25秒，射程4)可攻击敌人，击杀触发通用击杀产气，故「既产矿又打气」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "AndorXelNagaShrine",
+        "nameZh": "萨尔那加神庙(小)",
+        "income": 10,
+        "incomePeriod": 3,
+        "cost": 500,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 5,
+        "notes": "2×2 直接产矿建筑，每3秒产10晶矿(≈3.33矿/秒)，建造额外需5气。无升级链，可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "AndorXelNagaTemple",
+        "nameZh": "萨尔那加神庙(大)",
+        "income": 50,
+        "incomePeriod": 3,
+        "cost": 2800,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 10,
+        "notes": "2×3 直接产矿建筑，每3秒产50晶矿(≈16.67矿/秒)，建造额外需10气。全经济核心，可拆解回收(CommonSalvage)。"
+      }
+    ]
   }
 ]
