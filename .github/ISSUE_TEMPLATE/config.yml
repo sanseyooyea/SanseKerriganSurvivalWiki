@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🌐 线上 Wiki
+    url: https://wiki.ks2.top
+    about: 先在线上 Wiki 查询职业数据、经济、胜率与积分等信息。
+  - name: 🔒 安全漏洞（请勿公开提交）
+    url: https://github.com/sanseyooyea/SanseKerriganSurvivalWiki/security/advisories/new
+    about: 发现安全问题？请通过私密安全公告报告，不要开公开 Issue。
+  - name: 💬 使用疑问 / 讨论
+    url: https://github.com/sanseyooyea/SanseKerriganSurvivalWiki/discussions
+    about: 一般性提问、想法讨论请到 Discussions（若未开启，请私信维护者）。
