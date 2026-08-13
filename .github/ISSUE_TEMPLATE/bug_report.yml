@@ -1,0 +1,69 @@
+name: 🐛 Bug 反馈
+description: 报告网站功能异常、页面报错或显示错误
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！提交前请先确认：
+        - 已在 [现有 Issue](https://github.com/sanseyooyea/SanseKerriganSurvivalWiki/issues) 中搜索，没有重复。
+        - 如果是**数据不对**（数值、技能、经济等），请改用「📊 数据勘误」模板。
+        - 如果涉及**安全漏洞**，请勿在此公开提交。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述
+      description: 清楚描述发生了什么，以及你期望的正确行为。
+      placeholder: 我打开 XXX 页面，点击 XXX，结果……
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 一步步说明如何触发这个问题。
+      placeholder: |
+        1. 打开 https://wiki.ks2.top/...
+        2. 点击 '...'
+        3. 滚动到 '...'
+        4. 看到错误
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: 出问题的页面地址
+      placeholder: https://wiki.ks2.top/...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 使用环境
+      options:
+        - 桌面浏览器
+        - 手机浏览器
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器与版本
+      placeholder: Chrome 130 / Safari 18 / Edge ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图 / 控制台报错
+      description: 有截图或浏览器控制台（F12）报错请贴在这里，能大幅加快定位。
+    validations:
+      required: false

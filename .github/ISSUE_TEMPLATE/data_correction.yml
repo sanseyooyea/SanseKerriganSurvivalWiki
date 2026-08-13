@@ -1,0 +1,61 @@
+name: 📊 数据勘误
+description: 报告职业数据、技能、兵种、经济等数值与描述错误
+title: "[数据] "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Wiki 的数值以**地图最新版**为准。为便于核对，请尽量指明出处（地图内数据、脚本、实测）。
+        提交前请先在 [现有 Issue](https://github.com/sanseyooyea/SanseKerriganSurvivalWiki/issues) 搜索是否已有人反馈。
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 数据类别
+      options:
+        - 职业 / 英雄基础数据
+        - 技能
+        - 兵种 / 单位
+        - 经济系统
+        - 胜率 / 平衡性统计
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: subject
+    attributes:
+      label: 涉及职业 / 条目
+      placeholder: 例：技术员 · 加速技能
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: 当前 Wiki 的显示
+      description: Wiki 目前写的是什么？请附上页面地址。
+      placeholder: |
+        页面：https://wiki.ks2.top/...
+        当前写：加速 +400%，持续 10 秒……
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: 正确的数据应为
+      description: 正确数值/描述是什么？
+      placeholder: 实际为单体永久 +25%，5 充能……
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: 依据 / 出处
+      description: 数据来源，如地图版本、数据编辑器条目、Galaxy 脚本、游戏内截图或实测录像。
+      placeholder: 凯瑞甘生存2 最新版.SC2Map，H-Technician.xml 的 Behavior/Acceleration……
+    validations:
+      required: false
