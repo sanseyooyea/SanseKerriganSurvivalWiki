@@ -267,44 +267,50 @@
   },
   "acceleration": {
     "ability": "加速 (Accelerate)",
-    "speedupPct": 400,
-    "speedupNote": "建筑运作速度提升 400%（TimeScale 5 = 5 倍速）。",
-    "durationSec": 10,
-    "gasCost": 5,
-    "energyCost": 50,
-    "cooldownSec": 60,
-    "autoCast": true,
-    "unitEffectFraction": 0.25,
-    "allyEffectFraction": 0.25,
-    "effectNote": "对单位、对盟友建筑的加速效果仅为 1/4。",
+    "speedupPct": 25,
+    "speedupNote": "为目标建筑永久附加 +25% 运作速度（TimeScale 1.25，来源=施法者）。",
+    "permanent": true,
+    "durationSec": null,
+    "energyCost": 25,
+    "gasCost": 0,
+    "rangeCells": 15,
+    "singleTarget": true,
+    "targetNote": "单体指向技能，只能对己方/友方建筑施放（排除中立与敌方）。",
+    "charges": {
+      "max": 5,
+      "useCost": 1,
+      "rechargeByLevel": [
+        60,
+        50,
+        40,
+        30,
+        20
+      ]
+    },
     "levels": [
       {
         "level": 1,
-        "radiusCells": 2,
-        "maxStructures": 6
+        "rechargeSec": 60
       },
       {
         "level": 2,
-        "radiusCells": 3,
-        "maxStructures": 9
+        "rechargeSec": 50
       },
       {
         "level": 3,
-        "radiusCells": 4,
-        "maxStructures": 12
+        "rechargeSec": 40
       },
       {
         "level": 4,
-        "radiusCells": 5,
-        "maxStructures": 16
+        "rechargeSec": 30
       },
       {
         "level": 5,
-        "radiusCells": 6,
-        "maxStructures": 25
+        "rechargeSec": 20
       }
     ],
-    "economyRelation": "加速提升塔的开火节奏 → 单位时间击杀更多 → 出气更快 → 转化更多矿。加速直接决定整套经济引擎的转速。"
+    "effectNote": "旧版为「范围光环 · +400% · 持续 10s · 冷却 60s · 耗能 50+气 5」，现重做为「单体 · 永久 +25% · 5 充能 · 耗能 25 · 无气耗」。等级只缩短充能回充时间。",
+    "economyRelation": "加速为单座建筑永久提速 25%：塔开火更频繁 → 出气更快；转化工厂周期更短 → 产矿更快。5 层充能（随等级 60→20s 回充）让技术员可持续把关键建筑逐个铺满加速，是经济引擎的长期提速手段。"
   },
-  "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-08-14)"
+  "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-08-13)"
 }
