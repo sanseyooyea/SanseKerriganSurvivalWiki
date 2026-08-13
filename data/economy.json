@@ -1501,5 +1501,83 @@
         "notes": "2×3 直接产矿建筑，每3秒产50晶矿(≈16.67矿/秒)，建造额外需10气。全经济核心，可拆解回收(CommonSalvage)。"
       }
     ]
+  },
+  {
+    "hero": "Critter Lord",
+    "incomeModel": "小动物主宰是「建筑收入 + 自带永久加速」型经济：唯一的经济建筑是『小动物主巢』，被动直接产矿、无需 SCV 采集，也没有英雄独有的产气建筑。\n\n【主巢升级链】只能建造主巢 1（75 矿），随后沿 1→2→4→8→16→32 单线升级，不能跨级直建；升级按「目标造价 − 当前造价」扣费。每档每 2.5 秒产出等于档位数的晶矿（主巢 32 = 每 2.5 秒 32 矿）。高档主巢需要气体建造（主巢 32 需 20 气）。\n\n【自带永久加速】主巢 2 及以上各自带永久运作加速（TimeScale：主巢 2 ×1.1、4 ×1.2、8 ×1.3、16 ×1.35、32 ×1.4），提升该建筑自身运作速度（含产矿节奏），越高档越快，无需操作、无气耗——故实际产矿快于表中「每 2.5s」的基础节奏。\n\n气体主要通过全局机制（如通用击杀奖励）获得，而非本英雄的专属产气建筑。所有主巢均可拆解(CommonSalvage)回收。",
+    "buildings": [
+      {
+        "id": "CritterLordCritterHive1",
+        "nameZh": "小动物主巢 1",
+        "income": 1,
+        "incomePeriod": 2.5,
+        "cost": 75,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "CritterLordCritterHive2",
+        "gasCost": 0,
+        "notes": "唯一可直接建造的主巢。每 2.5s 产出 1 晶矿。可升级为「小动物主巢 2」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "CritterLordCritterHive2",
+        "nameZh": "小动物主巢 2",
+        "income": 2,
+        "incomePeriod": 2.5,
+        "cost": 150,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "CritterLordCritterHive4",
+        "gasCost": 0,
+        "notes": "由上一档升级而来。每 2.5s 产出 2 晶矿。自带永久运作加速 ×1.1（TimeScale，提升自身运作/产矿节奏，无气耗）。可升级为「小动物主巢 4」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "CritterLordCritterHive4",
+        "nameZh": "小动物主巢 4",
+        "income": 4,
+        "incomePeriod": 2.5,
+        "cost": 300,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "CritterLordCritterHive8",
+        "gasCost": 2,
+        "notes": "由上一档升级而来。每 2.5s 产出 4 晶矿。自带永久运作加速 ×1.2（TimeScale，提升自身运作/产矿节奏，无气耗）。建造额外需 2 气。可升级为「小动物主巢 8」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "CritterLordCritterHive8",
+        "nameZh": "小动物主巢 8",
+        "income": 8,
+        "incomePeriod": 2.5,
+        "cost": 700,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "CritterLordCritterHive16",
+        "gasCost": 6,
+        "notes": "由上一档升级而来。每 2.5s 产出 8 晶矿。自带永久运作加速 ×1.3（TimeScale，提升自身运作/产矿节奏，无气耗）。建造额外需 6 气。可升级为「小动物主巢 16」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "CritterLordCritterHive16",
+        "nameZh": "小动物主巢 16",
+        "income": 16,
+        "incomePeriod": 2.5,
+        "cost": 1900,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "CritterLordCritterHive32",
+        "gasCost": 12,
+        "notes": "由上一档升级而来。每 2.5s 产出 16 晶矿。自带永久运作加速 ×1.35（TimeScale，提升自身运作/产矿节奏，无气耗）。建造额外需 12 气。可升级为「小动物主巢 32」。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "CritterLordCritterHive32",
+        "nameZh": "小动物主巢 32",
+        "income": 32,
+        "incomePeriod": 2.5,
+        "cost": 5000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 20,
+        "notes": "由上一档升级而来。每 2.5s 产出 32 晶矿。自带永久运作加速 ×1.4（TimeScale，提升自身运作/产矿节奏，无气耗）。建造额外需 20 气。可拆解回收(CommonSalvage)。"
+      }
+    ]
   }
 ]
