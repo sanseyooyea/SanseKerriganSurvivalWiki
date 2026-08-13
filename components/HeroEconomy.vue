@@ -257,6 +257,7 @@ function heroChronos(h: any): any[] {
 }
 
 function chronoCostLabel(chrono: any) {
+  if (chrono.costLabel) return chrono.costLabel
   if (chrono.gasCost) return `${chrono.gasCost} 气体/次`
   if (chrono.energyCost > 0) return `${chrono.energyCost} 能量`
   return '无'
