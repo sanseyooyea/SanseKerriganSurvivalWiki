@@ -10,7 +10,7 @@
     "team": "Kerrigan",
     "unitIcon": "Assets\\Textures\\btn-unit-zerg-kerrigan.dds",
     "portrait": "Assets\\Textures\\kerriganportrait_static.dds",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>凯瑞甘是一个强大的近战英雄，拥有多种不同的作战风格。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>凯瑞甘是一名强大的近战英雄，拥有多种技能和灵活多变的玩法。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 99999,
       "speed": 3.0,
@@ -42,7 +42,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\wireframe-terran-scientist00.dds",
     "portrait": "",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>科学家可以快速部署高度机动的步兵部队。 他的经济很简单，但可能需要大量的多线处理才能保持抵御攻击的能力。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>科学家可以快速部署高机动性的步兵部队。他的经济体系比较直接，但想在敌方进攻下保持韧性，往往需要大量多线操作。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 300,
       "speed": 3.25,
@@ -65,7 +65,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-darktemplar.dds",
     "portrait": "",
-    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>黑暗圣堂武士控制一个敏捷的英雄单位。<n/>黑暗圣堂武士的力量在于牵制和地图控制。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>黑暗圣堂武士操控着一名敏捷的单体英雄。<n/>黑暗圣堂武士的强项在于牵制和地图控制。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 150,
       "speed": 3.25,
@@ -97,7 +97,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-hightemplar-taldarim.dds",
     "portrait": "",
-    "description": "<c val=\"FF0000\">推荐给新玩家</c><n/><n/><c val=\"00FF00\">难度 - 鸡/10</c><n/><n/>晋升者被认为是游戏中最简单的职业，因为您可以使用 「云」为您的经济提供出色的掩护。 使用炮台获取瓦斯来加速你的经济，并且拥有出色的后期能力。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"FF0000\">推荐新玩家使用。</c><n/><n/><c val=\"00FF00\">难度 - 1/10</c><n/><n/>晋升者被认为是游戏中最简单的职业，因为你可以用云为自己的经济提供极佳的掩护。利用光子炮获取瓦斯来加速经济发展，并打造强大的后期推进能力。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 150,
       "speed": 3.0,
@@ -120,7 +120,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-adept-purifier.dds",
     "portrait": "",
-    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>灵魂的发挥取决于运气。<n/>灵魂使用建筑作为唯一的攻防手段。但是她的建筑甚至可以控制地图，压退菌毯。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>灵魂是唯一一个依赖运气的职业，依靠强大但随机的股市组合来发展经济。<n/>灵魂只能依靠建造静态防御来进行防守和进攻。经过一些升级后，她非常擅长建立基地，甚至可以推进到菌毯上发动进攻。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 100,
       "speed": 5.0,
@@ -154,7 +154,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-terran-specialopsdropship.dds",
     "portrait": "",
-    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿瑞斯是一名飞行英雄，在矿场安排矿工来发展经济。 矿场本身很难隐藏，而且笨拙无法回收，但是阿瑞斯拥有游戏中最快的经济速度（之一）。 拥有非常强大的地面部队，但要提防虫族的飞行部队。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿瑞斯是一名飞行型生存者，依靠在采矿前哨中的矿工发展经济。采矿前哨本身不容易隐藏，重新部署时也比较笨重，但阿瑞斯拥有游戏中最强的经济之一。他拥有非常强大的地面部队，但要小心试图狙杀他的飞行敌人。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 150,
       "speed": 3.0,
@@ -178,7 +178,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-oracle.dds",
     "portrait": "",
-    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>先知是一个强大的法师，能够使用多种游戏风格。她可以为盟友提供视野、防御和经济支持，同时也能骚扰和攻击敌人。经济系统基于萃取结界，需要依赖盟友来共同发展经济。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>先知是一名强大的施法者，能够适应多种玩法。她可以在视野、防守和经济方面支援盟友，也能骚扰并进攻对手。她的经济体系建立在萃取结界之上，同时也依赖盟友一并发展经济。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 80,
       "speed": 4.4,
@@ -224,7 +224,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-zerg-stukov.dds",
     "portrait": "",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>斯托科夫是一个需要仔细规划和策略才能生存的微操密集型英雄。<n/>斯托科夫生产成群的感染虫族，反抗虫群。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>斯托科夫是一名非常吃微操的英雄，需要谨慎规划和策略才能生存。<n/>斯托科夫会召唤成群反抗虫群的被感染虫族。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 350,
       "speed": 3.25,
@@ -280,7 +280,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-artanishero.dds",
     "portrait": "",
-    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>阿塔尼斯是一个高度微操集约的英雄，需要对早期单位进行仔细管理。他的经济提供了隐身的实质性实用性，如果他变得强大，可以建造一支非常强大的军队。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>阿塔尼斯是一名非常依赖微操的英雄，需要谨慎管理前期部队。他的经济体系能通过隐形提供大量功能性支持，一旦发育起来，还能组建一支极其强大的军队。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 300,
       "speed": 3.0,
@@ -324,7 +324,7 @@
     "team": "Kerrigan",
     "unitIcon": "Assets\\Textures\\btn-unit-zerg-broodqueen.dds",
     "portrait": "Assets\\Textures\\queenportrait_static.dds",
-    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>更多的APM = 更多的作用。<n/>扎加拉需要保护基地，抵御生存者的攻击，铺菌毯等一系列职责。<n/>如果你毯子铺得很快，请选择扎加拉。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"00FF00\">难度 - 3/10</c><n/><n/>APM 越高，收益越大。<n/>扎加拉负责守护基地，抵御进攻、铺设菌毯，并承担其他职责。<n/>如果你擅长铺菌毯，就选扎加拉。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 99999,
       "speed": 0.55,
@@ -352,7 +352,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-terran-deathhead.dds",
     "portrait": "",
-    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>工程师是一位移动英雄，他几乎可以在地图上的任何位置建立基地。 他的高生命建筑为任何前哨基地都提供了相当大的保护，但是随着经济的增长，他的经济变得越来越难以管理。拥有强大的阵地能力。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>工程师是一名机动型英雄，几乎可以在地图上的任何位置建造建筑。他那些坚固耐用的建筑能为任何前哨位置提供相当可观的支援，但随着经济规模扩大，他的经济管理也会越来越困难。他对基地的支援能力非常出色。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 250,
       "speed": 3.5,
@@ -373,7 +373,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Buttons\\nova.dds",
     "portrait": "",
-    "description": "难度 - <c val=\"FF0000\">9/10</c><n/><n/>诺娃团队是一对刺客：诺娃和托什，两者都需要持续关注和微操才能生存。他们唯一真正的逃脱方式是传送到对方身边，所以确保他们总是保持分离。<n/><n/><c val=\"00FF00\">由 Luminous 开发并维护。</c>",
+    "description": "难度 - <c val=\"FF0000\">9/10</c><n/><n/>诺娃团队是一对刺客：诺娃和托什，两者都需要持续关注和微操才能生存。他们唯一真正的逃脱方式是传送到对方身边，所以确保他们总是保持分离。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 300,
       "speed": 3.25,
@@ -403,7 +403,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-terran-raven.dds",
     "portrait": "",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>游牧民是一个飞行的进攻性建造者。他拥有相当标准的经济和军队，可以随时召唤。随着游牧民力量的增长，他最大的资产是他的法术施放。<n/><n/><c val=\"00FF00\">由 Luminous 开发和维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>游牧民是一名飞行型进攻建造者。他拥有相当标准的经济和军队，并且能够在转瞬之间将其空投到场上。随着游牧民不断变强，他最大的优势会体现在施法能力上。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 200,
       "speed": 2.75,
@@ -431,7 +431,7 @@
     "team": "Kerrigan",
     "unitIcon": "Assets\\Textures\\btn-unit-zerg-dehaka.dds",
     "portrait": "Assets\\Textures\\dehakaportrait_static.dds",
-    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>德哈卡是一个狡猾的刺客。需要大量关于德哈卡机制的知识才能玩。<n/>用你的风行术出其不意地攻击敌人，用你的拖拽抓住他们，并利用你的速度优势。<n/>德哈卡也可以攻击空中单位。<n/><n/>德哈卡擅长击杀单个目标，并追击敌人。<n/>德哈卡在攻击基地和面对正面对抗时表现相当差。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FF0000\">难度 - 7/10</c><n/><n/>德哈卡是一名擅长偷袭的刺客。想玩好他，需要对德哈卡的机制有相当深入的理解。<n/>利用风行打敌人一个措手不及，用拖拽抓住他们，再凭借你的速度优势扩大战果。<n/>德哈卡也可以对空攻击。<n/><n/>德哈卡擅长抓单和追击敌人。<n/>德哈卡在强攻基地和正面硬拼时则比较乏力。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 99999,
       "speed": 3.24,
@@ -460,7 +460,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-zerg-kerriganascended.dds",
     "portrait": "",
-    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>赫利俄斯提供非常安全的经济，但在建立军队方面存在一些挑战。<n/>任何军队都\"链接\"到一个建筑。当单位被杀死时，建筑可以开始重新生产它。如果建筑被杀死，单位也会被杀死。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>赫利俄斯拥有非常安全的经济体系，但在组建军队方面会面临一些挑战。<n/>每支部队都会与一座建筑“绑定”。当单位被击杀后，该建筑可以重新开始生产它；如果建筑被摧毁，对应单位也会一并死亡。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 300,
       "speed": 3.0,
@@ -498,7 +498,7 @@
     "team": "Kerrigan",
     "unitIcon": "Assets\\Textures\\btn-unit-zerg-defilerex3.dds",
     "portrait": "Assets\\Textures\\defilerportrait_static.dds",
-    "description": "<c val=\"FFFF00\">难度 - 6/10</c><n/><n/>塔克拉斯是一个法术施放者，具有可以对敌方单位造成大量持续伤害并保护友方单位免受伤害的技能<n/>他可以消耗友方虫族单位来获得能量。<n/><n/>塔克拉斯擅长用黑暗群体破坏大型基地，并用他的瘟疫技能阻止激进支援者的骚扰。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 6/10</c><n/><n/>塔克拉斯是一名施法者，拥有能对敌方单位造成大量持续伤害并保护友方单位免受伤害的技能。<n/>他可以吞噬友方虫族单位来恢复能量。<n/><n/>塔克拉斯擅长利用黑暗虫群攻破大型基地，并用瘟疫技能压制喜欢骚扰的辅助单位。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 99999,
       "speed": 3.0,
@@ -530,7 +530,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-terran-marauderswann.dds",
     "portrait": "",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>斯旺是一个防御建造者，依靠静态防御作为他唯一的防御和攻击形式。<n/> 斯旺的掠夺者和前男友卡琴斯基让他能够在全地图制造压力并擅长基地建设。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>斯旺是一名防守型建造者，只能依靠静态防御进行防守和进攻。<n/>斯旺的掠食者以及他的前男友卡琴斯基，让他能够在整张地图上施加压力，并且非常擅长基地建设。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 300,
       "speed": 3.25,
@@ -554,7 +554,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-fenix.dds",
     "portrait": "",
-    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>监管者是一个强大的支援单位！厚的一批！随着等级的增长，监管者将越来越强大。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>监管者是一名坚韧的战斗型辅助，擅长协助防守关键位置。随着监管者不断变强，他会成长为一名极其强大的英雄。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 500,
       "speed": 3.0,
@@ -611,7 +611,7 @@
     "team": "Kerrigan",
     "unitIcon": "Assets\\Textures\\btn-unit-zerg-queen-mecha.dds",
     "portrait": "Assets\\Textures\\queenportrait_static.dds",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>尼亚德拉可以防御和攻击。在菌毯外比扎加拉移动更快，但传送冷却时间更长。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>尼亚德拉既能防守也能进攻。与扎加拉相比，她在离开菌毯时移动更快，但传送冷却时间更长。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 99999,
       "speed": 1.6,
@@ -640,7 +640,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-terran-tychusghost.dds",
     "portrait": "",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>米拉核弹轰炸。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>米拉负责把东西炸上天。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 400,
       "speed": 3.25,
@@ -670,7 +670,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-tassadar.dds",
     "portrait": "",
-    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>赛恩是一个强大且多才多艺的法师。<n/><n/><c val=\"00FF00\">由Luminous开发和维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 4/10</c><n/><n/>赛恩是一名强大而多才多艺的施法者。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 200,
       "speed": 3.0,
@@ -715,7 +715,8 @@
       "PersonalCloakingTechnician",
       "FixEverything",
       "RestructuredIntegrity",
-      "CloakingField"
+      "CloakingField",
+      "SlowSell"
     ]
   },
   {
@@ -759,7 +760,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-ability-zeratul-disruptor-purificationnova.dds",
     "portrait": "",
-    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>冠军进入单位让他们更加强大！<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>冠军可以装载进自己的单位中，让它们变得更加强大！<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 100,
       "speed": 4.0,
@@ -800,8 +801,7 @@
       "Sleep",
       "AuraofDamnedSouls",
       "ElementalistTeleportationMark",
-      "Meteor",
-      "ElementalistBlink"
+      "Meteor"
     ]
   },
   {
@@ -828,8 +828,11 @@
     },
     "abilities": [
       "BrakkHardenedShell",
-      "BrakkCorrosiveCloud",
-      "BrakkSwap"
+      "BrakkSwap",
+      "BrakkPrimalStrength",
+      "BrakkPrimalAgility",
+      "BrakkPrimalVitality",
+      "BrakkCharge"
     ]
   },
   {
@@ -878,7 +881,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-terran-bansheemercenary.dds",
     "portrait": "",
-    "description": "<c val=\"FF8000\">难度 - 5/10</c><n/><n/>指挥一支精英人类舰队。<n/><n/><c val=\"00FF00\">创作者及维护者：Luminous.</c>",
+    "description": "<c val=\"FF8000\">难度 - 5/10</c><n/><n/>指挥一支由精英人类星际战机组成的舰队。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 200,
       "speed": 3.0,
@@ -934,7 +937,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-alarak.dds",
     "portrait": "",
-    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿拉纳克，强大的战士，领导残暴的塔达琳部队。需要125点阳光。<n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿拉纳克是一名强大的战士，率领着一支凶猛的塔达林军队。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 350,
       "speed": 3.0,
@@ -950,7 +953,10 @@
       "AlarakDestructionWave",
       "AlarakACDeadlyCharge",
       "AlarakSprint",
-      "AlarakSacrifice"
+      "AlarakSacrifice",
+      "AlarakForkedLightning",
+      "AlarakWrathOfTheHighlord",
+      "AlarakTerrazineInsanity"
     ]
   },
   {
@@ -1235,7 +1241,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-champion-carrier-purifier.dds",
     "portrait": "",
-    "description": "<c val=\"FF0000\">难度 - 6/10 </c> <n/><n/>艾尔文是一个强大的施法者，使用她的创造之力为自身和她的部队提供增益。<n/><n/><n/><c val=\"00FF00\">开发者及维护者：Luminous.</c>",
+    "description": "<c val=\"FF0000\">难度 - 6/10 </c> <n/><n/>艾尔文是一名高阶施法者，能够以富有创造性的方式强化自己和盟友的部队。<n/><n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 125,
       "speed": 2.75,

@@ -783,7 +783,8 @@
       "PersonalCloakingTechnician",
       "FixEverything",
       "RestructuredIntegrity",
-      "CloakingField"
+      "CloakingField",
+      "SlowSell"
     ]
   },
   {
@@ -875,8 +876,7 @@
       "Sleep",
       "AuraofDamnedSouls",
       "ElementalistTeleportationMark",
-      "Meteor",
-      "ElementalistBlink"
+      "Meteor"
     ]
   },
   {
@@ -904,8 +904,11 @@
     },
     "abilities": [
       "BrakkHardenedShell",
-      "BrakkCorrosiveCloud",
-      "BrakkSwap"
+      "BrakkSwap",
+      "BrakkPrimalStrength",
+      "BrakkPrimalAgility",
+      "BrakkPrimalVitality",
+      "BrakkCharge"
     ]
   },
   {
@@ -1031,7 +1034,10 @@
       "AlarakDestructionWave",
       "AlarakACDeadlyCharge",
       "AlarakSprint",
-      "AlarakSacrifice"
+      "AlarakSacrifice",
+      "AlarakForkedLightning",
+      "AlarakWrathOfTheHighlord",
+      "AlarakTerrazineInsanity"
     ]
   },
   {
