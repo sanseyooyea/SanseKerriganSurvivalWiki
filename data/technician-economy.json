@@ -59,8 +59,8 @@
     "autoCast": true,
     "autoUpgrade": true,
     "autoUpgradeNote": "余矿足够支付「升级费 + 在产工厂转化所需矿」时，工厂自动逐级升档。",
-    "mineralReturnRule": "纯矿回报率逐档递减：+1 为 +19%，每升一档 -1%，+128 为 +12%",
-    "gasReturnRule": "矿气回报率逐档递减：+1 为 +43%，每升一档 -2%，+128 为 +29%（每点气价值同步从 24 递减到约 17）",
+    "mineralReturnRule": "纯矿回报率逐档递减：+1 为 +20%，每升一档 -2%，+128 为 +6%",
+    "gasReturnRule": "矿气回报率逐档递减：+1 为 +44%，每升一档 -2%，+128 为 +30%（每点气价值恒定 24）",
     "paybackNote": "回本时间 = 总成本 ÷ 纯矿每秒净产出；总成本 = 建造费 + 单次投入矿（净产出 = 单次净赚 ÷ 20s 周期）。",
     "factories": [
       {
@@ -70,21 +70,21 @@
         "buildCost": 25,
         "upgradeCost": null,
         "totalCost": 125,
-        "paybackSec": 132,
+        "paybackSec": 125,
         "mineralRecipe": {
           "in": 100,
-          "out": 119,
-          "net": 19,
-          "returnPct": 19.0,
-          "netPerSec": 0.95
+          "out": 120,
+          "net": 20,
+          "returnPct": 20.0,
+          "netPerSec": 1.0
         },
         "gasRecipe": {
           "mineralIn": 100,
           "gasIn": 1,
-          "out": 143,
-          "net": 43,
-          "returnPct": 43.0,
-          "netPerSec": 2.15,
+          "out": 144,
+          "net": 44,
+          "returnPct": 44.0,
+          "netPerSec": 2.2,
           "gasValue": 24.0
         }
       },
@@ -106,161 +106,161 @@
         "gasRecipe": {
           "mineralIn": 200,
           "gasIn": 2,
-          "out": 282,
-          "net": 82,
-          "returnPct": 41.0,
-          "netPerSec": 4.1,
-          "gasValue": 23.0
+          "out": 284,
+          "net": 84,
+          "returnPct": 42.0,
+          "netPerSec": 4.2,
+          "gasValue": 24.0
         }
       },
       {
         "tier": 4,
         "nameZh": "转化工厂 +4",
         "id": "TechnicianTransmutationFactory4",
-        "buildCost": 150,
-        "upgradeCost": 100,
-        "totalCost": 550,
-        "paybackSec": 162,
+        "buildCost": 100,
+        "upgradeCost": 50,
+        "totalCost": 500,
+        "paybackSec": 156,
         "mineralRecipe": {
           "in": 400,
-          "out": 468,
-          "net": 68,
-          "returnPct": 17.0,
-          "netPerSec": 3.4
+          "out": 464,
+          "net": 64,
+          "returnPct": 16.0,
+          "netPerSec": 3.2
         },
         "gasRecipe": {
           "mineralIn": 400,
           "gasIn": 4,
-          "out": 556,
-          "net": 156,
-          "returnPct": 39.0,
-          "netPerSec": 7.8,
-          "gasValue": 22.0
+          "out": 560,
+          "net": 160,
+          "returnPct": 40.0,
+          "netPerSec": 8.0,
+          "gasValue": 24.0
         }
       },
       {
         "tier": 8,
         "nameZh": "转化工厂 +8",
         "id": "TechnicianTransmutationFactory8",
-        "buildCost": 400,
-        "upgradeCost": 250,
-        "totalCost": 1200,
-        "paybackSec": 188,
+        "buildCost": 200,
+        "upgradeCost": 100,
+        "totalCost": 1000,
+        "paybackSec": 179,
         "mineralRecipe": {
           "in": 800,
-          "out": 928,
-          "net": 128,
-          "returnPct": 16.0,
-          "netPerSec": 6.4
+          "out": 912,
+          "net": 112,
+          "returnPct": 14.0,
+          "netPerSec": 5.6
         },
         "gasRecipe": {
           "mineralIn": 800,
           "gasIn": 8,
-          "out": 1096,
-          "net": 296,
-          "returnPct": 37.0,
-          "netPerSec": 14.8,
-          "gasValue": 21.0
+          "out": 1104,
+          "net": 304,
+          "returnPct": 38.0,
+          "netPerSec": 15.2,
+          "gasValue": 24.0
         }
       },
       {
         "tier": 16,
         "nameZh": "转化工厂 +16",
         "id": "TechnicianTransmutationFactory16",
-        "buildCost": 1000,
-        "upgradeCost": 600,
-        "totalCost": 2600,
-        "paybackSec": 217,
+        "buildCost": 400,
+        "upgradeCost": 200,
+        "totalCost": 2000,
+        "paybackSec": 207,
         "mineralRecipe": {
           "in": 1600,
-          "out": 1840,
-          "net": 240,
-          "returnPct": 15.0,
-          "netPerSec": 12.0
+          "out": 1793,
+          "net": 193,
+          "returnPct": 12.1,
+          "netPerSec": 9.65
         },
         "gasRecipe": {
           "mineralIn": 1600,
           "gasIn": 16,
-          "out": 2160,
-          "net": 560,
-          "returnPct": 35.0,
-          "netPerSec": 28.0,
-          "gasValue": 20.0
+          "out": 2176,
+          "net": 576,
+          "returnPct": 36.0,
+          "netPerSec": 28.8,
+          "gasValue": 23.94
         }
       },
       {
         "tier": 32,
         "nameZh": "转化工厂 +32",
         "id": "TechnicianTransmutationFactory32",
-        "buildCost": 2400,
-        "upgradeCost": 1400,
-        "totalCost": 5600,
-        "paybackSec": 250,
+        "buildCost": 800,
+        "upgradeCost": 400,
+        "totalCost": 4000,
+        "paybackSec": 249,
         "mineralRecipe": {
           "in": 3200,
-          "out": 3648,
-          "net": 448,
-          "returnPct": 14.0,
-          "netPerSec": 22.4
+          "out": 3521,
+          "net": 321,
+          "returnPct": 10.0,
+          "netPerSec": 16.05
         },
         "gasRecipe": {
           "mineralIn": 3200,
           "gasIn": 32,
-          "out": 4256,
-          "net": 1056,
-          "returnPct": 33.0,
-          "netPerSec": 52.8,
-          "gasValue": 19.0
+          "out": 4288,
+          "net": 1088,
+          "returnPct": 34.0,
+          "netPerSec": 54.4,
+          "gasValue": 23.97
         }
       },
       {
         "tier": 64,
         "nameZh": "转化工厂 +64",
         "id": "TechnicianTransmutationFactory64",
-        "buildCost": 5600,
-        "upgradeCost": 3200,
-        "totalCost": 12000,
-        "paybackSec": 288,
+        "buildCost": 1600,
+        "upgradeCost": 800,
+        "totalCost": 8000,
+        "paybackSec": 312,
         "mineralRecipe": {
           "in": 6400,
-          "out": 7232,
-          "net": 832,
-          "returnPct": 13.0,
-          "netPerSec": 41.6
+          "out": 6912,
+          "net": 512,
+          "returnPct": 8.0,
+          "netPerSec": 25.6
         },
         "gasRecipe": {
           "mineralIn": 6400,
           "gasIn": 64,
-          "out": 8384,
-          "net": 1984,
-          "returnPct": 31.0,
-          "netPerSec": 99.2,
-          "gasValue": 18.0
+          "out": 8448,
+          "net": 2048,
+          "returnPct": 32.0,
+          "netPerSec": 102.4,
+          "gasValue": 24.0
         }
       },
       {
         "tier": 128,
         "nameZh": "转化工厂 +128",
         "id": "TechnicianTransmutationFactory128",
-        "buildCost": 12800,
-        "upgradeCost": 7200,
-        "totalCost": 25600,
-        "paybackSec": 333,
+        "buildCost": 3200,
+        "upgradeCost": 1600,
+        "totalCost": 16000,
+        "paybackSec": 417,
         "mineralRecipe": {
           "in": 12800,
-          "out": 14337,
-          "net": 1537,
-          "returnPct": 12.0,
-          "netPerSec": 76.85
+          "out": 13568,
+          "net": 768,
+          "returnPct": 6.0,
+          "netPerSec": 38.4
         },
         "gasRecipe": {
           "mineralIn": 12800,
           "gasIn": 128,
-          "out": 16512,
-          "net": 3712,
-          "returnPct": 29.0,
-          "netPerSec": 185.6,
-          "gasValue": 16.99
+          "out": 16640,
+          "net": 3840,
+          "returnPct": 30.0,
+          "netPerSec": 192.0,
+          "gasValue": 24.0
         }
       }
     ]
@@ -306,5 +306,5 @@
     ],
     "economyRelation": "加速提升塔的开火节奏 → 单位时间击杀更多 → 出气更快 → 转化更多矿。加速直接决定整套经济引擎的转速。"
   },
-  "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-06-11)"
+  "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-08-14)"
 }
