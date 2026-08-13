@@ -117,13 +117,13 @@
       <div class="flex-1 min-w-0">
         <div class="tech-accel-title">
           {{ data.acceleration.ability }} <span class="tech-accel-pct">+{{ data.acceleration.speedupPct }}%</span>
-          <span class="tech-accel-spec">持续 {{ data.acceleration.durationSec }}s · {{ data.acceleration.gasCost }} 气 / {{ data.acceleration.energyCost }} 能量 · 冷却 {{ data.acceleration.cooldownSec }}s · 自动施放</span>
+          <span class="tech-accel-spec">{{ data.acceleration.permanent ? '永久' : data.acceleration.durationSec + 's' }} · {{ data.acceleration.energyCost }} 能量<template v-if="data.acceleration.gasCost"> · {{ data.acceleration.gasCost }} 气</template> · 射程 {{ data.acceleration.rangeCells }} · {{ data.acceleration.charges.max }} 充能</span>
         </div>
         <p class="tech-accel-desc">{{ data.acceleration.economyRelation }}</p>
         <div class="tech-accel-levels">
           <div v-for="lv in data.acceleration.levels" :key="lv.level" class="tech-accel-lv">
             <span class="tech-accel-lv-tag">Lv{{ lv.level }}</span>
-            <span class="tech-accel-lv-val">半径 {{ lv.radiusCells }} · 最多 {{ lv.maxStructures }} 建筑</span>
+            <span class="tech-accel-lv-val">回充 {{ lv.rechargeSec }}s</span>
           </div>
         </div>
         <p class="tech-accel-note">{{ data.acceleration.effectNote }}</p>

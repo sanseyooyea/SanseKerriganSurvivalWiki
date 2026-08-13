@@ -178,31 +178,44 @@ data = {
         "paybackNote": "回本时间 = 总成本 ÷ 纯矿每秒净产出；总成本 = 建造费 + 单次投入矿（净产出 = 单次净赚 ÷ 20s 周期）。",
         "factories": factories
     },
+    # 加速（2026-08 重做）：由「范围光环·+400%·持续10s·60s冷却·耗能50+气5」改为
+    # 「单体指向·永久+25%·充能制·耗能25·无气耗」。数值全部读自地图 H-Technician.xml：
+    #   Behavior/Acceleration.Modification.TimeScale = 1.25（+25%，无 Duration = 永久）
+    #   Abil/Accelerate: CAbilEffectTarget，Range=15，TargetFilters=Structure;Neutral,Enemy
+    #     （仅可对己方/友方建筑施放）；Cost.Vital[Energy]=25（无 Vespene）；
+    #     充能 Cost.Charge：CountMax=5，CountUse=1，回充随等级 TimeUse=60/50/40/30/20s。
+    #   旧版的 AccelerationSearchArea1~5（半径2~6）已无任何引用 → AOE 机制废弃，现为单体。
     "acceleration": {
         "ability": "加速 (Accelerate)",
-        "speedupPct": 400,
-        "speedupNote": "建筑运作速度提升 400%（TimeScale 5 = 5 倍速）。",
-        "durationSec": 10,
-        "gasCost": 5,
-        "energyCost": 50,
-        "cooldownSec": 60,
-        "autoCast": True,
-        "unitEffectFraction": 0.25,
-        "allyEffectFraction": 0.25,
-        "effectNote": "对单位、对盟友建筑的加速效果仅为 1/4。",
-        # 5 级：搜索半径来自地图 AccelerationSearchArea1~5（2/3/4/5/6 格）；
-        # 范围内最多加速的建筑数为范围副产物上限（galaxy 脚本计数，实测 6/9/12/16/25）。
+        "speedupPct": 25,
+        "speedupNote": "为目标建筑永久附加 +25% 运作速度（TimeScale 1.25，来源=施法者）。",
+        "permanent": True,
+        "durationSec": None,
+        "energyCost": 25,
+        "gasCost": 0,
+        "rangeCells": 15,
+        "singleTarget": True,
+        "targetNote": "单体指向技能，只能对己方/友方建筑施放（排除中立与敌方）。",
+        "charges": {
+            "max": 5,
+            "useCost": 1,
+            "rechargeByLevel": [60, 50, 40, 30, 20]
+        },
+        # 5 级只缩短充能回充时间（TimeUse）；每级效果与耗能相同。
         "levels": [
-            {"level": 1, "radiusCells": 2, "maxStructures": 6},
-            {"level": 2, "radiusCells": 3, "maxStructures": 9},
-            {"level": 3, "radiusCells": 4, "maxStructures": 12},
-            {"level": 4, "radiusCells": 5, "maxStructures": 16},
-            {"level": 5, "radiusCells": 6, "maxStructures": 25},
+            {"level": 1, "rechargeSec": 60},
+            {"level": 2, "rechargeSec": 50},
+            {"level": 3, "rechargeSec": 40},
+            {"level": 4, "rechargeSec": 30},
+            {"level": 5, "rechargeSec": 20},
         ],
-        "economyRelation": ("加速提升塔的开火节奏 → 单位时间击杀更多 → 出气更快 → "
-                            "转化更多矿。加速直接决定整套经济引擎的转速。")
+        "effectNote": "旧版为「范围光环 · +400% · 持续 10s · 冷却 60s · 耗能 50+气 5」，"
+                      "现重做为「单体 · 永久 +25% · 5 充能 · 耗能 25 · 无气耗」。等级只缩短充能回充时间。",
+        "economyRelation": ("加速为单座建筑永久提速 25%：塔开火更频繁 → 出气更快；"
+                            "转化工厂周期更短 → 产矿更快。5 层充能（随等级 60→20s 回充）"
+                            "让技术员可持续把关键建筑逐个铺满加速，是经济引擎的长期提速手段。")
     },
-    "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-08-14)"
+    "_source": "凯瑞甘生存2 最新版.SC2Map (verified 2026-08-13)"
 }
 
 with open('data/technician-economy.json', 'w', encoding='utf-8') as f:
