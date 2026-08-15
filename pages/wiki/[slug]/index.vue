@@ -13,7 +13,8 @@
         <div class="wk-meta">
           <span class="wk-meta-dot"></span>
           最后编辑 {{ page.updated_by }} · {{ formatDate(page.updated_at) }}
-          <NuxtLink v-if="canEdit" :to="`/wiki/${slug}/edit`" class="wk-edit">编辑本页</NuxtLink>
+          <NuxtLink :to="`/wiki/${slug}/history`" class="wk-edit">历史</NuxtLink>
+          <NuxtLink v-if="isLoggedIn" :to="`/wiki/${slug}/edit`" class="wk-edit">{{ isAdmin ? '编辑本页' : '提议修改' }}</NuxtLink>
         </div>
       </header>
 
@@ -36,7 +37,7 @@
     <div v-else class="relative max-w-3xl mx-auto py-24 px-4 text-center">
       <div class="wk-kicker">// 404</div>
       <p class="wk-404">页面不存在</p>
-      <NuxtLink v-if="canEdit" :to="`/wiki/${slug}/edit`" class="wk-edit">创建此页面</NuxtLink>
+      <NuxtLink v-if="isLoggedIn" :to="`/wiki/${slug}/edit`" class="wk-edit">{{ isAdmin ? '创建此页面' : '提议新建' }}</NuxtLink>
     </div>
   </div>
 </template>
@@ -47,7 +48,7 @@ import DOMPurify from 'isomorphic-dompurify'
 
 const route = useRoute()
 const slug = route.params.slug as string
-const { canEdit } = useAuth()
+const { isLoggedIn, isAdmin } = useAuth()
 
 const { data: page } = await useFetch(`/api/wiki/${slug}`)
 
