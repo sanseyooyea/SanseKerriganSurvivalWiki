@@ -4,9 +4,12 @@ Build data/stats.db (read-only reference SQLite) from a KS2 prod DB dump.
 Holds per-player history that the public gateway (194823.xyz) does not expose,
 queried by handle at runtime via server/api. Currently:
 
-  played_like  -- per game: the MMR a player effectively "played like"
-  handles      -- player_handle -> battle_tag (to resolve a handle to identity)
-  mmr_history  -- per player: time series of core (survivor/kerrigan) + role MMR
+  played_like        -- per game: the MMR a player effectively "played like"
+  handles            -- player_handle -> battle_tag (to resolve a handle to identity)
+  mmr_history        -- per player: time series of core (survivor/kerrigan) + role MMR
+  player_mmr_current -- per player: current MMR snapshot in the shape /api/mmr
+                        returns, so it can serve as an offline FALLBACK when the
+                        gateway's /api/player is down (see server/api/mmr.get.ts)
 
 `played_like.identity` / `mmr_history.identity` is usually a battle_tag (e.g.
 "Name#1234", sometimes a toon "N-S2-1-..."); to look up by handle, resolve
@@ -136,6 +139,148 @@ def build_mmr_history(dump, cur):
     return n, through
 
 
+def _load_role_map(dump):
+    """role_id -> (role_name, team). team 0 = survivor, 1 = kerrigan."""
+    role_map = {}
+    for role_id, role_name, team, _ds in copy_rows(dump, 'roles'):
+        role_map[int(role_id)] = (role_name, int(team))
+    return role_map
+
+
+def _pg_int_array(s):
+    """Parse a pg_dump text array like `{13,23,-62,...}` into a list of ints."""
+    s = s.strip()
+    if not s or s == '\\N' or s == '{}':
+        return []
+    return [int(x) for x in s[1:-1].split(',') if x not in ('', 'NULL')]
+
+
+def build_win_stats(dump, handle_to_identity):
+    """One pass over `players` -> per (identity, functional_role) [games, wins].
+
+    A game is a win when postgame_mmr > pregame_mmr (win always nudges MMR up,
+    loss down); this avoids needing the games.outcome team convention. Keyed by
+    identity (resolved from player_handle via `handles`) so it lines up with
+    player_mmrs, whose roles use role_name == functional_role.
+    """
+    from collections import defaultdict
+    stats = defaultdict(lambda: [0, 0])  # (identity, role) -> [games, wins]
+    for row in copy_rows(dump, 'players'):
+        # (game_id, player_name, player_handle, pregame_mmr, postgame_mmr,
+        #  internal_role, functional_role, ...)
+        handle, pre, post, role = row[2], row[3], row[4], row[6]
+        if pre in ('\\N', '') or post in ('\\N', '') or role in ('\\N', ''):
+            continue
+        identity = handle_to_identity.get(handle, handle)
+        rec = stats[(identity, role)]
+        rec[0] += 1
+        if float(post) > float(pre):
+            rec[1] += 1
+    return stats
+
+
+def build_current(dump, cur, handle_to_identity):
+    """Build player_mmr_current: per player, the current-MMR payload matching the
+    shape `/api/mmr` returns, so it can back an offline fallback.
+
+    Returns (n_players, through). `tier` is intentionally omitted (the dump has no
+    tier thresholds); percentile is computed from the whole population per team.
+    """
+    import bisect
+    role_map = _load_role_map(dump)
+    win_stats = build_win_stats(dump, handle_to_identity)
+
+    # First pass: parse each player's core + roles into memory; also collect the
+    # full core-MMR population per team so we can compute Top-percentile.
+    players = []  # (identity, cores{0,1}, roles_by_team{0:[...],1:[...]}, latest_ds)
+    pop = {0: [], 1: []}  # all core MMRs per team, for percentile
+    latest_ds = ''
+    for row in copy_rows(dump, 'player_mmrs'):
+        identity, _ver, core_s, role_s, _cg, role_games_s, _hist, ds = row
+        try:
+            core = json.loads(core_s)  # {"0": survivor, "1": kerrigan}
+        except Exception:
+            continue
+        deltas = _pg_int_array(role_s)
+        try:
+            role_games = json.loads(role_games_s) if role_games_s not in ('\\N', '') else {}
+        except Exception:
+            role_games = {}
+
+        cores = {}
+        for team in (0, 1):
+            v = core.get(str(team))
+            if v is not None:
+                cores[team] = int(round(float(v)))
+                pop[team].append(cores[team])
+
+        roles_by_team = {0: [], 1: []}
+        for rid_s, plays in role_games.items():
+            rid = int(rid_s)
+            if rid not in role_map:
+                continue
+            name, team = role_map[rid]
+            base = cores.get(team)
+            if base is None:
+                continue
+            delta = deltas[rid] if rid < len(deltas) else 0
+            g, w = win_stats.get((identity, name), (0, 0))
+            roles_by_team[team].append({
+                'role_id': rid,
+                'role_name': name,
+                'mmr': base + delta,
+                'plays': int(plays),
+                # win_rate from the players table; None when no rated rows exist
+                # for this role (UI renders it as "—" rather than a false 0%).
+                'win_rate': round(w / g, 4) if g else None,
+            })
+        for team in (0, 1):
+            roles_by_team[team].sort(key=lambda r: r['mmr'], reverse=True)
+
+        players.append((identity, cores, roles_by_team))
+        if ds != '\\N' and ds > latest_ds:
+            latest_ds = ds
+
+    # sorted ascending populations for O(log n) percentile lookups
+    for team in (0, 1):
+        pop[team].sort()
+
+    def top_pct(team, mmr):
+        arr = pop[team]
+        if not arr:
+            return None
+        # fraction of players ranked strictly above -> "Top X%". Clamp to 0.1 so
+        # the very top players read "Top 0.1%" instead of a confusing "Top 0%".
+        above = len(arr) - bisect.bisect_right(arr, mmr)
+        return max(0.1, round(above / len(arr) * 100, 1))
+
+    n = 0
+    for identity, cores, roles_by_team in players:
+        payload = {
+            'cores': {
+                'survivor': cores.get(0, 0),
+                'kerrigan': cores.get(1, 0),
+            },
+            'ranks': {
+                'survivor': {'tier': None, 'percentile': top_pct(0, cores[0]) if 0 in cores else None},
+                'kerrigan': {'tier': None, 'percentile': top_pct(1, cores[1]) if 1 in cores else None},
+            },
+            'roles_survivor': roles_by_team[0],
+            'roles_kerrigan': roles_by_team[1],
+        }
+        cur.execute(
+            'INSERT OR REPLACE INTO player_mmr_current VALUES (?, ?)',
+            (identity, zlib.compress(json.dumps(payload, separators=(',', ':'),
+                                                ensure_ascii=False).encode())),
+        )
+        n += 1
+
+    through = ''
+    if latest_ds and latest_ds != '\\N':
+        through = latest_ds
+    return n, through
+
+
 def main():
     dump = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_DUMP
     if not os.path.exists(dump):
@@ -165,14 +310,21 @@ def main():
             core     BLOB,   -- zlib(JSON [[ts, survivor_mmr, kerrigan_mmr], ...])
             roles    BLOB    -- zlib(JSON {role_name: [[ts, effective_mmr], ...]})
         );
+        CREATE TABLE player_mmr_current (
+            identity TEXT PRIMARY KEY,
+            data     BLOB    -- zlib(JSON of the /api/mmr payload; tier omitted)
+        );
         CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT);
         """
     )
 
     n_handles = 0
+    handle_to_identity = {}
     for player_handle, battle_tag, _ds in copy_rows(dump, 'handles'):
         bt = None if battle_tag == '\\N' else battle_tag
         cur.execute('INSERT OR REPLACE INTO handles VALUES (?, ?)', (player_handle, bt))
+        if bt:
+            handle_to_identity[player_handle] = bt
         n_handles += 1
 
     n_pl = 0
@@ -190,6 +342,7 @@ def main():
             latest = dt
 
     n_mmr, mmr_through = build_mmr_history(dump, cur)
+    n_cur, cur_through = build_current(dump, cur, handle_to_identity)
 
     cur.executescript(
         """
@@ -199,10 +352,11 @@ def main():
     )
     cur.execute('INSERT INTO meta VALUES (?, ?)', ('played_like_through', latest or ''))
     cur.execute('INSERT INTO meta VALUES (?, ?)', ('mmr_history_through', mmr_through))
+    cur.execute('INSERT INTO meta VALUES (?, ?)', ('player_mmr_current_through', cur_through))
     con.commit()
     con.close()
     print(f'wrote {OUT}: {n_handles} handles, {n_pl} played_like rows, '
-          f'{n_mmr} mmr_history rows, through {latest}')
+          f'{n_mmr} mmr_history rows, {n_cur} current-mmr rows, through {latest}')
 
 
 if __name__ == '__main__':

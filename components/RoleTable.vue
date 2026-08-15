@@ -7,13 +7,14 @@
       <span class="text-sm font-mono font-bold text-gray-900 dark:text-gray-100 w-14 text-right">{{ r.mmr }}</span>
       <div class="flex-1 mx-2">
         <div class="h-1.5 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden">
-          <div class="h-full rounded-full transition-all duration-500 bar-fill"
+          <div v-if="r.win_rate != null" class="h-full rounded-full transition-all duration-500 bar-fill"
             :class="team === 'survivor' ? 'bar-survivor' : 'bar-kerrigan'"
             :style="`width: ${Math.min(r.win_rate * 100, 100)}%`" />
         </div>
       </div>
-      <span class="text-xs font-mono w-10 text-right" :class="r.win_rate >= 0.5 ? 'text-green-600' : 'text-red-500'">
-        {{ (r.win_rate * 100).toFixed(0) }}%
+      <span class="text-xs font-mono w-10 text-right"
+        :class="r.win_rate == null ? 'text-gray-400' : (r.win_rate >= 0.5 ? 'text-green-600' : 'text-red-500')">
+        {{ r.win_rate == null ? '—' : (r.win_rate * 100).toFixed(0) + '%' }}
       </span>
       <span class="text-xs text-gray-400 w-10 text-right">{{ r.plays }}场</span>
     </div>
