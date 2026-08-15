@@ -639,11 +639,11 @@
         "nameZh": "加速精炼厂 +10",
         "income": 10,
         "incomePeriod": 3,
-        "cost": 500,
+        "cost": 575,
         "buildTime": 5,
         "food": 0,
         "upgradeTo": "SwannRefinery25",
-        "notes": "Tier 2 economy building. Costs 500 minerals + 5 gas. Has ChronoBoost ability. Can be built directly or upgraded from SwannRefinery2. Upgrades to SwannRefinery25. Has que5 (auto-queue). 150 HP, 1 armor.",
+        "notes": "Tier 2 economy building. Costs 575 minerals + 5 gas. Has ChronoBoost ability. Can be built directly or upgraded from SwannRefinery2. Upgrades to SwannRefinery25. Has que5 (auto-queue). 150 HP, 1 armor.",
         "gasCost": 5
       },
       {
