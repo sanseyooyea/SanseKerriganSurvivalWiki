@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
-    <div v-if="!canEdit" class="text-center py-20">
-      <p class="text-gray-400 text-lg">需要编辑者权限</p>
+    <div v-if="!isLoggedIn" class="text-center py-20">
+      <p class="text-gray-400 text-lg">登录后可提交修改</p>
       <NuxtLink to="/login" class="text-survivor-600 hover:underline mt-2 inline-block">登录</NuxtLink>
     </div>
     <div v-else>
@@ -32,13 +32,17 @@
         </div>
       </div>
     </div>
-    <div class="flex items-center gap-3 mt-4">
+    <p v-if="!isAdmin" class="text-xs text-amber-600 dark:text-amber-400 mt-4">
+      此修改将提交管理员审核，通过后才会更新页面。
+    </p>
+    <div class="flex items-center gap-3 mt-2">
       <button @click="save" :disabled="saving"
         class="px-5 py-2 text-sm font-medium text-white bg-survivor-600 rounded-lg hover:bg-survivor-700 disabled:opacity-50 transition">
-        {{ saving ? '保存中...' : '保存' }}
+        {{ saving ? (isAdmin ? '保存中...' : '提交中...') : (isAdmin ? '保存' : '提交审核') }}
       </button>
       <span v-if="error" class="text-sm text-red-500">{{ error }}</span>
       <span v-if="saved" class="text-sm text-green-600">已保存</span>
+      <span v-if="submitted" class="text-sm text-green-600">已提交审核，等待管理员通过</span>
     </div>
   </div>
   </ClientOnly>
@@ -52,7 +56,7 @@ const route = useRoute()
 const router = useRouter()
 const paramSlug = route.params.slug as string
 const isNew = paramSlug === 'new'
-const { canEdit, authHeaders } = useAuth()
+const { isLoggedIn, isAdmin, authHeaders } = useAuth()
 
 const title = ref('')
 const slugInput = ref(isNew ? '' : paramSlug)
@@ -61,6 +65,7 @@ const content = ref('')
 const saving = ref(false)
 const error = ref('')
 const saved = ref(false)
+const submitted = ref(false)
 
 if (!isNew) {
   const { data } = await useFetch(`/api/wiki/${paramSlug}`)
@@ -82,15 +87,21 @@ async function save() {
   saving.value = true
   error.value = ''
   saved.value = false
+  submitted.value = false
   try {
-    await $fetch(`/api/wiki/${slug}`, {
+    const res = await $fetch<{ published?: boolean; pending?: boolean }>(`/api/wiki/${slug}`, {
       method: 'PUT',
       headers: authHeaders.value,
       body: { title: title.value, content: content.value, category: category.value || undefined },
     })
-    saved.value = true
-    if (isNew) {
-      router.push(`/wiki/${slug}`)
+    if (res.pending) {
+      // 非管理员：进待审队列，页面/新 slug 尚未上线，不跳转。
+      submitted.value = true
+    } else {
+      saved.value = true
+      if (isNew) {
+        router.push(`/wiki/${slug}`)
+      }
     }
   } catch (e: any) {
     error.value = e.data?.message || '保存失败'

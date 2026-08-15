@@ -96,5 +96,30 @@ function initSchema(db: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_pv_day ON page_views(day);
     CREATE INDEX IF NOT EXISTS idx_pv_day_visitor ON page_views(day, visitor);
     CREATE INDEX IF NOT EXISTS idx_pv_path ON page_views(path);
+
+    -- Wiki 编辑审核队列：非管理员的编辑/新建先进此表，管理员审批后才落库。
+    -- admin 直写不入队；editor/user 的 PUT 都会插一条 pending。
+    -- status(pending待审/approved已通过/rejected已驳回)；is_new=1 表示新建页面提案。
+    -- base_updated_at 记录提交时 live 页面的 updated_at，用于陈旧编辑检测（并发覆盖告警）。
+    -- 审批时用 slug 重新定位页面，page_id 仅作提示，故不加强外键（避免阻塞删页/悬垂）。
+    CREATE TABLE IF NOT EXISTS wiki_edit_reviews (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      slug TEXT NOT NULL,
+      page_id INTEGER,
+      is_new INTEGER NOT NULL DEFAULT 0,
+      title TEXT NOT NULL,
+      content TEXT NOT NULL DEFAULT '',
+      category TEXT NOT NULL DEFAULT 'general',
+      status TEXT NOT NULL DEFAULT 'pending',
+      admin_note TEXT NOT NULL DEFAULT '',
+      submitted_by INTEGER NOT NULL REFERENCES users(id),
+      reviewed_by INTEGER REFERENCES users(id),
+      base_updated_at TEXT,
+      created_at TEXT DEFAULT (datetime('now')),
+      updated_at TEXT DEFAULT (datetime('now'))
+    );
+    CREATE INDEX IF NOT EXISTS idx_wer_status ON wiki_edit_reviews(status);
+    CREATE INDEX IF NOT EXISTS idx_wer_slug ON wiki_edit_reviews(slug);
+    CREATE INDEX IF NOT EXISTS idx_wer_submitter ON wiki_edit_reviews(submitted_by);
   `)
 }
