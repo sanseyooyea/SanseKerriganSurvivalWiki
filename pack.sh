@@ -17,6 +17,7 @@ tar -czf "$TAR_NAME" \
   --exclude='data/wiki.db' \
   --exclude='data/wiki.db-shm' \
   --exclude='data/wiki.db-wal' \
+  --exclude='backups' \
   --exclude="$TAR_NAME" \
   .
 
