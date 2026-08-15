@@ -42,16 +42,24 @@
         </button>
       </div>
 
+      <div v-if="playerData._snapshot"
+        class="mb-4 flex items-start gap-2 px-3 py-2 rounded-lg text-xs bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/50">
+        <svg class="w-4 h-4 shrink-0 mt-px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 5a7 7 0 100 14 7 7 0 000-14z"/>
+        </svg>
+        <span>实时 MMR 服务暂不可用，当前展示离线快照数据{{ snapshotDate ? '（截至 ' + snapshotDate + '）' : '' }}；胜率与场次可能与最新略有出入。</span>
+      </div>
+
       <div class="grid grid-cols-2 gap-4 mb-6">
         <div class="wiki-card p-4">
           <div class="text-xs text-survivor-600 dark:text-survivor-400 mb-1">生存者核心</div>
           <div class="text-2xl font-bold text-survivor-700 dark:text-survivor-300">{{ playerData.cores.survivor }}</div>
-          <div class="text-sm text-gray-500 mt-0.5">{{ playerData.ranks.survivor.tier }} · Top {{ playerData.ranks.survivor.percentile }}%</div>
+          <div class="text-sm text-gray-500 mt-0.5">{{ rankLabel(playerData.ranks.survivor) }}</div>
         </div>
         <div class="wiki-card p-4">
           <div class="text-xs text-kerrigan-600 dark:text-kerrigan-400 mb-1">凯瑞甘核心</div>
           <div class="text-2xl font-bold text-kerrigan-700 dark:text-kerrigan-300">{{ playerData.cores.kerrigan }}</div>
-          <div class="text-sm text-gray-500 mt-0.5">{{ playerData.ranks.kerrigan.tier }} · Top {{ playerData.ranks.kerrigan.percentile }}%</div>
+          <div class="text-sm text-gray-500 mt-0.5">{{ rankLabel(playerData.ranks.kerrigan) }}</div>
         </div>
       </div>
 
@@ -190,12 +198,12 @@
             <div class="share-core share-core-s">
               <div class="share-core-label">生存者</div>
               <div class="share-core-value">{{ playerData.cores.survivor }}</div>
-              <div class="share-core-tier">{{ playerData.ranks.survivor.tier }}</div>
+              <div class="share-core-tier">{{ rankLabel(playerData.ranks.survivor) }}</div>
             </div>
             <div class="share-core share-core-k">
               <div class="share-core-label">凯瑞甘</div>
               <div class="share-core-value">{{ playerData.cores.kerrigan }}</div>
-              <div class="share-core-tier">{{ playerData.ranks.kerrigan.tier }}</div>
+              <div class="share-core-tier">{{ rankLabel(playerData.ranks.kerrigan) }}</div>
             </div>
           </div>
           <div v-if="creditsData" class="share-credits">
@@ -462,6 +470,22 @@ function roleName(name: string): string {
   const map = nameMap as Record<string, string>
   return map[name] || map[name.replace(/ /g, '_')] || name
 }
+
+// 段位标签：官方在线数据带 tier；离线快照无 tier 阈值，只给 percentile → 显示「Top X%」。
+function rankLabel(r: any): string {
+  if (!r) return ''
+  const pct = r.percentile != null ? `Top ${r.percentile}%` : ''
+  if (r.tier) return pct ? `${r.tier} · ${pct}` : r.tier
+  return pct
+}
+
+// 兜底快照的数据日期（playerData._through 形如 "2026-08-15 11:53:10"）
+const snapshotDate = computed(() => {
+  const t = playerData.value?._through
+  if (!t) return ''
+  const d = new Date(String(t).replace(' ', 'T'))
+  return isNaN(d.getTime()) ? '' : d.toLocaleDateString('zh-CN')
+})
 
 async function copyCode() {
   showCode.value = true
