@@ -16,6 +16,9 @@ data/wiki.db
 data/wiki.db-shm
 data/wiki.db-wal
 
+# 服务器端定时备份产物（仅在服务器 /opt/ks2-wiki/backups 下生成，不提交）
+backups/
+
 # 部署产物
 *.tar.gz
 
