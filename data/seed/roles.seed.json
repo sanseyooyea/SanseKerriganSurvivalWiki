@@ -50,7 +50,7 @@
     },
     "baseStats": {
       "hp": 300,
-      "speed": 3.25,
+      "speed": 3.1,
       "armor": 0,
       "energy": null
     },
@@ -474,7 +474,7 @@
     },
     "baseStats": {
       "hp": 99999,
-      "speed": 3.24,
+      "speed": 3.26,
       "armor": 2,
       "energy": 100
     },
