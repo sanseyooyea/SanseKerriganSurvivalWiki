@@ -10,6 +10,10 @@
           ? 'border-survivor-500 text-survivor-600 dark:text-survivor-400'
           : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'">
         {{ t.label }}
+        <span v-if="t.key === 'reviews' && pendingCount"
+          class="ml-1.5 inline-flex items-center justify-center min-w-[1.1rem] h-[1.1rem] px-1 rounded-full text-[0.65rem] font-semibold bg-survivor-500 text-white align-middle">
+          {{ pendingCount }}
+        </span>
       </button>
     </div>
 
@@ -153,18 +157,95 @@
         <p v-if="!stats.topPages.length" class="text-sm text-gray-400 py-8 text-center">暂无数据</p>
       </div>
     </div>
+
+    <!-- 待审编辑 -->
+    <div v-show="tab === 'reviews'">
+      <div class="flex items-center gap-2 mb-4">
+        <button v-for="f in [{ v: '', l: '全部' }, { v: 'pending', l: '待审' }, { v: 'approved', l: '已通过' }, { v: 'rejected', l: '已驳回' }]"
+          :key="f.v" @click="reviewFilter = f.v"
+          class="px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors"
+          :class="reviewFilter === f.v
+            ? 'border-survivor-500 text-survivor-600 dark:text-survivor-400 bg-survivor-50 dark:bg-survivor-900/30'
+            : 'border-surface-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:bg-surface-100 dark:hover:bg-gray-800'">
+          {{ f.l }}
+        </button>
+      </div>
+
+      <div v-if="!reviews.length" class="text-sm text-gray-400 py-16 text-center">暂无待审编辑</div>
+
+      <div v-else class="flex flex-col gap-2">
+        <div v-for="r in reviews" :key="r.id" class="wiki-card overflow-hidden">
+          <!-- 概要行 -->
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50"
+            @click="toggleReview(r)">
+            <span class="wk-badge" :class="badgeClass[r.status]">{{ badgeLabel[r.status] }}</span>
+            <span v-if="r.is_new" class="text-[0.65rem] px-1.5 py-0.5 rounded bg-kerrigan-500/15 text-kerrigan-600 dark:text-kerrigan-400 font-medium">新建</span>
+            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">{{ r.title }}</span>
+            <span class="text-xs font-mono text-survivor-600 dark:text-survivor-400">/{{ r.slug }}</span>
+            <span class="text-xs text-gray-400 ml-auto">{{ r.submitter }} · {{ formatDate(r.created_at) }}</span>
+            <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{ 'rotate-180': r._expanded }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+
+          <!-- 展开：并排 diff + 审核操作 -->
+          <div v-if="r._expanded" class="border-t border-surface-200 dark:border-gray-700 px-4 py-4 bg-gray-50 dark:bg-gray-800/40">
+            <div v-if="r._detail?.stale" class="mb-3 text-xs px-3 py-2 rounded bg-amber-50 dark:bg-amber-900/25 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+              ⚠ 该提案提交后，线上页面已被他人更新过。通过将覆盖当前最新内容（覆盖前会自动存入修订历史）。
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div>
+                <div class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">当前线上</div>
+                <div v-if="r._detail?.current" class="border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 min-h-[8rem] max-h-[28rem] overflow-auto bg-white dark:bg-gray-800">
+                  <div class="wk-preview" v-html="renderMd(r._detail.current.content)" />
+                </div>
+                <div v-else class="border border-dashed border-gray-200 dark:border-gray-600 rounded-lg px-4 py-8 text-center text-xs text-gray-400">页面尚不存在（新建）</div>
+              </div>
+              <div>
+                <div class="text-xs font-medium text-survivor-600 dark:text-survivor-400 mb-1.5">提议内容</div>
+                <div class="border border-survivor-200 dark:border-survivor-800 rounded-lg px-4 py-3 min-h-[8rem] max-h-[28rem] overflow-auto bg-white dark:bg-gray-800">
+                  <div class="wk-preview" v-html="renderMd(r._detail?.review?.content ?? '')" />
+                </div>
+              </div>
+            </div>
+
+            <div v-if="r.status === 'pending'" class="mt-4 flex flex-col gap-2 max-w-2xl">
+              <textarea v-model="r._noteDraft" rows="2" placeholder="审核备注（可选，驳回时建议填写原因）"
+                class="w-full text-xs border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 resize-y focus:outline-none focus:ring-2 focus:ring-survivor-300" />
+              <div class="flex items-center gap-2">
+                <button @click="runReviewAction(r, 'approved')" :disabled="r._busy"
+                  class="text-xs px-4 py-1.5 rounded bg-survivor-500 text-white hover:bg-survivor-600 disabled:opacity-50">通过并发布</button>
+                <button @click="runReviewAction(r, 'rejected')" :disabled="r._busy"
+                  class="text-xs px-4 py-1.5 rounded border border-red-300 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 disabled:opacity-50">驳回</button>
+                <span v-if="r._msg" class="text-xs" :class="r._ok ? 'text-green-600 dark:text-green-400' : 'text-red-500'">{{ r._msg }}</span>
+              </div>
+            </div>
+            <div v-else class="mt-4 text-xs text-gray-500 dark:text-gray-400">
+              <span>由 {{ r._detail?.review?.reviewer || '管理员' }} 处理</span>
+              <span v-if="r.admin_note"> · 备注：{{ r.admin_note }}</span>
+              <span v-if="r._msg" class="ml-2" :class="r._ok ? 'text-green-600 dark:text-green-400' : 'text-red-500'">{{ r._msg }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { marked } from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
+
 const { isAdmin, authHeaders } = useAuth()
 const users = ref<any[]>([])
 
-const tabs = [
+const tab = ref<'users' | 'stats' | 'reviews'>('users')
+const tabs = computed(() => [
   { key: 'users', label: '用户管理' },
   { key: 'stats', label: '流量统计' },
-]
-const tab = ref<'users' | 'stats'>('users')
+  { key: 'reviews', label: '待审编辑' },
+])
 
 const expanded = ref<number | null>(null)
 
@@ -284,9 +365,103 @@ function formatDate(d: string) {
   return new Date(d).toLocaleDateString('zh-CN')
 }
 
+// 待审编辑
+const reviews = ref<any[]>([])
+const pendingCount = ref(0)
+const reviewFilter = ref('')
+
+function renderMd(src: string) {
+  return DOMPurify.sanitize(marked.parse(src || '') as string, { ADD_ATTR: ['id'] })
+}
+
+const badgeClass: Record<string, string> = {
+  pending: 'wk-badge-pending',
+  approved: 'wk-badge-approved',
+  rejected: 'wk-badge-rejected',
+}
+const badgeLabel: Record<string, string> = {
+  pending: '待审',
+  approved: '已通过',
+  rejected: '已驳回',
+}
+
+async function loadReviews() {
+  try {
+    const res = await $fetch<any>('/api/wiki/reviews', {
+      headers: authHeaders.value,
+      query: reviewFilter.value ? { status: reviewFilter.value } : {},
+    })
+    reviews.value = (res.reviews || []).map((r: any) => ({
+      ...r,
+      _busy: false,
+      _msg: '',
+      _ok: false,
+      _noteDraft: r.admin_note || '',
+      _expanded: false,
+      _detail: null as any,
+    }))
+    pendingCount.value = res.pending ?? 0
+  } catch {}
+}
+
+async function toggleReview(r: any) {
+  r._expanded = !r._expanded
+  if (r._expanded && !r._detail) {
+    try {
+      r._detail = await $fetch<any>(`/api/wiki/reviews/${r.id}`, { headers: authHeaders.value })
+    } catch (e: any) {
+      r._msg = e?.data?.message || '加载详情失败'
+      r._ok = false
+    }
+  }
+}
+
+async function runReviewAction(r: any, status: 'approved' | 'rejected') {
+  r._busy = true
+  r._msg = ''
+  try {
+    const res = await $fetch<any>(`/api/wiki/reviews/${r.id}`, {
+      method: 'PATCH',
+      headers: authHeaders.value,
+      body: { status, admin_note: r._noteDraft },
+    })
+    r._ok = true
+    r._msg = res?.published ? `已通过并发布 /wiki/${res.slug}` : (status === 'rejected' ? '已驳回' : '已通过')
+    r.status = status
+    r.admin_note = r._noteDraft
+    pendingCount.value = Math.max(0, pendingCount.value - 1)
+  } catch (e: any) {
+    r._ok = false
+    r._msg = e?.data?.message || e?.statusMessage || '操作失败'
+  } finally {
+    r._busy = false
+  }
+}
+
 watch(tab, (t) => {
   if (t === 'stats' && !stats.value) loadStats(range.value)
+  if (t === 'reviews' && !reviews.value.length) loadReviews()
 })
+watch(reviewFilter, () => { if (tab.value === 'reviews') loadReviews() })
 
-onMounted(loadUsers)
+onMounted(() => {
+  loadUsers()
+  // 提前拉一次以点亮 tab 徽章
+  loadReviews()
+})
 </script>
+
+<style scoped>
+/* 状态徽章：照搬 feedback 视觉（等宽、currentColor 描边），但 feedback 的 .fb-badge-*
+   是其页面 scoped 样式、不可跨文件复用，这里独立定义一套 .wk-badge-*。 */
+.wk-badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.03em;
+  padding: 1px 7px; border: 1px solid currentColor; border-radius: 3px; flex-shrink: 0;
+}
+.wk-badge-pending { color: #6b7280; }
+.dark .wk-badge-pending { color: #9ca3af; }
+.wk-badge-approved { color: #16a34a; }
+.dark .wk-badge-approved { color: #4ade80; }
+.wk-badge-rejected { color: #9ca3af; text-decoration: line-through; }
+.dark .wk-badge-rejected { color: #6b7280; }
+</style>
