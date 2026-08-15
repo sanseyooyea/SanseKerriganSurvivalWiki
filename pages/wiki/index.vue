@@ -8,7 +8,7 @@
         <div class="wl-kicker">// KNOWLEDGE&nbsp;BASE</div>
         <div class="wl-head-row">
           <h1 class="wl-title">WIKI<span class="wl-title-accent">.</span></h1>
-          <NuxtLink v-if="canEdit" to="/wiki/new/edit" class="wl-new">+ 新建页面</NuxtLink>
+          <NuxtLink v-if="isLoggedIn" to="/wiki/new/edit" class="wl-new">{{ isAdmin ? '+ 新建页面' : '+ 提议新建' }}</NuxtLink>
         </div>
         <p class="wl-sub">凯瑞甘生存2 社区知识库 · 共 {{ pages?.length || 0 }} 篇</p>
       </header>
@@ -39,14 +39,14 @@
       <div v-else class="wl-empty">
         <div class="wl-kicker">// EMPTY</div>
         <p>暂无 Wiki 页面</p>
-        <NuxtLink v-if="canEdit" to="/wiki/new/edit" class="wl-new">创建第一篇</NuxtLink>
+        <NuxtLink v-if="isLoggedIn" to="/wiki/new/edit" class="wl-new">{{ isAdmin ? '创建第一篇' : '提议新建' }}</NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const { canEdit } = useAuth()
+const { isLoggedIn, isAdmin } = useAuth()
 const { data: pages } = await useFetch('/api/wiki')
 
 function formatDate(d: string) {
