@@ -177,7 +177,7 @@
       ]
     },
     "baseStats": {
-      "hp": 150,
+      "hp": 200,
       "speed": 3.0,
       "armor": 0,
       "energy": null
@@ -862,7 +862,7 @@
     },
     "baseStats": {
       "hp": 200,
-      "speed": 3.0,
+      "speed": 3.1,
       "armor": 1,
       "energy": 150
     },
@@ -1025,9 +1025,9 @@
       ]
     },
     "baseStats": {
-      "hp": 350,
+      "hp": 300,
       "speed": 3.0,
-      "armor": 2,
+      "armor": 3,
       "energy": 100
     },
     "abilities": [
@@ -1219,8 +1219,8 @@
       ]
     },
     "baseStats": {
-      "hp": 400,
-      "speed": 3.0,
+      "hp": 350,
+      "speed": 3.1,
       "armor": 0,
       "energy": null
     },
