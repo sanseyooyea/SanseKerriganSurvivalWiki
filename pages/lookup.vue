@@ -15,6 +15,25 @@
       <p v-if="error" class="mt-2 text-sm text-red-500">{{ error }}</p>
     </div>
 
+    <div v-if="history.length" class="wiki-card p-4 mb-6">
+      <div class="flex items-center justify-between mb-2">
+        <div class="section-title mb-0">最近查询</div>
+        <button @click="clearHistory" class="text-xs text-gray-400 hover:text-red-500 transition">清除</button>
+      </div>
+      <ul class="divide-y divide-gray-100 dark:divide-gray-700">
+        <li v-for="h in history" :key="h.handle" class="flex items-center gap-3 py-2">
+          <button @click="requery(h.handle)"
+            class="font-mono text-sm text-survivor-600 dark:text-survivor-400 hover:underline truncate">{{ h.handle }}</button>
+          <span v-if="h.survivor != null || h.kerrigan != null" class="text-xs text-gray-500 whitespace-nowrap">
+            生 {{ h.survivor ?? '—' }} / 凯 {{ h.kerrigan ?? '—' }}
+          </span>
+          <span v-else class="text-xs text-gray-400 whitespace-nowrap">无 MMR</span>
+          <span class="ml-auto text-xs text-gray-400 whitespace-nowrap">{{ relTime(h.at) }}</span>
+          <button @click="removeItem(h.handle)" class="text-gray-300 hover:text-red-500 text-xs shrink-0" title="移除">✕</button>
+        </li>
+      </ul>
+    </div>
+
     <template v-if="mmrData || creditsData">
       <div v-if="mmrData" class="grid grid-cols-2 gap-4 mb-6">
         <div class="wiki-card p-4">
@@ -70,6 +89,9 @@ const error = ref('')
 const mmrData = ref<any>(null)
 const creditsData = ref<any>(null)
 
+const { items: history, load: loadHistory, record: recordHistory, remove: removeItem, clear: clearHistory } = useLookupHistory()
+onMounted(loadHistory)
+
 async function search() {
   const val = handleInput.value.trim()
   if (!val) { error.value = '请输入句柄'; return }
@@ -86,10 +108,30 @@ async function search() {
     if (!mmr && !credits) { error.value = '未找到该玩家'; return }
     mmrData.value = mmr
     creditsData.value = credits
+    // 查询成功才入历史；摘要取当时的核心 MMR（无天梯则为 null）
+    recordHistory(val, {
+      survivor: mmr?.cores?.survivor ?? null,
+      kerrigan: mmr?.cores?.kerrigan ?? null,
+    })
   } catch {
     error.value = '查询失败，请检查句柄格式'
   } finally {
     searching.value = false
   }
+}
+
+// 点历史项：回填输入框并立即重查（会刷新其摘要与时间并置顶）
+function requery(h: string) {
+  handleInput.value = h
+  search()
+}
+
+function relTime(ts: number) {
+  const s = Math.floor((Date.now() - ts) / 1000)
+  if (s < 60) return '刚刚'
+  if (s < 3600) return `${Math.floor(s / 60)} 分钟前`
+  if (s < 86400) return `${Math.floor(s / 3600)} 小时前`
+  if (s < 2592000) return `${Math.floor(s / 86400)} 天前`
+  return new Date(ts).toLocaleDateString('zh-CN')
 }
 </script>
