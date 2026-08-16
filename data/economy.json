@@ -1843,5 +1843,34 @@
       "duration": 15,
       "energyCost": 100
     }
+  },
+  {
+    "hero": "Prophet",
+    "incomeModel": "先知没有自己的固定收入建筑，经济完全寄生于「萃取结界」。结界会持续萃取其范围（半径 5）内每一座经济建筑（自己或盟友的）原始收入的一部分：每 4 秒结算一次收入，每次萃取该建筑原始收入的 21%。研究「强化萃取器」后同时提升萃取效率至 27% 并把范围扩大到 8。同一建筑最多可被 3 座结界叠加萃取（3 层 = 3× 效率）。范围内覆盖了多少高产建筑、能否与盟友的经济体系贴身发展，直接决定先知的收入上限。",
+    "extractionEconomy": true,
+    "extraction": {
+      "efficiencyBase": 0.21,
+      "efficiencyUpgraded": 0.27,
+      "rangeBase": 5,
+      "rangeUpgraded": 8,
+      "upgradeName": "强化萃取器",
+      "upgradeNameEn": "ProphetAugmentedExtractors",
+      "upgradeEffect": "萃取效率 21% → 27%，萃取范围 5 → 8",
+      "incomePeriod": 4,
+      "maxStacks": 3,
+      "wardCap": 6,
+      "wardNameZh": "萃取结界",
+      "wardHp": 30,
+      "wardShields": 30,
+      "note": "结界本身无矿物造价，全场最多 6 座，被摧毁即失去该处萃取。萃取对象为范围内一切带经济收入的建筑——盟友的与自己的都算，一座结界可同时萃取范围内的多座建筑；多座结界叠加同一建筑可累计至 3 层（3× 效率）。单次萃取按概率取整（期望值 = 原始收入 × 效率）。",
+      "examples": [
+        { "label": "低产", "eg": "反应堆Ⅰ级 / 星灵枢纽", "raw": 2 },
+        { "label": "中产", "eg": "反应堆Ⅷ级 / 实验室Ⅷ级", "raw": 12 },
+        { "label": "高产", "eg": "天灾虫窝 / 精炼厂-25", "raw": 32 },
+        { "label": "顶级", "eg": "反应堆·满级 / 方尖碑·满级", "raw": 48 },
+        { "label": "巅峰", "eg": "天灾巢穴 / 精华圣所", "raw": 128 }
+      ]
+    },
+    "buildings": []
   }
 ]
