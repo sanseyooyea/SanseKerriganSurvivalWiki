@@ -8,13 +8,14 @@ export const ECON_TYPE_LABELS: Record<string, string> = {
   miner: '装填',
   technician: '转化',
   spirit: '金融',
+  extraction: '萃取',
 }
 
 export interface EconomyHero {
   hero: string // 英文名（economy.json 的 hero，或 Technician/Spirit）
   nameZh: string
   roleId: number
-  type: 'generic' | 'harvest' | 'addon' | 'miner' | 'technician' | 'spirit'
+  type: 'generic' | 'harvest' | 'addon' | 'miner' | 'technician' | 'spirit' | 'extraction'
   typeLabel: string
   headline: string
   special?: 'technician' | 'spirit'
@@ -23,6 +24,7 @@ export interface EconomyHero {
 
 function econType(h: any): EconomyHero['type'] {
   if (h.special) return h.special
+  if (h.extractionEconomy) return 'extraction'
   if (h.harvestEconomy) return 'harvest'
   if (h.addonEconomy) return 'addon'
   if (h.minerEconomy) return 'miner'
@@ -47,6 +49,11 @@ function makeHeadline(h: any, type: EconomyHero['type']): string {
   if (type === 'technician') return '击杀转化经济'
   if (type === 'spirit') return '金融 / 投资经济'
   if (type === 'harvest') return '探机采集'
+  if (type === 'extraction') {
+    const e = h.extraction
+    if (e) return `寄生萃取 ${Math.round(e.efficiencyBase * 100)}→${Math.round(e.efficiencyUpgraded * 100)}% · 范围 ${e.rangeBase}→${e.rangeUpgraded}`
+    return '寄生萃取'
+  }
   const chrono = h.chrono ? (Array.isArray(h.chrono) ? h.chrono[0] : h.chrono) : null
   const cTag = chrono ? ` ×${chrono.timeScale}` : ''
   if (type === 'miner') {
