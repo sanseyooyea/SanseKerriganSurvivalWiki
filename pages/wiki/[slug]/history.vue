@@ -78,7 +78,7 @@ const slug = route.params.slug as string
 const { isAdmin, authHeaders } = useAuth()
 
 const { data: page, refresh: refreshPage } = await useFetch<any>(`/api/wiki/${slug}`)
-const { data: hist, refresh: refreshHist } = await useFetch<any>(`/api/wiki/${slug}.history`)
+const { data: hist, refresh: refreshHist } = await useFetch<any>(`/api/wiki/${slug}/history`)
 const revisions = computed(() => hist.value?.revisions || [])
 
 const openId = ref<number | null>(null)
