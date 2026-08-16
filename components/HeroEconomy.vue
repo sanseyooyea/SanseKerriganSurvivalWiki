@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div v-if="!hero.harvestEconomy && !hero.addonEconomy && !hero.minerEconomy" class="overflow-x-auto -mx-5 px-5">
+    <div v-if="!hero.harvestEconomy && !hero.addonEconomy && !hero.minerEconomy && !hero.extractionEconomy" class="overflow-x-auto -mx-5 px-5">
       <table class="w-full text-sm min-w-[560px]">
         <thead>
           <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
@@ -235,6 +235,76 @@
         </div>
       </div>
     </div>
+
+    <!-- 萃取型经济（先知）：无自有收入建筑，结界寄生盟友/自身经济建筑的原始收入 -->
+    <div v-if="hero.extractionEconomy && hero.extraction" class="space-y-4">
+      <!-- 结界参数速览 -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div class="px-3 py-2 rounded-lg bg-indigo-50/70 dark:bg-indigo-900/15 border border-indigo-100 dark:border-indigo-900/30">
+          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">萃取效率</div>
+          <div class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">
+            {{ Math.round(hero.extraction.efficiencyBase * 100) }}%
+            <span class="text-emerald-600 dark:text-emerald-400">→ {{ Math.round(hero.extraction.efficiencyUpgraded * 100) }}%</span>
+          </div>
+          <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">{{ hero.extraction.upgradeName }}后</div>
+        </div>
+        <div class="px-3 py-2 rounded-lg bg-indigo-50/70 dark:bg-indigo-900/15 border border-indigo-100 dark:border-indigo-900/30">
+          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">萃取范围</div>
+          <div class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">
+            {{ hero.extraction.rangeBase }}
+            <span class="text-emerald-600 dark:text-emerald-400">→ {{ hero.extraction.rangeUpgraded }}</span>
+          </div>
+          <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">{{ hero.extraction.upgradeName }}后</div>
+        </div>
+        <div class="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
+          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">结算周期</div>
+          <div class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">{{ hero.extraction.incomePeriod }}s</div>
+          <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">最多叠 {{ hero.extraction.maxStacks }} 层</div>
+        </div>
+        <div class="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
+          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">{{ hero.extraction.wardNameZh }}（上限 {{ hero.extraction.wardCap }}）</div>
+          <div class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">
+            {{ hero.extraction.wardHp }}<span class="text-blue-500">+{{ hero.extraction.wardShields }}盾</span>
+          </div>
+          <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">无矿物造价</div>
+        </div>
+      </div>
+
+      <!-- 萃取收益速查表 -->
+      <div class="overflow-x-auto -mx-5 px-5">
+        <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
+          萃取收益速查 · 按目标建筑原始收入
+        </div>
+        <table class="w-full text-sm min-w-[560px]">
+          <thead>
+            <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
+              <th class="text-left font-medium pb-2 pl-1">目标建筑（原始收入）</th>
+              <th class="text-right font-medium pb-2">每次萃取</th>
+              <th class="text-right font-medium pb-2">每秒</th>
+              <th class="text-right font-medium pb-2">强化后每次</th>
+              <th class="text-right font-medium pb-2 pr-1">强化后每秒</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-50 dark:divide-gray-700/50">
+            <tr v-for="ex in hero.extraction.examples" :key="ex.raw">
+              <td class="py-2 pl-1 text-gray-700 dark:text-gray-300">
+                <span class="font-medium">{{ ex.label }}</span>
+                <span class="text-xs text-gray-400 dark:text-gray-500 ml-1">{{ ex.eg }} · 原始 {{ ex.raw }}</span>
+              </td>
+              <td class="py-2 text-right font-mono text-gray-600 dark:text-gray-300">{{ siphonTick(ex.raw, hero.extraction.efficiencyBase) }}</td>
+              <td class="py-2 text-right font-mono text-emerald-600 dark:text-emerald-400">{{ siphonSec(ex.raw, hero.extraction.efficiencyBase, hero.extraction.incomePeriod) }}/s</td>
+              <td class="py-2 text-right font-mono text-gray-600 dark:text-gray-300">{{ siphonTick(ex.raw, hero.extraction.efficiencyUpgraded) }}</td>
+              <td class="py-2 pr-1 text-right font-mono font-semibold text-emerald-600 dark:text-emerald-400">{{ siphonSec(ex.raw, hero.extraction.efficiencyUpgraded, hero.extraction.incomePeriod) }}/s</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
+          {{ hero.extraction.note }}
+          「每次萃取」= 原始收入 × 效率的期望值（不足 1 时按概率取整）；「每秒」= 每次 ÷ {{ hero.extraction.incomePeriod }}s（单层）。
+          一座结界可同时萃取范围内的所有经济建筑，故实际收入是覆盖到的每座建筑之和；叠满 {{ hero.extraction.maxStacks }} 层时对该建筑的萃取再 ×{{ hero.extraction.maxStacks }}。
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -298,6 +368,18 @@ function formatTime(seconds: number) {
     return s > 0 ? `${m}m${s}s` : `${m}m`
   }
   return `${seconds}s`
+}
+
+// —— 先知萃取经济 ——
+// 结界每 period 秒萃取范围内每座经济建筑「原始收入 × 效率」的期望值（不足 1 按概率取整）。
+function fmt(n: number) {
+  return n % 1 === 0 ? String(n) : n.toFixed(2).replace(/\.?0+$/, '')
+}
+function siphonTick(raw: number, eff: number) {
+  return fmt(raw * eff)
+}
+function siphonSec(raw: number, eff: number, period: number) {
+  return fmt((raw * eff) / period)
 }
 
 // —— 塞兰迪斯采集经济 ——

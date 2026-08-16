@@ -81,6 +81,7 @@ const TYPE_BADGE: Record<string, string> = {
   miner: 'bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300',
   technician: 'bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
   spirit: 'bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300',
+  extraction: 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300',
 }
 function badgeClass(type: string) {
   return TYPE_BADGE[type] || TYPE_BADGE.generic
