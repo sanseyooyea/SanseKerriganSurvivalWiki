@@ -1,14 +1,21 @@
 #!/bin/bash
 # 打包部署文件（排除 node_modules 等大目录）
 # 在项目根目录执行，生成 ks2-wiki-deploy.tar.gz
+#
+# 重要：Dockerfile.runner 直接跑预构建的 .output（服务器不跑 nuxt build），
+# 所以 .output 必须打进包里。打包前务必先 `npm run build`，否则部署上去的
+# 是旧前端/服务端产物（只有 data 会更新）。
 
 set -e
 
 TAR_NAME="ks2-wiki-deploy.tar.gz"
 
+if [ ! -d .output ]; then
+  echo "错误: 缺少 .output，请先执行 npm run build 再打包"; exit 1
+fi
+
 tar -czf "$TAR_NAME" \
   --exclude='node_modules' \
-  --exclude='.output' \
   --exclude='.nuxt' \
   --exclude='.git' \
   --exclude='tmp_cache' \
