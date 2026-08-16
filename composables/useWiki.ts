@@ -20,7 +20,7 @@ export function useWiki() {
   }
 
   async function getHistory(slug: string) {
-    const { data } = await useFetch(`/api/wiki/${slug}.history`)
+    const { data } = await useFetch(`/api/wiki/${slug}/history`)
     return data
   }
 
