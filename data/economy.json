@@ -421,7 +421,8 @@
         "food": null,
         "upgradeTo": "SelendisMineralField2",
         "gasCost": 0,
-        "notes": "矿区采集点，探机每趟采集 1 晶矿运回基地。"
+        "notes": "矿区采集点，探机每趟采集 1 晶矿运回基地。",
+        "salvageRate": 0.85
       },
       {
         "id": "SelendisMineralField2",
@@ -433,7 +434,8 @@
         "food": null,
         "upgradeTo": "SelendisMineralField4",
         "gasCost": 0,
-        "notes": "矿区采集点，探机每趟采集 2 晶矿运回基地。"
+        "notes": "矿区采集点，探机每趟采集 2 晶矿运回基地。",
+        "salvageRate": 0.85
       },
       {
         "id": "SelendisMineralField4",
@@ -445,7 +447,8 @@
         "food": null,
         "upgradeTo": "SelendisMineralField8",
         "gasCost": 0,
-        "notes": "矿区采集点，探机每趟采集 4 晶矿运回基地。"
+        "notes": "矿区采集点，探机每趟采集 4 晶矿运回基地。",
+        "salvageRate": 0.85
       },
       {
         "id": "SelendisMineralField8",
@@ -457,7 +460,8 @@
         "food": null,
         "upgradeTo": "SelendisMineralField16",
         "gasCost": 0,
-        "notes": "矿区采集点，探机每趟采集 8 晶矿运回基地。"
+        "notes": "矿区采集点，探机每趟采集 8 晶矿运回基地。",
+        "salvageRate": 0.85
       },
       {
         "id": "SelendisMineralField16",
@@ -469,7 +473,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 0,
-        "notes": "矿区采集点，探机每趟采集 16 晶矿运回基地。"
+        "notes": "矿区采集点，探机每趟采集 16 晶矿运回基地。",
+        "salvageRate": 0.85
       }
     ],
     "harvestEconomy": true,
@@ -482,7 +487,8 @@
         "efficiency": "1.0×",
         "note": "采集耗时 ×0.833，基准采集速率",
         "amountMult": 1.0,
-        "mineTime": 2.5
+        "mineTime": 2.5,
+        "salvageRate": 0.85
       },
       {
         "id": "SelendisAdvancedProbe",
@@ -492,7 +498,8 @@
         "efficiency": "1.67×",
         "note": "采集耗时 ×0.5，约为普通探机的 1.67 倍速",
         "amountMult": 1.0,
-        "mineTime": 1.5
+        "mineTime": 1.5,
+        "salvageRate": 0.79
       },
       {
         "id": "SelendisExpertProbe",
@@ -502,7 +509,8 @@
         "efficiency": "1.83×",
         "note": "采集耗时 ×0.5 且单次采集量 ×1.1",
         "amountMult": 1.1,
-        "mineTime": 1.5
+        "mineTime": 1.5,
+        "salvageRate": 0.85
       },
       {
         "id": "SelendisProbius",
@@ -512,7 +520,8 @@
         "efficiency": "2.0×",
         "note": "采集耗时 ×0.5 且单次采集量 ×1.2，最高采集效率",
         "amountMult": 1.2,
-        "mineTime": 1.5
+        "mineTime": 1.5,
+        "salvageRate": 0.85
       }
     ]
   },
@@ -2182,7 +2191,8 @@
         "food": null,
         "upgradeTo": "AewynHope",
         "gasCost": 0,
-        "notes": "最低档色彩灵体（50 血）。每 2.25s 产 1 矿。按颜色提供 1 档团队增益（紫+10%伤害/绿+15%生命护盾/黑攻速×1.1/蓝+5%加速/黄+25经验(可教队友单位或自身英雄)）。两个可合体升为希望。"
+        "notes": "最低档色彩灵体（50 血）。每 2.25s 产 1 矿。按颜色提供 1 档团队增益（紫+10%伤害/绿+15%生命护盾/黑攻速×1.1/蓝+5%加速/黄+25经验(可教队友单位或自身英雄)）。两个可合体升为希望。",
+        "salvageRate": 0.85
       },
       {
         "id": "AewynHope",
@@ -2194,7 +2204,8 @@
         "food": null,
         "upgradeTo": "AewynHarmony",
         "gasCost": 1,
-        "notes": "第二档灵体（75 血）。每 2.25s 产 4 矿。按颜色提供 2 档增益（紫+25%伤害/绿+30%生命护盾/黑攻速×1.2/蓝+10%加速/黄+150经验(可教队友单位或自身英雄)）。两个可合体升为调和。"
+        "notes": "第二档灵体（75 血）。每 2.25s 产 4 矿。按颜色提供 2 档增益（紫+25%伤害/绿+30%生命护盾/黑攻速×1.2/蓝+10%加速/黄+150经验(可教队友单位或自身英雄)）。两个可合体升为调和。",
+        "salvageRate": 0.85
       },
       {
         "id": "AewynHarmony",
@@ -2206,7 +2217,8 @@
         "food": null,
         "upgradeTo": "AewynMiracle",
         "gasCost": 5,
-        "notes": "第三档灵体（125 血）。每 2.25s 产 16 矿。按颜色提供 3 档增益（紫+40%伤害/绿+45%生命护盾/黑攻速×1.3+移速/蓝+15%加速/黄+500经验(可教队友单位或自身英雄)）。两个可合体升为奇迹。"
+        "notes": "第三档灵体（125 血）。每 2.25s 产 16 矿。按颜色提供 3 档增益（紫+40%伤害/绿+45%生命护盾/黑攻速×1.3+移速/蓝+15%加速/黄+500经验(可教队友单位或自身英雄)）。两个可合体升为奇迹。",
+        "salvageRate": 0.85
       },
       {
         "id": "AewynMiracle",
@@ -2218,7 +2230,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 25,
-        "notes": "最高档灵体（200 血），每 2.25s 产 64 矿——单体产出居全游戏前列。按颜色提供满档增益（紫+65%伤害/绿+70%生命护盾/黑攻速×1.5+移速0.5/蓝+25%加速/黄+1500经验(可教队友单位或自身英雄)）。"
+        "notes": "最高档灵体（200 血），每 2.25s 产 64 矿——单体产出居全游戏前列。按颜色提供满档增益（紫+65%伤害/绿+70%生命护盾/黑攻速×1.5+移速0.5/蓝+25%加速/黄+1500经验(可教队友单位或自身英雄)）。",
+        "salvageRate": 0.85
       }
     ]
   },
