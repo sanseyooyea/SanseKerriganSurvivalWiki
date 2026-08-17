@@ -2094,5 +2094,95 @@
         "notes": "最高档灵体（200 血），每 2.25s 产 64 矿——单体产出居全游戏前列。按颜色提供满档增益（紫+65%伤害/绿+70%生命护盾/黑攻速×1.5+移速0.5/蓝+25%加速/黄+1500经验(可教队友单位或自身英雄)）。"
       }
     ]
+  },
+  {
+    "hero": "Warfield",
+    "incomeModel": "沃菲尔德（Warfield，「建造者」定位，难度 10/10）采用独特的『驻扎收入』经济：收入不来自固定产矿建筑，而来自装进『外屋(Outhouse)』里的陆战队。\n\n【外屋 Outhouse】核心经济建筑，造价仅 25 矿。把陆战队装载进外屋即按队员等级持续产矿——外屋收入 = 舱内所有队员『+N』之和（建筑还会随舱内总收入变色：≥16 绿 / ≥32 青 / ≥64 蓝 / ≥120 粉，便于一眼看出产能）。外屋分三阶提升货舱容量：外屋 4 格 → 贰阶外屋 6 格（升级 +5 气）→ 叁阶外屋 8 格（升级 +15 气）。可拆解回收(Salvage)。\n\n【陆战队 = 收入单位】队员按『+N』命名，N 即其每个周期产出的晶矿：\n· 鱼人陆战队 +1：50 矿，占 1 格\n· 牛头人太空陆战队员 +2：100 矿 / 1 气，占 1 格\n· +4：225 矿 / 3 气，占 1 格\n· +8：825 矿 / 10 气，占 2 格\n· +16：1700 矿 / 18 气，占 2 格\n低阶队员可在外屋指令卡上就地升级到更高阶，按造价差补差价（如 +2→+4 补 125 矿 / 2 气）。产矿节奏：+1/+2/+4 每 3 秒一次；+8/+16 约每 1.7 秒一次、单位产出显著更高，是后期爆矿的核心。此外整体产矿频率随反应堆数量提升（全局机制）。\n\n【行星要塞】沃菲尔德另可建造『沃菲尔德行星要塞』（1500 矿，1250 血），是兼具防御与固定收入（+20 矿 / 3 秒）的重型经济建筑。\n\n【要点】货舱格数是产能上限：优先把高阶（+8/+16，占 2 格但产出快）塞满外屋，并及时升阶外屋扩容；外屋被摧毁会连同舱内队员一起损失，注意保护。",
+    "buildings": [
+      {
+        "id": "WarfieldOuthouse",
+        "nameZh": "外屋(Outhouse)",
+        "income": null,
+        "incomePeriod": null,
+        "cost": 25,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "WarfieldOuthouseTier2",
+        "gasCost": 0,
+        "notes": "核心经济建筑：把陆战队装入即产矿，收入 = 舱内队员『+N』之和。基础货舱 4 格，可升级为贰阶(6 格, +5 气) / 叁阶(8 格, +15 气)。可拆解回收(Salvage)。本身不直接产矿。"
+      },
+      {
+        "id": "WarfieldMurlocMarine",
+        "nameZh": "鱼人陆战队 +1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 50,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "WarfieldSpaceMarine",
+        "gasCost": 0,
+        "notes": "最廉价的收入单位（占 1 格）。装入外屋后每 3 秒产 1 矿。可就地升级为『牛头人 +2』。"
+      },
+      {
+        "id": "WarfieldSpaceMarine",
+        "nameZh": "牛头人太空陆战队员 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 100,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "WarfieldSpaceMarine4",
+        "gasCost": 1,
+        "notes": "占 1 格。装入外屋后每 3 秒产 2 矿。可升级为 +4。"
+      },
+      {
+        "id": "WarfieldSpaceMarine4",
+        "nameZh": "牛头人太空陆战队员 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 225,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "WarfieldSpaceMarine8",
+        "gasCost": 3,
+        "notes": "占 1 格。装入外屋后每 3 秒产 4 矿。可升级为 +8。"
+      },
+      {
+        "id": "WarfieldSpaceMarine8",
+        "nameZh": "牛头人太空陆战队员 +8",
+        "income": 8,
+        "incomePeriod": 1.71,
+        "cost": 825,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "WarfieldSpaceMarine16",
+        "gasCost": 10,
+        "notes": "占 2 格，但产矿更快（约每 1.7 秒 8 矿），每格效率高。可升级为 +16。"
+      },
+      {
+        "id": "WarfieldSpaceMarine16",
+        "nameZh": "牛头人太空陆战队员 +16",
+        "income": 16,
+        "incomePeriod": 1.71,
+        "cost": 1700,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 18,
+        "notes": "满阶收入单位，占 2 格，约每 1.7 秒产 16 矿——单体产出居全游戏前列。"
+      },
+      {
+        "id": "PlanetaryFortressWarfield",
+        "nameZh": "沃菲尔德行星要塞",
+        "income": 20,
+        "incomePeriod": 3,
+        "cost": 1500,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 0,
+        "notes": "重型经济兼防御建筑（1250 血），每 3 秒固定产 20 矿，独立于外屋体系。"
+      }
+    ]
   }
 ]
