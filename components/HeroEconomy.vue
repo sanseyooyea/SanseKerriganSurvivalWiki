@@ -25,6 +25,7 @@
             <th class="text-right font-medium pb-2">费用</th>
             <th class="text-right font-medium pb-2" title="购买1矿/秒收入所需的总投入（晶矿+气体），越低性价比越高">投资比</th>
             <th class="text-right font-medium pb-2">回本时间</th>
+            <th v-if="heroHasSalvage(hero)" class="text-right font-medium pb-2" title="回收净回本：假设回本后立刻回收建筑，回收返还的矿 + 已产出的收入 = 造价，此时净投入归零。= 造价×(1−回收率) ÷ 每秒收入">回收净回本</th>
             <th v-if="heroChronos(hero).length" class="text-right font-medium pb-2 pr-1">加速回本</th>
           </tr>
         </thead>
@@ -52,6 +53,10 @@
             </td>
             <td class="py-2 text-right font-mono text-blue-600 dark:text-blue-400">
               {{ paybackTime(b) || '-' }}
+            </td>
+            <td v-if="heroHasSalvage(hero)" class="py-2 text-right font-mono text-teal-600 dark:text-teal-400"
+              :title="b.salvageRate ? `按回收率 ${Math.round(b.salvageRate * 100)}% 计` : '此建筑不可回收'">
+              {{ salvagePayback(b) || '—' }}
             </td>
             <td v-if="heroChronos(hero).length" class="py-2 pr-1 text-right font-mono text-yellow-600 dark:text-yellow-400">
               <span v-for="(c, i) in heroChronos(hero)" :key="i">
@@ -435,6 +440,21 @@ function paybackTime(b: any) {
   const incomePerSec = b.income / b.incomePeriod
   const seconds = Math.round(b.cost / incomePerSec)
   return formatTime(seconds)
+}
+
+// 回收净回本：造价 × (1 − 回收率) ÷ 每秒收入。
+// 语义：持有到这个时间后立刻回收建筑，回收返还的矿 + 期间已产出的收入 = 造价，净投入归零。
+// 仅对可回收建筑（economy.json 里带 salvageRate 的行）计算；其余行返回 null 显示“—”。
+function salvagePayback(b: any) {
+  if (!b.salvageRate || !b.income || !b.cost || !b.incomePeriod) return null
+  const incomePerSec = b.income / b.incomePeriod
+  const seconds = Math.round((b.cost * (1 - b.salvageRate)) / incomePerSec)
+  return formatTime(seconds)
+}
+
+// 该英雄的常规建筑表里是否存在任一可回收建筑（决定是否显示“回收净回本”列）。
+function heroHasSalvage(h: any) {
+  return !!(h?.buildings || []).some((b: any) => b.salvageRate && b.income && b.cost)
 }
 
 function paybackTimeBoosted(b: any, chrono: any) {
