@@ -1950,5 +1950,95 @@
         "notes": "行动诱饵满级。每 3s 产出 32 晶矿。可拆解回收(CommonSalvage)。"
       }
     ]
+  },
+  {
+    "hero": "Skitter",
+    "incomeModel": "斯基特(Skitter)是「SCV 建造 + 建筑收入」型经济（建造者定位）：没有会自动采集的工人，收入来自被动产矿的经济建筑『中继站』，由斯基特机器人(SCV，10 矿)建造，摆出即被动产矿、无需采集。\n\n【建造流程】先训练斯基特机器人(10 矿)，再由其建造『中继站+1』（75 矿）。中继站沿 +1→+2→+4→+8→+16→+32→+64 单线原地升级（约 30 秒/次），不能跨级直建；升级按「目标造价 − 当前造价」补差价扣费。每档每 3 秒产出等于档位数字的晶矿。\n\n【档位上限】中继站可升到 +64（每 3 秒 64 矿），比多数英雄的经济建筑（多止步于 +32）高出一整档，单座产出上限居前列。\n\n【气体】+1/+2 只花晶矿，自 +4 档起额外需要气体（+4: 4、+8: 8、+16: 20、+32: 30、+64: 45）；气体主要经全局机制（如击杀奖励）获取，斯基特没有专属产气建筑。所有中继站均可拆解(CommonSalvage)回收约九成造价。",
+    "buildings": [
+      {
+        "id": "SkitterRelay1",
+        "nameZh": "中继站+1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SkitterRelay2",
+        "gasCost": 0,
+        "notes": "斯基特机器人(SCV)建造的基础经济建筑（150 血）。每 3s 产出 1 晶矿。可原地升级为『中继站+2』。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "SkitterRelay2",
+        "nameZh": "中继站+2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SkitterRelay4",
+        "gasCost": 0,
+        "notes": "由『中继站+1』升级而来。每 3s 产出 2 晶矿。可升级为『中继站+4』。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "SkitterRelay4",
+        "nameZh": "中继站+4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 325,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SkitterRelay8",
+        "gasCost": 4,
+        "notes": "由上一档升级而来，自本档起升级需消耗气体。每 3s 产出 4 晶矿。可升级为『中继站+8』。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "SkitterRelay8",
+        "nameZh": "中继站+8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 725,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SkitterRelay16",
+        "gasCost": 8,
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可升级为『中继站+16』。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "SkitterRelay16",
+        "nameZh": "中继站+16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 1825,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SkitterRelay32",
+        "gasCost": 20,
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可升级为『中继站+32』。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "SkitterRelay32",
+        "nameZh": "中继站+32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 3725,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "SkitterRelay64",
+        "gasCost": 30,
+        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可升级为『中继站+64』。可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "SkitterRelay64",
+        "nameZh": "中继站+64",
+        "income": 64,
+        "incomePeriod": 3,
+        "cost": 7225,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 45,
+        "notes": "中继站满级。每 3s 产出 64 晶矿。比多数英雄的经济建筑（多止步于 +32）高出一档。可拆解回收(CommonSalvage)。"
+      }
+    ]
   }
 ]
