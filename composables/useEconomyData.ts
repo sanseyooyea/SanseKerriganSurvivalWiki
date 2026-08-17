@@ -54,7 +54,10 @@ function makeHeadline(h: any, type: EconomyHero['type']): string {
   if (type === 'harvest') return '探机采集'
   if (type === 'extraction') {
     const e = h.extraction
-    if (e) return `寄生萃取 ${Math.round(e.efficiencyBase * 100)}→${Math.round(e.efficiencyUpgraded * 100)}% · 范围 ${e.rangeBase}→${e.rangeUpgraded}`
+    if (e) {
+      const v = e.verb || '萃取'
+      return `寄生${v} ${Math.round(e.efficiencyBase * 100)}→${Math.round(e.efficiencyUpgraded * 100)}% · ${e.rangeLabel || '范围'} ${e.rangeBase}→${e.rangeUpgraded}`
+    }
     return '寄生萃取'
   }
   const chrono = h.chrono ? (Array.isArray(h.chrono) ? h.chrono[0] : h.chrono) : null
