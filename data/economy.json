@@ -2252,5 +2252,89 @@
       }
     },
     "buildings": []
+  },
+  {
+    "hero": "Alarak",
+    "incomeModel": "阿拉纳克(Alarak，建造者定位)采用星灵『灵能矩阵(Psi Matrix)』建筑收入经济：由探姬(AlarakProbe，10 矿)建造经济建筑『灵能矩阵』，摆出即被动产矿、无需采集。矩阵沿 +1→+2→+4→+8→+16→+32 单线原地升级，每档每 3.5 秒产出等于档位数字的晶矿（周期 3.5s，略慢于多数英雄的 3s）。\n\n【费用与气体】+1/+2 只花晶矿(50 / 125)，自 +4 档起额外需要气体——+4：250 矿 1 气、+8：550 矿 3 气、+16：1300 矿 7 气、+32：3000 矿 15 气。升级按『目标造价 − 当前造价』补差价。所有矩阵均可拆解回收(CommonSalvage)。\n\n【时空加速】阿拉纳克拥有星灵『时空加速(Chrono Boost)』（75 能量，持续 10 秒，×1.5）：可对灵能矩阵施放以临时提速产矿、加快回本，是滚雪球的关键。另可建造水晶塔(Pylon，15 矿)提供补给与能量场。",
+    "chrono": {
+      "timeScale": 1.5,
+      "energyCost": 75,
+      "duration": 10,
+      "name": "时空加速"
+    },
+    "buildings": [
+      {
+        "id": "AlarakPsiMatrix1",
+        "nameZh": "灵能矩阵 +1",
+        "income": 1,
+        "incomePeriod": 3.5,
+        "cost": 50,
+        "buildTime": 5,
+        "food": null,
+        "upgradeTo": "AlarakPsiMatrix2",
+        "gasCost": 0,
+        "notes": "由探姬(Probe，10 矿)建造的基础经济建筑。每 3.5s 产 1 矿。可原地升级为 +2，可施放时空加速(×1.5)提速，可拆解回收(CommonSalvage)。"
+      },
+      {
+        "id": "AlarakPsiMatrix2",
+        "nameZh": "灵能矩阵 +2",
+        "income": 2,
+        "incomePeriod": 3.5,
+        "cost": 125,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "AlarakPsiMatrix4",
+        "gasCost": 0,
+        "notes": "由 +1 升级而来。每 3.5s 产 2 矿。可升级为 +4。"
+      },
+      {
+        "id": "AlarakPsiMatrix4",
+        "nameZh": "灵能矩阵 +4",
+        "income": 4,
+        "incomePeriod": 3.5,
+        "cost": 250,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "AlarakPsiMatrix8",
+        "gasCost": 1,
+        "notes": "自本档起升级需消耗气体。每 3.5s 产 4 矿。可升级为 +8。"
+      },
+      {
+        "id": "AlarakPsiMatrix8",
+        "nameZh": "灵能矩阵 +8",
+        "income": 8,
+        "incomePeriod": 3.5,
+        "cost": 550,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "AlarakPsiMatrix16",
+        "gasCost": 3,
+        "notes": "每 3.5s 产 8 矿。可升级为 +16。"
+      },
+      {
+        "id": "AlarakPsiMatrix16",
+        "nameZh": "灵能矩阵 +16",
+        "income": 16,
+        "incomePeriod": 3.5,
+        "cost": 1300,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": "AlarakPsiMatrix32",
+        "gasCost": 7,
+        "notes": "每 3.5s 产 16 矿。可升级为 +32。"
+      },
+      {
+        "id": "AlarakPsiMatrix32",
+        "nameZh": "灵能矩阵 +32",
+        "income": 32,
+        "incomePeriod": 3.5,
+        "cost": 3000,
+        "buildTime": null,
+        "food": null,
+        "upgradeTo": null,
+        "gasCost": 15,
+        "notes": "灵能矩阵满级。每 3.5s 产 32 矿（≈9.14 矿/s）。施放时空加速可进一步提速。可拆解回收(CommonSalvage)。"
+      }
+    ]
   }
 ]
