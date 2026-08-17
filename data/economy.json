@@ -13,7 +13,8 @@
         "food": null,
         "upgradeTo": "ArtanisGoldenAssimilator",
         "notes": "Basic economy building. Costs 3 gas. Can be upgraded to Golden Assimilator via morph (5s). Has CommonSalvage ability. Bounty multiplier: 3x.",
-        "gasCost": 3
+        "gasCost": 3,
+        "salvageRate": 0.85
       },
       {
         "id": "ArtanisGoldenAssimilator",
@@ -25,7 +26,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "Top-tier economy building. Costs 10 gas. Can be built directly (900 minerals) or upgraded from ArtanisAssimilator (morph takes 5s). No further upgrades available.",
-        "gasCost": 10
+        "gasCost": 10,
+        "salvageRate": 0.85
       },
       {
         "id": "ArtanisGoldenNexus1",
@@ -37,7 +39,8 @@
         "food": 15,
         "upgradeTo": null,
         "notes": "Upgraded from ArtanisNexus (which costs 25 minerals, provides no income/food). Morph takes 5s. Provides 15 supply. Has Chrono Boost, Mass Recall, and can train units (Mothership). Primary role is production/utility rather than income.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "ArtanisMothershipCore",
@@ -193,7 +196,8 @@
         "food": 0,
         "upgradeTo": "JinaraAssimilator10",
         "notes": "Base tier economy building. Tooltip: 每3秒获得2晶体矿. Has CommonSalvage ability for refund.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "JinaraAssimilator10",
@@ -205,7 +209,8 @@
         "food": 0,
         "upgradeTo": "JinaraAssimilator25",
         "notes": "Mid tier. Costs 475 minerals + 10 vespene. Tooltip: 每3秒获得10晶体矿. Can be built directly or upgraded from +2.",
-        "gasCost": 10
+        "gasCost": 10,
+        "salvageRate": 0.85
       },
       {
         "id": "JinaraAssimilator25",
@@ -217,7 +222,8 @@
         "food": 0,
         "upgradeTo": null,
         "notes": "Top tier. Costs 1175 minerals + 35 vespene. Tooltip: 每3秒获得25晶体矿. Can be built directly or upgraded from +10. No further upgrades.",
-        "gasCost": 35
+        "gasCost": 35,
+        "salvageRate": 0.85
       }
     ]
   },
@@ -235,7 +241,8 @@
         "food": 0,
         "upgradeTo": "MiraMineralCompound8",
         "notes": "基础经济建筑，可直接建造。开启生产哨兵(Sentinel)时停止产矿。被摧毁后不会重生为更低级(这是最低级)。升级到+8耗时5秒。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "MiraMineralCompound8",
@@ -247,7 +254,8 @@
         "food": 0,
         "upgradeTo": "MiraMineralCompound16",
         "notes": "可直接建造或从+4升级(5秒)。开启生产突袭者(Raider)时停止产矿。被摧毁后重生为+4。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "MiraMineralCompound16",
@@ -259,7 +267,8 @@
         "food": 0,
         "upgradeTo": "MiraMineralCompound32",
         "notes": "可直接建造或从+8升级(5秒)。开启生产猎手(Hunter)时停止产矿。被摧毁后重生为+4。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "MiraMineralCompound32",
@@ -271,7 +280,8 @@
         "food": 0,
         "upgradeTo": "MiraMineralCompound64",
         "notes": "可直接建造或从+16升级(5秒)。开启生产攻城破坏者(SiegeBreaker)时停止产矿。被摧毁后重生为+4。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "MiraMineralCompound64",
@@ -283,7 +293,8 @@
         "food": 0,
         "upgradeTo": "MiraMineralCompound128",
         "notes": "可直接建造或从+32升级(5秒)。开启生产旋风(Cyclone)时停止产矿。被摧毁后重生为+4。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "MiraMineralCompound128",
@@ -295,7 +306,8 @@
         "food": 0,
         "upgradeTo": null,
         "notes": "最高级经济建筑，可直接建造或从+64升级(5秒)。这是升级链的终点。被摧毁后重生为+4。拥有que5队列能力(可排队5个生产指令)。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -319,7 +331,8 @@
         "food": 0,
         "upgradeTo": "ScientistMineralReactor2",
         "notes": "Base economy building, built by SCV. Has Chrono Boost ability. Has 150 HP, 1 armor.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "ScientistMineralReactor2",
@@ -331,7 +344,8 @@
         "food": 0,
         "upgradeTo": "ScientistMineralReactor4",
         "notes": "Morphed from Reactor +1. Requires upgrade SciHaveBuilt2. Has Chrono Boost.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "ScientistMineralReactor4",
@@ -343,7 +357,8 @@
         "food": 0,
         "upgradeTo": "ScientistMineralReactor8",
         "notes": "Morphed from Reactor +2. Requires upgrade SciHaveBuilt4. Has auto-cast morph support.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "ScientistMineralReactor8",
@@ -355,7 +370,8 @@
         "food": 0,
         "upgradeTo": "ScientistMineralReactor16",
         "notes": "Morphed from Reactor +4. Has Chrono Boost.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "ScientistMineralReactor16",
@@ -367,7 +383,8 @@
         "food": 0,
         "upgradeTo": "ScientistMineralReactor32",
         "notes": "Morphed from Reactor +8. Has a 30-second cooldown on the upgrade ability to +32.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "ScientistMineralReactor32",
@@ -379,7 +396,8 @@
         "food": 0,
         "upgradeTo": "IncomeGenerator64",
         "notes": "Morphed from Reactor +16. Can upgrade to +64 (IncomeGenerator64). Has Chrono Boost.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -572,7 +590,8 @@
         "food": null,
         "upgradeTo": "SophiaMercCompound2",
         "notes": "Base income building. Can upgrade to Lv2. Has Chrono Boost reactor. Provides Alias_Merc_2 (not a typo - it counts as tier 2 for requirements after first upgrade from SCV build).",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "SophiaMercCompound2",
@@ -584,7 +603,8 @@
         "food": null,
         "upgradeTo": "SophiaMercCompound4",
         "notes": "Can upgrade to Lv4 (free morph) or pay 1 vespene to reduce Spider Mine Carrier calldown cooldown (CD variant). Has Chrono Boost reactor.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "SophiaMercCompound4",
@@ -596,7 +616,8 @@
         "food": null,
         "upgradeTo": "SophiaMercCompound8",
         "notes": "Total cost includes 4 vespene. Can upgrade to Lv8 or pay 2 vespene to reduce Vulture calldown cooldown. Unlocks Vulture calldown requirement.",
-        "gasCost": 4
+        "gasCost": 4,
+        "salvageRate": 0.85
       },
       {
         "id": "SophiaMercCompound8",
@@ -608,7 +629,8 @@
         "food": null,
         "upgradeTo": "SophiaMercCompound16",
         "notes": "Total cost includes 8 vespene. Can upgrade to Lv16. Has Chrono Boost reactor.",
-        "gasCost": 8
+        "gasCost": 8,
+        "salvageRate": 0.85
       },
       {
         "id": "SophiaMercCompound16",
@@ -620,7 +642,8 @@
         "food": null,
         "upgradeTo": "SophiaMercCompound32",
         "notes": "Total cost includes 20 vespene. Can upgrade to Lv32 or pay 4 vespene to reduce Air Fighter calldown cooldown. Unlocks Air Fighter calldown.",
-        "gasCost": 20
+        "gasCost": 20,
+        "salvageRate": 0.85
       },
       {
         "id": "SophiaMercCompound32",
@@ -632,7 +655,8 @@
         "food": null,
         "upgradeTo": "SophiaMercCompound64",
         "notes": "Total cost includes 30 vespene. Can upgrade to Lv64 or pay 8 vespene to reduce Siege Tank/Thor calldown cooldown. Unlocks Siege Tank and Thor calldowns.",
-        "gasCost": 30
+        "gasCost": 30,
+        "salvageRate": 0.85
       },
       {
         "id": "SophiaMercCompound64",
@@ -644,7 +668,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "Total cost includes 45 vespene. Maximum tier. No further upgrades. Has Chrono Boost reactor.",
-        "gasCost": 45
+        "gasCost": 45,
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -668,7 +693,8 @@
         "food": 0,
         "upgradeTo": "SwannAcceleratedRefinery10",
         "notes": "Tier 1 economy building. Has ChronoBoost2 ability (1.75x speed). Can upgrade to SwannAcceleratedRefinery10 (30s cooldown between upgrades). 150 HP, 1 armor.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "SwannAcceleratedRefinery10",
@@ -680,7 +706,8 @@
         "food": 0,
         "upgradeTo": "SwannRefinery25",
         "notes": "Tier 2 economy building. Costs 575 minerals + 5 gas. Has ChronoBoost ability. Can be built directly or upgraded from SwannRefinery2. Upgrades to SwannRefinery25. Has que5 (auto-queue). 150 HP, 1 armor.",
-        "gasCost": 5
+        "gasCost": 5,
+        "salvageRate": 0.85
       },
       {
         "id": "SwannRefinery25",
@@ -692,7 +719,8 @@
         "food": 0,
         "upgradeTo": null,
         "notes": "Tier 3 (final) economy building. Costs 1750 minerals + 10 gas. Has JoriumRefineryChronoBoost ability. Can be built directly or upgraded from SwannAcceleratedRefinery10. Has que5 and ScientistUpgradeIncomeGenerator4 ability. 200 HP, 1 armor.",
-        "gasCost": 10
+        "gasCost": 10,
+        "salvageRate": 0.85
       }
     ],
     "chrono": [
@@ -724,7 +752,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "解锁「被感染的平民」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×2。 被感染的公民造价 4 矿。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "StukovInfestedDen",
@@ -736,7 +765,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "解锁「被感染的士兵」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×2。 被感染的士兵造价 25 矿。",
-        "gasCost": 3
+        "gasCost": 3,
+        "salvageRate": 0.85
       },
       {
         "id": "StukovInfestedPit",
@@ -748,7 +778,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "解锁「破坏者」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×1。(建造按钮为「破坏者巢穴」) 破坏者造价 175 矿 + 1 气。",
-        "gasCost": 10
+        "gasCost": 10,
+        "salvageRate": 0.85
       },
       {
         "id": "StukovAberrationCavern",
@@ -760,7 +791,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "解锁「畸变体」即时充能生产；每座此结构为其提供5%充能冷却缩减(叠乘，最低5秒)。充能上限=斯托科夫等级×1。 畸变体造价 750 矿 + 3 气。",
-        "gasCost": 40
+        "gasCost": 40,
+        "salvageRate": 0.85
       }
     ]
   },
@@ -778,7 +810,8 @@
         "food": 0,
         "upgradeTo": "GhostMineralReactor2",
         "notes": "Base economy building, built by Ghost SCV. Can be upgraded to +2. Has ChronoBoost ability (1.75x speed for 5 gas). Salvageable for 90% refund.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "GhostMineralReactor2",
@@ -790,7 +823,8 @@
         "food": 0,
         "upgradeTo": "GhostMineralReactor4",
         "notes": "Morphed from +1. Upgrade time 5s. Has ChronoBoost and can upgrade to +4.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "GhostMineralReactor4",
@@ -802,7 +836,8 @@
         "food": 0,
         "upgradeTo": "GhostMineralReactor8",
         "notes": "Morphed from +2. Upgrade time 5s. Has ChronoBoost and can upgrade to +8.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "GhostMineralReactor8",
@@ -814,7 +849,8 @@
         "food": 0,
         "upgradeTo": "GhostMineralReactor16",
         "notes": "Morphed from +4. Upgrade time 5s. Has ChronoBoost and can upgrade to +16.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "GhostMineralReactor16",
@@ -826,7 +862,8 @@
         "food": 0,
         "upgradeTo": "GhostMineralReactor32",
         "notes": "Morphed from +8. Upgrade time 5s. Has ChronoBoost and can upgrade to +32.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "GhostMineralReactor32",
@@ -838,7 +875,8 @@
         "food": 0,
         "upgradeTo": null,
         "notes": "Max tier reactor. Morphed from +16. Upgrade time 5s. Has ChronoBoost. Final upgrade in the chain.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -862,7 +900,8 @@
         "food": null,
         "upgradeTo": "DarkTemplarEssenceAssimilator",
         "notes": "Lowest tier economy building. Uses behavior 'DarkTemplar1' with PeriodicEffect 'MineralIncome1'. HP 75, Shield 75, Armor 1. SelectAlias group 'DTEssenceTemple'.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "DarkTemplarEssenceAssimilator",
@@ -874,7 +913,8 @@
         "food": null,
         "upgradeTo": "DTEssenceSanctuary50",
         "notes": "Mid tier economy building. Uses behavior 'DarkTemplar10' with PeriodicEffect 'MineralIncome10'. HP 75, Shield 75, Armor 1. CostCategory: Economy. SelectAlias 'DTEssenceTemple'. This is the primary known economy unit ID (also referenced as DTEssenceAssimilator in actor data).",
-        "gasCost": 6
+        "gasCost": 6,
+        "salvageRate": 0.85
       },
       {
         "id": "DTEssenceSanctuary50",
@@ -886,7 +926,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "Highest tier economy building. Uses behavior 'DarkTemplar50' with PeriodicEffect 'MineralIncome50'. HP 200, Shield 200, Armor 1. SelectAlias 'DTEssenceTemple'. Has a requirement validator 'CountUnitDTEssenceSanctuary50CompleteOnly' suggesting a build limit.",
-        "gasCost": 50
+        "gasCost": 50,
+        "salvageRate": 0.85
       }
     ]
   },
@@ -904,7 +945,8 @@
         "food": 0,
         "upgradeTo": "DSCommerceCenter4",
         "notes": "Base economy building, built by SCV via DSBuild ability. Has DeltaSquadChronoBoost and ChronoBlast abilities. Upgrade chain starts here.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "DSCommerceCenter4",
@@ -916,7 +958,8 @@
         "food": 0,
         "upgradeTo": "DSCommerceCenter8",
         "notes": "Morphed from DSCommerceCenter. Upgrade cost is 150 minerals (300 total - 150 base). Has ChronoBoost/ChronoBlast.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "DSCommerceCenter8",
@@ -928,7 +971,8 @@
         "food": 0,
         "upgradeTo": "DSCommerceCenter16",
         "notes": "Morphed from DSCommerceCenter4. Upgrade cost is 400 minerals (700 total - 300). Different Chinese name (Mission Command Center). Has ChronoBoost/ChronoBlast.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "DSCommerceCenter16",
@@ -940,7 +984,8 @@
         "food": 0,
         "upgradeTo": "DSCommerceCenter32",
         "notes": "Morphed from DSCommerceCenter8. Upgrade cost is 800 minerals (1500 total - 700). Has ChronoBoost/ChronoBlast.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "DSCommerceCenter32",
@@ -952,7 +997,8 @@
         "food": 0,
         "upgradeTo": "DSCommerceCenter64",
         "notes": "Morphed from DSCommerceCenter16. Upgrade cost is 2000 minerals (3500 total - 1500). Requires DSCommerceCenter32 for certain upgrades (Life, Ship Weapons). Has ChronoBoost/ChronoBlast.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "DSCommerceCenter64",
@@ -964,7 +1010,8 @@
         "food": 0,
         "upgradeTo": null,
         "notes": "Final tier. Morphed from DSCommerceCenter32. Upgrade cost is 4000 minerals (7500 total - 3500). Max income building. Has ChronoBoost/ChronoBlast.",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       }
     ],
     "chrono": [
@@ -1057,7 +1104,8 @@
         "food": null,
         "upgradeTo": "AscendantObelisk2",
         "notes": "基础收入建筑，直接建造（5秒）。每 3 秒 +1 晶矿。需水晶塔供能。可拆除回收（CommonSalvage），可施放时空加速。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "AscendantObelisk2",
@@ -1069,7 +1117,8 @@
         "food": null,
         "upgradeTo": "AscendantObelisk4",
         "notes": "由方尖碑 +1 形态升级而来（5秒）。每 3 秒 +2 晶矿。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "AscendantObelisk4",
@@ -1081,7 +1130,8 @@
         "food": null,
         "upgradeTo": "AscendantObelisk8",
         "notes": "由方尖碑 +2 形态升级而来（5秒）。每 3 秒 +4 晶矿。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "AscendantObelisk8",
@@ -1093,7 +1143,8 @@
         "food": null,
         "upgradeTo": "AscendantObelisk16",
         "notes": "由方尖碑 +4 形态升级而来（5秒）。每 3 秒 +8 晶矿。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "AscendantObelisk16",
@@ -1105,7 +1156,8 @@
         "food": null,
         "upgradeTo": "AscendantObelisk32",
         "notes": "由方尖碑 +8 形态升级而来（5秒）。每 3 秒 +16 晶矿。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       },
       {
         "id": "AscendantObelisk32",
@@ -1117,7 +1169,8 @@
         "food": null,
         "upgradeTo": null,
         "notes": "顶级收入建筑，由方尖碑 +16 形态升级而来（5秒）。每 3 秒 +32 晶矿。",
-        "gasCost": 0
+        "gasCost": 0,
+        "salvageRate": 0.85
       }
     ]
   },
@@ -1294,7 +1347,8 @@
         "food": null,
         "upgradeTo": "NovaMissionCommand2",
         "gasCost": 0,
-        "notes": "直接产矿建筑，每 3 秒产出 1 晶矿（≈0.33 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +2」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 1 晶矿（≈0.33 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +2」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NovaMissionCommand2",
@@ -1306,7 +1360,8 @@
         "food": null,
         "upgradeTo": "NovaMissionCommand4",
         "gasCost": 0,
-        "notes": "直接产矿建筑，每 3 秒产出 2 晶矿（≈0.67 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +4」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 2 晶矿（≈0.67 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +4」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NovaMissionCommand4",
@@ -1318,7 +1373,8 @@
         "food": null,
         "upgradeTo": "NovaMissionCommand8",
         "gasCost": 0,
-        "notes": "直接产矿建筑，每 3 秒产出 4 晶矿（≈1.33 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +8」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 4 晶矿（≈1.33 矿/秒），无需 SCV 采集。可升级为「任务指挥部 +8」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NovaMissionCommand8",
@@ -1330,7 +1386,8 @@
         "food": null,
         "upgradeTo": "NovaMissionCommand16",
         "gasCost": 2,
-        "notes": "直接产矿建筑，每 3 秒产出 8 晶矿（≈2.67 矿/秒），无需 SCV 采集。建造额外需 2 气。可升级为「任务指挥部 +16」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 8 晶矿（≈2.67 矿/秒），无需 SCV 采集。建造额外需 2 气。可升级为「任务指挥部 +16」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NovaMissionCommand16",
@@ -1342,7 +1399,8 @@
         "food": null,
         "upgradeTo": "NovaMissionCommand32",
         "gasCost": 4,
-        "notes": "直接产矿建筑，每 3 秒产出 16 晶矿（≈5.33 矿/秒），无需 SCV 采集。建造额外需 4 气。可升级为「任务指挥部 +32」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 16 晶矿（≈5.33 矿/秒），无需 SCV 采集。建造额外需 4 气。可升级为「任务指挥部 +32」（引擎按造价差扣费）。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NovaMissionCommand32",
@@ -1354,7 +1412,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 8,
-        "notes": "直接产矿建筑，每 3 秒产出 32 晶矿（≈10.67 矿/秒），无需 SCV 采集。建造额外需 8 气。最高档，无更高升级。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 32 晶矿（≈10.67 矿/秒），无需 SCV 采集。建造额外需 8 气。最高档，无更高升级。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ]
   },
@@ -1372,7 +1431,8 @@
         "food": null,
         "upgradeTo": "NomadOrbitalCommand",
         "gasCost": 0,
-        "notes": "直接产矿建筑，每 3 秒产出 1 晶矿（≈0.33 矿/秒），无需 SCV 采集。可升级为「轨道控制基地」。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 1 晶矿（≈0.33 矿/秒），无需 SCV 采集。可升级为「轨道控制基地」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NomadOrbitalCommand",
@@ -1384,7 +1444,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 1,
-        "notes": "直接产矿建筑，每 3 秒产出 2 晶矿（≈0.67 矿/秒），无需 SCV 采集。建造额外需 1 气。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 2 晶矿（≈0.67 矿/秒），无需 SCV 采集。建造额外需 1 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NomadLaboratory4",
@@ -1396,7 +1457,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 4,
-        "notes": "直接产矿建筑，每 3 秒产出 4 晶矿（≈1.33 矿/秒），无需 SCV 采集。建造额外需 4 气。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 4 晶矿（≈1.33 矿/秒），无需 SCV 采集。建造额外需 4 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NomadLaboratory8",
@@ -1408,7 +1470,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 8,
-        "notes": "直接产矿建筑，每 3 秒产出 8 晶矿（≈2.67 矿/秒），无需 SCV 采集。建造额外需 8 气。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 8 晶矿（≈2.67 矿/秒），无需 SCV 采集。建造额外需 8 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NomadLaboratory16",
@@ -1420,7 +1483,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 18,
-        "notes": "直接产矿建筑，每 3 秒产出 16 晶矿（≈5.33 矿/秒），无需 SCV 采集。建造额外需 18 气。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 16 晶矿（≈5.33 矿/秒），无需 SCV 采集。建造额外需 18 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NomadLaboratory32",
@@ -1432,7 +1496,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 38,
-        "notes": "直接产矿建筑，每 3 秒产出 32 晶矿（≈10.67 矿/秒），无需 SCV 采集。建造额外需 38 气。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 32 晶矿（≈10.67 矿/秒），无需 SCV 采集。建造额外需 38 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "NomadLaboratory64",
@@ -1444,7 +1509,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 70,
-        "notes": "直接产矿建筑，每 3 秒产出 64 晶矿（≈21.33 矿/秒），无需 SCV 采集。建造额外需 70 气。可拆解回收(CommonSalvage)。"
+        "notes": "直接产矿建筑，每 3 秒产出 64 晶矿（≈21.33 矿/秒），无需 SCV 采集。建造额外需 70 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ]
   },
@@ -1462,7 +1528,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 0,
-        "notes": "1×1 直接产矿建筑，每12秒产8晶矿(≈0.67矿/秒)。自带机枪(10伤/1.25秒，射程4)可攻击敌人，击杀触发通用击杀产气，故「既产矿又打气」。可拆解回收(CommonSalvage)。"
+        "notes": "1×1 直接产矿建筑，每12秒产8晶矿(≈0.67矿/秒)。自带机枪(10伤/1.25秒，射程4)可攻击敌人，击杀触发通用击杀产气，故「既产矿又打气」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "AndorXelNagaShrine",
@@ -1474,7 +1541,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 5,
-        "notes": "2×2 直接产矿建筑，每3秒产10晶矿(≈3.33矿/秒)，建造额外需5气。无升级链，可拆解回收(CommonSalvage)。"
+        "notes": "2×2 直接产矿建筑，每3秒产10晶矿(≈3.33矿/秒)，建造额外需5气。无升级链，可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "AndorXelNagaTemple",
@@ -1486,7 +1554,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 10,
-        "notes": "2×3 直接产矿建筑，每3秒产50晶矿(≈16.67矿/秒)，建造额外需10气。全经济核心，可拆解回收(CommonSalvage)。"
+        "notes": "2×3 直接产矿建筑，每3秒产50晶矿(≈16.67矿/秒)，建造额外需10气。全经济核心，可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ]
   },
@@ -1504,7 +1573,8 @@
         "food": null,
         "upgradeTo": "CritterLordCritterHive2",
         "gasCost": 0,
-        "notes": "唯一可直接建造的主巢。每 2.5s 产出 1 晶矿（无自带加速）。可升级为「小动物主巢 2」。可拆解回收(CommonSalvage)。"
+        "notes": "唯一可直接建造的主巢。每 2.5s 产出 1 晶矿（无自带加速）。可升级为「小动物主巢 2」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "CritterLordCritterHive2",
@@ -1516,7 +1586,8 @@
         "food": null,
         "upgradeTo": "CritterLordCritterHive4",
         "gasCost": 0,
-        "notes": "由上一档升级而来。自带永久运作加速 ×1.1（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 2 晶矿，加速后有效周期约 2.27s，每秒 ≈ 0.88 矿。下表数值均已按加速后计。可升级为「小动物主巢 4」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。自带永久运作加速 ×1.1（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 2 晶矿，加速后有效周期约 2.27s，每秒 ≈ 0.88 矿。下表数值均已按加速后计。可升级为「小动物主巢 4」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "CritterLordCritterHive4",
@@ -1528,7 +1599,8 @@
         "food": null,
         "upgradeTo": "CritterLordCritterHive8",
         "gasCost": 2,
-        "notes": "由上一档升级而来。自带永久运作加速 ×1.2（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 4 晶矿，加速后有效周期约 2.08s，每秒 ≈ 1.92 矿。下表数值均已按加速后计。建造额外需 2 气。可升级为「小动物主巢 8」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。自带永久运作加速 ×1.2（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 4 晶矿，加速后有效周期约 2.08s，每秒 ≈ 1.92 矿。下表数值均已按加速后计。建造额外需 2 气。可升级为「小动物主巢 8」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "CritterLordCritterHive8",
@@ -1540,7 +1612,8 @@
         "food": null,
         "upgradeTo": "CritterLordCritterHive16",
         "gasCost": 6,
-        "notes": "由上一档升级而来。自带永久运作加速 ×1.3（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 8 晶矿，加速后有效周期约 1.92s，每秒 ≈ 4.16 矿。下表数值均已按加速后计。建造额外需 6 气。可升级为「小动物主巢 16」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。自带永久运作加速 ×1.3（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 8 晶矿，加速后有效周期约 1.92s，每秒 ≈ 4.16 矿。下表数值均已按加速后计。建造额外需 6 气。可升级为「小动物主巢 16」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "CritterLordCritterHive16",
@@ -1552,7 +1625,8 @@
         "food": null,
         "upgradeTo": "CritterLordCritterHive32",
         "gasCost": 12,
-        "notes": "由上一档升级而来。自带永久运作加速 ×1.35（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 16 晶矿，加速后有效周期约 1.85s，每秒 ≈ 8.64 矿。下表数值均已按加速后计。建造额外需 12 气。可升级为「小动物主巢 32」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。自带永久运作加速 ×1.35（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 16 晶矿，加速后有效周期约 1.85s，每秒 ≈ 8.64 矿。下表数值均已按加速后计。建造额外需 12 气。可升级为「小动物主巢 32」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "CritterLordCritterHive32",
@@ -1564,7 +1638,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 20,
-        "notes": "由上一档升级而来。自带永久运作加速 ×1.4（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 32 晶矿，加速后有效周期约 1.79s，每秒 ≈ 17.92 矿。下表数值均已按加速后计。建造额外需 20 气。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。自带永久运作加速 ×1.4（TimeScale，来源=自身、无 Duration/无气耗、无需操作）：原始每 2.5s 产 32 晶矿，加速后有效周期约 1.79s，每秒 ≈ 17.92 矿。下表数值均已按加速后计。建造额外需 20 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ]
   },
@@ -1582,7 +1657,8 @@
         "food": null,
         "upgradeTo": "WardenAltar2",
         "gasCost": 0,
-        "notes": "唯一可直接建造的祭坛。每 3s 产出 1 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +2」。可拆解回收(CommonSalvage)。"
+        "notes": "唯一可直接建造的祭坛。每 3s 产出 1 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +2」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "WardenAltar2",
@@ -1594,7 +1670,8 @@
         "food": null,
         "upgradeTo": "WardenAltar4",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 2 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +4」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 2 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +4」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "WardenAltar4",
@@ -1606,7 +1683,8 @@
         "food": null,
         "upgradeTo": "WardenAltar8",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 4 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +8s」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 4 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +8s」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "WardenAltar8",
@@ -1618,7 +1696,8 @@
         "food": null,
         "upgradeTo": "WardenAltar16",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +16」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +16」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "WardenAltar16",
@@ -1630,7 +1709,8 @@
         "food": null,
         "upgradeTo": "WardenAltar32",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +32」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「祭坛 +32」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "WardenAltar32",
@@ -1642,7 +1722,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「星灵折跃加速」（3 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -1666,7 +1747,8 @@
         "food": null,
         "upgradeTo": "ScionNexus2",
         "gasCost": 0,
-        "notes": "唯一可直接建造的星灵枢纽。每 3s 产出 1 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +2」。可拆解回收(CommonSalvage)。"
+        "notes": "唯一可直接建造的星灵枢纽。每 3s 产出 1 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +2」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "ScionNexus2",
@@ -1678,7 +1760,8 @@
         "food": null,
         "upgradeTo": "ScionNexus4",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 2 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +4」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 2 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +4」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "ScionNexus4",
@@ -1690,7 +1773,8 @@
         "food": null,
         "upgradeTo": "ScionNexus8",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 4 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +8」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 4 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +8」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "ScionNexus8",
@@ -1702,7 +1786,8 @@
         "food": null,
         "upgradeTo": "ScionNexus16",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +16」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +16」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "ScionNexus16",
@@ -1714,7 +1799,8 @@
         "food": null,
         "upgradeTo": "ScionNexus32",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +32」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可升级为「星灵枢纽 +32」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "ScionNexus32",
@@ -1726,7 +1812,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「星灵折跃加速」（5 气、每座一次性），永久提升自身运作速度 ×1.75，产矿随之加快。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -1750,7 +1837,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 0,
-        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 2 晶矿。可施放「星灵折跃加速」（1 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。可拆解回收(CommonSalvage)。"
+        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 2 晶矿。可施放「星灵折跃加速」（1 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "ChampionCrystal",
@@ -1762,7 +1850,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 4,
-        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 10 晶矿。可施放「星灵折跃加速」（4 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。建造额外需 4 气。可拆解回收(CommonSalvage)。"
+        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 10 晶矿。可施放「星灵折跃加速」（4 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。建造额外需 4 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "ChampionArtifact25",
@@ -1774,7 +1863,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 10,
-        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 25 晶矿。可施放「星灵折跃加速」（10 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。建造额外需 10 气。可拆解回收(CommonSalvage)。"
+        "notes": "由探机(ChampionProbe)直接建造，各档独立、无升级链。每 4s 产出 25 晶矿。可施放「星灵折跃加速」（10 气、每座 1 充能），永久提升自身运作速度 ×1.5，产矿随之加快。建造额外需 10 气。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -1798,7 +1888,8 @@
         "food": null,
         "upgradeTo": "RattlesnakeDominionStarport8",
         "gasCost": 0,
-        "notes": "由 SCV(15 矿)直接建造的入门级核心星站。每 3s 产出 4 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可升级为「核心星站 +8」。可拆解回收(CommonSalvage)。"
+        "notes": "由 SCV(15 矿)直接建造的入门级核心星站。每 3s 产出 4 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可升级为「核心星站 +8」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "RattlesnakeDominionStarport8",
@@ -1810,7 +1901,8 @@
         "food": null,
         "upgradeTo": "RattlesnakeDominionStarport16",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可升级为「核心星站 +16」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可升级为「核心星站 +16」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "RattlesnakeDominionStarport16",
@@ -1822,7 +1914,8 @@
         "food": null,
         "upgradeTo": "RattlesnakeDominionStarport32",
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可升级为「核心星站+32」。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可升级为「核心星站+32」。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "RattlesnakeDominionStarport32",
@@ -1834,7 +1927,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 0,
-        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可施放「能量折跃加速」（消耗自身 100 能量、15s 冷却，随能量回复可重复），限时 15s 提升自身运作速度 ×2，加速期间产矿翻倍。可花 1 气/次升级自身能量回复（+0.5 能量/s·次，最多 14 次 = +7 能量/s），满级后约每 14.3s 即可回满一次100 能量、近乎持续维持翻倍。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ],
     "chrono": {
@@ -1864,11 +1958,31 @@
       "wardShields": 30,
       "note": "结界本身无矿物造价，全场最多 6 座，被摧毁即失去该处萃取。萃取对象为范围内一切带经济收入的建筑——盟友的与自己的都算，一座结界可同时萃取范围内的多座建筑；多座结界叠加同一建筑可累计至 3 层（3× 效率）。单次萃取按概率取整（期望值 = 原始收入 × 效率）。",
       "examples": [
-        { "label": "低产", "eg": "反应堆Ⅰ级 / 星灵枢纽", "raw": 2 },
-        { "label": "中产", "eg": "反应堆Ⅷ级 / 实验室Ⅷ级", "raw": 12 },
-        { "label": "高产", "eg": "天灾虫窝 / 精炼厂-25", "raw": 32 },
-        { "label": "顶级", "eg": "反应堆·满级 / 方尖碑·满级", "raw": 48 },
-        { "label": "巅峰", "eg": "天灾巢穴 / 精华圣所", "raw": 128 }
+        {
+          "label": "低产",
+          "eg": "反应堆Ⅰ级 / 星灵枢纽",
+          "raw": 2
+        },
+        {
+          "label": "中产",
+          "eg": "反应堆Ⅷ级 / 实验室Ⅷ级",
+          "raw": 12
+        },
+        {
+          "label": "高产",
+          "eg": "天灾虫窝 / 精炼厂-25",
+          "raw": 32
+        },
+        {
+          "label": "顶级",
+          "eg": "反应堆·满级 / 方尖碑·满级",
+          "raw": 48
+        },
+        {
+          "label": "巅峰",
+          "eg": "天灾巢穴 / 精华圣所",
+          "raw": 128
+        }
       ]
     },
     "buildings": []
@@ -1887,7 +2001,8 @@
         "food": null,
         "upgradeTo": "SjlerkHoloDecoy2",
         "gasCost": 0,
-        "notes": "SCV 建造的基础经济建筑（凯瑞甘的全息复制体，200 血的诱饵）。每 3s 产出 1 晶矿。可原地升级为『行动诱饵 +2』。可拆解回收(CommonSalvage)。"
+        "notes": "SCV 建造的基础经济建筑（凯瑞甘的全息复制体，200 血的诱饵）。每 3s 产出 1 晶矿。可原地升级为『行动诱饵 +2』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SjlerkHoloDecoy2",
@@ -1899,7 +2014,8 @@
         "food": null,
         "upgradeTo": "SjlerkHoloDecoy4",
         "gasCost": 0,
-        "notes": "由『行动诱饵』升级而来。每 3s 产出 2 晶矿。可升级为『行动诱饵 +4』。可拆解回收(CommonSalvage)。"
+        "notes": "由『行动诱饵』升级而来。每 3s 产出 2 晶矿。可升级为『行动诱饵 +4』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SjlerkHoloDecoy4",
@@ -1911,7 +2027,8 @@
         "food": null,
         "upgradeTo": "SjlerkHoloDecoy8",
         "gasCost": 2,
-        "notes": "由上一档升级而来，自本档起升级需消耗少量气体。每 3s 产出 4 晶矿。可升级为『行动诱饵 +8』。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来，自本档起升级需消耗少量气体。每 3s 产出 4 晶矿。可升级为『行动诱饵 +8』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SjlerkHoloDecoy8",
@@ -1923,7 +2040,8 @@
         "food": null,
         "upgradeTo": "SjlerkHoloDecoy16",
         "gasCost": 6,
-        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可升级为『行动诱饵 +16』。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可升级为『行动诱饵 +16』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SjlerkHoloDecoy16",
@@ -1935,7 +2053,8 @@
         "food": null,
         "upgradeTo": "SjlerkHoloDecoy32",
         "gasCost": 14,
-        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可升级为『行动诱饵 +32』。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可升级为『行动诱饵 +32』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SjlerkHoloDecoy32",
@@ -1947,7 +2066,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 26,
-        "notes": "行动诱饵满级。每 3s 产出 32 晶矿。可拆解回收(CommonSalvage)。"
+        "notes": "行动诱饵满级。每 3s 产出 32 晶矿。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ]
   },
@@ -1965,7 +2085,8 @@
         "food": null,
         "upgradeTo": "SkitterRelay2",
         "gasCost": 0,
-        "notes": "斯基特机器人(SCV)建造的基础经济建筑（150 血）。每 3s 产出 1 晶矿。可原地升级为『中继站+2』。可拆解回收(CommonSalvage)。"
+        "notes": "斯基特机器人(SCV)建造的基础经济建筑（150 血）。每 3s 产出 1 晶矿。可原地升级为『中继站+2』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SkitterRelay2",
@@ -1977,7 +2098,8 @@
         "food": null,
         "upgradeTo": "SkitterRelay4",
         "gasCost": 0,
-        "notes": "由『中继站+1』升级而来。每 3s 产出 2 晶矿。可升级为『中继站+4』。可拆解回收(CommonSalvage)。"
+        "notes": "由『中继站+1』升级而来。每 3s 产出 2 晶矿。可升级为『中继站+4』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SkitterRelay4",
@@ -1989,7 +2111,8 @@
         "food": null,
         "upgradeTo": "SkitterRelay8",
         "gasCost": 4,
-        "notes": "由上一档升级而来，自本档起升级需消耗气体。每 3s 产出 4 晶矿。可升级为『中继站+8』。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来，自本档起升级需消耗气体。每 3s 产出 4 晶矿。可升级为『中继站+8』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SkitterRelay8",
@@ -2001,7 +2124,8 @@
         "food": null,
         "upgradeTo": "SkitterRelay16",
         "gasCost": 8,
-        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可升级为『中继站+16』。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 8 晶矿。可升级为『中继站+16』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SkitterRelay16",
@@ -2013,7 +2137,8 @@
         "food": null,
         "upgradeTo": "SkitterRelay32",
         "gasCost": 20,
-        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可升级为『中继站+32』。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 16 晶矿。可升级为『中继站+32』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SkitterRelay32",
@@ -2025,7 +2150,8 @@
         "food": null,
         "upgradeTo": "SkitterRelay64",
         "gasCost": 30,
-        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可升级为『中继站+64』。可拆解回收(CommonSalvage)。"
+        "notes": "由上一档升级而来。每 3s 产出 32 晶矿。可升级为『中继站+64』。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "SkitterRelay64",
@@ -2037,7 +2163,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 45,
-        "notes": "中继站满级。每 3s 产出 64 晶矿。比多数英雄的经济建筑（多止步于 +32）高出一档。可拆解回收(CommonSalvage)。"
+        "notes": "中继站满级。每 3s 产出 64 晶矿。比多数英雄的经济建筑（多止步于 +32）高出一档。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ]
   },
@@ -2237,7 +2364,8 @@
         "food": null,
         "upgradeTo": "AlarakPsiMatrix2",
         "gasCost": 0,
-        "notes": "由探姬(Probe，10 矿)建造的基础经济建筑。每 3.5s 产 1 矿。可原地升级为 +2，可施放时空加速(×1.5)提速，可拆解回收(CommonSalvage)。"
+        "notes": "由探姬(Probe，10 矿)建造的基础经济建筑。每 3.5s 产 1 矿。可原地升级为 +2，可施放时空加速(×1.5)提速，可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       },
       {
         "id": "AlarakPsiMatrix2",
@@ -2249,7 +2377,8 @@
         "food": null,
         "upgradeTo": "AlarakPsiMatrix4",
         "gasCost": 1,
-        "notes": "由 +1 升级而来（100 矿 / 1 气）。自本档起升级需消耗气体。每 3.5s 产 2 矿。可升级为 +4。"
+        "notes": "由 +1 升级而来（100 矿 / 1 气）。自本档起升级需消耗气体。每 3.5s 产 2 矿。可升级为 +4。",
+        "salvageRate": 0.85
       },
       {
         "id": "AlarakPsiMatrix4",
@@ -2261,7 +2390,8 @@
         "food": null,
         "upgradeTo": "AlarakPsiMatrix8",
         "gasCost": 3,
-        "notes": "升级需 225 矿 / 3 气。每 3.5s 产 4 矿。可升级为 +8。"
+        "notes": "升级需 225 矿 / 3 气。每 3.5s 产 4 矿。可升级为 +8。",
+        "salvageRate": 0.85
       },
       {
         "id": "AlarakPsiMatrix8",
@@ -2273,7 +2403,8 @@
         "food": null,
         "upgradeTo": "AlarakPsiMatrix16",
         "gasCost": 7,
-        "notes": "升级需 525 矿 / 7 气。每 3.5s 产 8 矿。可升级为 +16。"
+        "notes": "升级需 525 矿 / 7 气。每 3.5s 产 8 矿。可升级为 +16。",
+        "salvageRate": 0.85
       },
       {
         "id": "AlarakPsiMatrix16",
@@ -2285,7 +2416,8 @@
         "food": null,
         "upgradeTo": "AlarakPsiMatrix32",
         "gasCost": 13,
-        "notes": "升级需 1275 矿 / 13 气。每 3.5s 产 16 矿。可升级为 +32。"
+        "notes": "升级需 1275 矿 / 13 气。每 3.5s 产 16 矿。可升级为 +32。",
+        "salvageRate": 0.85
       },
       {
         "id": "AlarakPsiMatrix32",
@@ -2297,7 +2429,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 21,
-        "notes": "灵能矩阵满级（升级需 2975 矿 / 21 气）。每 3.5s 产 32 矿（≈9.14 矿/s）。施放时空加速可进一步提速。可拆解回收(CommonSalvage)。"
+        "notes": "灵能矩阵满级（升级需 2975 矿 / 21 气）。每 3.5s 产 32 矿（≈9.14 矿/s）。施放时空加速可进一步提速。可拆解回收(CommonSalvage)。",
+        "salvageRate": 0.85
       }
     ]
   },
@@ -2327,7 +2460,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 2,
-        "notes": "把人群固化为 +1 名望（≈5 名粉丝的名望，1:1 每 1.2s 结算即约 0.83 矿/s）。用粉丝建造会消耗粉丝/充能。150 血，赏金 2。"
+        "notes": "把人群固化为 +1 名望（≈5 名粉丝的名望，1:1 每 1.2s 结算即约 0.83 矿/s）。用粉丝建造会消耗粉丝/充能。150 血，赏金 2。",
+        "salvageRate": 0.85
       },
       {
         "id": "DJFanClub",
@@ -2339,7 +2473,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 6,
-        "notes": "+4 名望（≈20 名粉丝，约 3.3 矿/s）。用粉丝建造会消耗对应粉丝/充能。175 血，赏金 8。"
+        "notes": "+4 名望（≈20 名粉丝，约 3.3 矿/s）。用粉丝建造会消耗对应粉丝/充能。175 血，赏金 8。",
+        "salvageRate": 0.85
       },
       {
         "id": "DJFanVilla",
@@ -2351,7 +2486,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 16,
-        "notes": "名望放大器上限：+16 名望（≈80 名粉丝，约 13.3 矿/s）。用粉丝建造会消耗粉丝/充能。200 血，赏金 16。"
+        "notes": "名望放大器上限：+16 名望（≈80 名粉丝，约 13.3 矿/s）。用粉丝建造会消耗粉丝/充能。200 血，赏金 16。",
+        "salvageRate": 0.85
       },
       {
         "id": "DJDiscoBall",
