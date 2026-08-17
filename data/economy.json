@@ -556,7 +556,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": null,
-        "notes": "基础产矿 2/3s。可挂科技实验室(×1.5→3/3s)或反应堆(×2→4/3s)。可起飞。"
+        "notes": "基础产矿 2/3s。可挂科技实验室(×1.5→3/3s)或反应堆(×2→4/3s)。可起飞。",
+        "salvageRate": 0.85
       },
       {
         "id": "SgtHammerEcoFactory",
@@ -568,7 +569,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 4,
-        "notes": "基础产矿 10/3s。可挂科技实验室(×1.5→15/3s)或反应堆(×2→20/3s)。可起飞。"
+        "notes": "基础产矿 10/3s。可挂科技实验室(×1.5→15/3s)或反应堆(×2→20/3s)。可起飞。",
+        "salvageRate": 0.85
       },
       {
         "id": "SgtHammerEcoStarport",
@@ -580,7 +582,8 @@
         "food": null,
         "upgradeTo": null,
         "gasCost": 50,
-        "notes": "基础产矿 50/3s。可挂科技实验室(×1.5→75/3s)或反应堆(×2→100/3s)。最高级经济建筑，可起飞。"
+        "notes": "基础产矿 50/3s。可挂科技实验室(×1.5→75/3s)或反应堆(×2→100/3s)。最高级经济建筑，可起飞。",
+        "salvageRate": 0.85
       }
     ],
     "addonEconomy": true
