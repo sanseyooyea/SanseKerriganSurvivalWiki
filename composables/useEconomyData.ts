@@ -9,13 +9,14 @@ export const ECON_TYPE_LABELS: Record<string, string> = {
   technician: '转化',
   spirit: '金融',
   extraction: '萃取',
+  farm: '狩猎',
 }
 
 export interface EconomyHero {
   hero: string // 英文名（economy.json 的 hero，或 Technician/Spirit）
   nameZh: string
   roleId: number
-  type: 'generic' | 'harvest' | 'addon' | 'miner' | 'technician' | 'spirit' | 'extraction'
+  type: 'generic' | 'harvest' | 'addon' | 'miner' | 'technician' | 'spirit' | 'extraction' | 'farm'
   typeLabel: string
   headline: string
   special?: 'technician' | 'spirit'
@@ -24,6 +25,7 @@ export interface EconomyHero {
 
 function econType(h: any): EconomyHero['type'] {
   if (h.special) return h.special
+  if (h.farmEconomy) return 'farm'
   if (h.extractionEconomy) return 'extraction'
   if (h.harvestEconomy) return 'harvest'
   if (h.addonEconomy) return 'addon'
@@ -48,6 +50,7 @@ function peakPerSec(list: any[]): number {
 function makeHeadline(h: any, type: EconomyHero['type']): string {
   if (type === 'technician') return '击杀转化经济'
   if (type === 'spirit') return '金融 / 投资经济'
+  if (type === 'farm') return '击杀 farming / 投资经济'
   if (type === 'harvest') return '探机采集'
   if (type === 'extraction') {
     const e = h.extraction
