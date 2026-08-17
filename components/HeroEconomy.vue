@@ -94,12 +94,17 @@
                 class="text-center rounded-lg bg-gray-50/60 dark:bg-gray-800/40">
                 <div class="font-mono text-sm" :class="roiCellClass(b, p, hero.probes)">{{ harvestRoi(b, p) }}</div>
                 <div class="font-mono text-[0.65rem] text-gray-400 dark:text-gray-500">{{ harvestPerSec(b, p).toFixed(0) }}/s</div>
+                <div v-if="harvestSalvagePayback(b, p) != null" class="font-mono text-[0.65rem] text-teal-600 dark:text-teal-400"
+                  :title="`回收净回本：矿区返还 ${Math.round(b.salvageRate * 100)}% + 探机返还 ${Math.round(p.salvageRate * 100)}%`">
+                  回收 {{ formatTime(harvestSalvagePayback(b, p)) }}
+                </div>
               </td>
             </tr>
           </tbody>
         </table>
         <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
-          投资比 =（矿区造价 + 探机造价）÷ 每秒采集量（买“1 矿/秒”持续收入的总投入，越低越划算）；下方小字为该组合每秒采集量。
+          投资比 =（矿区造价 + 探机造价）÷ 每秒采集量（买“1 矿/秒”持续收入的总投入，越低越划算）；下方小字为该组合每秒采集量，
+          <span class="text-teal-600 dark:text-teal-400">回收</span>行为回收净回本（矿区与探机都回收后，返还的矿 + 已采集量 = 总投入的时间；矿区返 85%，探机返 85%、高级探机 79%）。
           假设探机采集运回一趟基准 <b class="font-mono">0.1s</b>，实际每趟 = 0.1 × 探机耗时倍率。矿区最高 +16，无 +32。
           真实速率还受探机往返距离（地图布局）影响，此处为统一基准下的横向对比。
         </p>
@@ -504,6 +509,15 @@ function harvestRoi(field: any, probe: any) {
   if (!ips) return null
   const totalCost = field.cost + (probe.cost || 0) + (probe.gasCost || 0)
   return Math.round(totalCost / ips)
+}
+// 回收净回本：矿区与探机都可回收，净投入 = 矿区造价×(1−矿区回收率) + 探机(造价+气耗)×(1−探机回收率)。
+// 塞兰迪斯矿区统一 85%（CommonSalvage），探机 85%（高级探机 79%）。
+function harvestSalvagePayback(field: any, probe: any) {
+  const ips = harvestPerSec(field, probe)
+  if (!ips || field.salvageRate == null || probe.salvageRate == null) return null
+  const netCost = field.cost * (1 - field.salvageRate)
+    + ((probe.cost || 0) + (probe.gasCost || 0)) * (1 - probe.salvageRate)
+  return Math.round(netCost / ips)
 }
 // 着色：同一矿区行内，投资比越低越“绿”，越高越“暗”
 function roiCellClass(field: any, probe: any, probes: any[]) {
