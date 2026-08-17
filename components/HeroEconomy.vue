@@ -57,6 +57,9 @@
             <td v-if="heroHasSalvage(hero)" class="py-2 text-right font-mono text-teal-600 dark:text-teal-400"
               :title="b.salvageRate ? `按回收率 ${Math.round(b.salvageRate * 100)}% 计` : '此建筑不可回收'">
               {{ salvagePayback(b) || '—' }}
+              <span v-if="b.salvageRate && heroChronos(hero).length" class="block text-[0.65rem] text-yellow-600/90 dark:text-yellow-500/90">
+                <span v-for="(c, i) in heroChronos(hero)" :key="i"><span v-if="i > 0"> / </span>加速{{ salvagePaybackBoosted(b, c) || '-' }}</span>
+              </span>
             </td>
             <td v-if="heroChronos(hero).length" class="py-2 pr-1 text-right font-mono text-yellow-600 dark:text-yellow-400">
               <span v-for="(c, i) in heroChronos(hero)" :key="i">
@@ -162,6 +165,10 @@
               <div class="font-mono text-[0.65rem] text-gray-400 dark:text-gray-500">
                 {{ addonPerSec(b, col).toFixed(2) }}/s · {{ formatTime(addonPayback(b, col)) }}
               </div>
+              <div v-if="addonSalvagePayback(b, col) != null" class="font-mono text-[0.65rem] text-teal-600 dark:text-teal-400"
+                title="回收净回本：建筑返 85%（CommonSalvage）＋挂件返 85%（估算）">
+                回收 {{ formatTime(addonSalvagePayback(b, col)) }}
+              </div>
             </td>
           </tr>
         </tbody>
@@ -169,7 +176,7 @@
       <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
         每个经济建筑限挂一个挂件（科技实验室 / 反应堆，二选一）。
         投资比 =（建筑造价 + 挂件造价）÷ 每秒产矿（买"1 矿/秒"持续收入的总投入，越低越划算，仅计晶矿）；
-        小字为每秒产矿与回本时间。挂件气体消耗见表头。
+        小字为每秒产矿与回本时间，<span class="text-teal-600 dark:text-teal-400">回收</span>行为回收净回本（回收后返还的矿 + 已产矿 = 总投入的时间；建筑返 85%，挂件本体地图无数据、按 85% 估算，仅计晶矿）。挂件气体消耗见表头。
       </p>
     </div>
 
@@ -457,6 +464,14 @@ function salvagePayback(b: any) {
   return formatTime(seconds)
 }
 
+// 加速下的回收净回本：收入按 timeScale 提速后，净投入归零更快。
+function salvagePaybackBoosted(b: any, chrono: any) {
+  if (!b.salvageRate || !b.income || !b.cost || !b.incomePeriod || !chrono) return null
+  const incomePerSec = (b.income / b.incomePeriod) * chrono.timeScale
+  const seconds = Math.round((b.cost * (1 - b.salvageRate)) / incomePerSec)
+  return formatTime(seconds)
+}
+
 // 该英雄的常规建筑表里是否存在任一可回收建筑（决定是否显示“回收净回本”列）。
 function heroHasSalvage(h: any) {
   return !!(h?.buildings || []).some((b: any) => b.salvageRate && b.income && b.cost)
@@ -551,6 +566,16 @@ function addonPayback(b: any, col: any) {
   const ips = addonPerSec(b, col)
   if (!ips) return 0
   return Math.round((b.cost + col.cost) / ips)
+}
+// 回收净回本：经济建筑挂 CommonSalvage 返 85%（地图真实值）；挂件本体返还地图无数据，按 85% 估算。
+// 净投入 = 建筑造价×(1−建筑回收率) + 挂件造价×(1−挂件回收率)，仅计晶矿（与投资比口径一致）。
+const ADDON_SALVAGE_RATE = 0.85
+function addonSalvagePayback(b: any, col: any) {
+  if (!b.salvageRate) return null
+  const ips = addonPerSec(b, col)
+  if (!ips) return null
+  const net = b.cost * (1 - b.salvageRate) + col.cost * (1 - ADDON_SALVAGE_RATE)
+  return Math.round(net / ips)
 }
 // 着色：同一建筑行内，投资比越低越“绿”
 function addonRoiCellClass(b: any, col: any) {
