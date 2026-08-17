@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div v-if="!hero.harvestEconomy && !hero.addonEconomy && !hero.minerEconomy && !hero.extractionEconomy" class="overflow-x-auto -mx-5 px-5">
+    <div v-if="!hero.harvestEconomy && !hero.addonEconomy && !hero.minerEconomy && !hero.extractionEconomy && !hero.farmEconomy" class="overflow-x-auto -mx-5 px-5">
       <table class="w-full text-sm min-w-[560px]">
         <thead>
           <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
@@ -302,6 +302,84 @@
           {{ hero.extraction.note }}
           「每次萃取」= 原始收入 × 效率的期望值（不足 1 时按概率取整）；「每秒」= 每次 ÷ {{ hero.extraction.incomePeriod }}s（单层）。
           一座结界可同时萃取范围内的所有经济建筑，故实际收入是覆盖到的每座建筑之和；叠满 {{ hero.extraction.maxStacks }} 层时对该建筑的萃取再 ×{{ hero.extraction.maxStacks }}。
+        </p>
+      </div>
+    </div>
+
+    <!-- 击杀farming型经济（元素使）：无经济建筑，收入来自击杀赏金/农场叠层/护盾/存款，全部需高血量 -->
+    <div v-if="hero.farmEconomy && hero.farm" class="space-y-4">
+      <!-- 收入门槛警示 -->
+      <div class="px-3 py-2 rounded-lg bg-red-50/70 dark:bg-red-900/15 border border-red-100 dark:border-red-900/30">
+        <div class="text-xs font-semibold text-red-700 dark:text-red-300">
+          收入门槛：元素使血量必须 ≥ {{ hero.farm.healthGate }}%（护盾收入需满血 {{ hero.farm.shieldGate }}%）才结算
+        </div>
+        <div class="text-[0.7rem] text-red-600/80 dark:text-red-400/80 mt-0.5">掉血 / 破盾时 farming 与护盾收入立即中断——先保命保盾才有钱。</div>
+      </div>
+
+      <!-- 击杀赏金 -->
+      <div>
+        <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">击杀赏金 · 每次击杀</div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <div class="px-3 py-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
+            <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mb-0.5">获得气体</div>
+            <div class="font-mono text-sm text-green-600 dark:text-green-400">{{ hero.farm.bountyGas }}</div>
+          </div>
+          <div class="px-3 py-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
+            <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mb-0.5">额外晶矿</div>
+            <div class="font-mono text-sm text-emerald-600 dark:text-emerald-400">{{ hero.farm.bountyMineral }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 被动矿源：农场叠层 + 护盾 -->
+      <div>
+        <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">被动矿源 · 需维持血量</div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <div class="px-3 py-2.5 rounded-lg bg-survivor-50/60 dark:bg-survivor-900/10 border border-survivor-100 dark:border-survivor-900/30">
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm font-semibold text-survivor-700 dark:text-survivor-300">农场叠层</span>
+              <span class="font-mono text-xs font-bold text-survivor-600 dark:text-survivor-400">每层 +{{ hero.farm.stacks.perStack }} 矿 / {{ hero.farm.stacks.period }}s</span>
+            </div>
+            <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">
+              击杀累积层数（上限 {{ hero.farm.stacks.capBase }}，{{ hero.farm.stacks.capNote }}），停手回落。
+              满层 ≈ <b class="font-mono text-emerald-600 dark:text-emerald-400">{{ fmt(hero.farm.stacks.capBase * hero.farm.stacks.perStack / hero.farm.stacks.period) }} 矿/s</b>
+            </div>
+          </div>
+          <div class="px-3 py-2.5 rounded-lg bg-blue-50/60 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30">
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm font-semibold text-blue-700 dark:text-blue-300">护盾收入</span>
+              <span class="font-mono text-xs font-bold text-blue-600 dark:text-blue-400">当前护盾 {{ hero.farm.shield.percent }}% / {{ hero.farm.shield.period }}s</span>
+            </div>
+            <div class="text-[0.7rem] text-gray-500 dark:text-gray-400 mt-0.5">
+              需满血 {{ hero.farm.shieldGate }}%；Showtime 增益最多再叠 {{ hero.farm.shield.showtimeMax }} 层。护盾越高被动矿越多。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 存款投资 -->
+      <div class="overflow-x-auto -mx-5 px-5">
+        <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
+          存款投资 (Stash) · 到期本金 ×{{ hero.farm.stash.payoffBase }}（+研究加成）
+        </div>
+        <table class="w-full text-sm min-w-[420px]">
+          <thead>
+            <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
+              <th class="text-left font-medium pb-2 pl-1">存入本金</th>
+              <th class="text-right font-medium pb-2">到期返还</th>
+              <th class="text-right font-medium pb-2 pr-1">净收益</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-50 dark:divide-gray-700/50">
+            <tr v-for="t in hero.farm.stash.tiers" :key="t">
+              <td class="py-2 pl-1 font-mono text-gray-700 dark:text-gray-300">{{ t.toLocaleString() }}</td>
+              <td class="py-2 text-right font-mono text-emerald-600 dark:text-emerald-400">{{ (t * hero.farm.stash.payoffBase).toLocaleString() }}</td>
+              <td class="py-2 pr-1 text-right font-mono text-purple-600 dark:text-purple-400">+{{ (t * (hero.farm.stash.payoffBase - 1)).toLocaleString() }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
+          把晶矿存入一个单位，到期若该单位仍存活则按上表返还（研究可提高倍率）；若该单位在到期前死亡，存款全部损失。高风险高回报的理财机制。
         </p>
       </div>
     </div>
