@@ -986,92 +986,56 @@
   },
   {
     "hero": "Nightingale",
-    "incomeModel": "夜莺使用天链建筑产矿经济。天链每3.5秒产出晶矿，分多个等级（星灵枢纽为主基地兼产矿）。拥有时空加速：消耗2气体，产矿提速1.5倍。方尖碑、裁决所、反应堆、火花等为科技/辅助建筑，不计入经济产出。",
-    "buildings": [
-      {
-        "id": "NightingaleNexus",
-        "nameZh": "星灵枢纽",
-        "income": 1,
-        "incomePeriod": 3.5,
-        "cost": 50,
-        "food": null,
-        "buildTime": 5,
-        "upgradeTo": null,
-        "notes": "主基地，可训练无效者和门徒，提供资源投递点，每3.5秒产出1矿"
+    "incomeModel": "南丁格尔（辅助定位）在新版中已不再依赖建筑被动产矿——旧的天基信标「每 3.5 秒 +N 矿」被动收入已移除。她的经济改为寄生型『合成(Synthesis)』，与先知同源的概率萃取机制。\n\n【合成】主动技能『合成』（50 能量、2 层充能每 45 秒回 1 层、冷却 3s、射程 10、半径 3）对目标区域施放，为范围内单位与建筑挂上『同步』buff（持续 150 秒，加速 ×1.05）。被同步的『经济建筑』每 4 秒为南丁格尔概率产矿：收入 = 该建筑原始收入值 × 合成效率（不足 1 按概率取整）。\n\n【效率与增幅】基础效率 55%，研究『高效合成』升至 65%；『扩展合成』使半径与能量消耗 +50%（3→4.5）；『加速合成』使加速效果 +5%。\n\n【寄生盟友】与先知一样，合成对象不限于自己的天基信标——盟友的经济建筑同样吃收入，越贵的收入建筑原始值越高、给南丁格尔的矿越多。自家天基信标原始值：+1=2 / +2=3 / +4=6 / +8=12 / +16=24 / +32=48；盟友高产/巅峰建筑可达 100~192。\n\n【要点】天基信标仍需建造并升级，但其价值现在体现在『被合成时的产出』而非被动收入；贴着盟友高产经济区施放合成、优先研究『高效/扩展合成』，是收入最大化的关键。另可对建筑施放『时空加速(Chrono Boost)』（2 气）提速。",
+    "extractionEconomy": true,
+    "extraction": {
+      "verb": "合成",
+      "rangeLabel": "合成半径",
+      "carrierNounZh": "合成",
+      "efficiencyBase": 0.55,
+      "efficiencyUpgraded": 0.65,
+      "rangeBase": 3,
+      "rangeUpgraded": 4.5,
+      "upgradeName": "高效合成",
+      "upgradeNameEn": "NightingaleEfficientSynthesis",
+      "upgradeEffect": "合成收入效率 55% → 65%（另有『扩展合成』半径与能耗 +50%、『加速合成』加速 +5%）",
+      "incomePeriod": 4,
+      "maxStacks": 1,
+      "carrier": {
+        "titleZh": "合成（技能）",
+        "value": "50 能量",
+        "sub": "2 充能 · 每 45s 回 1 · 同步 150s"
       },
-      {
-        "id": "NightingaleSkylink",
-        "nameZh": "天链 Lv1",
-        "income": 1,
-        "incomePeriod": 3.5,
-        "cost": 75,
-        "food": null,
-        "buildTime": 5,
-        "upgradeTo": "NightingaleSkylink2",
-        "notes": "基础经济建筑，每3.5秒产出1矿，可升级到Lv2"
-      },
-      {
-        "id": "NightingaleSkylink2",
-        "nameZh": "天链 Lv2",
-        "income": 2,
-        "incomePeriod": 3.5,
-        "cost": 150,
-        "food": null,
-        "buildTime": 5,
-        "upgradeTo": "NightingaleSkylink4",
-        "notes": "每3.5秒产出2矿，可升级到Lv4"
-      },
-      {
-        "id": "NightingaleSkylink4",
-        "nameZh": "天链 Lv4",
-        "income": 4,
-        "incomePeriod": 3.5,
-        "cost": 350,
-        "food": null,
-        "buildTime": 5,
-        "upgradeTo": "NightingaleSkylink8",
-        "notes": "每3.5秒产出4矿，可升级到Lv8"
-      },
-      {
-        "id": "NightingaleSkylink8",
-        "nameZh": "天链 Lv8",
-        "income": 8,
-        "incomePeriod": 3.5,
-        "cost": 800,
-        "food": null,
-        "buildTime": 5,
-        "upgradeTo": "NightingaleSkylink16",
-        "notes": "每3.5秒产出8矿，可升级到Lv16"
-      },
-      {
-        "id": "NightingaleSkylink16",
-        "nameZh": "天链 Lv16",
-        "income": 16,
-        "incomePeriod": 3.5,
-        "cost": 2000,
-        "food": null,
-        "buildTime": 5,
-        "upgradeTo": "NightingaleSkylink32",
-        "notes": "每3.5秒产出16矿，可升级到Lv32"
-      },
-      {
-        "id": "NightingaleSkylink32",
-        "nameZh": "天链 Lv32",
-        "income": 32,
-        "incomePeriod": 3.5,
-        "cost": 5000,
-        "food": null,
-        "buildTime": 5,
-        "upgradeTo": null,
-        "notes": "最高级经济建筑，每3.5秒产出32矿，无法继续升级"
-      }
-    ],
-    "chrono": {
-      "timeScale": 1.5,
-      "gasCost": 2,
-      "duration": "permanent",
-      "name": "时空加速"
-    }
+      "note": "南丁格尔不再有被动建筑收入；收入完全来自主动『合成』——对经济建筑挂『同步』buff，每 4 秒按建筑原始收入 × 效率概率产矿。合成对象含自己的天基信标与盟友的一切经济建筑，越贵的建筑原始值越高。天基信标仍需自行建造升级（+1→+32，原始值 2→48）作为可被合成的高价值载体。",
+      "examples": [
+        {
+          "label": "天基信标 +1",
+          "eg": "自家最低级信标",
+          "raw": 2
+        },
+        {
+          "label": "天基信标 +8",
+          "eg": "自家中级信标",
+          "raw": 12
+        },
+        {
+          "label": "天基信标 +32",
+          "eg": "自家满级信标",
+          "raw": 48
+        },
+        {
+          "label": "盟友高产",
+          "eg": "如 精华圣所 等",
+          "raw": 100
+        },
+        {
+          "label": "盟友巅峰",
+          "eg": "如 满级反应堆群 / 精华建筑",
+          "raw": 192
+        }
+      ]
+    },
+    "buildings": []
   },
   {
     "hero": "Ascendant",

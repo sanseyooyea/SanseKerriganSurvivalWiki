@@ -241,7 +241,7 @@
       <!-- 结界参数速览 -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
         <div class="px-3 py-2 rounded-lg bg-indigo-50/70 dark:bg-indigo-900/15 border border-indigo-100 dark:border-indigo-900/30">
-          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">萃取效率</div>
+          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">{{ hero.extraction.verb || '萃取' }}效率</div>
           <div class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">
             {{ Math.round(hero.extraction.efficiencyBase * 100) }}%
             <span class="text-emerald-600 dark:text-emerald-400">→ {{ Math.round(hero.extraction.efficiencyUpgraded * 100) }}%</span>
@@ -249,7 +249,7 @@
           <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">{{ hero.extraction.upgradeName }}后</div>
         </div>
         <div class="px-3 py-2 rounded-lg bg-indigo-50/70 dark:bg-indigo-900/15 border border-indigo-100 dark:border-indigo-900/30">
-          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">萃取范围</div>
+          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">{{ hero.extraction.rangeLabel || '萃取范围' }}</div>
           <div class="font-mono text-sm font-semibold text-indigo-700 dark:text-indigo-300">
             {{ hero.extraction.rangeBase }}
             <span class="text-emerald-600 dark:text-emerald-400">→ {{ hero.extraction.rangeUpgraded }}</span>
@@ -259,27 +259,32 @@
         <div class="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
           <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">结算周期</div>
           <div class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">{{ hero.extraction.incomePeriod }}s</div>
-          <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">最多叠 {{ hero.extraction.maxStacks }} 层</div>
+          <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">{{ hero.extraction.maxStacks > 1 ? `最多叠 ${hero.extraction.maxStacks} 层` : '不叠加' }}</div>
         </div>
-        <div class="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
+        <div v-if="hero.extraction.wardCap" class="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
           <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">{{ hero.extraction.wardNameZh }}（上限 {{ hero.extraction.wardCap }}）</div>
           <div class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">
             {{ hero.extraction.wardHp }}<span class="text-blue-500">+{{ hero.extraction.wardShields }}盾</span>
           </div>
           <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">无矿物造价</div>
         </div>
+        <div v-else-if="hero.extraction.carrier" class="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60">
+          <div class="text-[0.65rem] text-gray-500 dark:text-gray-400">{{ hero.extraction.carrier.titleZh }}</div>
+          <div class="font-mono text-sm font-semibold text-gray-700 dark:text-gray-200">{{ hero.extraction.carrier.value }}</div>
+          <div class="text-[0.6rem] text-gray-400 dark:text-gray-500">{{ hero.extraction.carrier.sub }}</div>
+        </div>
       </div>
 
       <!-- 萃取收益速查表 -->
       <div class="overflow-x-auto -mx-5 px-5">
         <div class="text-xs font-semibold uppercase tracking-wider text-survivor-600 dark:text-survivor-400 mb-2">
-          萃取收益速查 · 按目标建筑原始收入
+          {{ hero.extraction.verb || '萃取' }}收益速查 · 按目标建筑原始收入
         </div>
         <table class="w-full text-sm min-w-[560px]">
           <thead>
             <tr class="text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
               <th class="text-left font-medium pb-2 pl-1">目标建筑（原始收入）</th>
-              <th class="text-right font-medium pb-2">每次萃取</th>
+              <th class="text-right font-medium pb-2">每次{{ hero.extraction.verb || '萃取' }}</th>
               <th class="text-right font-medium pb-2">每秒</th>
               <th class="text-right font-medium pb-2">强化后每次</th>
               <th class="text-right font-medium pb-2 pr-1">强化后每秒</th>
@@ -300,8 +305,8 @@
         </table>
         <p class="text-xs text-gray-400 dark:text-gray-500 mt-2 leading-relaxed">
           {{ hero.extraction.note }}
-          「每次萃取」= 原始收入 × 效率的期望值（不足 1 时按概率取整）；「每秒」= 每次 ÷ {{ hero.extraction.incomePeriod }}s（单层）。
-          一座结界可同时萃取范围内的所有经济建筑，故实际收入是覆盖到的每座建筑之和；叠满 {{ hero.extraction.maxStacks }} 层时对该建筑的萃取再 ×{{ hero.extraction.maxStacks }}。
+          「每次{{ hero.extraction.verb || '萃取' }}」= 原始收入 × 效率的期望值（不足 1 时按概率取整）；「每秒」= 每次 ÷ {{ hero.extraction.incomePeriod }}s{{ hero.extraction.maxStacks > 1 ? '（单层）' : '' }}。
+          一次{{ hero.extraction.carrierNounZh || '结界' }}可同时作用于范围内的所有经济建筑，故实际收入是覆盖到的每座建筑之和<template v-if="hero.extraction.maxStacks > 1">；叠满 {{ hero.extraction.maxStacks }} 层时对该建筑再 ×{{ hero.extraction.maxStacks }}</template>。
         </p>
       </div>
     </div>
