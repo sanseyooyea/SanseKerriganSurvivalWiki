@@ -1,9 +1,15 @@
 <template>
   <div>
     <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">经济系统</h1>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
       生存者方通过建造经济建筑获取晶矿收入，不同职业拥有不同的经济体系。点击英雄展开其经济详情。
     </p>
+
+    <NuxtLink to="/economy/leaderboard"
+      class="inline-flex items-center gap-1.5 mb-4 px-3 py-1.5 text-sm rounded-lg border border-survivor-200 dark:border-survivor-800 bg-survivor-50 dark:bg-survivor-900/20 text-survivor-700 dark:text-survivor-300 hover:bg-survivor-100 dark:hover:bg-survivor-900/40 transition">
+      <span>经济投资比排行榜</span>
+      <span aria-hidden="true">→</span>
+    </NuxtLink>
 
     <!-- 工具条：搜索 + 一键展开/收起 -->
     <div class="flex flex-col sm:flex-row gap-2 sm:items-center mb-4">

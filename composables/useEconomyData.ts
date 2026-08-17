@@ -126,3 +126,96 @@ export function useEconomyData() {
 
   return { econHeroes, allEconomyHeroes, hasEconomy, getEconomy }
 }
+
+// —— 经济投资比排行榜 ——
+// 把所有「有固定单位造价 ÷ 每秒产矿」的经济项拍平成可横向对比的行，按投资比排名。
+// 公式逐字对齐 components/HeroEconomy.vue（roi / harvestRoi / addonRoi / minerPerSec），
+// 仅统一气体口径：所有类型都把气体折算进投入（1 气 = 1 矿求和），包括 addon。
+// 排除 extraction / technician / spirit / farm —— 收入来自寄生/击杀/理财，无固定单位投资比。
+
+export interface EconomyRankRow {
+  hero: string
+  nameZh: string
+  roleId: number
+  type: EconomyHero['type']
+  typeLabel: string
+  label: string      // 行名：建筑名 / "矿区 × 探机" / "建筑 × 挂件" / 工人名
+  mineral: number
+  gas: number
+  totalCost: number  // mineral + gas
+  perSec: number     // 基础每秒产矿
+  roi: number        // 基础投资比 = round(totalCost / perSec)
+  timeScale: number  // 该英雄最优 chrono 的倍率（无则 1）
+  roiBoosted: number // 加速投资比 = round(totalCost / (perSec × timeScale))
+}
+
+// 坦克挂件三档（与 HeroEconomy.vue 的 addonCols 一致）
+const RANK_ADDON_COLS = [
+  { label: '无挂件', multiplier: 1, cost: 0, gasCost: 0 },
+  { label: '科技实验室', multiplier: 1.5, cost: 20, gasCost: 5 },
+  { label: '反应堆', multiplier: 2, cost: 200, gasCost: 10 },
+]
+const HARVEST_TRIP_TRANSPORT = 0.1 // 探机运输往返基准(s)，同 HeroEconomy.vue
+
+function bestTimeScale(h: any): number {
+  if (!h.chrono) return 1
+  const arr = Array.isArray(h.chrono) ? h.chrono : [h.chrono]
+  return arr.reduce((m: number, c: any) => Math.max(m, c?.timeScale || 1), 1)
+}
+
+export function useEconomyRanking() {
+  const { allEconomyHeroes } = useEconomyData()
+
+  const rows = computed<EconomyRankRow[]>(() => {
+    const out: EconomyRankRow[] = []
+    for (const h of allEconomyHeroes.value) {
+      const ts = bestTimeScale(h)
+      const base = { hero: h.hero, nameZh: h.nameZh, roleId: h.roleId, type: h.type, typeLabel: h.typeLabel }
+      const push = (label: string, mineral: number, gas: number, perSec: number) => {
+        if (!perSec || perSec <= 0) return
+        const totalCost = mineral + gas
+        if (totalCost <= 0) return // 免费单位（如 DJ 粉丝、Artanis 召唤）无投资可言，不入榜
+        out.push({
+          ...base, label, mineral, gas, totalCost, perSec,
+          roi: Math.round(totalCost / perSec),
+          timeScale: ts,
+          roiBoosted: Math.round(totalCost / (perSec * ts)),
+        })
+      }
+
+      if (h.type === 'generic') {
+        for (const b of h.buildings || []) {
+          if (!b.income || !b.incomePeriod || b.cost == null) continue
+          push(b.nameZh, b.cost, b.gasCost || 0, b.income / b.incomePeriod)
+        }
+      } else if (h.type === 'harvest') {
+        for (const f of h.buildings || []) {
+          if (!f.income || f.cost == null) continue
+          for (const p of h.probes || []) {
+            const perSec = (f.income * (p.amountMult || 1)) / ((p.mineTime || 0) + HARVEST_TRIP_TRANSPORT)
+            push(`${f.nameZh} × ${p.nameZh}`, f.cost + (p.cost || 0), p.gasCost || 0, perSec)
+          }
+        }
+      } else if (h.type === 'addon') {
+        for (const b of h.buildings || []) {
+          if (!b.income || !b.incomePeriod || b.cost == null) continue
+          for (const col of RANK_ADDON_COLS) {
+            push(`${b.nameZh} × ${col.label}`, b.cost + col.cost, col.gasCost, (b.income * col.multiplier) / b.incomePeriod)
+          }
+        }
+      } else if (h.type === 'miner') {
+        for (const m of h.miners || []) {
+          if (!m.income || !m.incomePeriod || m.cost == null) continue
+          push(m.nameZh, m.cost, m.gasCost || 0, m.income / m.incomePeriod)
+        }
+      }
+      // extraction / technician / spirit / farm：无固定单位投资比，跳过
+    }
+    return out
+  })
+
+  const rankByBase = computed(() => [...rows.value].sort((a, b) => a.roi - b.roi))
+  const rankByBoosted = computed(() => [...rows.value].sort((a, b) => a.roiBoosted - b.roiBoosted))
+
+  return { rows, rankByBase, rankByBoosted }
+}
