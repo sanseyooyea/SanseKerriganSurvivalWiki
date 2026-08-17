@@ -23,14 +23,14 @@
             <th class="text-right font-medium pb-2">收入</th>
             <th class="text-right font-medium pb-2">每秒</th>
             <th class="text-right font-medium pb-2">费用</th>
-            <th class="text-right font-medium pb-2" title="购买1矿/秒收入所需的总投入（晶矿+气体），越低性价比越高">投资比</th>
-            <th class="text-right font-medium pb-2">回本时间</th>
+            <th class="text-right font-medium pb-2 px-2 rounded-t bg-purple-50/60 dark:bg-purple-900/10 text-purple-600/80 dark:text-purple-400/80" title="购买1矿/秒收入所需的总投入（晶矿+气体），越低性价比越高">投资比</th>
+            <th class="text-right font-medium pb-2 px-2 rounded-t bg-blue-50/60 dark:bg-blue-900/10 text-blue-600/80 dark:text-blue-400/80">回本时间</th>
             <th v-if="heroHasSalvage(hero)" class="text-right font-medium pb-2" title="回收净回本：假设回本后立刻回收建筑，回收返还的矿 + 已产出的收入 = 造价，此时净投入归零。= 造价×(1−回收率) ÷ 每秒收入">回收净回本</th>
             <th v-if="heroChronos(hero).length" class="text-right font-medium pb-2 pr-1">加速回本</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-50 dark:divide-gray-700/50">
-          <tr v-for="b in hero.buildings" :key="b.id">
+          <tr v-for="b in hero.buildings" :key="b.id" class="hover:bg-surface-50 dark:hover:bg-gray-700/20 transition-colors">
             <td class="py-2 pl-1 text-gray-700 dark:text-gray-300">
               {{ b.nameZh }}
               <span v-if="b.upgradeTo" class="text-xs text-gray-400"> →</span>
@@ -48,10 +48,10 @@
               </template>
               <template v-else>-</template>
             </td>
-            <td class="py-2 text-right font-mono text-purple-600 dark:text-purple-400">
+            <td class="py-2 px-2 text-right font-mono font-semibold text-purple-600 dark:text-purple-400 bg-purple-50/40 dark:bg-purple-900/10">
               {{ roi(b) || '-' }}
             </td>
-            <td class="py-2 text-right font-mono text-blue-600 dark:text-blue-400">
+            <td class="py-2 px-2 text-right font-mono text-blue-600 dark:text-blue-400 bg-blue-50/40 dark:bg-blue-900/10">
               {{ paybackTime(b) || '-' }}
             </td>
             <td v-if="heroHasSalvage(hero)" class="py-2 text-right font-mono text-teal-600 dark:text-teal-400"
