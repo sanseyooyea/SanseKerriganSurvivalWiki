@@ -5,11 +5,31 @@
       生存者方通过建造经济建筑获取晶矿收入，不同职业拥有不同的经济体系。点击英雄展开其经济详情。
     </p>
 
-    <NuxtLink to="/economy/leaderboard"
-      class="inline-flex items-center gap-1.5 mb-4 px-3 py-1.5 text-sm rounded-lg border border-survivor-200 dark:border-survivor-800 bg-survivor-50 dark:bg-survivor-900/20 text-survivor-700 dark:text-survivor-300 hover:bg-survivor-100 dark:hover:bg-survivor-900/40 transition">
-      <span>经济投资比排行榜</span>
-      <span aria-hidden="true">→</span>
-    </NuxtLink>
+    <!-- 头部速览条：数据总览 + 排行榜入口 -->
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mb-4">
+      <div class="flex items-center gap-3 sm:gap-4 text-sm">
+        <div class="flex items-baseline gap-1.5">
+          <span class="font-mono font-bold text-survivor-600 dark:text-survivor-400">{{ stats.heroes }}</span>
+          <span class="text-gray-500 dark:text-gray-400">英雄经济体系</span>
+        </div>
+        <span class="w-px h-4 bg-surface-200 dark:bg-gray-600" aria-hidden="true"></span>
+        <div class="flex items-baseline gap-1.5">
+          <span class="font-mono font-bold text-survivor-600 dark:text-survivor-400">{{ stats.types }}</span>
+          <span class="text-gray-500 dark:text-gray-400">种经济类型</span>
+        </div>
+        <span class="w-px h-4 bg-surface-200 dark:bg-gray-600" aria-hidden="true"></span>
+        <div class="flex items-baseline gap-1.5">
+          <span class="font-mono font-bold text-survivor-600 dark:text-survivor-400">{{ stats.items }}</span>
+          <span class="text-gray-500 dark:text-gray-400">项可测算经济</span>
+        </div>
+      </div>
+
+      <NuxtLink to="/economy/leaderboard"
+        class="sm:ml-auto inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border border-survivor-200 dark:border-survivor-800 bg-survivor-50 dark:bg-survivor-900/20 text-survivor-700 dark:text-survivor-300 hover:bg-survivor-100 dark:hover:bg-survivor-900/40 transition">
+        <span>经济投资比排行榜</span>
+        <span aria-hidden="true">→</span>
+      </NuxtLink>
+    </div>
 
     <!-- 工具条：搜索 + 一键展开/收起 -->
     <div class="flex flex-col sm:flex-row gap-2 sm:items-center mb-4">
@@ -34,9 +54,12 @@
 
     <!-- 手风琴 -->
     <div class="space-y-3">
-      <div v-for="hero in filtered" :key="hero.hero" :id="slug(hero.hero)" class="wiki-card overflow-hidden stagger-item">
+      <div v-for="hero in filtered" :key="hero.hero" :id="slug(hero.hero)"
+        class="wiki-card overflow-hidden stagger-item border-l-[3px] transition-shadow"
+        :class="[accentClass(hero.type), isOpen(hero.hero) ? 'ring-1 ring-survivor-200 dark:ring-survivor-800' : '']">
         <button type="button" @click="toggle(hero.hero)"
-          class="w-full flex items-center gap-3 p-4 text-left hover:bg-surface-50 dark:hover:bg-gray-700/30 transition-colors">
+          class="w-full flex items-center gap-3 p-4 text-left transition-colors"
+          :class="isOpen(hero.hero) ? 'bg-surface-50 dark:bg-gray-700/30' : 'hover:bg-surface-50 dark:hover:bg-gray-700/30'">
           <img v-if="hero.roleId >= 0" :src="`/icons/${String(hero.roleId).padStart(2, '0')}.png`"
             class="w-9 h-9 rounded-lg shadow-sm shrink-0" />
           <div class="flex-1 min-w-0">
@@ -48,8 +71,10 @@
             </div>
             <div class="text-xs text-gray-400 dark:text-gray-500">{{ hero.hero }}</div>
           </div>
-          <div class="hidden sm:block text-xs font-mono text-gray-500 dark:text-gray-400 text-right shrink-0">
-            {{ hero.headline }}
+          <div class="hidden sm:block shrink-0">
+            <span class="inline-block text-xs font-mono px-2 py-1 rounded-md bg-surface-100 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400">
+              {{ hero.headline }}
+            </span>
           </div>
           <svg class="w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200" :class="{ 'rotate-180': isOpen(hero.hero) }"
             fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +102,15 @@
 
 <script setup lang="ts">
 const { allEconomyHeroes } = useEconomyData()
+const { rows } = useEconomyRanking()
 const route = useRoute()
+
+// 头部速览：英雄经济体系数 / 经济类型数 / 可测算经济项数（纯派生，不改任何数字口径）
+const stats = computed(() => ({
+  heroes: allEconomyHeroes.value.length,
+  types: new Set(allEconomyHeroes.value.map(h => h.type)).size,
+  items: rows.value.length,
+}))
 
 // 经济类型徽章配色（全静态 class，避免 Tailwind purge 丢失）
 const TYPE_BADGE: Record<string, string> = {
@@ -88,9 +121,25 @@ const TYPE_BADGE: Record<string, string> = {
   technician: 'bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
   spirit: 'bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300',
   extraction: 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300',
+  farm: 'bg-lime-50 text-lime-700 dark:bg-lime-900/30 dark:text-lime-300',
 }
 function badgeClass(type: string) {
   return TYPE_BADGE[type] || TYPE_BADGE.generic
+}
+
+// 折叠行左侧脊色条：与类型徽章同色系（全静态 class）
+const TYPE_ACCENT: Record<string, string> = {
+  generic: 'border-l-blue-400 dark:border-l-blue-500',
+  harvest: 'border-l-emerald-400 dark:border-l-emerald-500',
+  addon: 'border-l-amber-400 dark:border-l-amber-500',
+  miner: 'border-l-cyan-400 dark:border-l-cyan-500',
+  technician: 'border-l-purple-400 dark:border-l-purple-500',
+  spirit: 'border-l-rose-400 dark:border-l-rose-500',
+  extraction: 'border-l-indigo-400 dark:border-l-indigo-500',
+  farm: 'border-l-lime-400 dark:border-l-lime-500',
+}
+function accentClass(type: string) {
+  return TYPE_ACCENT[type] || TYPE_ACCENT.generic
 }
 
 const search = ref('')
