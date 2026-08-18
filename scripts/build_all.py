@@ -32,6 +32,7 @@ STEPS = [
     'build_technician_economy.py',
     'build_nova_economy.py',
     'build_nomad_economy.py',
+    'build_terrain.py',
 ]
 
 
