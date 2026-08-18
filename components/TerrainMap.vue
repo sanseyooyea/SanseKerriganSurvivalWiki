@@ -1,5 +1,34 @@
 <template>
   <div>
+    <!-- 地图选择器：缩略图横条 -->
+    <div class="mb-3">
+      <div class="flex items-center gap-2 mb-1.5">
+        <span class="text-sm font-medium text-gray-600 dark:text-gray-300">地图</span>
+        <span class="text-xs text-gray-400 dark:text-gray-500">共 {{ maps.length }} 张地形（缓存历史）</span>
+      </div>
+      <div class="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 snap-x">
+        <button v-for="m in maps" :key="m.key" type="button" @click="selectMap(m.key)"
+          class="group shrink-0 w-24 snap-start rounded-lg overflow-hidden border-2 transition text-left"
+          :class="m.key === currentKey
+            ? 'border-survivor-500 ring-1 ring-survivor-500/40'
+            : 'border-surface-200 dark:border-gray-700 hover:border-survivor-300 dark:hover:border-survivor-700'">
+          <div class="relative aspect-square bg-gray-900">
+            <img :src="m.minimap" :alt="m.nameZh" loading="lazy"
+              class="absolute inset-0 w-full h-full object-cover"
+              :class="m.key === currentKey ? '' : 'opacity-80 group-hover:opacity-100'" />
+            <span v-if="m.key === currentKey"
+              class="absolute top-0.5 right-0.5 px-1 py-0.5 rounded bg-survivor-500 text-white text-[0.6rem] leading-none">当前</span>
+          </div>
+          <div class="px-1.5 py-1 bg-surface-50 dark:bg-gray-800">
+            <div class="text-[0.72rem] font-medium text-gray-700 dark:text-gray-200 truncate">{{ m.nameZh }}</div>
+            <div class="text-[0.62rem] text-gray-400 dark:text-gray-500 tabular-nums">
+              {{ m.candidateCount }} 斜坡<span v-if="m.date"> · {{ m.date.slice(2) }}</span>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+
     <!-- 控件条 -->
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
       <!-- 模式切换 -->
@@ -22,8 +51,8 @@
 
       <!-- 模拟控件 -->
       <template v-if="mode === 'simulate'">
-        <button type="button" @click="reroll"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border border-kerrigan-200 dark:border-kerrigan-800 bg-kerrigan-50 dark:bg-kerrigan-800/20 text-kerrigan-700 dark:text-kerrigan-200 hover:bg-kerrigan-100 dark:hover:bg-kerrigan-800/40 transition">
+        <button type="button" @click="reroll" :disabled="!view"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border border-kerrigan-200 dark:border-kerrigan-800 bg-kerrigan-50 dark:bg-kerrigan-800/20 text-kerrigan-700 dark:text-kerrigan-200 hover:bg-kerrigan-100 dark:hover:bg-kerrigan-800/40 transition disabled:opacity-50">
           <span aria-hidden="true">🎲</span> 重掷一局
         </button>
         <label class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
@@ -40,7 +69,7 @@
       </template>
       <template v-else>
         <span class="text-sm text-gray-500 dark:text-gray-400">
-          候选斜坡 <span class="font-mono font-semibold text-survivor-600 dark:text-survivor-400">{{ terrain.rockCandidates.length }}</span> 处
+          候选斜坡 <span class="font-mono font-semibold text-survivor-600 dark:text-survivor-400">{{ candidates.length }}</span> 处
         </span>
       </template>
 
@@ -56,9 +85,9 @@
       :class="dragging ? 'cursor-grabbing' : 'cursor-grab'"
       @wheel.prevent="onWheel"
       @pointerdown="onDown" @pointermove="onMove" @pointerup="onUp" @pointerleave="onUp">
-      <div class="absolute inset-0 origin-top-left will-change-transform"
+      <div v-if="view" class="absolute inset-0 origin-top-left will-change-transform"
         :style="{ transform: `translate(${tx}px, ${ty}px) scale(${scale})` }">
-        <img :src="terrain.minimap.path" :alt="`${terrain.map} 小地图`"
+        <img :src="view.data.minimap.path" :alt="`${view.data.nameZh} 小地图`"
           class="absolute inset-0 w-full h-full object-cover pointer-events-none" draggable="false" />
         <svg class="absolute inset-0 w-full h-full overflow-visible"
           viewBox="0 0 1024 1024" preserveAspectRatio="none">
@@ -72,6 +101,12 @@
               @pointerenter="hovered = c" @pointerleave="hovered = null" />
           </g>
         </svg>
+      </div>
+
+      <!-- 加载态 -->
+      <div v-if="loading || !view"
+        class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm bg-gray-900/60 backdrop-blur-sm">
+        <span class="animate-pulse">载入地形…</span>
       </div>
 
       <!-- 悬浮信息 -->
@@ -93,7 +128,7 @@
     <p class="mt-2 text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
       滚轮缩放、拖拽平移。石头由 <code class="font-mono">Scripts/game/rocks.galaxy</code> 每局从候选斜坡随机生成，
       此处「模拟一局」按同款算法（洗牌 + 按石头率取数 + 寻路校验 + 逐个移除坏石头）复刻，重掷得到不同布局。
-      <span class="text-gray-400/80 dark:text-gray-500/80">寻路校验含悬崖跨格判定（可走地面 + 高度层差 ≤ {{ cliffStep }}），
+      <span class="text-gray-400/80 dark:text-gray-500/80">寻路校验含悬崖跨格判定（可走地面 + 高度层差 ≤ {{ view?.cliffStep ?? 48 }}），
       会封住斜坡的石头一律剔除，故<span class="text-survivor-500 dark:text-survivor-400">不会出现被石头封死、无法进入的区域</span>；仍为近似，不含水/单位半径。</span>
     </p>
   </div>
@@ -101,39 +136,68 @@
 
 <script setup lang="ts">
 import { simulateRocks, type SimResult } from '~/composables/useRockSimulator'
-import type { RockCandidate } from '~/composables/useTerrainData'
+import type { RockCandidate, TerrainView } from '~/composables/useTerrainData'
 
-const { terrain, worldToPx, isPassable, cliffAt, cliffStep } = useTerrainData()
+const { maps, defaultMap, loadMap } = useTerrainData()
+
+const currentKey = ref(defaultMap)
+const view = shallowRef<TerrainView | null>(null)
+const loading = ref(false)
 
 const mode = ref<'candidates' | 'simulate'>('candidates')
-const rockProb = ref(terrain.rockProbDefault)
+const rockProb = ref(0.5)
 const seed = ref(1)
 
-const grid = { isPassable, cliffAt, cliffStep, size: terrain.worldSize }
+const emptySim: SimResult = { placed: [], rejected: [], n: 0, count: 0, maxElongation: 0, reclaimed: 0 }
+const sim = ref<SimResult>({ ...emptySim })
 
-const sim = ref<SimResult>({ placed: [], rejected: [], n: 0, count: terrain.rockCandidates.length, maxElongation: 0, reclaimed: 0 })
+const candidates = computed<RockCandidate[]>(() => (view.value?.data.rockCandidates ?? []) as RockCandidate[])
+
+async function selectMap(key: string) {
+  if (key === currentKey.value && view.value) return
+  currentKey.value = key
+  loading.value = true
+  hovered.value = null
+  try {
+    const v = await loadMap(key)
+    view.value = v
+    rockProb.value = v.data.rockProbDefault
+    seed.value = 1
+    sim.value = { ...emptySim, count: v.data.rockCandidates.length }
+    resetView()
+    if (mode.value === 'simulate') runSim()
+  } finally {
+    loading.value = false
+  }
+}
+
 function runSim() {
-  sim.value = simulateRocks(terrain.rockCandidates as RockCandidate[], grid, rockProb.value, seed.value)
+  const v = view.value
+  if (!v) return
+  const grid = { isPassable: v.isPassable, cliffAt: v.cliffAt, cliffStep: v.cliffStep, size: v.data.worldSize }
+  sim.value = simulateRocks(v.data.rockCandidates as RockCandidate[], grid, rockProb.value, seed.value)
 }
 function reroll() {
   seed.value = (seed.value * 1103515245 + 12345) & 0x7fffffff || 1
   runSim()
 }
-watch(rockProb, runSim)
+watch(rockProb, () => { if (mode.value === 'simulate') runSim() })
 watch(mode, (m) => { if (m === 'simulate' && sim.value.placed.length === 0) runSim() })
+
+onMounted(() => { selectMap(currentKey.value) })
 
 // 标记：候选模式全部显示；模拟模式区分有/无石头
 const placedSet = computed(() => new Set(sim.value.placed.map(c => c.n)))
 interface Marker extends RockCandidate { on: boolean }
 const markers = computed<Marker[]>(() =>
-  (terrain.rockCandidates as RockCandidate[]).map(c => ({
+  candidates.value.map(c => ({
     ...c,
     on: mode.value === 'simulate' ? placedSet.value.has(c.n) : true,
   })),
 )
 const hovered = ref<Marker | null>(null)
 
-function px(c: RockCandidate) { return worldToPx(c.x, c.y) }
+function px(c: RockCandidate) { return view.value!.worldToPx(c.x, c.y) }
 const markerR = computed(() => 5 / scale.value)
 
 // —— 平移缩放 —— //
