@@ -97,7 +97,8 @@ export function simulateRocks(
     cx >= 0 && cy >= 0 && cx < W && cy < H && grid.isPassable(cx, cy)
 
   // 悬崖高度层（预解一次）：相邻两 cell 高差 > cliffStep 即不可跨越的悬崖面
-  const cliffLevel = new Uint8Array(W * H)
+  // uint16：高台地图（Maze/DeathValley）层级可达 576，单字节会溢出
+  const cliffLevel = new Uint16Array(W * H)
   for (let cy = 0; cy < H; cy++) {
     for (let cx = 0; cx < W; cx++) cliffLevel[cy * W + cx] = grid.cliffAt(cx, cy)
   }
