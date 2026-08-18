@@ -512,12 +512,12 @@
   "BrakkHardenedShell": {
     "nameZh": "顺劈",
     "nameEn": "Cleave",
-    "tooltip": "使巴拉克的普通攻击获得顺劈。<n/><c val=\"FF8080\">顺劈</c>：<c val=\"FF8080\">33%</c>|<c val=\"FF8080\">44%</c>|<c val=\"FF8080\">56%</c>|<c val=\"FF8080\">67%</c>的攻击伤害会对附近地面敌人造成顺劈伤害</s><n/><c val=\"E6E6E6\">持续时间</c>：<c val=\"E6E6E6\">10秒</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">35</c>|<c val=\"8FC7FF\">40</c>|<c val=\"8FC7FF\">45</c>|<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">35秒</c>|<c val=\"E6E6E6\">30秒</c>|<c val=\"E6E6E6\">25秒</c>|<c val=\"E6E6E6\">20秒</c>"
+    "tooltip": "为巴拉克的自动攻击添加顺劈效果。<n/><c val=\"FF8080\">伤害：</c> <c val=\"FF8080\">33%</c>|<c val=\"FF8080\">44%</c>|<c val=\"FF8080\">56%</c>|<c val=\"FF8080\">67%</c>对附近的地面敌人</s><n/><c val=\"E6E6E6\">持续时间</c>：<c val=\"E6E6E6\">10秒</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">35</c>|<c val=\"8FC7FF\">40</c>|<c val=\"8FC7FF\">45</c>|<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">35秒</c>|<c val=\"E6E6E6\">30秒</c>|<c val=\"E6E6E6\">25秒</c>|<c val=\"E6E6E6\">20秒</c>"
   },
   "BrakkSwap": {
     "nameZh": "交换",
     "nameEn": "Swap",
-    "tooltip": "将巴拉克与一个友方单位互换位置。 <n/><c val=\"E6E6E6\">射程</c>: <c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c>|<c val=\"E6E6E6\">9</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">25</c><n/><c val=\"E6E6E6\">冷却时间</c>: <c val=\"E6E6E6\">30s</c>|<c val=\"E6E6E6\">25s</c>|<c val=\"E6E6E6\">20s</c>|<c val=\"E6E6E6\">15s</c>"
+    "tooltip": "将巴拉克与一个友方单位互换位置。 <n/><c val=\"E6E6E6\">射程</c>: <c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c>|<c val=\"E6E6E6\">9</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">25</c><n/><c val=\"E6E6E6\">冷却时间</c>: <c val=\"E6E6E6\">25s</c>|<c val=\"E6E6E6\">20s</c>|<c val=\"E6E6E6\">15s</c>|<c val=\"E6E6E6\">10s</c>"
   },
   "BrakkPrimalStrength": {
     "nameZh": "原始力量",
@@ -527,7 +527,7 @@
   "BrakkPrimalAgility": {
     "nameZh": "原始敏捷",
     "nameEn": "Primal Agility",
-    "tooltip": "使巴拉克和<c val=\"E6E6E6\">9射程</c>内的友方非英雄单位获得<c val=\"40A8FF\">额外移动速度</c>，持续<c val=\"E6E6E6\">10秒</c>。<n/><c val=\"80C8FF\">移动速度：</c><c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel1\">+0.2</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel2\">+0.3</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel3\">+0.4</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel4\">+0.5</c>"
+    "tooltip": "使<c val=\"E6E6E6\">9范围</c>内的友方非英雄单位获得<c val=\"40A8FF\">额外移动速度</c>，持续<c val=\"E6E6E6\">10秒</c>。巴拉克也会受到一半效果影响。<n/><c val=\"80C8FF\">移动速度：</c><c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel1\">+0.2</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel2\">+0.3</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel3\">+0.4</c>|<c val=\"40A8FF\" validator=\"BrakkAuraTooltipLevel4\">+0.5</c>"
   },
   "BrakkPrimalVitality": {
     "nameZh": "原始活力",
@@ -537,7 +537,7 @@
   "BrakkCharge": {
     "nameZh": "原始冲锋",
     "nameEn": "Primal Charge",
-    "tooltip": "巴拉克向目标点冲锋，对沿途敌人造成伤害并将其撞开。抵达后，他会在<c val=\"E6E6E6\">4半径</c>内施加强力击退。<n/><c val=\"FF8080\">伤害</c>：|||<n/><c val=\"E6E6E6\">射程</c>：<c val=\"E6E6E6\">9</c>|<c val=\"E6E6E6\">11</c>|<c val=\"E6E6E6\">13</c>|<c val=\"E6E6E6\">15</c><n/><c val=\"00FF7F\">伤害减免</c>：<c val=\"00FF7F\">100.5%，在冲锋期间和抵达后2秒内生效。</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">30秒</c><n/><c val=\"FF6B6B\">巴拉克在冲锋期间无法被下达命令。</c>"
+    "tooltip": "巴拉克向目标点冲锋，对沿途敌人造成伤害并将其击退。抵达时，在<c val=\"E6E6E6\">4范围</c>内施加强力击退。所有被击中的敌人都会被减速。<n/><c val=\"FF8080\">伤害</c>：|||<n/><c val=\"90EE90\">减速</c>：<c val=\"90EE90\">20%</c>|<c val=\"90EE90\">30%</c>|<c val=\"90EE90\">40%</c>|<c val=\"90EE90\">50%</c>，抵达时持续<c val=\"E6E6E6\">2秒</c>。<n/><c val=\"E6E6E6\">范围</c>：<c val=\"E6E6E6\">12</c>|<c val=\"E6E6E6\">13</c>|<c val=\"E6E6E6\">14</c>|<c val=\"E6E6E6\">15</c><n/><c val=\"00FF7F\">伤害减免</c>：<c val=\"00FF7F\">100.5%（冲锋期间及抵达后2秒内）。</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">30秒</c><n/><c val=\"FF6B6B\">巴拉克在冲锋期间无法接受指令。</c>"
   },
   "GlevigTunnel": {
     "nameZh": "深层隧道",
@@ -627,12 +627,12 @@
   "AlarakWrathOfTheHighlord": {
     "nameZh": "高阶领主之怒",
     "nameEn": "Wrath of the Highlord",
-    "tooltip": "阿拉纳克进入灵能狂热状态，施法能力增强，但机动性会下降。<n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15秒</c><n/><c val=\"8FC7FF\">能量回复</c>: <c val=\"8FC7FF\">300%</c><n/><c val=\"98FB98\">攻击性技能无冷却时间（不包括冲刺和牺牲）</c><n/><c val=\"90EE90\">移动速度</c>: <c val=\"90EE90\">2</c><n/><c val=\"FF6B6B\">冲刺被禁用。</c><n/><c val=\"98FB98\">持续期间灵魂吸收生效。</c><n/><c val=\"E6E6E6\">每次施放后消耗增加5点气体。可通过致命冲锋 II 击杀或牺牲锻炉来降低该消耗（不会低于基础值）。</c><n/><c val=\"E6E6E6\">与泰拉津狂乱共享冷却时间。</c>牺牲可使剩余冷却时间减少<c val=\"E6E6E6\">2秒</c>。"
+    "tooltip": "阿拉纳克进入灵能狂乱状态，强化其法术施放能力，但降低机动性。<n/><c val=\"E6E6E6\">持续时间</c>：<c val=\"E6E6E6\">15秒</c><n/><c val=\"8FC7FF\">能量恢复</c>：<c val=\"8FC7FF\">300%</c><n/><c val=\"98FB98\">进攻型技能无冷却时间（冲刺和牺牲除外）</c><n/><c val=\"90EE90\">移动速度</c>：<c val=\"90EE90\">2</c><n/><c val=\"FF6B6B\">冲刺已禁用。</c><n/><c val=\"98FB98\">持续期间，灵魂吸收处于激活状态。</c><n/><c val=\"E6E6E6\">每次施放的瓦斯消耗提高5点。可通过致命冲锋 II 击杀或牺牲锻炉来降低（不会低于基础值）。</c><n/><c val=\"E6E6E6\">与泰拉津狂乱共享冷却时间。</c><n/>牺牲探机、浩劫、使徒、天罚行者或执政官会分别使冷却时间减少<c val=\"E6E6E6\">1、2、3、5或8秒</c>。"
   },
   "AlarakTerrazineInsanity": {
     "nameZh": "泰拉津狂乱",
     "nameEn": "Terrazine Insanity",
-    "tooltip": "阿拉纳克进入泰拉津狂乱状态，攻击能力大幅增强，但也会更容易受到攻击。<n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15秒</c><n/><c val=\"98FB98\">基础攻击获得地面顺劈</c>（<c val=\"E6E6E6\">2</c>半径）<n/><c val=\"FF8080\">总攻击伤害</c>: <c val=\"FF8080\">+25%</c><n/><c val=\"FF8080\">受到伤害</c>: <c val=\"FF8080\">+10%</c><n/><c val=\"90EE90\">移动速度</c>: <c val=\"90EE90\">+10%</c><n/><c val=\"98FB98\">持续期间灵魂吸收生效。</c><n/><c val=\"E6E6E6\">每次施放后消耗增加5点气体。可通过致命冲锋 II 击杀或牺牲锻炉来降低该消耗（不会低于基础值）。</c><n/><c val=\"E6E6E6\">与高阶领主之怒共享冷却时间。</c>牺牲可使剩余冷却时间减少<c val=\"E6E6E6\">2秒</c>。"
+    "tooltip": "阿拉纳克进入泰拉津狂乱，大幅强化他的进攻能力，但也使他容易受到攻击。<n/><c val=\"E6E6E6\">持续时间</c>：<c val=\"E6E6E6\">15秒</c><n/><c val=\"98FB98\">基础攻击造成地面顺劈</c>（<c val=\"E6E6E6\">2范围</c>）<n/><c val=\"FF8080\">总攻击伤害</c>：<c val=\"FF8080\">+25%</c><n/><c val=\"FF8080\">承受伤害</c>：<c val=\"FF8080\">+10%</c><n/><c val=\"90EE90\">移动速度</c>：<c val=\"90EE90\">+10%</c><n/><c val=\"98FB98\">持续期间，灵魂吸收处于激活状态。</c><n/><c val=\"E6E6E6\">每次施放的瓦斯消耗提高5点。可通过致命冲锋 II 击杀或牺牲锻炉来降低（不会低于基础值）。</c><n/><c val=\"E6E6E6\">与高阶领主之怒共享冷却时间。</c><n/>牺牲探机、浩劫、使徒、天罚行者或执政官会分别使冷却时间减少<c val=\"E6E6E6\">1、2、3、5或8秒</c>。"
   },
   "IzshaCalldownInfestedBlimp": {
     "nameZh": "呼叫被感染的飞船",
@@ -722,7 +722,7 @@
   "EMCSquareDisintegrate": {
     "nameZh": "崩解",
     "nameEn": "Disintegrate",
-    "tooltip": "献祭区域内你的单位，并将其耗能值与当前能量之和加入 E=mc² 能量池。"
+    "tooltip": "牺牲区域内的你的单位，并将其能量消耗值加上当前能量的 40% 注入 E=mc² 能量池。"
   },
   "EMCSquareToTheBrim": {
     "nameZh": "满载",
@@ -847,7 +847,7 @@
   "CuddleJump": {
     "nameZh": "抱脸跳",
     "nameEn": "Cuddle Jump",
-    "tooltip": "秋伊跳跃至目标位置，并对范围内所有敌方单位和秋伊小跟班施加“小气鬼”效果<n/>施放“抱抱跳跃”期间，秋伊处于不可阻挡状态<n/>伤害：（每个英雄等级+10%）<n/>命中半径：2"
+    "tooltip": "秋伊跳跃至目标位置，并在范围内施加小气鬼效果。秋伊在跳跃期间不可阻挡。<n/>狂暴的秋伊小跟班获得15%移动速度、20%攻击速度和50%最大生命值。<n/><c val=\"FF8080\">伤害：（每个英雄等级+10%）</c><n/><c val=\"00FFFF\">命中半径：2</c>"
   },
   "Gottagofast": {
     "nameZh": "跑得飞快",
@@ -857,17 +857,22 @@
   "ChewFlex": {
     "nameZh": "折断",
     "nameEn": "Flex",
-    "tooltip": "此技能在任何阶段都无法取消\n\n秋伊无法移动并引导4秒\n引导期间秋伊获得400%额外生命回复\n每次释放永久降低去吧秋比！的晶体矿消耗5 + 每次折断施放额外5\n下次费用减少：[?]"
+    "tooltip": "经过4秒蓄力并获得400%额外生命再生后，秋伊会不受控制地追逐目标，最多持续10秒。\n追逐期间秋伊无敌、不可阻挡且无法下达命令。\n成功命中会使去吧秋比！的晶体矿消耗降低5，最低降至3。"
   },
   "MeanyUnit": {
     "nameZh": "小气鬼",
     "nameEn": "Meany Unit",
-    "tooltip": "击退目标\n目标在被击退期间，会对附近敌方单位造成小气鬼伤害，并使被命中的秋伊小跟班暴怒\n击退对英雄单位效果较弱\n对已暴怒的秋伊小跟班使用该技能会使其转而对秋伊施放“小气鬼”\n\n伤害：[?]（每个英雄等级+[?]%）\n冷却时间："
+    "tooltip": "击退目标，对附近敌人造成伤害，并使被命中的秋伊小跟班狂暴7秒。\n狂暴的秋伊小跟班获得15%移动速度、20%攻击速度和50%最大生命值；有效的普通攻击会重置持续时间。\n直接指定的秋伊小跟班在效果结束时存活，并变为冰洞建造者。其他狂暴的秋伊小跟班会闪烁，随后在效果结束时爆炸。\n\n伤害：[?]（每个英雄等级+[?]%）\n冷却时间：秒"
   },
   "ChewbieGo": {
     "nameZh": "去吧秋比！",
     "nameEn": "Chewbie Go",
-    "tooltip": "向目标位置投掷一个秋伊小跟班，命中时生成一个新的秋伊小跟班。<n/>伤害：（每个英雄等级+10%）<n/>射程：5<n/>命中半径：1.3"
+    "tooltip": "向目标位置投掷储备的秋伊小跟班，每个秋伊小跟班在命中时都会生成一个新的秋伊小跟班。<n/>每次施放都会消耗秋伊小跟班储备等级和可用补给所允许数量的充能。<n/><c val=\"FF8080\">伤害：（每个英雄等级+10%）</c><n/><c val=\"00FF00\">射程：5</c><n/><c val=\"00FFFF\">命中半径：1.3</c><n/><c val=\"FFFF00\">最大充能数：1</c><n/><c val=\"FFFF00\">充能时间：每次充能2秒</c>"
+  },
+  "ChewGlobalJump": {
+    "nameZh": "全局跳跃",
+    "nameEn": "Global Jump",
+    "tooltip": "经过7秒不可打断的蓄力后，秋伊跳跃至地图上任意未被菌毯覆盖且可见的目标位置。蓄力期间会标记着陆区域以示警。<n/>秋伊在空中时无法成为目标且处于无敌状态，并在落地时施加小气鬼效果。<n/><c val=\"FF8080\">伤害：（每个英雄等级+10%）</c><n/><c val=\"00FFFF\">命中半径：2</c>"
   },
   "AewynBless": {
     "nameZh": "祝福",

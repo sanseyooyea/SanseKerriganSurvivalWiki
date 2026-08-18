@@ -1094,14 +1094,14 @@
         "speed": 3,
         "damage": 20,
         "attackSpeed": 1.5,
-        "range": 2
+        "range": 1
       },
       {
         "id": "Beyblade",
         "nameZh": "陀螺",
         "hp": 75,
         "shield": 25,
-        "speed": 2,
+        "speed": 3,
         "damage": 18,
         "attackSpeed": 1.5,
         "range": 0.1
@@ -1158,7 +1158,7 @@
         "nameZh": "爆旋陀螺",
         "hp": 225,
         "shield": 75,
-        "speed": 2,
+        "speed": 3,
         "damage": 55,
         "attackSpeed": 1.5,
         "range": 0.1
@@ -3385,7 +3385,7 @@
     "buildings": [
       {
         "id": "ChewIceCave3",
-        "nameZh": "冰洞",
+        "nameZh": "冰洞 +4",
         "hp": 250
       },
       {
