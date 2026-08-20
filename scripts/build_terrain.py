@@ -52,6 +52,7 @@ CLIFFLEVEL_HEADER = 32    # t3SyncCliffLevel: 32-byte header then worldSize^2 in
 # Adjacent walkable cells step by <=40 along ramps but jump 64/128/192 across cliff
 # faces. <=48 => same ramp/plateau; a larger jump is a cliff only ramps bridge.
 CLIFF_STEP = 48
+CELLATTR_HEADER = 4       # CellAttribute_Pnp: 4-byte header then worldSize^2 bytes, 1/cell
 DEFAULT_MAP_KEY = 'mar_sara_wastelands'
 
 # The 22-map terrain pool (Scripts/*.galaxy ge_MapName_*). Each entry:
@@ -215,6 +216,64 @@ def pack_cliff(archive, world_size):
     return base64.b64encode(packed).decode('ascii'), lo, hi
 
 
+def pack_blockers(archive, world_size):
+    """Permanent, non-terrain pathing blockers -> worldSize^2 bitfield (row-major, base64).
+
+    t3CellFlags only carries terrain walkability; it does NOT include doodads or placed
+    units, whose pathing footprints the game stamps at load time. Without them the rock
+    simulator sees empty ground where trees / watchtowers actually block, and keeps rocks
+    the real game would reject -> phantom dead zones (reported on multi-level cliffs).
+
+    Two authoritative sources, same row order as t3CellFlags (world y=0 = row 0, no flip):
+      - CellAttribute_Pnp: 4B header + W*W sub-cell block masks; nonzero => doodad blocks
+        this cell. The editor already baked exact footprints here (no radius guessing).
+      - Objects (XML <PlacedObjects>): CommonXelNagaTower ObjectUnits are permanent neutral
+        structures (2x2 Footprint2x2Contour), not in Pnp; rasterize a 2x2 footprint at
+        floor(x-1..x), floor(y-1..y) around each tower center.
+
+    Missing files (older/odd archives) degrade to an empty layer rather than failing."""
+    n = world_size * world_size
+    blocked = bytearray((n + 7) // 8)
+    count = 0
+
+    def mark(cx, cy):
+        nonlocal count
+        if 0 <= cx < world_size and 0 <= cy < world_size:
+            i = cy * world_size + cx
+            if not (blocked[i >> 3] & (1 << (i & 7))):
+                blocked[i >> 3] |= (1 << (i & 7))
+                count += 1
+
+    # doodad / decoration footprints from the editor's no-pathing overlay
+    try:
+        pnp = archive.read_file('CellAttribute_Pnp')
+        body = pnp[CELLATTR_HEADER:CELLATTR_HEADER + n]
+        for i, b in enumerate(body):
+            if b:
+                mark(i % world_size, i // world_size)
+    except Exception:
+        pass
+
+    # permanent placed units (watchtowers) — runtime footprints, absent from Pnp
+    try:
+        objs = ET.fromstring(archive.read_file('Objects').decode('utf-8', 'replace'))
+        for e in objs:
+            if e.get('UnitType') != 'CommonXelNagaTower':
+                continue
+            pos = e.get('Position')
+            if not pos:
+                continue
+            x, y = (float(v) for v in pos.split(',')[:2])
+            cx, cy = int(x), int(y)
+            for dx in (-1, 0):
+                for dy in (-1, 0):
+                    mark(cx + dx, cy + dy)
+    except Exception:
+        pass
+
+    return base64.b64encode(bytes(blocked)).decode('ascii'), count
+
+
 def save_minimap(archive, key):
     """Minimap.tga -> public/maps/<key>.png. Pillow normalizes TGA orientation to
     top-left origin, so row 0 = top = world y=max."""
@@ -239,6 +298,7 @@ def extract_map(archive, key, camel, snake, zh, tileset, date=None):
 
     bits_b64, passable = pack_pathing(archive, world_size, cellflags)
     cliff_b64, clo, chi = pack_cliff(archive, world_size)
+    block_b64, blockers = pack_blockers(archive, world_size)
 
     uniform_model = rock_model_for(camel, 0, 0)
     per_pos = {rock_model_for(camel, c['x'], c['y']) for c in candidates}
@@ -264,6 +324,7 @@ def extract_map(archive, key, camel, snake, zh, tileset, date=None):
             'bits': bits_b64,          # walkable ground (t3CellFlags bit 0x02)
             'cliff': cliff_b64,        # cliff level per cell (t3SyncCliffLevel)
             'cliffStep': CLIFF_STEP,   # adjacency blocked if |Δlevel| > cliffStep
+            'block': block_b64,        # permanent non-terrain blockers (doodads + watchtowers)
         },
     }
     if date:
@@ -274,7 +335,7 @@ def extract_map(archive, key, camel, snake, zh, tileset, date=None):
         json.dump(full, f, ensure_ascii=False, separators=(',', ':'))
 
     print(f'  {key}: world {world_size}, {len(candidates)} ramps, '
-          f'{passable} passable, cliff {clo}..{chi}, minimap {size[0]}x{size[1]}')
+          f'{passable} passable, {blockers} blockers, cliff {clo}..{chi}, minimap {size[0]}x{size[1]}')
     return {
         'key': key, 'map': camel, 'nameZh': zh, 'tileset': tileset,
         'worldSize': world_size, 'minimap': minimap_path,

@@ -34,7 +34,7 @@ export interface FullTerrain {
   rockModel: string | null
   rockProbDefault: number
   rockCandidates: RockCandidate[]
-  pathing: { w: number; h: number; bits: string; cliff: string; cliffStep: number }
+  pathing: { w: number; h: number; bits: string; cliff: string; cliffStep: number; block?: string }
   date?: string
 }
 
@@ -64,6 +64,7 @@ export interface TerrainView {
   pxToWorld: (pxX: number, pxY: number) => { x: number; y: number }
   isPassable: (cx: number, cy: number) => boolean
   isPointPassable: (x: number, y: number) => boolean
+  isBlocked: (cx: number, cy: number) => boolean
   cliffAt: (cx: number, cy: number) => number
   cliffStep: number
 }
@@ -95,6 +96,8 @@ function makeView(full: FullTerrain): TerrainView {
   const h = full.pathing.h
   const bits = decodeBits(full.pathing.bits)
   const cliff = decodeU16(full.pathing.cliff)
+  // 永久阻挡位域（doodad/瞭望塔）：老 json 无此字段时留空 → isBlocked 恒 false（向后兼容）
+  const block = full.pathing.block ? decodeBits(full.pathing.block) : null
 
   const worldToPx = (x: number, y: number) => ({ px: x * px, py: (size - y) * px })
   const pxToWorld = (pxX: number, pxY: number) => ({ x: pxX / px, y: size - pxY / px })
@@ -105,6 +108,13 @@ function makeView(full: FullTerrain): TerrainView {
     return (bits[i >> 3] & (1 << (i & 7))) !== 0
   }
   const isPointPassable = (x: number, y: number) => isPassable(Math.floor(x), Math.floor(y))
+
+  // 永久阻挡（doodad/瞭望塔）：无 block 层时恒 false
+  const isBlocked = (cx: number, cy: number): boolean => {
+    if (!block || cx < 0 || cy < 0 || cx >= w || cy >= h) return false
+    const i = cy * w + cx
+    return (block[i >> 3] & (1 << (i & 7))) !== 0
+  }
 
   const cliffAt = (cx: number, cy: number): number => {
     if (cx < 0 || cy < 0 || cx >= w || cy >= h) return 0
@@ -118,6 +128,7 @@ function makeView(full: FullTerrain): TerrainView {
     pxToWorld,
     isPassable,
     isPointPassable,
+    isBlocked,
     cliffAt,
     cliffStep: full.pathing.cliffStep,
   }
