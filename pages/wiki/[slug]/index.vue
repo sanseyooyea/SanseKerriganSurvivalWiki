@@ -43,9 +43,6 @@
 </template>
 
 <script setup lang="ts">
-import { marked } from 'marked'
-import DOMPurify from 'isomorphic-dompurify'
-
 const route = useRoute()
 const slug = route.params.slug as string
 const { isLoggedIn, isAdmin } = useAuth()
@@ -55,7 +52,7 @@ const { data: page } = await useFetch(`/api/wiki/${slug}`)
 // 解析 Markdown，给 h2/h3 注入锚点 id 并提取目录
 const parsed = computed(() => {
   if (!page.value?.content) return { html: '', headings: [] as any[] }
-  let html = marked.parse(page.value.content) as string
+  let html = renderMarkdown(page.value.content)
   const headings: any[] = []
   html = html.replace(/<h([234])>([\s\S]*?)<\/h\1>/g, (_m, lvl, inner) => {
     const text = inner.replace(/<[^>]+>/g, '').trim()
@@ -63,7 +60,7 @@ const parsed = computed(() => {
     headings.push({ level: Number(lvl), text, id })
     return `<h${lvl} id="${id}">${inner}</h${lvl}>`
   })
-  return { html: DOMPurify.sanitize(html, { ADD_ATTR: ['id'] }), headings }
+  return { html, headings }
 })
 const rendered = computed(() => parsed.value.html)
 const headings = computed(() => parsed.value.headings)
