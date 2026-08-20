@@ -234,9 +234,6 @@
 </template>
 
 <script setup lang="ts">
-import { marked } from 'marked'
-import DOMPurify from 'isomorphic-dompurify'
-
 const { isAdmin, authHeaders } = useAuth()
 const users = ref<any[]>([])
 
@@ -371,7 +368,7 @@ const pendingCount = ref(0)
 const reviewFilter = ref('')
 
 function renderMd(src: string) {
-  return DOMPurify.sanitize(marked.parse(src || '') as string, { ADD_ATTR: ['id'] })
+  return renderMarkdown(src || '')
 }
 
 const badgeClass: Record<string, string> = {

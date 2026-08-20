@@ -49,9 +49,6 @@
 </template>
 
 <script setup lang="ts">
-import { marked } from 'marked'
-import DOMPurify from 'isomorphic-dompurify'
-
 const route = useRoute()
 const router = useRouter()
 const paramSlug = route.params.slug as string
@@ -76,7 +73,7 @@ if (!isNew) {
   }
 }
 
-const preview = computed(() => content.value ? DOMPurify.sanitize(marked.parse(content.value) as string) : '<span class="text-gray-400">输入Markdown内容...</span>')
+const preview = computed(() => content.value ? renderMarkdown(content.value) : '<span class="text-gray-400">输入Markdown内容...</span>')
 
 async function save() {
   const slug = slugInput.value.trim()
