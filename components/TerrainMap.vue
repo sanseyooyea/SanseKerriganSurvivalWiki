@@ -91,6 +91,10 @@
           class="absolute inset-0 w-full h-full object-cover pointer-events-none" draggable="false" />
         <svg class="absolute inset-0 w-full h-full overflow-visible"
           viewBox="0 0 1024 1024" preserveAspectRatio="none">
+          <!-- 永久阻挡（doodad/瞭望塔）：石头无法出现在这些格，属地形本身的障碍 -->
+          <rect v-for="(b, i) in blockerRects" :key="`blk${i}`"
+            :x="b.x" :y="b.y" :width="b.w" :height="b.h"
+            class="fill-amber-400/35 stroke-amber-300/30" :stroke-width="0.5 / scale" />
           <g v-for="c in markers" :key="c.n">
             <circle :cx="px(c).px" :cy="px(c).py" :r="markerR"
               :class="c.on
@@ -122,14 +126,16 @@
       <div class="absolute bottom-2 left-2 flex items-center gap-3 px-2.5 py-1.5 rounded-lg bg-black/55 text-white text-[0.7rem] backdrop-blur-sm pointer-events-none">
         <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-survivor-500 border border-white/80"></span>{{ mode === 'simulate' ? '本局石头' : '候选斜坡' }}</span>
         <span v-if="mode === 'simulate'" class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-white/25 border border-white/40"></span>空候选</span>
+        <span v-if="mode === 'simulate'" class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-amber-400/60 border border-amber-300/50"></span>装饰物/瞭望塔阻挡</span>
       </div>
     </div>
 
     <p class="mt-2 text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
       滚轮缩放、拖拽平移。石头由 <code class="font-mono">Scripts/game/rocks.galaxy</code> 每局从候选斜坡随机生成，
       此处「模拟一局」按同款算法（洗牌 + 按石头率取数 + 寻路校验 + 逐个移除坏石头）复刻，重掷得到不同布局。
-      <span class="text-gray-400/80 dark:text-gray-500/80">寻路校验含悬崖跨格判定（可走地面 + 高度层差 ≤ {{ view?.cliffStep ?? 48 }}），
-      会封住斜坡的石头一律剔除，故<span class="text-survivor-500 dark:text-survivor-400">不会出现被石头封死、无法进入的区域</span>；仍为近似，不含水/单位半径。</span>
+      <span class="text-gray-400/80 dark:text-gray-500/80">寻路校验含悬崖跨格判定（可走地面 + 高度层差 ≤ {{ view?.cliffStep ?? 48 }}）、
+      单位半径净空（2×2）与<span class="text-amber-500 dark:text-amber-400">装饰物/瞭望塔永久阻挡</span>，
+      会封住斜坡的石头一律剔除，故<span class="text-survivor-500 dark:text-survivor-400">不会出现被石头封死、无法进入的区域</span>；仍为近似，不含水。</span>
     </p>
   </div>
 </template>
@@ -148,7 +154,7 @@ const mode = ref<'candidates' | 'simulate'>('candidates')
 const rockProb = ref(0.5)
 const seed = ref(1)
 
-const emptySim: SimResult = { placed: [], rejected: [], n: 0, count: 0, maxElongation: 0, reclaimed: 0 }
+const emptySim: SimResult = { placed: [], rejected: [], n: 0, count: 0, maxElongation: 0 }
 const sim = ref<SimResult>({ ...emptySim })
 
 const candidates = computed<RockCandidate[]>(() => (view.value?.data.rockCandidates ?? []) as RockCandidate[])
@@ -174,7 +180,7 @@ async function selectMap(key: string) {
 function runSim() {
   const v = view.value
   if (!v) return
-  const grid = { isPassable: v.isPassable, cliffAt: v.cliffAt, cliffStep: v.cliffStep, size: v.data.worldSize }
+  const grid = { isPassable: v.isPassable, cliffAt: v.cliffAt, cliffStep: v.cliffStep, size: v.data.worldSize, isBlocked: v.isBlocked }
   sim.value = simulateRocks(v.data.rockCandidates as RockCandidate[], grid, rockProb.value, seed.value)
 }
 function reroll() {
@@ -199,6 +205,31 @@ const hovered = ref<Marker | null>(null)
 
 function px(c: RockCandidate) { return view.value!.worldToPx(c.x, c.y) }
 const markerR = computed(() => 5 / scale.value)
+
+// 永久阻挡（doodad/瞭望塔）叠加层：逐行扫 block 位域，同行连续阻挡合并成一条 rect。
+// 仅在模拟模式显示，帮助区分「塔/树占位」与「石头死区」。坐标同 markers 走 worldToPx
+// （viewBox 0..1024）；cell (cx,cy) 的像素左上角 = worldToPx(cx, cy+1)（Y 翻转）。
+interface BlockRect { x: number; y: number; w: number; h: number }
+const blockerRects = computed<BlockRect[]>(() => {
+  const v = view.value
+  if (!v || mode.value !== 'simulate') return []
+  const size = v.data.worldSize
+  const rects: BlockRect[] = []
+  for (let cy = 0; cy < size; cy++) {
+    let runStart = -1
+    for (let cx = 0; cx <= size; cx++) {
+      const on = cx < size && v.isBlocked(cx, cy)
+      if (on && runStart < 0) runStart = cx
+      else if (!on && runStart >= 0) {
+        const tl = v.worldToPx(runStart, cy + 1)
+        const br = v.worldToPx(cx, cy)
+        rects.push({ x: tl.px, y: tl.py, w: br.px - tl.px, h: br.py - tl.py })
+        runStart = -1
+      }
+    }
+  }
+  return rects
+})
 
 // —— 平移缩放 —— //
 const viewport = ref<HTMLElement | null>(null)
