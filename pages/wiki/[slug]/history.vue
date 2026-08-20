@@ -70,9 +70,6 @@
 </template>
 
 <script setup lang="ts">
-import { marked } from 'marked'
-import DOMPurify from 'isomorphic-dompurify'
-
 const route = useRoute()
 const slug = route.params.slug as string
 const { isAdmin, authHeaders } = useAuth()
@@ -89,7 +86,7 @@ const msgOk = ref(false)
 const msgFor = ref<number | null>(null)
 
 function renderMd(src: string) {
-  return DOMPurify.sanitize(marked.parse(src || '') as string, { ADD_ATTR: ['id'] })
+  return renderMarkdown(src || '')
 }
 
 async function toggle(id: number) {
