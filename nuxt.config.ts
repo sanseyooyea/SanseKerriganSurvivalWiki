@@ -19,6 +19,10 @@ export default defineNuxtConfig({
             "font-src 'self' https://fonts.gstatic.com",
             "img-src 'self' data:",
             "connect-src 'self' https://194823.xyz",
+            // 视频短代码嵌入的 iframe 来源：与 renderMarkdown.ts 的 ALLOWED_IFRAME_HOSTS
+            // 白名单保持一致（B站播放器 / YouTube 隐私增强域）。缺这条时 frame-src 会回退到
+            // default-src 'self'，浏览器直接拦掉外站 iframe → 播放器黑屏。
+            "frame-src 'self' https://player.bilibili.com https://www.youtube-nocookie.com https://www.youtube.com",
             "frame-ancestors 'self'",
             "base-uri 'self'",
             "form-action 'self'",
