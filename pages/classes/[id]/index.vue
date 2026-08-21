@@ -191,6 +191,12 @@
       <HeroEconomy :name="cls.nameEn" :show-intro="true" />
     </div>
 
+    <!-- Tech / Research Section（可研究科技升级，来自共享组件） -->
+    <div v-if="hasTech(cls.nameEn)" class="wiki-card p-5 mb-6">
+      <div class="section-title">科技研究</div>
+      <HeroTech :name="cls.nameEn" :show-intro="true" />
+    </div>
+
     <!-- Description Section -->
     <div v-if="displayDesc" class="wiki-card p-5 mb-6">
       <div class="section-title">职业描述</div>
@@ -223,6 +229,7 @@ const { getForHero } = useVeterancyData()
 const { getForHero: getUnitsForHero } = useUnitData()
 const { getByRoleId } = useBalanceData()
 const { hasEconomy } = useEconomyData()
+const { hasTech } = useTechData()
 
 const cls = computed(() => getById(Number(route.params.id)))
 const balance = computed(() => getByRoleId(Number(route.params.id)))
