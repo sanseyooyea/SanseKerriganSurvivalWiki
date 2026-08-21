@@ -12,6 +12,10 @@ economy.json is hand-maintained EXCEPT the "Team Nova" and "Nomad" entries, whic
 build_nova_economy.py / build_nomad_economy.py extract from the map and rewrite
 in-place (other entries untouched). build_technician_economy.py writes its own
 standalone JSON.
+build_tech.py extracts every survivor hero's research tree -> data/tech.json (full
+rebuild). Its upgrade icons are converted separately by build_tech_icons.py, which
+needs the CascView dds export (see that script) and is NOT part of this data-only
+rebuild — run it after build_tech.py when the map adds new upgrades.
 Icons are stable; run extract_icons.py separately if the map's class icons change.
 
 Usage:  python scripts/build_all.py        (run from the Wiki root)
@@ -32,6 +36,7 @@ STEPS = [
     'build_technician_economy.py',
     'build_nova_economy.py',
     'build_nomad_economy.py',
+    'build_tech.py',
     'build_terrain.py',
 ]
 
