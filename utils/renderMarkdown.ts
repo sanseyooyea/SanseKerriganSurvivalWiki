@@ -11,8 +11,37 @@ const ALLOWED_IFRAME_HOSTS = new Set([
 ])
 
 // —— 视频短代码扩展 ——
-// 投稿者只需写 @bilibili(BV号) 或 @youtube(视频ID)，
-// src 模板由这里锁死，投稿者碰不到，既不会写错也没有安全口子。
+// 投稿者写 @bilibili(...) 或 @youtube(...)，括号内既可以是纯 BV 号 / 视频 ID，
+// 也可以直接粘整条视频链接——由下面的 extract* 从中抠出 ID。src 模板由这里锁死，
+// 投稿者碰不到，既不会写错也没有安全口子。抠不到合法 ID 时不渲染（回退成原文）。
+
+// 从括号内容里抽 B 站 BV 号：纯 BV 号、含 query/尾斜杠的完整视频链接、b23.tv 带 BV 的短链
+// 都能命中；小写 bv 前缀规范化为 BV（号本体大小写保持）。b23.tv 纯哈希短链无法离线解析 → null。
+function extractBvid(raw: string): string | null {
+  const s = raw.trim()
+  const m = /(?:^|[^0-9A-Za-z])((?:BV|bv)[0-9A-Za-z]{10})(?:$|[^0-9A-Za-z])/.exec(s)
+            || /((?:BV|bv)[0-9A-Za-z]{10})/.exec(s)
+  if (!m) return null
+  const id = m[1]
+  return id.startsWith('bv') ? 'BV' + id.slice(2) : id
+}
+
+// 从括号内容里抽 YouTube 视频 ID：youtu.be/<id>、watch?v=<id>、/embed/<id>、/shorts/<id>
+// 及裸 11 位 ID 都能命中。
+function extractYoutubeId(raw: string): string | null {
+  const s = raw.trim()
+  const patterns = [
+    /(?:youtu\.be\/)([A-Za-z0-9_-]{11})/,
+    /(?:[?&]v=)([A-Za-z0-9_-]{11})/,
+    /(?:\/embed\/)([A-Za-z0-9_-]{11})/,
+    /(?:\/shorts\/)([A-Za-z0-9_-]{11})/,
+  ]
+  for (const re of patterns) {
+    const m = re.exec(s)
+    if (m) return m[1]
+  }
+  return /^[A-Za-z0-9_-]{11}$/.test(s) ? s : null
+}
 
 const bilibili = {
   name: 'bilibili',
@@ -22,8 +51,11 @@ const bilibili = {
     return i < 0 ? undefined : i
   },
   tokenizer(src: string) {
-    const m = /^@bilibili\(\s*([A-Za-z0-9]+)\s*\)[^\S\n]*(?:\n|$)/.exec(src)
-    if (m) return { type: 'bilibili', raw: m[0], id: m[1] }
+    // 宽松捕获括号内除换行外的任意内容（含整条链接），再抽 BV 号；抽不到则不消费（回退原文）。
+    const m = /^@bilibili\(\s*([^)\n]+?)\s*\)[^\S\n]*(?:\n|$)/.exec(src)
+    if (!m) return
+    const id = extractBvid(m[1])
+    if (id) return { type: 'bilibili', raw: m[0], id }
   },
   renderer(token: any) {
     const url = `https://player.bilibili.com/player.html?bvid=${token.id}&page=1&autoplay=0&danmaku=0&high_quality=1`
@@ -39,8 +71,10 @@ const youtube = {
     return i < 0 ? undefined : i
   },
   tokenizer(src: string) {
-    const m = /^@youtube\(\s*([A-Za-z0-9_-]+)\s*\)[^\S\n]*(?:\n|$)/.exec(src)
-    if (m) return { type: 'youtube', raw: m[0], id: m[1] }
+    const m = /^@youtube\(\s*([^)\n]+?)\s*\)[^\S\n]*(?:\n|$)/.exec(src)
+    if (!m) return
+    const id = extractYoutubeId(m[1])
+    if (id) return { type: 'youtube', raw: m[0], id }
   },
   renderer(token: any) {
     const url = `https://www.youtube-nocookie.com/embed/${token.id}`
