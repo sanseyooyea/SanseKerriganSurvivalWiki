@@ -1735,7 +1735,7 @@
         "id": "ScientistGhost",
         "nameZh": "幽灵",
         "hp": 140,
-        "speed": 2.8,
+        "speed": 2.7968,
         "damage": 45,
         "attackSpeed": 2,
         "range": 6

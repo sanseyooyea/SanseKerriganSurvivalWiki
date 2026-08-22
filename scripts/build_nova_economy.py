@@ -88,6 +88,7 @@ def build_buildings():
             'upgradeTo': nxt,
             'gasCost': int(gas),
             'notes': notes,
+            'salvageRate': 0.85,  # 所有产矿建筑挂 CommonSalvage，返 85%（HeroEconomy.vue 回收净回本列依赖此字段）
         })
     return out
 
