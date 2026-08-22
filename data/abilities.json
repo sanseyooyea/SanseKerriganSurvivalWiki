@@ -262,7 +262,7 @@
   "ThakrasConsumeUnit": {
     "nameZh": "吞噬",
     "nameEn": "Consume Unit",
-    "tooltip": "将友方单位的生命值转换为塔克拉斯的能量。\n\n每1点生命值转换为1点能量\n冷却时间：20秒"
+    "tooltip": "将一名友方单位的生命值转化为塔克拉斯的能量。\n\n每1点生命值获得1点能量\n冷却时间：[?]秒"
   },
   "SwannGrapple": {
     "nameZh": "钩爪",

@@ -218,18 +218,6 @@
       "date": "2026-02-13"
     },
     {
-      "key": "no_hope",
-      "map": "NoHope",
-      "nameZh": "绝望之地",
-      "tileset": "NoHopeTerrainType",
-      "worldSize": 256,
-      "minimap": "/maps/no_hope.png",
-      "rockModel": "CommonRockBlackStones",
-      "rockProbDefault": 0.5,
-      "candidateCount": 172,
-      "date": "2026-02-11"
-    },
-    {
       "key": "aduns_forgotten_temple",
       "map": "AdunsForgottenTemple",
       "nameZh": "阿顿的失落神庙",
@@ -264,6 +252,18 @@
       "rockProbDefault": 0.5,
       "candidateCount": 199,
       "date": "2025-12-05"
+    },
+    {
+      "key": "no_hope",
+      "map": "NoHope",
+      "nameZh": "绝望之地",
+      "tileset": "NoHopeTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/no_hope.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 172,
+      "date": null
     }
   ]
 }

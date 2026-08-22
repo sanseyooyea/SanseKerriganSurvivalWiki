@@ -1028,7 +1028,7 @@
     "team": "Kerrigan",
     "unitIcon": "Assets\\Textures\\wireframe-zerg-kraith.dds",
     "portrait": "Assets\\Textures\\kraithportrait_static.dds",
-    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>派加兽之王，冲向敌人并有能力向毫无防备的猎物发射投射物。<n/><n/><n/><c val=\"00FF00\">由Templar开发，由Willdroyd维护。</c>",
+    "description": "<c val=\"FFFF00\">难度 - 5/10</c><n/><n/>派加兽之王，能够冲向敌人并向毫无防备的猎物发射投射物。<n/><n/><n/><c val=\"00FF00\">由 Templar 开发，由 Willdroyd 维护。</c>",
     "stats": {
       "hp": 99999,
       "speed": 3.0,
