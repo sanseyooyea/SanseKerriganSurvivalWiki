@@ -12,10 +12,21 @@
       <input v-model="title" placeholder="页面标题"
         class="w-full border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-survivor-300" />
       <div class="flex gap-2">
-        <input v-model="slugInput" placeholder="URL标识 (英文)" :disabled="!isNew"
-          class="flex-1 border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-survivor-300 disabled:opacity-50" />
-        <input v-model="category" placeholder="分类 (可选)"
-          class="w-40 border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-survivor-300" />
+        <div class="flex-1">
+          <input v-model="slugInput" placeholder="URL标识 (英文，如 rattlesnake-guide)" :disabled="!isNew"
+            @input="onSlugInput"
+            :class="['w-full border rounded-lg px-4 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 disabled:opacity-50',
+              slugError ? 'border-red-400 focus:ring-red-300' : 'border-gray-200 dark:border-gray-600 focus:ring-survivor-300']" />
+          <p v-if="slugError" class="text-xs text-red-500 mt-1">{{ slugError }}</p>
+          <p v-else-if="isNew" class="text-xs text-gray-400 mt-1">只允许小写字母、数字和连字符（如 hero-name-guide）</p>
+        </div>
+        <select v-model="category"
+          class="w-48 border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-survivor-300">
+          <option value="">选择分类</option>
+          <optgroup v-for="g in categoryGroups" :key="g.label" :label="g.label">
+            <option v-for="opt in g.options" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
+          </optgroup>
+        </select>
       </div>
     </div>
 <!-- PLACEHOLDER_EDITOR_BODY -->
@@ -54,15 +65,27 @@ const router = useRouter()
 const paramSlug = route.params.slug as string
 const isNew = paramSlug === 'new'
 const { isLoggedIn, isAdmin, authHeaders } = useAuth()
+const { groups: categoryGroups, isValidCategory: checkCategory } = useWikiCategories()
 
 const title = ref('')
 const slugInput = ref(isNew ? '' : paramSlug)
+const slugError = ref('')
 const category = ref('')
 const content = ref('')
 const saving = ref(false)
 const error = ref('')
 const saved = ref(false)
 const submitted = ref(false)
+
+function onSlugInput() {
+  const raw = slugInput.value
+  slugInput.value = normalizeSlug(raw)
+  if (slugInput.value && !isValidSlug(slugInput.value)) {
+    slugError.value = '只允许小写字母、数字和连字符，长度2-80'
+  } else {
+    slugError.value = ''
+  }
+}
 
 if (!isNew) {
   const { data } = await useFetch(`/api/wiki/${paramSlug}`)
@@ -79,6 +102,10 @@ async function save() {
   const slug = slugInput.value.trim()
   if (!slug || !title.value.trim()) {
     error.value = '标题和URL标识不能为空'
+    return
+  }
+  if (!isValidSlug(slug)) {
+    error.value = 'URL标识格式不正确：只允许小写字母、数字和连字符，长度2-80'
     return
   }
   saving.value = true
