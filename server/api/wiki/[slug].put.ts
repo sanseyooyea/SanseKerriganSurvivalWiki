@@ -1,5 +1,6 @@
 import { getDb } from '~/server/utils/db'
 import { requireUser } from '~/server/utils/auth'
+import { isValidSlug, isValidCategory } from '~/server/utils/wiki-categories'
 
 export default defineEventHandler(async (event) => {
   // 任何登录用户都可发起编辑：admin 直写发布，editor/user 进待审队列。
@@ -11,6 +12,15 @@ export default defineEventHandler(async (event) => {
 
   if (!slug || !title) {
     throw createError({ statusCode: 400, message: '缺少必要字段' })
+  }
+
+  if (!isValidSlug(slug)) {
+    throw createError({ statusCode: 400, message: 'URL标识格式不正确：只允许小写字母、数字和连字符(a-z0-9-)，长度2-80' })
+  }
+
+  const resolvedCategory = category || 'general'
+  if (!isValidCategory(resolvedCategory)) {
+    throw createError({ statusCode: 400, message: `分类"${resolvedCategory}"不在允许列表中` })
   }
 
   const db = getDb()
@@ -28,7 +38,7 @@ export default defineEventHandler(async (event) => {
       existing ? 0 : 1,
       title,
       content || '',
-      category || 'general',
+      resolvedCategory,
       user.id,
       existing ? existing.updated_at : null,
     )
@@ -41,10 +51,10 @@ export default defineEventHandler(async (event) => {
       .run(existing.id, existing.title, existing.content, user.id)
 
     db.prepare('UPDATE wiki_pages SET title = ?, content = ?, category = ?, updated_by = ?, updated_at = datetime(\'now\') WHERE slug = ?')
-      .run(title, content || '', category || 'general', user.id, slug)
+      .run(title, content || '', resolvedCategory, user.id, slug)
   } else {
     db.prepare('INSERT INTO wiki_pages (slug, title, content, category, updated_by) VALUES (?, ?, ?, ?, ?)')
-      .run(slug, title, content || '', category || 'general', user.id)
+      .run(slug, title, content || '', resolvedCategory, user.id)
   }
 
   return { published: true, slug }
