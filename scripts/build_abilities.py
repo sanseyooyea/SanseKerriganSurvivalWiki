@@ -21,6 +21,7 @@ WIKI = r'D:\starcraft2\SanseKerriganSurvivalWiki'
 DATA = os.path.join(WIKI, 'data')
 SEED = os.path.join(DATA, 'seed', 'roles.seed.json')
 NAME_SEED = os.path.join(DATA, 'seed', 'ability-names.seed.json')
+FACE_SEED = os.path.join(DATA, 'seed', 'ability-face.seed.json')
 OUT = os.path.join(DATA, 'abilities.json')
 
 CLASS_PREFIXES = [
@@ -70,6 +71,21 @@ def find_icon(ab_id):
 # Hand-curated name fallbacks for abilities the map has no name for.
 NAME_OVERRIDE = {k: v for k, v in json.load(
     open(NAME_SEED, encoding='utf-8')).items() if not k.startswith('_')}
+
+# 策展映射：技能 id -> 指令卡按钮面(CButton id)，显示信息(name/icon/tooltip)从该 face 派生。
+_face_seed = json.load(open(FACE_SEED, encoding='utf-8'))
+FACE_GLOBAL = {k: v for k, v in _face_seed.get('global', {}).items() if not k.startswith('_')}
+FACE_PERHERO = {k: v for k, v in _face_seed.get('perHero', {}).items() if not k.startswith('_')}
+
+
+def face_display(face_id):
+    """从一个按钮面(CButton id)派生 (nameZh, tooltip, icon)。tooltip 为空则返回 ''，
+    由调用方决定是否回退技能自身的 tooltip。名字非中文则原样返回(交由上层再兜底)。"""
+    name = button_names.get(face_id, '').strip()
+    tip = clean_tooltip(button_tooltips.get(face_id, ''))
+    dds = BTN.get(face_id, {}).get('Icon')
+    icon = _icon_png_name(dds) if dds else ''
+    return name, tip, icon
 
 
 def clean_tooltip(raw):
@@ -169,6 +185,16 @@ for aid in ab_ids:
             name_en = NAME_OVERRIDE[aid]
     tooltip = find_tooltip(aid)
     icon = find_icon(aid)
+    # 策展 face 覆盖(global)：显示身份取指令卡按钮面，而非技能自身默认 face。
+    # tooltip 优先 face，face 无则保留技能自身的 tooltip；名字/图标以 face 为准。
+    if aid in FACE_GLOBAL:
+        fname, ftip, ficon = face_display(FACE_GLOBAL[aid])
+        if fname:
+            name_zh = fname
+        if ftip:
+            tooltip = ftip
+        if ficon:
+            icon = ficon
     if is_ascii(name_zh):
         untranslated.append(aid)
     if not tooltip:
@@ -178,6 +204,22 @@ for aid in ab_ids:
     entry = {'nameZh': name_zh, 'nameEn': name_en, 'tooltip': tooltip}
     if icon:
         entry['icon'] = icon
+    # 策展 face 覆盖(perHero)：同 id 被多英雄共用、各自 face 不同名，写入按英雄的覆盖。
+    if aid in FACE_PERHERO:
+        per = {}
+        for hero, face_id in FACE_PERHERO[aid].items():
+            if hero.startswith('_'):
+                continue
+            fname, ftip, ficon = face_display(face_id)
+            o = {}
+            if fname:
+                o['nameZh'] = fname
+            o['tooltip'] = ftip or tooltip
+            if ficon:
+                o['icon'] = ficon
+            per[hero] = o
+        if per:
+            entry['perHero'] = per
     out[aid] = entry
 
 json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)

@@ -47,6 +47,9 @@ def needed_icons():
     for e in data.values():
         if e.get('icon'):
             need.add(e['icon'])  # 已是 png 名
+        for o in (e.get('perHero') or {}).values():  # 按英雄覆盖的图标也要
+            if isinstance(o, dict) and o.get('icon'):
+                need.add(o['icon'])
     return need
 
 
