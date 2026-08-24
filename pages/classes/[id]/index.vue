@@ -150,12 +150,13 @@
     <div v-if="displayAbilities.length || displayConditional.length" class="wiki-card p-5 mb-6">
       <div class="section-title">技能 · {{ displayAbilities.length }}</div>
       <div class="space-y-2">
-        <AbilityCard v-for="aid in displayAbilities" :key="aid" :ability-id="aid" />
+        <AbilityCard v-for="aid in displayAbilities" :key="aid" :ability-id="aid" :hero-key="cls?.nameEn" />
       </div>
       <template v-if="displayConditional.length">
         <div class="section-title mt-5">情境技能 · 需建筑解锁</div>
         <div class="space-y-2">
           <AbilityCard v-for="c in displayConditional" :key="c.id" :ability-id="c.id"
+            :hero-key="cls?.nameEn"
             :badge="'需 ' + c.requires.map((r) => r.nameZh).join(' / ')" />
         </div>
       </template>

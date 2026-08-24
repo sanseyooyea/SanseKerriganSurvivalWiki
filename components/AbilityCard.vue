@@ -41,9 +41,16 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ abilityId: string; badge?: string }>()
+const props = defineProps<{ abilityId: string; badge?: string; heroKey?: string }>()
 const { getAbility } = useAbilityData()
-const ability = computed(() => getAbility(props.abilityId))
+const base = computed(() => getAbility(props.abilityId))
+// 同 id 多英雄共用时，按 heroKey(英雄 nameEn) 合并该英雄专属的名字/图标/tooltip 覆盖。
+const ability = computed(() => {
+  const b = base.value
+  if (!b) return b
+  const o = props.heroKey ? b.perHero?.[props.heroKey] : undefined
+  return o ? { ...b, ...o } : b
+})
 const expanded = ref(false)
 const iconFailed = ref(false)
 const parsedTooltip = computed(() =>

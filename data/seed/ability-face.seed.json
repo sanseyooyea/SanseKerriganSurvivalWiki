@@ -1,0 +1,24 @@
+{
+  "_comment": "策展映射：技能 id -> 应作为 Wiki 显示身份的『指令卡按钮面(CButton id)』。name/icon/tooltip 均由 build_abilities.py 从该 face 派生(tooltip 空则回退技能自身)。根因：abilities.json 按 ability id 全局唯一，而显示信息真正来自每个英雄指令卡的 DefaultButtonFace(每英雄独立)。只列『技能自身默认 face 派生出的名字是错的/英文/串味』的技能；切换类技能的『关闭态』face(如显形/停止修复/取消激活)故意不列，避免取到更差的名字。地图更新后 face id 稳定，人工维护即可。",
+  "global": {
+    "DTShadowCharge": "DTCharge",
+    "Drag": "DehakaDrag",
+    "IzshaSummonCorruptedWall": "IzshaCalldownCorruptedWall",
+    "NomadPlacePointDefenseDrone": "NomadPointDefenseDrone",
+    "NovaTeleport": "NovaTeleportToToshAfterDeath",
+    "SelendisMorphtoMothership": "MorphtoMothership",
+    "WarfieldSummonXanthos": "SummonXanthos",
+    "SkitterSkitterSpecialize": "SkitterSkitterSprint",
+    "SkitterSkitterRecallUnits": "SkitterReturnUnits",
+    "SirRoachingtonAcidicFlay": "SirRoachingtonAcidFlay",
+    "AewynTransport": "AewynUnloadAll",
+    "AresTransport": "UnloadAllHere"
+  },
+  "perHero": {
+    "_comment": "同一 ability id 被多个英雄共用，但各自指令卡 face 不同名，扁平 id->单条无法同时表达。前端 AbilityCard 按 heroKey(nameEn) 取对应覆盖。",
+    "DehakaDash": {
+      "Kerrigan": "KerriganPsionicShift",
+      "Dehaka": "DehakaPrimalDash"
+    }
+  }
+}
