@@ -38,9 +38,34 @@ button_names = L.game_strings(archive, 'Button/Name/')
 abil_names = L.game_strings(archive, 'Abil/Name/')
 catalog = L.build_catalog(archive)
 ABIL = catalog.get('Abil', {})
+BTN = catalog.get('CButton', {})
 
 tooltips_lower = {k.lower(): v for k, v in button_tooltips.items()}
 names_lower = {k.lower(): v for k, v in button_names.items()}
+
+
+def _icon_png_name(dds_path):
+    """'Assets\\Textures\\Btn-Foo Bar.dds' -> 'btn-foo-bar.png'（小写、空格→-）。
+    与 lib_tech._icon_png_name 一致，技能图标与科技图标共用同一套命名。"""
+    base = dds_path.replace('\\', '/').rsplit('/', 1)[-1].lower()
+    if base.endswith('.dds'):
+        base = base[:-4]
+    base = re.sub(r'\s+', '-', base.strip())
+    return base + '.png'
+
+
+def find_icon(ab_id):
+    """技能图标 png 名。取 CButton 的 Icon(dds 路径)转 png：
+      1. 技能 id 直接就是 CButton id
+      2. 否则经技能的 CmdButtonArray.DefaultButtonFace 跳一层查 CButton
+    找不到返回 ''（少数召唤/研究/被动类技能无按钮图标）。"""
+    for bid in (ab_id, ABIL.get(ab_id, {}).get('CmdButtonArray.DefaultButtonFace')):
+        if not bid:
+            continue
+        val = BTN.get(bid, {}).get('Icon')
+        if val:
+            return _icon_png_name(val)
+    return ''
 
 # Hand-curated name fallbacks for abilities the map has no name for.
 NAME_OVERRIDE = {k: v for k, v in json.load(
@@ -133,6 +158,7 @@ for role in seed:
 out = {}
 untranslated = []
 no_tooltip = []
+no_icon = []
 for aid in ab_ids:
     name_en = abil_names.get(aid, button_names.get(aid, aid)).strip()
     name_zh = find_name_zh(aid, name_en)
@@ -142,16 +168,25 @@ for aid in ab_ids:
         if name_en == aid:
             name_en = NAME_OVERRIDE[aid]
     tooltip = find_tooltip(aid)
+    icon = find_icon(aid)
     if is_ascii(name_zh):
         untranslated.append(aid)
     if not tooltip:
         no_tooltip.append(aid)
-    out[aid] = {'nameZh': name_zh, 'nameEn': name_en, 'tooltip': tooltip}
+    if not icon:
+        no_icon.append(aid)
+    entry = {'nameZh': name_zh, 'nameEn': name_en, 'tooltip': tooltip}
+    if icon:
+        entry['icon'] = icon
+    out[aid] = entry
 
 json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 
 print(f'Wrote {len(out)} abilities to abilities.json')
 print(f'  with tooltip: {len(out) - len(no_tooltip)}, no tooltip: {len(no_tooltip)}')
+print(f'  with icon: {len(out) - len(no_icon)}, no icon: {len(no_icon)}')
 print(f'  untranslated (kept English): {len(untranslated)}')
 if untranslated:
     print('   ' + ', '.join(untranslated))
+if no_icon:
+    print('  no-icon abilities: ' + ', '.join(no_icon))

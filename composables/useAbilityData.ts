@@ -5,6 +5,7 @@ export interface AbilityInfo {
   nameZh: string
   nameEn: string
   tooltip: string
+  icon?: string // ability-icons/ 下的 png 名；少数召唤/研究/被动类技能无图标
 }
 
 export interface VeterancyInfo {

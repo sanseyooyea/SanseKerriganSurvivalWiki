@@ -8,7 +8,12 @@
     <div class="flex items-center justify-between px-4 py-2.5 cursor-pointer select-none"
       @click="expanded = !expanded">
       <div class="flex items-center gap-2">
-        <div class="w-1.5 h-1.5 rounded-full bg-survivor-500 opacity-60"></div>
+        <img v-if="ability?.icon && !iconFailed"
+          :src="`/ability-icons/${ability.icon}`"
+          :alt="ability?.nameZh || abilityId"
+          class="w-6 h-6 rounded shadow-sm flex-shrink-0"
+          @error="iconFailed = true" />
+        <div v-else class="w-1.5 h-1.5 rounded-full bg-survivor-500 opacity-60"></div>
         <span class="text-sm font-medium text-gray-800 dark:text-gray-200">
           {{ ability?.nameZh || abilityId }}
         </span>
@@ -40,6 +45,7 @@ const props = defineProps<{ abilityId: string; badge?: string }>()
 const { getAbility } = useAbilityData()
 const ability = computed(() => getAbility(props.abilityId))
 const expanded = ref(false)
+const iconFailed = ref(false)
 const parsedTooltip = computed(() =>
   ability.value?.tooltip ? parseDescription(ability.value.tooltip) : ''
 )
