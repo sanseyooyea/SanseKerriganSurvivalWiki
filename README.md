@@ -243,6 +243,22 @@ python scripts/build_meta.py       # → data/meta-history.json（跨版本 Meta
 
 两个纯标准库脚本流式解析 `pg_dump` 的 `COPY ... FROM stdin` 块，内存聚合，无需 Postgres。转储的自动拉取（Google Drive → 重建 → 提交）由 `scripts/fetch_dump.py` + Windows 计划任务 `KS2WikiFetchDump` 处理（需本地代理访问 Google）。
 
+### 一键刷新并部署
+
+日常刷新对局数据推荐用编排脚本，把「拉取转储 → 重建 → 提交 → 推送 → 打包 → 部署」收敛成一条命令：
+
+```bash
+KS2_PW=*** bash refresh-and-deploy.sh              # 常规：无新转储则自动跳过部署
+KS2_PW=*** bash refresh-and-deploy.sh --force      # 强制重下最新转储再走全流程
+KS2_PW=*** bash refresh-and-deploy.sh --no-deploy  # 只刷新+提交+推送，不部署
+```
+
+数据无变化时（`fetch_dump.py` 未产生新提交）脚本干净退出，不会白跑打包/部署。
+
+> **为什么不做服务端全自动拉取**：转储在 Google Drive，线上服务器（国内）直连不了，`fetch_dump.py` 依赖本地代理（VPN）才能访问，故拉取只能在本地做。
+>
+> **为什么刷新数据要重新构建**：`balance.json` / `meta-history.json` 在 `composables/` 里是**构建时 `import`** 进 bundle 的，换磁盘文件不生效，必须重新 `nuxt build`。`stats.db` 则是运行时按路径读取（compose 卷挂载 `./data`），本可单独替换——但一键脚本统一走全量部署以求简单可靠。
+
 详见 [docs/STATS_PIPELINE.md](docs/STATS_PIPELINE.md)（口径与脚本）与 [docs/AUTO_FETCH.md](docs/AUTO_FETCH.md)（自动拉取）。
 
 ## 部署
