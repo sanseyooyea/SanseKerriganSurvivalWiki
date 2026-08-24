@@ -30,10 +30,12 @@ SEED = os.path.join(WIKI, 'data', 'seed', 'roles.seed.json')
 # 通用命令/建造/子菜单按钮，不算英雄技能
 GENERIC_ABILS = {'move', 'stop', 'attack', 'Warpable', 'patrol', 'HoldPos'}
 GENERIC_PREFIXES = ('CommonMove', 'CommonStop', 'CommonAttack')
-# 通用/系统/被动类命令(各英雄都有自己的 Move/Attack/选择/扫描变体)，不算技能。
+# 通用/系统/被动类命令(各英雄都有自己的 Move/Attack/选择变体)，不算技能。
+# 注意：ScannerSweep(悉像扫描/雷达扫描) 是凯瑞甘方英雄的真实主动技能，不能过滤——
+# 曾被误当作战役单位的普通侦察扫描而删掉，导致凯瑞甘方全体缺此共有技能。
 GENERIC_HINT = re.compile(
     r'Move|Attack|Stop|HoldPos|Patrol|AddToSelection|RemoveFromSelection|'
-    r'ScannerSweep|AutocreepTimer|MoveOrder')
+    r'AutocreepTimer|MoveOrder')
 # 建造/采集/经济类(按 *Build* / 名字判断)，不算战斗技能
 BUILD_HINT = re.compile(r'Build|Train|Learn|Research|Market|Bank|Casino|CrystalBall|Salvage|Deposit|Withdraw')
 

@@ -28,7 +28,8 @@
       "KerriganFungalGrowth",
       "DehakaDash",
       "KerriganTeleport",
-      "KerriganPrimalRoar"
+      "KerriganPrimalRoar",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -338,7 +339,8 @@
     "abilities": [
       "ZagaraEnsnare",
       "ZagaraCreepTeleport",
-      "KerriganManaBurn"
+      "KerriganManaBurn",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -446,7 +448,8 @@
       "Drag",
       "DehakaWindwalk",
       "DehakaScorchingBreath",
-      "DehakaDash"
+      "DehakaDash",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -515,7 +518,8 @@
       "ThakrasConstrictingSlime",
       "ThakrasConsumeUnit",
       "KerriganTeleport",
-      "KerriganManaBurn"
+      "KerriganManaBurn",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -626,7 +630,8 @@
       "QueenClassicParasite",
       "KerriganPrimalRoar",
       "KerriganTeleport",
-      "KerriganRazorSwarm"
+      "KerriganRazorSwarm",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -746,7 +751,8 @@
       "WarfieldStimpack",
       "WarfieldSummonXanthos",
       "WarfieldRecallToOuthouse",
-      "WarfieldBlink"
+      "WarfieldBlink",
+      "WarfieldScannerSweep"
     ]
   },
   {
@@ -832,7 +838,8 @@
       "BrakkPrimalStrength",
       "BrakkPrimalAgility",
       "BrakkPrimalVitality",
-      "BrakkCharge"
+      "BrakkCharge",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -862,7 +869,8 @@
       "GlevigFirebreath",
       "GlevigCorrosiveBile",
       "GlevigRecallCrawlers",
-      "GlevigSpawnInfestor"
+      "GlevigSpawnInfestor",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -923,7 +931,8 @@
       "PhaegoreSonicatingScreech",
       "PhaegoreNurturingChant",
       "PhaegoreKayonicCharge",
-      "PhaegoreBurrow"
+      "PhaegoreBurrow",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -985,7 +994,8 @@
       "IzshaCalldownInfestedBlimp",
       "IzshaSummonCorruptedWall",
       "IzshaSpawnBiotrap",
-      "IzshaIsolation"
+      "IzshaIsolation",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -1014,7 +1024,8 @@
       "MalusCorruptionBomb",
       "MalusOrdure",
       "DevourUnit",
-      "PrimalDevour"
+      "PrimalDevour",
+      "MalusScannerSweep"
     ]
   },
   {
@@ -1043,7 +1054,8 @@
       "KraithSpineVolleyAbil",
       "KraithCrashingChargeAbil",
       "KraithSpikedHide",
-      "KraithOppressivePuke"
+      "KraithOppressivePuke",
+      "SwarmScannerSweep"
     ]
   },
   {
@@ -1401,7 +1413,8 @@
       "SophiaCalldownThor",
       "SophiaWhereDoesTheTimeGo",
       "SophiaBlink",
-      "AccelerationZone"
+      "AccelerationZone",
+      "SophiaScannerSweepScaling"
     ]
   },
   {
@@ -1454,7 +1467,8 @@
       "SirRoachingtonCorrosiveBarrage",
       "SirRoachingtonAcidicFlay",
       "SirRoachingtonWebPull",
-      "SirRoachingtonHatTrick"
+      "SirRoachingtonHatTrick",
+      "SwarmScannerSweep"
     ]
   },
   {
