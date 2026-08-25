@@ -1213,7 +1213,9 @@
       "AndorCalldownSCV",
       "AndorCalldownCleaningBot",
       "AndorPlacePointDefenseDrone",
-      "Rapidfire"
+      "Rapidfire",
+      "AddCharge",
+      "AresEmergencyThrusters"
     ]
   },
   {
