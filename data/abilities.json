@@ -135,7 +135,14 @@
     "nameZh": "后燃充能",
     "nameEn": "Emergency Thrusters",
     "tooltip": "短时间增加阿瑞斯的移动速度！\n\n狂飙开始！涡轮全送！",
-    "icon": "btn-upgrade-terran-medivacemergencythrusters.png"
+    "icon": "btn-upgrade-terran-medivacemergencythrusters.png",
+    "perHero": {
+      "Andor": {
+        "nameZh": "后燃助推器",
+        "tooltip": "短时间内大幅增加亚顿移动速度。",
+        "icon": "btn-upgrade-terran-medivacemergencythrusters.png"
+      }
+    }
   },
   "AresHyperjump": {
     "nameZh": "超级跃迁",
@@ -954,7 +961,7 @@
     "icon": "btn-unit-terran-scv.png"
   },
   "AndorCalldownCleaningBot": {
-    "nameZh": "亚顿雇佣黑色战锤",
+    "nameZh": "雇佣一台清除机器人",
     "nameEn": "Calldown Cleaning Bot",
     "tooltip": "召唤一个清除机器人。消耗8人口。",
     "icon": "wireframe-critter-cleaningbot.png"
@@ -970,6 +977,12 @@
     "nameEn": "Rapid fire",
     "tooltip": "增加亚顿的攻击速度。<n/><c val=\"FFB347\">攻速增加倍率:</c> <c val=\"FFB347\">2x</c>|<c val=\"FFB347\">3x</c>|<c val=\"FFB347\">5x</c>|<c val=\"FFB347\">7x</c><n/><c val=\"DCDCDC\">冷却时间:</c> <c val=\"DCDCDC\">60s</c>|<c val=\"DCDCDC\">45s</c>|<c val=\"DCDCDC\">35s</c>|<c val=\"DCDCDC\">20s</c>",
     "icon": "btn-upgrade-terran-superstimppack.png"
+  },
+  "AddCharge": {
+    "nameZh": "增加充能",
+    "nameEn": "Add Charge",
+    "tooltip": "增加空投充能次数<n/>哨兵：<c val=\"FFFF00\">1<n/></c>使徒：<c val=\"FFFF00\">1<n/></c>执政官：<c val=\"FFFF00\">1<n/></c>不朽者：<c val=\"FFFF00\">1<n/></c>清除机器人：<c val=\"FFFF00\">1</c>",
+    "icon": "btn-building-nova-ghostacademy.png"
   },
   "RenewingTune": {
     "nameZh": "治愈咏叹！",

@@ -18,15 +18,20 @@
     "AndorCalldownArchon": "AndorHireArchon",
     "AndorCalldownImmortal": "AndorHireImmortal",
     "AndorCalldownSCV": "AndorHireSCV",
-    "AndorCalldownCleaningBot": "AndorHireBlackhammer",
+    "AndorCalldownCleaningBot": "AndorHireCleaningBot",
     "AndorPlacePointDefenseDrone": "AndorPointDefenseDrone",
-    "Rapidfire": "AndorRapidFire"
+    "Rapidfire": "AndorRapidFire",
+    "AddCharge": "AndorAddCharge"
   },
   "perHero": {
     "_comment": "同一 ability id 被多个英雄共用，但各自指令卡 face 不同名，扁平 id->单条无法同时表达。前端 AbilityCard 按 heroKey(nameEn) 取对应覆盖。",
     "DehakaDash": {
       "Kerrigan": "KerriganPsionicShift",
       "Dehaka": "DehakaPrimalDash"
+    },
+    "AresEmergencyThrusters": {
+      "_comment": "亚顿借用 Ares 的 AresEmergencyThrusters(后燃充能)，但指令卡上是自己的按钮面 AndorSpeedBoost(后燃助推器)。Ares 保留默认显示。",
+      "Andor": "AndorSpeedBoost"
     }
   }
 }
