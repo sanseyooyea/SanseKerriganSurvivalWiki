@@ -12,7 +12,15 @@
     "SkitterSkitterRecallUnits": "SkitterReturnUnits",
     "SirRoachingtonAcidicFlay": "SirRoachingtonAcidFlay",
     "AewynTransport": "AewynUnloadAll",
-    "AresTransport": "UnloadAllHere"
+    "AresTransport": "UnloadAllHere",
+    "AndorCalldownSentinel": "AndorHireSentinel",
+    "AndorCalldownAdepts": "AndorHireAdepts",
+    "AndorCalldownArchon": "AndorHireArchon",
+    "AndorCalldownImmortal": "AndorHireImmortal",
+    "AndorCalldownSCV": "AndorHireSCV",
+    "AndorCalldownCleaningBot": "AndorHireBlackhammer",
+    "AndorPlacePointDefenseDrone": "AndorPointDefenseDrone",
+    "Rapidfire": "AndorRapidFire"
   },
   "perHero": {
     "_comment": "同一 ability id 被多个英雄共用，但各自指令卡 face 不同名，扁平 id->单条无法同时表达。前端 AbilityCard 按 heroKey(nameEn) 取对应覆盖。",

@@ -1124,6 +1124,9 @@
       "AndorCalldownAdepts",
       "AndorCalldownArchon",
       "AndorCalldownImmortal",
+      "AndorCalldownSCV",
+      "AndorCalldownCleaningBot",
+      "AndorPlacePointDefenseDrone",
       "Rapidfire"
     ]
   },
