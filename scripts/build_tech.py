@@ -65,6 +65,24 @@ def extract_chewolution(archive):
     return rows
 
 
+def _is_ascii(s):
+    return all(ord(c) < 128 for c in (s or ''))
+
+
+def _is_junk_group(g):
+    """内部/占位升级(非玩家可研究科技)：名字从未本地化(仍是裸 id/英文)、无图标、
+    且所有 level 的成本/时间/说明全为空。例如亚顿 ChargeSystem→AddChargelevel1-9
+    (增加充能的内部计数升级，玩家在技能界面而非科技界面交互)、Spirit 的 DisableMarketData。
+    真实科技即使 0 成本也有中文名或图标或逐级说明，不会被误删(已核验：仅命中这 10 组)。"""
+    if not _is_ascii(g.get('nameZh', '')) or g.get('icon'):
+        return False
+    return all(
+        (lv.get('cost', 0) == 0 and lv.get('gasCost', 0) == 0
+         and lv.get('time', 0) == 0 and not (lv.get('descZh') or '').strip())
+        for lv in g.get('levels', [])
+    )
+
+
 def build_entry(archive, hero_en, xml_path, gs_name, gs_tip):
     """单英雄 tech.json 条目；无研究槽返回 None（不写入）。"""
     root = T.parse_hero_xml(archive.read_file(xml_path))
@@ -74,6 +92,9 @@ def build_entry(archive, hero_en, xml_path, gs_name, gs_tip):
     effects = T.build_upgrade_effects(root)
     btn_icons = T.build_button_icons(root)
     groups = T.group_upgrades(research, effects, gs_name, gs_tip, btn_icons)
+    groups = [g for g in groups if not _is_junk_group(g)]
+    if not groups:
+        return None
     abilities = sorted({r['ability'] for r in research})
     entry = {
         'hero': hero_en,

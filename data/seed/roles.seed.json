@@ -628,7 +628,8 @@
       "WardenVexArmor",
       "WardenExperimentalBarrier",
       "WardenTaunt",
-      "WardenSprint"
+      "WardenSprint",
+      "WardenArsenalOvercharge"
     ]
   },
   {
@@ -658,7 +659,8 @@
     "abilities": [
       "SelendisTimeWarp",
       "SelendisMorphtoMothership",
-      "SelendisRecall"
+      "SelendisRecall",
+      "EnergyCapacitor"
     ]
   },
   {
@@ -757,7 +759,10 @@
       "ScionInspiration",
       "ScionForceField",
       "ScionPsiStorm",
-      "ScionDefensiveAugment"
+      "ScionDefensiveAugment",
+      "ScionDimensionalLibrary",
+      "ScionKineticMatrix",
+      "ScionOverdrive"
     ]
   },
   {
@@ -789,7 +794,8 @@
       "FixEverything",
       "RestructuredIntegrity",
       "CloakingField",
-      "SlowSell"
+      "SlowSell",
+      "TechnicianBuildKeystone"
     ]
   },
   {
@@ -981,7 +987,10 @@
     "abilities": [
       "DeltaSquadDefensiveMatrix2",
       "DeltaSquadPhantomOpenFire",
-      "DSHyperjump"
+      "DSHyperjump",
+      "DSBuildRadarTower1",
+      "DeltaSquadEngineDischarge",
+      "DeltaSquadRapidFire"
     ]
   },
   {
@@ -1013,7 +1022,8 @@
       "PhaegoreNurturingChant",
       "PhaegoreKayonicCharge",
       "PhaegoreBurrow",
-      "SwarmScannerSweep"
+      "SwarmScannerSweep",
+      "PhaegoreBileSnot"
     ]
   },
   {
@@ -1108,7 +1118,10 @@
       "MalusOrdure",
       "DevourUnit",
       "PrimalDevour",
-      "MalusScannerSweep"
+      "MalusScannerSweep",
+      "MalusMaldusNetworkDummy",
+      "MalusNightTerror",
+      "MalusPhantasm"
     ]
   },
   {
@@ -1245,7 +1258,8 @@
       "RenewingTune",
       "AttractFan",
       "Doubletime",
-      "DJBassDrop"
+      "DJBassDrop",
+      "DJAllPartOfTheShow"
     ]
   },
   {
@@ -1499,7 +1513,8 @@
     "abilities": [
       "SjlerkKineticBlast",
       "SjlerkBlink",
-      "SjlerkMend"
+      "SjlerkMend",
+      "SjlerkCrushingGrip"
     ]
   },
   {
