@@ -241,8 +241,29 @@ def replace_drefs(tooltip):
     return re.sub(r'<d ref="([^"]+)"[^/]*/>', replacer, tooltip)
 
 # Process abilities
+# 原始 tooltip 的 <d ref> 动态数值：优先按 ability id 取 Button/Tooltip；取不到则回退到
+# 该技能的指令卡默认按钮面(DefaultButtonFace)——大量技能(Kraith/DT/Nomad/Nova/Glevig 等)
+# 的 tooltip 挂在 face 而非裸 id 上，不回退就会把 [?] 占位留在前端。与 build_abilities.py
+# 的 find_tooltip 同源(那里取【清洗后】文本，这里取【原始】文本解析 <d ref>)。
+def raw_tip_for(aid):
+    raw = button_tooltips.get(aid)
+    if raw and "<d ref" in raw:
+        return raw
+    face = fields.get(f"Abil/{aid}/CmdButtonArray.DefaultButtonFace")
+    if face:
+        fraw = button_tooltips.get(face)
+        if fraw and "<d ref" in fraw:
+            return fraw
+    # 少数英雄(如 Phaegore)的 tooltip key 带『英雄名-』前缀：Phaegore-PhaegoreKayonicCharge。
+    # 裸 id 与 face(=id) 都取不到，兜底找以 `-{aid}` 结尾的 tooltip key。
+    if raw is None and (face is None or face == aid):
+        for k, v in button_tooltips.items():
+            if k.endswith("-" + aid) and "<d ref" in v:
+                return v
+    return raw  # 可能为 None 或无 <d ref> 的纯文本
+
 for aid, abil in abilities.items():
-    btn_tip = button_tooltips.get(aid)
+    btn_tip = raw_tip_for(aid)
     if btn_tip and "<d ref" in btn_tip:
         abil["tooltip"] = replace_drefs(btn_tip)
     elif btn_tip and not abil.get("tooltip"):
