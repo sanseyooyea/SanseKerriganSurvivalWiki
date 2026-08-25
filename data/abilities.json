@@ -393,6 +393,12 @@
     "tooltip": "监管者在<c val=\"E6E6E6\">秒</c>内大幅提高移动速度。",
     "icon": "btn-ability-protoss-charge-color.png"
   },
+  "WardenArsenalOvercharge": {
+    "nameZh": "幽冥吸波功",
+    "nameEn": "Arsenal Overcharge",
+    "tooltip": "使监管者进入过载状态，持续 <c val=\"E6E6E6\">秒</c>。持续期间，闪电旋风劈和泰山陨石坠无冷却时间，护盾与能量回复速度翻倍。<n/>更高等级会增加持续时间。",
+    "icon": "btn-upgrade-protoss-fenix-dragoonovercharge.png"
+  },
   "SelendisTimeWarp": {
     "nameZh": "时间折跃",
     "nameEn": "Time Warp",
@@ -410,6 +416,12 @@
     "nameEn": "Recall",
     "tooltip": "传送指定区域内所有友方单位到你的位置<n/>花费: 100|80|60|40能量<n/>冷却: 45s|45s|40s|30s",
     "icon": "btn-ability-protoss-recall.png"
+  },
+  "EnergyCapacitor": {
+    "nameZh": "能量储存器",
+    "nameEn": "Energy Capacitor",
+    "tooltip": "用护盾恢复能量<n/>花费: 50%/50%/50%/50% 护盾<n/>冷却: 45/35/25/20<n/>能量恢复: 40%/45%/55%/60%",
+    "icon": "btn-ability-spearofadun-chronomancy.png"
   },
   "QueenClassicParasite": {
     "nameZh": "共生体",
@@ -505,6 +517,24 @@
     "tooltip": "为已完成的友军建筑添加护盾和护盾护甲。<n/><c val=\"87CEEB\">护盾</c>: <c val=\"87CEEB\">200</c>|<c val=\"87CEEB\">400</c>|<c val=\"87CEEB\">800</c>|<c val=\"87CEEB\">1600</c><n/><c val=\"87CEEB\">护盾护甲</c>: <c val=\"87CEEB\">4</c>|<c val=\"87CEEB\">8</c>|<c val=\"87CEEB\">12</c>|<c val=\"87CEEB\">16</c><n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15</c>|<c val=\"E6E6E6\">20</c>|<c val=\"E6E6E6\">25</c>|<c val=\"E6E6E6\">30</c><n/><c val=\"E6E6E6\">充能</c>: <c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c>|<c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">20</c>",
     "icon": "btn-ability-protoss-dualgravitonbeam.png"
   },
+  "ScionDimensionalLibrary": {
+    "nameZh": "空间实验室",
+    "nameEn": "Dimensional Library",
+    "tooltip": "使该建筑加速<c val=\"90EE90\">75%</c>，包括收入获取。此效果为永久。",
+    "icon": "btn-ability-protoss-planetcracker.png"
+  },
+  "ScionKineticMatrix": {
+    "nameZh": "动能矩阵",
+    "nameEn": "Kinetic Matrix",
+    "tooltip": "增加长者的护盾。<n/><c val=\"87CEEB\">额外护盾</c>: <c val=\"87CEEB\">250</c>|<c val=\"87CEEB\">500</c>|<c val=\"87CEEB\">1000</c>|<c val=\"87CEEB\">2000</c><n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c>|<c val=\"E6E6E6\">7</c>|<c val=\"E6E6E6\">8</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">50</c>",
+    "icon": "btn-ability-protoss-blinkshieldrestore.png"
+  },
+  "ScionOverdrive": {
+    "nameZh": "过载",
+    "nameEn": "Overdrive",
+    "tooltip": "使半径 1 内的单位进入超速状态，使其运作速度提升 2 倍。<n/><c val=\"FF6B6B\">每局游戏每个单位只能使用一次</c><n/><c val=\"FF6B6B\">无法用于灵魂银行。</c><n/>持续时间: <c val=\"E6E6E6\">2秒</c>|<c val=\"E6E6E6\">3秒</c>|<c val=\"E6E6E6\">4秒</c>|<c val=\"E6E6E6\">5秒</c><n/>充能: <c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">2</c><n/><c val=\"8FC7FF\">能量消耗: 50</c>",
+    "icon": "btn-upgrade-karax-chronofield.png"
+  },
   "Accelerate": {
     "nameZh": "加速",
     "nameEn": "Accelerate",
@@ -540,6 +570,11 @@
     "nameEn": "SlowSell",
     "tooltip": "在7秒内回收目标建筑，返还其建造成本的80%，包括转化工厂中正在转化的资源。\n\n传送门和科技军械库仅返还默认成本",
     "icon": "btn-tips-richminerals.png"
+  },
+  "TechnicianBuildKeystone": {
+    "nameZh": "建造拱心石",
+    "nameEn": "建造拱心石",
+    "tooltip": "建造钥石，即可获得上厕所的机会"
   },
   "WarfieldStickyBomb": {
     "nameZh": "粘性炸弹",
@@ -721,6 +756,24 @@
     "tooltip": "传送一小段距离.\n\n更高的等级会增加距离并减少冷却时间.",
     "icon": "btn-ability-hornerhan-fleethyperjump.png"
   },
+  "DSBuildRadarTower1": {
+    "nameZh": "建造雷达塔",
+    "nameEn": "Place Radar Tower",
+    "tooltip": "放置雷达塔，显示附近敌方位置<n/><c val=\"FFFF00\">雷达范围：</c> <c val=\"FFFF00\" validator=\"DSRadarTower1\">25</c>/<c val=\"FFFF00\" validator=\"DSRadarTower2\">30</c>/<c val=\"FFFF00\" validator=\"DSRadarTower3\">35</c>/<c val=\"FFFF00\" validator=\"DSRadarTower4\">40</c><n/><c val=\"FFFF00\">视野</c>：<c val=\"FFFF00\" validator=\"DSRadarTower1\">3</c>/<c val=\"FFFF00\" validator=\"DSRadarTower2\">4</c>/<c val=\"FFFF00\" validator=\"DSRadarTower3\">5</c>/<c val=\"FFFF00\" validator=\"DSRadarTower4\">6</c>",
+    "icon": "btn-building-terran-sensortower-covertops.png"
+  },
+  "DeltaSquadEngineDischarge": {
+    "nameZh": "超负荷运作",
+    "nameEn": "Engine Discharge",
+    "tooltip": "以生命为代价恢复能量。<n/>生命值消耗: 40%/40%/40%/40%<n/>能量恢复: 40%/55%/70%/85%<n/>升级会减少冷却时间和增加恢复的能量。",
+    "icon": "btn-ability-spearofadun-chronomancy.png"
+  },
+  "DeltaSquadRapidFire": {
+    "nameZh": "速射",
+    "nameEn": "Rapid Fire",
+    "tooltip": "在15 秒内显著增加袭掠解放者的攻击速度。<n/>攻速增加: 200%/300%/400%/500%",
+    "icon": "btn-ability-terran-emergencythrusters.png"
+  },
   "PhaegoreSonicatingScreech": {
     "nameZh": "刺耳尖啸",
     "nameEn": "Sonicating Screech",
@@ -744,6 +797,12 @@
     "nameEn": "Burrow",
     "tooltip": "将单位埋入地下。钻地单位无法移动或攻击，但没有探测就无法被看见。",
     "icon": "btn-ability-zerg-burrow-color.png"
+  },
+  "PhaegoreBileSnot": {
+    "nameZh": "胆汁鼻水",
+    "nameEn": "Bile Snot",
+    "tooltip": "目标单位每秒失去能量，减少移动速度并且失去侦测能力。<n/><c val=\"FF0000\">无法对巢穴单位使用。</c><n/><c val=\"FFFF00\">冷却时间:</c> <c val=\"FFFF00\" validator=\"PhaegoreBileSnot1\">35s</c>|<c val=\"FFFF00\" validator=\"PhaegoreBileSnot2\">30s</c>|<c val=\"FFFF00\" validator=\"PhaegoreBileSnot3\">25s</c>|<c val=\"FFFF00\" validator=\"PhaegoreBileSnot4\">20s</c><n/><c val=\"BB77FF\">能量消耗:</c> <c val=\"BB77FF\" validator=\"PhaegoreBileSnot1\">50</c>|<c val=\"BB77FF\" validator=\"PhaegoreBileSnot2\">40</c>|<c val=\"BB77FF\" validator=\"PhaegoreBileSnot3\">30</c>|<c val=\"BB77FF\" validator=\"PhaegoreBileSnot4\">20</c><n/><c val=\"FFCF3D\">持续时间:</c> <c val=\"FFCF3D\" validator=\"PhaegoreBileSnot1\">5s</c>|<c val=\"FFCF3D\" validator=\"PhaegoreBileSnot2\">6s</c>|<c val=\"FFCF3D\" validator=\"PhaegoreBileSnot3\">7s</c>|<c val=\"FFCF3D\" validator=\"PhaegoreBileSnot4\">8s</c><n/><c val=\"FFB977\">能量燃烧:</c> <c val=\"FFB977\" validator=\"PhaegoreBileSnot1\">-10%</c>|<c val=\"FFB977\" validator=\"PhaegoreBileSnot2\">-15%</c>|<c val=\"FFB977\" validator=\"PhaegoreBileSnot3\">-20%</c>|<c val=\"FFB977\" validator=\"PhaegoreBileSnot4\">-25%</c> <c val=\"FFB977\">每秒。</c><n/><c val=\"00FF00\">移动速度:</c> <c val=\"00FF00\" validator=\"PhaegoreBileSnot1\">-15%</c>|<c val=\"00FF00\" validator=\"PhaegoreBileSnot2\">-20%</c>|<c val=\"00FF00\" validator=\"PhaegoreBileSnot3\">-25%</c>|<c val=\"00FF00\" validator=\"PhaegoreBileSnot4\">-30%</c><n/><c val=\"77BBFF\">失去侦测能力。</c><n/><c val=\"FF0000\">仅能在潜地时使用。</c>",
+    "icon": "btn-ability-zerg-corrosiveblast.png"
   },
   "AlarakDestructionWave": {
     "nameZh": "毁灭浪潮",
@@ -839,6 +898,24 @@
     "nameEn": "Scanner Sweep",
     "tooltip": "显示地图区域，探测隐形单位。<n/><c val=\"FF6B6B\">不受同化增益影响</c><n/><c val=\"FFFF00\">冷却时间：</c><c val=\"FFFF00\" validator=\"MalusScannerSweepL1\">30秒</c>|<c val=\"FFFF00\" validator=\"MalusScannerSweepL2\">25秒</c>|<c val=\"FFFF00\" validator=\"MalusScannerSweepL3\">20秒</c>|<c val=\"FFFF00\" validator=\"MalusScannerSweepL4\">15秒</c><n/><c val=\"BB77FF\">能量消耗：</c><c val=\"BB77FF\" validator=\"MalusScannerSweepL1\"> 50</c>|<c val=\"BB77FF\" validator=\"MalusScannerSweepL2\">40</c>|<c val=\"BB77FF\" validator=\"MalusScannerSweepL3\">30</c>|<c val=\"BB77FF\" validator=\"MalusScannerSweepL4\">20</c>",
     "icon": "btn-ability-terran-scannersweep-color.png"
+  },
+  "MalusMaldusNetworkDummy": {
+    "nameZh": "马吕斯网络",
+    "nameEn": "Maldus Network Dummy",
+    "tooltip": "创建一条互联隧道，允许单位快速、安全地转移。<n/><c val=\"98FB98\">探测器<n/>在中心坑道网络处创建一条无敌隧道</c><n/>吞噬王虫时生产幼虫。<n/>2级时，赋予马吕斯1点力量（最多10点）<n/>3级时，生成一小片菌毯<n/>4级时，获得雷达<n/><c val=\"FF0000\">无法储存防御者</c><n/><c val=\"00FF00\">生命值</c>：<c val=\"00FF00\" validator=\"MalusMaldusNetwork1\">1500</c>|<c val=\"00FF00\" validator=\"MalusMaldusNetwork2\">2000</c>|<c val=\"00FF00\" validator=\"MalusMaldusNetwork3\">2500</c>|<c val=\"00FF00\" validator=\"MalusMaldusNetwork4\">3000</c><n/><c val=\"FFFF00\">视野</c>：<c val=\"FFFF00\" validator=\"MalusMaldusNetwork1\">5</c>|<c val=\"FFFF00\" validator=\"MalusMaldusNetwork2\">6</c>|<c val=\"FFFF00\" validator=\"MalusMaldusNetwork3\">7</c>|<c val=\"FFFF00\" validator=\"MalusMaldusNetwork4\">8</c><n/><c val=\"FFFFFF\">冷却时间</c>：<c val=\"FFFFFF\" validator=\"MalusMaldusNetwork1\">90</c>|<c val=\"FFFFFF\" validator=\"MalusMaldusNetwork2\">75</c>|<c val=\"FFFFFF\" validator=\"MalusMaldusNetwork3\">60</c>|<c val=\"FFFFFF\" validator=\"MalusMaldusNetwork4\">45</c><n/><c val=\"BB77FF\">能量消耗</c>：<c val=\"BB77FF\" validator=\"MalusMaldusNetwork1\">60</c>|<c val=\"BB77FF\" validator=\"MalusMaldusNetwork2\">55</c>|<c val=\"BB77FF\" validator=\"MalusMaldusNetwork3\">50</c>|<c val=\"BB77FF\" validator=\"MalusMaldusNetwork4\">45</c>",
+    "icon": "btn-building-zerg-nydusnetwork.png"
+  },
+  "MalusNightTerror": {
+    "nameZh": "夜魇",
+    "nameEn": "Night Terror",
+    "tooltip": "召唤死夜，降低敌人的视野和武器射程。<n/><c val=\"FF0000\">敌人失去盟友之间的视野。<n/>全局效果</c><n/><c val=\"FFFFFF\">视野加成</c>: <c val=\"FFFFFF\" validator=\"MalusNightTerror\"> 3</c>|<c val=\"FFFFFF\" validator=\"MalusNightTerror2\"> 4</c>|<c val=\"FFFFFF\" validator=\"MalusNightTerror3\"> </c>|<c val=\"FFFFFF\" validator=\"MalusNightTerror4\"> 6</c><n/><c val=\"FFFF00\">视野降低：</c> <c val=\"FFFF00\" validator=\"MalusNightTerror\">-2</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror2\">-3</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror3\">-4</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror4\">-5</c><n/><c val=\"FFFF00\">武器射程降低：</c> <c val=\"FFFF00\" validator=\"MalusNightTerror\"></c>|<c val=\"FFFF00\" validator=\"MalusNightTerror2\">-2</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror3\">-3</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror4\">-4</c><n/><c val=\"00FF00\">移动速度</c>: <c val=\"00FF00\"  validator=\"MalusNightTerror\">114%</c>|<c val=\"00FF00\"  validator=\"MalusNightTerror2\">121.5%</c>|<c val=\"00FF00\"  validator=\"MalusNightTerror3\">129%</c>|<c val=\"00FF00\"  validator=\"MalusNightTerror4\">136.5%</c><n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"MalusNightTerror\">120</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror2\">100</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror3\">80</c>|<c val=\"FFFF00\" validator=\"MalusNightTerror4\">60</c><n/><c val=\"BB77FF\">能量消耗：</c> <c val=\"BB77FF\" validator=\"MalusNightTerror\">50</c>|<c val=\"BB77FF\" validator=\"MalusNightTerror2\">50</c>|<c val=\"BB77FF\" validator=\"MalusNightTerror3\">50</c>|<c val=\"BB77FF\" validator=\"MalusNightTerror4\">50</c><n/><c val=\"FFFF00\">持续时间：20秒</c>",
+    "icon": "btn-ability-zerg-corruption-color.png"
+  },
+  "MalusPhantasm": {
+    "nameZh": "幻象",
+    "nameEn": "幻象",
+    "tooltip": "制造一个为你作战的幻象。",
+    "icon": "btn-ability-zerg-disguise.png"
   },
   "KraithSpineVolleyAbil": {
     "nameZh": "脊刺齐射",
@@ -1007,6 +1084,12 @@
     "nameEn": "Bass Drop",
     "tooltip": "用重低音冲击震撼你的敌人<n/>造成等同于 10×名望 + 100×等级 的伤害 = ",
     "icon": "btn-ability-terran-lockon.png"
+  },
+  "DJAllPartOfTheShow": {
+    "nameZh": "整场演出",
+    "nameEn": "All Part Of The Show",
+    "tooltip": "冷却时间减少：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">15</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">20</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">25<n/>范围：<c val=\"FFFFFF\" validator=\"AllPartOfTheShow\"> 5</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow2\">7</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow3\">10</c><n/>额外视野半径：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">3</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">5</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">7</c><n/>冷却时间：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">60</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">45</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">30<n/>目标：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">您的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">您的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">盟军单位",
+    "icon": "ui_glues_icons_clanleader.png"
   },
   "RattlesnakeDeployRevitalizer": {
     "nameZh": "部署恢复器",
@@ -1197,6 +1280,12 @@
     "nameEn": "Mend",
     "tooltip": "治疗斯加拉克一定生命值，并治疗附近友方单位一定生命值。额外50%的治疗量会在10秒内持续恢复。<n/><c val=\"00FF7F\">斯加拉克治疗量</c>：<c val=\"00FF7F\">100</c><n/><c val=\"00FF7F\">友军治疗量</c>：<c val=\"00FF7F\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">60秒</c>|<c val=\"E6E6E6\">50秒</c>|<c val=\"E6E6E6\">40秒</c>|<c val=\"E6E6E6\">30秒</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">100</c>|<c val=\"8FC7FF\">90</c>|<c val=\"8FC7FF\">80</c>|<c val=\"8FC7FF\">50</c>",
     "icon": "btn-ability-zerg-transfusion-color.png"
+  },
+  "SjlerkCrushingGrip": {
+    "nameZh": "粉碎捏握",
+    "nameEn": "Crushing Grip",
+    "tooltip": "对目标区域造成伤害，眩晕并施加持续伤害。<n/><c val=\"FF6B6B\">英雄和巨型单位攻击和移动速度减慢50%。</c><n/><c val=\"FF8080\">初始伤害</c>: (每英雄等级+10%)<n/><c val=\"FF8080\">伤害</c>: (每英雄等级+10%)<n/><c val=\"E6E6E6\">充能</c>: <c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c><n/><c val=\"E6E6E6\">冷却时间</c>: <c val=\"E6E6E6\">10秒</c><n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">秒</c><n/>能量</c>:<c val=\"8FC7FF\"> 75</c>",
+    "icon": "btn-ability-swarm-kerrigan-crushinggrip.png"
   },
   "CalldownVulture": {
     "nameZh": "呼叫秃鹫",
