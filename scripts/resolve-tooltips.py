@@ -248,13 +248,40 @@ for aid, abil in abilities.items():
     elif btn_tip and not abil.get("tooltip"):
         abil["tooltip"] = btn_tip
 
+# 策展 face 覆盖(见 data/seed/ability-face.seed.json)：显示身份取指令卡按钮面，
+# tooltip 也必须从该 face 的原始 Button/Tooltip 解析 <d ref>，否则 build_abilities
+# 产出的 [?] 占位不会被替换。上面的主循环按 ability id 取 tooltip，取不到 face 的。
+face_seed_path = Path("data/seed/ability-face.seed.json")
+if face_seed_path.exists():
+    face_seed = json.loads(face_seed_path.read_text(encoding="utf-8"))
+
+    def tip_from_face(face_id, fallback):
+        """从按钮面的原始 tooltip 解析 <d ref>；face 无 tooltip 则回退。"""
+        raw = button_tooltips.get(face_id)
+        if raw and "<d ref" in raw:
+            return replace_drefs(raw)
+        return raw or fallback
+
+    for aid, face_id in face_seed.get("global", {}).items():
+        if aid.startswith("_") or aid not in abilities:
+            continue
+        abilities[aid]["tooltip"] = tip_from_face(face_id, abilities[aid].get("tooltip", ""))
+
+    for aid, heroes in face_seed.get("perHero", {}).items():
+        if aid.startswith("_") or aid not in abilities:
+            continue
+        per = abilities[aid].get("perHero") or {}
+        for hero, face_id in heroes.items():
+            if hero.startswith("_") or hero not in per:
+                continue
+            per[hero]["tooltip"] = tip_from_face(face_id, per[hero].get("tooltip", ""))
+
 print(f"Resolved: {resolved_count}, Unresolved: {unresolved_count}")
 
 # Clean up empty remnants
-for aid, abil in abilities.items():
-    tip = abil.get("tooltip", "")
+def clean_remnants(tip):
     if not tip:
-        continue
+        return tip
     # Clean empty color spans
     tip = re.sub(r'<c val="[^"]*">\s*</c>', '', tip)
     # Clean lines that became empty after ref removal
@@ -268,7 +295,14 @@ for aid, abil in abilities.items():
         if re.match(r'^[^:：]*[：:]\s*$', plain):
             continue
         cleaned.append(line)
-    abil["tooltip"] = "<n/>".join(cleaned)
+    return "<n/>".join(cleaned)
+
+
+for aid, abil in abilities.items():
+    abil["tooltip"] = clean_remnants(abil.get("tooltip", ""))
+    for o in (abil.get("perHero") or {}).values():
+        if isinstance(o, dict) and "tooltip" in o:
+            o["tooltip"] = clean_remnants(o.get("tooltip", ""))
 
 with open("data/abilities.json", "w", encoding="utf-8") as f:
     json.dump(abilities, f, indent=2, ensure_ascii=False)
