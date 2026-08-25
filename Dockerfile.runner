@@ -10,6 +10,16 @@ WORKDIR /app
 # 连 GitHub releases 常超时），回退到 node-gyp 从源码编译——better-sqlite3 的 sqlite3.c
 # 随 npm 包自带，编译不依赖外网。故装上 python3/make/g++ 工具链兜底，编译后卸掉控制体积。
 COPY package.runner.json ./package.json
+# 换阿里云 apt 源：国内服务器连 deb.debian.org 拉 8MB+ 的 Packages 索引常降到 ~40KB/s
+# 导致 apt-get update 卡死（deploy 曾两次停在 Get:4 Packages）。bookworm 用 deb822 格式的
+# debian.sources；同时兜底改经典 sources.list。阿里云实测拉全量 Packages.gz 约 6s。
+RUN set -e; \
+    if [ -f /etc/apt/sources.list.d/debian.sources ]; then \
+      sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources; \
+    fi; \
+    if [ -f /etc/apt/sources.list ]; then \
+      sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/sources.list; \
+    fi
 RUN apt-get update \
  && apt-get install -y --no-install-recommends python3 make g++ \
  && npm install --omit=dev --registry=https://registry.npmmirror.com \
