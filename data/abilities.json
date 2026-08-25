@@ -926,31 +926,49 @@
   "AndorCalldownSentinel": {
     "nameZh": "雇佣哨兵",
     "nameEn": "Calldown Sentinel",
-    "tooltip": "呼叫 [?]名哨兵。消耗[?] 补给。",
+    "tooltip": "呼叫 4名哨兵。消耗4 补给。",
     "icon": "btn-unit-protoss-zealot-purifier.png"
   },
   "AndorCalldownAdepts": {
     "nameZh": "雇佣使徒",
     "nameEn": "Calldown Adepts",
-    "tooltip": "呼叫 [?] 名使徒。消耗[?] 补给。",
+    "tooltip": "呼叫 2 名使徒。消耗4 补给。",
     "icon": "btn-unit-protoss-adept-purifier.png"
   },
   "AndorCalldownArchon": {
     "nameZh": "雇佣执政官",
     "nameEn": "Calldown Archon",
-    "tooltip": "呼叫1名 ，消耗[?] 补给。",
+    "tooltip": "呼叫1名 <c val=\"#ColorUnitName\"><d stringref=\"Unit,AndorArchon,Name\" /></c>，消耗 补给。",
     "icon": "btn-unit-protoss-archon.png"
   },
   "AndorCalldownImmortal": {
     "nameZh": "雇佣不朽者",
     "nameEn": "Calldown Immortal",
-    "tooltip": "召唤[?]个不朽者。消耗[?]补给。",
+    "tooltip": "召唤2个不朽者。消耗6补给。",
     "icon": "btn-unit-protoss-immortal.png"
+  },
+  "AndorCalldownSCV": {
+    "nameZh": "雇佣「SCV」",
+    "nameEn": "Calldown SCV",
+    "tooltip": "呼叫一个SCV，消耗1补给。",
+    "icon": "btn-unit-terran-scv.png"
+  },
+  "AndorCalldownCleaningBot": {
+    "nameZh": "亚顿雇佣黑色战锤",
+    "nameEn": "Calldown Cleaning Bot",
+    "tooltip": "召唤一个清除机器人。消耗8人口。",
+    "icon": "wireframe-critter-cleaningbot.png"
+  },
+  "AndorPlacePointDefenseDrone": {
+    "nameZh": "定点防御靶机",
+    "nameEn": "Place Point Defense Drone",
+    "tooltip": "使用激光击落敌方导弹。<n/>无法拦截特殊攻击。<n/>在 <c val=\"DCDCDC\">60</c> 秒后失效。<n/><c val=\"9370DB\">PDD能量:</c> <c val=\"9370DB\">500</c>|<c val=\"9370DB\">1000</c>|<c val=\"9370DB\">2000</c>|<c val=\"9370DB\">4000</c><n/><c val=\"9370DB\">每次射击消耗等于被阻挡伤害的能量。</c><n/><c val=\"E6E6E6\">定点防御无人机需要视野来阻挡不是针对无人机的投射物。</c>",
+    "icon": "btn-unit-terran-targetingdrone.png"
   },
   "Rapidfire": {
     "nameZh": "速射模式",
     "nameEn": "Rapid fire",
-    "tooltip": "增加亚顿的攻击速度。\n\n攻速增加倍率: [?]x|[?]x|[?]x|[?]x\n冷却时间: [?]s|[?]s|[?]s|[?]s",
+    "tooltip": "增加亚顿的攻击速度。<n/><c val=\"FFB347\">攻速增加倍率:</c> <c val=\"FFB347\">2x</c>|<c val=\"FFB347\">3x</c>|<c val=\"FFB347\">5x</c>|<c val=\"FFB347\">7x</c><n/><c val=\"DCDCDC\">冷却时间:</c> <c val=\"DCDCDC\">60s</c>|<c val=\"DCDCDC\">45s</c>|<c val=\"DCDCDC\">35s</c>|<c val=\"DCDCDC\">20s</c>",
     "icon": "btn-upgrade-terran-superstimppack.png"
   },
   "RenewingTune": {
