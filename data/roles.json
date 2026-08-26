@@ -1094,7 +1094,7 @@
       "damage": 35,
       "attackSpeed": 1,
       "range": 2,
-      "energyRegen": 1
+      "energyRegen": 2
     },
     "abilities": [
       "EnergizerOvercharge",
@@ -1106,8 +1106,7 @@
       "EMCSquareToTheBrim",
       "Emc2Omnipotence",
       "Emc2BigBang",
-      "EnergizerGeneratorShieldAura",
-      "EnergizerRapidFire"
+      "EnergizerGeneratorShieldAura"
     ]
   },
   {
@@ -1520,6 +1519,41 @@
       "SkitterSkitterCommandMammoths",
       "SkitterSkitterSpecialize",
       "SkitterSkitterBlink"
+    ]
+  },
+  {
+    "id": 49,
+    "nameEn": "Visionary",
+    "nameZh": "魔法视野化",
+    "heroUnits": [
+      "VisionaryVisionaryHero"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Buttons\\visionary-icon.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 6/10 </c> <n/><n/>魔法视野化利用自己的姿态掌控战场，使其所有单位在全图范围内获得增益。 <n/><n/><c val=\"00FF00\">由 Willdroyd 开发并维护 </c>",
+    "stats": {
+      "hp": 200,
+      "speed": 3.3,
+      "armor": 1,
+      "energy": 100,
+      "damage": 30,
+      "attackSpeed": 1.3,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "VisionaryAggressiveStance",
+      "VisionaryDefensiveStance",
+      "VisionaryPassiveStance",
+      "VisionaryAggressiveStanceAbility1",
+      "VisionaryAggressiveStanceAbility2",
+      "VisionaryDefensiveStanceAbility1",
+      "VisionaryDefensiveStanceAbility2",
+      "VisionaryPassiveStanceAbility1",
+      "VisionaryPassiveStanceAbility2",
+      "CommonBlinkHero",
+      "VisionaryTrain"
     ]
   }
 ]

@@ -1191,8 +1191,7 @@
       "EMCSquareToTheBrim",
       "Emc2Omnipotence",
       "Emc2BigBang",
-      "EnergizerGeneratorShieldAura",
-      "EnergizerRapidFire"
+      "EnergizerGeneratorShieldAura"
     ]
   },
   {
@@ -1640,6 +1639,43 @@
       "SkitterSkitterCommandMammoths",
       "SkitterSkitterSpecialize",
       "SkitterSkitterBlink"
+    ]
+  },
+  {
+    "id": 49,
+    "nameEn": "Visionary",
+    "nameZh": "魔法视野化",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "VisionaryVisionaryHero"
+    ],
+    "unitIcon": "Assets\\Buttons\\visionary-icon.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "docstr",
+      "keys": [
+        "DOCSTR_VisionaryDesc"
+      ]
+    },
+    "baseStats": {
+      "hp": 200,
+      "speed": 3.3,
+      "armor": 1,
+      "energy": 100
+    },
+    "abilities": [
+      "VisionaryAggressiveStance",
+      "VisionaryDefensiveStance",
+      "VisionaryPassiveStance",
+      "VisionaryAggressiveStanceAbility1",
+      "VisionaryAggressiveStanceAbility2",
+      "VisionaryDefensiveStanceAbility1",
+      "VisionaryDefensiveStanceAbility2",
+      "VisionaryPassiveStanceAbility1",
+      "VisionaryPassiveStanceAbility2",
+      "CommonBlinkHero",
+      "VisionaryTrain"
     ]
   }
 ]

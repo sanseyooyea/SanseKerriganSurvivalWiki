@@ -2525,8 +2525,8 @@
       {
         "id": "SpiritExchange",
         "nameZh": "证券交易所",
-        "hp": 75,
-        "shield": 75,
+        "hp": 100,
+        "shield": 100,
         "armor": 1
       }
     ],
