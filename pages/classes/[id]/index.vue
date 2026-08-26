@@ -207,7 +207,7 @@
     <!-- User Notes Section -->
     <div v-if="renderedNotes" class="wiki-card p-5 mb-6">
       <div class="section-title">社区攻略</div>
-      <div class="prose prose-sm dark:prose-invert max-w-none" v-html="renderedNotes" />
+      <div class="wk-article" v-html="renderedNotes" />
     </div>
   </div>
 
