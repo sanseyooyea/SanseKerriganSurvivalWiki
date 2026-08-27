@@ -181,6 +181,7 @@ const NAV_GROUPS = [
       { to: '/changelog', label: '更新日志', icon: '∆' },
       { to: '/council', label: '钻石议会', icon: '◇' },
       { to: '/feedback', label: '建议反馈', icon: '▸' },
+      { to: '/support', label: '支持本站', icon: '♥' },
     ],
   },
 ]

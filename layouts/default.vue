@@ -9,6 +9,12 @@
         凯瑞甘生存2 Wiki · 非官方社区项目 · 数据来源于游戏文件
       </p>
       <p class="text-xs text-gray-400 dark:text-gray-500">
+        <NuxtLink to="/support"
+          class="hover:text-survivor-500 dark:hover:text-survivor-400 transition-colors">
+          ♥ 支持本站
+        </NuxtLink>
+      </p>
+      <p class="text-xs text-gray-400 dark:text-gray-500">
         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener"
           class="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
           浙ICP备2026041261号-1
