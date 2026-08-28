@@ -1532,7 +1532,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Buttons\\visionary-icon.dds",
     "portrait": "",
-    "description": "<c val=\"FF0000\">难度 - 6/10 </c> <n/><n/>魔法视野化利用自己的姿态掌控战场，使其所有单位在全图范围内获得增益。 <n/><n/><c val=\"00FF00\">由 Willdroyd 开发并维护 </c>",
+    "description": "<c val=\"FF0000\">难度 - 6/10 </c> <n/><n/>远见者利用自己的姿态掌控战场，使其所有单位在全图范围内获得增益。 <n/><n/><c val=\"00FF00\">由 Willdroyd 开发并维护 </c>",
     "stats": {
       "hp": 200,
       "speed": 3.3,

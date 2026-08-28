@@ -1132,9 +1132,9 @@
         "hp": 25,
         "shield": 75,
         "speed": 3,
-        "damage": 1,
+        "damage": 15,
         "attackSpeed": 1.5,
-        "range": 3
+        "range": 4
       },
       {
         "id": "Carrier@Unit",
@@ -3125,7 +3125,7 @@
       {
         "id": "IzshaInfestedBlimpSeigeModeLevel4",
         "nameZh": "被感染的飞船",
-        "hp": 1000,
+        "hp": 500,
         "armor": 12
       }
     ],
