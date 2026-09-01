@@ -652,17 +652,19 @@
       "hp": 400,
       "speed": 3.25,
       "armor": 2,
-      "energy": null
+      "energy": null,
+      "attackSpeed": 10,
+      "range": 10
     },
     "abilities": [
       "MiraNuclearStrike",
       "MiraCalldownCyclone",
-      "MiraDeflect",
       "MiraPsionicTransfer",
       "MiraCalldownSentinel",
       "MiraCalldownRaider",
       "MiraCalldownHunter",
-      "MiraCalldownSiegeBreaker"
+      "MiraCalldownSiegeBreaker",
+      "MiraCalldownLiberator"
     ]
   },
   {
