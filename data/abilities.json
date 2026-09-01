@@ -439,16 +439,10 @@
     "tooltip": "呼叫一个飓风。飓风必须从转化的矿物化合物中生产。<n/>飓风每单位消耗 <c val=\"E6E6E6\">4</c> 人口。",
     "icon": "btn-unit-terran-cyclone.png"
   },
-  "MiraDeflect": {
-    "nameZh": "偏转",
-    "nameEn": "Deflect",
-    "tooltip": "使区域内的单位远离米拉。可以被对方玩家取消。\n\n不影响英雄单位。",
-    "icon": "btn-ability-terran-emp-color.png"
-  },
   "MiraPsionicTransfer": {
     "nameZh": "灵能转移",
     "nameEn": "Psionic Transfer",
-    "tooltip": "投射出一个无敌的阴影，可以移动但不能攻击。<n/>米拉在激活后 <c val=\"E6E6E6\">10</c> 秒后传送到阴影的位置。<n/>激活后可以取消",
+    "tooltip": "投射出一个无敌的影子，可以移动但无法攻击。<n/>影子在菌毯上以 75% 的速度移动。<n/>米拉在激活后 <c val=\"E6E6E6\">10</c> 秒传送到影子所在位置。<n/>激活后可以取消。",
     "icon": "btn-ability-protoss-psionictransfer.png"
   },
   "MiraCalldownSentinel": {
@@ -474,6 +468,12 @@
     "nameEn": "Calldown Siege Breaker",
     "tooltip": "呼叫一个破城者。破城者必须从转化的矿物化合物中生产。<n/>破城者每单位消耗 <c val=\"E6E6E6\">5</c> 人口。",
     "icon": "btn-unit-terran-merc-siegetanktank.png"
+  },
+  "MiraCalldownLiberator": {
+    "nameZh": "呼叫袭掠解放者",
+    "nameEn": "Calldown Liberator",
+    "tooltip": "召唤一个袭掠解放者。袭掠解放者必须从已变形的矿物化合物中生产。<n/>每个袭掠解放者消耗 <c val=\"E6E6E6\">6</c> 人口供应。",
+    "icon": "btn-unit-terran-liberator.png"
   },
   "ScionChainLightning": {
     "nameZh": "闪电链",
@@ -1398,19 +1398,19 @@
   "VisionaryAggressiveStance": {
     "nameZh": "攻击姿态",
     "nameEn": "Aggressive Stance",
-    "tooltip": "将远见者切换至攻击姿态，使其可使用过载技能，并在攻击姿态达到3级后获得战斗狂热技能<n/><c val=\"FF8080\">攻击速度加成</c>: <c val=\"FF8080\">+10% | </c><c val=\"FF8080\">+15% | </c><c val=\"FF8080\">+20% | </c><c val=\"FF8080\">+25% | </c><c val=\"FF8080\">+45% </c><n/><c val=\"E6E6E6\">射程加成：1</c><n/><c val=\"FF8080\">攻击速度加成</c>: <c val=\"FF8080\">+10% | </c><c val=\"FF8080\">+15% | </c><c val=\"FF8080\">+20% | </c><c val=\"FF8080\">+25% | </c><c val=\"FF8080\">+35%</c><n/><c val=\"E6E6E6\">射程加成</c>: <c val=\"E6E6E6\">+1</c> | <c val=\"E6E6E6\">+1 | </c><c val=\"E6E6E6\">+2 | </c><c val=\"E6E6E6\">+2 | </c><c val=\"E6E6E6\">+3</c><n/><c val=\"FF8080\">伤害加成</c>: <c val=\"FF8080\">+10% | </c><c val=\"FF8080\">+15% | </c><c val=\"FF8080\">+20% | </c><c val=\"FF8080\">+25% | </c><c val=\"FF8080\">+30%</c><n/><c val=\"FF8080\">伤害加成</c>: <c val=\"FF8080\">+15% | </c><c val=\"FF8080\">+20% | </c><c val=\"FF8080\">+25% | </c><c val=\"FF8080\">+30% | </c><c val=\"FF8080\">+40%</c><n/><c val=\"FF6B6B\">受到的伤害</c>: <c val=\"FF6B6B\">+15% | </c><c val=\"FF6B6B\">+20% | </c><c val=\"FF6B6B\">+22% | </c><c val=\"FF6B6B\">+25% | </c><c val=\"FF6B6B\">+20%</c><n/><c val=\"E6E6E6\">命中目标数</c>: 1<n/><c val=\"FF8080\">每次命中伤害</c>: <c val=\"FF8080\">11.5</c> | <c val=\"FF8080\">12.5</c> |  |  | ",
+    "tooltip": "将远见者切换为攻击姿态，解锁超频技能，并在攻击姿态达到3级后解锁战斗狂热技能<n/><c val=\"FF8080\">攻击速度加成</c>：<c val=\"FF8080\">+10% | </c><c val=\"FF8080\">+15% | </c><c val=\"FF8080\">+20% | </c><c val=\"FF8080\">+25% | </c><c val=\"FF8080\">+45% </c><n/><c val=\"E6E6E6\">射程加成：1</c><n/>冷却时间：20 | 25 | 30 | 35<n/><c val=\"FF8080\">攻击速度加成</c>：<c val=\"FF8080\">+10% | </c><c val=\"FF8080\">+15% | </c><c val=\"FF8080\">+20% | </c><c val=\"FF8080\">+25% | </c><c val=\"FF8080\">+35%</c><n/><c val=\"E6E6E6\">射程加成</c>：<c val=\"E6E6E6\">+1</c> | <c val=\"E6E6E6\">+1</c> | <c val=\"E6E6E6\">+2</c> | <c val=\"E6E6E6\">+2</c> | <c val=\"E6E6E6\">+3</c><n/><c val=\"FF8080\">伤害加成</c>：<c val=\"FF8080\">+10%</c> | <c val=\"FF8080\">+15%</c> | <c val=\"FF8080\">+20%</c> | <c val=\"FF8080\">+25%</c> | <c val=\"FF8080\">+30%</c><n/><c val=\"FF8080\">伤害加成</c>：<c val=\"FF8080\">+15%</c> | <c val=\"FF8080\">+20%</c> | <c val=\"FF8080\">+25%</c> | <c val=\"FF8080\">+30%</c> | <c val=\"FF8080\">+40%</c><n/><c val=\"FF6B6B\">受到的伤害</c>：<c val=\"FF6B6B\">+15%</c> | <c val=\"FF6B6B\">+20%</c> | <c val=\"FF6B6B\">+22%</c> | <c val=\"FF6B6B\">+25%</c> | <c val=\"FF6B6B\">+20%</c><n/><c val=\"E6E6E6\">命中目标数</c>：1<n/><c val=\"FF8080\">每次命中伤害</c>：<c val=\"FF8080\">11.5</c> | <c val=\"FF8080\">12.5</c> |  |  | ",
     "icon": "high-templar-face-red.png"
   },
   "VisionaryDefensiveStance": {
     "nameZh": "防卫姿态",
     "nameEn": "防卫姿态",
-    "tooltip": "将远见者切换至防御姿态，使其可使用坚壁冲刺技能，并在防御姿态达到3级时获得低温静滞技能。<n/>同时将地图上的所有单位切换至防御姿态，获得防御和再生增益<n/><c val=\"00FF7F\">生命值</c>/<c val=\"87CEEB\">护盾</c>百分比：<c val=\"E6E6E6\">+5%</c> | <c val=\"E6E6E6\">+10%</c> | <c val=\"E6E6E6\">+15%</c> | <c val=\"E6E6E6\">+20%</c> | <c val=\"E6E6E6\">+30%</c><n/><c val=\"90EE90\">移动速度</c>：<c val=\"90EE90\">+0.15 </c>| <c val=\"90EE90\">+0.2</c> | <c val=\"90EE90\">+0.25</c> | <c val=\"90EE90\">+0.3</c> | <c val=\"90EE90\">0.35</c><n/><c val=\"00FF7F\">生命值</c>/<c val=\"87CEEB\">护盾回复</c>：<c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> /秒<n/><c val=\"00FF7F\">生命值上限</c>：<c val=\"00FF7F\">+10% | </c><c val=\"00FF7F\">+20% | </c><c val=\"00FF7F\">+30% | </c><c val=\"00FF7F\">+40% | </c><c val=\"00FF7F\">+50%</c><n/><c val=\"87CEEB\">护盾上限</c>：<c val=\"87CEEB\">+10% | </c><c val=\"87CEEB\">+20% | </c><c val=\"87CEEB\">+30% | </c><c val=\"87CEEB\">+40% | </c><c val=\"87CEEB\">+50%</c><n/><c val=\"00FF7F\">生命值回复</c>：<c val=\"00FF7F\">+1</c>/秒<n/><c val=\"87CEEB\">护盾回复</c>：<c val=\"87CEEB\">+3</c>/秒<n/>攻击现在为单体攻击<n/><c val=\"FF8080\">伤害加成</c>：<c val=\"FF8080\">+100% | </c><c val=\"FF8080\">+120% | </c><c val=\"FF8080\">+140% | </c><c val=\"FF8080\">+160% | </c><c val=\"FF8080\">+200%</c><n/><c val=\"00FF7F\">生命偷取</c>：<c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">15%</c><n/><c val=\"00FF7F\">每秒治疗量</c>：<c val=\"00FF7F\">8 | </c><c val=\"00FF7F\">12 | </c><c val=\"00FF7F\">24 | </c><c val=\"00FF7F\">32</c> | <c val=\"00FF7F\">40</c><n/><c val=\"E6E6E6\">目标数</c>：1",
+    "tooltip": "将远见者切换为防御姿态，解锁堡垒冲刺技能，并在防御姿态达到3级时解锁冰冻停滞技能。<n/>同时将地图上的所有单位切换为防御姿态，获得防御和再生增益<n/><c val=\"00FF7F\">生命</c>/<c val=\"87CEEB\">护盾</c> %：<c val=\"E6E6E6\">+5%</c> | <c val=\"E6E6E6\">+10%</c> | <c val=\"E6E6E6\">+15%</c> | <c val=\"E6E6E6\">+20%</c> | <c val=\"E6E6E6\">+30%</c><n/>冷却时间：20 | 25 | 30 | 35<n/><c val=\"90EE90\">移动速度</c>：<c val=\"90EE90\">+0.15 </c>|<c val=\"90EE90\">+0.2</c>|<c val=\"90EE90\">+0.25</c>|<c val=\"90EE90\">+0.3</c>|<c val=\"90EE90\">+0.35</c> <n/><c val=\"00FF7F\">生命</c>/<c val=\"87CEEB\">护盾再生</c>：<c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> | <c val=\"00FF7F\">+1</c> /秒<n/><c val=\"00FF7F\">最大生命</c> <c val=\"87CEEB\">和护盾</c></s>：<c val=\"00FF7F\">+10% | </c><c val=\"00FF7F\">+20% | </c><c val=\"00FF7F\">+30% | </c><c val=\"00FF7F\">+40% | </c><c val=\"00FF7F\">+50%</c><n/><c val=\"00FF7F\">生命/</c><c val=\"87CEEB\">护盾再生</c>：<c val=\"00FF7F\">+1</c> 生命/秒 +3 护盾/秒<n/>攻击现在为单体目标<n/><c val=\"FF8080\">伤害加成</c>：<c val=\"FF8080\">+100% | </c><c val=\"FF8080\">+120% | </c><c val=\"FF8080\">+140% | </c><c val=\"FF8080\">+160% | </c><c val=\"FF8080\">+200%</c><n/><c val=\"00FF7F\">生命偷取</c>：<c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">10% | </c><c val=\"00FF7F\">15%</c><n/><c val=\"00FF7F\">每秒治疗量</c>：<c val=\"00FF7F\">8 | </c><c val=\"00FF7F\">12 | </c><c val=\"00FF7F\">24 | </c><c val=\"00FF7F\">32</c> | <c val=\"00FF7F\">40</c><n/><c val=\"E6E6E6\">目标</c>：1",
     "icon": "high-templar-face-green.png"
   },
   "VisionaryPassiveStance": {
     "nameZh": "被动姿态",
     "nameEn": "Passive Stance",
-    "tooltip": "将远见者切换至被动姿态，使其可使用时间加速技能，并在被动姿态达到3级时获得时空力场技能<n/>所有单位均设置为普通姿态，不获得任何加成<n/><c val=\"E6E6E6\">时空加速</c>：<c val=\"E6E6E6\">70%</c> / <c val=\"E6E6E6\">80%</c> / <c val=\"E6E6E6\">90%</c> / <c val=\"E6E6E6\">100%</c><n/><c val=\"E6E6E6\">持续时间：120秒</c>",
+    "tooltip": "将远见者切换为被动姿态，解锁时间加速技能，并在被动姿态达到3级时解锁时间力场技能<n/>所有单位均切换为普通姿态模式，不获得任何加成<n/>冷却时间：20 | 25 | 30 | 35<n/><c val=\"E6E6E6\">时空加速</c>：<c val=\"E6E6E6\">70%</c> / <c val=\"E6E6E6\">80%</c> / <c val=\"E6E6E6\">90%</c> / <c val=\"E6E6E6\">100%</c><n/><c val=\"E6E6E6\">持续时间：120秒</c>",
     "icon": "high-templar--face-white.png"
   },
   "VisionaryAggressiveStanceAbility1": {

@@ -254,6 +254,18 @@
       "date": "2025-12-05"
     },
     {
+      "key": "aiur_fountains",
+      "map": "AiurFountains",
+      "nameZh": "艾尔喷泉",
+      "tileset": "AugustFountainsTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/aiur_fountains.png",
+      "rockModel": "CommonTerrainIce4x4",
+      "rockProbDefault": 0.5,
+      "candidateCount": 124,
+      "date": null
+    },
+    {
       "key": "no_hope",
       "map": "NoHope",
       "nameZh": "绝望之地",

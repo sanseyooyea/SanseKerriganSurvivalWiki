@@ -720,12 +720,12 @@
     "abilities": [
       "MiraNuclearStrike",
       "MiraCalldownCyclone",
-      "MiraDeflect",
       "MiraPsionicTransfer",
       "MiraCalldownSentinel",
       "MiraCalldownRaider",
       "MiraCalldownHunter",
-      "MiraCalldownSiegeBreaker"
+      "MiraCalldownSiegeBreaker",
+      "MiraCalldownLiberator"
     ]
   },
   {
