@@ -3,6 +3,7 @@ export interface User {
   username: string
   role: 'admin' | 'editor' | 'user'
   handle?: string
+  email?: string
 }
 
 export function useAuth() {

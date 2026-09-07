@@ -51,9 +51,8 @@ async function handleAction(event: any, db: any, admin: any, action: string, use
       throw createError({ statusCode: 400, message: '密码至少6位' })
     }
     const hash = bcrypt.hashSync(password, 10)
-    db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(hash, userId)
-    // JWT 无状态、有效期 7 天且无 token 版本列，重置不会立即失效该用户已登录的旧 token。
-    return { success: true, note: '密码已重置；该用户已登录的旧会话最长 7 天后失效' }
+    db.prepare('UPDATE users SET password_hash = ?, token_version = token_version + 1 WHERE id = ?').run(hash, userId)
+    return { success: true, note: '密码已重置，该用户所有已登录会话已失效' }
   }
 
   if (action === 'setHandle') {

@@ -13,6 +13,7 @@ export interface TokenPayload {
   userId: number
   username: string
   role: string
+  tokenVersion?: number
 }
 
 export interface AuthUser {
@@ -20,6 +21,7 @@ export interface AuthUser {
   username: string
   role: 'admin' | 'editor' | 'user'
   handle: string
+  email: string
 }
 
 export function signToken(payload: TokenPayload): string {
@@ -38,6 +40,7 @@ export function verifyToken(token: string): TokenPayload | null {
  * 校验请求携带的有效 token，并从数据库取出最新的用户记录。
  * token 里的 role 只是签发时的快照，权限判断必须以库里当前 role 为准，
  * 否则降权后 7 天内旧 token 仍能越权操作。
+ * 同时校验 tokenVersion：密码重置后旧 token 立即失效。
  */
 export function requireUser(event: H3Event): AuthUser {
   const auth = getHeader(event, 'authorization')
@@ -50,12 +53,16 @@ export function requireUser(event: H3Event): AuthUser {
   }
   const db = getDb()
   const user = db
-    .prepare('SELECT id, username, role, handle FROM users WHERE id = ?')
-    .get(payload.userId) as AuthUser | undefined
+    .prepare('SELECT id, username, role, handle, email, token_version FROM users WHERE id = ?')
+    .get(payload.userId) as (AuthUser & { token_version: number }) | undefined
   if (!user) {
     throw createError({ statusCode: 401, message: '用户不存在' })
   }
-  return { ...user, handle: user.handle || '' }
+  // tokenVersion 校验：旧 token 无此字段视为 0，与默认值匹配
+  if ((payload.tokenVersion ?? 0) !== (user.token_version ?? 0)) {
+    throw createError({ statusCode: 401, message: '密码已变更，请重新登录' })
+  }
+  return { ...user, handle: user.handle || '', email: user.email || '' }
 }
 
 /** 在 requireUser 基础上，要求用户角色在 roles 白名单内。 */

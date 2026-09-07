@@ -21,6 +21,24 @@
         </div>
       </div>
 
+      <div class="wiki-card p-5 mb-4">
+        <div class="section-title">邮箱设置</div>
+        <p class="text-xs text-gray-400 mb-3">绑定邮箱后可使用「忘记密码」功能找回账号</p>
+        <div class="flex gap-2">
+          <input v-model="emailInput" type="email" placeholder="your@email.com"
+            class="flex-1 border border-gray-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-survivor-300" />
+          <button @click="saveEmail" :disabled="savingEmail"
+            class="px-4 py-2 text-sm font-medium text-white bg-survivor-600 rounded-lg hover:bg-survivor-700 disabled:opacity-50 transition whitespace-nowrap">
+            {{ savingEmail ? '保存中...' : (user?.email ? '更换' : '绑定') }}
+          </button>
+        </div>
+        <div v-if="user?.email" class="mt-2 text-xs text-gray-500">
+          当前邮箱：<span class="text-gray-700 dark:text-gray-300">{{ user.email }}</span>
+        </div>
+        <p v-if="emailError" class="mt-2 text-xs text-red-500">{{ emailError }}</p>
+        <p v-if="emailSuccess" class="mt-2 text-xs text-green-600">{{ emailSuccess }}</p>
+      </div>
+
       <div class="wiki-card p-5">
         <div class="section-title">游戏句柄绑定</div>
         <p class="text-xs text-gray-400 mb-3">绑定后可显示段位图标，格式如 5-S2-1-1194668</p>
@@ -50,9 +68,36 @@ const binding = ref(false)
 const handleError = ref('')
 const handleSuccess = ref('')
 
+const emailInput = ref('')
+const savingEmail = ref(false)
+const emailError = ref('')
+const emailSuccess = ref('')
+
 onMounted(() => {
   if (user.value?.handle) handleInput.value = user.value.handle
+  if (user.value?.email) emailInput.value = user.value.email
 })
+
+async function saveEmail() {
+  emailError.value = ''
+  emailSuccess.value = ''
+  const val = emailInput.value.trim()
+  if (!val) { emailError.value = '请输入邮箱地址'; return }
+  savingEmail.value = true
+  try {
+    await $fetch('/api/auth/email', {
+      method: 'PUT',
+      headers: authHeaders.value,
+      body: { email: val },
+    })
+    emailSuccess.value = '邮箱绑定成功'
+    await init()
+  } catch (e: any) {
+    emailError.value = e.data?.message || '绑定失败'
+  } finally {
+    savingEmail.value = false
+  }
+}
 
 async function bindHandle() {
   handleError.value = ''

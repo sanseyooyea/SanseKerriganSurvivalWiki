@@ -11,11 +11,11 @@ export default defineEventHandler(async (event) => {
   }
 
   const db = getDb()
-  const user = db.prepare('SELECT * FROM users WHERE username = ?').get(username) as any
+  const user = db.prepare('SELECT id, username, password_hash, role, handle, email, token_version FROM users WHERE username = ?').get(username) as any
   if (!user || !bcrypt.compareSync(password, user.password_hash)) {
     throw createError({ statusCode: 401, message: '用户名或密码错误' })
   }
 
-  const token = signToken({ userId: user.id, username: user.username, role: user.role })
-  return { token, user: { id: user.id, username: user.username, role: user.role } }
+  const token = signToken({ userId: user.id, username: user.username, role: user.role, tokenVersion: user.token_version ?? 0 })
+  return { token, user: { id: user.id, username: user.username, role: user.role, handle: user.handle || '', email: user.email || '' } }
 })

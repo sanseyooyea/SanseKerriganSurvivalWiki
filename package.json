@@ -20,12 +20,14 @@
     "isomorphic-dompurify": "^3.16.0",
     "jsonwebtoken": "^9.0.3",
     "marked": "^15.0.12",
+    "nodemailer": "^10.0.0",
     "nuxt": "^3.16.0",
     "vue": "^3.5.0",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.13.0",
+    "@types/nodemailer": "^8.0.1",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.7.0"
   }
