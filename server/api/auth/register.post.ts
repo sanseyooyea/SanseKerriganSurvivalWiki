@@ -37,9 +37,19 @@ export default defineEventHandler(async (event) => {
     } catch {}
   }
 
-  const result = db.prepare('INSERT INTO users (username, password_hash, role, handle) VALUES (?, ?, ?, ?)')
-    .run(username, hash, role, validHandle)
+  // 可选邮箱
+  let email = ''
+  if (body.email && typeof body.email === 'string' && body.email.trim()) {
+    const trimmedEmail = body.email.trim()
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      const emailExists = db.prepare('SELECT id FROM users WHERE email = ?').get(trimmedEmail)
+      if (!emailExists) email = trimmedEmail
+    }
+  }
 
-  const token = signToken({ userId: result.lastInsertRowid as number, username, role })
-  return { token, user: { id: result.lastInsertRowid, username, role, handle: validHandle } }
+  const result = db.prepare('INSERT INTO users (username, password_hash, role, handle, email) VALUES (?, ?, ?, ?, ?)')
+    .run(username, hash, role, validHandle, email)
+
+  const token = signToken({ userId: result.lastInsertRowid as number, username, role, tokenVersion: 0 })
+  return { token, user: { id: result.lastInsertRowid, username, role, handle: validHandle, email } }
 })

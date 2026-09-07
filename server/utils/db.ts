@@ -121,5 +121,20 @@ function initSchema(db: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_wer_status ON wiki_edit_reviews(status);
     CREATE INDEX IF NOT EXISTS idx_wer_slug ON wiki_edit_reviews(slug);
     CREATE INDEX IF NOT EXISTS idx_wer_submitter ON wiki_edit_reviews(submitted_by);
+
+    -- 密码重置令牌（token 只存 SHA-256 哈希，原文通过邮件发给用户）
+    CREATE TABLE IF NOT EXISTS password_reset_tokens (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      token_hash TEXT NOT NULL,
+      expires_at TEXT NOT NULL,
+      created_at TEXT DEFAULT (datetime('now'))
+    );
+    CREATE INDEX IF NOT EXISTS idx_prt_user ON password_reset_tokens(user_id);
   `)
+
+  // ---- 增量列迁移（ALTER TABLE 不支持 IF NOT EXISTS，用 try/catch 保证幂等）----
+  try { db.exec(`ALTER TABLE users ADD COLUMN email TEXT DEFAULT ''`) } catch {}
+  try { db.exec(`ALTER TABLE users ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0`) } catch {}
+  try { db.exec(`CREATE UNIQUE INDEX idx_users_email ON users(email) WHERE email != ''`) } catch {}
 }

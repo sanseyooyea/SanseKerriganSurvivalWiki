@@ -19,6 +19,12 @@
           <input v-model="password" type="password" required minlength="6"
             class="w-full border border-surface-200 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-survivor-200 dark:focus:ring-survivor-800" />
         </div>
+        <p v-if="!isRegister" class="text-right -mt-2">
+          <NuxtLink to="/forgot-password"
+            class="text-xs text-gray-400 hover:text-survivor-600 dark:hover:text-survivor-400 hover:underline">
+            忘记密码？
+          </NuxtLink>
+        </p>
         <div v-if="isRegister">
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">游戏句柄</label>
           <input v-model="handle" type="text" placeholder="例如: 5-S2-1-1194668"
