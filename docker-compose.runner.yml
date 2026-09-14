@@ -10,6 +10,9 @@ services:
       - "8080:3000"
     volumes:
       - ./data:/app/data
+    # .env 全量注入容器（SMTP_*/APP_URL 供忘记密码发信；JWT_SECRET 亦在此）
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - JWT_SECRET=${JWT_SECRET:?需要在环境中设置 JWT_SECRET}
