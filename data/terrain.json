@@ -1,6 +1,54 @@
 {
-  "defaultMap": "mar_sara_wastelands",
+  "defaultMap": "zerus_volcanoes",
   "maps": [
+    {
+      "key": "zerus_volcanoes",
+      "map": "ZerusVolcanoes",
+      "nameZh": "泽鲁斯火山",
+      "tileset": "ZerusVolcanosTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/zerus_volcanoes.png",
+      "rockModel": "ZerusVolcanoesRock",
+      "rockProbDefault": 0.5,
+      "candidateCount": 136,
+      "date": null
+    },
+    {
+      "key": "aduns_forgotten_temple",
+      "map": "AdunsForgottenTemple",
+      "nameZh": "阿顿的失落神庙",
+      "tileset": "AdunsForgottenTemple",
+      "worldSize": 256,
+      "minimap": "/maps/aduns_forgotten_temple.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 89,
+      "date": "2026-09-11"
+    },
+    {
+      "key": "aiur_fountains",
+      "map": "AiurFountains",
+      "nameZh": "艾尔喷泉",
+      "tileset": "AugustFountainsTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/aiur_fountains.png",
+      "rockModel": "CommonTerrainIce4x4",
+      "rockProbDefault": 0.5,
+      "candidateCount": 124,
+      "date": "2026-09-01"
+    },
+    {
+      "key": "no_hope",
+      "map": "NoHope",
+      "nameZh": "绝望之地",
+      "tileset": "NoHopeTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/no_hope.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 172,
+      "date": "2026-08-28"
+    },
     {
       "key": "mar_sara_wastelands",
       "map": "MarSaraWastelands",
@@ -218,12 +266,12 @@
       "date": "2026-02-13"
     },
     {
-      "key": "aduns_forgotten_temple",
+      "key": "aduns_forgotten_temple_20260127",
       "map": "AdunsForgottenTemple",
       "nameZh": "阿顿的失落神庙",
       "tileset": "MapsAdunsForgottenTemple",
       "worldSize": 256,
-      "minimap": "/maps/aduns_forgotten_temple.png",
+      "minimap": "/maps/aduns_forgotten_temple_20260127.png",
       "rockModel": "CommonRockBlackStones",
       "rockProbDefault": 0.5,
       "candidateCount": 79,
@@ -252,30 +300,6 @@
       "rockProbDefault": 0.5,
       "candidateCount": 199,
       "date": "2025-12-05"
-    },
-    {
-      "key": "aiur_fountains",
-      "map": "AiurFountains",
-      "nameZh": "艾尔喷泉",
-      "tileset": "AugustFountainsTerrainType",
-      "worldSize": 256,
-      "minimap": "/maps/aiur_fountains.png",
-      "rockModel": "CommonTerrainIce4x4",
-      "rockProbDefault": 0.5,
-      "candidateCount": 124,
-      "date": null
-    },
-    {
-      "key": "no_hope",
-      "map": "NoHope",
-      "nameZh": "绝望之地",
-      "tileset": "NoHopeTerrainType",
-      "worldSize": 256,
-      "minimap": "/maps/no_hope.png",
-      "rockModel": "CommonRockBlackStones",
-      "rockProbDefault": 0.5,
-      "candidateCount": 172,
-      "date": null
     }
   ]
 }
