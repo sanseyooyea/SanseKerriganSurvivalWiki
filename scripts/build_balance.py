@@ -141,7 +141,10 @@ def main():
     # daily per-hero: (role_name, day, grp) -> [plays, wins]
     day_hero = {}
     skipped_no_game = skipped_no_role = 0
-    for game_id, _handle, role_name, _ds in copy_rows(dump, 'balance_players'):
+    # balance_players gained trailing columns over time (ds, then clara_version);
+    # index the first three we need so new tail columns don't break unpacking.
+    for row in copy_rows(dump, 'balance_players'):
+        game_id, role_name = row[0], row[2]
         meta = game_meta.get(game_id)
         if meta is None:
             skipped_no_game += 1
