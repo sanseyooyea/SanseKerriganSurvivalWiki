@@ -305,7 +305,7 @@
       },
       {
         "id": "AndorXelNagaShrine",
-        "nameZh": "萨尔那加神庙",
+        "nameZh": "萨尔那加圣坛",
         "hp": 150
       },
       {
@@ -909,7 +909,7 @@
       },
       {
         "id": "CritterLordZerusianNeedler",
-        "nameZh": "泽鲁斯蜂针",
+        "nameZh": "泽鲁斯针",
         "hp": 70,
         "speed": 3,
         "damage": 15,
@@ -1098,7 +1098,7 @@
       },
       {
         "id": "Beyblade",
-        "nameZh": "陀螺",
+        "nameZh": "战斗陀螺",
         "hp": 75,
         "shield": 25,
         "speed": 3,
@@ -1155,7 +1155,7 @@
       },
       {
         "id": "BeybladeTier2",
-        "nameZh": "爆旋陀螺",
+        "nameZh": "战斗陀螺",
         "hp": 225,
         "shield": 75,
         "speed": 3,
@@ -1199,7 +1199,7 @@
       },
       {
         "id": "Switch",
-        "nameZh": "转换",
+        "nameZh": "连接器",
         "hp": 100,
         "shield": 100
       },
@@ -1212,7 +1212,7 @@
       },
       {
         "id": "BattleStation",
-        "nameZh": "武器库",
+        "nameZh": "战斗平台",
         "hp": 100,
         "shield": 100
       },
@@ -1230,7 +1230,7 @@
       },
       {
         "id": "HyperspaceRelay",
-        "nameZh": "超空间转移",
+        "nameZh": "超空间接口",
         "hp": 100,
         "shield": 100
       },
@@ -1460,7 +1460,7 @@
       },
       {
         "id": "HeliosSolarCannon",
-        "nameZh": "太阳大炮",
+        "nameZh": "太阳能光炮",
         "hp": 50,
         "shield": 50,
         "armor": 1,
@@ -1703,7 +1703,7 @@
     "troops": [
       {
         "id": "ScientistMedivac",
-        "nameZh": "医疗艇",
+        "nameZh": "医疗运输机",
         "hp": 200,
         "speed": 2.5
       },
@@ -1723,7 +1723,7 @@
       },
       {
         "id": "ScientistReaper",
-        "nameZh": "死神",
+        "nameZh": "收割者",
         "hp": 50,
         "speed": 3.5,
         "damage": 4,
@@ -1979,7 +1979,7 @@
     "economy": [
       {
         "id": "SelendisMineralField1",
-        "nameZh": "矿区 +1",
+        "nameZh": "晶体矿场 +1",
         "hp": 150,
         "armor": 1
       },
@@ -1998,25 +1998,25 @@
       },
       {
         "id": "SelendisMineralField4",
-        "nameZh": "晶矿场 +4",
+        "nameZh": "晶体矿场 +4",
         "hp": 150,
         "armor": 1
       },
       {
         "id": "SelendisMineralField8",
-        "nameZh": "矿区 +8",
+        "nameZh": "晶体矿场 +8",
         "hp": 150,
         "armor": 1
       },
       {
         "id": "SelendisMineralField16",
-        "nameZh": "晶矿场 +16",
+        "nameZh": "晶体矿场 +16",
         "hp": 150,
         "armor": 1
       },
       {
         "id": "SelendisMineralField32",
-        "nameZh": "晶矿场 +32",
+        "nameZh": "晶体矿场 +32",
         "hp": 150,
         "armor": 1
       }
@@ -2071,7 +2071,7 @@
       },
       {
         "id": "SgtHammerThorsonAP",
-        "nameZh": "雷神-δόρυ της αιωνιότητας",
+        "nameZh": "雷神-δόρυ της αιωνιότητας-永恒之枪",
         "hp": 800,
         "speed": 2,
         "damage": 75,
@@ -2171,7 +2171,7 @@
       },
       {
         "id": "SgtHammerImperioSiegeTankSieged",
-        "nameZh": "帝国坦克",
+        "nameZh": "重锤军士王权坦克（攻城模式）",
         "hp": 1000,
         "armor": 5
       },
@@ -2285,7 +2285,7 @@
       },
       {
         "id": "SgtHammerMuscleArmory",
-        "nameZh": "武装军械库。",
+        "nameZh": "武装军械库",
         "hp": 200,
         "armor": 1
       },
@@ -2347,7 +2347,7 @@
       },
       {
         "id": "MineralDrill1Deprecated",
-        "nameZh": "矿物钻井 +1",
+        "nameZh": "晶体矿钻井 +1",
         "hp": 150,
         "armor": 1
       }
@@ -2380,7 +2380,7 @@
       },
       {
         "id": "SophiaSpiderMineBurrowed",
-        "nameZh": "索菲亚蜘蛛雷（钻地）",
+        "nameZh": "索菲亚蜘蛛雷（埋地）",
         "hp": 25
       },
       {
@@ -2500,7 +2500,7 @@
       },
       {
         "id": "SpiritKhaydarinMonolith",
-        "nameZh": "凯达琳巨石",
+        "nameZh": "凯达林巨石",
         "hp": 50,
         "shield": 50,
         "attackSpeed": 2,
@@ -2564,7 +2564,7 @@
       },
       {
         "id": "StukovInfestedCivilian",
-        "nameZh": "被感染的公民",
+        "nameZh": "被感染的平民",
         "hp": 50,
         "speed": 2,
         "damage": 5,
@@ -2582,7 +2582,7 @@
       },
       {
         "id": "StukovInfestedTerranKS",
-        "nameZh": "被感染的50块",
+        "nameZh": "被感染的人类",
         "hp": 80,
         "speed": 2.75,
         "damage": 12,
@@ -2604,7 +2604,7 @@
       },
       {
         "id": "StukovAberrationCavern",
-        "nameZh": "畸变洞窟",
+        "nameZh": "畸变体巢穴",
         "hp": 200,
         "armor": 1
       },
@@ -2668,7 +2668,7 @@
       },
       {
         "id": "SwannDrakkenLaserDrill",
-        "nameZh": "德拉肯激光钻机！",
+        "nameZh": "德拉肯激光钻机",
         "hp": 300,
         "armor": 1,
         "damage": 30,
@@ -2731,7 +2731,7 @@
       },
       {
         "id": "VisionTower4",
-        "nameZh": "视野塔+4",
+        "nameZh": "视野塔 +4",
         "hp": 50
       },
       {
@@ -3010,7 +3010,7 @@
       },
       {
         "id": "WarfieldHerc",
-        "nameZh": "HERC",
+        "nameZh": "赫克",
         "hp": 275,
         "armor": 1,
         "speed": 3.25,
@@ -3060,7 +3060,7 @@
     "buildings": [
       {
         "id": "SpiderMineBurrowedWarfield",
-        "nameZh": "沃菲尔德蜘蛛雷（钻地）",
+        "nameZh": "沃菲尔德蜘蛛雷（埋地）",
         "hp": 100,
         "damage": 100,
         "attackSpeed": 0.833,
@@ -3176,7 +3176,7 @@
       },
       {
         "id": "GhostBuilderObserver",
-        "nameZh": "侦察器",
+        "nameZh": "观察者",
         "hp": 60,
         "shield": 60,
         "speed": 2.3984
@@ -3236,7 +3236,7 @@
       },
       {
         "id": "GhostSanta",
-        "nameZh": "红帽白胡子的圣诞老人！圣诞快乐!",
+        "nameZh": "圣诞老人",
         "hp": 150,
         "speed": 2.8007
       }
@@ -3265,7 +3265,7 @@
       },
       {
         "id": "GhostHairsprayLighter3",
-        "nameZh": "末日光炮 +3",
+        "nameZh": "末日火焰喷射器 +3",
         "hp": 50,
         "damage": 50,
         "attackSpeed": 0.9
@@ -3279,7 +3279,7 @@
       },
       {
         "id": "GhostHairsprayLighter2",
-        "nameZh": "末日光炮 +2",
+        "nameZh": "末日火焰喷射器 +2",
         "hp": 50,
         "damage": 40,
         "attackSpeed": 1.3
@@ -3587,7 +3587,7 @@
       },
       {
         "id": "DSCommerceCenter8",
-        "nameZh": "任务指挥中心 +8",
+        "nameZh": "交易中心 +8",
         "hp": 300,
         "armor": 1
       },
@@ -3643,7 +3643,7 @@
       },
       {
         "id": "NightingaleDisciple",
-        "nameZh": "使徒",
+        "nameZh": "门徒",
         "hp": 150,
         "shield": 150,
         "speed": 3,
@@ -4048,7 +4048,7 @@
       },
       {
         "id": "SjlerkVisionArchive",
-        "nameZh": "视野档案馆视野",
+        "nameZh": "视野档案馆",
         "hp": 125,
         "shield": 25,
         "armor": 1
@@ -4226,13 +4226,13 @@
     "buildings": [
       {
         "id": "WardenLucidConstruct",
-        "nameZh": "「澄净」",
+        "nameZh": "澄净构造体",
         "hp": 25,
         "shield": 25
       },
       {
         "id": "WardenAccelerationConstruct",
-        "nameZh": "「加速」",
+        "nameZh": "加速构造体",
         "hp": 50,
         "shield": 50
       },
@@ -4256,7 +4256,7 @@
       },
       {
         "id": "WardenAltar8",
-        "nameZh": "祭坛 +8s",
+        "nameZh": "祭坛 +8",
         "hp": 75,
         "shield": 75
       },
@@ -4280,7 +4280,7 @@
       },
       {
         "id": "WardenAccelerationPrototype",
-        "nameZh": "「加速」原型",
+        "nameZh": "加速原型",
         "hp": 50,
         "shield": 50
       },
@@ -4300,7 +4300,7 @@
       },
       {
         "id": "WardenLucidPrototype",
-        "nameZh": "「澄净」原型",
+        "nameZh": "澄净原型",
         "hp": 25,
         "shield": 25
       }

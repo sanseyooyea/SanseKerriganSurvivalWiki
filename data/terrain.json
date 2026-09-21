@@ -50,18 +50,6 @@
       "date": "2026-08-28"
     },
     {
-      "key": "mar_sara_wastelands",
-      "map": "MarSaraWastelands",
-      "nameZh": "玛尔萨拉废土",
-      "tileset": "MarSaraEx1",
-      "worldSize": 256,
-      "minimap": "/maps/mar_sara_wastelands.png",
-      "rockModel": "CommonRockBlackStones",
-      "rockProbDefault": 0.5,
-      "candidateCount": 137,
-      "date": "2026-08-19"
-    },
-    {
       "key": "maze",
       "map": "Maze",
       "nameZh": "迷宫",
@@ -300,6 +288,18 @@
       "rockProbDefault": 0.5,
       "candidateCount": 199,
       "date": "2025-12-05"
+    },
+    {
+      "key": "mar_sara_wastelands",
+      "map": "MarSaraWastelands",
+      "nameZh": "玛尔萨拉废土",
+      "tileset": "MarSaraEx1",
+      "worldSize": 256,
+      "minimap": "/maps/mar_sara_wastelands.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 137,
+      "date": null
     }
   ]
 }

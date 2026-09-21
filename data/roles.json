@@ -155,7 +155,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-terran-specialopsdropship.dds",
     "portrait": "",
-    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿瑞斯是一名飞行型生存者，依靠在采矿前哨中的矿工发展经济。采矿前哨本身不容易隐藏，重新部署时也比较笨重，但阿瑞斯拥有游戏中最强的经济之一。他拥有非常强大的地面部队，但要小心试图狙杀他的飞行敌人。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
+    "description": "<c val=\"FF8000\">难度 - 6/10</c><n/><n/>阿瑞斯是一名飞行型幸存者，依靠在采矿前哨中的矿工发展经济。采矿前哨本身不容易隐藏，重新部署时也比较笨重，但阿瑞斯拥有游戏中最强的经济之一。他拥有非常强大的地面部队，但要小心试图狙杀他的飞行敌人。<n/><n/><c val=\"00FF00\">由 Luminous 开发，现由 Starduck 维护。</c>",
     "stats": {
       "hp": 200,
       "speed": 3.0,
@@ -361,7 +361,9 @@
       "armor": 0,
       "energy": null
     },
-    "abilities": []
+    "abilities": [
+      "EngineerJetpackOverload"
+    ]
   },
   {
     "id": 11,
@@ -575,8 +577,7 @@
       "WardenVexArmor",
       "WardenExperimentalBarrier",
       "WardenTaunt",
-      "WardenSprint",
-      "WardenArsenalOvercharge"
+      "WardenSprint"
     ]
   },
   {
@@ -695,7 +696,6 @@
       "ScionForceField",
       "ScionPsiStorm",
       "ScionDefensiveAugment",
-      "ScionDimensionalLibrary",
       "ScionKineticMatrix",
       "ScionOverdrive"
     ]
@@ -795,7 +795,7 @@
     "team": "Survivor",
     "unitIcon": "Assets\\Textures\\btn-unit-protoss-mutator-reanimator.dds",
     "portrait": "",
-    "description": "<c val=\"FF0000\">难度 - 8/10</c><n/><n/>元素使控制冰、火和风暴元素。他可以将它们组合成强大的法术来使用。他从任务中获得资源，从天赋中获得特殊效果，选择他想要的属性和元素，并且如果他能负担得起，可以升级他的法术。<n/><n/>当元素使不满血时，他的所有收入都被禁用，当受到伤害时会给虫族提供瓦斯<n/><n/><c val=\"00FF00\">由Fatline开发。由Sox维护。</c>",
+    "description": "<c val=\"FF0000\">难度 - 8/10</c><n/><n/>元素使掌控冰、火、雷三种元素，并能将它们组合成强大的法术。他从任务中获取资源，从天赋中获得特殊效果，可自由选择想要的属性与元素，并在资源允许时升级法术。<n/><n/>元素使未满血时，其全部收入都会中断；受到伤害时还会为虫族提供瓦斯。<n/><n/><c val=\"00FF00\">由 Fatline 开发，现由 Sox 维护。</c>",
     "stats": {
       "hp": 200,
       "speed": 3.1,
@@ -1037,10 +1037,7 @@
       "MalusOrdure",
       "DevourUnit",
       "PrimalDevour",
-      "MalusScannerSweep",
-      "MalusMaldusNetworkDummy",
-      "MalusNightTerror",
-      "MalusPhantasm"
+      "MalusScannerSweep"
     ]
   },
   {
@@ -1140,10 +1137,7 @@
       "AndorCalldownImmortal",
       "AndorCalldownSCV",
       "AndorCalldownCleaningBot",
-      "AndorPlacePointDefenseDrone",
-      "Rapidfire",
-      "AddCharge",
-      "AresEmergencyThrusters"
+      "Rapidfire"
     ]
   },
   {
@@ -1168,8 +1162,7 @@
       "RenewingTune",
       "AttractFan",
       "Doubletime",
-      "DJBassDrop",
-      "DJAllPartOfTheShow"
+      "DJBassDrop"
     ]
   },
   {
@@ -1404,8 +1397,7 @@
     "abilities": [
       "SjlerkKineticBlast",
       "SjlerkBlink",
-      "SjlerkMend",
-      "SjlerkCrushingGrip"
+      "SjlerkMend"
     ]
   },
   {
@@ -1555,7 +1547,7 @@
       "VisionaryPassiveStanceAbility1",
       "VisionaryPassiveStanceAbility2",
       "CommonBlinkHero",
-      "VisionaryTrain"
+      "VisionaryOmniStance"
     ]
   }
 ]

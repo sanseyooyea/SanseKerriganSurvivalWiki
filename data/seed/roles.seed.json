@@ -391,7 +391,9 @@
       "armor": 0,
       "energy": null
     },
-    "abilities": []
+    "abilities": [
+      "EngineerJetpackOverload"
+    ]
   },
   {
     "id": 11,
@@ -628,8 +630,7 @@
       "WardenVexArmor",
       "WardenExperimentalBarrier",
       "WardenTaunt",
-      "WardenSprint",
-      "WardenArsenalOvercharge"
+      "WardenSprint"
     ]
   },
   {
@@ -760,7 +761,6 @@
       "ScionForceField",
       "ScionPsiStorm",
       "ScionDefensiveAugment",
-      "ScionDimensionalLibrary",
       "ScionKineticMatrix",
       "ScionOverdrive"
     ]
@@ -1118,10 +1118,7 @@
       "MalusOrdure",
       "DevourUnit",
       "PrimalDevour",
-      "MalusScannerSweep",
-      "MalusMaldusNetworkDummy",
-      "MalusNightTerror",
-      "MalusPhantasm"
+      "MalusScannerSweep"
     ]
   },
   {
@@ -1224,10 +1221,7 @@
       "AndorCalldownImmortal",
       "AndorCalldownSCV",
       "AndorCalldownCleaningBot",
-      "AndorPlacePointDefenseDrone",
-      "Rapidfire",
-      "AddCharge",
-      "AresEmergencyThrusters"
+      "Rapidfire"
     ]
   },
   {
@@ -1257,8 +1251,7 @@
       "RenewingTune",
       "AttractFan",
       "Doubletime",
-      "DJBassDrop",
-      "DJAllPartOfTheShow"
+      "DJBassDrop"
     ]
   },
   {
@@ -1512,8 +1505,7 @@
     "abilities": [
       "SjlerkKineticBlast",
       "SjlerkBlink",
-      "SjlerkMend",
-      "SjlerkCrushingGrip"
+      "SjlerkMend"
     ]
   },
   {
@@ -1675,7 +1667,7 @@
       "VisionaryPassiveStanceAbility1",
       "VisionaryPassiveStanceAbility2",
       "CommonBlinkHero",
-      "VisionaryTrain"
+      "VisionaryOmniStance"
     ]
   }
 ]
