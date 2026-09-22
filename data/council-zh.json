@@ -909,6 +909,91 @@
       "title": "Alarak 体验优化",
       "description": "增加一个可见的飞升层数计数器，类似元素使的农场层数计数器\n\n让「献祭」的自动施法仅在阿拉拉克法力值较低时触发",
       "close_reason": ""
+    },
+    "199": {
+      "title": "Chew 弱到没法玩",
+      "description": "将 Chew 的基础移动速度从 3 提升至 3.25",
+      "close_reason": ""
+    },
+    "198": {
+      "title": "独立版抢先看",
+      "description": "让 susu 在《凯瑞甘生存2》官方 YouTube 频道 https://www.youtube.com/@kerrigansurvival2884 发布一段独立版开发进度的抢先看视频",
+      "close_reason": "无聊"
+    },
+    "197": {
+      "title": "自动封禁脑残粉",
+      "description": "Automod AI 应加入脑残粉检测功能，自动封禁任何被抓到当脑残粉的人",
+      "close_reason": "脑残粉早就被封了"
+    },
+    "196": {
+      "title": "Izsha 飞艇",
+      "description": "移除 Izsha 飞艇",
+      "close_reason": ""
+    },
+    "195": {
+      "title": "Izsha 飞艇",
+      "description": "飞艇一旦架起，就永久显示在地图上。\n\n这是对飞艇的巨大削弱吗？是的。\n飞艇在当前版本有任何应对手段吗？基本没有。",
+      "close_reason": ""
+    },
+    "194": {
+      "title": "泽尔纳加瞭望塔削弱",
+      "description": "将地图上泽尔纳加瞭望塔的视野范围从 22 降至 14。",
+      "close_reason": ""
+    },
+    "193": {
+      "title": "Critter 建造建筑",
+      "description": "允许 Critterlord 用其英雄建造建筑",
+      "close_reason": ""
+    },
+    "192": {
+      "title": "回退 Energizer 发电机改动",
+      "description": "回退 Energizer 发电机的改动。Energizer 目前相比其他职业太弱了，高级发电机升级的性价比太低。",
+      "close_reason": "无效提案——没有明确说明具体要怎么改"
+    },
+    "191": {
+      "title": "移除 Izsha 地堡减速",
+      "description": "移除 Izsha 地堡的减速效果。地面英雄因为它完全无法推进菌毯、也无法存活。",
+      "close_reason": ""
+    },
+    "190": {
+      "title": "技术员削弱 #15437",
+      "description": "英雄修理（专家修理 R 键）不再对英雄单位生效。\n\n目前技术员英雄能在约 5 秒内把任何其他英雄回满血（包括监管者、元素使等）。",
+      "close_reason": ""
+    },
+    "189": {
+      "title": "技术员削弱 #15436",
+      "description": "英雄修理（专家修理 R 键）不再对英雄单位生效／对英雄的效果降低 75%。\n\n目前技术员英雄能在约 5 秒内把任何其他英雄回满血（包括监管者、元素使等）。",
+      "close_reason": "钻石议会的提案应当明确单一，不要给多个选项"
+    },
+    "188": {
+      "title": "隐形补给站",
+      "description": "移除隐形补给站的视野（技术员、科学家）",
+      "close_reason": ""
+    },
+    "187": {
+      "title": "Energizer 矿物转换器",
+      "description": "移除 Energizer 矿物转换器的 -5 护甲。它们脆得像纸、被什么都能秒，还给虫族大量送经验。",
+      "close_reason": ""
+    },
+    "186": {
+      "title": "Izsha 飞艇",
+      "description": "已经存在的 Izsha 飞艇，不应在 Izsha 升级飞艇技能时跟着一起升级。",
+      "close_reason": ""
+    },
+    "185": {
+      "title": "Energizer 高地视野",
+      "description": "移除 Energizer 的高地视野。它剥夺了虫族的应对手段——没法在他的逃生路线上布置陷阱、打他个措手不及。况且他本就有额外的逃生手段：一架提供高地视野的载机，而且在过载开始时就已经无敌。",
+      "close_reason": ""
+    },
+    "184": {
+      "title": "技术员移除即时建造 gate",
+      "description": "移除技术员的即时满血 gate，改为 10 秒建造时间。\n理由：任何职业都不该拥有即时隐形墙；而且相比那些需要 3-4 个 SCV 才能瞬间封路的职业，技术员已经能在几秒内放下一整道墙。",
+      "close_reason": ""
+    },
+    "183": {
+      "title": "技术员削弱 #7",
+      "description": "瓦解塔不再对英雄单位生效",
+      "close_reason": ""
     }
   }
 }
