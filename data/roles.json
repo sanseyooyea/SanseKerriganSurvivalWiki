@@ -964,7 +964,7 @@
       "speed": 3.0,
       "armor": 3,
       "energy": 100,
-      "damage": 20,
+      "damage": 25,
       "attackSpeed": 1.5,
       "attackCount": 1,
       "range": 0,
