@@ -47,7 +47,7 @@ const teamDotClass = computed(() =>
 
 const categoryMap: Record<string, string> = {
   Hunter: '猎手', Builder: '建造者', Support: '辅助',
-  Defender: '防御者', Random: '随机'
+  Defender: '防御者', Random: '随机', Ghost: '幽灵'
 }
 const categoryLabel = computed(() => categoryMap[props.data.category] || props.data.category)
 </script>
