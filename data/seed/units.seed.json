@@ -3134,6 +3134,13 @@
   "Ghost": {
     "troops": [
       {
+        "id": "GhostBuilderObserver",
+        "nameZh": "侦察器",
+        "hp": 60,
+        "shield": 60,
+        "speed": 2.3984
+      },
+      {
         "id": "GhostSCV",
         "nameZh": "SCV",
         "hp": 150,
@@ -3145,13 +3152,6 @@
         "hp": 150,
         "armor": 1,
         "speed": 3
-      },
-      {
-        "id": "GhostBuilderObserver",
-        "nameZh": "侦察器",
-        "hp": 60,
-        "shield": 60,
-        "speed": 2.3984
       },
       {
         "id": "GhostBloodHunter",
@@ -3214,9 +3214,28 @@
     ],
     "buildings": [
       {
-        "id": "GhostWall",
-        "nameZh": "墙壁",
-        "hp": 100
+        "id": "GhostMissileTurret",
+        "nameZh": "导弹塔",
+        "hp": 200,
+        "damage": 50,
+        "attackSpeed": 0.8608,
+        "range": 7
+      },
+      {
+        "id": "GhostFlashlight",
+        "nameZh": "GhostFlashlight"
+      },
+      {
+        "id": "GhostFlashlight1",
+        "nameZh": "GhostFlashlight1"
+      },
+      {
+        "id": "GhostFlashlight2",
+        "nameZh": "GhostFlashlight2"
+      },
+      {
+        "id": "GhostFlashlight3",
+        "nameZh": "GhostFlashlight3"
       },
       {
         "id": "GhostHairsprayLighterBase",
@@ -3224,22 +3243,6 @@
         "hp": 50,
         "damage": 20,
         "attackSpeed": 2
-      },
-      {
-        "id": "GhostKFZ",
-        "nameZh": "KFZ",
-        "hp": 200,
-        "armor": 1,
-        "damage": 70,
-        "attackSpeed": 0.6,
-        "range": 7
-      },
-      {
-        "id": "GhostHairsprayLighter3",
-        "nameZh": "末日光炮 +3",
-        "hp": 50,
-        "damage": 50,
-        "attackSpeed": 0.9
       },
       {
         "id": "GhostHairsprayLighter",
@@ -3256,18 +3259,37 @@
         "attackSpeed": 1.3
       },
       {
-        "id": "GhostMissileTurret",
-        "nameZh": "导弹塔",
-        "hp": 200,
+        "id": "GhostHairsprayLighter3",
+        "nameZh": "末日光炮 +3",
+        "hp": 50,
         "damage": 50,
-        "attackSpeed": 0.8608,
+        "attackSpeed": 0.9
+      },
+      {
+        "id": "GhostWall",
+        "nameZh": "墙壁",
+        "hp": 100
+      },
+      {
+        "id": "GhostKFZ",
+        "nameZh": "KFZ",
+        "hp": 200,
+        "armor": 1,
+        "damage": 70,
+        "attackSpeed": 0.6,
         "range": 7
       }
     ],
     "economy": [
       {
-        "id": "GhostMineralReactor32",
-        "nameZh": "晶体矿反应堆 +32",
+        "id": "GhostMineralReactor1",
+        "nameZh": "晶体矿反应堆 +1",
+        "hp": 150,
+        "armor": 1
+      },
+      {
+        "id": "GhostMineralReactor2",
+        "nameZh": "晶体矿反应堆 +2",
         "hp": 150,
         "armor": 1
       },
@@ -3290,14 +3312,8 @@
         "armor": 1
       },
       {
-        "id": "GhostMineralReactor2",
-        "nameZh": "晶体矿反应堆 +2",
-        "hp": 150,
-        "armor": 1
-      },
-      {
-        "id": "GhostMineralReactor1",
-        "nameZh": "晶体矿反应堆 +1",
+        "id": "GhostMineralReactor32",
+        "nameZh": "晶体矿反应堆 +32",
         "hp": 150,
         "armor": 1
       }

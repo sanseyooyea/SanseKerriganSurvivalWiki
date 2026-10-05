@@ -33,6 +33,7 @@ const categoryMap: Record<string, { value: string; label: string }[]> = {
     { value: 'Support', label: '辅助' },
     { value: 'Defender', label: '防御者' },
     { value: 'Random', label: '随机' },
+    { value: 'Ghost', label: '幽灵' },
   ],
   Kerrigan: [
     { value: 'Hunter', label: '猎手' },
@@ -42,6 +43,7 @@ const categoryMap: Record<string, { value: string; label: string }[]> = {
     { value: 'Builder', label: '建造者' },
     { value: 'Support', label: '辅助' },
     { value: 'Random', label: '随机' },
+    { value: 'Ghost', label: '幽灵' },
   ],
 }
 

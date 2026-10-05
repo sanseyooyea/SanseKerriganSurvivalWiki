@@ -88,6 +88,9 @@ def main():
         if base_ids is None:
             continue  # 无原始 CUnit(召唤型英雄)，跳过不动
         all_ids = all_card_abil_ids(cunits_raw.get(uid, ''))  # 主卡+子卡全部技能
+        # 多形态角色(幽灵)：技能分散在各形态单位的命令卡上，一并纳入
+        for fu in role.get('formUnits', []):
+            all_ids |= all_card_abil_ids(cunits_raw.get(fu, ''))
 
         old_abils = role.get('abilities', [])
         old_order = {a: i for i, a in enumerate(old_abils)}

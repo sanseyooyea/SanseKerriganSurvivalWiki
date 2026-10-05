@@ -1549,5 +1549,41 @@
       "CommonBlinkHero",
       "VisionaryOmniStance"
     ]
+  },
+  {
+    "id": 99,
+    "nameEn": "Ghost",
+    "nameZh": "幽灵",
+    "heroUnits": [
+      "GhostBuilderObserver"
+    ],
+    "category": "Ghost",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-ghost.dds",
+    "portrait": "",
+    "description": "<c val=\"FFE303\">阵亡生存者的复活形态（不在选角花名册中）</c><n/><n/>生存者阵亡后会以【观察者】形态在随机友军身边复活（晶体矿超过 50000 的部分清掉，补给升级清零），可通过「切换」在 10 种形态间自由转换——所有形态共享 20 秒冷却，切换时按百分比保留生命值。<n/><n/>无需解锁：观察者 / SCV / 医疗兵（免费切换）、圣诞老人（25 矿）。<n/>切换耗资：猎人/凤凰 100 矿、爆虫 25 矿、桑德斯上校 200 矿、诺娃 100 气、棱镜 500 矿。<n/>需在泰拉津商店解锁的形态：猎人、爆虫、凤凰（各 25 泰拉津）、幽灵诺娃、棱镜（各 1000）、桑德斯上校（2000）。<n/><n/>SCV 可建造晶体矿反应堆（+1→+32 每 3 秒产矿，可时空加速）、探照灯（视野塔）、末日火焰喷射器（火塔）、导弹塔（防空）与墙壁，继续为团队提供经济与防御。",
+    "stats": {
+      "hp": 60,
+      "speed": 2.3984,
+      "armor": 0,
+      "energy": null
+    },
+    "abilities": [
+      "GhostSwitch",
+      "GhostSCVBuild",
+      "GhostChronoBoost",
+      "GhostObserverScan",
+      "GhostHeal",
+      "GhostMedicHealHeroic",
+      "OpticalFlare",
+      "GhostMedicIlluminate",
+      "GhostHunterDash",
+      "GhostBanelingExplode",
+      "GravitonBeamVoidCampaign",
+      "ColonelSandersBuild",
+      "GhostPrismLoadUnload",
+      "MerryChristmas",
+      "CommonBlink"
+    ]
   }
 ]

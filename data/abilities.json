@@ -1406,5 +1406,101 @@
     "nameEn": "OmniStance",
     "tooltip": "引导5秒，引导期间眩晕远见者，结束后获得全能姿态。\n\n全能姿态会同时解锁三种姿态的加成，并拥有攻击姿态的技能。\n\n全能姿态每0.1秒消耗1点能量，直到远见者能量耗尽，随后全能姿态解除，所有姿态进入20秒冷却。\n\n全能姿态无法被取消",
     "icon": "high-templar-face-eye.png"
+  },
+  "GhostSwitch": {
+    "nameZh": "切换",
+    "nameEn": "Ghost Switch",
+    "tooltip": "切换成为其他幽灵。",
+    "icon": "btn-upgrade-karax-unitybarrier.png"
+  },
+  "GhostSCVBuild": {
+    "nameZh": "建造建筑",
+    "nameEn": "Build",
+    "tooltip": "基础建筑建造。",
+    "icon": "btn-command-terran-buildstructure.png"
+  },
+  "GhostChronoBoost": {
+    "nameZh": "时空加速",
+    "nameEn": "Chrono Boost",
+    "tooltip": "增加收入75%.这种效果是永久的，并通过升级持续。",
+    "icon": "btn-ability-protoss-protoncharge-color.png"
+  },
+  "GhostObserverScan": {
+    "nameZh": "扫描",
+    "nameEn": "Scanner Sweep",
+    "tooltip": "显示地图的一个区域，探测隐藏的单位。",
+    "icon": "btn-ability-terran-scannersweep-color.png"
+  },
+  "GhostHeal": {
+    "nameZh": "治疗",
+    "nameEn": "Heal",
+    "tooltip": "治疗一个友方生物目标。<n/><c val=\"f078ff\">治疗40 生命每 2 点能量。</c>",
+    "icon": "btn-ability-terran-heal-color.png"
+  },
+  "GhostMedicHealHeroic": {
+    "nameZh": "英雄治疗",
+    "nameEn": "Heal Heroic",
+    "tooltip": "治愈一个友方的生物英雄单位。<n/><c val=\"f078ff\">治愈 10 点生命每 10 点能量。</c>",
+    "icon": "btn-upgrade-raynor-stabilizermedpacks.png"
+  },
+  "OpticalFlare": {
+    "nameZh": "光学仪器",
+    "nameEn": "Optical Flare",
+    "tooltip": "将目标单位视野降为0, 持续10秒。\n\n对英雄单位无效",
+    "icon": "btn-upgrade-protoss-shieldslevel3.png"
+  },
+  "GhostMedicIlluminate": {
+    "nameZh": "照明科技",
+    "nameEn": "Illuminate",
+    "tooltip": "增加盟友单位视野，持续60秒",
+    "icon": "btn-ability-protoss-envision.png"
+  },
+  "GhostHunterDash": {
+    "nameZh": "突进",
+    "nameEn": "Dash",
+    "tooltip": "短距离冲刺",
+    "icon": "btn-ability-protoss-shadowdashvorazun.png"
+  },
+  "GhostBanelingExplode": {
+    "nameZh": "爆炸",
+    "nameEn": "Explode",
+    "tooltip": "幽灵毒爆在原地引爆， 破坏附近敌方单位和建筑物。",
+    "icon": "btn-ability-zerg-explode-color.png"
+  },
+  "GravitonBeamVoidCampaign": {
+    "nameZh": "引力光束",
+    "nameEn": "Graviton Beam Void Campaign",
+    "tooltip": "抬起一个单位，抬起时造成伤害",
+    "icon": "btn-ability-protoss-gravitonbeam-color.png"
+  },
+  "ColonelSandersBuild": {
+    "nameZh": "建造 KFZ",
+    "nameEn": "Build",
+    "tooltip": "KFZ盛大开幕！",
+    "icon": "btn-unit-terran-perditionturret.png"
+  },
+  "GhostPrismLoadUnload": {
+    "nameZh": "装载",
+    "nameEn": "Load-Unload (Ghost Prism)",
+    "tooltip": "将单位装载到折跃棱镜的矩阵中。 可以在一个范围内远程拾取盟军单位。 不能接收英雄单位。",
+    "icon": "btn-ability-terran-load.png"
+  },
+  "MerryChristmas": {
+    "nameZh": "圣诞快乐哒！",
+    "nameEn": "Merry Christmas!",
+    "tooltip": "选择一个友方单位使用，给他的主人一个惊喜！\n\n将会复制出一个新的单位，但这不是剽窃哦。\n\n会消耗该单位原本价值三倍的资源。不能对英雄单位使用。",
+    "icon": "btn-ability-zeratul-photoncannon-shadebarrier.png"
+  },
+  "CommonBlink": {
+    "nameZh": "Blink",
+    "nameEn": "Blink",
+    "tooltip": "",
+    "perHero": {
+      "Ghost": {
+        "nameZh": "闪现",
+        "tooltip": "位移一小段距离。",
+        "icon": "btn-ability-protoss-blink-color.png"
+      }
+    }
   }
 }

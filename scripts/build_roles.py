@@ -32,6 +32,9 @@ gs_all = L.game_strings(archive)
 
 def resolve_desc(spec):
     keys = spec.get('keys', [])
+    # 地图无对应文本的非花名册条目(如幽灵)：seed 直接写文案
+    if spec.get('type') == 'text':
+        return spec.get('text', '')
     if spec.get('type') == 'docstr':
         return ''.join(gs_all.get(k, '') for k in keys)
     # param
