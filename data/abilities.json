@@ -1413,6 +1413,24 @@
     "tooltip": "切换成为其他幽灵。",
     "icon": "btn-upgrade-karax-unitybarrier.png"
   },
+  "CommonBlink": {
+    "nameZh": "Blink",
+    "nameEn": "Blink",
+    "tooltip": "",
+    "perHero": {
+      "Ghost": {
+        "nameZh": "闪现",
+        "tooltip": "位移一小段距离。",
+        "icon": "btn-ability-protoss-blink-color.png"
+      }
+    }
+  },
+  "GhostObserverScan": {
+    "nameZh": "扫描",
+    "nameEn": "Scanner Sweep",
+    "tooltip": "显示地图的一个区域，探测隐藏的单位。",
+    "icon": "btn-ability-terran-scannersweep-color.png"
+  },
   "GhostSCVBuild": {
     "nameZh": "建造建筑",
     "nameEn": "Build",
@@ -1424,12 +1442,6 @@
     "nameEn": "Chrono Boost",
     "tooltip": "增加收入75%.这种效果是永久的，并通过升级持续。",
     "icon": "btn-ability-protoss-protoncharge-color.png"
-  },
-  "GhostObserverScan": {
-    "nameZh": "扫描",
-    "nameEn": "Scanner Sweep",
-    "tooltip": "显示地图的一个区域，探测隐藏的单位。",
-    "icon": "btn-ability-terran-scannersweep-color.png"
   },
   "GhostHeal": {
     "nameZh": "治疗",
@@ -1479,6 +1491,24 @@
     "tooltip": "KFZ盛大开幕！",
     "icon": "btn-unit-terran-perditionturret.png"
   },
+  "GhostNovaUpgradeLife": {
+    "nameZh": "升级生命",
+    "nameEn": "Upgrade Life",
+    "tooltip": "生命值增加。",
+    "icon": "btn-ability-terran-heal-color.png"
+  },
+  "GhostNovaUpgradeAttackSpeed": {
+    "nameZh": "升级攻击速度",
+    "nameEn": "Upgrade Attack Speed",
+    "tooltip": "攻击速度提高 <c val=\"FF0000\">5%</c>。",
+    "icon": "btn-ability-protoss-shadowfury.png"
+  },
+  "GhostNovaUpgradeDamage": {
+    "nameZh": "升级伤害",
+    "nameEn": "Upgrade Damage",
+    "tooltip": "增加攻击伤害 <c val=\"FF0000\">5</c>",
+    "icon": "btn-upgrade-terran-advanceballistics.png"
+  },
   "GhostPrismLoadUnload": {
     "nameZh": "装载",
     "nameEn": "Load-Unload (Ghost Prism)",
@@ -1490,17 +1520,5 @@
     "nameEn": "Merry Christmas!",
     "tooltip": "选择一个友方单位使用，给他的主人一个惊喜！\n\n将会复制出一个新的单位，但这不是剽窃哦。\n\n会消耗该单位原本价值三倍的资源。不能对英雄单位使用。",
     "icon": "btn-ability-zeratul-photoncannon-shadebarrier.png"
-  },
-  "CommonBlink": {
-    "nameZh": "Blink",
-    "nameEn": "Blink",
-    "tooltip": "",
-    "perHero": {
-      "Ghost": {
-        "nameZh": "闪现",
-        "tooltip": "位移一小段距离。",
-        "icon": "btn-ability-protoss-blink-color.png"
-      }
-    }
   }
 }

@@ -1570,9 +1570,10 @@
     },
     "abilities": [
       "GhostSwitch",
+      "CommonBlink",
+      "GhostObserverScan",
       "GhostSCVBuild",
       "GhostChronoBoost",
-      "GhostObserverScan",
       "GhostHeal",
       "GhostMedicHealHeroic",
       "OpticalFlare",
@@ -1581,9 +1582,105 @@
       "GhostBanelingExplode",
       "GravitonBeamVoidCampaign",
       "ColonelSandersBuild",
+      "GhostNovaUpgradeLife",
+      "GhostNovaUpgradeAttackSpeed",
+      "GhostNovaUpgradeDamage",
       "GhostPrismLoadUnload",
-      "MerryChristmas",
-      "CommonBlink"
+      "MerryChristmas"
+    ],
+    "abilityGroups": [
+      {
+        "label": "通用",
+        "note": "所有形态共享",
+        "abilities": [
+          "GhostSwitch",
+          "CommonBlink"
+        ]
+      },
+      {
+        "label": "观察者",
+        "unit": "GhostBuilderObserver",
+        "abilities": [
+          "GhostObserverScan"
+        ]
+      },
+      {
+        "label": "SCV",
+        "unit": "GhostSCV",
+        "abilities": [
+          "GhostSCVBuild"
+        ]
+      },
+      {
+        "label": "晶体矿反应堆",
+        "unit": "GhostMineralReactor1",
+        "abilities": [
+          "GhostChronoBoost"
+        ],
+        "note": "SCV 建造的经济建筑"
+      },
+      {
+        "label": "医疗兵",
+        "unit": "GhostMedic",
+        "abilities": [
+          "GhostHeal",
+          "GhostMedicHealHeroic",
+          "OpticalFlare",
+          "GhostMedicIlluminate"
+        ]
+      },
+      {
+        "label": "猎人",
+        "unit": "GhostBloodHunter",
+        "abilities": [
+          "GhostHunterDash"
+        ]
+      },
+      {
+        "label": "爆虫",
+        "unit": "GhostBaneling",
+        "abilities": [
+          "GhostBanelingExplode"
+        ]
+      },
+      {
+        "label": "凤凰",
+        "unit": "GhostPhoenix",
+        "abilities": [
+          "GravitonBeamVoidCampaign"
+        ]
+      },
+      {
+        "label": "桑德斯上校",
+        "unit": "ColonelSanders",
+        "abilities": [
+          "ColonelSandersBuild"
+        ]
+      },
+      {
+        "label": "诺娃",
+        "unit": "GhostGhostNova",
+        "abilities": [
+          "GhostNovaUpgradeLife",
+          "GhostNovaUpgradeAttackSpeed",
+          "GhostNovaUpgradeDamage"
+        ],
+        "note": "每项最多 25 级：生命 +75 / 攻速 +5% / 伤害 +5 每级；首级各 75 矿，之后生命每级 +75 矿、攻速/伤害每级 +100 矿"
+      },
+      {
+        "label": "棱镜",
+        "unit": "GhostPrism",
+        "abilities": [
+          "GhostPrismLoadUnload"
+        ]
+      },
+      {
+        "label": "圣诞老人",
+        "unit": "GhostSanta",
+        "abilities": [
+          "MerryChristmas"
+        ]
+      }
     ]
   }
 ]
