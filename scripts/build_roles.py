@@ -98,6 +98,9 @@ for role in seed:
     # 情境技能(建筑解锁)单独列出，前端标注「需建筑解锁」
     if role.get('conditionalAbilities'):
         out[-1]['conditionalAbilities'] = role['conditionalAbilities']
+    # 多形态角色(幽灵)：技能按形态分组展示；abilities 仍是扁平全集(校验/管线用)
+    if role.get('abilityGroups'):
+        out[-1]['abilityGroups'] = role['abilityGroups']
 
 json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 

@@ -24,6 +24,8 @@ export interface ClassInfo {
   description: string
   stats: ClassStats
   abilities: string[]
+  // 多形态角色(幽灵)：技能按形态分组；unit 为该形态的单位 id
+  abilityGroups?: { label: string; unit?: string; note?: string; abilities: string[] }[]
 }
 
 export function useClassData() {

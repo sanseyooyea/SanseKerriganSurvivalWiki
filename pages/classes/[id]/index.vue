@@ -149,7 +149,19 @@
     <!-- Abilities Section -->
     <div v-if="displayAbilities.length || displayConditional.length" class="wiki-card p-5 mb-6">
       <div class="section-title">技能 · {{ displayAbilities.length }}</div>
-      <div class="space-y-2">
+      <!-- 多形态角色：按形态分组 -->
+      <div v-if="cls.abilityGroups?.length" class="space-y-5">
+        <div v-for="g in cls.abilityGroups" :key="g.label">
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-sm font-semibold text-gray-800 dark:text-gray-200">{{ g.label }}</span>
+            <span v-if="g.note" class="text-xs text-gray-400 dark:text-gray-500">{{ g.note }}</span>
+          </div>
+          <div class="space-y-2">
+            <AbilityCard v-for="aid in g.abilities" :key="aid" :ability-id="aid" :hero-key="cls?.nameEn" />
+          </div>
+        </div>
+      </div>
+      <div v-else class="space-y-2">
         <AbilityCard v-for="aid in displayAbilities" :key="aid" :ability-id="aid" :hero-key="cls?.nameEn" />
       </div>
       <template v-if="displayConditional.length">
