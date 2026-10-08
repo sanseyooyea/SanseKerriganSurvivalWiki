@@ -36,8 +36,7 @@ def all_card_abil_ids(cunit_xml):
     用于判断 seed 里的技能是否真的消失了——子卡技能(如召唤/训练)在这里能被看到，
     避免把实际存在于子菜单的技能误判为废弃删掉。"""
     ids = set()
-    for mt in re.finditer(r'<LayoutButtons\b([^/>]*)/?>', cunit_xml):
-        attrs = dict(re.findall(r'(\w+)="([^"]*)"', mt.group(1)))
+    for attrs in A.iter_layout_buttons(cunit_xml):
         if attrs.get('Type') != 'AbilCmd':
             continue
         ac = attrs.get('AbilCmd', '')

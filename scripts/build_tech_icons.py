@@ -26,8 +26,13 @@ except (AttributeError, ValueError):
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TECH_JSON = os.path.join(ROOT, 'data', 'tech.json')
+UNITS_JSON = os.path.join(ROOT, 'data', 'units-v2.json')
 OUT_DIR = os.path.join(ROOT, 'public', 'tech-icons')
-SRC_DIR = sys.argv[1] if len(sys.argv) > 1 else r'D:/starcraft2/sc2_btn_icons_raw'
+# 两个源目录：CascView 导出的基础游戏 dds + extract_map_icons.py 从地图里解的本地贴图。
+SRC_DIRS = [d for d in (
+    sys.argv[1] if len(sys.argv) > 1 else r'D:/starcraft2/sc2_btn_icons_raw',
+    sys.argv[2] if len(sys.argv) > 2 else r'D:/starcraft2/sc2_map_icons_raw',
+) if d]
 
 
 def _norm(basename):
@@ -39,37 +44,65 @@ def _norm(basename):
 
 
 def needed_icons():
-    data = json.load(open(TECH_JSON, encoding='utf-8'))
+    """科技升级图标 + 兵种数据库（data/units-v2.json）里引用的单位/建筑图标。
+    units-v2 的 icon 可能是 'btn-*.png'，也可能是 wiki 已有的 '/icons/NN.png'（跳过）。"""
     need = set()
-    for e in data:
+    for e in json.load(open(TECH_JSON, encoding='utf-8')):
         for g in e.get('upgrades', []):
             if g.get('icon'):
                 need.add(g['icon'])  # 已是 png 名
+    if os.path.exists(UNITS_JSON):
+        units = json.load(open(UNITS_JSON, encoding='utf-8')).get('units', {})
+        for u in units.values():
+            icon = u.get('icon')
+            if icon and not icon.startswith('/'):
+                need.add(icon)
     return need
 
 
 def index_source():
-    """SRC_DIR 递归 → {规范key: dds绝对路径}（首个命中优先）。"""
+    """所有 SRC_DIRS 递归 → {规范key: 绝对路径}（前面的目录优先，支持 png 源）。"""
     idx = {}
-    for p in glob.glob(os.path.join(SRC_DIR, '**', '*.dds'), recursive=True):
-        idx.setdefault(_norm(os.path.basename(p)), p)
+    for d in SRC_DIRS:
+        if not os.path.isdir(d):
+            continue
+        for pat in ('*.dds', '*.png'):
+            for p in glob.glob(os.path.join(d, '**', pat), recursive=True):
+                idx.setdefault(_norm(os.path.basename(p)), p)
     return idx
 
 
 def main():
-    if not os.path.isdir(SRC_DIR):
-        print(f'[x] 源目录不存在: {SRC_DIR}')
-        print('    请先用 CascView 从 D:/StarCraft II 导出 btn-*.dds 到该目录。')
+    live = [d for d in SRC_DIRS if os.path.isdir(d)]
+    if not live:
+        print('[x] 源目录都不存在:')
+        for d in SRC_DIRS:
+            print(f'    {d}')
+        print('    请先用 CascView 从 D:/StarCraft II 导出 btn-*.dds，')
+        print('    并跑 scripts/extract_map_icons.py 解出地图自带贴图。')
         sys.exit(1)
+    for d in SRC_DIRS:
+        if not os.path.isdir(d):
+            print(f'[!] 源目录缺失（跳过）: {d}')
     os.makedirs(OUT_DIR, exist_ok=True)
     need = needed_icons()
     idx = index_source()
     print(f'需要 {len(need)} 个图标；源目录索引 {len(idx)} 个 dds')
 
+    def lookup(key):
+        """精确命中；否则前缀匹配（如 btn-unit-protoss-scout → …-scout-purifier）。
+        多个候选时取名字最短的，保证确定性。"""
+        if key in idx:
+            return idx[key]
+        cands = [k for k in idx if k.startswith(key + '-')]
+        if not cands:
+            return None
+        return idx[min(cands, key=len)]
+
     hit, miss, err = [], [], []
     for png_name in sorted(need):
         key = _norm(png_name)
-        src = idx.get(key)
+        src = lookup(key)
         if not src:
             miss.append(png_name)
             continue

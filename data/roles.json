@@ -416,7 +416,6 @@
       "energyRegen": 1
     },
     "abilities": [
-      "NomadCalldownBlackhammer",
       "NomadDefensiveMatrix",
       "NomadSeekerMissile",
       "NomadBuildAutoTurret",
@@ -1137,7 +1136,9 @@
       "AndorCalldownImmortal",
       "AndorCalldownSCV",
       "AndorCalldownCleaningBot",
-      "Rapidfire"
+      "Rapidfire",
+      "AresEmergencyThrusters",
+      "AndorPlacePointDefenseDrone"
     ]
   },
   {
@@ -1162,7 +1163,8 @@
       "RenewingTune",
       "AttractFan",
       "Doubletime",
-      "DJBassDrop"
+      "DJBassDrop",
+      "DJAllPartOfTheShow"
     ]
   },
   {

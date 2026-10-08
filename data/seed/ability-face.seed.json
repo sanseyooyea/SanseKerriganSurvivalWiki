@@ -36,8 +36,9 @@
       "Dehaka": "DehakaPrimalDash"
     },
     "AresEmergencyThrusters": {
-      "_comment": "亚顿借用 Ares 的 AresEmergencyThrusters(后燃充能)，但指令卡上是自己的按钮面 AndorSpeedBoost(后燃助推器)。Ares 保留默认显示。",
-      "Andor": "AndorSpeedBoost"
+      "_comment": "亚顿/游牧民借用 Ares 的 AresEmergencyThrusters(后燃充能)，但指令卡上各有自己的按钮面(AndorSpeedBoost 后燃助推器 / NomadSpeedBoost)。Ares 保留默认显示。",
+      "Andor": "AndorSpeedBoost",
+      "Nomad": "NomadSpeedBoost"
     },
     "CommonBlink": {
       "Ghost": "CommonWorkerBlink"

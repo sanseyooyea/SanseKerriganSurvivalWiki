@@ -66,6 +66,23 @@ def index_requirements(archive):
     return out
 
 
+_LB_RE = re.compile(r'<LayoutButtons\b([^>]*?)(/>|>(.*?)</LayoutButtons>)', re.S)
+
+
+def iter_layout_buttons(xml):
+    """命令卡按钮 → dict(Face, Type, AbilCmd, ...)。两种写法都要认：
+      属性式：<LayoutButtons Face="X" Type="AbilCmd" AbilCmd="A,Execute"/>
+      嵌套式：<LayoutButtons><Face value="X"/><Type value="AbilCmd"/><AbilCmd value="A,Execute"/></LayoutButtons>
+    48 个英雄文件都混用了嵌套式；只认属性式会漏掉整批技能（如亚顿的定点防御靶机、后燃助推器）。"""
+    for mt in _LB_RE.finditer(xml):
+        attrs = dict(re.findall(r'(\w+)="([^"]*)"', mt.group(1)))
+        body = mt.group(3)
+        if body:
+            for tag, val in re.findall(r'<(\w+)\s+value="([^"]*)"\s*/>', body):
+                attrs.setdefault(tag, val)
+        yield attrs
+
+
 def main_card_abilcmds(cunit_xml):
     """主命令卡(第一个 <CardLayouts>，无 CardId 或 CardId=0001)里的 (face, abilId)。"""
     # 切出第一个 CardLayouts 块(主卡)；带 CardId 的子菜单在其后，排除掉
@@ -75,8 +92,7 @@ def main_card_abilcmds(cunit_xml):
         return []
     main = blocks[1].split('</CardLayouts>')[0]
     res = []
-    for mt in re.finditer(r'<LayoutButtons\b([^/>]*)/?>', main):
-        attrs = dict(re.findall(r'(\w+)="([^"]*)"', mt.group(1)))
+    for attrs in iter_layout_buttons(main):
         if attrs.get('Type') != 'AbilCmd':
             continue
         abilcmd = attrs.get('AbilCmd', '')

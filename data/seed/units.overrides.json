@@ -1,0 +1,7 @@
+{
+  "_comment": "兵种发现的手工修正。BFS 从英雄命令卡沿生产/变形/召唤链发现单位；这里只补它看不到的（脚本生成、隐藏链）或误收的。",
+  "_exclude_comment": "永不收录的单位 id（误发现的占位/内部单位）",
+  "exclude": [],
+  "_heroExtra_comment": "脚本生成、生产链上找不到的单位：heroNameEn -> [unitId]",
+  "heroExtra": {}
+}
