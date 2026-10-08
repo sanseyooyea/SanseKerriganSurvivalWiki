@@ -55067,7 +55067,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-protoss-darkpylon.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -55857,7 +55857,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": "tip_voidshard.png",
+      "icon": "btn-building-protoss-darkpylon.png",
       "weapons": [],
       "upgrades": [
         {
@@ -57790,7 +57790,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-unit-xelnaga-destroyer.png",
       "weapons": [
         {
           "id": "AscendantHybridVoidBlast",
@@ -62033,7 +62033,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-sigmaprojector.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -69766,7 +69766,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-sciencefacility.png",
       "weapons": [],
       "upgrades": [],
       "forms": [
@@ -70288,7 +70288,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-unit-terran-odin.png",
       "weapons": [
         {
           "id": "EngineerOdinT800Cannon",
@@ -73957,7 +73957,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-sigmaprojector.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -74012,7 +74012,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-psiindoctrinator.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -81760,7 +81760,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-unit-protoss-preserver00.png",
       "weapons": [],
       "upgrades": [
         {
@@ -83404,7 +83404,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": "btn-building-terran-refinery.png",
+      "icon": "btn-building-terran-refineryautomated.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -83477,7 +83477,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": "btn-tips-protossrelic.png",
+      "icon": "btn-building-terran-mineralstoragedepot.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -83547,7 +83547,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-mineralstoragedepot.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -83626,7 +83626,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-refineryautomated.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -83702,7 +83702,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-sciencefacility.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -94830,7 +94830,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-nukesilo.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -101085,7 +101085,7 @@
         "Air"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-artifact.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -109596,7 +109596,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-taurenspacemarineouthouse.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -110489,7 +110489,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-murlocmarine.png",
       "weapons": [
         {
           "id": "WarfieldMurlocMarineRifleWeapon",
@@ -112974,7 +112974,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": "btn-building-protoss-pylon-ihanrii.png",
+      "icon": "btn-building-protoss-darkpylon.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -113036,7 +113036,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-protoss-darkpylon.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -159059,7 +159059,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-unit-terran-popupturret.png",
       "weapons": [
         {
           "id": "AndorSentryGun",
@@ -159203,7 +159203,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-general-xelnagashrine.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -159258,7 +159258,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-general-xelnagatemple.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -160493,7 +160493,7 @@
         "Air"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-unit-protoss-stonezealot.png",
       "weapons": [
         {
           "id": "DJEyeBeams",
@@ -172329,7 +172329,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "ui_nova_storymode_briefing_icon_cave.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -172642,7 +172642,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "ui_nova_storymode_briefing_icon_cave.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -172725,7 +172725,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "ui_nova_storymode_briefing_icon_cave.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -172808,7 +172808,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "ui_nova_storymode_briefing_icon_cave.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -172891,7 +172891,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "ui_nova_storymode_briefing_icon_cave.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -172974,7 +172974,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "ui_nova_storymode_briefing_icon_cave.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -182925,7 +182925,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-building-terran-sigmaprojector.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185065,7 +185065,7 @@
       "flags": [
         "Uncommandable"
       ],
-      "icon": "btn-upgrade-terran-spidermineex3.png",
+      "icon": "btn-unit-terran-spidermine.png",
       "weapons": [],
       "upgrades": [],
       "forms": [
@@ -185197,7 +185197,7 @@
       "flags": [
         "Uncommandable"
       ],
-      "icon": null,
+      "icon": "btn-unit-terran-spidermine.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185253,7 +185253,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-unit-terran-spidermine.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185369,7 +185369,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-merccompound.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185427,7 +185427,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-merccompound.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185492,7 +185492,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-merccompound.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185619,7 +185619,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-merccompound.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185689,7 +185689,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-merccompound.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185754,7 +185754,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-merccompound.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
@@ -185825,7 +185825,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "wireframe-terran-merccompound.png",
       "weapons": [],
       "upgrades": [],
       "producedBy": [
