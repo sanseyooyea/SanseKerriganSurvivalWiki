@@ -57,7 +57,6 @@
         "SwarmPygalisk",
         "SwarmSwarmQueen",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -1549,7 +1548,10 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Scientist": {
       "team": "Survivor",
@@ -1576,7 +1578,6 @@
         "ScientistWall",
         "ScientistMineralReactor2",
         "ScientistFlashlight1",
-        "ScientistWallLowered",
         "ScientistMineralReactor4",
         "ScientistFlashlightL2",
         "ScientistMineralReactor8",
@@ -1911,7 +1912,10 @@
             "ScientistMineralReactor32"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "ScientistWallLowered": "ScientistWall"
+      }
     },
     "Dark Templar": {
       "team": "Survivor",
@@ -3483,19 +3487,15 @@
       "unitIds": [
         "StukovStukov",
         "StukovInfestedTerranKS",
-        "StukovInfestedCivilianBurrowed",
-        "StukovAberrationBurrowed",
-        "StukovRavagerBurrowed",
-        "StukovNaktulBurrowed",
+        "StukovInfestedCivilian",
+        "StukovAberration",
+        "StukovRavager",
+        "StukovNaktul",
         "StukovSpawningPool",
         "StukovInfestedDen",
         "StukovAberrationCavern",
         "StukovInfestedPit",
-        "StukovEvolutionChamber",
-        "StukovInfestedCivilian",
-        "StukovAberration",
-        "StukovRavager",
-        "StukovNaktul"
+        "StukovEvolutionChamber"
       ],
       "edges": [
         {
@@ -3791,7 +3791,13 @@
             "StukovEvolutionChamber"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "StukovInfestedCivilianBurrowed": "StukovInfestedCivilian",
+        "StukovAberrationBurrowed": "StukovAberration",
+        "StukovRavagerBurrowed": "StukovRavager",
+        "StukovNaktulBurrowed": "StukovNaktul"
+      }
     },
     "Artanis": {
       "team": "Survivor",
@@ -3818,7 +3824,6 @@
         "ArtanisAdept",
         "ArtanisImmortal",
         "ArtanisReaver",
-        "ArtanisWarpPrismPhasing",
         "ArtanisMothership",
         "ArtanisReaverScarab"
       ],
@@ -4219,7 +4224,10 @@
             "ArtanisWarpPrism"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "ArtanisWarpPrismPhasing": "ArtanisWarpPrism"
+      }
     },
     "Zagara": {
       "team": "Kerrigan",
@@ -4246,10 +4254,7 @@
         "SwarmAutoDrone",
         "SwarmPygalisk",
         "SwarmSwarmQueen",
-        "SwarmCreepTumorBurrowed",
-        "SwarmCreepTumorUsed",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -5782,7 +5787,12 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmCreepTumorBurrowed": "SwarmCreepTumor",
+        "SwarmCreepTumorUsed": "SwarmCreepTumor",
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Engineer": {
       "team": "Survivor",
@@ -5804,11 +5814,7 @@
         "EngineerOdin",
         "EngineerWraith",
         "EngineerScienceVessel",
-        "EngineerFactoryFlying",
         "ScientistFlashlight1",
-        "EngineerStarportFlying",
-        "EngineerScienceFacilityFlying",
-        "EngineerWidowMineBurrowed",
         "ScientistFlashlightL2",
         "ScientistFlashlightL3"
       ],
@@ -6172,7 +6178,13 @@
             "ScientistFlashlightL3"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "EngineerWidowMineBurrowed": "EngineerWidowMine",
+        "EngineerFactoryFlying": "EngineerFactory",
+        "EngineerStarportFlying": "EngineerStarport",
+        "EngineerScienceFacilityFlying": "EngineerScienceFacility"
+      }
     },
     "Team Nova": {
       "team": "Survivor",
@@ -6201,16 +6213,8 @@
         "NovaEquipmentCenter",
         "GhostWall",
         "NovaKP45BurrowedDelinker",
-        "NovaKP45ABurrowed",
-        "NovaKP45DBurrowed",
-        "NovaKP45GBurrowed",
-        "NovaKP45JBurrowed",
-        "NovaKP45NBurrowed",
-        "NovaKP45HBurrowed",
-        "NovaKP45BBurrowed",
         "NovaMissionCommand2",
         "ScientistFlashlight1",
-        "GhostWallLowered",
         "NovaMissionCommand4",
         "ScientistFlashlightL2",
         "NovaMissionCommand8",
@@ -6863,7 +6867,17 @@
             "NovaMissionCommand32"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "NovaKP45ABurrowed": "NovaKP45A",
+        "NovaKP45DBurrowed": "NovaKP45D",
+        "NovaKP45GBurrowed": "NovaKP45G",
+        "NovaKP45JBurrowed": "NovaKP45J",
+        "NovaKP45NBurrowed": "NovaKP45N",
+        "NovaKP45HBurrowed": "NovaKP45H",
+        "NovaKP45BBurrowed": "NovaKP45B",
+        "GhostWallLowered": "GhostWall"
+      }
     },
     "Nomad": {
       "team": "Survivor",
@@ -6902,7 +6916,6 @@
         "NomadLaboratory64",
         "NomadOrbitalCommand",
         "ScientistFlashlight1",
-        "GhostWallLowered",
         "ScientistFlashlightL2",
         "ScientistFlashlightL3"
       ],
@@ -7332,6 +7345,9 @@
           ]
         }
       ],
+      "forms": {
+        "GhostWallLowered": "GhostWall"
+      },
       "skillSummons": [
         {
           "abil": "NomadPlacePointDefenseDrone",
@@ -7480,7 +7496,6 @@
         "SwarmPygalisk",
         "SwarmSwarmQueen",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -8972,7 +8987,10 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Helios": {
       "team": "Survivor",
@@ -9590,7 +9608,6 @@
         "SwarmPygalisk",
         "SwarmSwarmQueen",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -11082,7 +11099,10 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Swann": {
       "team": "Survivor",
@@ -12830,10 +12850,7 @@
         "SwarmAutoDrone",
         "SwarmPygalisk",
         "SwarmSwarmQueen",
-        "SwarmCreepTumorBurrowed",
-        "SwarmCreepTumorUsed",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -14366,7 +14383,12 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmCreepTumorBurrowed": "SwarmCreepTumor",
+        "SwarmCreepTumorUsed": "SwarmCreepTumor",
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Mira": {
       "team": "Survivor",
@@ -14395,10 +14417,7 @@
         "MiraMineralCompound64",
         "MiraMineralCompound128",
         "ScientistFlashlight",
-        "MiraLiberatorAG",
-        "MiraSiegeBreakerSieged",
         "MiraNuke",
-        "GhostWallLowered",
         "ScientistFlashlight1",
         "ScientistFlashlightL2",
         "ScientistFlashlightL3"
@@ -14891,7 +14910,12 @@
             "ScientistFlashlightL3"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "GhostWallLowered": "GhostWall",
+        "MiraLiberatorAG": "MiraLiberatorAA",
+        "MiraSiegeBreakerSieged": "MiraSiegeBreakerTank"
+      }
     },
     "Scion": {
       "team": "Survivor",
@@ -15844,7 +15868,6 @@
         "FlameTrap",
         "TechnicianTransmutationFactory1",
         "GateLowered",
-        "GateRaised",
         "WallTechnician",
         "VisionTower",
         "TechnicianAccumulatorx2",
@@ -16514,7 +16537,10 @@
             "TechnicianTransmutationFactory128"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "GateRaised": "GateLowered"
+      }
     },
     "Warfield": {
       "team": "Survivor",
@@ -16535,8 +16561,7 @@
         "WarfieldHerc",
         "WarfieldSentryBot",
         "WarfieldLaserTank",
-        "WarfieldEidolon",
-        "BarracksWarfieldFlying"
+        "WarfieldEidolon"
       ],
       "edges": [
         {
@@ -16725,7 +16750,10 @@
             "WarfieldBarracks"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "BarracksWarfieldFlying": "WarfieldBarracks"
+      }
     },
     "Champion": {
       "team": "Survivor",
@@ -16752,13 +16780,7 @@
         "ChampionKhaldur",
         "ChampionStoneAvatar",
         "ChampionProbe",
-        "ChampionCenturionPP",
-        "ChampionStriderPP",
-        "ChampionTaldarinPP",
-        "ChampionTalisPP",
-        "ChampionTalisPhaseShift",
-        "ChampionKhaldurPP",
-        "ChampionStoneAvatarPP"
+        "ChampionTalisPhaseShift"
       ],
       "edges": [
         {
@@ -17969,7 +17991,15 @@
             "ChampionProbe"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "ChampionCenturionPP": "ChampionCenturion",
+        "ChampionStriderPP": "ChampionStrider",
+        "ChampionTaldarinPP": "ChampionTaldarin",
+        "ChampionTalisPP": "ChampionTalis",
+        "ChampionKhaldurPP": "ChampionKhaldur",
+        "ChampionStoneAvatarPP": "ChampionStoneAvatar"
+      }
     },
     "Elementalist": {
       "team": "Survivor",
@@ -18164,7 +18194,6 @@
         "SwarmPygalisk",
         "SwarmSwarmQueen",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -19656,7 +19685,10 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Glevig": {
       "team": "Kerrigan",
@@ -19689,7 +19721,6 @@
         "GlevigInfestorLevel4",
         "SwarmCreepTumor",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -19703,8 +19734,6 @@
         "SwarmLurkerDen",
         "SwarmPygaliskPit",
         "SwarmSeersNest",
-        "SwarmCreepTumorBurrowed",
-        "SwarmCreepTumorUsed",
         "SwarmLair",
         "SwarmHive"
       ],
@@ -21355,6 +21384,11 @@
           "count": 2
         }
       ],
+      "forms": {
+        "SwarmLurkerBurrowed": "SwarmLurker",
+        "SwarmCreepTumorBurrowed": "SwarmCreepTumor",
+        "SwarmCreepTumorUsed": "SwarmCreepTumor"
+      },
       "skillSummons": [
         {
           "abil": "GlevigSpawnInfestor",
@@ -21449,7 +21483,6 @@
         "DSCommerceCenter",
         "DSArmory",
         "SoulcatchingZoneWeapon",
-        "GhostWallLowered",
         "ScientistFlashlight1",
         "DSCommerceCenter4",
         "ScientistFlashlightL2",
@@ -22185,6 +22218,9 @@
           ]
         }
       ],
+      "forms": {
+        "GhostWallLowered": "GhostWall"
+      },
       "skillSummons": [
         {
           "abil": "DSBuildRadarTower1",
@@ -22275,10 +22311,7 @@
         "SwarmAutoDrone",
         "SwarmPygalisk",
         "SwarmSwarmQueen",
-        "SwarmCreepTumorBurrowed",
-        "SwarmCreepTumorUsed",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -24079,7 +24112,12 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmCreepTumorBurrowed": "SwarmCreepTumor",
+        "SwarmCreepTumorUsed": "SwarmCreepTumor",
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Alarak": {
       "team": "Survivor",
@@ -24654,21 +24692,11 @@
         "SwarmAutoDrone",
         "SwarmPygalisk",
         "SwarmSwarmQueen",
-        "SwarmCreepTumorBurrowed",
-        "SwarmCreepTumorUsed",
-        "IzshaInfestedBlimpSeigeModeLevel1",
-        "IzshaInfestedBlimpSeigeModeLevel2",
-        "IzshaInfestedBlimpSeigeModeLevel3",
-        "IzshaInfestedBlimpSeigeModeLevel4",
-        "IzshaCorruptedWall2",
-        "IzshaCorruptedWall3",
-        "IzshaCorruptedWall4",
         "IzshaBiotrapBurrow1",
         "IzshaBiotrapBurrow2",
         "IzshaBiotrapBurrow3",
         "IzshaBiotrapBurrow4",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -26595,6 +26623,18 @@
           "count": 2
         }
       ],
+      "forms": {
+        "SwarmCreepTumorBurrowed": "SwarmCreepTumor",
+        "SwarmCreepTumorUsed": "SwarmCreepTumor",
+        "SwarmLurkerBurrowed": "SwarmLurker",
+        "IzshaInfestedBlimpSeigeModeLevel1": "IzshaInfestedBlimp1",
+        "IzshaInfestedBlimpSeigeModeLevel2": "IzshaInfestedBlimp2",
+        "IzshaInfestedBlimpSeigeModeLevel3": "IzshaInfestedBlimp3",
+        "IzshaInfestedBlimpSeigeModeLevel4": "IzshaInfestedBlimp4",
+        "IzshaCorruptedWall2": "IzshaCorruptedWallUp2",
+        "IzshaCorruptedWall3": "IzshaCorruptedWallUp3",
+        "IzshaCorruptedWall4": "IzshaCorruptedWallUp4"
+      },
       "skillSummons": [
         {
           "abil": "IzshaCalldownInfestedBlimp",
@@ -26794,7 +26834,6 @@
         "MalusMaldus3",
         "MalusMaldus4",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -28334,7 +28373,10 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Kraith": {
       "team": "Kerrigan",
@@ -28361,7 +28403,6 @@
         "SwarmPygalisk",
         "SwarmSwarmQueen",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -29853,7 +29894,10 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Energizer": {
       "team": "Survivor",
@@ -33981,7 +34025,6 @@
         "AndorCleaningBot",
         "AndorArchon",
         "AndorImmortal",
-        "AndorSentinelWreckage",
         "AndorSentryGun",
         "ScientistFlashlight",
         "GhostWall",
@@ -33989,7 +34032,6 @@
         "AndorXelNagaTemple",
         "AndorArmory",
         "ScientistFlashlight1",
-        "GhostWallLowered",
         "ScientistFlashlightL2",
         "ScientistFlashlightL3"
       ],
@@ -34270,6 +34312,10 @@
           ]
         }
       ],
+      "forms": {
+        "GhostWallLowered": "GhostWall",
+        "AndorSentinelWreckage": "AndorSentinel"
+      },
       "skillSummons": [
         {
           "abil": "AndorPlacePointDefenseDrone",
@@ -34607,7 +34653,6 @@
         "GhostWall",
         "ScientistFlashlight",
         "RattlesnakeDominionStarport8",
-        "GhostWallLowered",
         "ScientistFlashlight1",
         "RattlesnakeDominionStarport16",
         "ScientistFlashlightL2",
@@ -34809,6 +34854,9 @@
           ]
         }
       ],
+      "forms": {
+        "GhostWallLowered": "GhostWall"
+      },
       "skillSummons": [
         {
           "abil": "RattlesnakeDeployRevitalizer",
@@ -34896,10 +34944,7 @@
         "SgtHammerMarauderMineUnburrowed",
         "SgtHammerAssaultViking",
         "SgtHammerHellion",
-        "SgtHammerHellbat",
         "SgtHammerThorson",
-        "SgtHammerThorsonAP",
-        "SgtHammerFighterViking",
         "SgtHammerBlastPack",
         "HammerCrucioTankSieged",
         "SgtHammerImperioSiegeTankSieged",
@@ -34918,31 +34963,22 @@
         "SgtHammerHammerBarracks",
         "SgtHammerHammerFactory",
         "HammerLightbulb",
-        "SgtHammerMarauderMineBurrowed",
         "ScientistMineralReactor2",
         "SgtHammerReactorDeprecated",
-        "SgtHammerSupplyDepotLowered",
         "ScientistFlashlight1",
         "HammerTechLabEcoBarracks",
         "HammerReactorEcoBarracks",
-        "SgtHammerEcoBarracksFlying",
         "HammerTechLabEcoFactory",
         "HammerReactorEcoFactory",
-        "SgtHammerEcoFactoryFlying",
         "HammerTechLabEcoStarport",
         "HammerReactorEcoStarport",
-        "SgtHammerEcoStarportFlying",
         "HammerTechLabBarracks",
         "HammerReactorBarracks",
-        "SgtHammerHammerBarracksFlying",
         "HammerTechLabFactory",
         "HammerReactorFactory",
-        "SgtHammerHammerFactoryFlying",
         "HammerLightBeacon",
         "ScientistMineralReactor4",
         "ScientistFlashlightL2",
-        "HammerTechLabDetached",
-        "HammerReactorDetached",
         "ScientistMineralReactor8",
         "ScientistFlashlightL3",
         "ScientistMineralReactor16",
@@ -36963,7 +36999,21 @@
             "ScientistMineralReactor32"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "SgtHammerSupplyDepotLowered": "SgtHammerSupplyDepot",
+        "SgtHammerMarauderMineBurrowed": "SgtHammerMarauderMineUnburrowed",
+        "SgtHammerFighterViking": "SgtHammerAssaultViking",
+        "SgtHammerHellbat": "SgtHammerHellion",
+        "SgtHammerThorsonAP": "SgtHammerThorson",
+        "SgtHammerEcoBarracksFlying": "SgtHammerEcoBarracks",
+        "SgtHammerEcoFactoryFlying": "SgtHammerEcoFactory",
+        "SgtHammerEcoStarportFlying": "SgtHammerEcoStarport",
+        "SgtHammerHammerBarracksFlying": "SgtHammerHammerBarracks",
+        "SgtHammerHammerFactoryFlying": "SgtHammerHammerFactory",
+        "HammerTechLabDetached": "HammerTechLabEcoBarracks",
+        "HammerReactorDetached": "HammerReactorEcoBarracks"
+      }
     },
     "Chew": {
       "team": "Survivor",
@@ -38212,7 +38262,6 @@
         "CritterLordSporeRay",
         "CritterLordZerusianNeedler",
         "CritterLordProbe",
-        "CritterLordZerusianNeedlerRooted",
         "CritterLordCritterHive1",
         "CritterLordLavaCrabStructure",
         "CritterLordPrimalWarden",
@@ -38411,7 +38460,10 @@
             "CritterLordCritterHive32"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "CritterLordZerusianNeedlerRooted": "CritterLordZerusianNeedler"
+      }
     },
     "Nightingale": {
       "team": "Survivor",
@@ -38912,7 +38964,6 @@
         "SjlerkArchive",
         "SjlerkBlindingArchive",
         "SjlerkSlowingArchive",
-        "GhostWallLowered",
         "SjlerkHoloDecoy2",
         "SjlerkHoloDecoy4",
         "SjlerkHoloDecoy8",
@@ -39156,7 +39207,10 @@
             "SjlerkHoloDecoy32"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "GhostWallLowered": "GhostWall"
+      }
     },
     "Sophia": {
       "team": "Survivor",
@@ -39174,7 +39228,6 @@
         "SophiaLaserSiegeTankUnsieged",
         "SophiaThor",
         "SophiaSpiderMine",
-        "SophiaSpiderMineBurrowed",
         "SophiaForcefieldMine",
         "SophiaForcefieldMineBurrowed",
         "SophiaBeacon",
@@ -39187,13 +39240,11 @@
         "SophiaMercCompound16",
         "SophiaMercCompound32",
         "SophiaMercCompound64",
-        "SophiaLaserSiegeTankSieged",
         "SophiaForceField",
         "SophiaBeaconWithGlasses",
         "SophiaBeaconwithCloak",
         "SophiaCDMercCompound2",
         "SophiaCDMercCompound4",
-        "GhostWallLowered",
         "SophiaCDMercCompound16",
         "SophiaCDMercCompound32"
       ],
@@ -39624,7 +39675,12 @@
             "SophiaMercCompound64"
           ]
         }
-      ]
+      ],
+      "forms": {
+        "SophiaSpiderMineBurrowed": "SophiaSpiderMine",
+        "GhostWallLowered": "GhostWall",
+        "SophiaLaserSiegeTankSieged": "SophiaLaserSiegeTankUnsieged"
+      }
     },
     "Jinara": {
       "team": "Survivor",
@@ -39937,10 +39993,7 @@
         "SwarmAutoDrone",
         "SwarmPygalisk",
         "SwarmSwarmQueen",
-        "SwarmCreepTumorBurrowed",
-        "SwarmCreepTumorUsed",
         "SwarmBaneling",
-        "SwarmLurkerBurrowed",
         "SwarmSporeCrawler",
         "SwarmSpineCrawler",
         "SwarmIncomeHatchery",
@@ -41473,7 +41526,12 @@
           ],
           "count": 2
         }
-      ]
+      ],
+      "forms": {
+        "SwarmCreepTumorBurrowed": "SwarmCreepTumor",
+        "SwarmCreepTumorUsed": "SwarmCreepTumor",
+        "SwarmLurkerBurrowed": "SwarmLurker"
+      }
     },
     "Skitter": {
       "team": "Survivor",
@@ -51558,6 +51616,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SwarmLurkerBurrowed",
+          "label": "埋地",
+          "nameZh": "虫群潜伏者（埋地）"
+        }
+      ],
       "producedBy": [
         {
           "from": "KerriganKerrigan",
@@ -61118,7 +61183,7 @@
         "Kraith",
         "Sir Roachington"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 700,
         "shield": 0,
@@ -62284,6 +62349,8 @@
         },
         "techReliance": 1.5
       },
+      "formOf": "SwarmLurker",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "SwarmLurker",
@@ -75743,6 +75810,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "ScientistWallLowered",
+          "label": "降下",
+          "nameZh": "墙"
+        }
+      ],
       "producedBy": [
         {
           "from": "ScientistSCV",
@@ -76127,7 +76201,7 @@
       "owners": [
         "Scientist"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 100,
         "shield": 0,
@@ -76274,6 +76348,8 @@
         },
         "techReliance": null
       },
+      "formOf": "ScientistWall",
+      "formLabel": "降下",
       "producedBy": [
         {
           "from": "ScientistWall",
@@ -111190,7 +111266,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 50,
         "shield": 0,
@@ -111354,6 +111430,8 @@
         },
         "techReliance": null
       },
+      "formOf": "StukovInfestedCivilian",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "StukovStukov",
@@ -111379,7 +111457,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 1000,
         "shield": 0,
@@ -111722,6 +111800,8 @@
         },
         "techReliance": null
       },
+      "formOf": "StukovAberration",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "StukovStukov",
@@ -111747,7 +111827,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 250,
         "shield": 0,
@@ -111910,6 +111990,8 @@
         },
         "techReliance": null
       },
+      "formOf": "StukovRavager",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "StukovStukov",
@@ -111935,7 +112017,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 500,
         "shield": 0,
@@ -112101,6 +112183,8 @@
         },
         "techReliance": null
       },
+      "formOf": "StukovNaktul",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "StukovStukov",
@@ -112975,7 +113059,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "morph",
+      "category": "troop",
       "stats": {
         "hp": 50,
         "shield": 0,
@@ -112993,10 +113077,26 @@
         "radius": 0.375
       },
       "cost": {
-        "minerals": 4,
-        "gas": 0,
+        "minerals": 15.0,
+        "gas": 0.0,
         "food": 0.5,
-        "supplyProvided": 0
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 4,
+          "gas": 0
+        },
+        "hire": {
+          "minerals": 15.0,
+          "gas": 0.0,
+          "perCall": {
+            "minerals": 15,
+            "gas": 0,
+            "count": 1
+          },
+          "chargeTime": 15,
+          "chargeMax": 3,
+          "abil": "StukovInfestedCivilians"
+        }
       },
       "attributes": [
         "Light",
@@ -113945,13 +114045,13 @@
           "heroic",
           "kerrigan"
         ],
-        "dpsPer100Light": 125.0,
-        "dpsPer100Armored": 125.0,
-        "dpsPer100Kerrigan": 125.0,
-        "hpPer100": 1250.0,
-        "dpsPer100LightMax": 200.0,
-        "dpsPer100ArmoredMax": 200.0,
-        "dpsPer100KerriganMax": 200.0,
+        "dpsPer100Light": 33.33,
+        "dpsPer100Armored": 33.33,
+        "dpsPer100Kerrigan": 33.33,
+        "hpPer100": 333.3,
+        "dpsPer100LightMax": 53.33,
+        "dpsPer100ArmoredMax": 53.33,
+        "dpsPer100KerriganMax": 53.33,
         "dpsPerFoodLight": 10.0,
         "dpsPerFoodArmored": 10.0,
         "fullUpgradeCost": {
@@ -113960,6 +114060,13 @@
         },
         "techReliance": 1.6
       },
+      "forms": [
+        {
+          "id": "StukovInfestedCivilianBurrowed",
+          "label": "埋地",
+          "nameZh": "斯托科夫被感染的平民（埋地）"
+        }
+      ],
       "producedBy": [
         {
           "from": "StukovInfestedCivilianBurrowed",
@@ -113975,7 +114082,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "morph",
+      "category": "troop",
       "stats": {
         "hp": 1000,
         "shield": 0,
@@ -113993,10 +114100,26 @@
         "radius": 0.875
       },
       "cost": {
-        "minerals": 750,
-        "gas": 3,
+        "minerals": 800.0,
+        "gas": 3.0,
         "food": 5,
-        "supplyProvided": 0
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 750,
+          "gas": 3
+        },
+        "hire": {
+          "minerals": 800.0,
+          "gas": 3.0,
+          "perCall": {
+            "minerals": 800,
+            "gas": 3,
+            "count": 1
+          },
+          "chargeTime": 50,
+          "chargeMax": 1,
+          "abil": "StukovInfestedAberration"
+        }
       },
       "attributes": [
         "Armored",
@@ -115089,13 +115212,13 @@
           "heroic",
           "kerrigan"
         ],
-        "dpsPer100Light": 26.56,
-        "dpsPer100Armored": 26.56,
-        "dpsPer100Kerrigan": 26.56,
-        "hpPer100": 132.8,
-        "dpsPer100LightMax": 38.51,
-        "dpsPer100ArmoredMax": 38.51,
-        "dpsPer100KerriganMax": 38.51,
+        "dpsPer100Light": 24.91,
+        "dpsPer100Armored": 24.91,
+        "dpsPer100Kerrigan": 24.91,
+        "hpPer100": 124.5,
+        "dpsPer100LightMax": 36.11,
+        "dpsPer100ArmoredMax": 36.11,
+        "dpsPer100KerriganMax": 36.11,
         "dpsPerFoodLight": 40.0,
         "dpsPerFoodArmored": 40.0,
         "fullUpgradeCost": {
@@ -115104,6 +115227,13 @@
         },
         "techReliance": 1.45
       },
+      "forms": [
+        {
+          "id": "StukovAberrationBurrowed",
+          "label": "埋地",
+          "nameZh": "斯托科夫畸变体（埋地）"
+        }
+      ],
       "producedBy": [
         {
           "from": "StukovAberrationBurrowed",
@@ -115120,7 +115250,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "morph",
+      "category": "troop",
       "stats": {
         "hp": 250,
         "shield": 0,
@@ -115138,10 +115268,26 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 175,
-        "gas": 1,
+        "minerals": 350.0,
+        "gas": 2.0,
         "food": 2,
-        "supplyProvided": 0
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 175,
+          "gas": 1
+        },
+        "hire": {
+          "minerals": 350.0,
+          "gas": 2.0,
+          "perCall": {
+            "minerals": 350,
+            "gas": 2,
+            "count": 1
+          },
+          "chargeTime": 35,
+          "chargeMax": 1,
+          "abil": "StukovInfestedRavager"
+        }
       },
       "attributes": [
         "Biological"
@@ -116224,13 +116370,13 @@
           "heroic",
           "kerrigan"
         ],
-        "dpsPer100Light": 25.82,
-        "dpsPer100Armored": 38.74,
-        "dpsPer100Kerrigan": 25.82,
-        "hpPer100": 142.0,
-        "dpsPer100LightMax": 41.32,
-        "dpsPer100ArmoredMax": 54.23,
-        "dpsPer100KerriganMax": 41.32,
+        "dpsPer100Light": 12.91,
+        "dpsPer100Armored": 19.37,
+        "dpsPer100Kerrigan": 12.91,
+        "hpPer100": 71.0,
+        "dpsPer100LightMax": 20.66,
+        "dpsPer100ArmoredMax": 27.12,
+        "dpsPer100KerriganMax": 20.66,
         "dpsPerFoodLight": 22.73,
         "dpsPerFoodArmored": 34.09,
         "fullUpgradeCost": {
@@ -116239,6 +116385,13 @@
         },
         "techReliance": 1.4
       },
+      "forms": [
+        {
+          "id": "StukovRavagerBurrowed",
+          "label": "埋地",
+          "nameZh": "破坏者"
+        }
+      ],
       "producedBy": [
         {
           "from": "StukovRavagerBurrowed",
@@ -116254,7 +116407,7 @@
       "owners": [
         "Stukov"
       ],
-      "category": "morph",
+      "category": "troop",
       "stats": {
         "hp": 400,
         "shield": 0,
@@ -116272,10 +116425,26 @@
         "radius": 0.875
       },
       "cost": {
-        "minerals": 350,
-        "gas": 10,
+        "minerals": 350.0,
+        "gas": 10.0,
         "food": 10,
-        "supplyProvided": 0
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 350,
+          "gas": 10
+        },
+        "hire": {
+          "minerals": 350.0,
+          "gas": 10.0,
+          "perCall": {
+            "minerals": 350,
+            "gas": 10,
+            "count": 1
+          },
+          "chargeTime": null,
+          "chargeMax": null,
+          "abil": "StukovSpawnNaktul"
+        }
       },
       "attributes": [
         "Armored",
@@ -117374,6 +117543,13 @@
         },
         "techReliance": 1.3
       },
+      "forms": [
+        {
+          "id": "StukovNaktulBurrowed",
+          "label": "埋地",
+          "nameZh": "纳克图尔（埋地）（看不见我看不见我）"
+        }
+      ],
       "producedBy": [
         {
           "from": "StukovNaktulBurrowed",
@@ -120057,6 +120233,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "ArtanisWarpPrismPhasing",
+          "label": "相位模式",
+          "nameZh": "折跃棱镜"
+        }
+      ],
       "producedBy": [
         {
           "from": "ArtanisArtanis",
@@ -124805,7 +124988,7 @@
       "owners": [
         "Artanis"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 100,
         "shield": 100,
@@ -124954,6 +125137,8 @@
         },
         "techReliance": null
       },
+      "formOf": "ArtanisWarpPrism",
+      "formLabel": "相位模式",
       "producedBy": [
         {
           "from": "ArtanisWarpPrism",
@@ -127328,6 +127513,18 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SwarmCreepTumorBurrowed",
+          "label": "埋地",
+          "nameZh": "菌毯肿瘤"
+        },
+        {
+          "id": "SwarmCreepTumorUsed",
+          "label": "已使用",
+          "nameZh": "菌毯肿瘤"
+        }
+      ],
       "producedBy": [
         {
           "from": "ZagaraZagara",
@@ -127431,7 +127628,7 @@
         "Izsha",
         "Sir Roachington"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 150,
         "shield": 0,
@@ -127571,6 +127768,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SwarmCreepTumor",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "SwarmCreepTumor",
@@ -127595,7 +127794,7 @@
         "Izsha",
         "Sir Roachington"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 150,
         "shield": 0,
@@ -127735,6 +127934,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SwarmCreepTumor",
+      "formLabel": "已使用",
       "producedBy": [
         {
           "from": "SwarmCreepTumor",
@@ -128555,6 +128756,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "EngineerFactoryFlying",
+          "label": "工程师（飞行",
+          "nameZh": "工程师重工厂（飞行）"
+        }
+      ],
       "producedBy": [
         {
           "from": "EngineerSCV",
@@ -128734,6 +128942,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "EngineerStarportFlying",
+          "label": "工程师（飞行",
+          "nameZh": "工程师星港（飞行）"
+        }
+      ],
       "producedBy": [
         {
           "from": "EngineerSCV",
@@ -129077,6 +129292,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "EngineerScienceFacilityFlying",
+          "label": "科学工厂",
+          "nameZh": "科学工厂"
+        }
+      ],
       "producedBy": [
         {
           "from": "EngineerSCV",
@@ -129563,6 +129785,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "EngineerWidowMineBurrowed",
+          "label": "埋地",
+          "nameZh": "寡妇雷（埋地小可爱）"
+        }
+      ],
       "producedBy": [
         {
           "from": "EngineerFactory",
@@ -133477,7 +133706,7 @@
       "owners": [
         "Engineer"
       ],
-      "category": "economy",
+      "category": "form",
       "stats": {
         "hp": 350,
         "shield": 0,
@@ -133792,6 +134021,8 @@
         },
         "techReliance": null
       },
+      "formOf": "EngineerFactory",
+      "formLabel": "工程师（飞行",
       "producedBy": [
         {
           "from": "EngineerFactory",
@@ -133811,7 +134042,7 @@
       "owners": [
         "Engineer"
       ],
-      "category": "economy",
+      "category": "form",
       "stats": {
         "hp": 800,
         "shield": 0,
@@ -134126,6 +134357,8 @@
         },
         "techReliance": null
       },
+      "formOf": "EngineerStarport",
+      "formLabel": "工程师（飞行",
       "producedBy": [
         {
           "from": "EngineerStarport",
@@ -134145,7 +134378,7 @@
       "owners": [
         "Engineer"
       ],
-      "category": "economy",
+      "category": "form",
       "stats": {
         "hp": 1500,
         "shield": 0,
@@ -134460,6 +134693,8 @@
         },
         "techReliance": null
       },
+      "formOf": "EngineerScienceFacility",
+      "formLabel": "科学工厂",
       "producedBy": [
         {
           "from": "EngineerScienceFacility",
@@ -134479,7 +134714,7 @@
       "owners": [
         "Engineer"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -134933,6 +135168,8 @@
         },
         "techReliance": null
       },
+      "formOf": "EngineerWidowMine",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "EngineerWidowMine",
@@ -139916,6 +140153,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "NovaKP45ABurrowed",
+          "label": "埋地",
+          "nameZh": "KP45A \"隐形无人机\""
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaNova",
@@ -140401,6 +140645,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "NovaKP45DBurrowed",
+          "label": "埋地",
+          "nameZh": "KP45D \"统治无人机\""
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaNova",
@@ -140891,6 +141142,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "NovaKP45GBurrowed",
+          "label": "埋地",
+          "nameZh": "KP45G \"收集无人机\""
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaNova",
@@ -141381,6 +141639,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "NovaKP45JBurrowed",
+          "label": "埋地",
+          "nameZh": "KP45J \"干扰无人机\""
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaNova",
@@ -141965,6 +142230,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "NovaKP45NBurrowed",
+          "label": "埋地",
+          "nameZh": "KP45N \"照明无人机\""
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaNova",
@@ -142763,6 +143035,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "NovaKP45HBurrowed",
+          "label": "埋地",
+          "nameZh": "KP45H \"治疗无人机\""
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaNova",
@@ -143347,6 +143626,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "NovaKP45BBurrowed",
+          "label": "埋地",
+          "nameZh": "KP45B \"修复无人机\""
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaNova",
@@ -144213,6 +144499,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "GhostWallLowered",
+          "label": "降下",
+          "nameZh": "墙壁"
+        }
+      ],
       "producedBy": [
         {
           "from": "NovaSCV",
@@ -144648,7 +144941,7 @@
       "owners": [
         "Team Nova"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -145002,6 +145295,8 @@
         },
         "techReliance": null
       },
+      "formOf": "NovaKP45A",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "NovaKP45A",
@@ -145018,7 +145313,7 @@
       "owners": [
         "Team Nova"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -145372,6 +145667,8 @@
         },
         "techReliance": null
       },
+      "formOf": "NovaKP45D",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "NovaKP45D",
@@ -145391,7 +145688,7 @@
       "owners": [
         "Team Nova"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -145745,6 +146042,8 @@
         },
         "techReliance": null
       },
+      "formOf": "NovaKP45G",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "NovaKP45G",
@@ -145764,7 +146063,7 @@
       "owners": [
         "Team Nova"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -146118,6 +146417,8 @@
         },
         "techReliance": null
       },
+      "formOf": "NovaKP45J",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "NovaKP45J",
@@ -146137,7 +146438,7 @@
       "owners": [
         "Team Nova"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -146691,6 +146992,8 @@
         },
         "techReliance": null
       },
+      "formOf": "NovaKP45N",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "NovaKP45N",
@@ -146710,7 +147013,7 @@
       "owners": [
         "Team Nova"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -147372,6 +147675,8 @@
         },
         "techReliance": null
       },
+      "formOf": "NovaKP45H",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "NovaKP45H",
@@ -147391,7 +147696,7 @@
       "owners": [
         "Team Nova"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -147839,6 +148144,8 @@
         },
         "techReliance": null
       },
+      "formOf": "NovaKP45B",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "NovaKP45B",
@@ -148031,7 +148338,7 @@
         "Sjlerk",
         "Sophia"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 100,
         "shield": 0,
@@ -148178,6 +148485,8 @@
         },
         "techReliance": null
       },
+      "formOf": "GhostWall",
+      "formLabel": "降下",
       "producedBy": [
         {
           "from": "GhostWall",
@@ -211139,7 +211448,7 @@
       "owners": [
         "Mira"
       ],
-      "category": "troop",
+      "category": "summon",
       "stats": {
         "hp": 1000,
         "shield": 0,
@@ -212156,6 +212465,13 @@
         },
         "techReliance": 1.6
       },
+      "forms": [
+        {
+          "id": "MiraLiberatorAG",
+          "label": "攻城模式",
+          "nameZh": "袭掠解放者（攻城模式）"
+        }
+      ],
       "producedBy": [
         {
           "from": "MiraMira",
@@ -212181,7 +212497,7 @@
       "owners": [
         "Mira"
       ],
-      "category": "troop",
+      "category": "summon",
       "stats": {
         "hp": 350,
         "shield": 0,
@@ -213465,6 +213781,13 @@
         },
         "techReliance": 1.43
       },
+      "forms": [
+        {
+          "id": "MiraSiegeBreakerSieged",
+          "label": "破城者",
+          "nameZh": "破城者"
+        }
+      ],
       "producedBy": [
         {
           "from": "MiraMira",
@@ -215014,7 +215337,7 @@
       "owners": [
         "Mira"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 1000,
         "shield": 0,
@@ -216032,6 +216355,8 @@
         },
         "techReliance": 1.6
       },
+      "formOf": "MiraLiberatorAA",
+      "formLabel": "攻城模式",
       "producedBy": [
         {
           "from": "MiraLiberatorAA",
@@ -216051,7 +216376,7 @@
       "owners": [
         "Mira"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 350,
         "shield": 0,
@@ -217478,6 +217803,8 @@
         },
         "techReliance": 1.9
       },
+      "formOf": "MiraSiegeBreakerTank",
+      "formLabel": "破城者",
       "producedBy": [
         {
           "from": "MiraSiegeBreakerTank",
@@ -232096,6 +232423,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "GateRaised",
+          "label": "门",
+          "nameZh": "门"
+        }
+      ],
       "producedBy": [
         {
           "from": "TechnicianTechnician",
@@ -232129,7 +232463,7 @@
       "owners": [
         "Technician"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 100,
         "shield": 0,
@@ -232776,6 +233110,8 @@
         },
         "techReliance": null
       },
+      "formOf": "GateLowered",
+      "formLabel": "门",
       "producedBy": [
         {
           "from": "TechnicianTechnician",
@@ -263693,6 +264029,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "BarracksWarfieldFlying",
+          "label": "沃菲尔德（飞行",
+          "nameZh": "沃菲尔德兵营（飞行）"
+        }
+      ],
       "producedBy": [
         {
           "from": "Warfield",
@@ -275748,7 +276091,7 @@
       "owners": [
         "Warfield"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 200,
         "shield": 0,
@@ -275895,6 +276238,8 @@
         },
         "techReliance": null
       },
+      "formOf": "WarfieldBarracks",
+      "formLabel": "沃菲尔德（飞行",
       "producedBy": [
         {
           "from": "WarfieldBarracks",
@@ -279034,6 +279379,13 @@
         },
         "techReliance": 2.5
       },
+      "forms": [
+        {
+          "id": "ChampionCenturionPP",
+          "label": "百夫长",
+          "nameZh": "百夫长"
+        }
+      ],
       "producedBy": [
         {
           "from": "ChampionSoul",
@@ -280287,6 +280639,13 @@
         },
         "techReliance": 1.88
       },
+      "forms": [
+        {
+          "id": "ChampionStriderPP",
+          "label": "跨步者",
+          "nameZh": "跨步者"
+        }
+      ],
       "producedBy": [
         {
           "from": "ChampionSoul",
@@ -281540,6 +281899,13 @@
         },
         "techReliance": 2.0
       },
+      "forms": [
+        {
+          "id": "ChampionTaldarinPP",
+          "label": "塔兰达尔",
+          "nameZh": "塔兰达尔"
+        }
+      ],
       "producedBy": [
         {
           "from": "ChampionSoul",
@@ -283028,6 +283394,13 @@
         },
         "techReliance": 1.5
       },
+      "forms": [
+        {
+          "id": "ChampionTalisPP",
+          "label": "塔里斯",
+          "nameZh": "塔里斯"
+        }
+      ],
       "producedBy": [
         {
           "from": "ChampionSoul",
@@ -284148,6 +284521,13 @@
         },
         "techReliance": 1.95
       },
+      "forms": [
+        {
+          "id": "ChampionKhaldurPP",
+          "label": "卡尔达利斯",
+          "nameZh": "卡尔达利斯"
+        }
+      ],
       "producedBy": [
         {
           "from": "ChampionSoul",
@@ -284771,6 +285151,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "ChampionStoneAvatarPP",
+          "label": "石像",
+          "nameZh": "石像"
+        }
+      ],
       "producedBy": [
         {
           "from": "ChampionSoul",
@@ -285158,7 +285545,7 @@
       "owners": [
         "Champion"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 130,
         "shield": 130,
@@ -286190,6 +286577,8 @@
         },
         "techReliance": 2.5
       },
+      "formOf": "ChampionCenturion",
+      "formLabel": "百夫长",
       "producedBy": [
         {
           "from": "ChampionCenturion",
@@ -286214,7 +286603,7 @@
       "owners": [
         "Champion"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 100,
         "shield": 100,
@@ -287380,6 +287769,8 @@
         },
         "techReliance": 1.88
       },
+      "formOf": "ChampionStrider",
+      "formLabel": "跨步者",
       "producedBy": [
         {
           "from": "ChampionStrider",
@@ -287404,7 +287795,7 @@
       "owners": [
         "Champion"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 400,
         "shield": 200,
@@ -288570,6 +288961,8 @@
         },
         "techReliance": 2.0
       },
+      "formOf": "ChampionTaldarin",
+      "formLabel": "塔兰达尔",
       "producedBy": [
         {
           "from": "ChampionTaldarin",
@@ -288594,7 +288987,7 @@
       "owners": [
         "Champion"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 260,
         "shield": 185,
@@ -289995,6 +290388,8 @@
         },
         "techReliance": 1.5
       },
+      "formOf": "ChampionTalis",
+      "formLabel": "塔里斯",
       "producedBy": [
         {
           "from": "ChampionTalis",
@@ -290185,7 +290580,7 @@
       "owners": [
         "Champion"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 3000,
         "shield": 2000,
@@ -291217,6 +291612,8 @@
         },
         "techReliance": 1.95
       },
+      "formOf": "ChampionKhaldur",
+      "formLabel": "卡尔达利斯",
       "producedBy": [
         {
           "from": "ChampionKhaldur",
@@ -291241,7 +291638,7 @@
       "owners": [
         "Champion"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 1500,
         "shield": 500,
@@ -291777,6 +292174,8 @@
         },
         "techReliance": null
       },
+      "formOf": "ChampionStoneAvatar",
+      "formLabel": "石像",
       "producedBy": [
         {
           "from": "ChampionStoneAvatar",
@@ -322325,7 +322724,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "troop",
+      "category": "skill",
       "stats": {
         "hp": 150,
         "shield": 0,
@@ -322467,6 +322866,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "IzshaInfestedBlimpSeigeModeLevel1",
+          "label": "被感染的飞船",
+          "nameZh": "被感染的飞船"
+        }
+      ],
       "producedBy": [
         {
           "from": "IzshaIzsha",
@@ -322491,7 +322897,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "troop",
+      "category": "skill",
       "stats": {
         "hp": 200,
         "shield": 0,
@@ -322633,6 +323039,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "IzshaInfestedBlimpSeigeModeLevel2",
+          "label": "被感染的飞船",
+          "nameZh": "被感染的飞船"
+        }
+      ],
       "producedBy": [
         {
           "from": "IzshaIzsha",
@@ -322657,7 +323070,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "troop",
+      "category": "skill",
       "stats": {
         "hp": 250,
         "shield": 0,
@@ -322799,6 +323212,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "IzshaInfestedBlimpSeigeModeLevel3",
+          "label": "被感染的飞船",
+          "nameZh": "被感染的飞船"
+        }
+      ],
       "producedBy": [
         {
           "from": "IzshaIzsha",
@@ -322823,7 +323243,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "troop",
+      "category": "skill",
       "stats": {
         "hp": 300,
         "shield": 0,
@@ -322965,6 +323385,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "IzshaInfestedBlimpSeigeModeLevel4",
+          "label": "被感染的飞船",
+          "nameZh": "被感染的飞船"
+        }
+      ],
       "producedBy": [
         {
           "from": "IzshaIzsha",
@@ -322989,7 +323416,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "troop",
+      "category": "skill",
       "stats": {
         "hp": 2000,
         "shield": 0,
@@ -323532,6 +323959,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "IzshaCorruptedWall2",
+          "label": "被感染的地堡",
+          "nameZh": "被感染的地堡"
+        }
+      ],
       "producedBy": [
         {
           "from": "IzshaIzsha",
@@ -323558,7 +323992,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "troop",
+      "category": "skill",
       "stats": {
         "hp": 2500,
         "shield": 0,
@@ -324101,6 +324535,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "IzshaCorruptedWall3",
+          "label": "被感染的地堡",
+          "nameZh": "被感染的地堡"
+        }
+      ],
       "producedBy": [
         {
           "from": "IzshaIzsha",
@@ -324127,7 +324568,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "troop",
+      "category": "skill",
       "stats": {
         "hp": 3000,
         "shield": 0,
@@ -324670,6 +325111,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "IzshaCorruptedWall4",
+          "label": "被感染的地堡",
+          "nameZh": "被感染的地堡"
+        }
+      ],
       "producedBy": [
         {
           "from": "IzshaIzsha",
@@ -325336,7 +325784,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 150,
         "shield": 0,
@@ -325477,6 +325925,8 @@
         },
         "techReliance": null
       },
+      "formOf": "IzshaInfestedBlimp1",
+      "formLabel": "被感染的飞船",
       "producedBy": [
         {
           "from": "IzshaInfestedBlimp1",
@@ -325495,7 +325945,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 200,
         "shield": 0,
@@ -325636,6 +326086,8 @@
         },
         "techReliance": null
       },
+      "formOf": "IzshaInfestedBlimp2",
+      "formLabel": "被感染的飞船",
       "producedBy": [
         {
           "from": "IzshaInfestedBlimp2",
@@ -325654,7 +326106,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 250,
         "shield": 0,
@@ -325795,6 +326247,8 @@
         },
         "techReliance": null
       },
+      "formOf": "IzshaInfestedBlimp3",
+      "formLabel": "被感染的飞船",
       "producedBy": [
         {
           "from": "IzshaInfestedBlimp3",
@@ -325813,7 +326267,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 300,
         "shield": 0,
@@ -325954,6 +326408,8 @@
         },
         "techReliance": null
       },
+      "formOf": "IzshaInfestedBlimp4",
+      "formLabel": "被感染的飞船",
       "producedBy": [
         {
           "from": "IzshaInfestedBlimp4",
@@ -325973,7 +326429,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 2000,
         "shield": 0,
@@ -326516,6 +326972,8 @@
         },
         "techReliance": null
       },
+      "formOf": "IzshaCorruptedWallUp2",
+      "formLabel": "被感染的地堡",
       "producedBy": [
         {
           "from": "IzshaCorruptedWallUp2",
@@ -326536,7 +326994,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 2500,
         "shield": 0,
@@ -327079,6 +327537,8 @@
         },
         "techReliance": null
       },
+      "formOf": "IzshaCorruptedWallUp3",
+      "formLabel": "被感染的地堡",
       "producedBy": [
         {
           "from": "IzshaCorruptedWallUp3",
@@ -327099,7 +327559,7 @@
       "owners": [
         "Izsha"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 3000,
         "shield": 0,
@@ -327642,6 +328102,8 @@
         },
         "techReliance": null
       },
+      "formOf": "IzshaCorruptedWallUp4",
+      "formLabel": "被感染的地堡",
       "producedBy": [
         {
           "from": "IzshaCorruptedWallUp4",
@@ -429383,6 +429845,13 @@
         },
         "techReliance": 2.0
       },
+      "forms": [
+        {
+          "id": "AndorSentinelWreckage",
+          "label": "残骸",
+          "nameZh": "哨兵残骸"
+        }
+      ],
       "producedBy": [
         {
           "from": "Andor",
@@ -435312,7 +435781,7 @@
       "owners": [
         "Andor"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 100,
         "shield": 0,
@@ -435462,6 +435931,8 @@
         },
         "techReliance": null
       },
+      "formOf": "AndorSentinel",
+      "formLabel": "残骸",
       "producedBy": [
         {
           "from": "AndorSentinel",
@@ -458558,6 +459029,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SgtHammerMarauderMineBurrowed",
+          "label": "掠夺者地雷",
+          "nameZh": "掠夺者地雷"
+        }
+      ],
       "producedBy": [
         {
           "from": "SgtHammerArcliteTank",
@@ -459890,6 +460368,13 @@
         },
         "techReliance": 2.5
       },
+      "forms": [
+        {
+          "id": "SgtHammerFighterViking",
+          "label": "重锤维京",
+          "nameZh": "重锤维京"
+        }
+      ],
       "producedBy": [
         {
           "from": "SgtHammerArcliteTank",
@@ -461102,6 +461587,13 @@
         },
         "techReliance": 1.75
       },
+      "forms": [
+        {
+          "id": "SgtHammerHellbat",
+          "label": "重锤恶蝠",
+          "nameZh": "重锤恶蝠"
+        }
+      ],
       "producedBy": [
         {
           "from": "SgtHammerArcliteTank",
@@ -461177,7 +461669,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 300,
         "shield": 0,
@@ -462397,6 +462889,8 @@
         },
         "techReliance": 2.0
       },
+      "formOf": "SgtHammerHellion",
+      "formLabel": "重锤恶蝠",
       "producedBy": [
         {
           "from": "SgtHammerArcliteTank",
@@ -463873,6 +464367,13 @@
         },
         "techReliance": 1.95
       },
+      "forms": [
+        {
+          "id": "SgtHammerThorsonAP",
+          "label": "-δόρυ της αιωνιότητας-永恒之枪",
+          "nameZh": "雷神-δόρυ της αιωνιότητας-永恒之枪"
+        }
+      ],
       "producedBy": [
         {
           "from": "SgtHammerArcliteTank",
@@ -463948,7 +464449,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 800,
         "shield": 0,
@@ -465104,6 +465605,8 @@
         },
         "techReliance": 2.2
       },
+      "formOf": "SgtHammerThorson",
+      "formLabel": "-δόρυ της αιωνιότητας-永恒之枪",
       "producedBy": [
         {
           "from": "SgtHammerArcliteTank",
@@ -465179,7 +465682,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 45,
         "shield": 0,
@@ -466297,6 +466800,8 @@
         },
         "techReliance": 2.25
       },
+      "formOf": "SgtHammerAssaultViking",
+      "formLabel": "重锤维京",
       "producedBy": [
         {
           "from": "SgtHammerArcliteTank",
@@ -470325,6 +470830,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SgtHammerSupplyDepotLowered",
+          "label": "降下",
+          "nameZh": "重锤补给站"
+        }
+      ],
       "producedBy": [
         {
           "from": "HammerSCV",
@@ -470826,6 +471338,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SgtHammerEcoBarracksFlying",
+          "label": "经济兵营",
+          "nameZh": "经济兵营"
+        }
+      ],
       "producedBy": [
         {
           "from": "HammerSCV",
@@ -471002,6 +471521,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SgtHammerEcoFactoryFlying",
+          "label": "经济工厂",
+          "nameZh": "经济工厂"
+        }
+      ],
       "producedBy": [
         {
           "from": "HammerSCV",
@@ -471178,6 +471704,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SgtHammerEcoStarportFlying",
+          "label": "经济星港",
+          "nameZh": "经济星港"
+        }
+      ],
       "producedBy": [
         {
           "from": "HammerSCV",
@@ -471354,6 +471887,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SgtHammerHammerBarracksFlying",
+          "label": "重锤兵营",
+          "nameZh": "重锤兵营"
+        }
+      ],
       "producedBy": [
         {
           "from": "HammerSCV",
@@ -471539,6 +472079,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SgtHammerHammerFactoryFlying",
+          "label": "重锤工厂",
+          "nameZh": "重锤工厂"
+        }
+      ],
       "producedBy": [
         {
           "from": "HammerSCV",
@@ -471744,7 +472291,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 60,
         "shield": 0,
@@ -472293,6 +472840,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SgtHammerMarauderMineUnburrowed",
+      "formLabel": "掠夺者地雷",
       "producedBy": [
         {
           "from": "SgtHammerMarauderMineUnburrowed",
@@ -472476,7 +473025,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 200,
         "shield": 0,
@@ -473067,6 +473616,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SgtHammerSupplyDepot",
+      "formLabel": "降下",
       "producedBy": [
         {
           "from": "SgtHammerSupplyDepot",
@@ -473233,6 +473784,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "HammerTechLabDetached",
+          "label": "重锤科技实验室未连接",
+          "nameZh": "重锤科技实验室未连接"
+        }
+      ],
       "producedBy": [
         {
           "from": "SgtHammerEcoBarracks",
@@ -473412,6 +473970,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "HammerReactorDetached",
+          "label": "重锤反应堆未连接",
+          "nameZh": "重锤反应堆未连接"
+        }
+      ],
       "producedBy": [
         {
           "from": "SgtHammerEcoBarracks",
@@ -473444,7 +474009,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "economy",
+      "category": "form",
       "stats": {
         "hp": 150,
         "shield": 0,
@@ -473591,6 +474156,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SgtHammerEcoBarracks",
+      "formLabel": "经济兵营",
       "producedBy": [
         {
           "from": "SgtHammerEcoBarracks",
@@ -473970,7 +474537,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "economy",
+      "category": "form",
       "stats": {
         "hp": 250,
         "shield": 0,
@@ -474117,6 +474684,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SgtHammerEcoFactory",
+      "formLabel": "经济工厂",
       "producedBy": [
         {
           "from": "SgtHammerEcoFactory",
@@ -474496,7 +475065,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "economy",
+      "category": "form",
       "stats": {
         "hp": 300,
         "shield": 0,
@@ -474643,6 +475212,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SgtHammerEcoStarport",
+      "formLabel": "经济星港",
       "producedBy": [
         {
           "from": "SgtHammerEcoStarport",
@@ -475022,7 +475593,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 150,
         "shield": 0,
@@ -475169,6 +475740,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SgtHammerHammerBarracks",
+      "formLabel": "重锤兵营",
       "producedBy": [
         {
           "from": "SgtHammerHammerBarracks",
@@ -475548,7 +476121,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 250,
         "shield": 0,
@@ -475695,6 +476268,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SgtHammerHammerFactory",
+      "formLabel": "重锤工厂",
       "producedBy": [
         {
           "from": "SgtHammerHammerFactory",
@@ -475881,7 +476456,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 50,
         "shield": 0,
@@ -476028,6 +476603,8 @@
         },
         "techReliance": null
       },
+      "formOf": "HammerTechLabEcoBarracks",
+      "formLabel": "重锤科技实验室未连接",
       "producedBy": [
         {
           "from": "HammerTechLabEcoBarracks",
@@ -476075,7 +476652,7 @@
       "owners": [
         "SgtHammer"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 50,
         "shield": 0,
@@ -476222,6 +476799,8 @@
         },
         "techReliance": null
       },
+      "formOf": "HammerReactorEcoBarracks",
+      "formLabel": "重锤反应堆未连接",
       "producedBy": [
         {
           "from": "HammerReactorEcoBarracks",
@@ -501535,6 +502114,13 @@
         },
         "techReliance": 2.0
       },
+      "forms": [
+        {
+          "id": "CritterLordZerusianNeedlerRooted",
+          "label": "扎根",
+          "nameZh": "泽鲁斯针-扎根"
+        }
+      ],
       "producedBy": [
         {
           "from": "CritterLord",
@@ -501923,7 +502509,7 @@
       "owners": [
         "Critter Lord"
       ],
-      "category": "building",
+      "category": "form",
       "stats": {
         "hp": 10,
         "shield": 0,
@@ -502070,6 +502656,8 @@
         },
         "techReliance": null
       },
+      "formOf": "CritterLordZerusianNeedler",
+      "formLabel": "扎根",
       "producedBy": [
         {
           "from": "CritterLordZerusianNeedler",
@@ -523083,6 +523671,13 @@
         },
         "techReliance": 2.5
       },
+      "forms": [
+        {
+          "id": "SophiaLaserSiegeTankSieged",
+          "label": "激光攻城坦克（攻城模式",
+          "nameZh": "激光攻城坦克（攻城模式）"
+        }
+      ],
       "producedBy": [
         {
           "from": "SophiaTheIntern",
@@ -524457,7 +525052,7 @@
       "owners": [
         "Sophia"
       ],
-      "category": "summon",
+      "category": "troop",
       "stats": {
         "hp": 25,
         "shield": 0,
@@ -524605,6 +525200,13 @@
         },
         "techReliance": null
       },
+      "forms": [
+        {
+          "id": "SophiaSpiderMineBurrowed",
+          "label": "埋地",
+          "nameZh": "索菲亚蜘蛛雷（埋地）"
+        }
+      ],
       "producedBy": [
         {
           "from": "SophiaSpiderMineCarrier",
@@ -524624,7 +525226,7 @@
       "owners": [
         "Sophia"
       ],
-      "category": "troop",
+      "category": "form",
       "stats": {
         "hp": 25,
         "shield": 0,
@@ -524770,6 +525372,8 @@
         },
         "techReliance": null
       },
+      "formOf": "SophiaSpiderMine",
+      "formLabel": "埋地",
       "producedBy": [
         {
           "from": "SophiaSpiderMineCarrier",
@@ -526690,7 +527294,7 @@
       "owners": [
         "Sophia"
       ],
-      "category": "morph",
+      "category": "form",
       "stats": {
         "hp": 500,
         "shield": 0,
@@ -527851,6 +528455,8 @@
         },
         "techReliance": 2.5
       },
+      "formOf": "SophiaLaserSiegeTankUnsieged",
+      "formLabel": "激光攻城坦克（攻城模式",
       "producedBy": [
         {
           "from": "SophiaLaserSiegeTankUnsieged",

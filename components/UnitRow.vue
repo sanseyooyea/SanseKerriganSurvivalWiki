@@ -23,6 +23,9 @@
           class="hidden shrink-0 rounded px-1.5 py-px text-[0.6rem] leading-4 sm:inline-block"
           :class="attrClass(a)"
         >{{ attrLabel(a) }}</span>
+        <span v-for="f in unit.forms || []" :key="f.id"
+          class="hidden shrink-0 rounded border border-surface-300 px-1.5 py-px text-[0.6rem] leading-4 text-gray-500 dark:border-gray-600 dark:text-gray-400 sm:inline-block"
+          :title="`可切换为${f.nameZh}`">⇄ {{ f.label }}</span>
         <span v-if="unit.attributes.length > 3" class="hidden shrink-0 text-[0.6rem] text-gray-400 lg:inline">
           +{{ unit.attributes.length - 3 }}
         </span>
@@ -58,6 +61,16 @@
           <span class="font-mono tabular-nums" :class="f.class || 'text-gray-700 dark:text-gray-300'">{{ f.value }}</span>
         </div>
       </div>
+
+      <!-- 形态 -->
+      <p v-if="unit.forms?.length" class="text-xs text-gray-500 dark:text-gray-400">
+        <span class="text-gray-400">形态 ·</span>
+        <template v-for="(f, i) in unit.forms" :key="f.id">
+          <span v-if="i">、</span>
+          <NuxtLink :to="`/units/${f.id}`" class="text-survivor-600 hover:underline dark:text-survivor-400">{{ f.label }}</NuxtLink>
+        </template>
+        <span class="text-gray-400">（同一单位的不同状态，数值见各自详情）</span>
+      </p>
 
       <!-- 派生指标 -->
       <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">

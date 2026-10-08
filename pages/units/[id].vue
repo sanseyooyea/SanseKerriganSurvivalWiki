@@ -28,6 +28,18 @@
             <span v-for="a in unit.attributes" :key="a" class="rounded px-1.5 py-px text-[0.65rem] leading-5" :class="attrClass(a)">{{ attrLabel(a) }}</span>
           </div>
 
+          <p v-if="unit.formOf" class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+            这是
+            <NuxtLink :to="`/units/${unit.formOf}`" class="text-survivor-600 hover:underline dark:text-survivor-400">{{ unitName(unit.formOf) }}</NuxtLink>
+            的「{{ unit.formLabel }}」形态
+          </p>
+          <p v-if="unit.forms?.length" class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+            可切换形态：
+            <template v-for="(f, i) in unit.forms" :key="f.id">
+              <span v-if="i" class="text-gray-300 dark:text-gray-600"> · </span>
+              <NuxtLink :to="`/units/${f.id}`" class="text-survivor-600 hover:underline dark:text-survivor-400">{{ f.label }}</NuxtLink>
+            </template>
+          </p>
           <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
             所属职业：
             <template v-for="(o, i) in ownerLinks" :key="o.name">

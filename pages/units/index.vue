@@ -153,7 +153,7 @@
 import { CATEGORY_LABELS, ATTRIBUTE_LABELS, ATTRIBUTE_FALLBACK } from '~/composables/useUnitsData'
 import type { UnitEntry } from '~/composables/useUnitsData'
 
-const { allUnits, roleOf } = useUnitsData()
+const { allUnits, listedUnits, roleOf } = useUnitsData()
 
 const q = ref('')
 const team = ref('All')
@@ -163,7 +163,8 @@ const onlyCombat = ref(false)
 const sortKey = ref('dpsKerrigan')
 const sortDir = ref<'asc' | 'desc'>('desc')
 
-const all = computed(() => allUnits.value)
+// 选「形态」时才列出形态单位；其余情况形态都并在本体里
+const all = computed(() => (category.value === 'form' ? allUnits.value : listedUnits.value))
 
 const COLUMNS = [
   { key: 'nameZh', label: '单位', align: 'left', sortable: true },
@@ -186,7 +187,7 @@ const teamOptions = [
 ]
 const categoryOptions = [
   { value: 'All', label: '全部' },
-  ...['hero', 'troop', 'building', 'economy', 'morph', 'summon', 'skill'].map(c => ({ value: c, label: CATEGORY_LABELS[c] })),
+  ...['hero', 'troop', 'building', 'economy', 'morph', 'summon', 'skill', 'form'].map(c => ({ value: c, label: CATEGORY_LABELS[c] })),
 ]
 const attributeOptions = ['Light', 'Armored', 'Biological', 'Mechanical', 'Massive', 'Structure', 'Psionic']
 

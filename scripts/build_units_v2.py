@@ -169,6 +169,74 @@ def category(info, hero_units, edges_in):
     return 'troop'
 
 
+# 同一单位的不同形态（埋地/攻城/降下/相位…）：id = 本体 id + 后缀
+FORM_SUFFIXES = {
+    'Burrowed': '埋地', 'Sieged': '攻城模式', 'Lowered': '降下', 'Phasing': '相位模式',
+    'Rooted': '扎根', 'Uprooted': '拔起', 'Unsieged': '坦克模式', 'Cloaked': '隐形',
+    'Used': '已使用',
+}
+
+
+def form_groups(order, edges, hero_units):
+    """把同一单位的形态合并：返回 {形态 id: 本体 id}。
+
+    判定（满足其一，且两者之间有 morph 边）：
+      - 形态 id = 本体 id + 形态后缀（StukovRavagerBurrowed → StukovRavager）
+      - 双向变形（MiraSiegeBreakerTank ⇄ MiraSiegeBreakerSieged）
+    单向的升级链（探照灯 → +1 → +2、精炼厂档位）不合并——那些是不同的建筑。
+    斯托科夫的兵是「埋地状态出生 → 钻出」，召唤边落在埋地形态上，所以必须按后缀认本体，
+    不能按「谁被召唤」认。英雄本体单位不参与合并（多形态英雄另有展示）。
+    """
+    roster = set(order)
+    morph = {}
+    for e in edges:
+        if e['kind'] != 'morph' or e.get('level'):
+            continue
+        for u in e['units']:
+            morph.setdefault(e['from'], set()).add(u)
+
+    def linked(a, b):
+        return b in morph.get(a, ()) or a in morph.get(b, ())
+
+    out = {}
+    for uid in order:
+        if uid in hero_units:
+            continue
+        for suf in FORM_SUFFIXES:
+            if uid.endswith(suf):
+                base = uid[: -len(suf)]
+                if base in roster and base not in hero_units and linked(base, uid):
+                    out[uid] = base
+                    break
+    # 双向变形但名字不成后缀关系：按发现顺序，先出现的当本体
+    pos = {u: i for i, u in enumerate(order)}
+    for a, bs in morph.items():
+        for b in bs:
+            if a in hero_units or b in hero_units or a == b:
+                continue
+            if a in out or b in out or b not in roster or a not in roster:
+                continue
+            if a in morph.get(b, ()):
+                canon, form = (a, b) if pos.get(a, 0) <= pos.get(b, 0) else (b, a)
+                out[form] = canon
+    # 形态的形态（CreepTumor → Burrowed → Used）一律挂到最终本体上
+    for f in list(out):
+        seen = set()
+        while out[f] in out and out[f] not in seen:
+            seen.add(out[f])
+            out[f] = out[out[f]]
+    return out
+
+
+def form_label(form_id, canon_id, gs_unit):
+    suf = form_id[len(canon_id):] if form_id.startswith(canon_id) else ''
+    if suf in FORM_SUFFIXES:
+        return FORM_SUFFIXES[suf]
+    name = gs_unit.get(form_id) or form_id
+    base = gs_unit.get(canon_id) or ''
+    return name.replace(base, '').strip('（）() ') or name
+
+
 def hire_cost(edges_in):
     """雇佣/空投类兵的「单只」造价：技能消耗 ÷ 一次召出数量。单位自身 CostResource 常为 0。"""
     for e in edges_in:
@@ -628,9 +696,32 @@ def main():
         order = [u for u in order if u not in exclude]
         edges = [dict(e, units=[u for u in e['units'] if u not in exclude]) for e in edges]
         edges = [e for e in edges if e['units']]
+        forms = form_groups(order, edges, set(hu))
+        # 本体排在它最早出现的形态的位置（斯托科夫的兵先以埋地形态被发现）
+        listed, seen_c = [], set()
+        for u in order:
+            c = forms.get(u, u)
+            if c not in seen_c:
+                seen_c.add(c)
+                listed.append(c)
         heroes[hero] = {'team': r['team'], 'category': r.get('category'), 'roleId': r['id'],
-                        'heroUnits': hu, 'unitIds': order,
+                        'heroUnits': hu, 'unitIds': listed,
                         'edges': [edge_out(e) for e in edges]}
+        if forms:
+            heroes[hero]['forms'] = forms
+
+        def group_edges_in(uid):
+            """进入该单位的边；本体还要收下「进入它各形态」的边（形态之间的互变除外）。"""
+            members = {uid} | {f for f, c in forms.items() if c == uid}
+            out = []
+            for e in edges:
+                if not (members & set(e['units'])):
+                    continue
+                if e['kind'] == 'morph' and (e['from'] in members or forms.get(e['from']) == uid):
+                    continue
+                out.append(e)
+            return out
+
         for uid in order:
             if uid in units:
                 if hero not in units[uid]['owners']:
@@ -638,7 +729,7 @@ def main():
                 continue
             info = U.unit_stats(gi, uid)
             info['id'] = uid
-            edges_in = [e for e in edges if uid in e['units']]
+            edges_in = [e for e in edges if uid in e['units']] if uid in forms else group_edges_in(uid)
             profiles = [U.weapon_profile(gi, w) for w in info['weapons']]
             profiles = [p for p in profiles if p['components'] or p['unresolved']]
             weapons_total += len(profiles)
@@ -687,6 +778,17 @@ def main():
                 'curves': curves,
                 'derived': derived(info, curves['combat'][0] if curves['combat'] else None, maxed),
             }
+
+        # 形态挂到本体上：/units/<形态> 仍可访问，但不再作为独立兵种列出
+        for f, c in forms.items():
+            if f not in units or c not in units:
+                continue
+            units[f]['category'] = 'form'
+            units[f]['formOf'] = c
+            units[f]['formLabel'] = form_label(f, c, gs_unit)
+            fl = units[c].setdefault('forms', [])
+            if f not in [x['id'] for x in fl]:
+                fl.append({'id': f, 'label': units[f]['formLabel'], 'nameZh': units[f]['nameZh']})
 
     # 分级技能召唤（定点防御靶机等）：挂到英雄上，按级展示能量/寿命/可吸收伤害
     gs_abil = L.game_strings(archive, 'Abil/Name/')

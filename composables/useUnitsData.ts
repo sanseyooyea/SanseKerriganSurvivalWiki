@@ -34,6 +34,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   morph: '形态',
   summon: '召唤物',
   skill: '技能召唤',
+  form: '形态',
 }
 
 // 武器 notes → 中文提示（未解析的部分单独标红，绝不猜数值）
@@ -149,6 +150,10 @@ export interface UnitEntry {
   options: UnitOption[]
   derived: Record<string, any>
   produces?: string[]
+  /** 本体上的形态列表（埋地/攻城/降下…）；形态单位自身带 formOf 指回本体 */
+  forms?: { id: string; label: string; nameZh: string }[]
+  formOf?: string
+  formLabel?: string
   producedBy?: { from: string; abil: string; index?: string; kind: string; time?: number; count?: number }[]
 }
 export interface HeroEdge {
@@ -265,9 +270,11 @@ export function useUnitsData() {
   }
 
   const allUnits = computed(() => Object.values(unitMap))
+  /** 总览默认不列形态（它们挂在本体上），否则同一个兵会出现两三次 */
+  const listedUnits = computed(() => allUnits.value.filter(u => u.category !== 'form'))
 
   return {
-    targets, heroMap, unitMap, allUnits,
+    targets, heroMap, unitMap, allUnits, listedUnits,
     hasUnits, getHero, getUnit, heroUnitEntries, groupByCategory, producersOf,
     roleOf, curveDps, dimensionLabel,
   }
