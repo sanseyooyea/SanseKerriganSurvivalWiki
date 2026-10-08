@@ -138,7 +138,14 @@ export interface UnitEntry {
     creepSpeedMul: number | null; sight: number; armorName?: string
     armorLevel?: number; shieldArmorLevel?: number; radius?: number | null
   }
-  cost: { minerals: number; gas: number; food: number; supplyProvided: number }
+  cost: {
+    minerals: number; gas: number; food: number; supplyProvided: number
+    /** 单位标价（CostResource）——被雇佣价或变形链获取成本替换时保留原值 */
+    listed?: { minerals: number; gas: number }
+    /** 变形 / 合体链的获取成本与步骤 */
+    acquire?: { minerals: number; gas: number; steps: { kind: string; from?: string; to: string; minerals: number; gas: number }[] }
+    hire?: Record<string, any>
+  }
   attributes: string[]
   planes: string[]
   flags: string[]

@@ -105,6 +105,8 @@
           <span class="font-mono tabular-nums" :class="f.class || 'text-gray-800 dark:text-gray-200'">{{ f.value }}</span>
         </div>
       </div>
+          <AcquireSteps v-if="(unit.cost as any).acquire" class="mt-4 border-t border-surface-200 pt-4 dark:border-gray-700"
+        :acquire="(unit.cost as any).acquire" :listed="(unit.cost as any).listed" />
     </section>
 
     <!-- 武器 -->
@@ -517,7 +519,7 @@ function attrClass(a: string) { return ATTRIBUTE_LABELS[a]?.[1] || ATTRIBUTE_FAL
 function noteLabel(n: string) { return WEAPON_NOTE_LABELS[n] || n }
 function unitName(id: string) { return unitMap[id]?.nameZh || id }
 function kindLabel(k: string) {
-  return ({ train: '训练', build: '建造', warp: '折跃', morph: '变形', summon: '召唤', magazine: '弹药' } as Record<string, string>)[k] || k
+  return ({ train: '训练', build: '建造', warp: '折跃', morph: '变形', summon: '召唤', magazine: '弹药', merge: '合体' } as Record<string, string>)[k] || k
 }
 function fmtCost(c: { minerals: number; gas: number }) {
   return [c.minerals && `${c.minerals}矿`, c.gas && `${c.gas}气`].filter(Boolean).join(' / ') || '0'

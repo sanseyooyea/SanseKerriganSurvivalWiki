@@ -283,6 +283,113 @@ def form_label(form_id, canon_id, gs_unit):
     return name.replace(base, '').strip('（）() ') or name
 
 
+def acquisition_costs(gi, hero_units, order, edges):
+    """获取成本：沿生产 / 变形 / 合体链算出「拿到这个单位一共要花多少」。
+
+    每一步的花费（SC2 规则）：
+      - 训练/建造/折跃：单位造价（技能带 IgnoreUnitCost 时改收 InfoArray 的资源）
+      - 雇佣/召唤：技能消耗 ÷ 一次召出数
+      - 变形：默认收「目标单位造价 − 原单位造价」；技能带 IgnoreUnitCost 时改收技能 <Cost>
+      - 合体（CAbilMerge）：消耗两只源单位 + 合体费用
+    开局英雄单位（没有任何入边的 heroUnits）免费但唯一：合体要两只时，第二只不能再用它，
+    必须走别的路线（重锤：第二台坦克得 500 训练）。
+    返回 {uid: {'minerals','gas','steps':[...], 'viaMorph': bool}}，只含可达单位。
+    """
+    def listed(uid):
+        ent = gi.unit(uid)
+        if ent is None:
+            return {'minerals': 0, 'gas': 0}
+        c = ent.indexed('CostResource')
+        return {'minerals': _n(c.get('Minerals')), 'gas': _n(c.get('Vespene'))}
+
+    inbound = {u for e in edges for u in e['units']}
+    starts = [u for u in hero_units if u not in inbound]
+
+    def step_cost(e, src, dst):
+        k = e['kind']
+        if k == 'merge':
+            return dict(e.get('abilCost') or {'minerals': 0, 'gas': 0})
+        if k == 'morph':
+            if e.get('ignoreUnitCost'):
+                return {'minerals': (e.get('abilCost') or {}).get('minerals', 0),
+                        'gas': (e.get('abilCost') or {}).get('gas', 0)}
+            a, b = listed(src), listed(dst)
+            return {'minerals': max(0, b['minerals'] - a['minerals']), 'gas': max(0, b['gas'] - a['gas'])}
+        if k == 'summon':
+            cd = e.get('costDelta') or {}
+            n = e.get('count') or 1
+            if len(e['units']) > 1 and len(set(e['units'])) == 1:
+                n = max(n, len(e['units']))
+            return {'minerals': (cd.get('Minerals') or 0) / n, 'gas': (cd.get('Vespene') or 0) / n}
+        if e.get('ignoreUnitCost') and e.get('costDelta'):
+            cd = e['costDelta']
+            return {'minerals': cd.get('Minerals') or 0, 'gas': cd.get('Vespene') or 0}
+        return listed(dst)
+
+    def total(c):
+        return c['minerals'] + c['gas']
+
+    def solve(allow_start):
+        best = {}
+        for s in starts:
+            if allow_start:
+                best[s] = {'minerals': 0, 'gas': 0, 'steps': [{'kind': 'start', 'to': s, 'minerals': 0, 'gas': 0}]}
+        return best
+
+    # 两套解：any = 可用开局单位；alt = 不许用开局单位（合体的第二只）
+    any_, alt = solve(True), solve(False)
+    for _ in range(len(order) + 2):
+        changed = False
+        for e in edges:
+            src = e['from']
+            for dst in set(e['units']):
+                if dst in starts:
+                    continue
+                sc = step_cost(e, src, dst)
+                step = {'kind': e['kind'], 'from': src, 'to': dst, 'abil': e['abil'],
+                        'minerals': round(sc['minerals'], 2), 'gas': round(sc['gas'], 2)}
+                for table, other in ((any_, alt), (alt, alt)):
+                    cand = None
+                    if e['kind'] == 'merge':
+                        a = table.get(src) if table is any_ else alt.get(src)
+                        b = alt.get(src)
+                        if a and b:
+                            cand = {'minerals': a['minerals'] + b['minerals'] + sc['minerals'],
+                                    'gas': a['gas'] + b['gas'] + sc['gas'],
+                                    'steps': a['steps'] + b['steps'] + [step]}
+                    elif e['kind'] in ('morph',):
+                        a = table.get(src)
+                        if a:
+                            cand = {'minerals': a['minerals'] + sc['minerals'], 'gas': a['gas'] + sc['gas'],
+                                    'steps': a['steps'] + [step]}
+                    else:
+                        # 训练/建造/召唤：生产者不被消耗，只要它能拿到就行
+                        if src in table or src in any_:
+                            cand = {'minerals': sc['minerals'], 'gas': sc['gas'], 'steps': [step]}
+                    if cand is None:
+                        continue
+                    cur = table.get(dst)
+                    if cur is None or total(cand) < total(cur) - 1e-9:
+                        table[dst] = cand
+                        changed = True
+        if not changed:
+            break
+
+    out = {}
+    for uid, v in any_.items():
+        out[uid] = {'minerals': round(v['minerals'], 2), 'gas': round(v['gas'], 2), 'steps': v['steps'],
+                    'viaMorph': any(s['kind'] in ('morph', 'merge') for s in v['steps'])}
+    return out
+
+
+def _n(v):
+    try:
+        f = float(v)
+        return int(f) if f == int(f) else f
+    except (TypeError, ValueError):
+        return 0
+
+
 def hire_cost(edges_in):
     """雇佣/空投类兵的「单只」造价：技能消耗 ÷ 一次召出数量。单位自身 CostResource 常为 0。"""
     for e in edges_in:
@@ -769,6 +876,7 @@ def main():
         edges = [dict(e, units=[u for u in e['units'] if u not in exclude]) for e in edges]
         edges = [e for e in edges if e['units']]
         forms = form_groups(order, edges, set(hu))
+        acquire = acquisition_costs(gi, hu, order, edges)
         # 本体排在它最早出现的形态的位置（斯托科夫的兵先以埋地形态被发现）
         listed, seen_c = [], set()
         for u in order:
@@ -810,8 +918,16 @@ def main():
             curves, maxed, options = build_curves(info, profiles, groups)
             # 雇佣/空投兵：玩家实际付的是技能消耗（一次召出 N 只），单位自身的 CostResource
             # 只用于击杀/回收计价。性价比按「技能消耗 ÷ 召出数」算，原值留在 listed。
+            # 经过变形/合体才拿到的单位：造价按整条链的获取成本算（芬里尔 = 两台坦克升满 + 合体费）
+            acq = acquire.get(uid)
+            if acq and acq['viaMorph']:
+                info['cost'] = dict(info['cost'], minerals=acq['minerals'], gas=acq['gas'],
+                                    listed={'minerals': info['cost']['minerals'], 'gas': info['cost']['gas']},
+                                    acquire={'minerals': acq['minerals'], 'gas': acq['gas'],
+                                             'steps': [{k: v for k, v in st.items() if v not in (None, 0) or k in ('minerals', 'gas')}
+                                                       for st in acq['steps']]})
             hire = hire_cost(edges_in)
-            if hire:
+            if hire and not (acq and acq['viaMorph']):
                 info['cost'] = dict(info['cost'], minerals=hire['minerals'], gas=hire['gas'],
                                     listed={'minerals': info['cost']['minerals'],
                                             'gas': info['cost']['gas']},
@@ -858,6 +974,8 @@ def main():
             units[f]['category'] = 'form'
             units[f]['formOf'] = c
             units[f]['formLabel'] = form_label(f, c, gs_unit)
+            # 形态只是同一单位的状态，造价/获取成本跟本体一致（攻城模式不该另算一份）
+            units[f]['cost'] = json.loads(json.dumps(units[c]['cost']))
             fl = units[c].setdefault('forms', [])
             if f not in [x['id'] for x in fl]:
                 fl.append({'id': f, 'label': units[f]['formLabel'], 'nameZh': units[f]['nameZh']})

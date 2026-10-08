@@ -62,6 +62,9 @@
         </div>
       </div>
 
+      <!-- 变形 / 合体链的获取成本明细 -->
+      <AcquireSteps v-if="(unit.cost as any).acquire" :acquire="(unit.cost as any).acquire" :listed="(unit.cost as any).listed" />
+
       <!-- 形态 -->
       <p v-if="unit.forms?.length" class="text-xs text-gray-500 dark:text-gray-400">
         <span class="text-gray-400">形态 ·</span>
@@ -392,7 +395,7 @@ function attrClass(a: string) { return ATTRIBUTE_LABELS[a]?.[1] || ATTRIBUTE_FAL
 function targetLabel(a: string) { return ATTRIBUTE_LABELS[a]?.[0] || a }
 function noteLabel(n: string) { return WEAPON_NOTE_LABELS[n] || n }
 function kindLabel(k: string) {
-  return ({ train: '训练', build: '建造', warp: '折跃', morph: '变形', summon: '召唤', magazine: '弹药' } as Record<string, string>)[k] || k
+  return ({ train: '训练', build: '建造', warp: '折跃', morph: '变形', summon: '召唤', magazine: '弹药', merge: '合体' } as Record<string, string>)[k] || k
 }
 function unitName(id: string) { return unitMap[id]?.nameZh || id }
 function fmtDps(k: string) {
