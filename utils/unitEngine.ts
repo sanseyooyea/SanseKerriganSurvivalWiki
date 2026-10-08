@@ -285,7 +285,7 @@ export interface DuelResult {
   /** 护盾打空后，每次攻击对生命的伤害 */
   lifePerAttack?: number
   attacks?: number
-  /** 击杀时间（秒）：第一下在 0 秒 */
+  /** 击杀时间（秒）= 攻击次数 × 攻击间隔（每次攻击都按一个完整攻击周期计，一击必杀也要 1 个间隔） */
   time?: number | null
   effectiveDps?: number | null
   suicide?: boolean
@@ -370,7 +370,7 @@ export function duel(att: EffUnit, def: EffUnit, opts: { ignoreTeam?: boolean } 
     if (lifePer <= 0) return { ok: false, reason: '伤害被完全抵消', weapon: w }
     attacks += Math.ceil(life / lifePer - 1e-9)
   }
-  const time = w.period ? round((attacks - 1) * w.period, 2) : null
+  const time = w.period ? round(attacks * w.period, 2) : null
   return {
     ok: true, weapon: w, attacks, time,
     firstHit: { shield: round(first.s), life: round(first.l) },
