@@ -193,11 +193,20 @@ def _res(el):
 
 def ability_edges(gi, abil_id):
     """Production edges defined by one ability. Each edge: {abil, index, kind, units[],
-    time, cooldown, charge, requirements, button, costDelta}."""
+    time, cooldown, charge, requirements, button, costDelta, ignoreUnitCost, abilCost}.
+
+    abilCost / ignoreUnitCost 用来算「获取成本」（见 build_units_v2.acquisition_costs）：
+    SC2 的变形默认收「目标单位造价 − 原单位造价」，技能带 IgnoreUnitCost 时改收技能 <Cost>。"""
     ab = gi.get('Abil', abil_id)
-    if ab is None or ab.tag not in PRODUCE_TAGS:
+    if ab is None:
+        return []
+    if ab.tag.startswith('CAbilMerge') and not ab.tag.startswith('CAbilMergeable'):
+        return merge_edges(gi, ab)
+    if ab.tag not in PRODUCE_TAGS:
         return []
     kind = EDGE_KIND[ab.tag]
+    ignore_cost = ab.indexed('Flags').get('IgnoreUnitCost') == '1'
+    abil_cost = (ability_costs(ab) or [{}])[0]
     edges = []
     infos = ab.findall('InfoArray')
     for info in infos:
@@ -232,8 +241,30 @@ def ability_edges(gi, abil_id):
             'requirements': btn.get('Requirements') if btn is not None else None,
             'button': btn.get('DefaultButtonFace') if btn is not None else None,
             'costDelta': _res(info),
+            'ignoreUnitCost': ignore_cost,
+            'abilCost': {k: v for k, v in abil_cost.items() if k in ('minerals', 'gas')},
         })
     return edges
+
+
+def merge_edges(gi, ab):
+    """CAbilMerge：两个同类单位合体成新单位（重锤军士的两台王权 → 芬里尔）。
+    产物与费用写在单个 <Info Unit=.. Time=..><Resource/></Info> 里（不是 InfoArray）。"""
+    out = []
+    for info in ab.findall('Info'):
+        unit = info.get('Unit')
+        if not unit:
+            continue
+        res = _res(info)
+        out.append({
+            'abil': ab.id, 'index': None, 'kind': 'merge', 'units': [unit],
+            'time': _num(info.get('Time')), 'cooldown': None, 'charge': None,
+            'requirements': None, 'button': None, 'costDelta': {},
+            'ignoreUnitCost': ab.indexed('Flags').get('IgnoreUnitCost') == '1',
+            'abilCost': {'minerals': res.get('Minerals', 0), 'gas': res.get('Vespene', 0)},
+            'consumes': 2,
+        })
+    return out
 
 
 def _charge(ch):
