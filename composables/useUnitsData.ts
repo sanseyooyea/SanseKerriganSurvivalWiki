@@ -23,6 +23,7 @@ export const DIMENSION_LABELS: Record<string, string> = {
   energyArmor: '能量护甲',
   damage: '伤害', bonus: '属性加成', range: '射程', period: '攻击间隔',
   attackCount: '攻击次数', rateMultiplier: '攻速', splash: '溅射', cost: '造价',
+  targets: '对空/对地',
 }
 
 export const CATEGORY_LABELS: Record<string, string> = {

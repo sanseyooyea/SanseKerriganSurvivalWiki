@@ -60,7 +60,7 @@
     <!-- 表格 -->
     <section class="wiki-card overflow-hidden">
       <div class="overflow-x-auto">
-        <table class="w-full min-w-[52rem] text-sm">
+        <table class="w-full min-w-[64rem] text-sm">
           <thead>
             <tr class="border-b border-surface-200 bg-surface-50 text-[0.65rem] uppercase tracking-wider text-gray-400 dark:border-gray-700 dark:bg-gray-900/40 dark:text-gray-500">
               <th
@@ -96,21 +96,21 @@
                 <NuxtLink :to="`/units/${u.id}`" class="flex items-center gap-2.5">
                   <UnitIcon :icon="u.icon" :alt="u.nameZh" size="sm" />
                   <span class="min-w-0">
-                    <span class="block truncate font-medium text-gray-800 group-hover:text-survivor-700 dark:text-gray-200 dark:group-hover:text-survivor-300">{{ u.nameZh }}</span>
+                    <span class="block font-medium leading-snug text-gray-800 group-hover:text-survivor-700 dark:text-gray-200 dark:group-hover:text-survivor-300">{{ u.nameZh }}</span>
                     <span class="mt-0.5 flex items-center gap-1">
                       <span
                         class="inline-block h-1.5 w-1.5 shrink-0 rounded-full"
                         :class="u.team === 'Kerrigan' ? 'bg-kerrigan-500' : 'bg-survivor-500'"
                         :title="u.team === 'Kerrigan' ? '凯瑞甘方' : '生存方'"
                       />
-                      <span class="truncate text-[0.65rem] text-gray-400">{{ u.owners.map(ownerZh).join('、') }}</span>
+                      <span class="text-[0.65rem] leading-snug text-gray-400">{{ u.owners.map(ownerZh).join('、') }}</span>
                     </span>
                   </span>
                 </NuxtLink>
               </td>
               <td class="px-2 py-2">
                 <div class="flex flex-wrap gap-1">
-                  <span v-for="a in u.attributes.slice(0, 3)" :key="a" class="rounded px-1.5 py-px text-[0.6rem] leading-4" :class="attrClass(a)">{{ attrLabel(a) }}</span>
+                  <span v-for="a in u.attributes" :key="a" class="rounded px-1.5 py-px text-[0.6rem] leading-4" :class="attrClass(a)">{{ attrLabel(a) }}</span>
                 </div>
               </td>
               <td class="px-2 py-2 text-right font-mono text-xs tabular-nums text-gray-500">
@@ -127,7 +127,8 @@
               <td class="px-2 py-2 text-right font-mono text-xs tabular-nums" :class="isMaxed(u) ? 'text-gray-700 dark:text-gray-300' : 'text-gray-300 dark:text-gray-600'">
                 {{ u.derived.dpsArmoredMax || '' }}
               </td>
-              <td class="px-2 py-2 text-right font-mono text-xs tabular-nums text-gray-500">{{ u.derived.dpsPer100 || '' }}</td>
+              <td class="px-2 py-2 text-right font-mono text-xs tabular-nums text-gray-500">{{ u.derived.dpsPer100Light || '' }}</td>
+              <td class="px-2 py-2 text-right font-mono text-xs tabular-nums text-gray-500">{{ u.derived.dpsPer100Armored || '' }}</td>
             </tr>
           </tbody>
         </table>
@@ -174,7 +175,8 @@ const COLUMNS = [
   { key: 'dpsArmored', label: '对重甲', align: 'right', sortable: true },
   { key: 'dpsKerrigan', label: '对凯瑞甘', align: 'right', sortable: true, hint: '凯瑞甘本体靶标：英雄 / 巨型 / 首领' },
   { key: 'dpsArmoredMax', label: '满级·重甲', align: 'right', sortable: true, hint: '全科技拉满后对重甲 DPS' },
-  { key: 'dpsPer100', label: '每100资源', align: 'right', sortable: true, hint: '每 100 资源的 DPS（未对气体加权）' },
+  { key: 'dpsPer100Light', label: '每100资源·轻', align: 'right', sortable: true, hint: '每 100 资源对轻甲 DPS（未对气体加权）' },
+  { key: 'dpsPer100Armored', label: '每100资源·重', align: 'right', sortable: true, hint: '每 100 资源对重甲 DPS' },
 ] as const
 
 const teamOptions = [

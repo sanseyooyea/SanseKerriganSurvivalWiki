@@ -113,6 +113,7 @@
               <span class="text-gray-300 dark:text-gray-600">/</span>
               <span :class="w.targets.air ? 'text-gray-600 dark:text-gray-300' : 'text-gray-300 dark:text-gray-600'">对空</span>
             </span>
+            <Badge v-if="enablesAir(w.id)" tone="accent">需研发：{{ airUpgrades(w.id).join('、') }}</Badge>
           </header>
 
           <div class="space-y-1.5">
@@ -322,6 +323,19 @@ const optionGroups = computed(() => unit.value?.options || [])
 const combatCurve = computed(() => unit.value?.curves?.combat || [])
 const baseSnap = computed(() => combatCurve.value[0])
 
+/** 该武器当前不能对空，但存在能让它对空的科技 → 标出来。 */
+function enablesAir(wid: string) {
+  return airUpgrades(wid).length > 0
+}
+/** 能让该武器对空的科技名（当前不能对空时才有意义）。 */
+function airUpgrades(wid: string) {
+  const bs = (baseSnap.value?.weapons || []).find(w => w.id === wid)
+  if (!bs || bs.targets?.air) return []
+  return optionGroups.value
+    .filter(o => (o.snapshot?.weapons || []).some(w => w.id === wid && w.targets?.air))
+    .map(o => o.nameZh.replace(/^(?:研发|研究|升级)\s*/, ''))
+}
+
 const CURVE_COLS = [
   { key: 'level', label: '科技等级', align: 'left' },
   { key: 'cost', label: '累计花费', align: 'right' },
@@ -390,6 +404,9 @@ function delta(o: UnitOption) {
     if (a.range !== b.range) out.push({ label: `${tag}射程`, from: fmt(a.range), to: fmt(b.range) })
     if (a.period !== b.period) out.push({ label: `${tag}攻击间隔`, from: fmt(a.period), to: fmt(b.period) })
     if (a.splashRadius !== b.splashRadius) out.push({ label: `${tag}溅射半径`, from: fmt(a.splashRadius), to: fmt(b.splashRadius) })
+    if (!!a.targets?.air !== !!b.targets?.air) {
+      out.push({ label: `${tag}对空`, from: a.targets?.air ? '可对空' : '不可', to: b.targets?.air ? '可对空' : '不可' })
+    }
     for (const t of ['light', 'armored', 'kerrigan'] as const) {
       const da = a[t]?.dps
       const db = b[t]?.dps
@@ -445,10 +462,12 @@ const metrics = computed(() => {
   const d = unit.value?.derived
   if (!d) return []
   const out = []
-  if (d.dpsPer100) out.push({ label: '每 100 资源 DPS', value: d.dpsPer100, note: '轻 / 重甲取高者，未对气体加权' })
-  if (d.ehp) out.push({ label: '有效血量', value: d.ehp, note: '生命 + 护盾，含护甲折算' })
-  if (d.ehpPer100) out.push({ label: '每 100 资源血量', value: d.ehpPer100 })
-  if (d.dpsPerFood) out.push({ label: '每人口 DPS', value: d.dpsPerFood })
+  if (d.dpsPer100Light) out.push({ label: '每 100 资源 · 对轻甲', value: d.dpsPer100Light, note: '晶矿 + 气体，未对气体加权' })
+  if (d.dpsPer100Armored) out.push({ label: '每 100 资源 · 对重甲', value: d.dpsPer100Armored })
+  if (d.dpsPer100Kerrigan) out.push({ label: '每 100 资源 · 对凯瑞甘', value: d.dpsPer100Kerrigan })
+  if (d.ehp) out.push({ label: '有效血量', value: d.ehp, note: '生命 + 护盾（护甲不折算）' })
+  if (d.hpPer100) out.push({ label: '每 100 资源血量', value: d.hpPer100 })
+  if (d.dpsPerFoodLight) out.push({ label: '每人口 · 对轻甲', value: d.dpsPerFoodLight })
   if (d.fullUpgradeCost) out.push({ label: '满科技累计', value: fmtCost(d.fullUpgradeCost), note: '矿 / 气' })
   return out
 })

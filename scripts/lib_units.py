@@ -678,6 +678,8 @@ UPGRADE_UNIT_FIELDS = {
     'EnergyArmor': 'energyArmor',
 }
 UPGRADE_COST_FIELDS = {'CostResource[Minerals]': 'minerals', 'CostResource[Vespene]': 'gas'}
+# 字符串型字段（不是数值，单独应用）：决定武器对空/对地等目标筛选。
+UPGRADE_STRING_FIELDS = {'TargetFilters', 'SearchFilters'}
 
 
 def upgrade_category(ent):
@@ -709,11 +711,13 @@ class UpgradeIndex:
                 if cat not in ('Unit', 'Weapon', 'Effect', 'Abil'):
                     continue
                 v = _num(val)
-                modelable = (op in NUMERIC_OPS and v is not None
-                             and field not in ('Level', 'LifeArmorLevel', 'ShieldArmorLevel',
-                                               'EnergyArmorLevel', 'Icon', 'TargetFilters'))
+                is_string_field = field in UPGRADE_STRING_FIELDS
+                modelable = ((op in NUMERIC_OPS and v is not None) or is_string_field) \
+                    and field not in ('Level', 'LifeArmorLevel', 'ShieldArmorLevel',
+                                      'EnergyArmorLevel', 'Icon')
                 if modelable:
-                    effs.append((cat, tid, field, op or 'Add', v))
+                    effs.append((cat, tid, field, op or 'Set' if is_string_field else op or 'Add',
+                                 v if not is_string_field else val))
                     self.refs.setdefault((cat, tid), []).append(uid)
                 else:
                     other.append((cat, tid, field, op, val))

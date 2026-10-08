@@ -164,6 +164,8 @@ def category(info, hero_units, edges_in):
 
 
 def apply(op, base, cur, v):
+    if isinstance(v, str):
+        return v
     if op == 'Add':
         return cur + v
     if op == 'Subtract':
@@ -214,6 +216,8 @@ def weapon_snapshot(profiles, comp_o, weap_o):
         rate = wo.get('RateMultiplier')
         if rate and rate > 0 and q['period']:
             q['period'] = q['period'] / rate
+        filt = wo.get('TargetFilters') or p.get('targetFilters')
+        tg = U._targets(filt) if filt else p['targets']
         comps, splash = [], None
         for c in p['components']:
             c = dict(c, bonus=dict(c['bonus']))
@@ -245,8 +249,7 @@ def weapon_snapshot(profiles, comp_o, weap_o):
             'id': p['id'], 'range': q['range'], 'period': q['period'],
             'splashRadius': splash,
             'vitalDamage': U.vital_damage(q) or None,
-            'targets': {'ground': p['targets']['ground'], 'air': p['targets']['air'],
-                        'exclude': p['targets']['exclude']},
+            'targets': {'ground': tg['ground'], 'air': tg['air'], 'exclude': tg['exclude']},
         }
         for tkey, tval in U.TARGETS.items():
             per = sum(_hit(c, tval) * c['hits'] for c in U.primary_components(q))
@@ -281,6 +284,8 @@ def field_dimension(field):
         return 'rateMultiplier'
     if field == 'DisplayAttackCount':
         return 'attackCount'
+    if field in ('TargetFilters', 'SearchFilters'):
+        return 'targets'
     if SPLASH_RE.fullmatch(field):
         return 'splash'
     if field in U.UPGRADE_COST_FIELDS:
@@ -351,6 +356,8 @@ def base_snapshot(info, profiles):
     for p in profiles:
         base[('Weapon', p['id'], 'Period')] = p['period'] or 0
         base[('Weapon', p['id'], 'Range')] = p['range'] or 0
+        if p.get('targetFilters'):
+            base[('Weapon', p['id'], 'TargetFilters')] = p['targetFilters']
         for c in p['components']:
             base[('Effect', c['effect'], 'Amount')] = c['amount']
             for a, v in c['bonus'].items():
@@ -367,7 +374,8 @@ def apply_levels(base, levels):
             c, t, f = ef['ref'].split(',', 2)
             key = (c, t, f)
             b = base.get(key, 0)
-            vals[key] = round(apply(ef['op'], b, vals.get(key, b), ef['value']), 4)
+            nv = apply(ef['op'], b, vals.get(key, b), ef['value'])
+            vals[key] = nv if isinstance(nv, str) else round(nv, 4)
     return vals, cost
 
 
@@ -389,7 +397,7 @@ def snapshot_of(info, profiles, vals, cost, level):
         suf = TARGET_SUFFIX[tkey]
         node[f'dps{suf}'] = round(sum((w[tkey]['dps'] or 0) for w in node['weapons']), 2)
         node[f'dps{suf}PerAttack'] = round(sum((w[tkey]['perAttack'] or 0) for w in node['weapons']), 2)
-    node['ehp'] = round((s['hp'] + s['shield']) * (1 + 0.1 * max(0, s['armor'])), 1)
+    node['ehp'] = round(s['hp'] + s['shield'], 1)
     node['costTotal'] = cost['minerals'] + cost['gas']
     return node
 
@@ -453,11 +461,12 @@ def derived(info, base_snap, maxed_snap):
         return round(sum((w[tkey]['dps'] or 0) for w in snap['weapons']), 2)
 
     def ehp(snap):
-        # 粗略有效血量：护甲每点按抵消一次 10 点打击的 10% 计（仅用于横向比较）
+        # 有效血量 = 生命 + 护盾。护甲单独列，不折算进来（折算口径依赖假设的打击伤害，
+        # 会把不同单位的血量横向比得不可信）。护盾另计，因为很多单位只吃其中一项。
         if not snap:
             return 0
         s = snap['stats']
-        return round((s['hp'] + s['shield']) * (1 + 0.1 * max(0, s['armor'])), 1)
+        return round(s['hp'] + s['shield'], 1)
 
     d = {}
     for tkey in U.TARGETS:
@@ -467,12 +476,17 @@ def derived(info, base_snap, maxed_snap):
     d['ehp'] = ehp(base_snap)
     d['ehpMax'] = ehp(maxed_snap)
     d['targets'] = list(U.TARGETS)
-    d['dpsPeak'] = max(d.get('dpsLight', 0), d.get('dpsArmored', 0))
     if res:
-        d['dpsPer100'] = round(d['dpsPeak'] * 100 / res, 2)
-        d['ehpPer100'] = round(d['ehp'] * 100 / res, 1)
+        # 性价比不取「轻/重甲较高者」——那种合并会掩盖专精。两个靶标各自一列。
+        d['dpsPer100Light'] = round(d.get('dpsLight', 0) * 100 / res, 2)
+        d['dpsPer100Armored'] = round(d.get('dpsArmored', 0) * 100 / res, 2)
+        d['dpsPer100Kerrigan'] = round(d.get('dpsKerrigan', 0) * 100 / res, 2)
+        d['hpPer100'] = round(d['ehp'] * 100 / res, 1)
+        for tag in ('Light', 'Armored', 'Kerrigan'):
+            d[f'dpsPer100{tag}Max'] = round(d.get(f'dps{tag}Max', 0) * 100 / res, 2)
     if cost['food']:
-        d['dpsPerFood'] = round(d['dpsPeak'] / cost['food'], 2)
+        d['dpsPerFoodLight'] = round(d.get('dpsLight', 0) / cost['food'], 2)
+        d['dpsPerFoodArmored'] = round(d.get('dpsArmored', 0) / cost['food'], 2)
     if maxed_snap:
         d['fullUpgradeCost'] = maxed_snap['cost']
     d['techReliance'] = round(d['dpsArmoredMax'] / d['dpsArmored'], 2) if d['dpsArmored'] else None

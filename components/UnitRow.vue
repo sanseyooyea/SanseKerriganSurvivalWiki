@@ -96,6 +96,9 @@
               <span class="text-gray-300 dark:text-gray-600">/</span>
               <span :class="w.targets.air ? 'text-gray-600 dark:text-gray-300' : 'text-gray-300 dark:text-gray-600'">对空</span>
             </span>
+            <span v-if="enablesAir(w.id)" class="rounded bg-violet-50 px-1.5 py-px text-[0.6rem] leading-4 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300">
+              需研发：{{ airUpgrades(w.id).join('、') }}
+            </span>
           </div>
 
           <div
@@ -240,6 +243,19 @@ const expanded = ref(false)
 const unit = computed(() => props.unit)
 const producedBy = computed(() => unit.value.producedBy || [])
 const combatGroups = computed(() => unit.value.upgrades.filter(g => g.kind === 'combat'))
+/** 该武器当前不能对空，但有科技能让它对空 → 标出来。 */
+function enablesAir(wid: string) {
+  return airUpgrades(wid).length > 0
+}
+/** 能让该武器对空的科技名（当前不能对空时才有意义）。 */
+function airUpgrades(wid: string) {
+  const base = combatCurve.value[0]?.weapons || []
+  const bs = base.find(w => w.id === wid)
+  if (!bs || bs.targets?.air) return []
+  return (unit.value.options || [])
+    .filter(o => (o.snapshot?.weapons || []).some(w => w.id === wid && w.targets?.air))
+    .map(o => o.nameZh.replace(/^(?:研发|研究|升级)\s*/, ''))
+}
 const optionGroups = computed(() => unit.value.options || [])
 const combatCurve = computed(() => unit.value.curves?.combat || [])
 const baseSnap = computed(() => combatCurve.value[0])
@@ -350,9 +366,10 @@ const metrics = computed(() => {
       note: d.techReliance > 1 ? `全科技拉满 · 基础值的 ${d.techReliance}×` : '全科技拉满·对重甲',
     })
   }
-  if (d.dpsPer100) out.push({ label: '每 100 资源 DPS', value: d.dpsPer100, note: '取轻 / 重甲较高者' })
-  if (d.ehp) out.push({ label: '有效血量', value: d.ehp, note: `每 100 资源 ${d.ehpPer100 ?? '—'}` })
-  if (d.dpsPerFood) out.push({ label: '每人口 DPS', value: d.dpsPerFood })
+  if (d.dpsPer100Light) out.push({ label: '每 100 资源 · 对轻甲', value: d.dpsPer100Light })
+  if (d.dpsPer100Armored) out.push({ label: '每 100 资源 · 对重甲', value: d.dpsPer100Armored })
+  if (d.ehp) out.push({ label: '有效血量', value: d.ehp, note: `生命 + 护盾 · 每 100 资源 ${d.hpPer100 ?? '—'}` })
+  if (d.dpsPerFoodLight) out.push({ label: '每人口 · 对轻甲', value: d.dpsPerFoodLight })
   if (d.fullUpgradeCost) out.push({ label: '满科技花费', value: fmtCost(d.fullUpgradeCost), note: '累计资源' })
   return out
 })
