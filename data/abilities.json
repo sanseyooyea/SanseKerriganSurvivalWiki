@@ -141,6 +141,11 @@
         "nameZh": "后燃助推器",
         "tooltip": "短时间内大幅增加亚顿移动速度。",
         "icon": "btn-upgrade-terran-medivacemergencythrusters.png"
+      },
+      "Nomad": {
+        "nameZh": "后燃充能",
+        "tooltip": "短时间增加游牧民的移动速度",
+        "icon": "btn-upgrade-terran-medivacemergencythrusters.png"
       }
     }
   },
@@ -272,12 +277,6 @@
     "nameEn": "Stimpack",
     "tooltip": "增加移动和攻击速度。<n/><c val=\"90EE90\">攻击速度</c>：<c val=\"90EE90\">20%</c>|<c val=\"90EE90\">30%</c>|<c val=\"90EE90\">40%</c>|<c val=\"90EE90\">50%</c><n/><c val=\"90EE90\">移动速度</c>：<c val=\"90EE90\">10%</c>|<c val=\"90EE90\">20%</c>|<c val=\"90EE90\">30%</c>|<c val=\"90EE90\">40%</c><n/><c val=\"E6E6E6\">持续时间</c>：<c val=\"E6E6E6\">15秒</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">25%</c>",
     "icon": "btn-ability-terran-stimpack-color.png"
-  },
-  "NomadCalldownBlackhammer": {
-    "nameZh": "雇佣黑色战锤",
-    "nameEn": "Calldown Blackhammer",
-    "tooltip": "空投一台黑色战锤。消耗8 补给。",
-    "icon": "btn-unit-terran-merc-thor.png"
   },
   "NomadDefensiveMatrix": {
     "nameZh": "防御矩阵",

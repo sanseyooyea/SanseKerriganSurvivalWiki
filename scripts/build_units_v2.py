@@ -271,6 +271,26 @@ def timed_life(gi, uid):
     return None
 
 
+def skill_weapon_stats(u):
+    """技能召出单位的火力摘要（自动炮塔这类有武器的）：单发伤害/间隔/射程/对空 + 三靶 DPS。
+    没有可解析伤害的（定点防御、恢复器）返回空 dict，前端自动不显示这些列。"""
+    ws = [w for w in (u.get('weapons') or []) if w.get('components')]
+    if not ws:
+        return {}
+    w = ws[0]
+    d = u.get('derived') or {}
+    dmg = sum((c.get('amount') or 0) * (c.get('hits') or 1) for c in w['components'] if not c.get('vital'))
+    return {
+        'damage': round(dmg, 2) or None,
+        'period': w.get('period'),
+        'range': w.get('range'),
+        'antiAir': bool(w['targets'].get('air')),
+        'dpsLight': d.get('dpsLight'),
+        'dpsArmored': d.get('dpsArmored'),
+        'dpsKerrigan': d.get('dpsKerrigan'),
+    }
+
+
 def skill_summons(gi, edges, units, gs_btn, gs_abil):
     """把分级技能召出的单位聚成「技能」：每级一行，含召出单位的能量/寿命/可吸收量。
 
@@ -311,7 +331,9 @@ def skill_summons(gi, edges, units, gs_btn, gs_abil):
                 'energyCost': e.get('energy'), 'cooldown': e.get('cooldown'),
                 'unitEnergy': e_max, 'unitEnergyStart': start, 'unitEnergyRegen': regen,
                 'duration': life, 'absorbMax': absorb,
-                'hp': st.get('hp'), 'minerals': (u.get('cost') or {}).get('minerals'),
+                'hp': st.get('hp'), 'armor': st.get('armor'),
+                'minerals': (u.get('cost') or {}).get('minerals'),
+                **skill_weapon_stats(u),
             })
         out.append({'abil': abil, 'face': face, 'nameZh': name, 'levels': levels})
     return out

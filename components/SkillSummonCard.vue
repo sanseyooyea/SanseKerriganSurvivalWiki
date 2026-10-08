@@ -7,6 +7,7 @@
       <span v-if="common.duration" class="font-mono text-xs tabular-nums text-gray-400">持续 {{ common.duration }}s</span>
       <span v-if="common.energyCost" class="font-mono text-xs tabular-nums text-gray-400">耗能 {{ common.energyCost }}</span>
       <span v-if="common.cooldown" class="font-mono text-xs tabular-nums text-gray-400">冷却 {{ common.cooldown }}s</span>
+      <span v-if="antiAir" class="font-mono text-xs text-gray-400">对地 / 对空</span>
     </header>
 
     <p v-if="hasAbsorb" class="mb-2 max-w-3xl text-[0.7rem] leading-relaxed text-gray-500 dark:text-gray-400">
@@ -44,9 +45,16 @@ import type { SkillSummon } from '~/composables/useUnitsData'
 const props = defineProps<{ skill: SkillSummon }>()
 
 const ALL_COLUMNS = [
+  { key: 'damage', label: '单发伤害', class: 'text-gray-800 dark:text-gray-100' },
+  { key: 'period', label: '攻击间隔' },
+  { key: 'range', label: '射程' },
+  { key: 'dpsLight', label: '对轻甲 DPS', class: 'text-orange-600 dark:text-orange-400' },
+  { key: 'dpsArmored', label: '对重甲 DPS', class: 'text-orange-600 dark:text-orange-400' },
+  { key: 'dpsKerrigan', label: '对凯瑞甘 DPS', class: 'text-kerrigan-600 dark:text-kerrigan-400' },
   { key: 'unitEnergy', label: '总能量', class: 'text-violet-600 dark:text-violet-400' },
   { key: 'absorbMax', label: '可吸收伤害', class: 'text-emerald-600 dark:text-emerald-400' },
   { key: 'hp', label: '生命' },
+  { key: 'armor', label: '护甲' },
   { key: 'unitEnergyRegen', label: '回能/秒' },
   { key: 'duration', label: '持续' },
   { key: 'energyCost', label: '耗能' },
@@ -69,6 +77,7 @@ const columns = computed(() => ALL_COLUMNS.filter(c =>
   !(c.key in common.value) &&
   props.skill.levels.some(l => (l as any)[c.key])))
 const hasAbsorb = computed(() => props.skill.levels.some(l => l.absorbMax))
+const antiAir = computed(() => props.skill.levels.some(l => (l as any).antiAir))
 
 function changed(key: string, i: number) {
   if (i === 0) return false
