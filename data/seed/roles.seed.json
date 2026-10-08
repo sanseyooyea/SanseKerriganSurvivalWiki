@@ -1221,7 +1221,9 @@
       "AndorCalldownImmortal",
       "AndorCalldownSCV",
       "AndorCalldownCleaningBot",
-      "Rapidfire"
+      "Rapidfire",
+      "AresEmergencyThrusters",
+      "AndorPlacePointDefenseDrone"
     ]
   },
   {
@@ -1251,7 +1253,8 @@
       "RenewingTune",
       "AttractFan",
       "Doubletime",
-      "DJBassDrop"
+      "DJBassDrop",
+      "DJAllPartOfTheShow"
     ]
   },
   {

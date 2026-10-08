@@ -259,44 +259,107 @@ def produced_unit_edges(gi, abil_id):
         units += [x for x in (c.get('value') or '').split(',') if x]
     if not units:
         return []
+    cost = (ability_costs(ab) or [{}])[0]
     return [{'abil': abil_id, 'index': None, 'kind': 'summon', 'units': units, 'count': 1,
-             'time': None, 'cooldown': None, 'charge': None, 'requirements': None,
-             'button': None, 'costDelta': {}}]
+             'time': None, 'cooldown': cost.get('cooldown'),
+             'charge': ({'timeUse': cost.get('chargeTime'), 'countMax': cost.get('chargeMax')}
+                        if cost.get('chargeTime') else None),
+             'requirements': None, 'button': None,
+             'costDelta': {k: v for k, v in (('Minerals', cost.get('minerals')),
+                                             ('Vespene', cost.get('gas'))) if v},
+             'energy': cost.get('energy'), 'level': None}]
 
 
-def summon_edges(gi, abil_id, depth=0, seen=None):
-    """CEffectCreateUnit reachable from a (non-production) ability's effect tree."""
-    ab = gi.get('Abil', abil_id)
-    if ab is None or ab.tag in PRODUCE_TAGS:
-        return []
+def ability_costs(ab):
+    """技能每级的消耗：<Cost> 可重复（按技能等级索引）。
+    返回 [{minerals, gas, energy, cooldown, chargeTime, chargeMax}]，缺的级别沿用上一级。"""
+    out = []
+    for el in ab.elems:
+        for c in el.findall('Cost'):
+            res = {}
+            for r in c.findall('Resource'):
+                v = _num(r.get('value'))
+                if v:
+                    res['minerals' if r.get('index') == 'Minerals' else 'gas'] = v
+            for v in c.findall('Vital'):
+                if v.get('index') == 'Energy' and _num(v.get('value')):
+                    res['energy'] = _num(v.get('value'))
+            cd = c.find('Cooldown')
+            if cd is not None and _num(cd.get('TimeUse')):
+                res['cooldown'] = _num(cd.get('TimeUse'))
+            ch = c.find('Charge')
+            if ch is not None:
+                tu, cm = ch.find('TimeUse'), ch.find('CountMax')
+                if tu is not None and _num(tu.get('value')):
+                    res['chargeTime'] = _num(tu.get('value'))
+                if cm is not None and _num(cm.get('value')):
+                    res['chargeMax'] = _num(cm.get('value'))
+            out.append(res)
+    for i in range(1, len(out)):
+        out[i] = {**out[i - 1], **out[i]}
+    return out
+
+
+def _ability_effect_roots(gi, ab):
+    """技能的效果根：<Effect> 可按技能等级重复（Effect[0..n] = 第 1..n 级）。
+    一个都没写时，SC2 默认用「与技能同 id 的效果」——亚顿的雇佣执政官/不朽者/清除机器人
+    就是这样写的，漏掉这条会让整批召唤兵消失。"""
     roots = []
     for tag in ('Effect', 'EffectArray'):
         for c in ab.findall(tag):
-            v = c.get('value')
-            if v:
-                roots.extend(v.split(','))
+            for v in (c.get('value') or '').split(','):
+                if v:
+                    roots.append(v)
+    if not roots and gi.get('Effect', ab.id):
+        roots = [ab.id]
+    return roots
+
+
+def summon_edges(gi, abil_id, depth=0, seen=None):
+    """CEffectCreateUnit reachable from a (non-production) ability's effect tree.
+
+    多个效果根 = 分级技能（定点防御靶机 1~4 级各召一种无人机），每条边带 level。
+    技能本身的 <Cost>（雇佣兵的晶矿/气体、能量、冷却）记在边上——召唤兵的造价在这里，
+    不在单位的 CostResource 上。"""
+    ab = gi.get('Abil', abil_id)
+    if ab is None or ab.tag in PRODUCE_TAGS:
+        return []
+    roots = _ability_effect_roots(gi, ab)
+    costs = ability_costs(ab)
+    leveled = len(roots) > 1
     out = []
-    seen = set()
 
-    def walk(eid, d):
-        if not eid or d > 6 or eid in seen:
-            return
-        seen.add(eid)
-        e = gi.get('Effect', eid)
-        if e is None:
-            return
-        if e.tag == 'CEffectCreateUnit':
-            units = [c.get('value') for c in e.findall('SpawnUnit') if c.get('value')]
-            cnt = e.num('SpawnCount') or 1
-            if units:
-                out.append({'abil': abil_id, 'index': None, 'kind': 'summon', 'units': units,
-                            'count': cnt, 'time': None, 'cooldown': None, 'charge': None,
-                            'requirements': None, 'button': None, 'costDelta': {}})
-        for nxt in _child_effects(e):
-            walk(nxt, d + 1)
+    for li, root in enumerate(roots):
+        seen = set()
+        found = []
 
-    for r in roots:
-        walk(r, 0)
+        def walk(eid, d):
+            if not eid or d > 6 or eid in seen:
+                return
+            seen.add(eid)
+            e = gi.get('Effect', eid)
+            if e is None:
+                return
+            if e.tag == 'CEffectCreateUnit':
+                units = [c.get('value') for c in e.findall('SpawnUnit') if c.get('value')]
+                if units:
+                    found.append((units, e.num('SpawnCount') or 1))
+            for nxt in _child_effects(e):
+                walk(nxt, d + 1)
+
+        walk(root, 0)
+        cost = costs[min(li, len(costs) - 1)] if costs else {}
+        for units, cnt in found:
+            out.append({'abil': abil_id, 'index': None, 'kind': 'summon', 'units': units,
+                        'count': cnt, 'time': None,
+                        'cooldown': cost.get('cooldown'),
+                        'charge': ({'timeUse': cost.get('chargeTime'), 'countMax': cost.get('chargeMax')}
+                                   if cost.get('chargeTime') else None),
+                        'requirements': None, 'button': None,
+                        'costDelta': {k: v for k, v in (('Minerals', cost.get('minerals')),
+                                                        ('Vespene', cost.get('gas'))) if v},
+                        'energy': cost.get('energy'),
+                        'level': li + 1 if leveled else None})
     return out
 
 

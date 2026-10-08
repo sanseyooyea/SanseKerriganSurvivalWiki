@@ -7,6 +7,17 @@
       地图里无法静态解析的效果会标注「未解析」，不做估算。
     </p>
 
+    <!-- 分级技能召唤：一个技能 → 每级召出不同单位（如定点防御靶机），按技能等级展示 -->
+    <div v-if="hero.skillSummons?.length" class="mb-5">
+      <div class="mb-2 flex items-baseline gap-2">
+        <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200">技能召唤</h3>
+        <span class="font-mono text-xs tabular-nums text-gray-400 dark:text-gray-500">{{ hero.skillSummons.length }}</span>
+      </div>
+      <div class="space-y-2">
+        <SkillSummonCard v-for="sk in hero.skillSummons" :key="sk.abil" :skill="sk" />
+      </div>
+    </div>
+
     <!-- 单位表格（按类别分区） -->
     <div class="space-y-5">
       <div v-for="grp in groups" :key="grp.category">

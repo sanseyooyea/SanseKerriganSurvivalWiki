@@ -1019,6 +1019,12 @@
     "tooltip": "增加亚顿的攻击速度<n/><c val=\"FFB347\">攻击速度提升：</c> <c val=\"FFB347\">2x</c>|<c val=\"FFB347\">3x</c>|<c val=\"FFB347\">5x</c>|<c val=\"FFB347\">7x</c><n/><c val=\"8FC7FF\">能量消耗：</c> <c val=\"8FC7FF\">25</c> |  |  | <n/><c val=\"DCDCDC\">冷却时间：</c> <c val=\"DCDCDC\">60秒</c>|<c val=\"DCDCDC\">45秒</c>|<c val=\"DCDCDC\">35秒</c>|<c val=\"DCDCDC\">20秒</c>",
     "icon": "btn-upgrade-terran-superstimppack.png"
   },
+  "AndorPlacePointDefenseDrone": {
+    "nameZh": "定点防御无人机",
+    "nameEn": "Place Point Defense Drone",
+    "tooltip": "使用激光击落敌方导弹。<n/>无法拦截特殊攻击。<n/>在 <c val=\"DCDCDC\">60</c> 秒后失效。<n/><c val=\"9370DB\">PDD能量:</c> <c val=\"9370DB\">500</c>|<c val=\"9370DB\">1000</c>|<c val=\"9370DB\">2000</c>|<c val=\"9370DB\">4000</c><n/><c val=\"9370DB\">每次射击消耗等于被阻挡伤害的能量。</c><n/><c val=\"E6E6E6\">定点防御无人机需要视野来阻挡不是针对无人机的投射物。</c>",
+    "icon": "btn-unit-terran-targetingdrone.png"
+  },
   "RenewingTune": {
     "nameZh": "治愈咏叹！",
     "nameEn": "Renewing Tune",
@@ -1042,6 +1048,12 @@
     "nameEn": "Bass Drop",
     "tooltip": "对敌人释放重低音<n/>造成等同于(10 + 等级/2)x名望 + 50x等级 = 的伤害",
     "icon": "btn-ability-terran-lockon.png"
+  },
+  "DJAllPartOfTheShow": {
+    "nameZh": "整场演出",
+    "nameEn": "All Part Of The Show",
+    "tooltip": "冷却时间减少：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">15</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">20</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">25<n/>范围：<c val=\"FFFFFF\" validator=\"AllPartOfTheShow\"> 5</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow2\">7</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow3\">10</c><n/>额外视野半径：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">3</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">5</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">7</c><n/>冷却时间：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">60</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">45</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">30<n/>目标：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">您的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">您的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">盟军单位",
+    "icon": "ui_glues_icons_clanleader.png"
   },
   "RattlesnakeDeployRevitalizer": {
     "nameZh": "部署恢复器",

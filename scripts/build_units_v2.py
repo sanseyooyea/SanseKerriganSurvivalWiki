@@ -151,6 +151,9 @@ def category(info, hero_units, edges_in):
     uid = info['id']
     if uid in hero_units:
         return 'hero'
+    # 分级技能召出的（定点防御靶机 1~4 级）是技能的一部分，不是建筑/兵种
+    if edges_in and all(e.get('level') for e in edges_in):
+        return 'skill'
     if any(INCOME_RE.search(b) for b in info['behaviors']) or 'KSSurvivorEcoUnit' in info['behaviors']:
         return 'economy'
     if info['isStructure']:
@@ -159,8 +162,104 @@ def category(info, hero_units, edges_in):
     if kinds and kinds <= {'morph'}:
         return 'morph'
     if kinds and kinds <= {'summon'}:
+        # 花晶矿/气体雇佣来的（亚顿/游牧者的空投）就是兵种；免费召出的才算召唤物
+        if any(e.get('costDelta') for e in edges_in):
+            return 'troop'
         return 'summon'
     return 'troop'
+
+
+def hire_cost(edges_in):
+    """雇佣/空投类兵的「单只」造价：技能消耗 ÷ 一次召出数量。单位自身 CostResource 常为 0。"""
+    for e in edges_in:
+        cd = e.get('costDelta') or {}
+        if not cd:
+            continue
+        n = e.get('count') or 1
+        if len(e['units']) > 1 and len(set(e['units'])) == 1:
+            n = max(n, len(e['units']))
+        return {'minerals': round((cd.get('Minerals') or 0) / n, 2),
+                'gas': round((cd.get('Vespene') or 0) / n, 2),
+                'perCall': {'minerals': cd.get('Minerals') or 0, 'gas': cd.get('Vespene') or 0,
+                            'count': n},
+                'chargeTime': (e.get('charge') or {}).get('timeUse'),
+                'chargeMax': (e.get('charge') or {}).get('countMax'),
+                'abil': e['abil']}
+    return None
+
+
+def timed_life(gi, uid):
+    """单位寿命（秒）：BehaviorArray 里带 Duration 的计时类 buff（TimedLife 派生）。"""
+    ent = gi.unit(uid)
+    if ent is None:
+        return None
+    for c in ent.findall('BehaviorArray'):
+        b = gi.get('Behavior', c.get('Link'))
+        if b is None:
+            continue
+        chain = [x.id for x in b._chain()] + [b.parent_id or '']
+        if any('TimedLife' in (x or '') for x in chain):
+            return b.num('Duration')
+    return None
+
+
+def skill_summons(gi, edges, units, gs_btn, gs_abil):
+    """把分级技能召出的单位聚成「技能」：每级一行，含召出单位的能量/寿命/可吸收量。
+
+    定点防御靶机：每次拦截消耗等于被挡伤害的能量 → 一架靶机最多吸收
+    「初始能量 + 回能 × 寿命」点伤害（初始即满能量，回能只在消耗后才生效）。"""
+    by_abil = {}
+    for e in edges:
+        if e.get('level'):
+            by_abil.setdefault(e['abil'], []).append(e)
+    out = []
+    for abil, es in by_abil.items():
+        es.sort(key=lambda e: e['level'])
+        ab = gi.get('Abil', abil)
+        face = None
+        if ab is not None:
+            for c in ab.findall('CmdButtonArray'):
+                face = face or c.get('DefaultButtonFace')
+        name = gs_btn.get(face or '') or gs_abil.get(abil) or abil
+        levels = []
+        for e in es:
+            uid = e['units'][0]
+            u = units.get(uid) or {}
+            st = u.get('stats') or {}
+            ent = gi.unit(uid)
+            e_start = ent.num('EnergyStart') if ent is not None else None
+            e_max = st.get('energy') or (ent.num('EnergyMax') if ent is not None else None)
+            regen = ent.num('EnergyRegenRate') if ent is not None else None
+            life = timed_life(gi, uid)
+            start = e_start if e_start is not None else e_max
+            absorb = None
+            # 只有「用能量挡伤害」的单位（定点防御类）才有可吸收量的概念
+            blocks = ent is not None and any(
+                'PointDefense' in (c.get('Link') or '') for c in ent.findall('WeaponArray'))
+            if blocks and start is not None:
+                absorb = round(start + (regen or 0) * (life or 0), 1)
+            levels.append({
+                'level': e['level'], 'unit': uid,
+                'energyCost': e.get('energy'), 'cooldown': e.get('cooldown'),
+                'unitEnergy': e_max, 'unitEnergyStart': start, 'unitEnergyRegen': regen,
+                'duration': life, 'absorbMax': absorb,
+                'hp': st.get('hp'), 'minerals': (u.get('cost') or {}).get('minerals'),
+            })
+        out.append({'abil': abil, 'face': face, 'nameZh': name, 'levels': levels})
+    return out
+
+
+def edge_out(e):
+    out = {k: e[k] for k in ('from', 'abil', 'index', 'kind', 'time') if e.get(k) is not None}
+    for k in ('cooldown', 'charge', 'requirements', 'button', 'count', 'energy', 'level'):
+        if e.get(k):
+            out[k] = e[k]
+    if e.get('costDelta'):
+        out['costDelta'] = e['costDelta']
+    out['units'] = sorted(set(e['units']), key=e['units'].index)
+    if len(e['units']) > 1 and len(set(e['units'])) == 1:
+        out['count'] = len(e['units'])
+    return out
 
 
 def apply(op, base, cur, v):
@@ -493,19 +592,6 @@ def derived(info, base_snap, maxed_snap):
     return d
 
 
-def edge_out(e):
-    out = {k: e[k] for k in ('from', 'abil', 'index', 'kind', 'time') if e.get(k) is not None}
-    for k in ('cooldown', 'charge', 'requirements', 'button', 'count'):
-        if e.get(k):
-            out[k] = e[k]
-    if e.get('costDelta'):
-        out['costDelta'] = e['costDelta']
-    out['units'] = sorted(set(e['units']), key=e['units'].index)
-    if len(e['units']) > 1 and len(set(e['units'])) == 1:
-        out['count'] = len(e['units'])
-    return out
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--heroes')
@@ -559,6 +645,14 @@ def main():
             unresolved_total += sum(1 for p in profiles if p['unresolved'])
             groups = upgrade_groups(info, profiles, ui, gs_btn)
             curves, maxed, options = build_curves(info, profiles, groups)
+            # 雇佣/空投兵：玩家实际付的是技能消耗（一次召出 N 只），单位自身的 CostResource
+            # 只用于击杀/回收计价。性价比按「技能消耗 ÷ 召出数」算，原值留在 listed。
+            hire = hire_cost(edges_in)
+            if hire:
+                info['cost'] = dict(info['cost'], minerals=hire['minerals'], gas=hire['gas'],
+                                    listed={'minerals': info['cost']['minerals'],
+                                            'gas': info['cost']['gas']},
+                                    hire=hire)
             icon = unit_icons.get(uid)
             units[uid] = {
                 'id': uid,
@@ -593,6 +687,21 @@ def main():
                 'curves': curves,
                 'derived': derived(info, curves['combat'][0] if curves['combat'] else None, maxed),
             }
+
+    # 分级技能召唤（定点防御靶机等）：挂到英雄上，按级展示能量/寿命/可吸收伤害
+    gs_abil = L.game_strings(archive, 'Abil/Name/')
+    # 名字优先用技能管线已策展好的 abilities.json（含 face 覆盖，避免英文/串味名）
+    ab_json = os.path.join(ROOT, 'data', 'abilities.json')
+    curated = json.load(open(ab_json, encoding='utf-8')) if os.path.exists(ab_json) else {}
+    for hero, h in heroes.items():
+        sk = skill_summons(gi, h['edges'], units, gs_btn, gs_abil)
+        for s in sk:
+            c = curated.get(s['abil']) or {}
+            per = (c.get('perHero') or {}).get(hero) or {}
+            s['nameZh'] = per.get('nameZh') or c.get('nameZh') or s['nameZh']
+            s['icon'] = per.get('icon') or c.get('icon')
+        if sk:
+            h['skillSummons'] = sk
 
     # producedBy[] — 每个单位由谁生产（跨英雄去重）
     for h in heroes.values():

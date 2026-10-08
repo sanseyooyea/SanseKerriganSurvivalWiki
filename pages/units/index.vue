@@ -186,7 +186,7 @@ const teamOptions = [
 ]
 const categoryOptions = [
   { value: 'All', label: '全部' },
-  ...['hero', 'troop', 'building', 'economy', 'morph', 'summon'].map(c => ({ value: c, label: CATEGORY_LABELS[c] })),
+  ...['hero', 'troop', 'building', 'economy', 'morph', 'summon', 'skill'].map(c => ({ value: c, label: CATEGORY_LABELS[c] })),
 ]
 const attributeOptions = ['Light', 'Armored', 'Biological', 'Mechanical', 'Massive', 'Structure', 'Psionic']
 

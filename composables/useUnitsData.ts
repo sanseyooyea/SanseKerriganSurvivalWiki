@@ -33,6 +33,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   economy: '经济建筑',
   morph: '形态',
   summon: '召唤物',
+  skill: '技能召唤',
 }
 
 // 武器 notes → 中文提示（未解析的部分单独标红，绝不猜数值）
@@ -162,6 +163,27 @@ export interface HeroEdge {
   count?: number
   units: string[]
 }
+export interface SkillSummonLevel {
+  level: number
+  unit: string
+  energyCost: number | null
+  cooldown: number | null
+  unitEnergy: number | null
+  unitEnergyStart: number | null
+  unitEnergyRegen: number | null
+  duration: number | null
+  /** 能量换伤害类（定点防御）的单架最大可吸收伤害 = 初始能量 + 回能 × 寿命 */
+  absorbMax: number | null
+  hp: number | null
+  minerals: number | null
+}
+export interface SkillSummon {
+  abil: string
+  face: string | null
+  nameZh: string
+  icon: string | null
+  levels: SkillSummonLevel[]
+}
 export interface HeroUnitsEntry {
   team: string
   category: string | null
@@ -169,6 +191,7 @@ export interface HeroUnitsEntry {
   heroUnits: string[]
   unitIds: string[]
   edges: HeroEdge[]
+  skillSummons?: SkillSummon[]
 }
 
 const DATA = unitsData as unknown as {
@@ -223,6 +246,7 @@ export function useUnitsData() {
 
   /** 按类别分组（兵种/建筑/经济建筑/形态/召唤物）。 */
   const CATEGORY_ORDER = ['troop', 'building', 'economy', 'morph', 'summon', 'hero']
+  // skill 类（分级技能召出的单位）不在此列：由 HeroUnits 按技能 → 等级单独渲染
   function groupByCategory(units: UnitEntry[]) {
     return CATEGORY_ORDER
       .map(cat => ({ category: cat, label: CATEGORY_LABELS[cat] || cat, units: units.filter(u => u.category === cat) }))
