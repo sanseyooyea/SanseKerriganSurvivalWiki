@@ -66,15 +66,15 @@
             <div class="px-3 pb-1 pt-2 text-[0.6rem] font-medium uppercase tracking-wider text-gray-400">{{ g.label }}</div>
             <div class="grid grid-cols-2 gap-0.5 px-1.5 sm:grid-cols-3">
               <button
-                v-for="h in g.heroes"
-                :key="h.nameEn"
+                v-for="he in g.heroes"
+                :key="he.nameEn"
                 type="button"
                 class="flex items-center gap-2 rounded-md px-1.5 py-1 text-left hover:bg-surface-50 dark:hover:bg-gray-700/50"
-                @click="hero = h.nameEn"
+                @click="hero = he.nameEn"
               >
-                <UnitIcon :icon="`/icons/${String(h.roleId).padStart(2, '0')}.png`" :alt="h.nameZh" size="sm" />
-                <span class="min-w-0 flex-1 truncate text-sm text-gray-700 dark:text-gray-200">{{ h.nameZh }}</span>
-                <span class="shrink-0 font-mono text-[0.6rem] text-gray-400">{{ h.count }}</span>
+                <UnitIcon :icon="`/icons/${String(he.roleId).padStart(2, '0')}.png`" :alt="he.nameZh" size="sm" />
+                <span class="min-w-0 flex-1 truncate text-sm text-gray-700 dark:text-gray-200">{{ he.nameZh }}</span>
+                <span class="shrink-0 font-mono text-[0.6rem] text-gray-400">{{ he.count }}</span>
               </button>
             </div>
           </div>
@@ -103,7 +103,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue'
+import { h, defineComponent, type PropType } from 'vue'
 import type { UnitEntry } from '~/composables/useUnitsData'
 import { CATEGORY_LABELS } from '~/composables/useUnitsData'
 import UnitIcon from '~/components/UnitIcon.vue'
@@ -137,8 +137,8 @@ function ownerText(u: UnitEntry) {
 // 分级技能召出的单位同名（定点防御无人机 ×4），用技能等级区分；形态用形态名区分
 const skillLevel = computed(() => {
   const m: Record<string, number> = {}
-  for (const h of Object.values(heroMap)) {
-    for (const s of h.skillSummons || []) for (const l of s.levels) m[l.unit] = l.level
+  for (const hu of Object.values(heroMap)) {
+    for (const s of hu.skillSummons || []) for (const l of s.levels) m[l.unit] = l.level
   }
   return m
 })
@@ -151,23 +151,23 @@ function labelOf(u: UnitEntry) {
 // ---- 第一步：英雄列表
 const heroGroups = computed(() => {
   const list = Object.entries(heroMap)
-    .map(([nameEn, h]) => ({ nameEn, nameZh: heroZh(nameEn), roleId: roleOf(nameEn)?.id ?? h.roleId, team: h.team, count: h.unitIds.length }))
-    .filter(h => team.value === 'All' || h.team === team.value)
+    .map(([nameEn, he]) => ({ nameEn, nameZh: heroZh(nameEn), roleId: roleOf(nameEn)?.id ?? he.roleId, team: he.team, count: he.unitIds.length }))
+    .filter(x => team.value === 'All' || x.team === team.value)
     .sort((a, b) => a.roleId - b.roleId)
   const out = []
-  if (team.value !== 'Kerrigan') out.push({ label: '生存方', heroes: list.filter(h => h.team === 'Survivor') })
-  if (team.value !== 'Survivor') out.push({ label: '凯瑞甘方', heroes: list.filter(h => h.team === 'Kerrigan') })
+  if (team.value !== 'Kerrigan') out.push({ label: '生存方', heroes: list.filter(x => x.team === 'Survivor') })
+  if (team.value !== 'Survivor') out.push({ label: '凯瑞甘方', heroes: list.filter(x => x.team === 'Kerrigan') })
   return out.filter(g => g.heroes.length)
 })
 
 // ---- 第二步：该英雄的单位
 const CAT_ORDER = ['hero', 'troop', 'skill', 'summon', 'building', 'economy', 'morph']
 const heroUnitGroups = computed(() => {
-  const h = hero.value ? heroMap[hero.value] : null
-  if (!h) return []
+  const he = hero.value ? heroMap[hero.value] : null
+  if (!he) return []
   const n = q.value.trim().toLowerCase()
   const match = (u: UnitEntry) => !n || u.nameZh.toLowerCase().includes(n) || u.id.toLowerCase().includes(n)
-  const units = h.unitIds.map(id => unitMap[id]).filter(Boolean)
+  const units = he.unitIds.map(id => unitMap[id]).filter(Boolean)
   return CAT_ORDER.map((cat) => {
     const rows: { unit: UnitEntry; indent: boolean }[] = []
     for (const u of units.filter(x => x.category === cat)) {

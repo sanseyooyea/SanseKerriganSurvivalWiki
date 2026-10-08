@@ -63,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue'
+import { h, defineComponent, type PropType } from 'vue'
 import { effective, duel, type Levels, type EffUnit, type DuelResult, ATTR_ZH } from '~/utils/unitEngine'
 
 const route = useRoute()
