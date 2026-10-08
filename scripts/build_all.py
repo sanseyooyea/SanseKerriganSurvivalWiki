@@ -5,7 +5,8 @@ Order:
   1. build_roles.py       seed + map -> data/roles.json
   2. build_abilities.py   seed ability lists + map -> data/abilities.json
   3. resolve-tooltips.py  resolve <d ref> numeric placeholders in abilities.json
-  4. build_units.py       seed membership + map -> data/units.json
+  4. build_units_v2.py    map -> data/units-v2.json (兵种数据库: 生产树/武器/升级曲线,
+                          生存方 + 凯瑞甘方；取代旧的 seed 驱动 build_units.py)
   5. build_veterancy.py   seed (verbatim) -> data/veterancy.json
 
 economy.json is hand-maintained EXCEPT the "Team Nova" and "Nomad" entries, which
@@ -31,12 +32,12 @@ STEPS = [
     'build_roles.py',
     'build_abilities.py',
     'resolve-tooltips.py',
-    'build_units.py',
     'build_veterancy.py',
     'build_technician_economy.py',
     'build_nova_economy.py',
     'build_nomad_economy.py',
     'build_tech.py',
+    'build_units_v2.py',
     'build_terrain.py',
 ]
 

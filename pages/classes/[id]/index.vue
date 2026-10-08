@@ -174,28 +174,10 @@
       </template>
     </div>
 
-    <!-- Units Section -->
-    <div v-if="displayUnits.troops.length" class="wiki-card p-5 mb-6">
-      <div class="section-title">兵种 · {{ displayUnits.troops.length }}</div>
-      <div class="space-y-2">
-        <UnitCard v-for="unit in displayUnits.troops" :key="unit.id || unit.nameZh" :unit="unit" />
-      </div>
-    </div>
-
-    <!-- Buildings Section -->
-    <div v-if="displayUnits.buildings.length" class="wiki-card p-5 mb-6">
-      <div class="section-title">建筑 · {{ displayUnits.buildings.length }}</div>
-      <div class="space-y-2">
-        <UnitCard v-for="unit in displayUnits.buildings" :key="unit.id || unit.nameZh" :unit="unit" :is-building="true" />
-      </div>
-    </div>
-
-    <!-- Economy Section -->
-    <div v-if="displayUnits.economy.length" class="wiki-card p-5 mb-6">
-      <div class="section-title">经济建筑 · {{ displayUnits.economy.length }}</div>
-      <div class="space-y-2">
-        <UnitCard v-for="unit in displayUnits.economy" :key="unit.id || unit.nameZh" :unit="unit" :is-building="true" />
-      </div>
+    <!-- Units Section（生产树 / 完整武器 / 升级曲线，来自共享组件） -->
+    <div v-if="hasUnits(cls.nameEn)" class="wiki-card p-5 mb-6">
+      <div class="section-title">兵种与建筑</div>
+      <HeroUnits :name="cls.nameEn" :show-intro="true" />
     </div>
 
     <!-- Economy Analysis Section（收入/回本/加速/投资比，来自 /economy 共享组件） -->
@@ -239,15 +221,14 @@ const route = useRoute()
 const { canEdit } = useAuth()
 const { getById } = useClassData()
 const { getForHero } = useVeterancyData()
-const { getForHero: getUnitsForHero } = useUnitData()
 const { getByRoleId } = useBalanceData()
 const { hasEconomy } = useEconomyData()
 const { hasTech } = useTechData()
+const { hasUnits } = useUnitsData()
 
 const cls = computed(() => getById(Number(route.params.id)))
 const balance = computed(() => getByRoleId(Number(route.params.id)))
 const vet = computed(() => cls.value ? getForHero(cls.value.nameEn) : undefined)
-const heroUnits = computed(() => cls.value ? getUnitsForHero(cls.value.nameEn) : { troops: [], buildings: [], economy: [] })
 
 const attrBonus = computed(() => {
   if (!vet.value || !cls.value) return {}
@@ -304,7 +285,6 @@ const displayConditional = computed<ConditionalAbility[]>(
   () => (cls.value as { conditionalAbilities?: ConditionalAbility[] })?.conditionalAbilities || []
 )
 
-const displayUnits = computed(() => heroUnits.value)
 
 const renderedNotes = computed(() => {
   const notes = override.value?.notes

@@ -7,7 +7,7 @@ After this runs, data/seed/ is hand-maintained and BankEditor is no longer used.
 
 Produces:
   data/seed/roles.seed.json      per-hero curated fields (NOT the map-derived stats)
-  data/seed/units.seed.json      per-hero troops/buildings/economy member id lists
+  （units.seed.json 已废弃：兵种归属改为 build_units_v2.py 从地图生产链自动发现）
   data/seed/veterancy.seed.json  veterancy str/agi/int (curated — disagree with map)
 
 Run once from the Wiki root.

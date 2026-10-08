@@ -26,6 +26,7 @@ except (AttributeError, ValueError):
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TECH_JSON = os.path.join(ROOT, 'data', 'tech.json')
+UNITS_JSON = os.path.join(ROOT, 'data', 'units-v2.json')
 OUT_DIR = os.path.join(ROOT, 'public', 'tech-icons')
 SRC_DIR = sys.argv[1] if len(sys.argv) > 1 else r'D:/starcraft2/sc2_btn_icons_raw'
 
@@ -39,12 +40,19 @@ def _norm(basename):
 
 
 def needed_icons():
-    data = json.load(open(TECH_JSON, encoding='utf-8'))
+    """科技升级图标 + 兵种数据库（data/units-v2.json）里引用的单位/建筑图标。
+    units-v2 的 icon 可能是 'btn-*.png'，也可能是 wiki 已有的 '/icons/NN.png'（跳过）。"""
     need = set()
-    for e in data:
+    for e in json.load(open(TECH_JSON, encoding='utf-8')):
         for g in e.get('upgrades', []):
             if g.get('icon'):
                 need.add(g['icon'])  # 已是 png 名
+    if os.path.exists(UNITS_JSON):
+        units = json.load(open(UNITS_JSON, encoding='utf-8')).get('units', {})
+        for u in units.values():
+            icon = u.get('icon')
+            if icon and not icon.startswith('/'):
+                need.add(icon)
     return need
 
 
