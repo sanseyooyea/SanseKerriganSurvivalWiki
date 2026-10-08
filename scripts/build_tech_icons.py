@@ -54,9 +54,10 @@ def needed_icons():
     if os.path.exists(UNITS_JSON):
         units = json.load(open(UNITS_JSON, encoding='utf-8')).get('units', {})
         for u in units.values():
-            icon = u.get('icon')
-            if icon and not icon.startswith('/'):
-                need.add(icon)
+            # 所有候选都转：build_units_v2 下次运行会选第一个真实存在的
+            for icon in [u.get('icon'), *(u.get('iconCandidates') or [])]:
+                if icon and not icon.startswith('/'):
+                    need.add(icon)
     return need
 
 
@@ -89,7 +90,17 @@ def main():
     idx = index_source()
     print(f'需要 {len(need)} 个图标；源目录索引 {len(idx)} 个 dds')
 
+    # 地图引用了基础游戏里不存在的变体图（佣兵版/废铁版/黑色行动版…）时，去掉变体后缀用原版图
+    VARIANT_SUFFIX = re.compile(r'(?:-?(?:mercenary|merc|junker|blackops|covertops|purifier|taldarim|nerazim|golden|ihanrii)(?:-\w+)?)$')
+
     def lookup(key):
+        hit = _lookup(key)
+        if hit or not key.startswith('btn-'):
+            return hit
+        base = VARIANT_SUFFIX.sub('', key)
+        return _lookup(base) if base != key else None
+
+    def _lookup(key):
         """精确命中；否则前缀匹配（如 btn-unit-protoss-scout → …-scout-purifier）。
         多个候选时取名字最短的，保证确定性。"""
         if key in idx:

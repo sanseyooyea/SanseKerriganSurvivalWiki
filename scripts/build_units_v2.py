@@ -64,13 +64,12 @@ def is_combat_upgrade(category, family):
 def _hero_icon_fallback(roles):
     """英雄本体单位在按钮表里找不到图标时，回退 wiki 已有的职业头像
     data/role-icon-map.json（/icons/<NN>.png）。"""
-    if not os.path.exists(ROLE_ICON_MAP):
-        return {}
-    m = json.load(open(ROLE_ICON_MAP, encoding='utf-8'))
+    m = json.load(open(ROLE_ICON_MAP, encoding='utf-8')) if os.path.exists(ROLE_ICON_MAP) else {}
     out = {}
     for r in roles:
-        n = m.get(r['nameEn']) or m.get(r['nameEn'].replace(' ', '_'))
-        if not n:
+        # role-icon-map 没收录的新英雄（远见者等）：职业头像文件按 id 两位数命名
+        n = m.get(r['nameEn']) or m.get(r['nameEn'].replace(' ', '_')) or f"{r['id']:02d}"
+        if not os.path.exists(os.path.join(ROOT, 'public', 'icons', f'{n}.png')):
             continue
         for uid in r.get('heroUnits', []):
             out[uid] = f'/icons/{n}.png'
@@ -113,37 +112,84 @@ def _icon_names_on_disk():
     return set(os.listdir(d)) if os.path.isdir(d) else set()
 
 
+def _actor_unit_icons(gi):
+    """单位的正式图标定义在演员上：<CActorUnit unitName="X"><UnitIcon value="...dds"/>。
+    演员 id 通常等于单位 id，unitName 属性更权威；UnitIcon 可从地图内父演员继承。
+    返回 {unitId: png 名}。"""
+    actors, parent_of = {}, {}
+    for root in gi.roots.values():
+        for el in root:
+            # 大多是 CActorUnit；个别单位的演员声明成别的类型（斯托科夫被感染的人类是 CActorMissile），
+            # 只要带 unitName 就算
+            if not (el.tag.startswith('CActorUnit') or (el.tag.startswith('CActor') and el.get('unitName'))):
+                continue
+            aid = el.get('id')
+            if not aid:
+                continue
+            icon = el.find('UnitIcon')
+            rec = actors.setdefault(aid, {'units': set(), 'icon': None})
+            rec['units'].add(el.get('unitName') or aid)
+            if icon is not None and icon.get('value'):
+                rec['icon'] = icon.get('value')
+            if el.get('parent'):
+                parent_of[aid] = el.get('parent')
+
+    def icon_of(aid, seen=()):
+        rec = actors.get(aid)
+        if rec is None or aid in seen:
+            return None
+        return rec['icon'] or icon_of(parent_of.get(aid), seen + (aid,))
+
+    out = {}
+    # 同一单位可能被多个演员引用：id 与单位同名的演员优先
+    for aid, rec in sorted(actors.items(), key=lambda kv: kv[0] not in kv[1]['units']):
+        dds = icon_of(aid)
+        if not dds:
+            continue
+        for uid in rec['units']:
+            out.setdefault(uid, T._icon_png_name(dds))
+    return out
+
+
 def _unit_icons(gi, btn_icons, heroes):
-    """单位图标优先级：生产它的按钮 face（训练/建造按钮，游戏里真正的单位图）
-    → 与单位同名的 CButton → 无。找不到就留空（前端显示占位符，不裂图）。"""
-    have_icons = _icon_names_on_disk()
+    """单位图标候选（按优先级）：
+      1. 演员 CActorUnit 的 UnitIcon —— 游戏里该单位的正式图标
+      2. 生产它的按钮 face（训练/建造按钮）
+      3. 与单位同名的 CButton（含剥掉等级/形态后缀）→ 别名表
+    返回 {uid: [png, ...]}。是否落盘由调用方挑：build_tech_icons 会把所有候选都转出来，
+    再跑一次本脚本即选到第一个真实存在的。"""
+    actor = _actor_unit_icons(gi)
     by_face = {}
     for h in heroes.values():
         for e in h['edges']:
             face = e.get('button')
-            if not face:
-                continue
-            png = btn_icons.get(face)
-            if not png or png not in have_icons:
-                continue
-            for u in e['units']:
-                by_face.setdefault(u, png)
-    out = dict(by_face)
+            png = btn_icons.get(face) if face else None
+            if png:
+                for u in e['units']:
+                    by_face.setdefault(u, png)
+    out = {}
     for uid in [k[1] for k, _ in gi.entries.items() if k[0] == 'Unit']:
-        if uid in out:
-            continue
-        # 同名 CButton → 剥掉等级/形态后缀再试 → 别名表
+        cands = []
+        for c in (actor.get(uid), by_face.get(uid)):
+            if c:
+                cands.append(c)
         for cand in (uid, f'{uid}Icon', *_strip_tiers(uid)):
             if cand in btn_icons:
-                out[uid] = btn_icons[cand]
-                break
-        if uid not in out:
-            # 别名只在该图确实已转换落盘时才用，避免前端引用不存在的文件
-            for cand in (uid, *_strip_tiers(uid)):
-                alias = ICON_ALIASES.get(f'{cand}.png')
-                if alias and alias in have_icons:
-                    out[uid] = alias
-                    break
+                cands.append(btn_icons[cand])
+            alias = ICON_ALIASES.get(f'{cand}.png')
+            if alias:
+                cands.append(alias)
+        # 形态/等级变体没有自己的演员图标时，借本体的
+        for base in _strip_tiers(uid):
+            if actor.get(base):
+                cands.append(actor[base])
+        seen, uniq = set(), []
+        for c in cands:
+            if c not in seen:
+                seen.add(c)
+                uniq.append(c)
+        if uniq:
+            out[uid] = uniq
     return out
 
 
@@ -871,16 +917,20 @@ def main():
                     if u not in prod:
                         prod.append(u)
 
-    # 图标必须等 heroes 建好后才能定（训练/建造按钮的 face 才是单位图）
+    # 图标必须等 heroes 建好后才能定（训练/建造按钮的 face 也是候选之一）
     unit_icons = _unit_icons(gi, btn_icons, heroes)
     hero_icons = _hero_icon_fallback(roles)
     have_icons = _icon_names_on_disk()
-    for uid, icon in {**hero_icons, **unit_icons}.items():
-        if uid in units:
-            units[uid]['icon'] = icon
-    # 兜底：任何仍指向未落盘文件的图标一律清空 → 前端显示 ◈ 占位而不是裂图
-    have_icons = _icon_names_on_disk()
     missing = 0
+    for uid, u in units.items():
+        cands = unit_icons.get(uid, [])
+        # 记下全部候选：build_tech_icons 据此把它们都转出来（下一次跑本脚本就能选上）
+        u['iconCandidates'] = cands
+        pick = next((c for c in cands if c in have_icons), None)
+        # 英雄本体：游戏内图标没转出来时回退 wiki 已有的职业头像
+        u['icon'] = pick or hero_icons.get(uid)
+        if not u['icon']:
+            missing += 1
     for u in units.values():
         i = u.get('icon')
         if i and not i.startswith('/') and i not in have_icons:

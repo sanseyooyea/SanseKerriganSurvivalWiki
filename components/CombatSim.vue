@@ -53,7 +53,7 @@
       </div>
       <p class="text-[0.65rem] leading-relaxed text-gray-400 dark:text-gray-500">
         计算规则：每个伤害分量先加属性加成，有护盾时扣护盾护甲打护盾，打穿后的溢出再扣生命护甲；单次至少 0.5。
-        第一击在 0 秒，多把武器取对该目标 DPS 最高的一把。未计：射程与走位、回血回盾、英雄等级/属性点、技能与 buff、溅射对其他单位。
+        击杀时间 = 攻击次数 × 攻击间隔（一击必杀也计 1 个攻击间隔），多把武器取对该目标 DPS 最高的一把。未计：射程与走位、回血回盾、英雄等级/属性点、技能与 buff、溅射对其他单位。
       </p>
     </div>
     <p v-else class="border-t border-surface-200 px-4 py-6 text-center text-sm text-gray-400 dark:border-gray-700">
@@ -63,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue'
+import { h, defineComponent, type PropType } from 'vue'
 import { effective, duel, type Levels, type EffUnit, type DuelResult, ATTR_ZH } from '~/utils/unitEngine'
 
 const route = useRoute()
