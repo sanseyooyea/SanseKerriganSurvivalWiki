@@ -10,9 +10,9 @@
     <!-- 单位表格（按类别分区） -->
     <div class="space-y-5">
       <div v-for="grp in groups" :key="grp.category">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="text-sm font-semibold text-gray-800 dark:text-gray-200">{{ grp.label }}</span>
-          <span class="text-xs text-gray-400 dark:text-gray-500">{{ grp.units.length }}</span>
+        <div class="mb-2 flex items-baseline gap-2">
+          <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200">{{ grp.label }}</h3>
+          <span class="font-mono text-xs tabular-nums text-gray-400 dark:text-gray-500">{{ grp.units.length }}</span>
         </div>
         <div class="space-y-1.5">
           <UnitRow v-for="u in grp.units" :key="u.id" :unit="u" />

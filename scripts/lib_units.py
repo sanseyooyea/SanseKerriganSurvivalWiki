@@ -662,12 +662,33 @@ def upgrade_family(upid):
     return fam or upid
 
 
+# None = SC2 默认的 Add。Set 是「直接覆盖」，也要建模（Sight/回血/延迟大量用它）。
 NUMERIC_OPS = {'Add', 'Subtract', 'Multiply', 'Divide', 'AddBaseMultiply',
-               'SubtractBaseMultiply', None}
+               'SubtractBaseMultiply', 'Set', 'Max', 'Min', None}
+
+
+# 升级对单位的数值类字段 → snapshot 键（其它字段仍记录为「未建模」）。
+UPGRADE_UNIT_FIELDS = {
+    'LifeMax': 'hp', 'LifeStart': 'hp', 'ShieldsMax': 'shield', 'ShieldsStart': 'shield',
+    'LifeArmor': 'armor', 'ShieldArmor': 'shieldArmor', 'Speed': 'speed', 'Sight': 'sight',
+    'LifeRegenRate': 'hpRegen', 'ShieldRegenRate': 'shieldRegen', 'ShieldsRegenRate': 'shieldRegen',
+    'EnergyMax': 'energy', 'EnergyStart': 'energy', 'EnergyRegenRate': 'energyRegen',
+    'Food': 'food', 'Radius': 'radius', 'RepairTime': 'repairTime',
+    'LifeRegenDelay': 'hpRegenDelay', 'ShieldRegenDelay': 'shieldRegenDelay',
+    'EnergyArmor': 'energyArmor',
+}
+UPGRADE_COST_FIELDS = {'CostResource[Minerals]': 'minerals', 'CostResource[Vespene]': 'gas'}
+
+
+def upgrade_category(ent):
+    """CUpgrade 的 EditorCategories UpgradeType:*（攻击/防御/技能研究/天赋），无则 None。"""
+    ec = ent.value('EditorCategories') or ''
+    m = re.search(r'UpgradeType:(\w+)', ec)
+    return m.group(1) if m else None
 
 
 class UpgradeIndex:
-    """refs[(Cat, Id)] -> [(upgradeId, field, op, value)]; research[upgradeId] -> slot."""
+    """refs[(Cat, Id)] -> [upgradeId]；每个升级含 effects（已建模数值）/ other（未建模）。"""
 
     def __init__(self, gi):
         self.gi = gi
@@ -676,26 +697,30 @@ class UpgradeIndex:
         for (fam, uid), ent in gi.entries.items():
             if fam != 'Upgrade':
                 continue
-            effs = []
+            effs, other = [], []
             for c in ent.findall('EffectArray'):
                 ref, val, op = c.get('Reference'), c.get('Value'), c.get('Operation')
-                if not ref or op not in NUMERIC_OPS:
-                    continue
-                v = _num(val)
-                if v is None:
+                if not ref:
                     continue
                 parts = ref.split(',', 2)
                 if len(parts) != 3:
                     continue
                 cat, tid, field = parts
-                if cat not in ('Unit', 'Weapon', 'Effect'):
+                if cat not in ('Unit', 'Weapon', 'Effect', 'Abil'):
                     continue
-                if field in ('Level', 'LifeArmorLevel', 'ShieldArmorLevel', 'LifeStart',
-                             'ShieldsStart', 'EnergyStart', 'EnergyArmorLevel'):
-                    continue
-                effs.append((cat, tid, field, op or 'Add', v))
-                self.refs.setdefault((cat, tid), []).append(uid)
-            self.upgrades[uid] = {'effects': effs, 'maxLevel': ent.num('MaxLevel') or 1}
+                v = _num(val)
+                modelable = (op in NUMERIC_OPS and v is not None
+                             and field not in ('Level', 'LifeArmorLevel', 'ShieldArmorLevel',
+                                               'EnergyArmorLevel', 'Icon', 'TargetFilters'))
+                if modelable:
+                    effs.append((cat, tid, field, op or 'Add', v))
+                    self.refs.setdefault((cat, tid), []).append(uid)
+                else:
+                    other.append((cat, tid, field, op, val))
+            self.upgrades[uid] = {'effects': effs, 'other': other,
+                                  'maxLevel': ent.num('MaxLevel') or 1,
+                                  'name': ent.value('Name') or '',
+                                  'category': upgrade_category(ent)}
         self.research = {}   # upgradeId -> [slot,...] (repeated slots = multi-level)
         for root in gi.roots.values():
             for slot in T.extract_research(root):

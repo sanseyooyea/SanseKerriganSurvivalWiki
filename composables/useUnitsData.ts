@@ -14,6 +14,17 @@ export const ATTRIBUTE_LABELS: Record<string, [string, string]> = {
 }
 export const ATTRIBUTE_FALLBACK = ['bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300']
 
+// 升级影响的维度 → 中文（前端据此提示「本组科技会改射程/视野…」）
+export const DIMENSION_LABELS: Record<string, string> = {
+  hp: '生命', shield: '护盾', armor: '护甲', shieldArmor: '盾甲',
+  speed: '移速', sight: '视野', hpRegen: '回血', shieldRegen: '盾回复',
+  energy: '能量', energyRegen: '能量回复', food: '人口', radius: '体积',
+  repairTime: '修理时间', hpRegenDelay: '回血延迟', shieldRegenDelay: '盾回复延迟',
+  energyArmor: '能量护甲',
+  damage: '伤害', bonus: '属性加成', range: '射程', period: '攻击间隔',
+  attackCount: '攻击次数', rateMultiplier: '攻速', splash: '溅射', cost: '造价',
+}
+
 export const CATEGORY_LABELS: Record<string, string> = {
   hero: '英雄',
   troop: '兵种',
@@ -71,20 +82,45 @@ export interface UnitUpgradeLevel {
   researchedBy?: string | null
   effects: { ref: string; op: string; value: number }[]
 }
-export interface UnitUpgrade {
-  family: string
-  nameZh: string
-  researchable: boolean
-  levels: UnitUpgradeLevel[]
+
+export interface WeaponSnapshot {
+  id: string
+  range: number | null
+  period: number | null
+  splashRadius: number | null
+  vitalDamage: number | null
+  targets: { ground: boolean; air: boolean; exclude: string[] }
+  /** 各靶标的单次伤害与 DPS */
+  [target: string]: any
 }
 export interface CurvePoint {
-  level: number
+  level: number | 'max'
   cost: { minerals: number; gas: number }
-  hp: number
-  shield: number
-  armor: number
-  weapons: { id: string; range: number | null; period: number | null } &
-    Record<string, { perAttack: number; dps: number | null }>
+  stats: Record<string, any>
+  weapons: WeaponSnapshot[]
+  ehp: number
+  [dps: string]: any
+}
+export interface UpgradeGroup {
+  family: string
+  nameZh: string
+  category: string | null
+  /** combat = 攻防科技（自然推进）；option = 额外科技（可选项） */
+  kind: 'combat' | 'option'
+  researchable: boolean
+  dimensions: string[]
+  unmodeled: string[]
+  levels: UnitUpgradeLevel[]
+}
+export interface UnitOption {
+  family: string
+  nameZh: string
+  category: string | null
+  dimensions: string[]
+  unmodeled: string[]
+  cost: { minerals: number; gas: number }
+  levels: UnitUpgradeLevel[]
+  snapshot: CurvePoint
 }
 export interface UnitEntry {
   id: string
@@ -104,8 +140,11 @@ export interface UnitEntry {
   flags: string[]
   icon: string | null
   weapons: UnitWeapon[]
-  upgrades: UnitUpgrade[]
-  curve: CurvePoint[]
+  upgrades: UpgradeGroup[]
+  /** 攻防科技曲线（真实战力成长）与全科技曲线（理论上限） */
+  curves: { combat: CurvePoint[]; all: CurvePoint[] }
+  /** 额外科技：单独研究时的数值快照 */
+  options: UnitOption[]
   derived: Record<string, any>
   produces?: string[]
   producedBy?: { from: string; abil: string; index?: string; kind: string; time?: number; count?: number }[]
@@ -161,6 +200,15 @@ export function useUnitsData() {
   function hasUnits(nameEn: string) {
     return !!heroMap[nameEn]
   }
+  /** 曲线里某一靶标的 DPS 求和（曲线节点已按靶标预聚合）。 */
+  function curveDps(point: CurvePoint, target = 'armored'): number {
+    const key = `dps${target[0].toUpperCase()}${target.slice(1)}`
+    return point?.[key] ?? 0
+  }
+  function dimensionLabel(d: string) {
+    return DIMENSION_LABELS[d] || d
+  }
+
   function getUnit(id: string): UnitEntry | undefined {
     return unitMap[id]
   }
@@ -196,6 +244,6 @@ export function useUnitsData() {
   return {
     targets, heroMap, unitMap, allUnits,
     hasUnits, getHero, getUnit, heroUnitEntries, groupByCategory, producersOf,
-    roleOf,
+    roleOf, curveDps, dimensionLabel,
   }
 }
