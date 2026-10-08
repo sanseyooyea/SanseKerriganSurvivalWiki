@@ -9,6 +9,8 @@
       </p>
     </header>
 
+    <CombatSim />
+
     <!-- 筛选 -->
     <section class="wiki-card mb-5 p-4">
       <div class="space-y-3">

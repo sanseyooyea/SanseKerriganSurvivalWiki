@@ -1,4 +1,5 @@
 import unitsData from '~/data/units-v2.json'
+import { derived as computeDerived, combatCurve as computeCurve, optionSnapshots as computeOptions } from '~/utils/unitEngine'
 
 // 属性徽章：(标签, Tailwind class 串)。class 用静态完整字符串（防 purge）。
 export const ATTRIBUTE_LABELS: Record<string, [string, string]> = {
@@ -144,10 +145,8 @@ export interface UnitEntry {
   icon: string | null
   weapons: UnitWeapon[]
   upgrades: UpgradeGroup[]
-  /** 攻防科技曲线（真实战力成长）与全科技曲线（理论上限） */
-  curves: { combat: CurvePoint[]; all: CurvePoint[] }
-  /** 额外科技：单独研究时的数值快照 */
-  options: UnitOption[]
+
+  /** 0 级 / 全科技满级的派生指标：加载时由 utils/unitEngine 现算（数据文件里不存） */
   derived: Record<string, any>
   produces?: string[]
   /** 本体上的形态列表（埋地/攻城/降下…）；形态单位自身带 formOf 指回本体 */
@@ -203,6 +202,22 @@ const DATA = unitsData as unknown as {
   targets: Record<string, { attributes: string[]; armor: number }>
   heroes: Record<string, HeroUnitsEntry>
   units: Record<string, UnitEntry>
+}
+
+// 派生指标在模块加载时算一次（836 个单位 × 2 个快照，毫秒级），总览表排序直接用
+for (const u of Object.values(DATA.units)) u.derived = computeDerived(u)
+
+const curveCache = new Map<string, CurvePoint[]>()
+const optionCache = new Map<string, UnitOption[]>()
+/** 攻防科技曲线（按需计算并缓存） */
+export function unitCombatCurve(u: UnitEntry): CurvePoint[] {
+  if (!curveCache.has(u.id)) curveCache.set(u.id, computeCurve(u) as any)
+  return curveCache.get(u.id)!
+}
+/** 额外科技逐项快照（按需计算并缓存） */
+export function unitOptions(u: UnitEntry): UnitOption[] {
+  if (!optionCache.has(u.id)) optionCache.set(u.id, computeOptions(u) as any)
+  return optionCache.get(u.id)!
 }
 
 /**

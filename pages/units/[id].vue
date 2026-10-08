@@ -24,6 +24,11 @@
             </span>
           </div>
 
+          <NuxtLink :to="{ path: '/units', query: { a: unit.id }, hash: '#sim' }"
+            class="mt-2 inline-flex items-center gap-1 rounded-md border border-surface-200 px-2 py-0.5 text-xs text-gray-600 transition-colors
+                   hover:border-survivor-400 hover:text-survivor-700 dark:border-gray-700 dark:text-gray-300 dark:hover:text-survivor-300">
+            ⚔ 加入对战模拟
+          </NuxtLink>
           <div class="mt-2 flex flex-wrap gap-1">
             <span v-for="a in unit.attributes" :key="a" class="rounded px-1.5 py-px text-[0.65rem] leading-5" :class="attrClass(a)">{{ attrLabel(a) }}</span>
           </div>
@@ -306,7 +311,7 @@
 </template>
 
 <script setup lang="ts">
-import { CATEGORY_LABELS, ATTRIBUTE_LABELS, ATTRIBUTE_FALLBACK, WEAPON_NOTE_LABELS, DIMENSION_LABELS } from '~/composables/useUnitsData'
+import { unitCombatCurve, unitOptions, CATEGORY_LABELS, ATTRIBUTE_LABELS, ATTRIBUTE_FALLBACK, WEAPON_NOTE_LABELS, DIMENSION_LABELS } from '~/composables/useUnitsData'
 import type { CurvePoint, UnitOption } from '~/composables/useUnitsData'
 
 const route = useRoute()
@@ -331,8 +336,8 @@ const ownerLinkLabel = computed(() => (ownerLinks.value.length === 1 ? ` · ${ow
 const isPlating = computed(() => !!unit.value?.stats.armorName?.includes('Plating'))
 
 const combatGroups = computed(() => (unit.value?.upgrades || []).filter(g => g.kind === 'combat'))
-const optionGroups = computed(() => unit.value?.options || [])
-const combatCurve = computed(() => unit.value?.curves?.combat || [])
+const optionGroups = computed(() => (unit.value ? unitOptions(unit.value) : []))
+const combatCurve = computed(() => (unit.value ? unitCombatCurve(unit.value) : []))
 const baseSnap = computed(() => combatCurve.value[0])
 
 /** 该武器当前不能对空，但存在能让它对空的科技 → 标出来。 */

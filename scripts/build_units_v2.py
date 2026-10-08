@@ -429,7 +429,7 @@ def weapon_snapshot(profiles, comp_o, weap_o):
                         c['splash'] = {'radius': 0, 'rings': []}
                     c['splash']['radius'] = max(c['splash'].get('radius') or 0, v)
             if af:
-                c['attrFactor'] = af
+                c['attrFactor'] = {**(c.get('attrFactor') or {}), **af}
             if c.get('splash'):
                 splash = max(splash or 0, c['splash'].get('radius') or 0)
             comps.append(c)
@@ -441,6 +441,10 @@ def weapon_snapshot(profiles, comp_o, weap_o):
             'targets': {'ground': tg['ground'], 'air': tg['air'], 'exclude': tg['exclude']},
         }
         for tkey, tval in U.TARGETS.items():
+            # 武器 TargetFilters 排除了靶标的任一属性（如 MapBoss）→ 打不了，记 0
+            if any(a in tg['exclude'] for a in tval['attributes']):
+                entry[tkey] = {'perAttack': 0, 'dps': 0, 'excluded': True}
+                continue
             per = sum(_hit(c, tval) * c['hits'] for c in U.primary_components(q))
             entry[tkey] = {'perAttack': round(per, 2),
                            'dps': round(per / q['period'], 2) if q['period'] else None}
@@ -812,6 +816,24 @@ def main():
             if f not in [x['id'] for x in fl]:
                 fl.append({'id': f, 'label': units[f]['formLabel'], 'nameZh': units[f]['nameZh']})
 
+    # 凯瑞甘方的单位和凯瑞甘方英雄是友军，「对凯瑞甘」靶标对它们没有意义 → 置空（前端显示 —）
+    for u in units.values():
+        if u['team'] != 'Kerrigan':
+            continue
+        for k in list(u['derived']):
+            if k.startswith('dpsKerrigan') or k.startswith('dpsPer100Kerrigan'):
+                u['derived'][k] = None
+        u['derived']['kerriganIsAlly'] = True
+        snaps = [n for c in (u.get('curves') or {}).values() for n in c]
+        snaps += [o['snapshot'] for o in u.get('options') or []]
+        for n in snaps:
+            for k in list(n):
+                if k.startswith('dpsKerrigan'):
+                    n[k] = None
+            for w in n.get('weapons') or []:
+                if 'kerrigan' in w:
+                    w['kerrigan'] = {'perAttack': None, 'dps': None, 'ally': True}
+
     # 分级技能召唤（定点防御靶机等）：挂到英雄上，按级展示能量/寿命/可吸收伤害
     gs_abil = L.game_strings(archive, 'Abil/Name/')
     # 名字优先用技能管线已策展好的 abilities.json（含 face 覆盖，避免英文/串味名）
@@ -864,6 +886,13 @@ def main():
         if i and not i.startswith('/') and i not in have_icons:
             u['icon'] = None
             missing += 1
+
+    # 曲线 / 额外科技快照 / 派生指标都由前端 utils/unitEngine.ts 按任意科技组合现算
+    # （对战模拟需要同一套引擎），这里只在构建期用来生成技能召唤摘要，不写进数据文件，
+    # 否则 json 会膨胀到 15MB+ 并整个打进前端包。
+    for u in units.values():
+        for k in ('curves', 'options', 'derived'):
+            u.pop(k, None)
 
     data = {'targets': U.TARGETS, 'heroes': heroes, 'units': units}
     text = json.dumps(data, ensure_ascii=False, indent=2).replace(chr(10), chr(13) + chr(10)) + chr(13) + chr(10)

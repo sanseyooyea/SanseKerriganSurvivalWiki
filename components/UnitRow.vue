@@ -246,7 +246,7 @@
 
 <script setup lang="ts">
 import type { UnitEntry, CurvePoint, UnitOption } from '~/composables/useUnitsData'
-import { ATTRIBUTE_LABELS, ATTRIBUTE_FALLBACK, WEAPON_NOTE_LABELS, DIMENSION_LABELS } from '~/composables/useUnitsData'
+import { unitCombatCurve, unitOptions, ATTRIBUTE_LABELS, ATTRIBUTE_FALLBACK, WEAPON_NOTE_LABELS, DIMENSION_LABELS } from '~/composables/useUnitsData'
 
 const props = defineProps<{ unit: UnitEntry }>()
 const { unitMap, curveDps: curveDpsOf, dimensionLabel } = useUnitsData()
@@ -265,12 +265,12 @@ function airUpgrades(wid: string) {
   const base = combatCurve.value[0]?.weapons || []
   const bs = base.find(w => w.id === wid)
   if (!bs || bs.targets?.air) return []
-  return (unit.value.options || [])
+  return unitOptions(unit.value)
     .filter(o => (o.snapshot?.weapons || []).some(w => w.id === wid && w.targets?.air))
     .map(o => o.nameZh.replace(/^(?:研发|研究|升级)\s*/, ''))
 }
-const optionGroups = computed(() => unit.value.options || [])
-const combatCurve = computed(() => unit.value.curves?.combat || [])
+const optionGroups = computed(() => unitOptions(unit.value))
+const combatCurve = computed(() => unitCombatCurve(unit.value))
 const baseSnap = computed(() => combatCurve.value[0])
 
 const CURVE_COLS = [

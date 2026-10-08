@@ -582,6 +582,7 @@ def walk_damage(gi, eid, ctx, mult=1.0, splash=None, depth=0, path=(), secondary
         if amt is None and e.external_parent:
             ctx['notes'].add('amountInherited')
         bonus = {k: _num(v) for k, v in e.indexed('AttributeBonus').items() if _num(v)}
+        factor = {k: _num(v) for k, v in e.indexed('AttributeFactor').items() if _num(v)}
         ar = e.num('ArmorReduction')
         vital = bool(e.findall('VitalArray'))
         out.append({
@@ -594,6 +595,7 @@ def walk_damage(gi, eid, ctx, mult=1.0, splash=None, depth=0, path=(), secondary
             'kind': e.value('Kind') or ('Splash' if 'SPLASH' in (e.parent_id or '') else None),
             'secondary': secondary,
             'vital': vital,
+            'attrFactor': factor,
         })
         # damage effects can chain further effects (rare) — follow them too
         for nxt in _child_effects(e):
