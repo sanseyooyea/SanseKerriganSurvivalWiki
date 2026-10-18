@@ -165,6 +165,7 @@ const NAV_GROUPS = [
       { to: '/balance', label: '英雄胜率', icon: '%' },
       { to: '/economy', label: '经济系统', icon: '$' },
       { to: '/units', label: '兵种数据库', icon: '⚔' },
+      { to: '/skins', label: '皮肤模型', icon: '◈' },
       { to: '/terrain', label: '地图地形', icon: '⛰' },
       { to: '/wiki', label: 'Wiki', icon: '#' },
     ],
