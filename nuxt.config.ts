@@ -17,7 +17,9 @@ export default defineNuxtConfig({
             "script-src 'self' 'unsafe-inline'",
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             "font-src 'self' https://fonts.gstatic.com",
-            "img-src 'self' data:",
+            // img-src 需要 blob:：three.js 的 GLTFLoader 会把 GLB 内嵌贴图
+            // 转成 blob URL 再解码，缺 blob: 时全部贴图被 CSP 拦掉 → 模型变白模。
+            "img-src 'self' data: blob:",
             "connect-src 'self' https://194823.xyz",
             // 视频短代码嵌入的 iframe 来源：与 renderMarkdown.ts 的 ALLOWED_IFRAME_HOSTS
             // 白名单保持一致（B站播放器 / YouTube 隐私增强域）。缺这条时 frame-src 会回退到
