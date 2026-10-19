@@ -111,6 +111,24 @@
 <script setup lang="ts">
 const { classes } = useClassData()
 
+useHead({
+  meta: [
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: '凯瑞甘生存2 Wiki' },
+    { property: 'og:title', content: '凯瑞甘生存2 Wiki · 数据与战术资料库' },
+    {
+      property: 'og:description',
+      content: '凯瑞甘生存2 职业、技能、科技、兵种、经济、胜率与皮肤模型的完整中文资料库。',
+    },
+    { property: 'og:url', content: 'https://wiki.ks2.top/' },
+    { property: 'og:image', content: 'https://wiki.ks2.top/og-default.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: 'https://wiki.ks2.top/og-default.png' },
+  ],
+})
+
 const kerriganCount = computed(() => classes.filter(c => c.team === 'Kerrigan').length)
 const survivorCount = computed(() => classes.filter(c => c.team === 'Survivor').length)
 

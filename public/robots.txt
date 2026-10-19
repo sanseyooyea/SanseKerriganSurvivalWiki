@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# 用户私有与后台路径不进索引
+Disallow: /admin
+Disallow: /settings
+Disallow: /login
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /api/
+
+Sitemap: https://wiki.ks2.top/sitemap.xml

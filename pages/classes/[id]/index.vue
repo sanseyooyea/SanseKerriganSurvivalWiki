@@ -230,6 +230,28 @@ const cls = computed(() => getById(Number(route.params.id)))
 const balance = computed(() => getByRoleId(Number(route.params.id)))
 const vet = computed(() => cls.value ? getForHero(cls.value.nameEn) : undefined)
 
+const teamZh = computed(() => (cls.value?.team === 'Kerrigan' ? '凯瑞甘方' : '生存方'))
+useHead(() => ({
+  title: cls.value ? `${cls.value.nameZh || cls.value.nameEn} · 职业 · 凯瑞甘生存2 Wiki` : '职业 · 凯瑞甘生存2 Wiki',
+  meta: [
+    { property: 'og:type', content: 'article' },
+    { property: 'og:site_name', content: '凯瑞甘生存2 Wiki' },
+    {
+      property: 'og:title',
+      content: cls.value ? `${cls.value.nameZh || cls.value.nameEn} · ${teamZh.value}` : '职业',
+    },
+    {
+      property: 'og:description',
+      content: cls.value
+        ? `${teamZh.value}职业 ${cls.value.nameZh || cls.value.nameEn} 的属性、技能、科技研究与兵种数据。`
+        : '凯瑞甘生存2 职业资料',
+    },
+    { property: 'og:url', content: `https://wiki.ks2.top/classes/${route.params.id}` },
+    { property: 'og:image', content: 'https://wiki.ks2.top/og-default.png' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ],
+}))
+
 const attrBonus = computed(() => {
   if (!vet.value || !cls.value) return {}
   const v = vet.value
