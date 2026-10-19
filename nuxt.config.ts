@@ -20,7 +20,9 @@ export default defineNuxtConfig({
             // img-src 需要 blob:：three.js 的 GLTFLoader 会把 GLB 内嵌贴图
             // 转成 blob URL 再解码，缺 blob: 时全部贴图被 CSP 拦掉 → 模型变白模。
             "img-src 'self' data: blob:",
-            "connect-src 'self' https://194823.xyz",
+            // connect-src 也要 blob:：GLTFLoader 优先用 ImageBitmapLoader，
+            // 它通过 fetch() 读取 blob URL（受 connect-src 约束，不受 img-src 约束）。
+            "connect-src 'self' blob: https://194823.xyz",
             // 视频短代码嵌入的 iframe 来源：与 renderMarkdown.ts 的 ALLOWED_IFRAME_HOSTS
             // 白名单保持一致（B站播放器 / YouTube 隐私增强域）。缺这条时 frame-src 会回退到
             // default-src 'self'，浏览器直接拦掉外站 iframe → 播放器黑屏。
