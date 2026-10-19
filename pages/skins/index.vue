@@ -23,6 +23,14 @@
             >
               <option v-for="s in skinList" :key="s.id" :value="s.id">{{ s.name }}</option>
             </select>
+            <NuxtLink
+              v-if="currentSkin?.hero"
+              :to="`/classes/${currentSkin.hero.roleId}`"
+              class="mt-2 inline-flex items-center gap-1 text-xs text-survivor-600 dark:text-survivor-400 hover:underline"
+            >
+              所属英雄 · {{ currentSkin.hero.nameZh }}
+              <span aria-hidden="true">→</span>
+            </NuxtLink>
           </div>
 
           <div class="flex-1 overflow-y-auto p-2">
@@ -30,18 +38,31 @@
               <div class="px-2 mt-3 mb-1 text-[0.65rem] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
                 {{ ROLE_LABEL[g.role] }} ({{ g.items.length }})
               </div>
-              <button
+              <div
                 v-for="c in g.items"
                 :key="c.glb"
-                type="button"
-                class="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-left text-sm transition-colors"
+                class="flex items-center gap-1 rounded-md transition-colors"
                 :class="c.glb === currentGlb
-                  ? 'bg-survivor-50 text-survivor-700 dark:bg-survivor-900/40 dark:text-survivor-300 font-medium'
-                  : 'text-gray-600 dark:text-gray-300 hover:bg-surface-100 dark:hover:bg-gray-800'"
-                @click="loadModel(c)"
+                  ? 'bg-survivor-50 dark:bg-survivor-900/40'
+                  : 'hover:bg-surface-100 dark:hover:bg-gray-800'"
               >
-                <span class="truncate">{{ c.label }}</span>
-              </button>
+                <button
+                  type="button"
+                  class="flex-1 min-w-0 px-2.5 py-1.5 text-left text-sm"
+                  :class="c.glb === currentGlb
+                    ? 'text-survivor-700 dark:text-survivor-300 font-medium'
+                    : 'text-gray-600 dark:text-gray-300'"
+                  @click="loadModel(c)"
+                >
+                  <span class="truncate block">{{ c.label }}</span>
+                </button>
+                <NuxtLink
+                  v-if="c.unitId"
+                  :to="`/units/${c.unitId}`"
+                  class="shrink-0 px-1.5 py-1.5 text-xs text-gray-400 hover:text-survivor-600 dark:hover:text-survivor-400"
+                  :title="`查看兵种：${c.label}`"
+                >↗</NuxtLink>
+              </div>
             </template>
             <p v-if="!groupedParts.length" class="px-2 py-6 text-xs text-gray-400">该皮肤没有可展示的模型</p>
           </div>
@@ -103,10 +124,45 @@ const skinList = Object.keys(skins)
 const totalSkins = skinList.length
 const totalParts = skinList.reduce((n, s) => n + s.components.filter(c => c.glb).length, 0)
 
-useHead({ title: '皮肤模型预览 - 凯瑞甘生存2 Wiki' })
+const route = useRoute()
+const router = useRouter()
 
-const currentSkinId = ref(skinList[0]?.id ?? '')
+// 默认取第一个皮肤；?skin=xxx 可直达（用于群聊/论坛分享）
+const initialSkin = (() => {
+  const q = route.query.skin
+  const sid = Array.isArray(q) ? q[0] : q
+  return sid && skins[sid] ? sid : (skinList[0]?.id ?? '')
+})()
+
+const currentSkinId = ref(initialSkin)
 const currentGlb = ref('')
+
+const currentSkin = computed(() => skins[currentSkinId.value])
+const currentPartLabel = computed(() => {
+  const skin = currentSkin.value
+  if (!skin) return ''
+  return skin.components.find(c => c.glb && c.glb === currentGlb.value)?.label || ''
+})
+
+useHead(() => ({
+  title: currentSkin.value
+    ? `${currentSkin.value.name} · 皮肤模型预览 - 凯瑞甘生存2 Wiki`
+    : '皮肤模型预览 - 凯瑞甘生存2 Wiki',
+  meta: [
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: '凯瑞甘生存2 Wiki' },
+    { property: 'og:title', content: currentSkin.value ? `${currentSkin.value.name} · 皮肤模型预览` : '皮肤模型预览' },
+    {
+      property: 'og:description',
+      content: currentSkin.value
+        ? `${currentSkin.value.name} 的模型替换一览：本体 / 兵种 / 建筑 / 死亡特效，共 ${currentSkin.value.components.length} 个部件。`
+        : '凯瑞甘生存2 商店皮肤的模型替换一览，支持 3D 预览。',
+    },
+    { property: 'og:url', content: currentSkin.value ? `https://wiki.ks2.top/skins?skin=${currentSkin.value.id}` : 'https://wiki.ks2.top/skins' },
+    { property: 'og:image', content: 'https://wiki.ks2.top/og-default.png' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ],
+}))
 const loading = ref(true)
 const loadingText = ref('加载中…')
 const error = ref('')
@@ -115,8 +171,6 @@ const wireframe = ref(false)
 const stats = ref<{ meshes: number; verts: number; tris: number; mats: number; texs: number } | null>(null)
 
 const viewerEl = ref<HTMLElement | null>(null)
-
-const currentSkin = computed(() => skins[currentSkinId.value])
 
 const groupedParts = computed(() => {
   const skin = currentSkin.value
@@ -355,16 +409,31 @@ function resetView() {
   if (root) frameObject(root)
 }
 
+/** 把当前皮肤/部件写进 URL，方便直接分享某个模型的链接。 */
+function syncQuery() {
+  const query: Record<string, string> = { skin: currentSkinId.value }
+  if (currentGlb.value) query.part = currentGlb.value
+  router.replace({ query })
+}
+
 watch(currentSkinId, () => {
   const parts = groupedParts.value.flatMap(g => g.items)
   if (parts.length) loadModel(parts[0])
   else { disposeRoot(); stats.value = null; currentGlb.value = '' }
+  syncQuery()
 })
 
 onMounted(async () => {
   await initViewer()
+
   const parts = groupedParts.value.flatMap(g => g.items)
-  if (parts.length) loadModel(parts[0])
+  // ?part=xxx 直达具体模型（部件用 glb 文件名标识，跨皮肤唯一）
+  const q = route.query.part
+  const wantPart = Array.isArray(q) ? q[0] : q
+  const target = wantPart ? parts.find(p => p.glb === wantPart) : undefined
+
+  if (target) loadModel(target)
+  else if (parts.length) loadModel(parts[0])
 })
 
 onBeforeUnmount(() => {

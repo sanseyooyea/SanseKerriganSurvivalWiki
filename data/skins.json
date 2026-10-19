@@ -9,15 +9,19 @@
      "role": "unit",
      "label": "ZerglingCarbotSkin",
      "model": "ZerglingCarbotSkin",
+     "from": "PrimalZergling",
      "m3": "Assets/Units/Zerg/Carbot_Zergling/Carbot_Zergling.m3",
-     "glb": "Assets__Units__Zerg__Carbot_Zergling__Carbot_Zergling.glb"
+     "glb": "Assets__Units__Zerg__Carbot_Zergling__Carbot_Zergling.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "ZerglingCarbotDeath",
      "model": "ZerglingCarbotDeath",
+     "from": "PrimalZerglingDeath",
      "m3": "Assets/Units/Zerg/Carbot_Zergling_Death/Carbot_Zergling_Death.m3",
-     "glb": "Assets__Units__Zerg__Carbot_Zergling_Death__Carbot_Zergling_Death.glb"
+     "glb": "Assets__Units__Zerg__Carbot_Zergling_Death__Carbot_Zergling_Death.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -26,7 +30,8 @@
     "building": 0,
     "death": 1,
     "other": 0
-   }
+   },
+   "hero": null
   },
   "Catling": {
    "id": "Catling",
@@ -37,15 +42,19 @@
      "role": "unit",
      "label": "SpecialCat",
      "model": "SpecialCat",
+     "from": "SwarmZergling",
      "m3": "Assets/Units/AprilsFool/cat.m3",
-     "glb": "Assets__Units__AprilsFool__cat.glb"
+     "glb": "Assets__Units__AprilsFool__cat.glb",
+     "unitId": "SwarmZergling"
     },
     {
      "role": "death",
      "label": "SpecialCatDeath",
      "model": "SpecialCatDeath",
+     "from": "SwarmZerglingDeath",
      "m3": "Assets/Units/AprilsFool/cat_death.m3",
-     "glb": "Assets__Units__AprilsFool__cat_death.glb"
+     "glb": "Assets__Units__AprilsFool__cat_death.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -54,7 +63,8 @@
     "building": 0,
     "death": 1,
     "other": 0
-   }
+   },
+   "hero": null
   },
   "PreVoidDJ": {
    "id": "PreVoidDJ",
@@ -65,22 +75,28 @@
      "role": "other",
      "label": "PVDJFanIntroModel",
      "model": "PVDJFanIntroModel",
+     "from": "SOAWarpInReinforcementsBeam",
      "m3": "Assets/Doodads/Void_Rift_Static/Void_Rift_Static.m3",
-     "glb": "Assets__Doodads__Void_Rift_Static__Void_Rift_Static.glb"
+     "glb": "Assets__Doodads__Void_Rift_Static__Void_Rift_Static.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "PVDJFan",
      "model": "PVDJFan",
+     "from": "Supplicant",
      "m3": "Assets/Units/Terran/SpacePrisoner/SpacePrisoner_01.m3",
-     "glb": "Assets__Units__Terran__SpacePrisoner__SpacePrisoner_01.glb"
+     "glb": "Assets__Units__Terran__SpacePrisoner__SpacePrisoner_01.glb",
+     "unitId": "JinaraSupplicant"
     },
     {
      "role": "other",
      "label": "PVDJMinorNoteMissile",
      "model": "PVDJMinorNoteMissile",
+     "from": "SupplicantWeapon",
      "m3": "Assets/Effects/Zerg/PrimalGuardianMissile/PrimalGuardianMissile.m3",
-     "glb": "Assets__Effects__Zerg__PrimalGuardianMissile__PrimalGuardianMissile.glb"
+     "glb": "Assets__Effects__Zerg__PrimalGuardianMissile__PrimalGuardianMissile.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -89,6 +105,11 @@
     "building": 0,
     "death": 0,
     "other": 2
+   },
+   "hero": {
+    "name": "DJ",
+    "nameZh": "DJ",
+    "roleId": 37
    }
   },
   "ShopAscendantNarud": {
@@ -100,15 +121,19 @@
      "role": "body",
      "label": "虚空纳鲁德",
      "model": "AscendantNarudVoidAscendant",
+     "from": null,
      "m3": "Assets/CustomModels/Ascendant_Void_Narud.m3",
-     "glb": "Assets__CustomModels__Ascendant_Void_Narud.glb"
+     "glb": "Assets__CustomModels__Ascendant_Void_Narud.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "AscendantNarudVoidAscendantDeath",
      "model": "AscendantNarudVoidAscendantDeath",
+     "from": "VoidThrasherWalkerDeath",
      "m3": "Assets/Units/Protoss/Void_Narud_Death/Void_Narud_Death.m3",
-     "glb": "Assets__Units__Protoss__Void_Narud_Death__Void_Narud_Death.glb"
+     "glb": "Assets__Units__Protoss__Void_Narud_Death__Void_Narud_Death.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -117,6 +142,11 @@
     "building": 0,
     "death": 1,
     "other": 0
+   },
+   "hero": {
+    "name": "Ascendant",
+    "nameZh": "晋升者",
+    "roleId": 3
    }
   },
   "ShopBaseKerrigan": {
@@ -128,8 +158,10 @@
      "role": "body",
      "label": "凯瑞甘（基础）",
      "model": "Kerrigan",
+     "from": null,
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\zerg\\kerrigan\\kerrigan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__kerrigan__kerrigan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__kerrigan__kerrigan.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -138,6 +170,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Kerrigan",
+    "nameZh": "凯瑞甘",
+    "roleId": 0
    }
   },
   "ShopBattleHardenedArtanis": {
@@ -149,8 +186,10 @@
      "role": "body",
      "label": "百战阿塔尼斯",
      "model": "ArtanisSkin",
+     "from": null,
      "m3": "Assets/Units/Protoss/Artanis/Artanis.m3",
-     "glb": "Assets__Units__Protoss__Artanis__Artanis.glb"
+     "glb": "Assets__Units__Protoss__Artanis__Artanis.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -159,6 +198,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Artanis",
+    "nameZh": "阿塔尼斯",
+    "roleId": 8
    }
   },
   "ShopCheerleaderKerrigan": {
@@ -170,15 +214,19 @@
      "role": "body",
      "label": "啦啦队凯瑞甘",
      "model": "CheerleaderKerrigan",
+     "from": null,
      "m3": "Assets/Units/Zerg/Kerrigan/Kerrigan.m3",
-     "glb": "Assets__Units__Zerg__Kerrigan__Kerrigan.glb"
+     "glb": "Assets__Units__Zerg__Kerrigan__Kerrigan.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Kerrigan",
      "model": "Kerrigan",
+     "from": "Kerrigan",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\zerg\\kerrigan\\kerrigan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__kerrigan__kerrigan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__kerrigan__kerrigan.glb",
+     "unitId": "KerriganKerrigan"
     }
    ],
    "counts": {
@@ -187,6 +235,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Kerrigan",
+    "nameZh": "凯瑞甘",
+    "roleId": 0
    }
   },
   "ShopDOMScientist": {
@@ -198,162 +251,208 @@
      "role": "unit",
      "label": "MengskMarine",
      "model": "MengskMarine",
+     "from": "Marine",
      "m3": "Assets/Units/Terran/MarineMercenary/MarineMercenary.m3",
-     "glb": "Assets__Units__Terran__MarineMercenary__MarineMercenary.glb"
+     "glb": "Assets__Units__Terran__MarineMercenary__MarineMercenary.glb",
+     "unitId": "ScientistMarine"
     },
     {
      "role": "unit",
      "label": "SCV_Umojan",
      "model": "SCV_Umojan",
+     "from": "SCV",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\scv_umojan\\scv_umojan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__scv_umojan__scv_umojan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__scv_umojan__scv_umojan.glb",
+     "unitId": "ScientistSCV"
     },
     {
      "role": "death",
      "label": "SCV_Umojan_Death",
      "model": "SCV_Umojan_Death",
+     "from": "SCVDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\scv_umojan_death\\scv_umojan_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__scv_umojan_death__scv_umojan_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__scv_umojan_death__scv_umojan_death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Reaper_Umojan",
      "model": "Reaper_Umojan",
+     "from": "Reaper",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\reaper_umojan\\reaper_umojan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__reaper_umojan__reaper_umojan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__reaper_umojan__reaper_umojan.glb",
+     "unitId": "ScientistReaper"
     },
     {
      "role": "unit",
      "label": "Marauder_Umojan",
      "model": "Marauder_Umojan",
+     "from": "Marauder",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\marauder_umojan\\marauder_umojan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__marauder_umojan__marauder_umojan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__marauder_umojan__marauder_umojan.glb",
+     "unitId": "ScientistMarauder"
     },
     {
      "role": "death",
      "label": "Marauder_Umojan_Death",
      "model": "Marauder_Umojan_Death",
+     "from": "MarauderDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\marauder_umojan_death\\marauder_umojan_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__marauder_umojan_death__marauder_umojan_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__marauder_umojan_death__marauder_umojan_death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Ghost_Umojan",
      "model": "Ghost_Umojan",
+     "from": "Ghost",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\ghost_umojan\\ghost_umojan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__ghost_umojan__ghost_umojan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__ghost_umojan__ghost_umojan.glb",
+     "unitId": "ScientistGhost"
     },
     {
      "role": "death",
      "label": "Ghost_Umojan_Death",
      "model": "Ghost_Umojan_Death",
+     "from": "GhostDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\ghost_umojan_death\\ghost_umojan_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__ghost_umojan_death__ghost_umojan_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__ghost_umojan_death__ghost_umojan_death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "DOMMedic",
      "model": "DOMMedic",
+     "from": "Medic",
      "m3": "Assets/COOP/Tychus/Units/Medic_Heavens_COOP/Medic_Heavens_COOP.m3",
-     "glb": "Assets__COOP__Tychus__Units__Medic_Heavens_COOP__Medic_Heavens_COOP.glb"
+     "glb": "Assets__COOP__Tychus__Units__Medic_Heavens_COOP__Medic_Heavens_COOP.glb",
+     "unitId": "ScientistMedic"
     },
     {
      "role": "death",
      "label": "DOMMedicDeath",
      "model": "DOMMedicDeath",
+     "from": "MedicDeath",
      "m3": "Assets/COOP/Tychus/Units/Medic_Heavens_COOP_Death/Medic_Heavens_COOP_Death.m3",
-     "glb": "Assets__COOP__Tychus__Units__Medic_Heavens_COOP_Death__Medic_Heavens_COOP_Death.glb"
+     "glb": "Assets__COOP__Tychus__Units__Medic_Heavens_COOP_Death__Medic_Heavens_COOP_Death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "DOMFirebat",
      "model": "DOMFirebat",
+     "from": "Firebat",
      "m3": "Assets/COOP/Tychus/Units/Firebat_Heavens_COOP/Firebat_Heavens_COOP.m3",
-     "glb": "Assets__COOP__Tychus__Units__Firebat_Heavens_COOP__Firebat_Heavens_COOP.glb"
+     "glb": "Assets__COOP__Tychus__Units__Firebat_Heavens_COOP__Firebat_Heavens_COOP.glb",
+     "unitId": "ScientistFirebat"
     },
     {
      "role": "death",
      "label": "DOMFirebatDeath",
      "model": "DOMFirebatDeath",
+     "from": "FirebatDeath",
      "m3": "Assets/COOP/Tychus/Units/Firebat_Heavens_COOP_Death/Firebat_Heavens_COOP_Death.m3",
-     "glb": "Assets__COOP__Tychus__Units__Firebat_Heavens_COOP_Death__Firebat_Heavens_COOP_Death.glb"
+     "glb": "Assets__COOP__Tychus__Units__Firebat_Heavens_COOP_Death__Firebat_Heavens_COOP_Death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Medivac_Umojan",
      "model": "Medivac_Umojan",
+     "from": "Medivac",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\terran\\medivac_umojan\\medivac_umojan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__medivac_umojan__medivac_umojan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__terran__medivac_umojan__medivac_umojan.glb",
+     "unitId": "ScientistMedivac"
     },
     {
      "role": "building",
      "label": "FusionCore_CovertOps",
      "model": "FusionCore_CovertOps",
+     "from": "IncomeGenerator",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\fusioncore_covertops\\fusioncore_covertops.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__fusioncore_covertops__fusioncore_covertops.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__fusioncore_covertops__fusioncore_covertops.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "FusionCore_CovertOps_Death",
      "model": "FusionCore_CovertOps_Death",
+     "from": "FusionCoreDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\fusioncore_covertops_death\\fusioncore_covertops_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__fusioncore_covertops_death__fusioncore_covertops_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__fusioncore_covertops_death__fusioncore_covertops_death.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "SensorTower_CovertOps",
      "model": "SensorTower_CovertOps",
+     "from": "SensorTower",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\sensortower_covertops\\sensortower_covertops.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__sensortower_covertops__sensortower_covertops.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__sensortower_covertops__sensortower_covertops.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "SensorTower_CovertOps_Death",
      "model": "SensorTower_CovertOps_Death",
+     "from": "SensorTowerDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\sensortower_covertops_death\\sensortower_covertops_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__sensortower_covertops_death__sensortower_covertops_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__sensortower_covertops_death__sensortower_covertops_death.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "EngineeringBay_CovertOps",
      "model": "EngineeringBay_CovertOps",
+     "from": "EngineeringBay",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\engineeringbay_covertops\\engineeringbay_covertops.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__engineeringbay_covertops__engineeringbay_covertops.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__engineeringbay_covertops__engineeringbay_covertops.glb",
+     "unitId": "ScientistEngineeringBay"
     },
     {
      "role": "death",
      "label": "EngineeringBay_CovertOps_Death",
      "model": "EngineeringBay_CovertOps_Death",
+     "from": "EngineeringBayDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\engineeringbay_covertops_death\\engineeringbay_covertops_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__engineeringbay_covertops_death__engineeringbay_covertops_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__engineeringbay_covertops_death__engineeringbay_covertops_death.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "Bunker_CovertOps",
      "model": "Bunker_CovertOps",
+     "from": "Bunker",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\bunker_covertops\\bunker_covertops.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__bunker_covertops__bunker_covertops.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__bunker_covertops__bunker_covertops.glb",
+     "unitId": "ScientistBunker"
     },
     {
      "role": "death",
      "label": "Bunker_CovertOps_Death",
      "model": "Bunker_CovertOps_Death",
+     "from": "BunkerDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\bunker_covertops_death\\bunker_covertops_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__bunker_covertops_death__bunker_covertops_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__bunker_covertops_death__bunker_covertops_death.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "SupplyDepot_CovertOps",
      "model": "SupplyDepot_CovertOps",
+     "from": "SupplyDepot",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\supplydepot_covertops\\supplydepot_covertops.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__supplydepot_covertops__supplydepot_covertops.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__supplydepot_covertops__supplydepot_covertops.glb",
+     "unitId": "SgtHammerSupplyDepot"
     },
     {
      "role": "death",
      "label": "SupplyDepot_CovertOps_Death",
      "model": "SupplyDepot_CovertOps_Death",
+     "from": "SupplyDepotDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\terran\\supplydepot_covertops_death\\supplydepot_covertops_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__supplydepot_covertops_death__supplydepot_covertops_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__terran__supplydepot_covertops_death__supplydepot_covertops_death.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -362,6 +461,11 @@
     "building": 5,
     "death": 10,
     "other": 0
+   },
+   "hero": {
+    "name": "Scientist",
+    "nameZh": "科学家",
+    "roleId": 1
    }
   },
   "ShopDarkTemplarZeratul": {
@@ -373,8 +477,10 @@
      "role": "body",
      "label": "黑暗圣堂泽拉图",
      "model": "Zeratul",
+     "from": null,
      "m3": "campaigns\\swarm.sc2campaign\\base.sc2assets\\assets\\storymodesets\\protoss\\smp_prologue01_shot05_zeratul\\smp_prologue01_shot05_zeratul.m3",
-     "glb": "campaigns__swarm.sc2campaign__base.sc2assets__assets__storymodesets__protoss__smp_prologue01_shot05_zeratul__smp_prologue01_shot05_zeratul.glb"
+     "glb": "campaigns__swarm.sc2campaign__base.sc2assets__assets__storymodesets__protoss__smp_prologue01_shot05_zeratul__smp_prologue01_shot05_zeratul.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -383,6 +489,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Dark Templar",
+    "nameZh": "黑暗圣堂武士",
+    "roleId": 2
    }
   },
   "ShopHalarakAlarak": {
@@ -394,15 +505,19 @@
      "role": "body",
      "label": "哈拉拉克阿拉纳克",
      "model": "HalarakAlarak",
+     "from": null,
      "m3": "Assets/Units/Protoss/Alarak/Alarak.m3",
-     "glb": "Assets__Units__Protoss__Alarak__Alarak.glb"
+     "glb": "Assets__Units__Protoss__Alarak__Alarak.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "AlarakAlarak",
      "model": "AlarakAlarak",
+     "from": "AlarakAlarak",
      "m3": "Assets/Units/Protoss/Alarak_COOP/Alarak_COOP.m3",
-     "glb": "Assets__Units__Protoss__Alarak_COOP__Alarak_COOP.glb"
+     "glb": "Assets__Units__Protoss__Alarak_COOP__Alarak_COOP.glb",
+     "unitId": "AlarakAlarak"
     }
    ],
    "counts": {
@@ -411,6 +526,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Alarak",
+    "nameZh": "阿拉纳克",
+    "roleId": 31
    }
   },
   "ShopHoloNomad": {
@@ -422,120 +542,154 @@
      "role": "unit",
      "label": "NomadHoloBlackhammer",
      "model": "NomadHoloBlackhammer",
+     "from": "MengskThor",
      "m3": "Assets/Units/Terran/Hologram_Skin_Thor/Hologram_Skin_Thor.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_Thor__Hologram_Skin_Thor.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_Thor__Hologram_Skin_Thor.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "NomadHoloSCV",
      "model": "NomadHoloSCV",
+     "from": "SCV",
      "m3": "Assets/Units/Terran/Hologram_Skin_SCV/Hologram_Skin_SCV.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_SCV__Hologram_Skin_SCV.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_SCV__Hologram_Skin_SCV.glb",
+     "unitId": "NomadSCV"
     },
     {
      "role": "unit",
      "label": "NomadHoloMarine",
      "model": "NomadHoloMarine",
+     "from": "WarPig",
      "m3": "Assets/Units/Terran/Hologram_Skin_Marine/Hologram_Skin_Marine.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_Marine__Hologram_Skin_Marine.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_Marine__Hologram_Skin_Marine.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "NomadHoloHellsAngel",
      "model": "NomadHoloHellsAngel",
+     "from": "HelsAngelAssault",
      "m3": "Assets/Units/Terran/Hologram_Skin_VikingAssault/Hologram_Skin_VikingAssault.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_VikingAssault__Hologram_Skin_VikingAssault.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_VikingAssault__Hologram_Skin_VikingAssault.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "NomadHoloJuggnernaut",
      "model": "NomadHoloJuggnernaut",
+     "from": "MengskMarauder",
      "m3": "Assets/Units/Terran/Hologram_Skin_Marauder/Hologram_Skin_Marauder.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_Marauder__Hologram_Skin_Marauder.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_Marauder__Hologram_Skin_Marauder.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "NomadHoloHellbat",
      "model": "NomadHoloHellbat",
+     "from": "HellionTank",
      "m3": "Assets/Units/Terran/Hologram_Skin_HellionTank/Hologram_Skin_HellionTank.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_HellionTank__Hologram_Skin_HellionTank.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_HellionTank__Hologram_Skin_HellionTank.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "NomadHoloNomad",
      "model": "NomadHoloNomad",
+     "from": "Raven",
      "m3": "Assets/Units/Terran/Hologram_Skin_Raven/Hologram_Skin_Raven.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_Raven__Hologram_Skin_Raven.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_Raven__Hologram_Skin_Raven.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "NomadHoloLaboratory",
      "model": "NomadHoloLaboratory",
+     "from": "Armory",
      "m3": "Assets/Units/Terran/Hologram_Skin_Armory/Hologram_Skin_Armory.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_Armory__Hologram_Skin_Armory.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_Armory__Hologram_Skin_Armory.glb",
+     "unitId": "DSArmory"
     },
     {
      "role": "unit",
      "label": "NomadHoloCC",
      "model": "NomadHoloCC",
+     "from": "CommandCenter",
      "m3": "Assets/Units/Terran/Hologram_Skin_CommandCenter/Hologram_Skin_CommandCenter.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_CommandCenter__Hologram_Skin_CommandCenter.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_CommandCenter__Hologram_Skin_CommandCenter.glb",
+     "unitId": "NomadCommandCenter"
     },
     {
      "role": "unit",
      "label": "NomadHoloEngineeringBay",
      "model": "NomadHoloEngineeringBay",
+     "from": "EngineeringBay",
      "m3": "Assets/Units/Terran/Hologram_Skin_EngineeringBay/Hologram_Skin_EngineeringBay.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_EngineeringBay__Hologram_Skin_EngineeringBay.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_EngineeringBay__Hologram_Skin_EngineeringBay.glb",
+     "unitId": "NomadEngineeringBay"
     },
     {
      "role": "unit",
      "label": "NomadHoloAcademy",
      "model": "NomadHoloAcademy",
+     "from": "GhostAcademy",
      "m3": "Assets/Units/Terran/Hologram_Skin_GhostAcademy/Hologram_Skin_GhostAcademy.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_GhostAcademy__Hologram_Skin_GhostAcademy.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_GhostAcademy__Hologram_Skin_GhostAcademy.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "NomadHoloFusionCore",
      "model": "NomadHoloFusionCore",
+     "from": "FusionCore",
      "m3": "Assets/Units/Terran/Hologram_Skin_FusionCore/Hologram_Skin_FusionCore.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_FusionCore__Hologram_Skin_FusionCore.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_FusionCore__Hologram_Skin_FusionCore.glb",
+     "unitId": "NomadFusionCore"
     },
     {
      "role": "unit",
      "label": "NomadHoloWall",
      "model": "NomadHoloWall",
+     "from": "SupplyDepot",
      "m3": "Assets/Units/Terran/Hologram_Skin_SupplyDepot/Hologram_Skin_SupplyDepot.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_SupplyDepot__Hologram_Skin_SupplyDepot.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_SupplyDepot__Hologram_Skin_SupplyDepot.glb",
+     "unitId": "SgtHammerSupplyDepot"
     },
     {
      "role": "unit",
      "label": "NomadHoloPDD",
      "model": "NomadHoloPDD",
+     "from": "PointDefenseDrone",
      "m3": "Assets/Units/Terran/Hologram_Skin_PointDefenseDrone/Hologram_Skin_PointDefenseDrone.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_PointDefenseDrone__Hologram_Skin_PointDefenseDrone.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_PointDefenseDrone__Hologram_Skin_PointDefenseDrone.glb",
+     "unitId": "AndorPointDefenseDrone"
     },
     {
      "role": "unit",
      "label": "NomadHoloSeekerMissile",
      "model": "NomadHoloSeekerMissile",
+     "from": "HunterSeekerWeapon",
      "m3": "Assets/Units/Terran/Hologram_Skin_HunterKillerMissile/Hologram_Skin_HunterKillerMissile.m3",
-     "glb": "Assets__Units__Terran__Hologram_Skin_HunterKillerMissile__Hologram_Skin_HunterKillerMissile.glb"
+     "glb": "Assets__Units__Terran__Hologram_Skin_HunterKillerMissile__Hologram_Skin_HunterKillerMissile.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "NomadHoloAutoTurret",
      "model": "NomadHoloAutoTurret",
+     "from": "AutoTurret",
      "m3": "Assets/Buildings/Terran/Hologram_Skin_AutoTurret/Hologram_Skin_AutoTurret.m3",
-     "glb": "Assets__Buildings__Terran__Hologram_Skin_AutoTurret__Hologram_Skin_AutoTurret.glb"
+     "glb": "Assets__Buildings__Terran__Hologram_Skin_AutoTurret__Hologram_Skin_AutoTurret.glb",
+     "unitId": null
     },
     {
      "role": "other",
      "label": "NomadHoloStripper",
      "model": "NomadHoloStripper",
+     "from": "MULE",
      "m3": "Assets/Effects/Terran/Holo_Stripper/Holo_Stripper.m3",
-     "glb": "Assets__Effects__Terran__Holo_Stripper__Holo_Stripper.glb"
+     "glb": "Assets__Effects__Terran__Holo_Stripper__Holo_Stripper.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -544,6 +698,11 @@
     "building": 1,
     "death": 0,
     "other": 1
+   },
+   "hero": {
+    "name": "Nomad",
+    "nameZh": "游牧民",
+    "roleId": 12
    }
   },
   "ShopImperatorStukov": {
@@ -555,15 +714,19 @@
      "role": "body",
      "label": "帝王斯托科夫",
      "model": "ImperatorStukov",
+     "from": null,
      "m3": "Assets/Units/Zerg/InfestedStukov/InfestedStukov.m3",
-     "glb": "Assets__Units__Zerg__InfestedStukov__InfestedStukov.glb"
+     "glb": "Assets__Units__Zerg__InfestedStukov__InfestedStukov.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "InfestedStukov",
      "model": "InfestedStukov",
+     "from": "InfestedStukov",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\storymodecharacters\\zerg\\smx1_infestedstukov\\smx1_infestedstukov.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__storymodecharacters__zerg__smx1_infestedstukov__smx1_infestedstukov.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__storymodecharacters__zerg__smx1_infestedstukov__smx1_infestedstukov.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -572,6 +735,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Stukov",
+    "nameZh": "斯托科夫",
+    "roleId": 7
    }
   },
   "ShopImperialAres": {
@@ -583,92 +751,118 @@
      "role": "unit",
      "label": "AresImperialAres",
      "model": "AresImperialAres",
+     "from": "SpecialOpsDropship",
      "m3": "Assets/Units/Terran/BlimpAds/BlimpAds.m3",
-     "glb": "Assets__Units__Terran__BlimpAds__BlimpAds.glb"
+     "glb": "Assets__Units__Terran__BlimpAds__BlimpAds.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "AresImperialX103",
      "model": "AresImperialX103",
+     "from": "SCV",
      "m3": "Assets/COOP/Tychus/Units/SCV_Heavens_COOP/SCV_Heavens_COOP.m3",
-     "glb": "Assets__COOP__Tychus__Units__SCV_Heavens_COOP__SCV_Heavens_COOP.glb"
+     "glb": "Assets__COOP__Tychus__Units__SCV_Heavens_COOP__SCV_Heavens_COOP.glb",
+     "unitId": "DSSCV"
     },
     {
      "role": "other",
      "label": "AresImperialP35G",
      "model": "AresImperialP35G",
+     "from": "UtilityBot",
      "m3": "Assets/Doodads/JarbanMinor_MiningBot/JarbanMinor_MiningBot_00.m3",
-     "glb": "Assets__Doodads__JarbanMinor_MiningBot__JarbanMinor_MiningBot_00.glb"
+     "glb": "Assets__Doodads__JarbanMinor_MiningBot__JarbanMinor_MiningBot_00.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "AresImperialMiningOutpost",
      "model": "AresImperialMiningOutpost",
+     "from": "GhostAcademy",
      "m3": "Assets/Buildings/Terran/GhostAcademy_Silver/GhostAcademy_Silver.m3",
-     "glb": "Assets__Buildings__Terran__GhostAcademy_Silver__GhostAcademy_Silver.glb"
+     "glb": "Assets__Buildings__Terran__GhostAcademy_Silver__GhostAcademy_Silver.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "AresImperialArmory",
      "model": "AresImperialArmory",
+     "from": "Armory",
      "m3": "Assets/Buildings/Terran/Armory_Silver/Armory_Silver.m3",
-     "glb": "Assets__Buildings__Terran__Armory_Silver__Armory_Silver.glb"
+     "glb": "Assets__Buildings__Terran__Armory_Silver__Armory_Silver.glb",
+     "unitId": "AresArmory"
     },
     {
      "role": "building",
      "label": "AresImperialWeaponsArchive",
      "model": "AresImperialWeaponsArchive",
+     "from": "Factory",
      "m3": "Assets/Buildings/Terran/Factory_Silver/Factory_Silver.m3",
-     "glb": "Assets__Buildings__Terran__Factory_Silver__Factory_Silver.glb"
+     "glb": "Assets__Buildings__Terran__Factory_Silver__Factory_Silver.glb",
+     "unitId": "SkitterFactory"
     },
     {
      "role": "other",
      "label": "AresImperialWorkerTunnel",
      "model": "AresImperialWorkerTunnel",
+     "from": "PsiDisruptor",
      "m3": "Assets/Doodads/PortCity_SubwayEntrance/PortCity_SubwayEntrance.m3",
-     "glb": "Assets__Doodads__PortCity_SubwayEntrance__PortCity_SubwayEntrance.glb"
+     "glb": "Assets__Doodads__PortCity_SubwayEntrance__PortCity_SubwayEntrance.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "AresImperialVulture",
      "model": "AresImperialVulture",
+     "from": "Vulture",
      "m3": "Assets/Units/Terran/Vulture_Ghost/Vulture_Ghost.m3",
-     "glb": "Assets__Units__Terran__Vulture_Ghost__Vulture_Ghost.glb"
+     "glb": "Assets__Units__Terran__Vulture_Ghost__Vulture_Ghost.glb",
+     "unitId": "AresVulture"
     },
     {
      "role": "unit",
      "label": "AresImperialViking",
      "model": "AresImperialViking",
+     "from": "VikingAssault",
      "m3": "Assets/Units/Terran/VikingMercenaryAssault/VikingMercenaryAssault.m3",
-     "glb": "Assets__Units__Terran__VikingMercenaryAssault__VikingMercenaryAssault.glb"
+     "glb": "Assets__Units__Terran__VikingMercenaryAssault__VikingMercenaryAssault.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "AresImperialGoliath",
      "model": "AresImperialGoliath",
+     "from": "Goliath",
      "m3": "Assets/Units/Terran/GoliathMercenary/GoliathMercenary.m3",
-     "glb": "Assets__Units__Terran__GoliathMercenary__GoliathMercenary.glb"
+     "glb": "Assets__Units__Terran__GoliathMercenary__GoliathMercenary.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "AresImperialWarhound",
      "model": "AresImperialWarhound",
+     "from": "WarHound",
      "m3": "Assets/COOP/Tychus/Units/Warhound_Heavens_COOP/Warhound_Heavens_COOP.m3",
-     "glb": "Assets__COOP__Tychus__Units__Warhound_Heavens_COOP__Warhound_Heavens_COOP.glb"
+     "glb": "Assets__COOP__Tychus__Units__Warhound_Heavens_COOP__Warhound_Heavens_COOP.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "DefaultExplosionTerranLarge",
      "model": "DefaultExplosionTerranLarge",
+     "from": "PsiDisruptorDeath",
      "m3": "Assets/Effects/Terran/TerranLargeUnitDeath/TerranLargeUnitDeath.m3",
-     "glb": "Assets__Effects__Terran__TerranLargeUnitDeath__TerranLargeUnitDeath.glb"
+     "glb": "Assets__Effects__Terran__TerranLargeUnitDeath__TerranLargeUnitDeath.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "DefaultExplosionTerranSmall",
      "model": "DefaultExplosionTerranSmall",
+     "from": "UtilityBotDeath",
      "m3": "Assets/Effects/Terran/TerranSmallUnitDeath/TerranSmallUnitDeath.m3",
-     "glb": "Assets__Effects__Terran__TerranSmallUnitDeath__TerranSmallUnitDeath.glb"
+     "glb": "Assets__Effects__Terran__TerranSmallUnitDeath__TerranSmallUnitDeath.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -677,6 +871,11 @@
     "building": 3,
     "death": 2,
     "other": 2
+   },
+   "hero": {
+    "name": "Ares",
+    "nameZh": "阿瑞斯",
+    "roleId": 5
    }
   },
   "ShopInfestedSpirit": {
@@ -688,29 +887,37 @@
      "role": "building",
      "label": "SpiritBileLauncher",
      "model": "SpiritBileLauncher",
+     "from": "SpiritKhaydarinMonolith",
      "m3": "Assets/Buildings/Zerg/BileLauncher_Ex2/BileLauncher_Ex2.m3",
-     "glb": "Assets__Buildings__Zerg__BileLauncher_Ex2__BileLauncher_Ex2.glb"
+     "glb": "Assets__Buildings__Zerg__BileLauncher_Ex2__BileLauncher_Ex2.glb",
+     "unitId": "SpiritKhaydarinMonolith"
     },
     {
      "role": "building",
      "label": "InfestedHighKhaydarinMonolith",
      "model": "InfestedHighKhaydarinMonolith",
+     "from": "SpiritHighKhaydarinMonolith",
      "m3": "Assets/Buildings/Zerg/InfestedMissileTurret_Ex3/InfestedMissileTurret_Ex3.m3",
-     "glb": "Assets__Buildings__Zerg__InfestedMissileTurret_Ex3__InfestedMissileTurret_Ex3.glb"
+     "glb": "Assets__Buildings__Zerg__InfestedMissileTurret_Ex3__InfestedMissileTurret_Ex3.glb",
+     "unitId": "SpiritHighKhaydarinMonolith"
     },
     {
      "role": "unit",
      "label": "SpiritInfestedSpirit",
      "model": "SpiritInfestedSpirit",
+     "from": "Spirit",
      "m3": "Assets/Units/Zerg/Hologram_Skin_InfestedMarine/Hologram_Skin_InfestedMarine.m3",
-     "glb": "Assets__Units__Zerg__Hologram_Skin_InfestedMarine__Hologram_Skin_InfestedMarine.glb"
+     "glb": "Assets__Units__Zerg__Hologram_Skin_InfestedMarine__Hologram_Skin_InfestedMarine.glb",
+     "unitId": "Spirit"
     },
     {
      "role": "death",
      "label": "InfestedMissileTurretDeath",
      "model": "InfestedMissileTurretDeath",
+     "from": "KhaydarinMonolithDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\buildings\\zerg\\infestedmissileturretdeath\\infestedmissileturretdeath.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__zerg__infestedmissileturretdeath__infestedmissileturretdeath.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__buildings__zerg__infestedmissileturretdeath__infestedmissileturretdeath.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -719,6 +926,11 @@
     "building": 2,
     "death": 1,
     "other": 0
+   },
+   "hero": {
+    "name": "Spirit",
+    "nameZh": "灵魂",
+    "roleId": 4
    }
   },
   "ShopJimTeamNova": {
@@ -730,8 +942,10 @@
      "role": "body",
      "label": "吉姆·诺娃",
      "model": "NovaRaynor",
+     "from": null,
      "m3": "Assets/Units/Terran/MarineRaynorHEV/MarineRaynorHEV.m3",
-     "glb": "Assets__Units__Terran__MarineRaynorHEV__MarineRaynorHEV.glb"
+     "glb": "Assets__Units__Terran__MarineRaynorHEV__MarineRaynorHEV.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -740,6 +954,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Team Nova",
+    "nameZh": "诺娃团队",
+    "roleId": 11
    }
   },
   "ShopKaraxSpirit": {
@@ -751,8 +970,10 @@
      "role": "body",
      "label": "卡拉克斯·灵",
      "model": "VulcanChampion",
+     "from": null,
      "m3": "Assets/Units/Protoss/Karax/Karax.m3",
-     "glb": "Assets__Units__Protoss__Karax__Karax.glb"
+     "glb": "Assets__Units__Protoss__Karax__Karax.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -761,6 +982,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Spirit",
+    "nameZh": "灵魂",
+    "roleId": 4
    }
   },
   "ShopMadMalus": {
@@ -772,8 +998,10 @@
      "role": "body",
      "label": "疯狂马鲁斯",
      "model": "MadMalus",
+     "from": null,
      "m3": "Assets/Units/Zerg/BlightBringer/BlightBringer.m3",
-     "glb": "Assets__Units__Zerg__BlightBringer__BlightBringer.glb"
+     "glb": "Assets__Units__Zerg__BlightBringer__BlightBringer.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -782,6 +1010,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Malus",
+    "nameZh": "马吕斯",
+    "roleId": 33
    }
   },
   "ShopMechaChew": {
@@ -793,36 +1026,46 @@
      "role": "body",
      "label": "机甲秋伊",
      "model": "MechaChew",
+     "from": null,
      "m3": "Assets/Units/Zerg/Locust_Mecha/Locust_Mecha.m3",
-     "glb": "Assets__Units__Zerg__Locust_Mecha__Locust_Mecha.glb"
+     "glb": "Assets__Units__Zerg__Locust_Mecha__Locust_Mecha.glb",
+     "unitId": null
     },
     {
      "role": "building",
      "label": "MechaIceCave",
      "model": "MechaIceCave",
+     "from": "ChewIceCave",
      "m3": "Assets/Buildings/Zerg/InfestationPit_Mecha/InfestationPit_Mecha.m3",
-     "glb": "Assets__Buildings__Zerg__InfestationPit_Mecha__InfestationPit_Mecha.glb"
+     "glb": "Assets__Buildings__Zerg__InfestationPit_Mecha__InfestationPit_Mecha.glb",
+     "unitId": "ChewIceCave"
     },
     {
      "role": "unit",
      "label": "MechaChew_Flyer",
      "model": "MechaChew_Flyer",
+     "from": "ChewStatue",
      "m3": "Assets/Units/Zerg/Locust_Mecha_Flyer/Locust_Mecha_Flyer.m3",
-     "glb": "Assets__Units__Zerg__Locust_Mecha_Flyer__Locust_Mecha_Flyer.glb"
+     "glb": "Assets__Units__Zerg__Locust_Mecha_Flyer__Locust_Mecha_Flyer.glb",
+     "unitId": "ChewStatue"
     },
     {
      "role": "other",
      "label": "MechaChewPortrait",
      "model": "MechaChewPortrait",
+     "from": "YetiMommaPortrait",
      "m3": "Assets/Portraits/Zerg/Locust_Mecha_Portrait/Locust_Mecha_Portrait.m3",
-     "glb": "Assets__Portraits__Zerg__Locust_Mecha_Portrait__Locust_Mecha_Portrait.glb"
+     "glb": "Assets__Portraits__Zerg__Locust_Mecha_Portrait__Locust_Mecha_Portrait.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "Locust_Mecha_Death",
      "model": "Locust_Mecha_Death",
+     "from": "MatriarchSnowBeastDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\zerg\\locust_mecha_death\\locust_mecha_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__locust_mecha_death__locust_mecha_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__locust_mecha_death__locust_mecha_death.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -831,6 +1074,11 @@
     "building": 1,
     "death": 1,
     "other": 1
+   },
+   "hero": {
+    "name": "Chew",
+    "nameZh": "秋伊",
+    "roleId": 40
    }
   },
   "ShopPrimalKerrigan": {
@@ -842,8 +1090,10 @@
      "role": "body",
      "label": "原始凯瑞甘",
      "model": "PrimalKerrigan",
+     "from": null,
      "m3": "Assets/Units/Zerg/KerriganInfested/KerriganInfested.m3",
-     "glb": "Assets__Units__Zerg__KerriganInfested__KerriganInfested.glb"
+     "glb": "Assets__Units__Zerg__KerriganInfested__KerriganInfested.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -852,6 +1102,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Kerrigan",
+    "nameZh": "凯瑞甘",
+    "roleId": 0
    }
   },
   "ShopPrimalThakras": {
@@ -863,120 +1118,154 @@
      "role": "unit",
      "label": "ThakrasPrimalThakras",
      "model": "ThakrasPrimalThakras",
+     "from": "ThakrasThakras",
      "m3": "Assets/Units/Zerg/Primalisk/Primalisk.m3",
-     "glb": "Assets__Units__Zerg__Primalisk__Primalisk.glb"
+     "glb": "Assets__Units__Zerg__Primalisk__Primalisk.glb",
+     "unitId": "ThakrasThakras"
     },
     {
      "role": "unit",
      "label": "Zergling_Primal_Collection",
      "model": "Zergling_Primal_Collection",
+     "from": "SwarmZergling",
      "m3": "Assets/Units/Zerg/Zergling_Primal_Collection/Zergling_Primal_Collection.m3",
-     "glb": "Assets__Units__Zerg__Zergling_Primal_Collection__Zergling_Primal_Collection.glb"
+     "glb": "Assets__Units__Zerg__Zergling_Primal_Collection__Zergling_Primal_Collection.glb",
+     "unitId": "SwarmZergling"
     },
     {
      "role": "unit",
      "label": "Drone_Primal_Collection",
      "model": "Drone_Primal_Collection",
+     "from": "Drone",
      "m3": "Assets/Units/Zerg/Drone_Primal_Collection/Drone_Primal_Collection.m3",
-     "glb": "Assets__Units__Zerg__Drone_Primal_Collection__Drone_Primal_Collection.glb"
+     "glb": "Assets__Units__Zerg__Drone_Primal_Collection__Drone_Primal_Collection.glb",
+     "unitId": "SwarmDrone"
     },
     {
      "role": "death",
      "label": "Drone_Primal_Collection_Death",
      "model": "Drone_Primal_Collection_Death",
+     "from": "DroneDeath",
      "m3": "Assets/Units/Zerg/Drone_Primal_Collection_Death/Drone_Primal_Collection_Death.m3",
-     "glb": "Assets__Units__Zerg__Drone_Primal_Collection_Death__Drone_Primal_Collection_Death.glb"
+     "glb": "Assets__Units__Zerg__Drone_Primal_Collection_Death__Drone_Primal_Collection_Death.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "Zergling_Primal_Collection_Death",
      "model": "Zergling_Primal_Collection_Death",
+     "from": "SwarmZerglingDeath",
      "m3": "Assets/Units/Zerg/Zergling_Primal_Collection_Death/Zergling_Primal_Collection_Death.m3",
-     "glb": "Assets__Units__Zerg__Zergling_Primal_Collection_Death__Zergling_Primal_Collection_Death.glb"
+     "glb": "Assets__Units__Zerg__Zergling_Primal_Collection_Death__Zergling_Primal_Collection_Death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Baneling_Primal_Collection",
      "model": "Baneling_Primal_Collection",
+     "from": "Baneling",
      "m3": "Assets/Units/Zerg/Baneling_Primal_Collection/Baneling_Primal_Collection.m3",
-     "glb": "Assets__Units__Zerg__Baneling_Primal_Collection__Baneling_Primal_Collection.glb"
+     "glb": "Assets__Units__Zerg__Baneling_Primal_Collection__Baneling_Primal_Collection.glb",
+     "unitId": "SwarmBaneling"
     },
     {
      "role": "death",
      "label": "Baneling_Primal_Collection_Death",
      "model": "Baneling_Primal_Collection_Death",
+     "from": "BanelingDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\zerg\\baneling_primal_collection_death\\baneling_primal_collection_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__baneling_primal_collection_death__baneling_primal_collection_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__baneling_primal_collection_death__baneling_primal_collection_death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "ThakrasHydralisk",
      "model": "ThakrasHydralisk",
+     "from": "PrimalHydralisk",
      "m3": "Assets/Units/Zerg/Hydralisk_Primal_Collection/Hydralisk_Primal_Collection.m3",
-     "glb": "Assets__Units__Zerg__Hydralisk_Primal_Collection__Hydralisk_Primal_Collection.glb"
+     "glb": "Assets__Units__Zerg__Hydralisk_Primal_Collection__Hydralisk_Primal_Collection.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "ThakrasHydraliskDeath",
      "model": "ThakrasHydraliskDeath",
+     "from": "PrimalHydraliskDeath",
      "m3": "Assets/Units/Zerg/Hydralisk_Primal_Collection_Death/Hydralisk_Primal_Collection_Death.m3",
-     "glb": "Assets__Units__Zerg__Hydralisk_Primal_Collection_Death__Hydralisk_Primal_Collection_Death.glb"
+     "glb": "Assets__Units__Zerg__Hydralisk_Primal_Collection_Death__Hydralisk_Primal_Collection_Death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Lurker_Primal_Collection",
      "model": "Lurker_Primal_Collection",
+     "from": "LurkerMP",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\zerg\\lurker_primal_collection\\lurker_primal_collection.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__lurker_primal_collection__lurker_primal_collection.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__lurker_primal_collection__lurker_primal_collection.glb",
+     "unitId": null
     },
     {
      "role": "death",
      "label": "Lurker_Primal_Collection_Death",
      "model": "Lurker_Primal_Collection_Death",
+     "from": "LurkerMPDeath",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\zerg\\lurker_primal_collection_death\\lurker_primal_collection_death.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__lurker_primal_collection_death__lurker_primal_collection_death.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__lurker_primal_collection_death__lurker_primal_collection_death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Corruptor_Primal_Collection",
      "model": "Corruptor_Primal_Collection",
+     "from": "Corruptor",
      "m3": "Assets/Units/Zerg/Corruptor_Primal_Collection/Corruptor_Primal_Collection.m3",
-     "glb": "Assets__Units__Zerg__Corruptor_Primal_Collection__Corruptor_Primal_Collection.glb"
+     "glb": "Assets__Units__Zerg__Corruptor_Primal_Collection__Corruptor_Primal_Collection.glb",
+     "unitId": "SwarmCorruptor"
     },
     {
      "role": "death",
      "label": "Corruptor_Primal_Collection_Death",
      "model": "Corruptor_Primal_Collection_Death",
+     "from": "CorruptorDeath",
      "m3": "Assets/Units/Zerg/Corruptor_Primal_Collection_Death/Corruptor_Primal_Collection_Death.m3",
-     "glb": "Assets__Units__Zerg__Corruptor_Primal_Collection_Death__Corruptor_Primal_Collection_Death.glb"
+     "glb": "Assets__Units__Zerg__Corruptor_Primal_Collection_Death__Corruptor_Primal_Collection_Death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Overlord_Primal_Collection",
      "model": "Overlord_Primal_Collection",
+     "from": "Overlord",
      "m3": "Assets/Units/Zerg/Overlord_Primal_Collection/Overlord_Primal_Collection.m3",
-     "glb": "Assets__Units__Zerg__Overlord_Primal_Collection__Overlord_Primal_Collection.glb"
+     "glb": "Assets__Units__Zerg__Overlord_Primal_Collection__Overlord_Primal_Collection.glb",
+     "unitId": "SwarmOverlord"
     },
     {
      "role": "death",
      "label": "Overlord_Primal_Collection_Death",
      "model": "Overlord_Primal_Collection_Death",
+     "from": "OverlordDeath",
      "m3": "Assets/Units/Zerg/Overlord_Primal_Collection_Death/Overlord_Primal_Collection_Death.m3",
-     "glb": "Assets__Units__Zerg__Overlord_Primal_Collection_Death__Overlord_Primal_Collection_Death.glb"
+     "glb": "Assets__Units__Zerg__Overlord_Primal_Collection_Death__Overlord_Primal_Collection_Death.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Overseer_Primal_Collection",
      "model": "Overseer_Primal_Collection",
+     "from": "Overseer",
      "m3": "Assets/Units/Zerg/Overseer_Primal_Collection/Overseer_Primal_Collection.m3",
-     "glb": "Assets__Units__Zerg__Overseer_Primal_Collection__Overseer_Primal_Collection.glb"
+     "glb": "Assets__Units__Zerg__Overseer_Primal_Collection__Overseer_Primal_Collection.glb",
+     "unitId": "SwarmOverseer"
     },
     {
      "role": "death",
      "label": "Overseer_Primal_Collection_Death",
      "model": "Overseer_Primal_Collection_Death",
+     "from": "OverseerDeath",
      "m3": "Assets/Units/Zerg/Overseer_Primal_Collection_Death/Overseer_Primal_Collection_Death.m3",
-     "glb": "Assets__Units__Zerg__Overseer_Primal_Collection_Death__Overseer_Primal_Collection_Death.glb"
+     "glb": "Assets__Units__Zerg__Overseer_Primal_Collection_Death__Overseer_Primal_Collection_Death.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -985,6 +1274,11 @@
     "building": 0,
     "death": 8,
     "other": 0
+   },
+   "hero": {
+    "name": "Thakras",
+    "nameZh": "塔克拉斯",
+    "roleId": 16
    }
   },
   "ShopSarahTeamNova": {
@@ -996,8 +1290,10 @@
      "role": "body",
      "label": "莎拉·诺娃",
      "model": "NovaKerriganGhost",
+     "from": null,
      "m3": "Assets/Units/Zerg/KerriganGhost/KerriganGhost_01.m3",
-     "glb": "Assets__Units__Zerg__KerriganGhost__KerriganGhost_01.glb"
+     "glb": "Assets__Units__Zerg__KerriganGhost__KerriganGhost_01.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -1006,6 +1302,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Team Nova",
+    "nameZh": "诺娃团队",
+    "roleId": 11
    }
   },
   "ShopScorpidZagara": {
@@ -1017,8 +1318,10 @@
      "role": "body",
      "label": "蝎尾扎加拉",
      "model": "ScorpidZagara",
+     "from": null,
      "m3": "Assets/Units/Zerg/Zagara/Zagara.m3",
-     "glb": "Assets__Units__Zerg__Zagara__Zagara.glb"
+     "glb": "Assets__Units__Zerg__Zagara__Zagara.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -1027,6 +1330,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Zagara",
+    "nameZh": "扎加拉",
+    "roleId": 9
    }
   },
   "ShopShrikeMira": {
@@ -1038,8 +1346,10 @@
      "role": "body",
      "label": "伯劳米拉",
      "model": "ShrikeMira",
+     "from": null,
      "m3": "Assets/COOP/Tychus/Units/Ghost_Heavens_COOP/Ghost_Heavens_COOP.m3",
-     "glb": "Assets__COOP__Tychus__Units__Ghost_Heavens_COOP__Ghost_Heavens_COOP.glb"
+     "glb": "Assets__COOP__Tychus__Units__Ghost_Heavens_COOP__Ghost_Heavens_COOP.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -1048,6 +1358,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Mira",
+    "nameZh": "米拉",
+    "roleId": 21
    }
   },
   "ShopStetmannScientist": {
@@ -1059,8 +1374,10 @@
      "role": "body",
      "label": "斯台特曼科学家",
      "model": "ScientistStetmannSkin",
+     "from": null,
      "m3": "Assets/Units/Terran/MedicStetmann/MedicStetmann.m3",
-     "glb": "Assets__Units__Terran__MedicStetmann__MedicStetmann.glb"
+     "glb": "Assets__Units__Terran__MedicStetmann__MedicStetmann.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -1069,6 +1386,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Scientist",
+    "nameZh": "科学家",
+    "roleId": 1
    }
   },
   "ShopStormHeroKerrigan": {
@@ -1080,15 +1402,19 @@
      "role": "body",
      "label": "风暴英雄凯瑞甘",
      "model": "StormHeroKerrigan",
+     "from": null,
      "m3": "Assets/Units/Zerg/Kerrigan/Kerrigan.m3",
-     "glb": "Assets__Units__Zerg__Kerrigan__Kerrigan.glb"
+     "glb": "Assets__Units__Zerg__Kerrigan__Kerrigan.glb",
+     "unitId": null
     },
     {
      "role": "unit",
      "label": "Kerrigan",
      "model": "Kerrigan",
+     "from": "Kerrigan",
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\zerg\\kerrigan\\kerrigan.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__kerrigan__kerrigan.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__zerg__kerrigan__kerrigan.glb",
+     "unitId": "KerriganKerrigan"
     }
    ],
    "counts": {
@@ -1097,6 +1423,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Kerrigan",
+    "nameZh": "凯瑞甘",
+    "roleId": 0
    }
   },
   "ShopTalDarimProphet": {
@@ -1108,8 +1439,10 @@
      "role": "body",
      "label": "塔达林先知",
      "model": "Oracle_Taldarim_Collection",
+     "from": null,
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\units\\protoss\\oracle_taldarim_collection\\oracle_taldarim_collection.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__protoss__oracle_taldarim_collection__oracle_taldarim_collection.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__units__protoss__oracle_taldarim_collection__oracle_taldarim_collection.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -1118,6 +1451,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Prophet",
+    "nameZh": "先知",
+    "roleId": 6
    }
   },
   "ShopZweihakaDehaka": {
@@ -1129,8 +1467,10 @@
      "role": "body",
      "label": "双刃德哈卡",
      "model": "MammothClone_Dehaka_COOP",
+     "from": null,
      "m3": "mods\\liberty.sc2mod\\base.sc2assets\\assets\\coop\\dehaka\\units\\mammothclone_dehaka_coop\\mammothclone_dehaka_coop.m3",
-     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__coop__dehaka__units__mammothclone_dehaka_coop__mammothclone_dehaka_coop.glb"
+     "glb": "mods__liberty.sc2mod__base.sc2assets__assets__coop__dehaka__units__mammothclone_dehaka_coop__mammothclone_dehaka_coop.glb",
+     "unitId": null
     }
    ],
    "counts": {
@@ -1139,6 +1479,11 @@
     "building": 0,
     "death": 0,
     "other": 0
+   },
+   "hero": {
+    "name": "Dehaka",
+    "nameZh": "德哈卡",
+    "roleId": 13
    }
   }
  }

@@ -524,5 +524,24 @@ function kindLabel(k: string) {
 function fmtCost(c: { minerals: number; gas: number }) {
   return [c.minerals && `${c.minerals}矿`, c.gas && `${c.gas}气`].filter(Boolean).join(' / ') || '0'
 }
-useHead(() => ({ title: `${unit.value?.nameZh || unitId} · 兵种 · KS2 Wiki` }))
+useHead(() => {
+  const name = unit.value?.nameZh || unitId
+  return {
+    title: `${name} · 兵种 · KS2 Wiki`,
+    meta: [
+      { property: 'og:type', content: 'article' },
+      { property: 'og:site_name', content: '凯瑞甘生存2 Wiki' },
+      { property: 'og:title', content: `${name} · 兵种数据库` },
+      {
+        property: 'og:description',
+        content: unit.value
+          ? `${name}：造价 ${fmtCost(unit.value.cost)}，生命 ${unit.value.stats?.hp ?? '—'}，护甲 ${unit.value.stats?.armor ?? '—'}。完整武器与升级数据。`
+          : '凯瑞甘生存2 兵种数据',
+      },
+      { property: 'og:url', content: `https://wiki.ks2.top/units/${unitId}` },
+      { property: 'og:image', content: 'https://wiki.ks2.top/og-default.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+    ],
+  }
+})
 </script>

@@ -57,6 +57,15 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 - **对战模拟**（`/units#sim`）：先选英雄再选单位，两边各自配置科技等级，算出首击伤害（护盾/生命）、攻击次数、击杀时间与单挑结论；无法攻击时给出原因（对空/对地、友军、目标属性被排除）
 - 无法从地图静态解析的伤害标注「未解析」，不做估算
 
+### 皮肤模型预览 `/skins`
+- 商店皮肤不只是换本体：多数皮肤会同时替换兵种、建筑与死亡特效模型
+- 27 个皮肤 / 109 个部件，按「本体 / 兵种 / 建筑 / 死亡特效 / 其他部件」分组，three.js 实时 3D 预览
+- **所属英雄**：直接跳转该皮肤对应的 `/classes/{id}`
+- **部件 → 兵种库**：有对应兵种条目的部件带 `↗` 链接，跳到 `/units/{id}`
+- **可分享链接**：`?skin=ShopMechaChew&part=xxx.glb` 直达指定皮肤与部件
+- 模型数据管线见 `docs/SKINS_PIPELINE.md`（m3 → Blender → GLB → 前端）
+- 贴图数、网格数、顶点/三角面实时统计，自动曝光明暗补偿
+
 ### 地图地形 `/terrain`
 - 多张地形的小地图与可通行区域（地图每次发布会从地形池里重新烘焙一张，这里收录所有见过的版本）
 - 石头生成模拟与「石头死区」标注
@@ -123,6 +132,21 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 ### 支持本站 `/support`
 - 赞助入口与赞助者名单（`data/sponsors.json`）
 
+## 分享与 SEO
+
+站点的传播主要发生在 QQ 群、贴吧与 Discord，链接能否在聊天窗口里渲染出标题和缩略图直接影响点击率。
+
+- **OG 卡片**：`public/og-default.png`（1200×630）是默认分享图，源文件 `assets/og/og-default.html`，用无头浏览器截图生成：
+  ```bash
+  msedge --headless=new --window-size=1200,630 --screenshot=public/og-default.png \
+    file:///D:/starcraft2/SanseKerriganSurvivalWiki/assets/og/og-default.html
+  ```
+- **动态标题与描述**：首页、`/skins`、`/classes/[id]`、`/units/[id]` 用 `useHead(() => ({...}))` 按当前内容生成 `og:title` / `og:description` / `og:url`。OG 协议要求**绝对 URL**，`og:url` 与 `og:image` 必须写全 `https://wiki.ks2.top/...`。
+- **sitemap**：`server/routes/sitemap.xml.ts` 动态生成，覆盖静态页 + 51 个职业页 + 838 个单位页。数据直接读 `data/*.json`，不依赖外部接口。
+- **robots**：`public/robots.txt` 放行全站，排除 `/admin`、`/settings`、`/api/` 等私有路径，并指向 sitemap。
+
+> 新增可索引页面时记得同步更新 `server/routes/sitemap.xml.ts` 里的 `STATIC_PAGES`。
+
 ## 项目结构
 
 ```
@@ -144,6 +168,7 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   ├── feedback/          # 建议反馈
 │   ├── balance/           # 英雄胜率·平衡性（胜率榜 + 跨版本走势/Meta）
 │   ├── player/            # 玩家详情 + 分享图
+│   ├── skins/             # 皮肤模型预览（3D 多部件）
 │   └── economy/           # 经济系统 + 经济投资比排行榜
 ├── components/            # Vue组件
 ├── composables/           # 组合式函数（useBalanceData / useMetaHistory / useTechData / useUnitsData 等）
@@ -183,6 +208,7 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   ├── balance.json       # 英雄/阵营胜率（由 build_balance 从生产库转储生成）
 │   ├── meta-history.json  # 跨版本 Meta 走势（由 build_meta 生成）
 │   ├── stats.db           # 对局统计只读库：played_like / mmr_history（由 build_stats_db 生成）
+│   ├── skins.json         # 皮肤 → 部件清单（含 hero / unitId 跳转字段，由 enrich_skins.py 富化）
 │   └── wiki.db            # SQLite数据库（用户/文章/评论/反馈，运行时写入）
 ├── public/
 │   ├── avatars/           # 48个角色娘化立绘 (1024x1024)
@@ -190,11 +216,15 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   ├── ability-icons/     # 技能图标（build_ability_icons 生成）
 │   ├── tech-icons/        # 科技与单位图标（build_tech_icons 生成）
 │   ├── maps/ + terrain/   # 地形小地图与逐图地形数据（build_terrain 生成）
+│   ├── skins/models/      # 106 个皮肤部件 GLB（约 45 MB）
+│   ├── og-default.png     # 默认 OG 分享图（1200×630）
+│   └── robots.txt         # 爬虫规则，指向 /sitemap.xml
 ├── scripts/               # 数据提取/刷新脚本（一键 build_all.py，见下方"数据刷新流程"）
 ├── docs/                  # 文档
 │   ├── API.md             # API文档
 │   ├── DEPLOY.md          # 部署指南
 │   ├── STATS_PIPELINE.md  # 对局统计数据管线（胜率/played_like）
+│   ├── SKINS_PIPELINE.md  # 皮肤模型管线（m3 → Blender → GLB → 前端 3D）
 │   ├── AUTO_FETCH.md      # 生产库转储自动拉取
 │   ├── DATA_MAINTENANCE.md# 数据维护员指南（在线编辑）
 │   ├── WIKI_CONVENTIONS.md# Wiki 文章写作约定
