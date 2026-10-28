@@ -246,7 +246,7 @@
   "EngineerJetpackOverload": {
     "nameZh": "喷气背包过载",
     "nameEn": "Jetpack Overload",
-    "tooltip": "使工程师的移动速度提高1.25，持续8秒。",
+    "tooltip": "工程师的移动速度提高1.25，持续8秒。",
     "icon": "btn-upgrade-terran-jotunboosters.png"
   },
   "NovaPersonalCloaking": {
@@ -305,7 +305,7 @@
   "Drag": {
     "nameZh": "拖拽",
     "nameEn": "Drag",
-    "tooltip": "将目标拉到德哈卡的位置。如果在此期间德哈卡失去目标视野拖拽将会失效。<n/><c val=\"FFFF00\">冷却: </c><c val=\"FFFF00\" validator=\"DragLevel1\">50s</c>|<c val=\"FFFF00\" validator=\"DragLevel2\">40s</c>|<c val=\"FFFF00\" validator=\"DragLevel3\">30s</c>|<c val=\"FFFF00\" validator=\"DragLevel4\">25s</c><n/><c val=\"FFFF00\">范围:</c> <c val=\"FFFF00\" validator=\"DragLevel1\">5</c>|<c val=\"FFFF00\" validator=\"DragLevel2\">6</c>|<c val=\"FFFF00\" validator=\"DragLevel3\">7</c>|<c val=\"FFFF00\" validator=\"DragLevel4\">8</c><n/><c val=\"BB77FF\">能量消耗: 50</c>",
+    "tooltip": "将目标拉到德哈卡的位置。如果在此期间德哈卡失去目标视野拖拽将会失效。<n/><c val=\"FFFF00\">冷却: </c><c val=\"FFFF00\" validator=\"DragLevel1\">60s</c>|<c val=\"FFFF00\" validator=\"DragLevel2\">50s</c>|<c val=\"FFFF00\" validator=\"DragLevel3\">40s</c>|<c val=\"FFFF00\" validator=\"DragLevel4\">30s</c><n/><c val=\"FFFF00\">范围:</c> <c val=\"FFFF00\" validator=\"DragLevel1\">5</c>|<c val=\"FFFF00\" validator=\"DragLevel2\">6</c>|<c val=\"FFFF00\" validator=\"DragLevel3\">7</c>|<c val=\"FFFF00\" validator=\"DragLevel4\">8</c><n/><c val=\"BB77FF\">能量消耗: 50</c>",
     "icon": "btn-ability-zerg-drag.png"
   },
   "DehakaWindwalk": {
@@ -365,37 +365,37 @@
   "WardenWhirlwind": {
     "nameZh": "旋风斩",
     "nameEn": "Whirlwind",
-    "tooltip": "在秒时间内对所有附近敌方单位造成每秒点伤害。<n/><c val=\"8FC7FF\">能量消耗: </c>|||<n/><c val=\"E6E6E6\">冷却时间: </c>|||<n/><c val=\"FFD700\">旋转致胜</c>",
+    "tooltip": "在<c val=\"E6E6E6\">3.6</c>秒时间内对所有附近敌方单位造成每秒点伤害。<n/><c val=\"8FC7FF\">能量消耗: </c><c val=\"8FC7FF\">50</c>|<c val=\"8FC7FF\">40</c>|<c val=\"8FC7FF\">30</c>|<c val=\"8FC7FF\">20</c><n/><c val=\"E6E6E6\">冷却时间: </c><c val=\"E6E6E6\">25</c>|<c val=\"E6E6E6\">20</c>|<c val=\"E6E6E6\">15</c>|<c val=\"E6E6E6\">10</c><n/><c val=\"FFD700\">旋转致胜</c>",
     "icon": "btn-ability-protoss-whirlwindfenix.png"
   },
   "WardenThunderousCharge": {
     "nameZh": "雷霆冲锋",
     "nameEn": "Thunderous Charge",
-    "tooltip": "监管者冲向目标位置，眩晕并伤害敌方地面单位。<n/><c val=\"FF6B6B\">无法眩晕英雄单位。</c><n/><c val=\"FF8080\">伤害</c>: (每英雄等级+%)<n/><c val=\"8FC7FF\">能量消耗: </c>|||",
+    "tooltip": "监管者冲向目标位置，使敌方地面单位眩晕并造成伤害。<n/><c val=\"FF6B6B\">无法眩晕英雄单位。</c><n/><c val=\"FF8080\">伤害：</c> （每个英雄等级+10%）<n/><c val=\"8FC7FF\">能量消耗： </c><c val=\"8FC7FF\">50</c>|<c val=\"8FC7FF\">50</c>|<c val=\"8FC7FF\">50</c>|<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">半径： </c>2/2.5/3/3.5",
     "icon": "btn-ability-protoss-thunderouscharge.png"
   },
   "WardenVexArmor": {
     "nameZh": "维克斯护甲",
     "nameEn": "Vex Armor",
-    "tooltip": "为附近所有友军单位和建筑短时间内添加护盾。<n/>失去维克斯护甲的单位将在秒内使其维克斯护盾衰减。在此期间，监管者无法刷新该单位的维克斯护甲。<n/><c val=\"87CEEB\">护盾: </c>|||",
+    "tooltip": "为附近的友方单位和建筑增加护盾容量，并在5秒内恢复所提供的护盾。维克斯护甲激活期间会持续恢复护盾。<n/>失去维克斯护甲的单位，其维克斯护盾会在<c val=\"E6E6E6\">5</c>秒内衰减。在此期间，监管者无法刷新该单位的维克斯护甲。<n/><c val=\"87CEEB\">护盾： </c><c val=\"87CEEB\">300</c>|<c val=\"87CEEB\">450</c>|<c val=\"87CEEB\">600</c>|<c val=\"87CEEB\">800</c>",
     "icon": "btn-upgrade-protoss-alarak-stalkerphasingarmor.png"
   },
   "WardenExperimentalBarrier": {
     "nameZh": "实验屏障",
     "nameEn": "Experimental Barrier",
-    "tooltip": "在<c val=\"E6E6E6\">秒内<n/></c>提升监管者的护盾。<n/><c val=\"87CEEB\">护盾奖励：</c> ///",
+    "tooltip": "在<c val=\"E6E6E6\">15秒内<n/></c>提升监管者的护盾。<n/><c val=\"87CEEB\">护盾奖励：</c> <c val=\"87CEEB\">500</c>/<c val=\"87CEEB\">1000</c>/<c val=\"87CEEB\">1500</c>/<c val=\"87CEEB\">2000</c>",
     "icon": "btn-ability-protoss-blinkshieldrestore.png"
   },
   "WardenTaunt": {
     "nameZh": "嘲讽",
     "nameEn": "Taunt",
-    "tooltip": "使范围内所有敌方非英雄单位尝试攻击监管者。",
+    "tooltip": "使范围内所有敌方非英雄单位尝试攻击监管者。<n/><c val=\"E6E6E6\">半径：</c> <c val=\"E6E6E6\">8</c>",
     "icon": "btn-progression-protoss-fenix-15-networksuperiority.png"
   },
   "WardenSprint": {
     "nameZh": "冲刺",
     "nameEn": "Sprint",
-    "tooltip": "监管者在<c val=\"E6E6E6\">秒</c>内大幅提高移动速度。",
+    "tooltip": "监管者在<c val=\"E6E6E6\">10秒</c>内大幅提高移动速度。",
     "icon": "btn-ability-protoss-charge-color.png"
   },
   "SelendisTimeWarp": {
@@ -525,7 +525,7 @@
   "ScionOverdrive": {
     "nameZh": "过载",
     "nameEn": "Overdrive",
-    "tooltip": "使半径 1 内的单位进入超速状态，使其运作速度提升 2 倍。<n/><c val=\"FF6B6B\">每局游戏每个单位只能使用一次</c><n/><c val=\"FF6B6B\">无法用于灵魂银行。</c><n/>持续时间: <c val=\"E6E6E6\">2秒</c>|<c val=\"E6E6E6\">3秒</c>|<c val=\"E6E6E6\">4秒</c>|<c val=\"E6E6E6\">5秒</c><n/>充能: <c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">2</c><n/><c val=\"8FC7FF\">能量消耗: 50</c>",
+    "tooltip": "使半径 1 格范围内的单位进入超速状态，使其行动更快。<n/><c val=\"FF6B6B\">每个单位每局游戏只能使用一次</c><n/><c val=\"FF6B6B\">无法对灵魂银行使用。</c><n/>速度：<c val=\"E6E6E6\">1.75x</c>|<c val=\"E6E6E6\">2x</c>|<c val=\"E6E6E6\">2.25x</c>|<c val=\"E6E6E6\">2.5x</c><n/>持续时间：<c val=\"E6E6E6\">5秒</c>|<c val=\"E6E6E6\">5秒</c>|<c val=\"E6E6E6\">5秒</c>|<c val=\"E6E6E6\">5秒</c><n/>充能次数：<c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">2</c><n/><c val=\"8FC7FF\">能量消耗：50</c>",
     "icon": "btn-upgrade-karax-chronofield.png"
   },
   "Accelerate": {
@@ -698,7 +698,7 @@
   "BrakkCharge": {
     "nameZh": "原始冲锋",
     "nameEn": "Primal Charge",
-    "tooltip": "巴拉克向目标点冲锋，对沿途敌人造成伤害并将其击退。抵达时，在<c val=\"E6E6E6\">4范围</c>内施加强力击退。所有被击中的敌人都会被减速。<n/><c val=\"FF8080\">伤害</c>：|||<n/><c val=\"90EE90\">减速</c>：<c val=\"90EE90\">20%</c>|<c val=\"90EE90\">30%</c>|<c val=\"90EE90\">40%</c>|<c val=\"90EE90\">50%</c>，抵达时持续<c val=\"E6E6E6\">2秒</c>。<n/><c val=\"E6E6E6\">范围</c>：<c val=\"E6E6E6\">12</c>|<c val=\"E6E6E6\">13</c>|<c val=\"E6E6E6\">14</c>|<c val=\"E6E6E6\">15</c><n/><c val=\"00FF7F\">伤害减免</c>：<c val=\"00FF7F\">100.5%（冲锋期间及抵达后2秒内）。</c><n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">30秒</c><n/><c val=\"FF6B6B\">巴拉克在冲锋期间无法接受指令。</c>",
+    "tooltip": "巴拉克向目标点冲锋，对沿途敌人造成伤害并将其击退。抵达时，他会将半径 <c val=\"E6E6E6\">4 格</c>范围内的敌人击退。英雄单位会被击退 <c val=\"E6E6E6\">1 格</c>；非英雄单位会被击退 <c val=\"E6E6E6\">4 格</c>。所有被命中的敌人都会被减速。<n/><c val=\"FF8080\">伤害</c>：|||<n/><c val=\"90EE90\">减速</c>：<c val=\"90EE90\">20%</c>|<c val=\"90EE90\">30%</c>|<c val=\"90EE90\">40%</c>|<c val=\"90EE90\">50%</c>，抵达时持续 <c val=\"E6E6E6\">2 秒</c>。<n/><c val=\"E6E6E6\">范围</c>：<c val=\"E6E6E6\">12</c>|<c val=\"E6E6E6\">13</c>|<c val=\"E6E6E6\">14</c>|<c val=\"E6E6E6\">15</c><n/><c val=\"90EE90\">冲锋速度</c>：<c val=\"90EE90\">+3.5</c>|<c val=\"90EE90\">+4</c>|<c val=\"90EE90\">+4.5</c>|<c val=\"90EE90\">+5</c><n/><c val=\"00FF7F\">伤害减免</c>：冲锋期间及抵达后 2 秒内为 <c val=\"00FF7F\">100.5%</c>。<n/><c val=\"8FC7FF\">能量消耗</c>：<c val=\"8FC7FF\">50</c><n/><c val=\"E6E6E6\">冷却时间</c>：<c val=\"E6E6E6\">30 秒</c><n/><c val=\"FF6B6B\">巴拉克在冲锋期间无法被下达指令。</c>",
     "icon": "btn-ability-zerg-dehaka-ultralisk-brutalcharge.png"
   },
   "GlevigTunnel": {
@@ -734,19 +734,19 @@
   "DeltaSquadDefensiveMatrix2": {
     "nameZh": "防御矩阵",
     "nameEn": "Defensive Matrix",
-    "tooltip": "为目标友方单位创建临时护盾。无法对自己的单位施放。<n/><c val=\"FFFF00\">持续时间</c>: 10秒<n/><c val=\"00FFFF\">护盾: </c>250/750/2500/5000<n/><c val=\"0080C0\">护盾护甲: </c>/10/15/20",
+    "tooltip": "在一个友方单位周围创建临时护盾。你的单位获得护盾值、护盾恢复量和护盾护甲的50%。<n/>持续时间：10秒<n/>友方单位护盾：250 / 750 / 2500 / 5000<n/>己方单位护盾：125 / 375 / 1250 / 2500",
     "icon": "btn-upgrade-swann-defensivematrix.png"
   },
   "DeltaSquadPhantomOpenFire": {
     "nameZh": "开火",
     "nameEn": "Open Fire",
-    "tooltip": "短时间内激活女妖的武器系统。<n/><c val=\"FFFFFF\">持续时间:</c> <c val=\"FFFFFF\" validator=\"DSOpenFire1\">20s</c>/<c val=\"FFFFFF\" validator=\"DSOpenFire2\">30s</c>/<c val=\"FFFFFF\" validator=\"DSOpenFire3\">40s</c>/<c val=\"FFFFFF\" validator=\"DSOpenFire4\">50s</c><n/><c val=\"FFFF00\">冷却: </c><c val=\"FFFF00\" validator=\"DSOpenFire1\">40s</c>/<c val=\"FFFF00\" validator=\"DSOpenFire2\">45s</c>/<c val=\"FFFF00\" validator=\"DSOpenFire3\">50s</c>/<c val=\"FFFF00\" validator=\"DSOpenFire4\">55s</c> <n/><c val=\"BB77FF\">能量消耗:</c> 40",
+    "tooltip": "戈尔贡每次攻击最多可攻击周围区域内的3名敌人。<n/>在有限时间内激活武器。<n/><c val=\"FFFFFF\">持续时间：</c> <c val=\"FFFFFF\" validator=\"DSOpenFire1\">20秒</c>/<c val=\"FFFFFF\" validator=\"DSOpenFire2\">30秒</c>/<c val=\"FFFFFF\" validator=\"DSOpenFire3\">40秒</c>/<c val=\"FFFFFF\" validator=\"DSOpenFire4\">50秒</c><n/><c val=\"FFFF00\">冷却： </c><c val=\"FFFF00\" validator=\"DSOpenFire1\">40秒</c>/<c val=\"FFFF00\" validator=\"DSOpenFire2\">45秒</c>/<c val=\"FFFF00\" validator=\"DSOpenFire3\">50秒</c>/<c val=\"FFFF00\" validator=\"DSOpenFire4\">55秒</c> <n/><c val=\"BB77FF\">能量消耗：</c> 40",
     "icon": "btn-ability-terran-bombardmentstrike-color.png"
   },
   "DSHyperjump": {
     "nameZh": "超级弹跳",
     "nameEn": "HyperJump",
-    "tooltip": "传送一小段距离。\n\n更高的等级会增加距离并减少冷却时间。",
+    "tooltip": "将该单位传送至目标位置。每个技能等级都会增加跳跃距离并缩短冷却时间。<n/>跳跃距离：5 / 7 / 9 / 11<n/>冷却：60秒 / 50秒 / 40秒 / 30秒<n/>能量消耗：25",
     "icon": "btn-ability-hornerhan-fleethyperjump.png"
   },
   "DSBuildRadarTower1": {
@@ -812,7 +812,7 @@
   "AlarakSprint": {
     "nameZh": "冲刺",
     "nameEn": "Sprint",
-    "tooltip": "阿拉纳克跑得更快了持续 10 秒。",
+    "tooltip": "阿拉纳克的移动速度大幅提高，持续15秒。",
     "icon": "btn-ability-protoss-charge-color.png"
   },
   "AlarakSacrifice": {
@@ -842,13 +842,13 @@
   "IzshaCalldownInfestedBlimp": {
     "nameZh": "呼叫被感染的飞船",
     "nameEn": "Calldown Infested Blimp",
-    "tooltip": "呼叫被感染的飞船。<n/><c val=\"98FB98\">可以使用远视、腐蚀喷射和生成菌毯。</c><n/><c val=\"FF0000\">处于远视状态的飞船无法移动，无法返回之前的形态，但会获得额外技能。</c><n/><c val=\"E6E6E6\">腐蚀喷射</c>：等级2<n/><c val=\"E6E6E6\">生成菌毯</c>：等级3<n/><c val=\"00FF00\">生命值：</c> <c val=\"00FF00\" validator=\"IzshaInfestedBlimp1\">150</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp2\">200</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp3\">250</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp4\">300</c><n/><c val=\"FFFF00\">远视视野：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">8</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">10</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">12</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">14</c><n/><c val=\"FFFF00\">人口消耗：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">2</c> <n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">60秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">55秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">50秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">45秒</c><n/><c val=\"BB77FF\">能量消耗：</c> <c val=\"BB77FF\" validator=\"IzshaInfestedBlimp1\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp2\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp3\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp4\">50</c>",
+    "tooltip": "呼叫被感染的飞船。<n/><c val=\"98FB98\">可以使用远视、腐蚀喷射和生成菌毯。</c><n/><c val=\"FF0000\">处于远视状态的飞船无法移动，无法返回之前的形态，但会获得额外技能。</c><n/><c val=\"E6E6E6\">腐蚀喷射</c>：等级2<n/><c val=\"E6E6E6\">生成菌毯</c>：等级3<n/><c val=\"00FF00\">生命值：</c> <c val=\"00FF00\" validator=\"IzshaInfestedBlimp1\">150</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp2\">200</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp3\">250</c>|<c val=\"00FF00\" validator=\"IzshaInfestedBlimp4\">300</c><n/><c val=\"FFFF00\">远视视野：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">6</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">8</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">10</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">12</c><n/><c val=\"FFFF00\">人口消耗：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">2</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">2</c> <n/><c val=\"FFFF00\">冷却时间：</c> <c val=\"FFFF00\" validator=\"IzshaInfestedBlimp1\">60秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp2\">55秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp3\">50秒</c>|<c val=\"FFFF00\" validator=\"IzshaInfestedBlimp4\">45秒</c><n/><c val=\"BB77FF\">能量消耗：</c> <c val=\"BB77FF\" validator=\"IzshaInfestedBlimp1\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp2\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp3\">50</c>|<c val=\"BB77FF\" validator=\"IzshaInfestedBlimp4\">50</c>",
     "icon": "btn-unit-terran-blimpmengsk.png"
   },
   "IzshaSummonCorruptedWall": {
     "nameZh": "被感染的地堡",
     "nameEn": "Summon Corrupted Wall",
-    "tooltip": "创建一个被感染的地堡，一旦扎根就会产生减速光环。<n/><c val=\"FF6B6B\">内部单位无法攻击</c><n/><c val=\"00FF00\">生命值：</c><c val=\"00FF00\" validator=\"IzshaCorruptedWall1\">1500</c>|<c val=\"00FF00\" validator=\"IzshaCorruptedWall2\">2000</c>|<c val=\"00FF00\" validator=\"IzshaCorruptedWall3\">2500</c>|<c val=\"00FF00\" validator=\"IzshaCorruptedWall4\">3000</c><n/><c val=\"008040\">移动减益：</c><c val=\"008040\" validator=\"IzshaCorruptedWall1\">-25%</c>|<c val=\"008040\" validator=\"IzshaCorruptedWall2\">-35%</c>|<c val=\"008040\" validator=\"IzshaCorruptedWall3\">-45%</c>|<c val=\"008040F00\" validator=\"IzshaCorruptedWall4\">-55%</c><n/><c val=\"FFFF00\">光环半径：</c><c val=\"FFFF00\" validator=\"IzshaCorruptedWall1\">5</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall2\">5</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall3\">5</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall4\">5</c><n/><c val=\"FFFF00\">补给消耗：</c><c val=\"FFFF00\" validator=\"IzshaCorruptedWall1\">3</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall2\">3</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall3\">3</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall4\">3</c><n/><c val=\"FFFF00\">冷却时间：</c><c val=\"FFFF00\" validator=\"IzshaCorruptedWall1\">60秒</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall2\">55秒</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall3\">50秒</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall4\">45秒</c><n/><c val=\"BB77FF\">能量消耗：</c><c val=\"BB77FF\" validator=\"IzshaCorruptedWall1\">45</c>|<c val=\"BB77FF\" validator=\"IzshaCorruptedWall2\">40</c>|<c val=\"BB77FF\" validator=\"IzshaCorruptedWall3\">35</c>|<c val=\"BB77FF\" validator=\"IzshaCorruptedWall4\">30</c>",
+    "tooltip": "创建一个被感染的地堡，一旦扎根就会产生减速光环。<n/><c val=\"FF6B6B\">内部单位无法攻击</c><n/><c val=\"00FF00\">生命值：</c><c val=\"00FF00\" validator=\"IzshaCorruptedWall1\">1000</c>|<c val=\"00FF00\" validator=\"IzshaCorruptedWall2\">1500</c>|<c val=\"00FF00\" validator=\"IzshaCorruptedWall3\">2000</c>|<c val=\"00FF00\" validator=\"IzshaCorruptedWall4\">2500</c><n/><c val=\"008040\">移动减益：</c><c val=\"008040\" validator=\"IzshaCorruptedWall1\">-20%</c>|<c val=\"008040\" validator=\"IzshaCorruptedWall2\">-30%</c>|<c val=\"008040\" validator=\"IzshaCorruptedWall3\">-40%</c>|<c val=\"008040F00\" validator=\"IzshaCorruptedWall4\">-50%</c><n/><c val=\"FFFF00\">光环半径：</c><c val=\"FFFF00\" validator=\"IzshaCorruptedWall1\">5</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall2\">5</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall3\">5</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall4\">5</c><n/><c val=\"FFFF00\">补给消耗：</c><c val=\"FFFF00\" validator=\"IzshaCorruptedWall1\">3</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall2\">3</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall3\">3</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall4\">3</c><n/><c val=\"FFFF00\">冷却时间：</c><c val=\"FFFF00\" validator=\"IzshaCorruptedWall1\">60秒</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall2\">55秒</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall3\">50秒</c>|<c val=\"FFFF00\" validator=\"IzshaCorruptedWall4\">45秒</c><n/><c val=\"BB77FF\">能量消耗：</c><c val=\"BB77FF\" validator=\"IzshaCorruptedWall1\">45</c>|<c val=\"BB77FF\" validator=\"IzshaCorruptedWall2\">40</c>|<c val=\"BB77FF\" validator=\"IzshaCorruptedWall3\">35</c>|<c val=\"BB77FF\" validator=\"IzshaCorruptedWall4\">30</c>",
     "icon": "wireframe-infestedbunkermorph.png"
   },
   "IzshaSpawnBiotrap": {
@@ -859,7 +859,7 @@
   "IzshaIsolation": {
     "nameZh": "隔离",
     "nameEn": "Izsha Isolation",
-    "tooltip": "标记目标位置，短暂延迟后降下一场灾祸，造成伤害并对敌方单位施加减益效果。<n/><c val=\"FF8080\">伤害</c>: ||| (每英雄等级+%)<n/><c val=\"8FC7FF\">能量汲取</c>: <c val=\"8FC7FF\">-15% 每次命中</c><n/><c val=\"E6E6E6\">范围半径</c>: <c val=\"E6E6E6\">1.5</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">2.5</c>|<c val=\"E6E6E6\">3</c><n/><c val=\"E6E6E6\">范围</c>: <c val=\"E6E6E6\">8</c><n/><c val=\"FFFF00\">冷却时间: </c><c val=\"FFFF00\" validator=\"IzshaIsolation1\">1秒</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation2\">1秒</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation3\">1秒</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation4\">1秒</c><n/><c val=\"FFFF00\">充能: </c><c val=\"FFFF00\" validator=\"IzshaIsolation1\">3</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation2\">6</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation3\">9</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation4\">12</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">15</c>|<c val=\"8FC7FF\">15</c>|<c val=\"8FC7FF\">15</c>|<c val=\"8FC7FF\">15</c>",
+    "tooltip": "标记目标位置，短暂延迟后降下一场灾祸，造成伤害并对敌方单位施加减益效果。<n/><c val=\"FF8080\">伤害</c>: ||| (每英雄等级+%)<n/><c val=\"8FC7FF\">能量汲取</c>: <c val=\"8FC7FF\">-15% 每次命中</c><n/><c val=\"E6E6E6\">范围半径</c>: <c val=\"E6E6E6\">1.5</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">2.5</c>|<c val=\"E6E6E6\">3</c><n/><c val=\"E6E6E6\">范围</c>: <c val=\"E6E6E6\">8</c><n/><c val=\"FFFF00\">冷却时间: </c><c val=\"FFFF00\" validator=\"IzshaIsolation1\">2秒</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation2\">2秒</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation3\">2秒</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation4\">2秒</c><n/><c val=\"FFFF00\">充能: </c><c val=\"FFFF00\" validator=\"IzshaIsolation1\">3</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation2\">6</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation3\">9</c>|<c val=\"FFFF00\" validator=\"IzshaIsolation4\">12</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">30</c>|<c val=\"8FC7FF\">30</c>|<c val=\"8FC7FF\">30</c>|<c val=\"8FC7FF\">30</c>",
     "icon": "btn-upgrade-zagara-scourgesplashdamage.png"
   },
   "MalusCorruptionBomb": {
@@ -1051,7 +1051,7 @@
   "DJAllPartOfTheShow": {
     "nameZh": "整场演出",
     "nameEn": "All Part Of The Show",
-    "tooltip": "冷却时间减少：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">15</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">20</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">25<n/>范围：<c val=\"FFFFFF\" validator=\"AllPartOfTheShow\"> 5</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow2\">7</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow3\">10</c><n/>额外视野半径：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">3</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">5</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">7</c><n/>冷却时间：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">60</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">45</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">30<n/>目标：<c val=\" FFFF00\" validator=\"AllPartOfTheShow\">您的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">您的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">盟军单位",
+    "tooltip": "冷却缩减： <c val=\" FFFF00\" validator=\"AllPartOfTheShow\">15</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">20</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">25<n/>冷却缩减： <c val=\" FFFF00\" validator=\"AllPartOfTheShow\">15</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">10</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">5<n/>范围： <c val=\"FFFFFF\" validator=\"AllPartOfTheShow\"> 5</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow2\">7</c>|<c val=\"FFFFFF\" validator=\"AllPartOfTheShow3\">10</c><n/>额外视野半径： <c val=\" FFFF00\" validator=\"AllPartOfTheShow\">3</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">5</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">7</c><n/>冷却时间： <c val=\" FFFF00\" validator=\"AllPartOfTheShow\">60</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">45</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">30<n/>目标： <c val=\" FFFF00\" validator=\"AllPartOfTheShow\">你的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow2\">你的单位</c>|<c val=\" FFFF00\" validator=\"AllPartOfTheShow3\">友方单位",
     "icon": "ui_glues_icons_clanleader.png"
   },
   "RattlesnakeDeployRevitalizer": {
@@ -1127,13 +1127,13 @@
   "ChewFlex": {
     "nameZh": "大显熊威",
     "nameEn": "Flex",
-    "tooltip": "经过4秒蓄力（生命回复提高400%）后，秋伊将不受控制地追击目标最多10秒。\n追击期间秋伊无敌、不可阻挡且不可操控。\n命中目标会使去吧秋比！的晶体矿消耗降低5，最低降至10，每研究一级攻击、防御或储备则提高1。\n同时会使秋伊的秋伊小跟班攻击的晶体矿消耗降低1，最低降至基础值5。\n超出的减免会被储存，用于抵消之后的花费提高。",
+    "tooltip": "经过4秒的施法准备并获得400%的额外生命再生后，秋伊会不受控制地追逐目标，最长持续10秒。\n秋伊在追逐期间处于无敌状态、不可阻挡且无法下达命令。\n每次成功攻击英雄敌人会依次获得100、200、400、800和1600晶体矿。之后成功的攻击均会获得1600晶体矿。秋伊变为秋伊拉后，大显熊威进入60秒冷却。成功攻击英雄敌人仍会获得1600晶体矿。秋伊拉还可以将非英雄敌人作为目标，并在攻击完成时将其立即击杀。",
     "icon": "ui_emoticons_flex.png"
   },
   "MeanyUnit": {
     "nameZh": "小气鬼",
     "nameEn": "Meany Unit",
-    "tooltip": "击退目标，对附近敌人造成伤害，并使被击中的秋伊小跟班狂暴7秒。<n/>狂暴的秋伊小跟班获得15%移动速度、20%攻击速度和50%最大生命值；有效的普通攻击会重置该持续时间。<n/>直接命中的秋伊小跟班在狂暴结束后存活，并成为冰洞建造者。其他狂暴的秋伊小跟班会在结束前闪烁，随后爆炸。<n/><c val=\"FF8080\">伤害：（每个英雄等级+10%）</c><n/><c val=\"00FF7F\">回复生命：0%最大生命值（增强治疗术）</c>",
+    "tooltip": "击退目标，对附近敌人造成伤害，并使命中的秋伊小跟班狂暴7秒。<n/>狂暴的秋伊小跟班获得15%移动速度、20%攻击速度和50%最大生命值。有效的普通攻击会重置持续时间，但每次狂暴期间仅第一次命中建筑单位的攻击可以这样做。<n/>狂暴的秋伊小跟班会闪烁，并在效果结束时爆炸。<n/><c val=\"FF8080\">伤害：（每个英雄等级+10%）</c>",
     "icon": "btn-upgrade-protoss-alarak-waveknockbackdistanceincreased.png"
   },
   "ChewbieGo": {

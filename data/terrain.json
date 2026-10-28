@@ -1,6 +1,18 @@
 {
-  "defaultMap": "zerus_volcanoes",
+  "defaultMap": "ruins_of_imladoon",
   "maps": [
+    {
+      "key": "ruins_of_imladoon",
+      "map": "RuinsOfImladoon",
+      "nameZh": "伊姆拉顿废墟",
+      "tileset": "RuinsOfImladoon",
+      "worldSize": 256,
+      "minimap": "/maps/ruins_of_imladoon.png",
+      "rockModel": "ZerusVolcanoesRock",
+      "rockProbDefault": 0.5,
+      "candidateCount": 160,
+      "date": null
+    },
     {
       "key": "zerus_volcanoes",
       "map": "ZerusVolcanoes",
@@ -11,7 +23,55 @@
       "rockModel": "ZerusVolcanoesRock",
       "rockProbDefault": 0.5,
       "candidateCount": 136,
-      "date": null
+      "date": "2026-10-12"
+    },
+    {
+      "key": "aduns_forgotten_temple",
+      "map": "AdunsForgottenTemple",
+      "nameZh": "阿顿的失落神庙",
+      "tileset": "AdunsForgottenTemple",
+      "worldSize": 256,
+      "minimap": "/maps/aduns_forgotten_temple.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 145,
+      "date": "2026-10-09"
+    },
+    {
+      "key": "no_hope",
+      "map": "NoHope",
+      "nameZh": "绝望之地",
+      "tileset": "NoHopeTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/no_hope.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 172,
+      "date": "2026-10-03"
+    },
+    {
+      "key": "mar_sara_wastelands",
+      "map": "MarSaraWastelands",
+      "nameZh": "玛尔萨拉废土",
+      "tileset": "MarSaraEx1",
+      "worldSize": 256,
+      "minimap": "/maps/mar_sara_wastelands.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 137,
+      "date": "2026-09-24"
+    },
+    {
+      "key": "aduns_forgotten_temple_20260911",
+      "map": "AdunsForgottenTemple",
+      "nameZh": "阿顿的失落神庙",
+      "tileset": "AdunsForgottenTemple",
+      "worldSize": 256,
+      "minimap": "/maps/aduns_forgotten_temple_20260911.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 89,
+      "date": "2026-09-11"
     },
     {
       "key": "aiur_fountains",
@@ -26,12 +86,12 @@
       "date": "2026-09-01"
     },
     {
-      "key": "no_hope",
+      "key": "no_hope_20260828",
       "map": "NoHope",
       "nameZh": "绝望之地",
       "tileset": "NoHopeTerrainType",
       "worldSize": 256,
-      "minimap": "/maps/no_hope.png",
+      "minimap": "/maps/no_hope_20260828.png",
       "rockModel": "CommonRockBlackStones",
       "rockProbDefault": 0.5,
       "candidateCount": 172,
@@ -110,12 +170,12 @@
       "date": "2026-07-13"
     },
     {
-      "key": "ruins_of_imladoon",
+      "key": "ruins_of_imladoon_20260602",
       "map": "RuinsOfImladoon",
       "nameZh": "伊姆拉顿废墟",
       "tileset": "RuinsOfImladoon",
       "worldSize": 256,
-      "minimap": "/maps/ruins_of_imladoon.png",
+      "minimap": "/maps/ruins_of_imladoon_20260602.png",
       "rockModel": "ZerusVolcanoesRock",
       "rockProbDefault": 0.5,
       "candidateCount": 143,
@@ -276,30 +336,6 @@
       "rockProbDefault": 0.5,
       "candidateCount": 199,
       "date": "2025-12-05"
-    },
-    {
-      "key": "aduns_forgotten_temple",
-      "map": "AdunsForgottenTemple",
-      "nameZh": "阿顿的失落神庙",
-      "tileset": "AdunsForgottenTemple",
-      "worldSize": 256,
-      "minimap": "/maps/aduns_forgotten_temple.png",
-      "rockModel": "CommonRockBlackStones",
-      "rockProbDefault": 0.5,
-      "candidateCount": 145,
-      "date": null
-    },
-    {
-      "key": "mar_sara_wastelands",
-      "map": "MarSaraWastelands",
-      "nameZh": "玛尔萨拉废土",
-      "tileset": "MarSaraEx1",
-      "worldSize": 256,
-      "minimap": "/maps/mar_sara_wastelands.png",
-      "rockModel": "CommonRockBlackStones",
-      "rockProbDefault": 0.5,
-      "candidateCount": 137,
-      "date": null
     }
   ]
 }

@@ -53,7 +53,7 @@ CLIFFLEVEL_HEADER = 32    # t3SyncCliffLevel: 32-byte header then worldSize^2 in
 # faces. <=48 => same ramp/plateau; a larger jump is a cliff only ramps bridge.
 CLIFF_STEP = 48
 CELLATTR_HEADER = 4       # CellAttribute_Pnp: 4-byte header then worldSize^2 bytes, 1/cell
-DEFAULT_MAP_KEY = 'zerus_volcanoes'
+DEFAULT_MAP_KEY = 'ruins_of_imladoon'
 
 # The 22-map terrain pool (Scripts/*.galaxy ge_MapName_*). Each entry:
 #   enum (as in ge_MapName_<ENUM>), CamelKey, snake_key, 中文名, tileset aliases

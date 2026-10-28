@@ -11877,7 +11877,7 @@
           "kind": "build",
           "time": 10,
           "cooldown": 60,
-          "requirements": "WardenHaveCoreMatrix",
+          "requirements": "WardenHaveChronoWard",
           "button": "WardenWarpInAccelerationPrototype",
           "units": [
             "WardenAccelerationPrototype"
@@ -11985,7 +11985,7 @@
           "kind": "build",
           "time": 10,
           "cooldown": 60,
-          "requirements": "WardenHaveCoreMatrix",
+          "requirements": "WardenHaveChronoWard",
           "button": "WardenWarpInAccelerationPrototype",
           "units": [
             "WardenAccelerationPrototype"
@@ -21530,7 +21530,6 @@
         "ScientistFlashlight",
         "DSCommerceCenter",
         "DSArmory",
-        "SoulcatchingZoneWeapon",
         "ScientistFlashlight1",
         "DSCommerceCenter4",
         "ScientistFlashlightL2",
@@ -22041,20 +22040,6 @@
           "button": "DSBuildArmory",
           "units": [
             "DSArmory"
-          ]
-        },
-        {
-          "from": "DSGrimReaper",
-          "abil": "SoulcatchingZone",
-          "kind": "summon",
-          "cooldown": 120,
-          "count": 1,
-          "energy": 125,
-          "costDelta": {
-            "Minerals": 200
-          },
-          "units": [
-            "SoulcatchingZoneWeapon"
           ]
         },
         {
@@ -24226,7 +24211,7 @@
           "abil": "AlarakBuild",
           "index": "Build3",
           "kind": "build",
-          "time": 10,
+          "time": 5,
           "button": "AlarakWarpInGateway",
           "units": [
             "AlarakGateway"
@@ -24358,7 +24343,7 @@
           "abil": "AlarakTrain",
           "index": "Train3",
           "kind": "train",
-          "time": 5,
+          "time": 3,
           "button": "AlarakWarpInHavoc",
           "units": [
             "AlarakHavoc"
@@ -24433,7 +24418,7 @@
           "abil": "AlarakTrain",
           "index": "Train3",
           "kind": "train",
-          "time": 5,
+          "time": 3,
           "button": "AlarakWarpInHavoc",
           "units": [
             "AlarakHavoc"
@@ -24499,7 +24484,7 @@
           "abil": "AlarakTrain",
           "index": "Train3",
           "kind": "train",
-          "time": 5,
+          "time": 3,
           "button": "AlarakWarpInHavoc",
           "units": [
             "AlarakHavoc"
@@ -24601,7 +24586,7 @@
           "abil": "AlarakBuild",
           "index": "Build3",
           "kind": "build",
-          "time": 10,
+          "time": 5,
           "button": "AlarakWarpInGateway",
           "units": [
             "AlarakGateway"
@@ -26767,7 +26752,7 @@
               "unitEnergyRegen": null,
               "duration": null,
               "absorbMax": null,
-              "hp": 2000,
+              "hp": 1500,
               "armor": 1,
               "minerals": 0
             },
@@ -26781,7 +26766,7 @@
               "unitEnergyRegen": null,
               "duration": null,
               "absorbMax": null,
-              "hp": 2500,
+              "hp": 2000,
               "armor": 1,
               "minerals": 0
             },
@@ -26795,7 +26780,7 @@
               "unitEnergyRegen": null,
               "duration": null,
               "absorbMax": null,
-              "hp": 3000,
+              "hp": 2500,
               "armor": 1,
               "minerals": 0
             }
@@ -27158,7 +27143,10 @@
           "abil": "MalusBuildMaldusNetwork1",
           "index": "Build1",
           "kind": "build",
-          "cooldown": 90,
+          "charge": {
+            "timeUse": 90,
+            "countMax": 2
+          },
           "requirements": "MalusBuildMaldusNetwork1",
           "button": "MalusMaldusNetwork1",
           "units": [
@@ -27170,7 +27158,10 @@
           "abil": "MalusBuildMaldusNetwork2",
           "index": "Build1",
           "kind": "build",
-          "cooldown": 75,
+          "charge": {
+            "timeUse": 75,
+            "countMax": 2
+          },
           "requirements": "MalusBuildMaldusNetwork2",
           "button": "MalusMaldusNetwork2",
           "units": [
@@ -27182,7 +27173,10 @@
           "abil": "MalusBuildMaldusNetwork3",
           "index": "Build1",
           "kind": "build",
-          "cooldown": 60,
+          "charge": {
+            "timeUse": 60,
+            "countMax": 2
+          },
           "requirements": "MalusBuildMaldusNetwork3",
           "button": "MalusMaldusNetwork3",
           "units": [
@@ -27194,7 +27188,10 @@
           "abil": "MalusBuildMaldusNetwork4",
           "index": "Build1",
           "kind": "build",
-          "cooldown": 45,
+          "charge": {
+            "timeUse": 45,
+            "countMax": 2
+          },
           "requirements": "MalusBuildMaldusNetwork4",
           "button": "MalusMaldusNetwork4",
           "units": [
@@ -37120,6 +37117,7 @@
         "ChewIceCave16",
         "ChewIceCaveEco32",
         "ChewBuilderChewbie",
+        "ChewbieThrower",
         "ChewProtez"
       ],
       "edges": [
@@ -37265,6 +37263,28 @@
           "button": "ChewTrainBuilder",
           "units": [
             "ChewBuilderChewbie"
+          ]
+        },
+        {
+          "from": "Chewbie",
+          "abil": "ChewbieLove",
+          "kind": "summon",
+          "cooldown": 180,
+          "count": 1,
+          "costDelta": {
+            "Minerals": 10
+          },
+          "units": [
+            "Chewbie"
+          ]
+        },
+        {
+          "from": "Chewbie",
+          "abil": "ChewbieMorphThrower",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "ChewbieThrower"
           ]
         },
         {
@@ -56578,7 +56598,7 @@
         "hpRegen": 0,
         "shieldRegen": 2,
         "energy": 0,
-        "speed": 2.8125,
+        "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 1,
         "armorName": "ProtossArmor",
@@ -70361,7 +70381,7 @@
               "upgrade": "EngineerTerranVehicleArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 10,
+              "time": 15,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -70386,7 +70406,7 @@
               "upgrade": "EngineerTerranVehicleArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -70411,7 +70431,7 @@
               "upgrade": "EngineerTerranVehicleArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -70610,7 +70630,7 @@
       ],
       "category": "economy",
       "stats": {
-        "hp": 800,
+        "hp": 600,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -70742,7 +70762,7 @@
       ],
       "category": "economy",
       "stats": {
-        "hp": 1500,
+        "hp": 1200,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -70869,7 +70889,7 @@
               "upgrade": "EngineerTerranVehicleArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 10,
+              "time": 15,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -70894,7 +70914,7 @@
               "upgrade": "EngineerTerranVehicleArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -70919,7 +70939,7 @@
               "upgrade": "EngineerTerranVehicleArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71069,7 +71089,7 @@
               "upgrade": "EngineerTerranVehicleArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 10,
+              "time": 15,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71094,7 +71114,7 @@
               "upgrade": "EngineerTerranVehicleArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71119,7 +71139,7 @@
               "upgrade": "EngineerTerranVehicleArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71157,7 +71177,7 @@
               "upgrade": "EngineerTerranVehicleWeapons1",
               "minerals": 500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71172,7 +71192,7 @@
               "upgrade": "EngineerTerranVehicleWeapons2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71187,7 +71207,7 @@
               "upgrade": "EngineerTerranVehicleWeapons3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71215,7 +71235,7 @@
               "upgrade": "ResearchRetrofitEngine",
               "minerals": 500,
               "gas": 10,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71348,7 +71368,7 @@
               "upgrade": "EngineerTerranVehicleArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 10,
+              "time": 15,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71373,7 +71393,7 @@
               "upgrade": "EngineerTerranVehicleArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71398,7 +71418,7 @@
               "upgrade": "EngineerTerranVehicleArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71436,7 +71456,7 @@
               "upgrade": "EngineerTerranVehicleWeapons1",
               "minerals": 500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71456,7 +71476,7 @@
               "upgrade": "EngineerTerranVehicleWeapons2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71476,7 +71496,7 @@
               "upgrade": "EngineerTerranVehicleWeapons3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71507,9 +71527,9 @@
             {
               "level": 1,
               "upgrade": "ResearchExperimentalPlating",
-              "minerals": 1500,
-              "gas": 15,
-              "time": 15,
+              "minerals": 3000,
+              "gas": 50,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71667,7 +71687,7 @@
               "upgrade": "EngineerTerranVehicleArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 10,
+              "time": 15,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71692,7 +71712,7 @@
               "upgrade": "EngineerTerranVehicleArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71717,7 +71737,7 @@
               "upgrade": "EngineerTerranVehicleArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71755,7 +71775,7 @@
               "upgrade": "EngineerTerranVehicleWeapons1",
               "minerals": 500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71775,7 +71795,7 @@
               "upgrade": "EngineerTerranVehicleWeapons2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71795,7 +71815,7 @@
               "upgrade": "EngineerTerranVehicleWeapons3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71899,7 +71919,7 @@
               "upgrade": "EngineerTerranVehicleArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 10,
+              "time": 15,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71924,7 +71944,7 @@
               "upgrade": "EngineerTerranVehicleArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71949,7 +71969,7 @@
               "upgrade": "EngineerTerranVehicleArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -71987,7 +72007,7 @@
               "upgrade": "ResearchAerialRadar",
               "minerals": 3000,
               "gas": 20,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -72043,7 +72063,7 @@
         "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 1.3007,
+        "speed": 1.5,
         "creepSpeedMul": null,
         "sight": 2,
         "armorName": "TerranBuildingPlating",
@@ -72085,7 +72105,7 @@
               "upgrade": "EngineerResearchCharonBoosters",
               "minerals": 500,
               "gas": 10,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -72122,14 +72142,14 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 800,
+        "hp": 600,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
         "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 1.1015,
+        "speed": 1.5,
         "creepSpeedMul": null,
         "sight": 2,
         "armorName": "TerranBuildingPlating",
@@ -72171,7 +72191,7 @@
               "upgrade": "EngineerResearchCharonBoosters",
               "minerals": 500,
               "gas": 10,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -72208,14 +72228,14 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 1500,
+        "hp": 1200,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
         "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 1.1015,
+        "speed": 1.5,
         "creepSpeedMul": null,
         "sight": 2,
         "armorName": "TerranBuildingPlating",
@@ -72257,7 +72277,7 @@
               "upgrade": "EngineerResearchCharonBoosters",
               "minerals": 500,
               "gas": 10,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -72343,7 +72363,7 @@
               "upgrade": "EngineerTerranVehicleArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 10,
+              "time": 15,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -72368,7 +72388,7 @@
               "upgrade": "EngineerTerranVehicleArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -72393,7 +72413,7 @@
               "upgrade": "EngineerTerranVehicleArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 15,
+              "time": 20,
               "researchedBy": "EngineerResearch2",
               "effects": [
                 {
@@ -86847,22 +86867,22 @@
                 {
                   "ref": "Unit,WardenWarden,ShieldsMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldsStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldArmor",
@@ -86897,22 +86917,22 @@
                 {
                   "ref": "Unit,WardenWarden,ShieldsMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldsStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldArmor",
@@ -86939,7 +86959,7 @@
             {
               "level": 3,
               "upgrade": "WardenArmorLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "WardenResearch",
@@ -86947,22 +86967,22 @@
                 {
                   "ref": "Unit,WardenWarden,ShieldsMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldsStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldArmor",
@@ -86989,6 +87009,56 @@
             {
               "level": 4,
               "upgrade": "WardenArmorLevel4",
+              "minerals": 25000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "WardenResearch",
+              "effects": [
+                {
+                  "ref": "Unit,WardenWarden,ShieldsMax",
+                  "op": "Multiply",
+                  "value": 1.8
+                },
+                {
+                  "ref": "Unit,WardenWarden,ShieldsStart",
+                  "op": "Multiply",
+                  "value": 1.8
+                },
+                {
+                  "ref": "Unit,WardenWarden,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.8
+                },
+                {
+                  "ref": "Unit,WardenWarden,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.8
+                },
+                {
+                  "ref": "Unit,WardenWarden,ShieldArmor",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Unit,WardenWarden,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Unit,WardenWarden,ShieldRegenRate",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Unit,WardenWarden,LifeRegenRate",
+                  "op": "Multiply",
+                  "value": 1.5
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "WardenArmorLevel5",
               "minerals": 50000,
               "gas": 0,
               "time": 10,
@@ -86997,22 +87067,22 @@
                 {
                   "ref": "Unit,WardenWarden,ShieldsMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldsStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeStart",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,LifeMax",
                   "op": "Multiply",
-                  "value": 2
+                  "value": 1.8
                 },
                 {
                   "ref": "Unit,WardenWarden,ShieldArmor",
@@ -87156,12 +87226,12 @@
                 {
                   "ref": "Effect,WardenWhirlwindDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 },
                 {
                   "ref": "Effect,WardenWeaponDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             },
@@ -87176,19 +87246,19 @@
                 {
                   "ref": "Effect,WardenWhirlwindDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 },
                 {
                   "ref": "Effect,WardenWeaponDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "WardenWeaponsLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "WardenResearch",
@@ -87196,18 +87266,38 @@
                 {
                   "ref": "Effect,WardenWhirlwindDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 },
                 {
                   "ref": "Effect,WardenWeaponDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "WardenWeaponsLevel4",
+              "minerals": 25000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "WardenResearch",
+              "effects": [
+                {
+                  "ref": "Effect,WardenWhirlwindDamage,Amount",
+                  "op": "Multiply",
+                  "value": 1.4
+                },
+                {
+                  "ref": "Effect,WardenWeaponDamage,Amount",
+                  "op": "Multiply",
+                  "value": 1.4
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "WardenWeaponsLevel5",
               "minerals": 50000,
               "gas": 0,
               "time": 10,
@@ -87216,12 +87306,12 @@
                 {
                   "ref": "Effect,WardenWhirlwindDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 },
                 {
                   "ref": "Effect,WardenWeaponDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             }
@@ -87323,34 +87413,6 @@
           ]
         },
         {
-          "family": "WardenOpticalSensors",
-          "nameZh": "研究光学传感器",
-          "category": null,
-          "kind": "option",
-          "researchable": true,
-          "dimensions": [
-            "sight"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "WardenOpticalSensors",
-              "minerals": 1500,
-              "gas": 15,
-              "time": 10,
-              "researchedBy": "WardenResearch",
-              "effects": [
-                {
-                  "ref": "Unit,WardenWarden,Sight",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            }
-          ]
-        },
-        {
           "family": "WardenStormWhirlwind",
           "nameZh": "研究风暴旋风斩",
           "category": "Talents",
@@ -87372,6 +87434,34 @@
                 {
                   "ref": "Effect,WardenWhirlwindDamage,Amount",
                   "op": "Multiply",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "WardenVisionSensors",
+          "nameZh": "光学传感器",
+          "category": "Talents",
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "WardenVisionSensors",
+              "minerals": 1000,
+              "gas": 10,
+              "time": 10,
+              "researchedBy": "WardenResearch",
+              "effects": [
+                {
+                  "ref": "Unit,WardenWarden,Sight",
+                  "op": "Add",
                   "value": 2
                 }
               ]
@@ -88011,7 +88101,7 @@
             {
               "level": 3,
               "upgrade": "WardenArmorLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "WardenResearch",
@@ -88049,13 +88139,58 @@
                 {
                   "ref": "Unit,WardenHawk,ShieldRegenRate",
                   "op": "Add",
-                  "value": 2
+                  "value": 1.8
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "WardenArmorLevel4",
+              "minerals": 25000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "WardenResearch",
+              "effects": [
+                {
+                  "ref": "Unit,WardenHawk,ShieldsMax",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,WardenHawk,ShieldsStart",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,WardenHawk,LifeStart",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,WardenHawk,LifeMax",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,WardenHawk,ShieldArmor",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Unit,WardenHawk,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Unit,WardenHawk,ShieldRegenRate",
+                  "op": "Add",
+                  "value": 1.8
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "WardenArmorLevel5",
               "minerals": 50000,
               "gas": 0,
               "time": 10,
@@ -88094,7 +88229,7 @@
                 {
                   "ref": "Unit,WardenHawk,ShieldRegenRate",
                   "op": "Add",
-                  "value": 2
+                  "value": 1.8
                 }
               ]
             }
@@ -88252,7 +88387,7 @@
                 {
                   "ref": "Effect,WardenHawkWarpspaceCannonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             },
@@ -88267,14 +88402,14 @@
                 {
                   "ref": "Effect,WardenHawkWarpspaceCannonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "WardenWeaponsLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "WardenResearch",
@@ -88282,13 +88417,28 @@
                 {
                   "ref": "Effect,WardenHawkWarpspaceCannonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "WardenWeaponsLevel4",
+              "minerals": 25000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "WardenResearch",
+              "effects": [
+                {
+                  "ref": "Effect,WardenHawkWarpspaceCannonDamage,Amount",
+                  "op": "Multiply",
+                  "value": 1.4
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "WardenWeaponsLevel5",
               "minerals": 50000,
               "gas": 0,
               "time": 10,
@@ -88297,7 +88447,7 @@
                 {
                   "ref": "Effect,WardenHawkWarpspaceCannonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.4
                 }
               ]
             }
@@ -94629,7 +94779,7 @@
             {
               "level": 1,
               "upgrade": "MiraNightVision",
-              "minerals": 2500,
+              "minerals": 3000,
               "gas": 50,
               "time": 15,
               "researchedBy": "MiraResearch",
@@ -95007,7 +95157,7 @@
             {
               "level": 1,
               "upgrade": "MiraNightVision",
-              "minerals": 2500,
+              "minerals": 3000,
               "gas": 50,
               "time": 15,
               "researchedBy": "MiraResearch",
@@ -95348,7 +95498,7 @@
             {
               "level": 1,
               "upgrade": "MiraNightVision",
-              "minerals": 2500,
+              "minerals": 3000,
               "gas": 50,
               "time": 15,
               "researchedBy": "MiraResearch",
@@ -95631,7 +95781,7 @@
             {
               "level": 1,
               "upgrade": "MiraNightVision",
-              "minerals": 2500,
+              "minerals": 3000,
               "gas": 50,
               "time": 15,
               "researchedBy": "MiraResearch",
@@ -96158,7 +96308,7 @@
             {
               "level": 1,
               "upgrade": "MiraNightVision",
-              "minerals": 2500,
+              "minerals": 3000,
               "gas": 50,
               "time": 15,
               "researchedBy": "MiraResearch",
@@ -97284,7 +97434,7 @@
             {
               "level": 1,
               "upgrade": "MiraNightVision",
-              "minerals": 2500,
+              "minerals": 3000,
               "gas": 50,
               "time": 15,
               "researchedBy": "MiraResearch",
@@ -100856,6 +101006,34 @@
           ]
         },
         {
+          "family": "MasterTraining",
+          "nameZh": "研究大师训练",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "armor"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "MasterTraining",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "TechnicianResearch2",
+              "effects": [
+                {
+                  "ref": "Unit,TechnicianTechnician,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
           "family": "TechnicianSupply",
           "nameZh": "研究补给",
           "category": null,
@@ -102700,12 +102878,12 @@
                 {
                   "ref": "Unit,TechnicianTrainee,LifeStart",
                   "op": "Add",
-                  "value": 35
+                  "value": 30
                 },
                 {
                   "ref": "Unit,TechnicianTrainee,LifeMax",
                   "op": "Add",
-                  "value": 35
+                  "value": 30
                 },
                 {
                   "ref": "Unit,TechnicianTrainee,Sight",
@@ -102763,12 +102941,12 @@
                 {
                   "ref": "Unit,TechnicianTrainee,LifeStart",
                   "op": "Add",
-                  "value": 35
+                  "value": 40
                 },
                 {
                   "ref": "Unit,TechnicianTrainee,LifeMax",
                   "op": "Add",
-                  "value": 35
+                  "value": 40
                 },
                 {
                   "ref": "Unit,TechnicianTrainee,Sight",
@@ -102783,7 +102961,70 @@
                 {
                   "ref": "Unit,TechnicianTrainee,EnergyMax",
                   "op": "Add",
-                  "value": 20
+                  "value": 30
+                },
+                {
+                  "ref": "Unit,TechnicianTrainee,EnergyRegenRate",
+                  "op": "Add",
+                  "value": 0.5
+                },
+                {
+                  "ref": "Unit,TechnicianTrainee,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "MasterTraining",
+          "nameZh": "研究大师训练",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "cost",
+            "energy",
+            "energyRegen",
+            "hp",
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "MasterTraining",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "TechnicianResearch2",
+              "effects": [
+                {
+                  "ref": "Unit,TechnicianTrainee,LifeStart",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TechnicianTrainee,LifeMax",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TechnicianTrainee,Sight",
+                  "op": "Add",
+                  "value": 3
+                },
+                {
+                  "ref": "Unit,TechnicianTrainee,CostResource[Minerals]",
+                  "op": "Add",
+                  "value": 150
+                },
+                {
+                  "ref": "Unit,TechnicianTrainee,EnergyMax",
+                  "op": "Add",
+                  "value": 30
                 },
                 {
                   "ref": "Unit,TechnicianTrainee,EnergyRegenRate",
@@ -104166,7 +104407,7 @@
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[1].Radius",
@@ -104191,7 +104432,7 @@
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[1].Radius",
@@ -104216,7 +104457,7 @@
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[1].Radius",
@@ -104241,7 +104482,7 @@
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[1].Radius",
@@ -104266,7 +104507,7 @@
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,RocketTowerDamage,AreaArray[1].Radius",
@@ -106677,7 +106918,7 @@
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[1].Radius",
@@ -106702,7 +106943,7 @@
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[1].Radius",
@@ -106727,7 +106968,7 @@
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[1].Radius",
@@ -106752,7 +106993,7 @@
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[1].Radius",
@@ -106777,7 +107018,7 @@
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,SuperiorRocketTowerDamage,AreaArray[1].Radius",
@@ -109744,7 +109985,7 @@
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[1].Radius",
@@ -109769,7 +110010,7 @@
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[1].Radius",
@@ -109794,7 +110035,7 @@
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[1].Radius",
@@ -109819,7 +110060,7 @@
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[1].Radius",
@@ -109844,7 +110085,7 @@
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[0].Radius",
                   "op": "Add",
-                  "value": 0.1
+                  "value": 0.05
                 },
                 {
                   "ref": "Effect,AdvancedRocketTowerDamage,AreaArray[1].Radius",
@@ -114556,7 +114797,7 @@
         "radius": 1
       },
       "cost": {
-        "minerals": 800,
+        "minerals": 900,
         "gas": 12,
         "food": 8,
         "supplyProvided": 0
@@ -118419,7 +118660,7 @@
         "hpRegen": 0,
         "shieldRegen": 2,
         "energy": 0,
-        "speed": 2.8125,
+        "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 1,
         "armorName": "ProtossArmor",
@@ -121742,7 +121983,7 @@
           "id": "GlevigFireballWeapon",
           "nameZh": "喷吐火焰",
           "period": 2,
-          "range": 7,
+          "range": 12,
           "minRange": null,
           "melee": false,
           "suicide": false,
@@ -121757,7 +121998,7 @@
           "components": [
             {
               "effect": "GlevigFireballDamage",
-              "amount": 50,
+              "amount": 45,
               "armorReduction": 1,
               "hits": 1.0,
               "kind": "Ranged"
@@ -121833,8 +122074,7 @@
           "kind": "combat",
           "researchable": true,
           "dimensions": [
-            "damage",
-            "range"
+            "damage"
           ],
           "unmodeled": [],
           "levels": [
@@ -121850,11 +122090,6 @@
                   "ref": "Effect,GlevigFireballDamage,Amount",
                   "op": "Multiply",
                   "value": 1.45
-                },
-                {
-                  "ref": "Weapon,GlevigFireballWeapon,Range",
-                  "op": "Add",
-                  "value": 1.3
                 }
               ]
             },
@@ -121870,11 +122105,6 @@
                   "ref": "Effect,GlevigFireballDamage,Amount",
                   "op": "Multiply",
                   "value": 1.45
-                },
-                {
-                  "ref": "Weapon,GlevigFireballWeapon,Range",
-                  "op": "Add",
-                  "value": 1.3
                 }
               ]
             },
@@ -121890,11 +122120,6 @@
                   "ref": "Effect,GlevigFireballDamage,Amount",
                   "op": "Multiply",
                   "value": 1.45
-                },
-                {
-                  "ref": "Weapon,GlevigFireballWeapon,Range",
-                  "op": "Add",
-                  "value": 1.4
                 }
               ]
             }
@@ -122323,8 +122548,8 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 200,
-        "gas": 0,
+        "minerals": 250,
+        "gas": 5,
         "food": 0,
         "supplyProvided": 5
       },
@@ -122356,14 +122581,14 @@
           "components": [
             {
               "effect": "DuskWingBansheeDamage2",
-              "amount": 25,
+              "amount": 35,
               "armorReduction": 1,
               "hits": 1.0,
               "kind": "Ranged"
             },
             {
               "effect": "DuskWingBansheeDamage2",
-              "amount": 25,
+              "amount": 35,
               "armorReduction": 1,
               "hits": 1.0,
               "kind": "Ranged"
@@ -122398,7 +122623,7 @@
                 {
                   "ref": "Effect,DuskWingBansheeDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
@@ -122413,14 +122638,14 @@
                 {
                   "ref": "Effect,DuskWingBansheeDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSTerranShipWeapons3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122428,14 +122653,14 @@
                 {
                   "ref": "Effect,DuskWingBansheeDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSTerranShipWeapons4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122443,7 +122668,22 @@
                 {
                   "ref": "Effect,DuskWingBansheeDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSTerranShipWeapons5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Effect,DuskWingBansheeDamage2,Amount",
+                  "op": "Multiply",
+                  "value": 1.6375
                 }
               ]
             }
@@ -122473,22 +122713,22 @@
                 {
                   "ref": "Unit,DSPhantom,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
@@ -122503,29 +122743,29 @@
                 {
                   "ref": "Unit,DSPhantom,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSLifeLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122533,29 +122773,29 @@
                 {
                   "ref": "Unit,DSPhantom,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSLifeLevel4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122563,22 +122803,52 @@
                 {
                   "ref": "Unit,DSPhantom,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSPhantom,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSLifeLevel5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSPhantom,LifeArmor",
+                  "op": "Add",
+                  "value": 4
+                },
+                {
+                  "ref": "Unit,DSPhantom,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSPhantom,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSPhantom,RepairTime",
+                  "op": "Add",
+                  "value": 12.75
                 }
               ]
             }
@@ -122743,7 +123013,7 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 150,
+        "minerals": 250,
         "gas": 5,
         "food": 0,
         "supplyProvided": 5
@@ -122776,9 +123046,12 @@
           "components": [
             {
               "effect": "Liberator_BlackOpsMissileDamage2",
-              "amount": 10,
+              "amount": 20,
               "armorReduction": 1,
-              "hits": 2.0
+              "hits": 2.0,
+              "attrFactor": {
+                "Heroic": -0.5
+              }
             }
           ],
           "unresolved": [],
@@ -122808,7 +123081,7 @@
                 {
                   "ref": "Effect,Liberator_BlackOpsMissileDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
@@ -122823,14 +123096,14 @@
                 {
                   "ref": "Effect,Liberator_BlackOpsMissileDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSTerranShipWeapons3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122838,14 +123111,14 @@
                 {
                   "ref": "Effect,Liberator_BlackOpsMissileDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSTerranShipWeapons4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122853,7 +123126,22 @@
                 {
                   "ref": "Effect,Liberator_BlackOpsMissileDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSTerranShipWeapons5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Effect,Liberator_BlackOpsMissileDamage2,Amount",
+                  "op": "Multiply",
+                  "value": 1.6375
                 }
               ]
             }
@@ -122883,22 +123171,22 @@
                 {
                   "ref": "Unit,DSLiberatorAA,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
@@ -122913,29 +123201,29 @@
                 {
                   "ref": "Unit,DSLiberatorAA,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSLifeLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122943,29 +123231,29 @@
                 {
                   "ref": "Unit,DSLiberatorAA,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSLifeLevel4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -122973,22 +123261,52 @@
                 {
                   "ref": "Unit,DSLiberatorAA,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAA,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSLifeLevel5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSLiberatorAA,LifeArmor",
+                  "op": "Add",
+                  "value": 4
+                },
+                {
+                  "ref": "Unit,DSLiberatorAA,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSLiberatorAA,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSLiberatorAA,RepairTime",
+                  "op": "Add",
+                  "value": 12.75
                 }
               ]
             }
@@ -123191,16 +123509,16 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 150,
+        "minerals": 250,
         "gas": 5,
         "food": 0,
         "supplyProvided": 5,
         "listed": {
-          "minerals": 150,
+          "minerals": 250,
           "gas": 5
         },
         "acquire": {
-          "minerals": 150,
+          "minerals": 250,
           "gas": 5,
           "steps": [
             {
@@ -123208,7 +123526,7 @@
               "from": "DSPhantom",
               "to": "DSLiberatorAA",
               "abil": "DeltaSquadTrain",
-              "minerals": 150,
+              "minerals": 250,
               "gas": 5
             },
             {
@@ -123250,10 +123568,13 @@
           "components": [
             {
               "effect": "DeltaSquadLiberatorAGDamage",
-              "amount": 60,
+              "amount": 70,
               "armorReduction": 1,
               "hits": 1.0,
-              "kind": "Ranged"
+              "kind": "Ranged",
+              "attrFactor": {
+                "Heroic": -0.5
+              }
             }
           ],
           "unresolved": [],
@@ -123283,7 +123604,7 @@
                 {
                   "ref": "Effect,DeltaSquadLiberatorAGDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
@@ -123298,14 +123619,14 @@
                 {
                   "ref": "Effect,DeltaSquadLiberatorAGDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSTerranShipWeapons3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123313,14 +123634,14 @@
                 {
                   "ref": "Effect,DeltaSquadLiberatorAGDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSTerranShipWeapons4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123328,7 +123649,22 @@
                 {
                   "ref": "Effect,DeltaSquadLiberatorAGDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSTerranShipWeapons5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Effect,DeltaSquadLiberatorAGDamage,Amount",
+                  "op": "Multiply",
+                  "value": 1.6375
                 }
               ]
             }
@@ -123358,22 +123694,22 @@
                 {
                   "ref": "Unit,DSLiberatorAG,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
@@ -123388,29 +123724,29 @@
                 {
                   "ref": "Unit,DSLiberatorAG,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSLifeLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123418,29 +123754,29 @@
                 {
                   "ref": "Unit,DSLiberatorAG,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSLifeLevel4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123448,22 +123784,52 @@
                 {
                   "ref": "Unit,DSLiberatorAG,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSLiberatorAG,RepairTime",
                   "op": "Add",
-                  "value": 15
+                  "value": 12.75
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSLifeLevel5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSLiberatorAG,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSLiberatorAG,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSLiberatorAG,LifeArmor",
+                  "op": "Add",
+                  "value": 4
+                },
+                {
+                  "ref": "Unit,DSLiberatorAG,RepairTime",
+                  "op": "Add",
+                  "value": 12.75
                 }
               ]
             }
@@ -123611,16 +123977,16 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 500,
+        "minerals": 250,
         "gas": 5,
         "food": 0,
         "supplyProvided": 5,
         "listed": {
-          "minerals": 500,
+          "minerals": 250,
           "gas": 5
         },
         "acquire": {
-          "minerals": 500,
+          "minerals": 250,
           "gas": 5,
           "steps": [
             {
@@ -123628,7 +123994,7 @@
               "from": "DSPhantom",
               "to": "DSArchangelFighter",
               "abil": "DeltaSquadTrain",
-              "minerals": 500,
+              "minerals": 250,
               "gas": 5
             },
             {
@@ -123671,7 +124037,7 @@
           "components": [
             {
               "effect": "DSArchangelDamage",
-              "amount": 35,
+              "amount": 40,
               "armorReduction": 1,
               "hits": 1.0,
               "kind": "Ranged"
@@ -123697,7 +124063,7 @@
           "components": [
             {
               "effect": "NemesisMissilePodDamage2",
-              "amount": 30,
+              "amount": 35,
               "armorReduction": 1,
               "hits": 4.0,
               "kind": "Ranged"
@@ -123730,12 +124096,12 @@
                 {
                   "ref": "Effect,DSArchangelDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 },
                 {
                   "ref": "Effect,NemesisMissilePodDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
@@ -123750,19 +124116,19 @@
                 {
                   "ref": "Effect,DSArchangelDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 },
                 {
                   "ref": "Effect,NemesisMissilePodDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSTerranShipWeapons3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123770,19 +124136,19 @@
                 {
                   "ref": "Effect,DSArchangelDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 },
                 {
                   "ref": "Effect,NemesisMissilePodDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSTerranShipWeapons4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123790,12 +124156,32 @@
                 {
                   "ref": "Effect,DSArchangelDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
                 },
                 {
                   "ref": "Effect,NemesisMissilePodDamage2,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.6375
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSTerranShipWeapons5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Effect,DSArchangelDamage,Amount",
+                  "op": "Multiply",
+                  "value": 1.6375
+                },
+                {
+                  "ref": "Effect,NemesisMissilePodDamage2,Amount",
+                  "op": "Multiply",
+                  "value": 1.6375
                 }
               ]
             }
@@ -123825,22 +124211,22 @@
                 {
                   "ref": "Unit,DSArchangelAssault,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
                 }
               ]
             },
@@ -123855,29 +124241,29 @@
                 {
                   "ref": "Unit,DSArchangelAssault,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSLifeLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123885,29 +124271,29 @@
                 {
                   "ref": "Unit,DSArchangelAssault,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSLifeLevel4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -123915,22 +124301,52 @@
                 {
                   "ref": "Unit,DSArchangelAssault,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelAssault,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSLifeLevel5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSArchangelAssault,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSArchangelAssault,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSArchangelAssault,LifeArmor",
+                  "op": "Add",
+                  "value": 4
+                },
+                {
+                  "ref": "Unit,DSArchangelAssault,RepairTime",
+                  "op": "Add",
+                  "value": 25.5
                 }
               ]
             }
@@ -124098,7 +124514,7 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 500,
+        "minerals": 250,
         "gas": 5,
         "food": 0,
         "supplyProvided": 5
@@ -124140,22 +124556,22 @@
                 {
                   "ref": "Unit,DSArchangelFighter,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
                 }
               ]
             },
@@ -124170,29 +124586,29 @@
                 {
                   "ref": "Unit,DSArchangelFighter,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSLifeLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -124200,29 +124616,29 @@
                 {
                   "ref": "Unit,DSArchangelFighter,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSLifeLevel4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -124230,22 +124646,52 @@
                 {
                   "ref": "Unit,DSArchangelFighter,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSArchangelFighter,RepairTime",
                   "op": "Add",
-                  "value": 30
+                  "value": 25.5
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSLifeLevel5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSArchangelFighter,LifeArmor",
+                  "op": "Add",
+                  "value": 4
+                },
+                {
+                  "ref": "Unit,DSArchangelFighter,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSArchangelFighter,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSArchangelFighter,RepairTime",
+                  "op": "Add",
+                  "value": 25.5
                 }
               ]
             }
@@ -124405,14 +124851,14 @@
       ],
       "category": "hero",
       "stats": {
-        "hp": 1000,
+        "hp": 600,
         "shield": 0,
         "armor": 0,
         "shieldArmor": 0,
         "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 100,
-        "speed": 2.1015,
+        "speed": 2.3,
         "creepSpeedMul": null,
         "sight": 9,
         "armorName": "TerranShipPlating",
@@ -124421,8 +124867,8 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 1000,
-        "gas": 10,
+        "minerals": 250,
+        "gas": 5,
         "food": 0,
         "supplyProvided": 5
       },
@@ -124442,7 +124888,7 @@
           "id": "DeltaSquadGorgonMiniYamatoGun",
           "nameZh": "迷你大和炮",
           "period": 1,
-          "range": 6,
+          "range": 4,
           "minRange": null,
           "melee": false,
           "suicide": false,
@@ -124455,13 +124901,28 @@
           "components": [
             {
               "effect": "DeltaSquadGorgonDamage",
-              "amount": 50,
+              "amount": 30,
               "armorReduction": 1,
-              "hits": 1.0
+              "hits": 1.0,
+              "splash": {
+                "radius": 4,
+                "rings": [
+                  {
+                    "radius": 4,
+                    "fraction": 1
+                  }
+                ],
+                "maxCount": 3
+              },
+              "attrFactor": {
+                "Armored": 1
+              }
             }
           ],
           "unresolved": [],
-          "notes": []
+          "notes": [
+            "switch"
+          ]
         }
       ],
       "upgrades": [
@@ -124487,7 +124948,7 @@
                 {
                   "ref": "Effect,DeltaSquadGorgonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.765
                 }
               ]
             },
@@ -124502,14 +124963,14 @@
                 {
                   "ref": "Effect,DeltaSquadGorgonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.765
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSTerranShipWeapons3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -124517,14 +124978,14 @@
                 {
                   "ref": "Effect,DeltaSquadGorgonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.765
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSTerranShipWeapons4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -124532,7 +124993,56 @@
                 {
                   "ref": "Effect,DeltaSquadGorgonDamage,Amount",
                   "op": "Multiply",
-                  "value": 1.75
+                  "value": 1.765
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSTerranShipWeapons5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Effect,DeltaSquadGorgonDamage,Amount",
+                  "op": "Multiply",
+                  "value": 1.765
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "DSGorgonExpandedBatteries",
+          "nameZh": "研究扩容电池",
+          "category": "SpellResearch",
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "MaxCount",
+            "splash"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "DSGorgonExpandedBatteries",
+              "minerals": 2500,
+              "gas": 25,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Effect,DeltaSquadGorgonAttackSearch,MaxCount",
+                  "op": "Add",
+                  "value": 3
+                },
+                {
+                  "ref": "Effect,DeltaSquadGorgonAttackSearch,AreaArray[0].MaxCount",
+                  "op": "Add",
+                  "value": 3
                 }
               ]
             }
@@ -124562,22 +125072,22 @@
                 {
                   "ref": "Unit,DeltaSquadGorgon,RepairTime",
                   "op": "Add",
-                  "value": 120
+                  "value": 25.5
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 }
               ]
             },
@@ -124592,29 +125102,29 @@
                 {
                   "ref": "Unit,DeltaSquadGorgon,RepairTime",
                   "op": "Add",
-                  "value": 120
+                  "value": 25.5
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSLifeLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -124622,29 +125132,29 @@
                 {
                   "ref": "Unit,DeltaSquadGorgon,RepairTime",
                   "op": "Add",
-                  "value": 120
+                  "value": 25.5
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSLifeLevel4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -124652,22 +125162,52 @@
                 {
                   "ref": "Unit,DeltaSquadGorgon,RepairTime",
                   "op": "Add",
-                  "value": 120
+                  "value": 25.5
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DeltaSquadGorgon,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSLifeLevel5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DeltaSquadGorgon,RepairTime",
+                  "op": "Add",
+                  "value": 25.5
+                },
+                {
+                  "ref": "Unit,DeltaSquadGorgon,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DeltaSquadGorgon,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DeltaSquadGorgon,LifeArmor",
+                  "op": "Add",
+                  "value": 4
                 }
               ]
             }
@@ -124680,7 +125220,8 @@
           "kind": "option",
           "researchable": true,
           "dimensions": [
-            "range"
+            "range",
+            "splash"
           ],
           "unmodeled": [],
           "levels": [
@@ -124694,6 +125235,11 @@
               "effects": [
                 {
                   "ref": "Weapon,DeltaSquadGorgonMiniYamatoGun,Range",
+                  "op": "Add",
+                  "value": 3
+                },
+                {
+                  "ref": "Effect,DeltaSquadGorgonAttackSearch,AreaArray[0].Radius",
                   "op": "Add",
                   "value": 3
                 }
@@ -125151,8 +125697,8 @@
         "radius": 0.625
       },
       "cost": {
-        "minerals": 1500,
-        "gas": 30,
+        "minerals": 250,
+        "gas": 5,
         "food": 0,
         "supplyProvided": 5
       },
@@ -125168,6 +125714,40 @@
       "icon": "btn-unit-collection-raven-covertops.png",
       "weapons": [],
       "upgrades": [
+        {
+          "family": "DSGrimSoulReactor",
+          "nameZh": "研究灵魂反应堆",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "energy",
+            "energyRegen"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "DSGrimSoulReactor",
+              "minerals": 1500,
+              "gas": 20,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSGrimReaper,EnergyMax",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,DSGrimReaper,EnergyRegenRate",
+                  "op": "Add",
+                  "value": 3
+                }
+              ]
+            }
+          ]
+        },
         {
           "family": "DSLife",
           "nameZh": "升级舰船装甲",
@@ -125191,17 +125771,17 @@
                 {
                   "ref": "Unit,DSGrimReaper,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 }
               ]
             },
@@ -125216,24 +125796,24 @@
                 {
                   "ref": "Unit,DSGrimReaper,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 }
               ]
             },
             {
               "level": 3,
               "upgrade": "DSLifeLevel3",
-              "minerals": 10000,
+              "minerals": 7500,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -125241,24 +125821,24 @@
                 {
                   "ref": "Unit,DSGrimReaper,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 }
               ]
             },
             {
               "level": 4,
               "upgrade": "DSLifeLevel4",
-              "minerals": 25000,
+              "minerals": 20000,
               "gas": 0,
               "time": 10,
               "researchedBy": "DSResearch",
@@ -125266,17 +125846,70 @@
                 {
                   "ref": "Unit,DSGrimReaper,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 4
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeMax",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
                 },
                 {
                   "ref": "Unit,DSGrimReaper,LifeStart",
                   "op": "Multiply",
-                  "value": 1.5
+                  "value": 1.425
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "DSLifeLevel5",
+              "minerals": 50000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSGrimReaper,LifeArmor",
+                  "op": "Add",
+                  "value": 4
+                },
+                {
+                  "ref": "Unit,DSGrimReaper,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.425
+                },
+                {
+                  "ref": "Unit,DSGrimReaper,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.425
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "DeltaSquadRegenerativeBiosteel",
+          "nameZh": "研究生物再生钢",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "hpRegen"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "DeltaSquadRegenerativeBiosteel",
+              "minerals": 1000,
+              "gas": 15,
+              "time": 10,
+              "researchedBy": "DSResearch",
+              "effects": [
+                {
+                  "ref": "Unit,DSGrimReaper,LifeRegenRate",
+                  "op": "Add",
+                  "value": 5
                 }
               ]
             }
@@ -125342,7 +125975,6 @@
         }
       ],
       "produces": [
-        "SoulcatchingZoneWeapon",
         "DSSCV",
         "DSLiberatorAA",
         "DSArchangelFighter",
@@ -125527,74 +126159,6 @@
       "iconCandidates": [
         "btn-building-terran-tychustankdepot.png",
         "btn-building-terran-armory-covertops.png"
-      ]
-    },
-    "SoulcatchingZoneWeapon": {
-      "id": "SoulcatchingZoneWeapon",
-      "nameZh": "灵魂捕捉领域武器",
-      "team": "Survivor",
-      "owners": [
-        "Delta Squad"
-      ],
-      "category": "troop",
-      "stats": {
-        "hp": 10000,
-        "shield": 0,
-        "armor": 0,
-        "shieldArmor": 0,
-        "hpRegen": 0,
-        "shieldRegen": 0,
-        "energy": 0,
-        "speed": 1,
-        "creepSpeedMul": null,
-        "sight": 0,
-        "armorName": "",
-        "armorLevel": 0,
-        "shieldArmorLevel": 0,
-        "radius": null
-      },
-      "cost": {
-        "minerals": 200.0,
-        "gas": 0.0,
-        "food": 0,
-        "supplyProvided": 0,
-        "listed": {
-          "minerals": 0,
-          "gas": 0
-        },
-        "hire": {
-          "minerals": 200.0,
-          "gas": 0.0,
-          "perCall": {
-            "minerals": 200,
-            "gas": 0,
-            "count": 1
-          },
-          "chargeTime": null,
-          "chargeMax": null,
-          "abil": "SoulcatchingZone"
-        }
-      },
-      "attributes": [],
-      "planes": [],
-      "flags": [
-        "Unselectable",
-        "Untargetable",
-        "Invulnerable"
-      ],
-      "icon": "btn-ability-protoss-entomb.png",
-      "weapons": [],
-      "upgrades": [],
-      "producedBy": [
-        {
-          "from": "DSGrimReaper",
-          "abil": "SoulcatchingZone",
-          "kind": "summon",
-          "count": 1
-        }
-      ],
-      "iconCandidates": [
-        "btn-ability-protoss-entomb.png"
       ]
     },
     "DSCommerceCenter4": {
@@ -126606,8 +127170,8 @@
       ],
       "category": "hero",
       "stats": {
-        "hp": 300,
-        "shield": 300,
+        "hp": 325,
+        "shield": 325,
         "armor": 3,
         "shieldArmor": 3,
         "hpRegen": 1,
@@ -127128,14 +127692,14 @@
           "abil": "AlarakBuild",
           "index": "Build3",
           "kind": "build",
-          "time": 10
+          "time": 5
         },
         {
           "from": "AlarakProbe",
           "abil": "AlarakBuild",
           "index": "Build3",
           "kind": "build",
-          "time": 10
+          "time": 5
         }
       ],
       "produces": [
@@ -127780,7 +128344,7 @@
         "hpRegen": 0,
         "shieldRegen": 2,
         "energy": 0,
-        "speed": 2.8125,
+        "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 1,
         "armorName": "ProtossArmor",
@@ -128136,21 +128700,21 @@
           "abil": "AlarakTrain",
           "index": "Train3",
           "kind": "train",
-          "time": 5
+          "time": 3
         },
         {
           "from": "AlarakGateway",
           "abil": "AlarakTrain",
           "index": "Train3",
           "kind": "train",
-          "time": 5
+          "time": 3
         },
         {
           "from": "AlarakStargate",
           "abil": "AlarakTrain",
           "index": "Train3",
           "kind": "train",
-          "time": 5
+          "time": 3
         }
       ],
       "iconCandidates": [
@@ -129161,7 +129725,7 @@
         "minerals": 0,
         "gas": 0,
         "food": 0,
-        "supplyProvided": 120
+        "supplyProvided": 90
       },
       "attributes": [
         "Armored",
@@ -129748,16 +130312,16 @@
       ],
       "category": "skill",
       "stats": {
-        "hp": 2000,
+        "hp": 1500,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": 0,
+        "hpRegen": 1,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 1.5,
+        "speed": 1.25,
         "creepSpeedMul": 2,
-        "sight": 3,
+        "sight": 5,
         "armorName": "ZergBuildingArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -129780,125 +130344,7 @@
       "flags": [],
       "icon": "btn-building-stukov-infestedbunker.png",
       "weapons": [],
-      "upgrades": [
-        {
-          "family": "ZergGroundCarapace",
-          "nameZh": "进化甲壳",
-          "category": "ArmorBonus",
-          "kind": "combat",
-          "researchable": true,
-          "dimensions": [
-            "armor",
-            "hp"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "ZergGroundCarapaceKerrigan1",
-              "minerals": 0,
-              "gas": 100,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 2,
-              "upgrade": "ZergGroundCarapaceKerrigan2",
-              "minerals": 0,
-              "gas": 350,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 3,
-              "upgrade": "ZergGroundCarapaceKerrigan3",
-              "minerals": 0,
-              "gas": 1000,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "family": "SwarmSwarmSight",
-          "nameZh": "虫群视野",
-          "category": "Talents",
-          "kind": "option",
-          "researchable": true,
-          "dimensions": [
-            "sight"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "SwarmSwarmSight",
-              "minerals": 500,
-              "gas": 500,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp2,Sight",
-                  "op": "Add",
-                  "value": 3
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "upgrades": [],
       "forms": [
         {
           "id": "IzshaCorruptedWall2",
@@ -129937,16 +130383,16 @@
       ],
       "category": "skill",
       "stats": {
-        "hp": 2500,
+        "hp": 2000,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": 0,
+        "hpRegen": 1,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 2,
-        "creepSpeedMul": 1.75,
-        "sight": 3,
+        "speed": 1.5,
+        "creepSpeedMul": 2,
+        "sight": 5,
         "armorName": "ZergBuildingArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -129969,125 +130415,7 @@
       "flags": [],
       "icon": "btn-building-stukov-infestedbunker.png",
       "weapons": [],
-      "upgrades": [
-        {
-          "family": "ZergGroundCarapace",
-          "nameZh": "进化甲壳",
-          "category": "ArmorBonus",
-          "kind": "combat",
-          "researchable": true,
-          "dimensions": [
-            "armor",
-            "hp"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "ZergGroundCarapaceKerrigan1",
-              "minerals": 0,
-              "gas": 100,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 2,
-              "upgrade": "ZergGroundCarapaceKerrigan2",
-              "minerals": 0,
-              "gas": 350,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 3,
-              "upgrade": "ZergGroundCarapaceKerrigan3",
-              "minerals": 0,
-              "gas": 1000,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "family": "SwarmSwarmSight",
-          "nameZh": "虫群视野",
-          "category": "Talents",
-          "kind": "option",
-          "researchable": true,
-          "dimensions": [
-            "sight"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "SwarmSwarmSight",
-              "minerals": 500,
-              "gas": 500,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp3,Sight",
-                  "op": "Add",
-                  "value": 3
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "upgrades": [],
       "forms": [
         {
           "id": "IzshaCorruptedWall3",
@@ -130126,16 +130454,16 @@
       ],
       "category": "skill",
       "stats": {
-        "hp": 3000,
+        "hp": 2500,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": 0,
+        "hpRegen": 1,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 2.5,
-        "creepSpeedMul": 1.6,
-        "sight": 3,
+        "speed": 1.75,
+        "creepSpeedMul": 2,
+        "sight": 5,
         "armorName": "ZergBuildingArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -130158,125 +130486,7 @@
       "flags": [],
       "icon": "btn-building-stukov-infestedbunker.png",
       "weapons": [],
-      "upgrades": [
-        {
-          "family": "ZergGroundCarapace",
-          "nameZh": "进化甲壳",
-          "category": "ArmorBonus",
-          "kind": "combat",
-          "researchable": true,
-          "dimensions": [
-            "armor",
-            "hp"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "ZergGroundCarapaceKerrigan1",
-              "minerals": 0,
-              "gas": 100,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 2,
-              "upgrade": "ZergGroundCarapaceKerrigan2",
-              "minerals": 0,
-              "gas": 350,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 3,
-              "upgrade": "ZergGroundCarapaceKerrigan3",
-              "minerals": 0,
-              "gas": 1000,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "family": "SwarmSwarmSight",
-          "nameZh": "虫群视野",
-          "category": "Talents",
-          "kind": "option",
-          "researchable": true,
-          "dimensions": [
-            "sight"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "SwarmSwarmSight",
-              "minerals": 500,
-              "gas": 500,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWallUp4,Sight",
-                  "op": "Add",
-                  "value": 3
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "upgrades": [],
       "forms": [
         {
           "id": "IzshaCorruptedWall4",
@@ -130319,7 +130529,7 @@
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": 0.2734,
+        "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
@@ -130333,7 +130543,7 @@
       "cost": {
         "minerals": 0,
         "gas": 0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0
       },
       "attributes": [
@@ -130391,7 +130601,7 @@
       "cost": {
         "minerals": 0,
         "gas": 0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0
       },
       "attributes": [
@@ -130449,7 +130659,7 @@
       "cost": {
         "minerals": 0,
         "gas": 0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0
       },
       "attributes": [
@@ -130507,7 +130717,7 @@
       "cost": {
         "minerals": 0,
         "gas": 0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0
       },
       "attributes": [
@@ -130556,7 +130766,7 @@
         "energy": 0,
         "speed": 0,
         "creepSpeedMul": null,
-        "sight": 8,
+        "sight": 6,
         "armorName": "ZergAirArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -130613,7 +130823,7 @@
         "energy": 0,
         "speed": 0,
         "creepSpeedMul": null,
-        "sight": 10,
+        "sight": 8,
         "armorName": "ZergAirArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -130670,7 +130880,7 @@
         "energy": 0,
         "speed": 0,
         "creepSpeedMul": null,
-        "sight": 12,
+        "sight": 10,
         "armorName": "ZergAirArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -130727,7 +130937,7 @@
         "energy": 0,
         "speed": 0,
         "creepSpeedMul": null,
-        "sight": 14,
+        "sight": 12,
         "armorName": "ZergAirArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -130776,11 +130986,11 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 2000,
+        "hp": 1500,
         "shield": 0,
-        "armor": 1,
+        "armor": 3,
         "shieldArmor": 0,
-        "hpRegen": 0,
+        "hpRegen": -2.5,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
@@ -130808,125 +131018,7 @@
       "flags": [],
       "icon": "btn-building-stukov-infestedbunkerform.png",
       "weapons": [],
-      "upgrades": [
-        {
-          "family": "ZergGroundCarapace",
-          "nameZh": "进化甲壳",
-          "category": "ArmorBonus",
-          "kind": "combat",
-          "researchable": true,
-          "dimensions": [
-            "armor",
-            "hp"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "ZergGroundCarapaceKerrigan1",
-              "minerals": 0,
-              "gas": 100,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 2,
-              "upgrade": "ZergGroundCarapaceKerrigan2",
-              "minerals": 0,
-              "gas": 350,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 3,
-              "upgrade": "ZergGroundCarapaceKerrigan3",
-              "minerals": 0,
-              "gas": 1000,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "family": "SwarmSwarmSight",
-          "nameZh": "虫群视野",
-          "category": "Talents",
-          "kind": "option",
-          "researchable": true,
-          "dimensions": [
-            "sight"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "SwarmSwarmSight",
-              "minerals": 500,
-              "gas": 500,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall2,Sight",
-                  "op": "Add",
-                  "value": 3
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "upgrades": [],
       "formOf": "IzshaCorruptedWallUp2",
       "formLabel": "被感染的地堡",
       "producedBy": [
@@ -130954,11 +131046,11 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 2500,
+        "hp": 2000,
         "shield": 0,
-        "armor": 1,
+        "armor": 3,
         "shieldArmor": 0,
-        "hpRegen": 0,
+        "hpRegen": -2.5,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
@@ -130986,125 +131078,7 @@
       "flags": [],
       "icon": "btn-building-stukov-infestedbunkerform.png",
       "weapons": [],
-      "upgrades": [
-        {
-          "family": "ZergGroundCarapace",
-          "nameZh": "进化甲壳",
-          "category": "ArmorBonus",
-          "kind": "combat",
-          "researchable": true,
-          "dimensions": [
-            "armor",
-            "hp"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "ZergGroundCarapaceKerrigan1",
-              "minerals": 0,
-              "gas": 100,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 2,
-              "upgrade": "ZergGroundCarapaceKerrigan2",
-              "minerals": 0,
-              "gas": 350,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 3,
-              "upgrade": "ZergGroundCarapaceKerrigan3",
-              "minerals": 0,
-              "gas": 1000,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "family": "SwarmSwarmSight",
-          "nameZh": "虫群视野",
-          "category": "Talents",
-          "kind": "option",
-          "researchable": true,
-          "dimensions": [
-            "sight"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "SwarmSwarmSight",
-              "minerals": 500,
-              "gas": 500,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall3,Sight",
-                  "op": "Add",
-                  "value": 3
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "upgrades": [],
       "formOf": "IzshaCorruptedWallUp3",
       "formLabel": "被感染的地堡",
       "producedBy": [
@@ -131132,16 +131106,16 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 3000,
+        "hp": 2500,
         "shield": 0,
-        "armor": 1,
+        "armor": 3,
         "shieldArmor": 0,
-        "hpRegen": 0,
+        "hpRegen": -2.5,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
         "creepSpeedMul": null,
-        "sight": 11,
+        "sight": 7,
         "armorName": "TerranBuildingPlating",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
@@ -131164,125 +131138,7 @@
       "flags": [],
       "icon": "btn-building-stukov-infestedbunkerform.png",
       "weapons": [],
-      "upgrades": [
-        {
-          "family": "ZergGroundCarapace",
-          "nameZh": "进化甲壳",
-          "category": "ArmorBonus",
-          "kind": "combat",
-          "researchable": true,
-          "dimensions": [
-            "armor",
-            "hp"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "ZergGroundCarapaceKerrigan1",
-              "minerals": 0,
-              "gas": 100,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 2,
-              "upgrade": "ZergGroundCarapaceKerrigan2",
-              "minerals": 0,
-              "gas": 350,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            },
-            {
-              "level": 3,
-              "upgrade": "ZergGroundCarapaceKerrigan3",
-              "minerals": 0,
-              "gas": 1000,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeMax",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeStart",
-                  "op": "AddBaseMultiply",
-                  "value": 0.1
-                },
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,LifeArmor",
-                  "op": "Add",
-                  "value": 2
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "family": "SwarmSwarmSight",
-          "nameZh": "虫群视野",
-          "category": "Talents",
-          "kind": "option",
-          "researchable": true,
-          "dimensions": [
-            "sight"
-          ],
-          "unmodeled": [],
-          "levels": [
-            {
-              "level": 1,
-              "upgrade": "SwarmSwarmSight",
-              "minerals": 500,
-              "gas": 500,
-              "time": 15,
-              "researchedBy": "SwarmResearch",
-              "effects": [
-                {
-                  "ref": "Unit,IzshaCorruptedWall4,Sight",
-                  "op": "Add",
-                  "value": 3
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "upgrades": [],
       "formOf": "IzshaCorruptedWallUp4",
       "formLabel": "被感染的地堡",
       "producedBy": [
@@ -131314,7 +131170,7 @@
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": -0.5,
+        "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
@@ -131328,7 +131184,7 @@
       "cost": {
         "minerals": 0.0,
         "gas": 0.0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0,
         "listed": {
           "minerals": 0,
@@ -131397,7 +131253,7 @@
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": -0.5,
+        "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
@@ -131411,7 +131267,7 @@
       "cost": {
         "minerals": 0.0,
         "gas": 0.0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0,
         "listed": {
           "minerals": 0,
@@ -131480,7 +131336,7 @@
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": -0.5,
+        "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
@@ -131494,7 +131350,7 @@
       "cost": {
         "minerals": 0.0,
         "gas": 0.0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0,
         "listed": {
           "minerals": 0,
@@ -131563,7 +131419,7 @@
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
-        "hpRegen": -0.5,
+        "hpRegen": 0,
         "shieldRegen": 0,
         "energy": 0,
         "speed": 0,
@@ -131577,7 +131433,7 @@
       "cost": {
         "minerals": 0.0,
         "gas": 0.0,
-        "food": 0,
+        "food": 2,
         "supplyProvided": 0,
         "listed": {
           "minerals": 0,
@@ -174976,12 +174832,12 @@
       "stats": {
         "hp": 500,
         "shield": 0,
-        "armor": 1,
+        "armor": 2,
         "shieldArmor": 0,
         "hpRegen": 2,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 3,
+        "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 7,
         "armorName": "Fur",
@@ -175058,7 +174914,7 @@
           "components": [
             {
               "effect": "ChewbieClawDamage",
-              "amount": 10,
+              "amount": 15,
               "armorReduction": 1,
               "hits": 1.0,
               "kind": "Melee"
@@ -175119,7 +174975,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 },
                 {
                   "ref": "Effect,MeanyDamage,Amount",
@@ -175139,7 +174995,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 },
                 {
                   "ref": "Effect,MeanyDamage,Amount",
@@ -175159,7 +175015,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 },
                 {
                   "ref": "Effect,MeanyDamage,Amount",
@@ -175179,7 +175035,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 },
                 {
                   "ref": "Effect,MeanyDamage,Amount",
@@ -175199,7 +175055,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 },
                 {
                   "ref": "Effect,MeanyDamage,Amount",
@@ -175398,6 +175254,34 @@
                   "ref": "Unit,Chew,LifeRegenRate",
                   "op": "Add",
                   "value": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "ChewIncreaseSupplyL",
+          "nameZh": "增加补给",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "food"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "ChewIncreaseSupplyL1",
+              "minerals": 5000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "ChewResearch",
+              "effects": [
+                {
+                  "ref": "Unit,Chew,Food",
+                  "op": "Add",
+                  "value": 50
                 }
               ]
             }
@@ -175786,7 +175670,7 @@
           "components": [
             {
               "effect": "ChewbieClawDamage",
-              "amount": 10,
+              "amount": 15,
               "armorReduction": 1,
               "hits": 1.0,
               "kind": "Melee"
@@ -175847,7 +175731,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 }
               ]
             },
@@ -175862,7 +175746,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 }
               ]
             },
@@ -175877,7 +175761,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 }
               ]
             },
@@ -175892,7 +175776,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 }
               ]
             },
@@ -175907,7 +175791,7 @@
                 {
                   "ref": "Effect,ChewbieClawDamage,Amount",
                   "op": "Add",
-                  "value": 12
+                  "value": 11
                 }
               ]
             }
@@ -176320,7 +176204,17 @@
           "abil": "ChewbieGo",
           "kind": "summon",
           "count": 1
+        },
+        {
+          "from": "Chewbie",
+          "abil": "ChewbieLove",
+          "kind": "summon",
+          "count": 1
         }
+      ],
+      "produces": [
+        "Chewbie",
+        "ChewbieThrower"
       ],
       "iconCandidates": [
         "wireframe-critter-matriarchsnowbeast.png",
@@ -176430,7 +176324,7 @@
       },
       "cost": {
         "minerals": 5000,
-        "gas": 50,
+        "gas": 1000,
         "food": 0,
         "supplyProvided": 0
       },
@@ -176751,7 +176645,7 @@
         "minerals": 350,
         "gas": 0,
         "food": 0,
-        "supplyProvided": 10
+        "supplyProvided": 0
       },
       "attributes": [
         "Structure"
@@ -176834,7 +176728,7 @@
         "minerals": 800,
         "gas": 0,
         "food": 0,
-        "supplyProvided": 10
+        "supplyProvided": 0
       },
       "attributes": [
         "Structure"
@@ -176917,7 +176811,7 @@
         "minerals": 2000,
         "gas": 0,
         "food": 0,
-        "supplyProvided": 10
+        "supplyProvided": 0
       },
       "attributes": [
         "Structure"
@@ -177000,7 +176894,7 @@
         "minerals": 5000,
         "gas": 0,
         "food": 0,
-        "supplyProvided": 10
+        "supplyProvided": 0
       },
       "attributes": [
         "Structure"
@@ -177068,7 +176962,7 @@
         "hpRegen": 1,
         "shieldRegen": 0,
         "energy": 0,
-        "speed": 3,
+        "speed": 3.5,
         "creepSpeedMul": null,
         "sight": 1,
         "armorName": "Fur",
@@ -177120,6 +177014,34 @@
               ]
             }
           ]
+        },
+        {
+          "family": "StrongLegs",
+          "nameZh": "强壮双腿",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "speed"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "StrongLegs",
+              "minerals": 3000,
+              "gas": 20,
+              "time": 10,
+              "researchedBy": "ChewUtilityResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewBuilderChewbie,Speed",
+                  "op": "Add",
+                  "value": 0.5
+                }
+              ]
+            }
+          ]
         }
       ],
       "producedBy": [
@@ -177145,6 +177067,363 @@
       "iconCandidates": [
         "wireframe-critter-matriarchsnowbeast.png",
         "ui_nova_storymode_briefing_icon_cave.png"
+      ]
+    },
+    "ChewbieThrower": {
+      "id": "ChewbieThrower",
+      "nameZh": "秋伊投掷者",
+      "team": "Survivor",
+      "owners": [
+        "Chew"
+      ],
+      "category": "morph",
+      "stats": {
+        "hp": 60,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 1,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 3,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "Fur",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.375
+      },
+      "cost": {
+        "minerals": 150,
+        "gas": 3,
+        "food": 2,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 150,
+          "gas": 3
+        },
+        "acquire": {
+          "minerals": 150,
+          "gas": 3,
+          "steps": [
+            {
+              "kind": "magazine",
+              "from": "Chew",
+              "to": "Chewbie",
+              "abil": "UnleashChewbie",
+              "minerals": 0,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "Chewbie",
+              "to": "ChewbieThrower",
+              "abil": "ChewbieMorphThrower",
+              "minerals": 150,
+              "gas": 3
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Light",
+        "Biological"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "wireframe-critter-matriarchsnowbeast.png",
+      "weapons": [],
+      "upgrades": [
+        {
+          "family": "ChewDefense",
+          "nameZh": "秋伊防御",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp",
+            "hpRegen"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "ChewDefense",
+              "minerals": 550,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "ChewResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeArmor",
+                  "op": "Add",
+                  "value": 2
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeRegenRate",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "ChewDefense",
+              "minerals": 1100,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "ChewResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeArmor",
+                  "op": "Add",
+                  "value": 2
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeRegenRate",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "ChewDefense",
+              "minerals": 2250,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "ChewResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeArmor",
+                  "op": "Add",
+                  "value": 2
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeRegenRate",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "level": 4,
+              "upgrade": "ChewDefense",
+              "minerals": 5400,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "ChewResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeArmor",
+                  "op": "Add",
+                  "value": 2
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeRegenRate",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "upgrade": "ChewDefense",
+              "minerals": 16650,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "ChewResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,LifeMax",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeStart",
+                  "op": "Multiply",
+                  "value": 1.25
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeArmor",
+                  "op": "Add",
+                  "value": 2
+                },
+                {
+                  "ref": "Unit,ChewbieThrower,LifeRegenRate",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "ChewGoodEyes",
+          "nameZh": "慧眼",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "ChewGoodEyes",
+              "minerals": 3000,
+              "gas": 25,
+              "time": 10,
+              "researchedBy": "ChewResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "ChewbieSight",
+          "nameZh": "ChewbieSight",
+          "category": null,
+          "kind": "option",
+          "researchable": false,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "ChewbieSight",
+              "minerals": 0,
+              "gas": 0,
+              "time": 0,
+              "researchedBy": null,
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,Sight",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "ChewbieUnitSize",
+          "nameZh": "ChewbieUnitSize",
+          "category": null,
+          "kind": "option",
+          "researchable": false,
+          "dimensions": [
+            "radius"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "ChewbieUnitSize",
+              "minerals": 0,
+              "gas": 0,
+              "time": 0,
+              "researchedBy": null,
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,Radius",
+                  "op": "Add",
+                  "value": 0.125
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "StrongLegs",
+          "nameZh": "强壮双腿",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "speed"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "StrongLegs",
+              "minerals": 3000,
+              "gas": 20,
+              "time": 10,
+              "researchedBy": "ChewUtilityResearch",
+              "effects": [
+                {
+                  "ref": "Unit,ChewbieThrower,Speed",
+                  "op": "Add",
+                  "value": 0.5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "Chewbie",
+          "abil": "ChewbieMorphThrower",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "iconCandidates": [
+        "wireframe-critter-matriarchsnowbeast.png"
       ]
     },
     "ChewProtez": {
@@ -177610,7 +177889,7 @@
                 {
                   "ref": "Unit,AewynWhisperBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynWhisperBlue,LifeMax",
@@ -177625,7 +177904,7 @@
                 {
                   "ref": "Unit,AewynWhisperBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynWhisperBlue,ShieldsMax",
@@ -177650,7 +177929,7 @@
                 {
                   "ref": "Unit,AewynWhisperBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynWhisperBlue,LifeMax",
@@ -177665,7 +177944,7 @@
                 {
                   "ref": "Unit,AewynWhisperBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynWhisperBlue,ShieldsMax",
@@ -177690,7 +177969,7 @@
                 {
                   "ref": "Unit,AewynWhisperBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynWhisperBlue,LifeMax",
@@ -177705,7 +177984,7 @@
                 {
                   "ref": "Unit,AewynWhisperBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynWhisperBlue,ShieldsMax",
@@ -178363,7 +178642,7 @@
                 {
                   "ref": "Unit,AewynHopeBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHopeBlue,LifeMax",
@@ -178378,7 +178657,7 @@
                 {
                   "ref": "Unit,AewynHopeBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHopeBlue,ShieldsMax",
@@ -178403,7 +178682,7 @@
                 {
                   "ref": "Unit,AewynHopeBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHopeBlue,LifeMax",
@@ -178418,7 +178697,7 @@
                 {
                   "ref": "Unit,AewynHopeBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHopeBlue,ShieldsMax",
@@ -178443,7 +178722,7 @@
                 {
                   "ref": "Unit,AewynHopeBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHopeBlue,LifeMax",
@@ -178458,7 +178737,7 @@
                 {
                   "ref": "Unit,AewynHopeBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHopeBlue,ShieldsMax",
@@ -179928,7 +180207,7 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 1400,
+        "minerals": 1300,
         "gas": 5,
         "food": 0.5,
         "supplyProvided": 0
@@ -179968,7 +180247,7 @@
                 {
                   "ref": "Unit,AewynHarmonyBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHarmonyBlue,LifeMax",
@@ -179983,7 +180262,7 @@
                 {
                   "ref": "Unit,AewynHarmonyBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHarmonyBlue,ShieldsMax",
@@ -180008,7 +180287,7 @@
                 {
                   "ref": "Unit,AewynHarmonyBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHarmonyBlue,LifeMax",
@@ -180023,7 +180302,7 @@
                 {
                   "ref": "Unit,AewynHarmonyBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHarmonyBlue,ShieldsMax",
@@ -180048,7 +180327,7 @@
                 {
                   "ref": "Unit,AewynHarmonyBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHarmonyBlue,LifeMax",
@@ -180063,7 +180342,7 @@
                 {
                   "ref": "Unit,AewynHarmonyBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynHarmonyBlue,ShieldsMax",
@@ -180184,7 +180463,7 @@
         "radius": 1
       },
       "cost": {
-        "minerals": 6800,
+        "minerals": 5800,
         "gas": 25,
         "food": 1,
         "supplyProvided": 0
@@ -180224,7 +180503,7 @@
                 {
                   "ref": "Unit,AewynMiracleBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynMiracleBlue,LifeMax",
@@ -180239,7 +180518,7 @@
                 {
                   "ref": "Unit,AewynMiracleBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynMiracleBlue,ShieldsMax",
@@ -180264,7 +180543,7 @@
                 {
                   "ref": "Unit,AewynMiracleBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynMiracleBlue,LifeMax",
@@ -180279,7 +180558,7 @@
                 {
                   "ref": "Unit,AewynMiracleBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynMiracleBlue,ShieldsMax",
@@ -180304,7 +180583,7 @@
                 {
                   "ref": "Unit,AewynMiracleBlue,LifeArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynMiracleBlue,LifeMax",
@@ -180319,7 +180598,7 @@
                 {
                   "ref": "Unit,AewynMiracleBlue,ShieldArmor",
                   "op": "Add",
-                  "value": 5
+                  "value": 3
                 },
                 {
                   "ref": "Unit,AewynMiracleBlue,ShieldsMax",
@@ -190255,7 +190534,7 @@
       },
       "cost": {
         "minerals": 325,
-        "gas": 4,
+        "gas": 3,
         "food": 0,
         "supplyProvided": 0
       },
@@ -190382,7 +190661,7 @@
       },
       "cost": {
         "minerals": 725,
-        "gas": 8,
+        "gas": 9,
         "food": 0,
         "supplyProvided": 0
       },
@@ -190451,8 +190730,8 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 1825,
-        "gas": 20,
+        "minerals": 1725,
+        "gas": 21,
         "food": 0,
         "supplyProvided": 0
       },
@@ -190516,8 +190795,8 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 3725,
-        "gas": 30,
+        "minerals": 3625,
+        "gas": 36,
         "food": 0,
         "supplyProvided": 0
       },
@@ -190587,8 +190866,8 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 7225,
-        "gas": 45,
+        "minerals": 7125,
+        "gas": 54,
         "food": 0,
         "supplyProvided": 0
       },
@@ -191221,16 +191500,16 @@
       },
       "cost": {
         "minerals": 325,
-        "gas": 4,
+        "gas": 3,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
           "minerals": 325,
-          "gas": 4
+          "gas": 3
         },
         "acquire": {
           "minerals": 325,
-          "gas": 4,
+          "gas": 3,
           "steps": [
             {
               "kind": "build",
@@ -191238,7 +191517,7 @@
               "to": "SophiaMercCompound4",
               "abil": "SophiaBuildSCV",
               "minerals": 325,
-              "gas": 4
+              "gas": 3
             },
             {
               "kind": "morph",
@@ -191301,25 +191580,25 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 1825,
-        "gas": 20,
+        "minerals": 1725,
+        "gas": 21,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
-          "minerals": 1825,
-          "gas": 20
+          "minerals": 1725,
+          "gas": 21
         },
         "acquire": {
-          "minerals": 1825,
-          "gas": 20,
+          "minerals": 1725,
+          "gas": 21,
           "steps": [
             {
               "kind": "build",
               "from": "SophiaSCV",
               "to": "SophiaMercCompound16",
               "abil": "SophiaBuildSCV",
-              "minerals": 1825,
-              "gas": 20
+              "minerals": 1725,
+              "gas": 21
             },
             {
               "kind": "morph",
@@ -191382,25 +191661,25 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 3725,
-        "gas": 30,
+        "minerals": 3625,
+        "gas": 36,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
-          "minerals": 3725,
-          "gas": 30
+          "minerals": 3625,
+          "gas": 36
         },
         "acquire": {
-          "minerals": 3725,
-          "gas": 30,
+          "minerals": 3625,
+          "gas": 36,
           "steps": [
             {
               "kind": "build",
               "from": "SophiaSCV",
               "to": "SophiaMercCompound32",
               "abil": "SophiaBuildSCV",
-              "minerals": 3725,
-              "gas": 30
+              "minerals": 3625,
+              "gas": 36
             },
             {
               "kind": "morph",
@@ -191757,7 +192036,7 @@
         "hpRegen": 0,
         "shieldRegen": 2,
         "energy": 0,
-        "speed": 3,
+        "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 1,
         "armorName": "ProtossArmor",
@@ -192116,7 +192395,7 @@
         "hpRegen": 0,
         "shieldRegen": 2,
         "energy": 0,
-        "speed": 3,
+        "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 1,
         "armorName": "ProtossArmor",
@@ -193196,7 +193475,7 @@
         "Ground"
       ],
       "flags": [],
-      "icon": null,
+      "icon": "btn-unit-protoss-darktemplar-taldarim.png",
       "weapons": [
         {
           "id": "JinaraBloodHunterWeapon",
@@ -196845,16 +197124,16 @@
       },
       "cost": {
         "minerals": 325,
-        "gas": 4,
+        "gas": 3,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
           "minerals": 325,
-          "gas": 4
+          "gas": 3
         },
         "acquire": {
           "minerals": 325,
-          "gas": 4,
+          "gas": 3,
           "steps": [
             {
               "kind": "build",
@@ -196878,7 +197157,7 @@
               "to": "SkitterRelay4",
               "abil": "SkitterRelayMorph4",
               "minerals": 175,
-              "gas": 4
+              "gas": 3
             }
           ]
         }
@@ -196934,16 +197213,16 @@
       },
       "cost": {
         "minerals": 725,
-        "gas": 8,
+        "gas": 9,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
           "minerals": 725,
-          "gas": 8
+          "gas": 9
         },
         "acquire": {
           "minerals": 725,
-          "gas": 8,
+          "gas": 9,
           "steps": [
             {
               "kind": "build",
@@ -196967,7 +197246,7 @@
               "to": "SkitterRelay4",
               "abil": "SkitterRelayMorph4",
               "minerals": 175,
-              "gas": 4
+              "gas": 3
             },
             {
               "kind": "morph",
@@ -196975,7 +197254,7 @@
               "to": "SkitterRelay8",
               "abil": "SkitterRelayMorph8",
               "minerals": 400,
-              "gas": 4
+              "gas": 6
             }
           ]
         }
@@ -197030,17 +197309,17 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 1825,
-        "gas": 20,
+        "minerals": 1725,
+        "gas": 21,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
-          "minerals": 1825,
-          "gas": 20
+          "minerals": 1725,
+          "gas": 21
         },
         "acquire": {
-          "minerals": 1825,
-          "gas": 20,
+          "minerals": 1725,
+          "gas": 21,
           "steps": [
             {
               "kind": "build",
@@ -197064,7 +197343,7 @@
               "to": "SkitterRelay4",
               "abil": "SkitterRelayMorph4",
               "minerals": 175,
-              "gas": 4
+              "gas": 3
             },
             {
               "kind": "morph",
@@ -197072,14 +197351,14 @@
               "to": "SkitterRelay8",
               "abil": "SkitterRelayMorph8",
               "minerals": 400,
-              "gas": 4
+              "gas": 6
             },
             {
               "kind": "morph",
               "from": "SkitterRelay8",
               "to": "SkitterRelay16",
               "abil": "SkitterRelayMorph16",
-              "minerals": 1100,
+              "minerals": 1000,
               "gas": 12
             }
           ]
@@ -197135,17 +197414,17 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 3725,
-        "gas": 30,
+        "minerals": 3625,
+        "gas": 36,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
-          "minerals": 3725,
-          "gas": 30
+          "minerals": 3625,
+          "gas": 36
         },
         "acquire": {
-          "minerals": 3725,
-          "gas": 30,
+          "minerals": 3625,
+          "gas": 36,
           "steps": [
             {
               "kind": "build",
@@ -197169,7 +197448,7 @@
               "to": "SkitterRelay4",
               "abil": "SkitterRelayMorph4",
               "minerals": 175,
-              "gas": 4
+              "gas": 3
             },
             {
               "kind": "morph",
@@ -197177,14 +197456,14 @@
               "to": "SkitterRelay8",
               "abil": "SkitterRelayMorph8",
               "minerals": 400,
-              "gas": 4
+              "gas": 6
             },
             {
               "kind": "morph",
               "from": "SkitterRelay8",
               "to": "SkitterRelay16",
               "abil": "SkitterRelayMorph16",
-              "minerals": 1100,
+              "minerals": 1000,
               "gas": 12
             },
             {
@@ -197193,7 +197472,7 @@
               "to": "SkitterRelay32",
               "abil": "SkitterRelayMorph32",
               "minerals": 1900,
-              "gas": 10
+              "gas": 15
             }
           ]
         }
@@ -197248,17 +197527,17 @@
         "radius": 1.5
       },
       "cost": {
-        "minerals": 7225,
-        "gas": 45,
+        "minerals": 7125,
+        "gas": 54,
         "food": 0,
         "supplyProvided": 0,
         "listed": {
-          "minerals": 7225,
-          "gas": 45
+          "minerals": 7125,
+          "gas": 54
         },
         "acquire": {
-          "minerals": 7225,
-          "gas": 45,
+          "minerals": 7125,
+          "gas": 54,
           "steps": [
             {
               "kind": "build",
@@ -197282,7 +197561,7 @@
               "to": "SkitterRelay4",
               "abil": "SkitterRelayMorph4",
               "minerals": 175,
-              "gas": 4
+              "gas": 3
             },
             {
               "kind": "morph",
@@ -197290,14 +197569,14 @@
               "to": "SkitterRelay8",
               "abil": "SkitterRelayMorph8",
               "minerals": 400,
-              "gas": 4
+              "gas": 6
             },
             {
               "kind": "morph",
               "from": "SkitterRelay8",
               "to": "SkitterRelay16",
               "abil": "SkitterRelayMorph16",
-              "minerals": 1100,
+              "minerals": 1000,
               "gas": 12
             },
             {
@@ -197306,7 +197585,7 @@
               "to": "SkitterRelay32",
               "abil": "SkitterRelayMorph32",
               "minerals": 1900,
-              "gas": 10
+              "gas": 15
             },
             {
               "kind": "morph",
@@ -197314,7 +197593,7 @@
               "to": "SkitterRelay64",
               "abil": "SkitterRelayMorph64",
               "minerals": 3500,
-              "gas": 15
+              "gas": 18
             }
           ]
         }
@@ -198407,7 +198686,7 @@
         "hpRegen": 0,
         "shieldRegen": 2,
         "energy": 0,
-        "speed": 3,
+        "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 1,
         "armorName": "ProtossArmor",

@@ -90,7 +90,7 @@ for xf in xml_files:
     if not raw or len(raw) < 100:
         continue
     try:
-        text = raw.decode("utf-8", errors="replace")
+        text = raw.decode("utf-8-sig", errors="replace")  # some files carry a BOM
         # Wrap in root if needed
         if not text.strip().startswith("<?xml"):
             text = '<?xml version="1.0"?><Root>' + text + '</Root>'
