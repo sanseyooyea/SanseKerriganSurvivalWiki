@@ -866,9 +866,9 @@
       "speed": null,
       "armor": 1,
       "energy": 150,
-      "damage": 50,
+      "damage": 45,
       "attackSpeed": 2,
-      "range": 7,
+      "range": 12,
       "energyRegen": 1.5
     },
     "abilities": [
@@ -902,7 +902,7 @@
       "speed": 3.0,
       "armor": 0,
       "energy": 100,
-      "damage": 25,
+      "damage": 35,
       "energyRegen": 1
     },
     "abilities": [
@@ -1246,7 +1246,7 @@
       "speed": 3.0,
       "armor": 1,
       "energy": null,
-      "damage": 10,
+      "damage": 15,
       "attackSpeed": 0.7
     },
     "abilities": [
