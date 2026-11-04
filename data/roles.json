@@ -130,7 +130,8 @@
     },
     "abilities": [
       "CommonBlinkHero",
-      "SpiritCloneSpirit"
+      "SpiritCloneSpirit",
+      "JunkerGamble"
     ],
     "conditionalAbilities": [
       {
@@ -1549,7 +1550,9 @@
       "VisionaryPassiveStanceAbility1",
       "VisionaryPassiveStanceAbility2",
       "CommonBlinkHero",
-      "VisionaryOmniStance"
+      "VisionaryOmniStance",
+      "VisionaryOmnidrive",
+      "VisionaryOmniboost"
     ]
   },
   {
