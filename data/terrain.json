@@ -1,6 +1,18 @@
 {
-  "defaultMap": "ruins_of_imladoon",
+  "defaultMap": "sand_fort",
   "maps": [
+    {
+      "key": "sand_fort",
+      "map": "SandFort",
+      "nameZh": "沙之要塞",
+      "tileset": "SandFortTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/sand_fort.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 205,
+      "date": null
+    },
     {
       "key": "ruins_of_imladoon",
       "map": "RuinsOfImladoon",
@@ -11,7 +23,7 @@
       "rockModel": "ZerusVolcanoesRock",
       "rockProbDefault": 0.5,
       "candidateCount": 160,
-      "date": null
+      "date": "2026-10-29"
     },
     {
       "key": "zerus_volcanoes",
@@ -120,18 +132,6 @@
       "rockProbDefault": 0.5,
       "candidateCount": 186,
       "date": "2026-08-11"
-    },
-    {
-      "key": "sand_fort",
-      "map": "SandFort",
-      "nameZh": "沙之要塞",
-      "tileset": "SandFortTerrainType",
-      "worldSize": 256,
-      "minimap": "/maps/sand_fort.png",
-      "rockModel": "CommonRockBlackStones",
-      "rockProbDefault": 0.5,
-      "candidateCount": 205,
-      "date": "2026-08-09"
     },
     {
       "key": "snow_prism",
