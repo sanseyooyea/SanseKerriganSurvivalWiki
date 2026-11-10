@@ -71865,9 +71865,6 @@
             {
               "effect": "StukovRavagerWeaponDamage",
               "amount": 50,
-              "bonus": {
-                "Armored": 25
-              },
               "armorReduction": 1,
               "hits": 1.0
             }
@@ -75961,7 +75958,7 @@
       ],
       "category": "economy",
       "stats": {
-        "hp": 350,
+        "hp": 300,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -76038,7 +76035,7 @@
       ],
       "category": "economy",
       "stats": {
-        "hp": 600,
+        "hp": 400,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -76170,7 +76167,7 @@
       ],
       "category": "economy",
       "stats": {
-        "hp": 1200,
+        "hp": 800,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -76364,6 +76361,34 @@
                   "ref": "Unit,EngineerWidowMine,LifeStart",
                   "op": "Add",
                   "value": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "ResearchDrillingClaws",
+          "nameZh": "研究激光利爪",
+          "category": "Talents",
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "speed"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "ResearchDrillingClaws",
+              "minerals": 500,
+              "gas": 0,
+              "time": 20,
+              "researchedBy": "EngineerResearch2",
+              "effects": [
+                {
+                  "ref": "Unit,EngineerWidowMine,Speed",
+                  "op": "Multiply",
+                  "value": 1.25
                 }
               ]
             }
@@ -77464,7 +77489,7 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 350,
+        "hp": 300,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -77550,7 +77575,7 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 600,
+        "hp": 400,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -77636,7 +77661,7 @@
       ],
       "category": "form",
       "stats": {
-        "hp": 1200,
+        "hp": 800,
         "shield": 0,
         "armor": 1,
         "shieldArmor": 0,
@@ -120560,7 +120585,7 @@
         "shieldArmor": 0,
         "hpRegen": 0,
         "shieldRegen": 0,
-        "energy": 200,
+        "energy": 0,
         "speed": 3.25,
         "creepSpeedMul": null,
         "sight": 3,
@@ -121265,6 +121290,7 @@
       },
       "attributes": [
         "Armored",
+        "Mechanical",
         "Structure"
       ],
       "planes": [

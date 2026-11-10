@@ -596,7 +596,7 @@
   "WarfieldRecallToOuthouse": {
     "nameZh": "召回外屋",
     "nameEn": "Recall To Outhouse",
-    "tooltip": "将施法单位及其附近单位传送至地图上所选位置最近的外屋。",
+    "tooltip": "将施法单位及附近单位传送至地图上选定位置最近的外屋。被召回的牛头人陆战队员在外屋内装载时，晶体矿产量降低50%，持续30秒。",
     "icon": "btn-ability-protoss-massrecall.png"
   },
   "WarfieldBlink": {
@@ -626,7 +626,7 @@
   "ElementalistIceball": {
     "nameZh": "滚雪球",
     "nameEn": "Iceball",
-    "tooltip": "元素使将自己置于一个巨大的滚雪球中，并开始向前加速。滚雪球在被任何方式停止或持续时间结束时会被摧毁，引发冰爆炸，对 3 范围内造成伤害。<n/>滚雪球每秒获得 16 点能量，其伤害每点能量提高 2%。<n/>元素使可随时从滚雪球中卸载<n/>当旧的滚雪球仍存在时创建新的滚雪球会立刻引爆旧的滚雪球<n/>与当前生命值小于滚雪球当前生命值 3 倍的敌方单位碰撞时，滚雪球将受到该单位当前生命值 3 倍的伤害，并击杀该单位<n/><c val=\"FFFF00\">生命值</c>：150 + <c val=\"AAFFFF\">每个冰元素球增加 50（）</c> + 每个倍数增加 150 = <c val=\"FFFF00\">150</c><n/><c val=\"FFFF00\">伤害</c>：10 + <c val=\"AAFFFF\">每个冰元素球增加 20（）</c> = <c val=\"FFFF00\">10</c><n/><c val=\"FFFF00\">基础消耗</c>：100 + <c val=\"AAFFFF\">每个冰元素球增加 75（）</c> = <n/>次要效果倍数：(1)<n/><c val=\"FFFF00\">持续时间</c>：30s<n/><c val=\"FFFF00\">消耗增加</c>：每个倍数-1增加 +20%",
+    "tooltip": "元素使将自己置于一个巨大的滚雪球中，并开始向前加速。滚雪球在被任何方式停止或持续时间结束时会被摧毁，引发冰爆炸，对 3 范围内造成伤害。<n/>滚雪球每秒获得 16 点能量，其伤害每点能量提高 2%。<n/>元素使可随时从滚雪球中卸载<n/>当旧的滚雪球仍存在时创建新的滚雪球会立刻引爆旧的滚雪球<n/>与当前生命值小于滚雪球当前生命值 3 倍的敌方单位碰撞时，滚雪球将受到该单位当前生命值 3 倍的伤害，并击杀该单位<n/><c val=\"FFFF00\">生命值</c>：150 + <c val=\"AAFFFF\">每个冰元素球增加 50（）</c> + 每个倍数增加 150 = <c val=\"FFFF00\">150</c><n/><c val=\"FFFF00\">伤害</c>：10 + <c val=\"AAFFFF\">每个冰元素球增加 20（）</c> = <c val=\"FFFF00\">10</c><n/><c val=\"FFFF00\">基础消耗</c>：100 + <c val=\"AAFFFF\">每个冰元素球增加 75（）</c> = <n/>次要效果倍数：(1)<n/><c val=\"FFFF00\">持续时间</c>：30秒<n/><c val=\"FFFF00\">消耗增加</c>：每个倍数-1增加 +20%",
     "icon": "btn-research-terran-orbitalstrikerally.png"
   },
   "FreezingField": {
@@ -710,7 +710,7 @@
   "GlevigTunnel": {
     "nameZh": "深层隧道",
     "nameEn": "Deep Tunnel",
-    "tooltip": "格里维格钻地至目标地点并破土而出，将敌人击退。\n\n冷却时间为（8 + 0.175 * 行进距离）秒",
+    "tooltip": "格里维格遁地至目标位置后破土而出，将敌人击退。\n\n冷却时间为（8 + 0.175 * 移动距离）秒\n\n总冷却时间每级缩短4%（最多缩短40%）",
     "icon": "btn-ability-zerg-dehaka-deeptunnelunlocked.png"
   },
   "GlevigFirebreath": {
