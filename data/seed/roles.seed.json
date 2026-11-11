@@ -146,8 +146,7 @@
     },
     "abilities": [
       "CommonBlinkHero",
-      "SpiritCloneSpirit",
-      "JunkerGamble"
+      "SpiritCloneSpirit"
     ],
     "conditionalAbilities": [
       {
@@ -156,6 +155,15 @@
           {
             "id": "SpiritCrystalBall",
             "nameZh": "水晶球"
+          }
+        ]
+      },
+      {
+        "id": "JunkerGamble",
+        "requires": [
+          {
+            "id": "JunkerBlackMarketRoulette",
+            "nameZh": "黑市轮盘（拾荒者）"
           }
         ]
       }
@@ -1673,6 +1681,86 @@
       "VisionaryOmniStance",
       "VisionaryOmnidrive",
       "VisionaryOmniboost"
+    ]
+  },
+  {
+    "id": 50,
+    "nameEn": "Junker",
+    "nameZh": "拾荒者",
+    "category": "Builder",
+    "team": "Survivor",
+    "heroUnits": [
+      "JunkerJunker"
+    ],
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-tychuswarhound.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "docstr",
+      "keys": [
+        "DOCSTR_JunkerDesc"
+      ]
+    },
+    "baseStats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 1,
+      "energy": 100
+    },
+    "abilities": [
+      "JunkerAutoTurret",
+      "JunkerFireMissiles",
+      "JunkerOverchargeBase",
+      "JunkerJumpBase",
+      "JunkerDeathNukePurchase",
+      "JunkerHotDrop"
+    ],
+    "conditionalAbilities": [
+      {
+        "id": "JunkerGamble",
+        "requires": [
+          {
+            "id": "JunkerBlackMarketRoulette",
+            "nameZh": "黑市轮盘"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "nameEn": "Horner",
+    "nameZh": "霍纳",
+    "category": "Support",
+    "team": "Survivor",
+    "status": "disabled",
+    "statusNote": "霍纳曾短暂上线（使用米拉赢得 25 场解锁），随后因强度过低在地图中被禁用，正在调整中，暂时无法在游戏中选择。以下数据取自当前地图文件，重新上线后可能变化。",
+    "heroUnits": [
+      "HornerHorner"
+    ],
+    "unitIcon": "Assets\\Textures\\wireframe-terran-battlecruiserhyperion.dds",
+    "portrait": "",
+    "descKeys": {
+      "type": "docstr",
+      "keys": [
+        "DOCSTR_HornerDesc"
+      ]
+    },
+    "baseStats": {
+      "hp": 500,
+      "speed": 2,
+      "armor": 0,
+      "energy": 100
+    },
+    "abilities": [
+      "BuildBeaconTower",
+      "TacticalJump",
+      "YamatoCannon",
+      "Horner1PointDefenseDrone",
+      "Horner2DefensiveMatrixDrone",
+      "Horner3DeployMagMine",
+      "Horner4AreaBomb",
+      "Horner5AirFleet",
+      "Horner6SpaceStationReallocation"
     ]
   },
   {

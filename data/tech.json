@@ -11383,5 +11383,894 @@
         ]
       }
     ]
+  },
+  {
+    "hero": "Junker",
+    "researchAbility": "JunkerBlackMarketResearch",
+    "researchAbilities": [
+      "JunkerBlackMarketResearch",
+      "JunkerDeathNukePurchase",
+      "JunkerMarketArmyResearch"
+    ],
+    "upgrades": [
+      {
+        "id": "JunkerReaperContract",
+        "nameZh": "收割者合约",
+        "category": null,
+        "icon": "btn-unit-terran-reaper.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "选择此合约后统计共享收割者击杀数。\n\n每5次共享收割者击杀使拾荒者获得+1固定武器伤害和每秒+1能量回复。\n\n每5次共享收割者击杀使已训练收割者获得+1对轻甲伤害，最多+20。\n\n每个单位分别训练。此前的合约击杀也会计入；英雄奖励没有上限。\n\n训练：每单位25晶体矿。\n这些是固定加成，不会随英雄等级提高。\n\n选择一个合约。本档位中的其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMarineContract",
+        "nameZh": "陆战队员合约",
+        "category": null,
+        "icon": "btn-unit-terran-marine.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "选择此合约后统计共享陆战队员击杀数。\n\n每次共享陆战队员击杀使拾荒者获得+1最大生命值。\n\n每10次共享陆战队员击杀使已训练陆战队员获得+1武器伤害和+1最大生命值，分别上限为+10伤害和+40生命值。\n\n每个单位分别训练。此前的合约击杀也会计入；英雄奖励没有上限。\n\n训练：每单位25晶体矿。\n这些是固定加成，不会随英雄等级提高。\n\n选择一个合约。本档位中的其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerVehicleContract",
+        "nameZh": "载具合约",
+        "category": null,
+        "icon": "btn-unit-terran-cyclone.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "选择此合约后统计共享维京和飓风击杀数。\n\n每4次维京和飓风的累计击杀使拾荒者获得+0.5固定武器伤害和+1最大生命值。\n\n每次维京或飓风合计击杀，使已训练载具的攻击速度提高0.1%，最多提高30%。\n\n每个单位分别训练。此前的合约击杀也会计入；英雄奖励没有上限。\n\n训练：每单位25晶体矿。\n这些是固定加成，不会随英雄等级提高。\n\n选择一个合约。本档位中的其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerDemolitionPact",
+        "nameZh": "爆破合约",
+        "category": null,
+        "icon": "btn-ability-hornerhan-reaper-deaththrows.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "收割者可以购买殉爆装药，死亡时对附近敌人造成100点伤害。拾荒者可以购买永久性的核裂变保险装置，死亡时造成1,000点伤害。\n\n爆炸半径：3（收割者）/ 5（拾荒者）\n\n购买：收割者：100晶体矿。拾荒者：250晶体矿，5瓦斯。\n\n该攻击在命中前会提前2秒发出警告。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMagrailArsenal",
+        "nameZh": "磁轨军械",
+        "category": null,
+        "icon": "btn-ability-terran-snipe-color.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "陆战队员可学习磁轨弹药：可自动施放的指向性射击。\n\n伤害：50；对重甲非建筑目标为100\n射程：5\n冷却时间：20秒\n\n购买：每名陆战队员30晶体矿。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMissileEmplacements",
+        "nameZh": "炮塔导弹架",
+        "category": null,
+        "icon": "btn-ability-terran-huntermissile-color.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "炮塔会自动向最多3个敌方地面单位发射导弹齐射，优先当前生命值最高的目标。\n\n伤害：按炮塔等级为60 / 100 / 250 / 500\n射程：4\n齐射次数：每座炮塔2轮，间隔6秒；不会恢复\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerNitroPacks",
+        "nameZh": "加力推进器",
+        "category": null,
+        "icon": "btn-upgrade-terran-reapernitropacks.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "收割者可学习加力推进，使移动速度提高50%，持续5秒。\n\n冷却时间：20秒\n\n购买：每名收割者20晶体矿。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerPiercingCannons",
+        "nameZh": "穿透机炮",
+        "category": null,
+        "icon": "btn-ability-hornerhan-viking-piercingattacks.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "着陆维京战机的攻击会对主目标周围的其他敌方地面单位造成普通武器伤害的30%。\n\n溅射半径：2\n溅射受益于武器研发。\n\n购买：每架维京战机100晶体矿。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerOverclockedArsenal",
+        "nameZh": "超频武装",
+        "category": null,
+        "icon": "btn-ability-hornerhan-mechbioweaponupgrades-a.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "过载还会按等级使攻击速度提高30% / 40% / 50% / 60%，持续5秒。\n\n导弹齐射额外储存1次充能。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerShockShells",
+        "nameZh": "震荡弹",
+        "category": null,
+        "icon": "btn-ability-terran-superconcussive.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "炮塔攻击会在半径1内额外造成5点法术伤害，并使敌人减速3秒。\n\n移动速度减缓：按炮塔等级为10% / 20% / 30% / 40%\n减速不影响英雄单位。\n\n购买：每座炮塔75晶体矿。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMarineStimpack",
+        "nameZh": "陆战队员兴奋剂",
+        "category": null,
+        "icon": "btn-ability-terran-stimpack.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "兴奋剂使这名陆战队员的移动和攻击速度提高50%，持续15秒。\n\n生命值消耗：最大生命值\n冷却时间：15秒\n\n购买：每个陆战队员75晶体矿。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMissileSwarm",
+        "nameZh": "导弹蜂群",
+        "category": null,
+        "icon": "btn-upgrade-terran-nova-hellfiremissiles.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "飓风每第三次基础攻击会向至多2 个额外敌方地面单位发射普通导弹。\n\n射程：8\n额外射击不会推进攻击计数器。\n\n购买：每个飓风 150 矿物。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerScorchedWreckage",
+        "nameZh": "燃烧残骸",
+        "category": null,
+        "icon": "btn-ability-hornerhan-bomberplatform-napalm.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "维京死亡时会留下火焰，使敌方地面单位每秒受到40 点伤害。\n\n持续时间：4 秒\n半径：2\n\n购买：每个维京 150 矿物。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerTwinTargeting",
+        "nameZh": "双目标锁定",
+        "category": null,
+        "icon": "btn-techupgrade-terran-multilocktargetingsystem.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "炮塔每次普通攻击会攻击2个不同敌人。额外射击造成普通武器伤害并施加已购买的震荡弹效果。\n\n射程：5\n\n购买：每座炮塔100晶体矿。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerReactiveBarrier",
+        "nameZh": "应急屏障",
+        "category": null,
+        "icon": "btn-ability-terran-defensivematrix.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "飓风获得临时200 点护盾和5 点护甲，持续15 秒。屏障结束时，未使用的护盾也会消失。\n\n冷却时间：45 秒\n\n购买：每个飓风 200 矿物。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerEnhancedMarines",
+        "nameZh": "强化陆战队员",
+        "category": null,
+        "icon": "btn-unit-terran-marinemercenary.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "永久使该陆战队员的 最大生命值提高至2.5倍，并使武器伤害提高至2倍。使视觉模型大小和碰撞半径增加 20%。可享受军队研究和陆战队员合约的加成。\n\n购买：每个陆战队员500晶体矿、5高能瓦斯。\n\n每个等级选择一个合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerKDCharges",
+        "nameZh": "KD集束炸药",
+        "category": null,
+        "icon": "btn-ability-terran-d8charge.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "收割者投掷一簇 KD 炸药，落地 1 秒后爆炸，对敌人和己方单位（包括收割者自身）造成伤害。\n\n伤害：100\n半径：2\n射程 / 冷却时间：5 / 60 秒\n\n不会对盟友玩家的单位造成伤害。\n\n购买：每个收割者 300 矿物，2 瓦斯。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerFocusedFire",
+        "nameZh": "持续集火",
+        "category": null,
+        "icon": "btn-ability-terran-lockon.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "飓风对同一敌人的主要攻击每次使武器伤害提高10%，最多提高至100%。切换主要目标或在10 秒内未进行攻击时重置。额外射击不会叠加层数。\n\n购买：每个飓风 350 矿物，3 瓦斯。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerEmergencyExtraction",
+        "nameZh": "紧急撤离",
+        "category": null,
+        "icon": "btn-unit-terran-medivac.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "为SCV解锁救援站。只要一座已完成的救援站存活，致死伤害会使拾荒者保留1点生命值。一架无敌的医疗运输机会以1点生命值将其送回救援站。触发撤离时，拾荒者将获得5秒无敌。接到拾荒者后，医疗运输机会调整速度，在2秒内飞回救援站。已购买的殉爆核弹会在接回前引爆。\n\n购买：救援站：10,000晶体矿，100瓦斯。\n\n撤离冷却时间：分钟。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerAreaDefense",
+        "nameZh": "区域防御",
+        "category": null,
+        "icon": "btn-upgrade-swann-aresclasstargetingsystem.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "飓风部署一个类似解放者的防御区域。在原地保持位置，攻击进入标记区域的敌方地面单位，持续20秒。攻击使用普通武器伤害和已购买的升级，并带有半径1的溅射。\n\n区域半径：4\n施法距离：8\n冷却时间：60秒\n\n购买：每个飓风500晶体矿。\n\n可提前取消。取消不会重置冷却时间。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerCrashLanding",
+        "nameZh": "强袭着陆",
+        "category": null,
+        "icon": "btn-upgrade-terran-nova-personaldefensivematrix.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "维京的起飞和降落时间缩短至0.25 秒。降落时获得相当于最大生命值的 100%的护盾，护盾会在5 秒内衰减，并在相同持续时间内获得20% 的武器伤害加成。\n\n购买：每个维京 500 矿物。\n\n每个等级只能选择一份合约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerGalleonBlueprint",
+        "nameZh": "强袭斗舰蓝图",
+        "category": null,
+        "icon": "btn-building-hornerhan-assaultgalleon.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "将一名SCV改装为巨型强袭斗舰。\n\n生命值/伤害：1 / 1\n攻击间隔：999秒\n移动速度：3\n\n每位拾荒者玩家每局一次。军备研发不影响强袭斗舰。\n\n购买：每次改装1晶体矿，1瓦斯。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerBlackMarketRoulette",
+        "nameZh": "黑市轮盘",
+        "category": null,
+        "icon": "btn-building-terran-merccompound.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "为拾荒者解锁黑市轮盘。\n\n每次抽取花费25晶体矿和25瓦斯。\n\n每个档位选择一个合约。其他选项永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerSpecialDelivery",
+        "nameZh": "特别快递",
+        "category": null,
+        "icon": "btn-progression-hornerhan-14-nukefortelefrag.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 0,
+            "gasCost": 0,
+            "time": 0,
+            "descZh": "无敌的医疗运输机会将拾荒者运送到虫族防御者英雄标记的位置。地面核弹警告会倒计时3秒，医疗运输机会调整速度以准时抵达投放位置。卸载时释放一枚小型核弹。\n\n伤害：\n半径：\n冷却时间： 秒\n\n不会伤害拾荒者或盟友。\n\n每个层级选择一项契约。其他选项将永久锁定。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerDeathNukeUpgrade",
+        "nameZh": "购买殉爆核弹",
+        "category": null,
+        "icon": "btn-ability-terran-armnuke.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 250,
+            "gasCost": 5,
+            "time": 0,
+            "descZh": "永久为拾荒者装配核能保险。\n\n死亡时释放爆炸，对半径5内的敌人造成点伤害。英雄复活后效果仍会持续。\n\n需要“爆破契约”合约。\n\n打击命中前会有2秒预警。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMarketArmy",
+        "nameZh": "部队武器（1级）",
+        "category": null,
+        "icon": "btn-upgrade-terran-vehicleweaponslevel1.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 500,
+            "gasCost": 0,
+            "time": 10,
+            "descZh": "提高拾荒者、陆战队员、死神、飓风和维京战机的武器伤害。\n\n武器等级1。"
+          },
+          {
+            "level": 2,
+            "cost": 2500,
+            "gasCost": 0,
+            "time": 10,
+            "descZh": "提高拾荒者、陆战队员、死神、飓风和维京战机的武器伤害。\n\n武器等级2。"
+          },
+          {
+            "level": 3,
+            "cost": 10000,
+            "gasCost": 0,
+            "time": 10,
+            "descZh": "提高拾荒者、陆战队员、死神、飓风和维京战机的武器伤害。\n\n武器等级3。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMarketArmor",
+        "nameZh": "部队装甲（1级）",
+        "category": null,
+        "icon": "btn-upgrade-terran-vehicleplatinglevel1.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 500,
+            "gasCost": 0,
+            "time": 10,
+            "descZh": "提高拾荒者、陆战队员、死神、飓风和维京战机的生命值与护甲。\n\n护甲等级1。"
+          },
+          {
+            "level": 2,
+            "cost": 2500,
+            "gasCost": 0,
+            "time": 10,
+            "descZh": "提高拾荒者、陆战队员、死神、飓风和维京战机的生命值与护甲。\n\n护甲等级2。"
+          },
+          {
+            "level": 3,
+            "cost": 10000,
+            "gasCost": 0,
+            "time": 10,
+            "descZh": "提高拾荒者、陆战队员、死神、飓风和维京战机的生命值与护甲。\n\n护甲等级3。"
+          }
+        ]
+      },
+      {
+        "id": "JunkerMarketVision",
+        "nameZh": "强化光学系统",
+        "category": null,
+        "icon": "btn-ability-protoss-squadsight.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 4000,
+            "gasCost": 50,
+            "time": 10,
+            "descZh": "提高拾荒者军队单位和炮塔的视野半径4。英雄、SCV和建筑不受影响。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hero": "Horner",
+    "researchAbility": "HornerArmoryResearch",
+    "researchAbilities": [
+      "HornerArmoryResearch",
+      "HornerArmoryResearchAdditional"
+    ],
+    "upgrades": [
+      {
+        "id": "HornerAcceleratedCompounds",
+        "nameZh": "研究合成器加速",
+        "category": null,
+        "icon": "btn-ability-tychus-marauder-deployrevitalizer.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 4000,
+            "gasCost": 50,
+            "time": 5,
+            "descZh": "使霍纳所有晶矿合成器的单位生产速度提高。"
+          }
+        ]
+      },
+      {
+        "id": "HornerAdvancedIntercept",
+        "nameZh": "研究高级拦截",
+        "category": null,
+        "icon": "talent-raynor-level05-pointdefensedrones.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 1000,
+            "gasCost": 5,
+            "time": 5,
+            "descZh": "将定点防御无人机的能量提高至原来的 2 倍"
+          }
+        ]
+      },
+      {
+        "id": "HornerAutoProductionPDD",
+        "nameZh": "研究自动生产定点防御无人机",
+        "category": null,
+        "icon": "btn-unit-terran-targetingdrone.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 500,
+            "gasCost": 10,
+            "time": 5,
+            "descZh": "相当于拥有一个+4。"
+          }
+        ]
+      },
+      {
+        "id": "HornerOptimizeBattery",
+        "nameZh": "研究优化电池",
+        "category": null,
+        "icon": "btn-upgrade-terran-nova-specialordance.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 1500,
+            "gasCost": 10,
+            "time": 5,
+            "descZh": "将 DMD 的能量消耗提高至原来的  倍"
+          }
+        ]
+      },
+      {
+        "id": "HornerAutoProductionDMD",
+        "nameZh": "研究自动生产防御无人机",
+        "category": null,
+        "icon": "btn-upgrade-terran-nova-defensivedrone.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 1000,
+            "gasCost": 15,
+            "time": 5,
+            "descZh": "相当于拥有一个+8。"
+          }
+        ]
+      },
+      {
+        "id": "HornerQuickDeploy",
+        "nameZh": "研究快速部署",
+        "category": null,
+        "icon": "btn-progression-hornerhan-6-mirabuildtime.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 15,
+            "time": 5,
+            "descZh": "缩短磁暴地雷的部署时间。"
+          }
+        ]
+      },
+      {
+        "id": "HornerHeavyPayload",
+        "nameZh": "研究重型弹头",
+        "category": null,
+        "icon": "btn-ability-hornerhan-hellbat-fear.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 1500,
+            "gasCost": 25,
+            "time": 5,
+            "descZh": "增加磁暴地雷50点伤害，并使爆炸半径增加1。"
+          }
+        ]
+      },
+      {
+        "id": "HornerOverdrive",
+        "nameZh": "研究过载",
+        "category": null,
+        "icon": "btn-progression-hornerhan-2-bomberplatforms.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 3500,
+            "gasCost": 25,
+            "time": 5,
+            "descZh": "将区域炸弹的作用范围乘以1.5。"
+          }
+        ]
+      },
+      {
+        "id": "HornerNapalmStrike",
+        "nameZh": "研究凝固汽油打击",
+        "category": null,
+        "icon": "btn-ability-hornerhan-bomberplatform-napalm.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 35,
+            "time": 5,
+            "descZh": "精准打击会用凝固汽油点燃目标位置。接触凝固汽油的敌方单位会在秒内额外受到点伤害。"
+          }
+        ]
+      },
+      {
+        "id": "HornerExtendedSupport",
+        "nameZh": "研究扩展支援",
+        "category": null,
+        "icon": "btn-top-hornerhan-fleetcalldown.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 6000,
+            "gasCost": 35,
+            "time": 5,
+            "descZh": "将空中舰队的持续时间乘以1.5。"
+          }
+        ]
+      },
+      {
+        "id": "HornerHighCaliber",
+        "nameZh": "研究大口径",
+        "category": null,
+        "icon": "btn-progression-hornerhan-12-yamatocannons.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 3500,
+            "gasCost": 60,
+            "time": 5,
+            "descZh": "使空中舰队获得大和炮武器。"
+          }
+        ]
+      },
+      {
+        "id": "HornerReinforceSpaceStation",
+        "nameZh": "研究强化空间站",
+        "category": null,
+        "icon": "btn-doodad-spacestationmercenary.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 10000,
+            "gasCost": 60,
+            "time": 5,
+            "descZh": "空间站额外获得 1500 点生命、5 点护甲，并将其持续时间乘以 2"
+          }
+        ]
+      },
+      {
+        "id": "HornerNukeForTeleFrag",
+        "nameZh": "研究核弹传送碾杀",
+        "category": null,
+        "icon": "btn-progression-hornerhan-14-nukefortelefrag.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 6000,
+            "gasCost": 100,
+            "time": 5,
+            "descZh": "空间站被摧毁时会引发核爆，造成  点伤害"
+          }
+        ]
+      },
+      {
+        "id": "HornerArmor1",
+        "nameZh": "升级护甲",
+        "category": null,
+        "icon": "btn-ability-hornerhan-mechbioarmorupgrades-a.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 500,
+            "gasCost": 0,
+            "time": 5,
+            "descZh": "升级霍纳和渡鸦的护甲。"
+          }
+        ]
+      },
+      {
+        "id": "HornerArmor2",
+        "nameZh": "升级护甲",
+        "category": null,
+        "icon": "btn-ability-hornerhan-mechbioarmorupgrades-b.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 0,
+            "time": 5,
+            "descZh": "进一步升级霍纳和渡鸦的护甲。"
+          }
+        ]
+      },
+      {
+        "id": "HornerArmor3",
+        "nameZh": "升级护甲",
+        "category": null,
+        "icon": "btn-ability-hornerhan-mechbioarmorupgrades-c.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 10000,
+            "gasCost": 0,
+            "time": 5,
+            "descZh": "更进一步升级霍纳和渡鸦的护甲。"
+          }
+        ]
+      },
+      {
+        "id": "HornerAttack1",
+        "nameZh": "升级武器",
+        "category": null,
+        "icon": "btn-ability-hornerhan-mechbioweaponupgrades-a.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 500,
+            "gasCost": 0,
+            "time": 5,
+            "descZh": "提高霍纳和渡鸦造成的伤害。"
+          }
+        ]
+      },
+      {
+        "id": "HornerAttack2",
+        "nameZh": "升级武器",
+        "category": null,
+        "icon": "btn-ability-hornerhan-mechbioweaponupgrades-b.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 0,
+            "time": 5,
+            "descZh": "进一步提高霍纳和渡鸦造成的伤害。"
+          }
+        ]
+      },
+      {
+        "id": "HornerAttack3",
+        "nameZh": "升级武器",
+        "category": null,
+        "icon": "btn-ability-hornerhan-mechbioweaponupgrades-c.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 10000,
+            "gasCost": 0,
+            "time": 5,
+            "descZh": "更进一步提高霍纳和渡鸦造成的伤害。"
+          }
+        ]
+      },
+      {
+        "id": "HornerForceShield",
+        "nameZh": "研究力场护盾",
+        "category": null,
+        "icon": "btn-ability-protoss-stasisfield.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 25,
+            "time": 5,
+            "descZh": "使我方霍纳获得1000点护盾。"
+          }
+        ]
+      },
+      {
+        "id": "HornerIgniteAfterburners",
+        "nameZh": "研究后燃助推器",
+        "category": null,
+        "icon": "btn-upgrade-terran-medivacemergencythrusters.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 25,
+            "time": 5,
+            "descZh": "使霍纳及其单位的移动速度提高0.5。"
+          }
+        ]
+      },
+      {
+        "id": "HornerCorvidReactor",
+        "nameZh": "研究地鸦反应堆",
+        "category": null,
+        "icon": "btn-upgrade-terran-corvidreactor.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 25,
+            "time": 5,
+            "descZh": "提高霍纳和渡鸦的能量上限和能量回复速度。"
+          }
+        ]
+      },
+      {
+        "id": "HornerFusionWarhead",
+        "nameZh": "研究聚变弹头",
+        "category": null,
+        "icon": "btn-ability-terran-nuclearstrike-color.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2000,
+            "gasCost": 20,
+            "time": 5,
+            "descZh": "霍纳的大和炮获得范围攻击效果。"
+          }
+        ]
+      },
+      {
+        "id": "HornerOverloadedReactor",
+        "nameZh": "研究超载反应堆",
+        "category": null,
+        "icon": "btn-upgrade-mengsk-engineeringbay-orbitaldrop.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 2500,
+            "gasCost": 25,
+            "time": 5,
+            "descZh": "提高霍纳大和炮的充能速度和充能次数。"
+          }
+        ]
+      },
+      {
+        "id": "HornerFireControlSystem",
+        "nameZh": "研究火控系统",
+        "category": null,
+        "icon": "btn-upgrade-swann-aresclasstargetingsystem.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 3000,
+            "gasCost": 30,
+            "time": 5,
+            "descZh": "霍纳的攻击射程提高2，视野范围提高4，大和炮射程提高2。"
+          }
+        ]
+      },
+      {
+        "id": "HornerPortableBeacon",
+        "nameZh": "研究便携式信标",
+        "category": null,
+        "icon": "btn-upgrade-mengsk-armory-smartservos.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 3000,
+            "gasCost": 30,
+            "time": 5,
+            "descZh": "霍纳现在可以亲自携带信标。"
+          }
+        ]
+      },
+      {
+        "id": "HornerEnhancedBeacon",
+        "nameZh": "研究增强信标",
+        "category": null,
+        "icon": "btn-ability-spearofadun-chronomancy.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 3000,
+            "gasCost": 15,
+            "time": 5,
+            "descZh": "提高信标的作用范围。"
+          }
+        ]
+      },
+      {
+        "id": "HornerBeaconTowerRadar",
+        "nameZh": "研究信标塔雷达",
+        "category": null,
+        "icon": "btn-status-radar.png",
+        "levels": [
+          {
+            "level": 1,
+            "cost": 1500,
+            "gasCost": 30,
+            "time": 5,
+            "descZh": "空投信标塔可以探测其范围内的敌人。"
+          }
+        ]
+      }
+    ]
   }
 ]

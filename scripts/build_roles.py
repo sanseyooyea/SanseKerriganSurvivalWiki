@@ -101,6 +101,11 @@ for role in seed:
     # 多形态角色(幽灵)：技能按形态分组展示；abilities 仍是扁平全集(校验/管线用)
     if role.get('abilityGroups'):
         out[-1]['abilityGroups'] = role['abilityGroups']
+    # 地图花名册里禁用(isDisabled)但仍收录的角色(如暂时下线的霍纳)：前端显示下线标签
+    if role.get('status'):
+        out[-1]['status'] = role['status']
+        if role.get('statusNote'):
+            out[-1]['statusNote'] = role['statusNote']
 
 json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 

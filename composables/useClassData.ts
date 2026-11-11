@@ -26,6 +26,9 @@ export interface ClassInfo {
   abilities: string[]
   // 多形态角色(幽灵)：技能按形态分组；unit 为该形态的单位 id
   abilityGroups?: { label: string; unit?: string; note?: string; abilities: string[] }[]
+  // 地图花名册里禁用、但 wiki 仍收录的角色（如暂时下线调整的霍纳）
+  status?: 'disabled'
+  statusNote?: string
 }
 
 export function useClassData() {

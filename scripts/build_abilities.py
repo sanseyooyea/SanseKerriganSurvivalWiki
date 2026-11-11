@@ -66,7 +66,18 @@ def find_icon(ab_id):
         val = BTN.get(bid, {}).get('Icon')
         if val:
             return _icon_png_name(val)
+        # 继承原版按钮(parent 不在地图里)：图标在原版数据中，地图 catalog 取不到
+        parent = BTN.get(bid, {}).get('CopySource')
+        if parent in BASE_BUTTON_ICON:
+            return _icon_png_name(BASE_BUTTON_ICON[parent])
     return ''
+
+
+# 地图按钮 parent 指向原版(Liberty/Swarm)按钮时的图标：catalog 只含地图自身数据，
+# 原版按钮的 Icon 需手工补。dds 源都在 sc2_btn_icons_raw 里，build_ability_icons 会转出。
+BASE_BUTTON_ICON = {
+    'TychusWarhoundHaywireMissiles': 'Assets\\Textures\\btn-ability-terran-haywiremissile.dds',
+}
 
 # Hand-curated name fallbacks for abilities the map has no name for.
 NAME_OVERRIDE = {k: v for k, v in json.load(

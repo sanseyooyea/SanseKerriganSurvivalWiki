@@ -36,8 +36,26 @@
             <span class="text-xs px-2.5 py-1 rounded-md bg-surface-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-medium">
               {{ categoryLabel }}
             </span>
+            <span v-if="cls.status === 'disabled'"
+              class="text-xs px-2.5 py-1 rounded-md bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 font-medium">
+              暂时下线
+            </span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- 下线提示：地图花名册禁用但仍收录的角色 -->
+    <div v-if="cls.status === 'disabled'" role="note"
+      class="mb-6 flex gap-3 rounded-xl border border-amber-200 dark:border-amber-800/60 bg-amber-50 dark:bg-amber-900/20 p-4">
+      <svg class="w-5 h-5 shrink-0 text-amber-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m0 3.75h.008M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+      </svg>
+      <div class="text-sm">
+        <div class="font-semibold text-amber-800 dark:text-amber-200 mb-0.5">该职业暂时下线</div>
+        <p class="text-amber-700 dark:text-amber-300/90 leading-relaxed">
+          {{ cls.statusNote || '该职业目前在地图中被禁用，暂时无法在游戏中选择。以下数据取自当前地图文件，重新上线后可能变化。' }}
+        </p>
       </div>
     </div>
 

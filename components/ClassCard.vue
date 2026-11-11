@@ -15,7 +15,11 @@
             :class="data.team === 'Kerrigan' ? 'group-hover:text-kerrigan-600 dark:group-hover:text-kerrigan-400' : 'group-hover:text-survivor-600 dark:group-hover:text-survivor-400'">
             {{ data.nameZh || data.nameEn }}
           </div>
-          <div class="text-xs text-gray-400 dark:text-gray-500">{{ data.nameEn }}</div>
+          <div class="text-xs text-gray-400 dark:text-gray-500">
+            {{ data.nameEn }}
+            <span v-if="data.status === 'disabled'"
+              class="ml-1 px-1 py-px rounded text-[0.65rem] font-medium bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">暂时下线</span>
+          </div>
         </div>
         <div class="flex flex-col items-end gap-0.5">
           <span v-if="winRate != null" class="text-xs font-mono font-semibold"

@@ -119,17 +119,17 @@
     "tooltip": "召唤一个拥有灵魂全部技能的黑暗灵魂，使灵魂获得第二条命，并解锁大型凯达琳巨石。\n\n只能购买一次。只要任意一个灵魂存活，灵魂就不会死亡。",
     "icon": "btn-unit-protoss-adept-purifier.png"
   },
-  "JunkerGamble": {
-    "nameZh": "试试手气",
-    "nameEn": "Gamble",
-    "tooltip": "为未知效果试试手气。",
-    "icon": "btn-building-terran-merccompound.png"
-  },
   "SpiritDeflect": {
     "nameZh": "偏折",
     "nameEn": "Deflect",
     "tooltip": "使目标单位远离灵魂。驱离目标单位。但是可以被手动操作覆盖。\n\n对英雄单位无效。",
     "icon": "btn-ability-terran-emp-color.png"
+  },
+  "JunkerGamble": {
+    "nameZh": "试试手气",
+    "nameEn": "Gamble",
+    "tooltip": "为未知效果试试手气。",
+    "icon": "btn-building-terran-merccompound.png"
   },
   "AresTransport": {
     "nameZh": "全部卸载到这里",
@@ -1435,6 +1435,96 @@
     "nameEn": "Omniboost",
     "tooltip": "创建一个紫色区域，使区域内你的单位获得+1攻击或防御姿态等级以及20%移动速度。\n\n半径: 8\n持续时间: 20秒\n冷却时间：50 | 35",
     "icon": "btn-ability-protoss-firebeam.png"
+  },
+  "JunkerAutoTurret": {
+    "nameZh": "自动炮塔",
+    "nameEn": "自动炮塔",
+    "tooltip": "在目标点部署一个自动炮台。<n/><c val=\"E6E6E6\">部署</c><n/><c val=\"E6E6E6\">储存次数：</c><c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c><n/><c val=\"E6E6E6\">充能恢复：30秒</c><n/><c val=\"E6E6E6\">自动炮台</c><n/><c val=\"FF8080\">伤害：</c><c val=\"FF8080\">30</c>|<c val=\"FF8080\">60</c>|<c val=\"FF8080\">150</c>|<c val=\"FF8080\">300</c><n/><c val=\"E6E6E6\">攻击间隔：</c><c val=\"E6E6E6\">1.5秒</c>|<c val=\"E6E6E6\">1秒</c>|<c val=\"E6E6E6\">0.6秒</c>|<c val=\"E6E6E6\">0.4秒</c><n/><c val=\"E6E6E6\">视野半径：</c><c val=\"E6E6E6\">1</c>|<c val=\"E6E6E6\">2</c>|<c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c>",
+    "icon": "btn-building-terran-autoturret.png"
+  },
+  "JunkerFireMissiles": {
+    "nameZh": "导弹齐射",
+    "nameEn": "Fire Missiles",
+    "tooltip": "立即向附近最多<c val=\"E6E6E6\">3</c>个敌方地面单位各发射一枚狂暴导弹，优先攻击当前生命值最高的目标。<n/><c val=\"FF8080\">伤害：</c>|||<n/><c val=\"E6E6E6\">射程：4</c><n/>储存<c val=\"E6E6E6\">1</c>次充能；拥有超频武装时储存<c val=\"E6E6E6\">2</c>次。每次充能需要<c val=\"E6E6E6\">6秒</c>才能恢复。",
+    "icon": "btn-ability-terran-haywiremissile.png"
+  },
+  "JunkerOverchargeBase": {
+    "nameZh": "过载",
+    "nameEn": "Overcharge",
+    "tooltip": "在5秒内提高40%移动速度。\n拥有超频武装时：还会赋予30%攻击速度。",
+    "icon": "btn-upgrade-protoss-fenix-dragoonovercharge.png"
+  },
+  "JunkerJumpBase": {
+    "nameZh": "喷射跳跃（未训练）",
+    "nameEn": "Jump Jets (Untrained)",
+    "tooltip": "跳至目标地点且不造成伤害。初始即可用；学习喷射跳跃后增加落地伤害。<n/><c val=\"FF8080\">伤害：0</c><n/><c val=\"E6E6E6\">冷却时间：300秒。射程：6。</c>",
+    "icon": "btn-upgrade-terran-jumpjets.png"
+  },
+  "JunkerDeathNukePurchase": {
+    "nameZh": "购买殉爆核弹",
+    "nameEn": "Purchase Nuclear Failsafe",
+    "tooltip": "永久为拾荒者装配核能保险。<n/>死亡时释放爆炸，对<c val=\"E6E6E6\">半径5</c>内的敌人造成<c val=\"FF8080\">1000点伤害</c>。英雄复活后效果仍会持续。<n/><c val=\"98FB98\">需要“爆破契约”合约。</c><n/><c val=\"E6E6E6\">打击命中前会有2秒预警。</c>",
+    "icon": "btn-ability-terran-armnuke.png"
+  },
+  "JunkerHotDrop": {
+    "nameZh": "特别快递",
+    "nameEn": "Special Delivery",
+    "tooltip": "无敌的医疗运输机会将拾荒者运送到虫族防御者英雄标记的位置。地面核弹警告会倒计时<c val=\"E6E6E6\">3秒</c>，医疗运输机会调整速度以准时抵达投放位置。卸载时释放一枚小型核弹。<n/><c val=\"FF8080\">伤害： </c><c val=\"FF8080\">1</c><n/><c val=\"E6E6E6\">半径： </c><c val=\"E6E6E6\">9</c><n/><c val=\"90EE90\">冷却时间： </c><c val=\"90EE90\">300秒</c><n/><c val=\"98FB98\">不会伤害拾荒者或盟友。</c>",
+    "icon": "btn-progression-hornerhan-14-nukefortelefrag.png"
+  },
+  "BuildBeaconTower": {
+    "nameZh": "空投信标塔",
+    "nameEn": "Build Beacon Tower",
+    "tooltip": "部署一座空投信标塔。霍纳的几乎所有技能都必须在信标塔范围内施放。",
+    "icon": "btn-building-terran-sensortower-covertops.png"
+  },
+  "TacticalJump": {
+    "nameZh": "战术跳跃",
+    "nameEn": "Tactical Jump",
+    "tooltip": "充能一段时间后，跳跃至目标位置。",
+    "icon": "btn-ability-hornerhan-fleethyperjump.png"
+  },
+  "YamatoCannon": {
+    "nameZh": "大和炮",
+    "nameEn": "大和炮",
+    "tooltip": "用毁灭性的等离子炮轰击一个单位，对其造成100点伤害。",
+    "icon": "btn-ability-terran-yamatogun-color.png"
+  },
+  "Horner1PointDefenseDrone": {
+    "nameZh": "定点防御无人机",
+    "nameEn": "Horner 1 Point Defense Drone",
+    "tooltip": "使用激光击落敌方导弹。<n/>无法瞄准特殊攻击。<n/>在30秒后失效。",
+    "icon": "btn-unit-terran-targetingdrone.png"
+  },
+  "Horner2DefensiveMatrixDrone": {
+    "nameZh": "防御无人机",
+    "nameEn": "Horner 2 Defensive Matrix Drone",
+    "tooltip": "为友方单位提供可吸收最多50点伤害的护盾。<n/>持续30秒。",
+    "icon": "btn-upgrade-terran-nova-defensivedrone.png"
+  },
+  "Horner3DeployMagMine": {
+    "nameZh": "部署磁暴地雷",
+    "nameEn": "Horner 3 Deploy Mag Mine",
+    "tooltip": "在目标位置部署 3 枚磁暴地雷。<n/>磁暴地雷会被敌方移动触发，并造成 100 点范围伤害。",
+    "icon": "btn-top-hornerhan-magmines.png"
+  },
+  "Horner4AreaBomb": {
+    "nameZh": "精准打击",
+    "nameEn": "Horner 4 AreaBomb",
+    "tooltip": "向目标位置发射打击战机，对目标区域内的敌方地面单位造成325点伤害。",
+    "icon": "btn-top-hornerhan-bombers.png"
+  },
+  "Horner5AirFleet": {
+    "nameZh": "空中舰队",
+    "nameEn": "Horner 5 AirFleet",
+    "tooltip": "召唤霍纳的舰队提供近距离行星支援。<n/>舰队每秒对目标区域内的随机敌方单位造成75/0.2+450/2=600点伤害（对建筑物造成1/3伤害）。<n/>舰队将持续20秒。",
+    "icon": "btn-progression-hornerhan-5-fleetcalldown.png"
+  },
+  "Horner6SpaceStationReallocation": {
+    "nameZh": "霍纳空间站重新部署",
+    "nameEn": "Horner 6 Space Station Reallocation",
+    "tooltip": "空间站对接触到的目标造成 150 点伤害。突击无人机将攻击附近的目标。持续 20 秒。",
+    "icon": "btn-progression-hornerhan-10-telefrag.png"
   },
   "GhostSwitch": {
     "nameZh": "切换",
