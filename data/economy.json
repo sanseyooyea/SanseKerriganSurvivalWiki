@@ -2687,5 +2687,185 @@
         "salvageRate": 0.85
       }
     ]
+  },
+  {
+    "hero": "Junker",
+    "incomeModel": "拾荒者使用与科学家相同的升级链经济：拾荒者 SCV 建造「废料回收站 +1」（75 矿），之后原地逐级升级（+2、+4、+8、+16、+32，每级 5 秒，按差价扣费），每档每 3 秒产出对应晶矿。所有回收站都能施放时空加速（每座 5 气、一次性，永久 ×1.75 运作速度），也都能回收（返还 85%）。最高只到 +32，不像科学家那样能再升 +64。\n\n【赏金不是收入】拾荒者击杀敌人会累计「赏金点数」（按被击杀单位的瓦斯赏金计），用于解锁黑市的合约档位（20 / 50 / 100 / 200 / 400 / 1,000 / 2,000 / 10,000），不直接产出晶矿或瓦斯。黑市轮盘每次抽取另需 25 矿 + 25 气。",
+    "chrono": {
+      "timeScale": 1.75,
+      "gasCost": 5,
+      "duration": "permanent",
+      "name": "时空加速"
+    },
+    "buildings": [
+      {
+        "id": "JunkerScrapRecycler1",
+        "nameZh": "废料回收站 +1",
+        "income": 1,
+        "incomePeriod": 3,
+        "cost": 75,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "JunkerScrapRecycler2",
+        "notes": "拾荒者 SCV 直接建造（75 矿，5s）。每 3s 产 1 晶矿。可施放时空加速（5 气，永久 ×1.75）。可回收（返还 85%）。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "JunkerScrapRecycler2",
+        "nameZh": "废料回收站 +2",
+        "income": 2,
+        "incomePeriod": 3,
+        "cost": 150,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "JunkerScrapRecycler4",
+        "notes": "由上一档原地升级（补差价 75 矿，5s）。每 3s 产 2 晶矿。可施放时空加速（5 气，永久 ×1.75）。可回收（返还 85%）。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "JunkerScrapRecycler4",
+        "nameZh": "废料回收站 +4",
+        "income": 4,
+        "incomePeriod": 3,
+        "cost": 350,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "JunkerScrapRecycler8",
+        "notes": "由上一档原地升级（补差价 200 矿，5s）。每 3s 产 4 晶矿。可施放时空加速（5 气，永久 ×1.75）。可回收（返还 85%）。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "JunkerScrapRecycler8",
+        "nameZh": "废料回收站 +8",
+        "income": 8,
+        "incomePeriod": 3,
+        "cost": 800,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "JunkerScrapRecycler16",
+        "notes": "由上一档原地升级（补差价 450 矿，5s）。每 3s 产 8 晶矿。可施放时空加速（5 气，永久 ×1.75）。可回收（返还 85%）。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "JunkerScrapRecycler16",
+        "nameZh": "废料回收站 +16",
+        "income": 16,
+        "incomePeriod": 3,
+        "cost": 2000,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "JunkerScrapRecycler32",
+        "notes": "由上一档原地升级（补差价 1200 矿，5s）。每 3s 产 16 晶矿。可施放时空加速（5 气，永久 ×1.75）。可回收（返还 85%）。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "JunkerScrapRecycler32",
+        "nameZh": "废料回收站 +32",
+        "income": 32,
+        "incomePeriod": 3,
+        "cost": 5000,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "由上一档原地升级（补差价 3000 矿，5s）。每 3s 产 32 晶矿。可施放时空加速（5 气，永久 ×1.75）。可回收（返还 85%）。最高档，无法继续升级。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      }
+    ]
+  },
+  {
+    "hero": "Horner",
+    "incomeModel": "⚠ 霍纳目前在地图中被禁用（暂时下线调整中），以下数据取自当前地图文件，重新上线后可能变化。\n\n霍纳的经济建筑是「晶矿合成器」，共 6 档：+4 / +8 / +16 / +32 / +64 / +128，每 5 秒产出对应晶矿（注意结算周期是 5 秒，不是常见的 3 秒）。与多数英雄不同，每一档都可以由霍纳或希亚地鸦直接建造，也可以从低一档原地升级。造价：+4 = 150、+8 = 350、+16 = 800、+32 = 2,000、+64 = 4,700、+128 = 10,700 矿。所有合成器都能施放时空加速（5 气，永久 ×1.5）并可回收（返还 85%）。\n\n【生产模式】每座合成器都可以「开启生产」：开启后该合成器停止产矿，改为周期性给霍纳对应档位的技能补充能——+4 → 定点防御无人机（每 20s）、+8 → 防御无人机（25s）、+16 → 部署磁暴地雷（30s）、+32 → 精准打击（35s）、+64 → 空中舰队（40s）、+128 → 空间站重新部署（45s）。这就是描述里「需要经济来为技能充能」的含义：每座合成器都要在「产矿」和「给技能充能」之间二选一。开启或关闭生产模式各需 1 气、施法 1 秒；升级合成器前须先关闭生产模式。",
+    "chrono": {
+      "timeScale": 1.5,
+      "gasCost": 5,
+      "duration": "permanent",
+      "name": "时空加速"
+    },
+    "buildings": [
+      {
+        "id": "HornerMineralCompound4",
+        "nameZh": "晶矿合成器 +4",
+        "income": 4,
+        "incomePeriod": 5,
+        "cost": 150,
+        "buildTime": 5,
+        "food": 0,
+        "upgradeTo": "HornerMineralCompound8",
+        "notes": "霍纳 / 希亚地鸦可直接建造（150 矿，5s），也可由低一档原地升级（升级时须关闭生产模式）。每 5s 产 4 晶矿。可施放时空加速（5 气，永久 ×1.5）。可回收（返还 85%）。开启生产模式后停止产矿，改为每 20s 为「定点防御无人机」补 1 层充能。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "HornerMineralCompound8",
+        "nameZh": "晶矿合成器 +8",
+        "income": 8,
+        "incomePeriod": 5,
+        "cost": 350,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "HornerMineralCompound16",
+        "notes": "霍纳 / 希亚地鸦可直接建造（350 矿，10s），也可由低一档原地升级（升级时须关闭生产模式）。每 5s 产 8 晶矿。可施放时空加速（5 气，永久 ×1.5）。可回收（返还 85%）。开启生产模式后停止产矿，改为每 25s 为「防御无人机」补 1 层充能。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "HornerMineralCompound16",
+        "nameZh": "晶矿合成器 +16",
+        "income": 16,
+        "incomePeriod": 5,
+        "cost": 800,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "HornerMineralCompound32",
+        "notes": "霍纳 / 希亚地鸦可直接建造（800 矿，10s），也可由低一档原地升级（升级时须关闭生产模式）。每 5s 产 16 晶矿。可施放时空加速（5 气，永久 ×1.5）。可回收（返还 85%）。开启生产模式后停止产矿，改为每 30s 为「部署磁暴地雷」补 1 层充能。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "HornerMineralCompound32",
+        "nameZh": "晶矿合成器 +32",
+        "income": 32,
+        "incomePeriod": 5,
+        "cost": 2000,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "HornerMineralCompound64",
+        "notes": "霍纳 / 希亚地鸦可直接建造（2000 矿，10s），也可由低一档原地升级（升级时须关闭生产模式）。每 5s 产 32 晶矿。可施放时空加速（5 气，永久 ×1.5）。可回收（返还 85%）。开启生产模式后停止产矿，改为每 35s 为「精准打击」补 1 层充能。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "HornerMineralCompound64",
+        "nameZh": "晶矿合成器 +64",
+        "income": 64,
+        "incomePeriod": 5,
+        "cost": 4700,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": "HornerMineralCompound128",
+        "notes": "霍纳 / 希亚地鸦可直接建造（4700 矿，10s），也可由低一档原地升级（升级时须关闭生产模式）。每 5s 产 64 晶矿。可施放时空加速（5 气，永久 ×1.5）。可回收（返还 85%）。开启生产模式后停止产矿，改为每 40s 为「空中舰队」补 1 层充能。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      },
+      {
+        "id": "HornerMineralCompound128",
+        "nameZh": "晶矿合成器 +128",
+        "income": 128,
+        "incomePeriod": 5,
+        "cost": 10700,
+        "buildTime": 10,
+        "food": 0,
+        "upgradeTo": null,
+        "notes": "霍纳 / 希亚地鸦可直接建造（10700 矿，10s），也可由低一档原地升级（升级时须关闭生产模式）。每 5s 产 128 晶矿。可施放时空加速（5 气，永久 ×1.5）。可回收（返还 85%）。开启生产模式后停止产矿，改为每 45s 为「霍纳空间站重新部署」补 1 层充能。",
+        "gasCost": 0,
+        "salvageRate": 0.85
+      }
+    ]
   }
 ]
