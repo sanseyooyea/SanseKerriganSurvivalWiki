@@ -130,8 +130,7 @@
     },
     "abilities": [
       "CommonBlinkHero",
-      "SpiritCloneSpirit",
-      "JunkerGamble"
+      "SpiritCloneSpirit"
     ],
     "conditionalAbilities": [
       {
@@ -140,6 +139,15 @@
           {
             "id": "SpiritCrystalBall",
             "nameZh": "水晶球"
+          }
+        ]
+      },
+      {
+        "id": "JunkerGamble",
+        "requires": [
+          {
+            "id": "JunkerBlackMarketRoulette",
+            "nameZh": "黑市轮盘（拾荒者）"
           }
         ]
       }
@@ -1554,6 +1562,84 @@
       "VisionaryOmnidrive",
       "VisionaryOmniboost"
     ]
+  },
+  {
+    "id": 50,
+    "nameEn": "Junker",
+    "nameZh": "拾荒者",
+    "heroUnits": [
+      "JunkerJunker"
+    ],
+    "category": "Builder",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\btn-unit-terran-tychuswarhound.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 9/10 </c> <n/><n/>拾荒者是拾荒者氏族的首领，他们出售敌人的尸体以换取新科技。 <n/><n/><c val=\"00FF00\">由 pajk 开发和维护 </c>",
+    "stats": {
+      "hp": 300,
+      "speed": 3.25,
+      "armor": 1,
+      "energy": 100,
+      "damage": 30,
+      "attackSpeed": 1,
+      "range": 4,
+      "energyRegen": 0.5625
+    },
+    "abilities": [
+      "JunkerAutoTurret",
+      "JunkerFireMissiles",
+      "JunkerOverchargeBase",
+      "JunkerJumpBase",
+      "JunkerDeathNukePurchase",
+      "JunkerHotDrop"
+    ],
+    "conditionalAbilities": [
+      {
+        "id": "JunkerGamble",
+        "requires": [
+          {
+            "id": "JunkerBlackMarketRoulette",
+            "nameZh": "黑市轮盘"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "nameEn": "Horner",
+    "nameZh": "霍纳",
+    "heroUnits": [
+      "HornerHorner"
+    ],
+    "category": "Support",
+    "team": "Survivor",
+    "unitIcon": "Assets\\Textures\\wireframe-terran-battlecruiserhyperion.dds",
+    "portrait": "",
+    "description": "<c val=\"FF0000\">难度 - 7/10 </c> <n/><n/>霍纳是一名全局支援型施法者，但需要经济来为他的技能充能。 <n/><n/><c val=\"00FF00\">由 H5x9p 开发并维护 </c>",
+    "stats": {
+      "hp": 500,
+      "speed": 2,
+      "armor": 0,
+      "energy": 100,
+      "damage": 15,
+      "attackSpeed": 0.4,
+      "range": 6,
+      "energyRegen": 1
+    },
+    "abilities": [
+      "BuildBeaconTower",
+      "TacticalJump",
+      "YamatoCannon",
+      "Horner1PointDefenseDrone",
+      "Horner2DefensiveMatrixDrone",
+      "Horner3DeployMagMine",
+      "Horner4AreaBomb",
+      "Horner5AirFleet",
+      "Horner6SpaceStationReallocation"
+    ],
+    "status": "disabled",
+    "statusNote": "霍纳曾短暂上线（使用米拉赢得 25 场解锁），随后因强度过低在地图中被禁用，正在调整中，暂时无法在游戏中选择。以下数据取自当前地图文件，重新上线后可能变化。"
   },
   {
     "id": 99,

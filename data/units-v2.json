@@ -45873,6 +45873,1084 @@
           ]
         }
       ]
+    },
+    "Junker": {
+      "team": "Survivor",
+      "category": "Builder",
+      "roleId": 50,
+      "heroUnits": [
+        "JunkerJunker"
+      ],
+      "unitIds": [
+        "JunkerJunker",
+        "JunkerSCV",
+        "JunkerTurret1",
+        "JunkerTurret2",
+        "JunkerTurret3",
+        "JunkerTurret4",
+        "JunkerScrapRecycler1",
+        "JunkerBarracks",
+        "JunkerFactory",
+        "JunkerBlackMarket",
+        "JunkerRescueHub",
+        "ScientistWall",
+        "JunkerLightbulb",
+        "JunkerScrapRecycler2",
+        "JunkerMarine",
+        "JunkerReaper",
+        "JunkerCyclone",
+        "JunkerViking",
+        "JunkerLightBeacon",
+        "JunkerScrapRecycler4",
+        "JunkerScrapRecycler8",
+        "JunkerScrapRecycler16",
+        "JunkerScrapRecycler32"
+      ],
+      "edges": [
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerTrainSCV",
+          "index": "Train1",
+          "kind": "train",
+          "time": 0.5,
+          "cooldown": 0.5,
+          "button": "JunkerTrainSCV",
+          "units": [
+            "JunkerSCV"
+          ]
+        },
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "cooldown": 1,
+          "charge": {
+            "timeUse": 30,
+            "countMax": 1
+          },
+          "count": 1,
+          "level": 1,
+          "units": [
+            "JunkerTurret1"
+          ]
+        },
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "cooldown": 1,
+          "charge": {
+            "timeUse": 30,
+            "countMax": 2
+          },
+          "count": 1,
+          "level": 2,
+          "units": [
+            "JunkerTurret2"
+          ]
+        },
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "cooldown": 1,
+          "charge": {
+            "timeUse": 30,
+            "countMax": 3
+          },
+          "count": 1,
+          "level": 3,
+          "units": [
+            "JunkerTurret3"
+          ]
+        },
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "cooldown": 1,
+          "charge": {
+            "timeUse": 30,
+            "countMax": 4
+          },
+          "count": 1,
+          "level": 4,
+          "units": [
+            "JunkerTurret4"
+          ]
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5,
+          "button": "JunkerBuildScrapRecycler",
+          "units": [
+            "JunkerScrapRecycler1"
+          ]
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build2",
+          "kind": "build",
+          "time": 5,
+          "button": "JunkerBuildBarracks",
+          "units": [
+            "JunkerBarracks"
+          ]
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build3",
+          "kind": "build",
+          "time": 5,
+          "button": "JunkerBuildFactory",
+          "units": [
+            "JunkerFactory"
+          ]
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build4",
+          "kind": "build",
+          "time": 5,
+          "button": "JunkerBuildBlackMarket",
+          "units": [
+            "JunkerBlackMarket"
+          ]
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build5",
+          "kind": "build",
+          "time": 10,
+          "requirements": "JunkerBuildRescueHub",
+          "button": "JunkerBuildRescueHub",
+          "units": [
+            "JunkerRescueHub"
+          ]
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build6",
+          "kind": "build",
+          "time": 10,
+          "button": "ScientistBuildWall",
+          "units": [
+            "ScientistWall"
+          ]
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build7",
+          "kind": "build",
+          "time": 5,
+          "button": "JunkerBuildLightbulb",
+          "units": [
+            "JunkerLightbulb"
+          ]
+        },
+        {
+          "from": "JunkerScrapRecycler1",
+          "abil": "JunkerUpgradeScrapRecycler2",
+          "index": "0",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "JunkerScrapRecycler2"
+          ]
+        },
+        {
+          "from": "JunkerBarracks",
+          "abil": "JunkerBarracksTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 10,
+          "button": "JunkerTrainMarine",
+          "units": [
+            "JunkerMarine"
+          ]
+        },
+        {
+          "from": "JunkerBarracks",
+          "abil": "JunkerBarracksTrain",
+          "index": "Train2",
+          "kind": "train",
+          "time": 10,
+          "button": "JunkerTrainReaper",
+          "units": [
+            "JunkerReaper"
+          ]
+        },
+        {
+          "from": "JunkerBarracks",
+          "abil": "JunkerBarracksTrain",
+          "index": "Train3",
+          "kind": "train",
+          "time": 5,
+          "button": "JunkerBuildingTrainSCV",
+          "units": [
+            "JunkerSCV"
+          ]
+        },
+        {
+          "from": "JunkerFactory",
+          "abil": "JunkerFactoryTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 10,
+          "button": "JunkerTrainCyclone",
+          "units": [
+            "JunkerCyclone"
+          ]
+        },
+        {
+          "from": "JunkerFactory",
+          "abil": "JunkerFactoryTrain",
+          "index": "Train2",
+          "kind": "train",
+          "time": 10,
+          "button": "JunkerTrainViking",
+          "units": [
+            "JunkerViking"
+          ]
+        },
+        {
+          "from": "JunkerFactory",
+          "abil": "JunkerFactoryTrain",
+          "index": "Train3",
+          "kind": "train",
+          "time": 5,
+          "button": "JunkerBuildingTrainSCV",
+          "units": [
+            "JunkerSCV"
+          ]
+        },
+        {
+          "from": "ScientistWall",
+          "abil": "ScientistWallLower",
+          "kind": "morph",
+          "time": 1.3,
+          "units": [
+            "ScientistWallLowered"
+          ]
+        },
+        {
+          "from": "JunkerLightbulb",
+          "abil": "JunkerUpgradeLightbulb",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "JunkerLightBeacon"
+          ]
+        },
+        {
+          "from": "JunkerScrapRecycler2",
+          "abil": "JunkerUpgradeScrapRecycler4",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "JunkerScrapRecycler4"
+          ]
+        },
+        {
+          "from": "JunkerViking",
+          "abil": "JunkerVikingLiftOffMorph",
+          "kind": "morph",
+          "units": [
+            "JunkerVikingFlying"
+          ]
+        },
+        {
+          "from": "JunkerViking",
+          "abil": "JunkerVikingFastLiftOffMorph",
+          "kind": "morph",
+          "units": [
+            "JunkerVikingFlying"
+          ]
+        },
+        {
+          "from": "JunkerViking",
+          "abil": "JunkerVikingFastLandMorph",
+          "kind": "morph",
+          "time": 0.25,
+          "units": [
+            "JunkerViking"
+          ]
+        },
+        {
+          "from": "ScientistWallLowered",
+          "abil": "ScientistWallRaise",
+          "kind": "morph",
+          "time": 1.3,
+          "units": [
+            "ScientistWall"
+          ]
+        },
+        {
+          "from": "JunkerScrapRecycler4",
+          "abil": "JunkerUpgradeScrapRecycler8",
+          "index": "0",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "JunkerScrapRecycler8"
+          ]
+        },
+        {
+          "from": "JunkerVikingFlying",
+          "abil": "JunkerVikingLandMorph",
+          "kind": "morph",
+          "time": 1,
+          "units": [
+            "JunkerViking"
+          ]
+        },
+        {
+          "from": "JunkerVikingFlying",
+          "abil": "JunkerVikingFastLiftOffMorph",
+          "kind": "morph",
+          "units": [
+            "JunkerVikingFlying"
+          ]
+        },
+        {
+          "from": "JunkerVikingFlying",
+          "abil": "JunkerVikingFastLandMorph",
+          "kind": "morph",
+          "time": 0.25,
+          "units": [
+            "JunkerViking"
+          ]
+        },
+        {
+          "from": "JunkerScrapRecycler8",
+          "abil": "JunkerUpgradeScrapRecycler16",
+          "index": "0",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "JunkerScrapRecycler16"
+          ]
+        },
+        {
+          "from": "JunkerScrapRecycler16",
+          "abil": "JunkerUpgradeScrapRecycler32",
+          "index": "0",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "JunkerScrapRecycler32"
+          ]
+        }
+      ],
+      "forms": {
+        "ScientistWallLowered": "ScientistWall",
+        "JunkerVikingFlying": "JunkerViking"
+      },
+      "skillSummons": [
+        {
+          "abil": "JunkerAutoTurret",
+          "face": "JunkerAutoTurret",
+          "nameZh": "自动炮塔",
+          "levels": [
+            {
+              "level": 1,
+              "unit": "JunkerTurret1",
+              "energyCost": null,
+              "cooldown": 1,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": null,
+              "absorbMax": null,
+              "hp": 150,
+              "armor": 1,
+              "minerals": 50,
+              "damage": 30.0,
+              "period": 1.5,
+              "range": null,
+              "antiAir": true,
+              "dpsLight": 20.0,
+              "dpsArmored": 20.0,
+              "dpsKerrigan": 20.0
+            },
+            {
+              "level": 2,
+              "unit": "JunkerTurret2",
+              "energyCost": null,
+              "cooldown": 1,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": null,
+              "absorbMax": null,
+              "hp": 400,
+              "armor": 1,
+              "minerals": 50,
+              "damage": 60.0,
+              "period": 1,
+              "range": 5,
+              "antiAir": true,
+              "dpsLight": 60.0,
+              "dpsArmored": 60.0,
+              "dpsKerrigan": 60.0
+            },
+            {
+              "level": 3,
+              "unit": "JunkerTurret3",
+              "energyCost": null,
+              "cooldown": 1,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": null,
+              "absorbMax": null,
+              "hp": 1000,
+              "armor": 1,
+              "minerals": 50,
+              "damage": 150.0,
+              "period": 0.6,
+              "range": 5,
+              "antiAir": true,
+              "dpsLight": 250.0,
+              "dpsArmored": 250.0,
+              "dpsKerrigan": 250.0
+            },
+            {
+              "level": 4,
+              "unit": "JunkerTurret4",
+              "energyCost": null,
+              "cooldown": 1,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": null,
+              "absorbMax": null,
+              "hp": 2000,
+              "armor": 1,
+              "minerals": 50,
+              "damage": 300.0,
+              "period": 0.4,
+              "range": 5,
+              "antiAir": true,
+              "dpsLight": 750.0,
+              "dpsArmored": 750.0,
+              "dpsKerrigan": 750.0
+            }
+          ],
+          "icon": "btn-building-terran-autoturret.png"
+        }
+      ]
+    },
+    "Horner": {
+      "team": "Survivor",
+      "category": "Support",
+      "roleId": 51,
+      "heroUnits": [
+        "HornerHorner"
+      ],
+      "unitIds": [
+        "HornerHorner",
+        "HornerSCV",
+        "AirdropBeaconTower",
+        "HornerPointDefenseDrone",
+        "HornerDefensiveDrone",
+        "MagneticMine_SpawnerUnit",
+        "HornerSpaceStation",
+        "TheiaRaven",
+        "HornerMineralCompound4",
+        "HornerArmory",
+        "AirdropLauncher",
+        "GhostWall",
+        "HornerMineralCompound8",
+        "HornerMineralCompound16",
+        "HornerMineralCompound32",
+        "HornerMineralCompound64",
+        "HornerMineralCompound128",
+        "HornerAssaultDrone",
+        "HornerHealingDrone",
+        "HornerAutoTurret"
+      ],
+      "edges": [
+        {
+          "from": "HornerHorner",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "HornerHorner",
+          "abil": "BuildBeaconTower",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5,
+          "cooldown": 10,
+          "button": "AirdropBeaconTower",
+          "units": [
+            "AirdropBeaconTower"
+          ]
+        },
+        {
+          "from": "HornerHorner",
+          "abil": "Horner1PointDefenseDrone",
+          "kind": "summon",
+          "cooldown": 5,
+          "count": 1,
+          "units": [
+            "HornerPointDefenseDrone"
+          ]
+        },
+        {
+          "from": "HornerHorner",
+          "abil": "Horner2DefensiveMatrixDrone",
+          "kind": "summon",
+          "cooldown": 5,
+          "count": 1,
+          "units": [
+            "HornerDefensiveDrone"
+          ]
+        },
+        {
+          "from": "HornerHorner",
+          "abil": "Horner3DeployMagMine",
+          "kind": "summon",
+          "cooldown": 5,
+          "count": 1,
+          "units": [
+            "MagneticMine_SpawnerUnit"
+          ]
+        },
+        {
+          "from": "HornerHorner",
+          "abil": "Horner6SpaceStationReallocation",
+          "kind": "summon",
+          "cooldown": 10,
+          "count": 1,
+          "units": [
+            "HornerSpaceStation"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "UpgradeToTheiaRaven",
+          "kind": "morph",
+          "units": [
+            "TheiaRaven"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5,
+          "button": "HornerBuildMineralCompound4",
+          "units": [
+            "HornerMineralCompound4"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build2",
+          "kind": "build",
+          "time": 5,
+          "button": "HornerBuildArmory",
+          "units": [
+            "HornerArmory"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build3",
+          "kind": "build",
+          "time": 10,
+          "button": "AirdropLauncher",
+          "units": [
+            "AirdropLauncher"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build5",
+          "kind": "build",
+          "time": 10,
+          "button": "GhostBuildWall",
+          "units": [
+            "GhostWall"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build7",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound8",
+          "units": [
+            "HornerMineralCompound8"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build8",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound16",
+          "units": [
+            "HornerMineralCompound16"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build9",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound32",
+          "units": [
+            "HornerMineralCompound32"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build10",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound64",
+          "units": [
+            "HornerMineralCompound64"
+          ]
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build11",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound128",
+          "units": [
+            "HornerMineralCompound128"
+          ]
+        },
+        {
+          "from": "HornerSpaceStation",
+          "abil": "HornerMercSpaceStationHangar",
+          "index": "Ammo1",
+          "kind": "magazine",
+          "button": "HHGriffon",
+          "units": [
+            "HornerAssaultDrone"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5,
+          "button": "HornerBuildMineralCompound4",
+          "units": [
+            "HornerMineralCompound4"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build2",
+          "kind": "build",
+          "time": 5,
+          "button": "HornerBuildArmory",
+          "units": [
+            "HornerArmory"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build3",
+          "kind": "build",
+          "time": 10,
+          "button": "AirdropLauncher",
+          "units": [
+            "AirdropLauncher"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build5",
+          "kind": "build",
+          "time": 10,
+          "button": "GhostBuildWall",
+          "units": [
+            "GhostWall"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build7",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound8",
+          "units": [
+            "HornerMineralCompound8"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build8",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound16",
+          "units": [
+            "HornerMineralCompound16"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build9",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound32",
+          "units": [
+            "HornerMineralCompound32"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build10",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound64",
+          "units": [
+            "HornerMineralCompound64"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build11",
+          "kind": "build",
+          "time": 10,
+          "button": "HornerBuildMineralCompound128",
+          "units": [
+            "HornerMineralCompound128"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "BuildBeaconTower",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5,
+          "cooldown": 10,
+          "button": "AirdropBeaconTower",
+          "units": [
+            "AirdropBeaconTower"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "BioMechanicalReparDrone",
+          "kind": "summon",
+          "cooldown": 10,
+          "count": 2,
+          "energy": 20,
+          "level": 1,
+          "units": [
+            "HornerHealingDrone"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "BioMechanicalReparDrone",
+          "kind": "summon",
+          "cooldown": 10,
+          "count": 2,
+          "energy": 20,
+          "level": 2,
+          "units": [
+            "HornerHealingDrone"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerPlaceAutoTurret",
+          "kind": "summon",
+          "cooldown": 30,
+          "count": 1,
+          "energy": 60,
+          "level": 1,
+          "units": [
+            "HornerAutoTurret"
+          ]
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerPlaceAutoTurret",
+          "kind": "summon",
+          "cooldown": 30,
+          "count": 1,
+          "energy": 60,
+          "level": 2,
+          "units": [
+            "HornerAutoTurret"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound4",
+          "abil": "HornerUpgradeMineralCompound8",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "HornerMineralCompound8"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound4",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "GhostWall",
+          "abil": "GhostWallLower",
+          "kind": "morph",
+          "time": 1.3,
+          "units": [
+            "GhostWallLowered"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound8",
+          "abil": "HornerUpgradeMineralCompound16",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "HornerMineralCompound16"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound8",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound16",
+          "abil": "HornerUpgradeMineralCompound32",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "HornerMineralCompound32"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound16",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound32",
+          "abil": "HornerUpgradeMineralCompound64",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "HornerMineralCompound64"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound32",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound64",
+          "abil": "HornerUpgradeMineralCompound128",
+          "kind": "morph",
+          "time": 5,
+          "units": [
+            "HornerMineralCompound128"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound64",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "HornerMineralCompound128",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1,
+          "button": "HornerBuildSCV",
+          "units": [
+            "HornerSCV"
+          ]
+        },
+        {
+          "from": "GhostWallLowered",
+          "abil": "GhostWallRaise",
+          "kind": "morph",
+          "time": 1.3,
+          "units": [
+            "GhostWall"
+          ]
+        }
+      ],
+      "forms": {
+        "GhostWallLowered": "GhostWall"
+      },
+      "skillSummons": [
+        {
+          "abil": "BioMechanicalReparDrone",
+          "face": "HornerBuildHealingDrone",
+          "nameZh": "部署生物机械维修无人机",
+          "levels": [
+            {
+              "level": 1,
+              "unit": "HornerHealingDrone",
+              "energyCost": 20,
+              "cooldown": 10,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": 30,
+              "absorbMax": null,
+              "hp": 50,
+              "armor": 0,
+              "minerals": 100
+            },
+            {
+              "level": 2,
+              "unit": "HornerHealingDrone",
+              "energyCost": 20,
+              "cooldown": 10,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": 30,
+              "absorbMax": null,
+              "hp": 50,
+              "armor": 0,
+              "minerals": 100
+            }
+          ],
+          "icon": null
+        },
+        {
+          "abil": "HornerPlaceAutoTurret",
+          "face": "HornerBuildAutoTurret",
+          "nameZh": "建造自动炮塔",
+          "levels": [
+            {
+              "level": 1,
+              "unit": "HornerAutoTurret",
+              "energyCost": 60,
+              "cooldown": 30,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": null,
+              "absorbMax": null,
+              "hp": 250,
+              "armor": 1,
+              "minerals": 25,
+              "damage": 25.0,
+              "period": 1,
+              "range": null,
+              "antiAir": true,
+              "dpsLight": 25.0,
+              "dpsArmored": 25.0,
+              "dpsKerrigan": 25.0
+            },
+            {
+              "level": 2,
+              "unit": "HornerAutoTurret",
+              "energyCost": 60,
+              "cooldown": 30,
+              "unitEnergy": null,
+              "unitEnergyStart": null,
+              "unitEnergyRegen": null,
+              "duration": null,
+              "absorbMax": null,
+              "hp": 250,
+              "armor": 1,
+              "minerals": 25,
+              "damage": 25.0,
+              "period": 1,
+              "range": null,
+              "antiAir": true,
+              "dpsLight": 25.0,
+              "dpsArmored": 25.0,
+              "dpsKerrigan": 25.0
+            }
+          ],
+          "icon": null
+        }
+      ]
     }
   },
   "units": {
@@ -59214,7 +60292,8 @@
       "nameZh": "墙",
       "team": "Survivor",
       "owners": [
-        "Scientist"
+        "Scientist",
+        "Junker"
       ],
       "category": "building",
       "stats": {
@@ -59271,6 +60350,13 @@
           "abil": "ScientistWallRaise",
           "kind": "morph",
           "time": 1.3
+        },
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build6",
+          "kind": "build",
+          "time": 10
         }
       ],
       "produces": [
@@ -59477,7 +60563,8 @@
       "nameZh": "墙",
       "team": "Survivor",
       "owners": [
-        "Scientist"
+        "Scientist",
+        "Junker"
       ],
       "category": "form",
       "stats": {
@@ -80565,7 +81652,8 @@
         "Andor",
         "Rattlesnake",
         "Sjlerk",
-        "Sophia"
+        "Sophia",
+        "Horner"
       ],
       "category": "building",
       "stats": {
@@ -80675,6 +81763,20 @@
         {
           "from": "SophiaSCV",
           "abil": "SophiaBuildSCV",
+          "index": "Build5",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build5",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
           "index": "Build5",
           "kind": "build",
           "time": 10
@@ -81939,7 +83041,8 @@
         "Andor",
         "Rattlesnake",
         "Sjlerk",
-        "Sophia"
+        "Sophia",
+        "Horner"
       ],
       "category": "form",
       "stats": {
@@ -206354,6 +207457,4970 @@
       ],
       "iconCandidates": [
         "btn-unit-protoss-observer.png"
+      ]
+    },
+    "JunkerJunker": {
+      "id": "JunkerJunker",
+      "nameZh": "拾荒者",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "hero",
+      "stats": {
+        "hp": 300,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 2,
+        "shieldRegen": 0,
+        "energy": 100,
+        "speed": 3.25,
+        "creepSpeedMul": null,
+        "sight": 9,
+        "armorName": "OutlawArmor",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": null
+      },
+      "cost": {
+        "minerals": 0,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 200
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Heroic"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-unit-terran-tychuswarhound.png",
+      "weapons": [
+        {
+          "id": "JunkerNormalWeapon",
+          "nameZh": "拾荒者战狼炮",
+          "period": 1,
+          "range": 4,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerNormalDamage",
+              "amount": 30,
+              "armorReduction": 1,
+              "hits": 1.0,
+              "kind": "Ranged"
+            }
+          ],
+          "unresolved": [],
+          "notes": []
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketArmor",
+          "nameZh": "部队装甲（1级）",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmorLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerJunker,LifeMax",
+                  "op": "Add",
+                  "value": 150
+                },
+                {
+                  "ref": "Unit,JunkerJunker,LifeStart",
+                  "op": "Add",
+                  "value": 150
+                },
+                {
+                  "ref": "Unit,JunkerJunker,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmorLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerJunker,LifeMax",
+                  "op": "Add",
+                  "value": 150
+                },
+                {
+                  "ref": "Unit,JunkerJunker,LifeStart",
+                  "op": "Add",
+                  "value": 150
+                },
+                {
+                  "ref": "Unit,JunkerJunker,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmorLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerJunker,LifeMax",
+                  "op": "Add",
+                  "value": 150
+                },
+                {
+                  "ref": "Unit,JunkerJunker,LifeStart",
+                  "op": "Add",
+                  "value": 150
+                },
+                {
+                  "ref": "Unit,JunkerJunker,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketArmy",
+          "nameZh": "部队武器（1级）",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "damage"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmyLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerNormalDamage,Amount",
+                  "op": "Add",
+                  "value": 10
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmyLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerNormalDamage,Amount",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmyLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerNormalDamage,Amount",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "produces": [
+        "JunkerSCV",
+        "JunkerTurret1",
+        "JunkerTurret2",
+        "JunkerTurret3",
+        "JunkerTurret4"
+      ],
+      "iconCandidates": [
+        "btn-unit-terran-tychuswarhound.png"
+      ]
+    },
+    "JunkerSCV": {
+      "id": "JunkerSCV",
+      "nameZh": "拾荒者SCV",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "troop",
+      "stats": {
+        "hp": 30,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 3.6992,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranInfantryArmor",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.375
+      },
+      "cost": {
+        "minerals": 25,
+        "gas": 0,
+        "food": 1,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Light",
+        "Biological",
+        "Mechanical"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-unit-terran-scv.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerTrainSCV",
+          "index": "Train1",
+          "kind": "train",
+          "time": 0.5
+        },
+        {
+          "from": "JunkerBarracks",
+          "abil": "JunkerBarracksTrain",
+          "index": "Train3",
+          "kind": "train",
+          "time": 5
+        },
+        {
+          "from": "JunkerFactory",
+          "abil": "JunkerFactoryTrain",
+          "index": "Train3",
+          "kind": "train",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerScrapRecycler1",
+        "JunkerBarracks",
+        "JunkerFactory",
+        "JunkerBlackMarket",
+        "JunkerRescueHub",
+        "ScientistWall",
+        "JunkerLightbulb"
+      ],
+      "iconCandidates": [
+        "btn-unit-terran-scv.png"
+      ]
+    },
+    "JunkerTurret1": {
+      "id": "JunkerTurret1",
+      "nameZh": "拾荒者炮塔（1级）",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "skill",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1
+      },
+      "cost": {
+        "minerals": 50,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-autoturret.png",
+      "weapons": [
+        {
+          "id": "JunkerTurretWeapon1",
+          "nameZh": "拾荒者炮弹",
+          "period": 1.5,
+          "range": null,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerTurretDamage1",
+              "amount": 30,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": [
+            "switch"
+          ]
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerTurret1,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-autoturret.png"
+      ]
+    },
+    "JunkerTurret2": {
+      "id": "JunkerTurret2",
+      "nameZh": "拾荒者炮塔（2级）",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "skill",
+      "stats": {
+        "hp": 400,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1
+      },
+      "cost": {
+        "minerals": 50,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-autoturret.png",
+      "weapons": [
+        {
+          "id": "JunkerTurretWeapon2",
+          "nameZh": "拾荒者炮弹",
+          "period": 1,
+          "range": 5,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerTurretDamage2",
+              "amount": 60,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": [
+            "switch"
+          ]
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerTurret2,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-autoturret.png"
+      ]
+    },
+    "JunkerTurret3": {
+      "id": "JunkerTurret3",
+      "nameZh": "拾荒者炮塔（3级）",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "skill",
+      "stats": {
+        "hp": 1000,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 3,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1
+      },
+      "cost": {
+        "minerals": 50,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-autoturret.png",
+      "weapons": [
+        {
+          "id": "JunkerTurretWeapon3",
+          "nameZh": "拾荒者炮弹",
+          "period": 0.6,
+          "range": 5,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerTurretDamage3",
+              "amount": 150,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": [
+            "switch"
+          ]
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerTurret3,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-autoturret.png"
+      ]
+    },
+    "JunkerTurret4": {
+      "id": "JunkerTurret4",
+      "nameZh": "拾荒者炮塔（4级）",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "skill",
+      "stats": {
+        "hp": 2000,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 4,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1
+      },
+      "cost": {
+        "minerals": 50,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-autoturret.png",
+      "weapons": [
+        {
+          "id": "JunkerTurretWeapon4",
+          "nameZh": "拾荒者炮弹",
+          "period": 0.4,
+          "range": 5,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerTurretDamage4",
+              "amount": 300,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": [
+            "switch"
+          ]
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerTurret4,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerJunker",
+          "abil": "JunkerAutoTurret",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-autoturret.png"
+      ]
+    },
+    "JunkerScrapRecycler1": {
+      "id": "JunkerScrapRecycler1",
+      "nameZh": "废料回收站 +1",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 75,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-mineralstoragedepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerScrapRecycler2"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-mineralstoragedepot.png"
+      ]
+    },
+    "JunkerBarracks": {
+      "id": "JunkerBarracks",
+      "nameZh": "拾荒者兵营",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.75
+      },
+      "cost": {
+        "minerals": 25,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-barracks.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build2",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerMarine",
+        "JunkerReaper",
+        "JunkerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-barracks.png"
+      ]
+    },
+    "JunkerFactory": {
+      "id": "JunkerFactory",
+      "nameZh": "拾荒者重工厂",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 100,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.625
+      },
+      "cost": {
+        "minerals": 300,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-factory-junker.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build3",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerCyclone",
+        "JunkerViking",
+        "JunkerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-factory-junker.png"
+      ]
+    },
+    "JunkerBlackMarket": {
+      "id": "JunkerBlackMarket",
+      "nameZh": "黑市",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.75
+      },
+      "cost": {
+        "minerals": 25,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-merccompound.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build4",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-merccompound.png"
+      ]
+    },
+    "JunkerRescueHub": {
+      "id": "JunkerRescueHub",
+      "nameZh": "救援站",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 1000,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 6,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.75
+      },
+      "cost": {
+        "minerals": 10000,
+        "gas": 100,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-hornerhan-starport.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build5",
+          "kind": "build",
+          "time": 10
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-hornerhan-starport.png"
+      ]
+    },
+    "JunkerLightbulb": {
+      "id": "JunkerLightbulb",
+      "nameZh": "灯球",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 50,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 5,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.75
+      },
+      "cost": {
+        "minerals": 10,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-sensordome.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerSCV",
+          "abil": "JunkerSCVBuild",
+          "index": "Build7",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerLightBeacon"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-sensordome.png"
+      ]
+    },
+    "JunkerScrapRecycler2": {
+      "id": "JunkerScrapRecycler2",
+      "nameZh": "废料回收站 +2",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 150,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 150,
+          "gas": 0
+        },
+        "acquire": {
+          "minerals": 150,
+          "gas": 0,
+          "steps": [
+            {
+              "kind": "build",
+              "from": "JunkerSCV",
+              "to": "JunkerScrapRecycler1",
+              "abil": "JunkerSCVBuild",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler1",
+              "to": "JunkerScrapRecycler2",
+              "abil": "JunkerUpgradeScrapRecycler2",
+              "minerals": 75,
+              "gas": 0
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-mineralstoragedepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerScrapRecycler1",
+          "abil": "JunkerUpgradeScrapRecycler2",
+          "index": "0",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerScrapRecycler4"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-mineralstoragedepot.png"
+      ]
+    },
+    "JunkerMarine": {
+      "id": "JunkerMarine",
+      "nameZh": "拾荒者陆战队员",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "troop",
+      "stats": {
+        "hp": 120,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 2.7968,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranInfantryArmor",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.42
+      },
+      "cost": {
+        "minerals": 100,
+        "gas": 0,
+        "food": 2,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Light",
+        "Biological"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-unit-terran-marine.png",
+      "weapons": [
+        {
+          "id": "JunkerMarineWeapon",
+          "nameZh": "C-14高斯步枪",
+          "period": 0.8,
+          "range": null,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerMarineDamage",
+              "amount": 20,
+              "armorReduction": 1,
+              "hits": 1.0,
+              "kind": "Ranged"
+            }
+          ],
+          "unresolved": [],
+          "notes": []
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketArmor",
+          "nameZh": "部队装甲（1级）",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmorLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerMarine,LifeMax",
+                  "op": "Add",
+                  "value": 20
+                },
+                {
+                  "ref": "Unit,JunkerMarine,LifeStart",
+                  "op": "Add",
+                  "value": 20
+                },
+                {
+                  "ref": "Unit,JunkerMarine,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmorLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerMarine,LifeMax",
+                  "op": "Add",
+                  "value": 25
+                },
+                {
+                  "ref": "Unit,JunkerMarine,LifeStart",
+                  "op": "Add",
+                  "value": 25
+                },
+                {
+                  "ref": "Unit,JunkerMarine,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmorLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerMarine,LifeMax",
+                  "op": "Add",
+                  "value": 25
+                },
+                {
+                  "ref": "Unit,JunkerMarine,LifeStart",
+                  "op": "Add",
+                  "value": 25
+                },
+                {
+                  "ref": "Unit,JunkerMarine,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketArmy",
+          "nameZh": "部队武器（1级）",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "damage"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmyLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerMarineDamage,Amount",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmyLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerMarineDamage,Amount",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmyLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerMarineDamage,Amount",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerMarine,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerBarracks",
+          "abil": "JunkerBarracksTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 10
+        }
+      ],
+      "iconCandidates": [
+        "btn-unit-terran-marine.png"
+      ]
+    },
+    "JunkerReaper": {
+      "id": "JunkerReaper",
+      "nameZh": "拾荒者收割者",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "troop",
+      "stats": {
+        "hp": 90,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 2,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 3.5,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranInfantryArmor",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.42
+      },
+      "cost": {
+        "minerals": 125,
+        "gas": 0,
+        "food": 2,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Light",
+        "Biological"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-unit-terran-reaper.png",
+      "weapons": [
+        {
+          "id": "JunkerReaperWeapon",
+          "nameZh": "P-38高斯手枪",
+          "period": 1,
+          "range": null,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": false,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerReaperDamage",
+              "amount": 15,
+              "bonus": {
+                "Light": 20
+              },
+              "armorReduction": 1,
+              "hits": 1.0,
+              "kind": "Ranged"
+            }
+          ],
+          "unresolved": [],
+          "notes": []
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketArmor",
+          "nameZh": "部队装甲（1级）",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmorLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerReaper,LifeMax",
+                  "op": "Add",
+                  "value": 15
+                },
+                {
+                  "ref": "Unit,JunkerReaper,LifeStart",
+                  "op": "Add",
+                  "value": 15
+                },
+                {
+                  "ref": "Unit,JunkerReaper,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmorLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerReaper,LifeMax",
+                  "op": "Add",
+                  "value": 20
+                },
+                {
+                  "ref": "Unit,JunkerReaper,LifeStart",
+                  "op": "Add",
+                  "value": 20
+                },
+                {
+                  "ref": "Unit,JunkerReaper,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmorLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerReaper,LifeMax",
+                  "op": "Add",
+                  "value": 15
+                },
+                {
+                  "ref": "Unit,JunkerReaper,LifeStart",
+                  "op": "Add",
+                  "value": 15
+                },
+                {
+                  "ref": "Unit,JunkerReaper,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketArmy",
+          "nameZh": "部队武器（1级）",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "bonus",
+            "damage"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmyLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerReaperDamage,Amount",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Effect,JunkerReaperDamage,AttributeBonus[Light]",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmyLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerReaperDamage,Amount",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Effect,JunkerReaperDamage,AttributeBonus[Light]",
+                  "op": "Add",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmyLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerReaperDamage,Amount",
+                  "op": "Add",
+                  "value": 0
+                },
+                {
+                  "ref": "Effect,JunkerReaperDamage,AttributeBonus[Light]",
+                  "op": "Add",
+                  "value": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerReaper,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerBarracks",
+          "abil": "JunkerBarracksTrain",
+          "index": "Train2",
+          "kind": "train",
+          "time": 10
+        }
+      ],
+      "iconCandidates": [
+        "btn-unit-terran-reaper.png"
+      ]
+    },
+    "JunkerCyclone": {
+      "id": "JunkerCyclone",
+      "nameZh": "拾荒者飓风",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "troop",
+      "stats": {
+        "hp": 500,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 3.5,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranVehiclePlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.75
+      },
+      "cost": {
+        "minerals": 750,
+        "gas": 7,
+        "food": 6,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-unit-terran-cyclone.png",
+      "weapons": [
+        {
+          "id": "JunkerCycloneWeapon",
+          "nameZh": "台风导弹",
+          "period": 0.9,
+          "range": 8,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": false,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerCycloneDamage",
+              "amount": 100,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": [
+            "switch"
+          ]
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketArmor",
+          "nameZh": "部队装甲（1级）",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmorLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerCyclone,LifeMax",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,JunkerCyclone,LifeStart",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,JunkerCyclone,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmorLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerCyclone,LifeMax",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,JunkerCyclone,LifeStart",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,JunkerCyclone,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmorLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerCyclone,LifeMax",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,JunkerCyclone,LifeStart",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,JunkerCyclone,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketArmy",
+          "nameZh": "部队武器（1级）",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "damage"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmyLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerCycloneDamage,Amount",
+                  "op": "Add",
+                  "value": 20
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmyLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerCycloneDamage,Amount",
+                  "op": "Add",
+                  "value": 20
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmyLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerCycloneDamage,Amount",
+                  "op": "Add",
+                  "value": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerCyclone,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerFactory",
+          "abil": "JunkerFactoryTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 10
+        }
+      ],
+      "iconCandidates": [
+        "btn-unit-terran-cyclone.png"
+      ]
+    },
+    "JunkerViking": {
+      "id": "JunkerViking",
+      "nameZh": "拾荒者维京战机",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "troop",
+      "stats": {
+        "hp": 320,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 2.25,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranShipPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.75
+      },
+      "cost": {
+        "minerals": 250,
+        "gas": 3,
+        "food": 3,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-unit-collection-vikingassault-junker.png",
+      "weapons": [
+        {
+          "id": "JunkerVikingWeapon",
+          "nameZh": "格林加农炮",
+          "period": 1.2,
+          "range": 6,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": false,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "JunkerVikingDamage",
+              "amount": 50,
+              "armorReduction": 1,
+              "hits": 1.0,
+              "kind": "Ranged"
+            }
+          ],
+          "unresolved": [],
+          "notes": [
+            "switch"
+          ]
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "JunkerMarketArmor",
+          "nameZh": "部队装甲（1级）",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmorLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerViking,LifeMax",
+                  "op": "Add",
+                  "value": 60
+                },
+                {
+                  "ref": "Unit,JunkerViking,LifeStart",
+                  "op": "Add",
+                  "value": 60
+                },
+                {
+                  "ref": "Unit,JunkerViking,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmorLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerViking,LifeMax",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerViking,LifeStart",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerViking,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmorLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerViking,LifeMax",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerViking,LifeStart",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerViking,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketArmy",
+          "nameZh": "部队武器（1级）",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "damage"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmyLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerVikingDamage,Amount",
+                  "op": "Add",
+                  "value": 10
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmyLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerVikingDamage,Amount",
+                  "op": "Add",
+                  "value": 10
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmyLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Effect,JunkerVikingDamage,Amount",
+                  "op": "Add",
+                  "value": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerViking,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "forms": [
+        {
+          "id": "JunkerVikingFlying",
+          "label": "飞行模式",
+          "nameZh": "拾荒者维京战机（飞行模式）"
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "JunkerFactory",
+          "abil": "JunkerFactoryTrain",
+          "index": "Train2",
+          "kind": "train",
+          "time": 10
+        },
+        {
+          "from": "JunkerViking",
+          "abil": "JunkerVikingFastLandMorph",
+          "kind": "morph",
+          "time": 0.25
+        },
+        {
+          "from": "JunkerVikingFlying",
+          "abil": "JunkerVikingLandMorph",
+          "kind": "morph",
+          "time": 1
+        },
+        {
+          "from": "JunkerVikingFlying",
+          "abil": "JunkerVikingFastLandMorph",
+          "kind": "morph",
+          "time": 0.25
+        }
+      ],
+      "produces": [
+        "JunkerVikingFlying",
+        "JunkerViking"
+      ],
+      "iconCandidates": [
+        "btn-unit-collection-vikingassault-junker.png",
+        "btn-unit-terran-vikingassault.png"
+      ]
+    },
+    "JunkerLightBeacon": {
+      "id": "JunkerLightBeacon",
+      "nameZh": "光明信标",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 50,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 6,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.75
+      },
+      "cost": {
+        "minerals": 85,
+        "gas": 0,
+        "food": 1,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 85,
+          "gas": 0
+        },
+        "acquire": {
+          "minerals": 85,
+          "gas": 0,
+          "steps": [
+            {
+              "kind": "build",
+              "from": "JunkerSCV",
+              "to": "JunkerLightbulb",
+              "abil": "JunkerSCVBuild",
+              "minerals": 10,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerLightbulb",
+              "to": "JunkerLightBeacon",
+              "abil": "JunkerUpgradeLightbulb",
+              "minerals": 75,
+              "gas": 0
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-sensordome.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerLightbulb",
+          "abil": "JunkerUpgradeLightbulb",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-sensordome.png"
+      ]
+    },
+    "JunkerScrapRecycler4": {
+      "id": "JunkerScrapRecycler4",
+      "nameZh": "废料回收站 +4",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 350,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 350,
+          "gas": 0
+        },
+        "acquire": {
+          "minerals": 350,
+          "gas": 0,
+          "steps": [
+            {
+              "kind": "build",
+              "from": "JunkerSCV",
+              "to": "JunkerScrapRecycler1",
+              "abil": "JunkerSCVBuild",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler1",
+              "to": "JunkerScrapRecycler2",
+              "abil": "JunkerUpgradeScrapRecycler2",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler2",
+              "to": "JunkerScrapRecycler4",
+              "abil": "JunkerUpgradeScrapRecycler4",
+              "minerals": 200,
+              "gas": 0
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-mineralstoragedepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerScrapRecycler2",
+          "abil": "JunkerUpgradeScrapRecycler4",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerScrapRecycler8"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-mineralstoragedepot.png"
+      ]
+    },
+    "JunkerVikingFlying": {
+      "id": "JunkerVikingFlying",
+      "nameZh": "拾荒者维京战机（飞行模式）",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "form",
+      "stats": {
+        "hp": 320,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 3.25,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranShipPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.75
+      },
+      "cost": {
+        "minerals": 250,
+        "gas": 3,
+        "food": 3,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical"
+      ],
+      "planes": [
+        "Air"
+      ],
+      "flags": [],
+      "icon": "btn-unit-collection-vikingfighter-junker.png",
+      "weapons": [],
+      "upgrades": [
+        {
+          "family": "JunkerMarketArmor",
+          "nameZh": "部队装甲（1级）",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketArmorLevel1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeMax",
+                  "op": "Add",
+                  "value": 60
+                },
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeStart",
+                  "op": "Add",
+                  "value": 60
+                },
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "JunkerMarketArmorLevel2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeMax",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeStart",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "JunkerMarketArmorLevel3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeMax",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeStart",
+                  "op": "Add",
+                  "value": 65
+                },
+                {
+                  "ref": "Unit,JunkerVikingFlying,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JunkerMarketVision",
+          "nameZh": "强化光学系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JunkerMarketVision",
+              "minerals": 4000,
+              "gas": 50,
+              "time": 10,
+              "researchedBy": "JunkerMarketArmyResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JunkerVikingFlying,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "formOf": "JunkerViking",
+      "formLabel": "飞行模式",
+      "producedBy": [
+        {
+          "from": "JunkerViking",
+          "abil": "JunkerVikingLiftOffMorph",
+          "kind": "morph"
+        },
+        {
+          "from": "JunkerViking",
+          "abil": "JunkerVikingFastLiftOffMorph",
+          "kind": "morph"
+        },
+        {
+          "from": "JunkerVikingFlying",
+          "abil": "JunkerVikingFastLiftOffMorph",
+          "kind": "morph"
+        }
+      ],
+      "produces": [
+        "JunkerViking",
+        "JunkerVikingFlying"
+      ],
+      "iconCandidates": [
+        "btn-unit-collection-vikingfighter-junker.png"
+      ]
+    },
+    "JunkerScrapRecycler8": {
+      "id": "JunkerScrapRecycler8",
+      "nameZh": "废料回收站 +8",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 800,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 800,
+          "gas": 0
+        },
+        "acquire": {
+          "minerals": 800,
+          "gas": 0,
+          "steps": [
+            {
+              "kind": "build",
+              "from": "JunkerSCV",
+              "to": "JunkerScrapRecycler1",
+              "abil": "JunkerSCVBuild",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler1",
+              "to": "JunkerScrapRecycler2",
+              "abil": "JunkerUpgradeScrapRecycler2",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler2",
+              "to": "JunkerScrapRecycler4",
+              "abil": "JunkerUpgradeScrapRecycler4",
+              "minerals": 200,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler4",
+              "to": "JunkerScrapRecycler8",
+              "abil": "JunkerUpgradeScrapRecycler8",
+              "minerals": 450,
+              "gas": 0
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-mineralstoragedepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerScrapRecycler4",
+          "abil": "JunkerUpgradeScrapRecycler8",
+          "index": "0",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerScrapRecycler16"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-mineralstoragedepot.png"
+      ]
+    },
+    "JunkerScrapRecycler16": {
+      "id": "JunkerScrapRecycler16",
+      "nameZh": "废料回收站 +16",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 2000,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 2000,
+          "gas": 0
+        },
+        "acquire": {
+          "minerals": 2000,
+          "gas": 0,
+          "steps": [
+            {
+              "kind": "build",
+              "from": "JunkerSCV",
+              "to": "JunkerScrapRecycler1",
+              "abil": "JunkerSCVBuild",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler1",
+              "to": "JunkerScrapRecycler2",
+              "abil": "JunkerUpgradeScrapRecycler2",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler2",
+              "to": "JunkerScrapRecycler4",
+              "abil": "JunkerUpgradeScrapRecycler4",
+              "minerals": 200,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler4",
+              "to": "JunkerScrapRecycler8",
+              "abil": "JunkerUpgradeScrapRecycler8",
+              "minerals": 450,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler8",
+              "to": "JunkerScrapRecycler16",
+              "abil": "JunkerUpgradeScrapRecycler16",
+              "minerals": 1200,
+              "gas": 0
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-mineralstoragedepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerScrapRecycler8",
+          "abil": "JunkerUpgradeScrapRecycler16",
+          "index": "0",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "JunkerScrapRecycler32"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-mineralstoragedepot.png"
+      ]
+    },
+    "JunkerScrapRecycler32": {
+      "id": "JunkerScrapRecycler32",
+      "nameZh": "废料回收站 +32",
+      "team": "Survivor",
+      "owners": [
+        "Junker"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 5000,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 5000,
+          "gas": 0
+        },
+        "acquire": {
+          "minerals": 5000,
+          "gas": 0,
+          "steps": [
+            {
+              "kind": "build",
+              "from": "JunkerSCV",
+              "to": "JunkerScrapRecycler1",
+              "abil": "JunkerSCVBuild",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler1",
+              "to": "JunkerScrapRecycler2",
+              "abil": "JunkerUpgradeScrapRecycler2",
+              "minerals": 75,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler2",
+              "to": "JunkerScrapRecycler4",
+              "abil": "JunkerUpgradeScrapRecycler4",
+              "minerals": 200,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler4",
+              "to": "JunkerScrapRecycler8",
+              "abil": "JunkerUpgradeScrapRecycler8",
+              "minerals": 450,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler8",
+              "to": "JunkerScrapRecycler16",
+              "abil": "JunkerUpgradeScrapRecycler16",
+              "minerals": 1200,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "JunkerScrapRecycler16",
+              "to": "JunkerScrapRecycler32",
+              "abil": "JunkerUpgradeScrapRecycler32",
+              "minerals": 3000,
+              "gas": 0
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-mineralstoragedepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "JunkerScrapRecycler16",
+          "abil": "JunkerUpgradeScrapRecycler32",
+          "index": "0",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-mineralstoragedepot.png"
+      ]
+    },
+    "HornerHorner": {
+      "id": "HornerHorner",
+      "nameZh": "霍纳",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "hero",
+      "stats": {
+        "hp": 500,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 100,
+        "speed": 2,
+        "creepSpeedMul": null,
+        "sight": 8,
+        "armorName": "TerranShipPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 1000,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 5
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Massive",
+        "Heroic"
+      ],
+      "planes": [
+        "Air"
+      ],
+      "flags": [],
+      "icon": "btn-unit-collection-battlecruiser-covertops.png",
+      "weapons": [
+        {
+          "id": "LaserBattery",
+          "nameZh": "激光炮台",
+          "period": 0.4,
+          "range": 6,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "LaserBatteryU",
+              "amount": 15,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": []
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "HornerArmor",
+          "nameZh": "升级护甲",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerArmor1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerHorner,LifeStart",
+                  "op": "Add",
+                  "value": 500
+                },
+                {
+                  "ref": "Unit,HornerHorner,LifeMax",
+                  "op": "Add",
+                  "value": 500
+                },
+                {
+                  "ref": "Unit,HornerHorner,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "HornerArmor2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerHorner,LifeStart",
+                  "op": "Add",
+                  "value": 500
+                },
+                {
+                  "ref": "Unit,HornerHorner,LifeMax",
+                  "op": "Add",
+                  "value": 500
+                },
+                {
+                  "ref": "Unit,HornerHorner,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "HornerArmor3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerHorner,LifeStart",
+                  "op": "Add",
+                  "value": 1000
+                },
+                {
+                  "ref": "Unit,HornerHorner,LifeMax",
+                  "op": "Add",
+                  "value": 1000
+                },
+                {
+                  "ref": "Unit,HornerHorner,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerAttack",
+          "nameZh": "升级武器",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "damage"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerAttack1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Effect,LaserBatteryU,Amount",
+                  "op": "Add",
+                  "value": 10
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "HornerAttack2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Effect,LaserBatteryU,Amount",
+                  "op": "Add",
+                  "value": 20
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "HornerAttack3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Effect,LaserBatteryU,Amount",
+                  "op": "Add",
+                  "value": 30
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerCorvidReactor",
+          "nameZh": "研究地鸦反应堆",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "energy",
+            "energyRegen"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerCorvidReactor",
+              "minerals": 2500,
+              "gas": 25,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerHorner,EnergyMax",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,HornerHorner,EnergyRegenRate",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerFireControlSystem",
+          "nameZh": "研究火控系统",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "range",
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerFireControlSystem",
+              "minerals": 3000,
+              "gas": 30,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Weapon,LaserBattery,Range",
+                  "op": "Add",
+                  "value": 2
+                },
+                {
+                  "ref": "Unit,HornerHorner,Sight",
+                  "op": "Add",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerForceShield",
+          "nameZh": "研究力场护盾",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "shield",
+            "shieldRegen",
+            "shieldRegenDelay"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerForceShield",
+              "minerals": 2500,
+              "gas": 25,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerHorner,ShieldsMax",
+                  "op": "Set",
+                  "value": 1000
+                },
+                {
+                  "ref": "Unit,HornerHorner,ShieldsStart",
+                  "op": "Set",
+                  "value": 1000
+                },
+                {
+                  "ref": "Unit,HornerHorner,ShieldRegenRate",
+                  "op": "Set",
+                  "value": 10
+                },
+                {
+                  "ref": "Unit,HornerHorner,ShieldRegenDelay",
+                  "op": "Set",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerIgniteAfterburners",
+          "nameZh": "研究后燃助推器",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "speed"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerIgniteAfterburners",
+              "minerals": 2500,
+              "gas": 25,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerHorner,Speed",
+                  "op": "Add",
+                  "value": 0.5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "produces": [
+        "HornerSCV",
+        "AirdropBeaconTower",
+        "HornerPointDefenseDrone",
+        "HornerDefensiveDrone",
+        "MagneticMine_SpawnerUnit",
+        "HornerSpaceStation"
+      ],
+      "iconCandidates": [
+        "btn-unit-collection-battlecruiser-covertops.png"
+      ]
+    },
+    "HornerSCV": {
+      "id": "HornerSCV",
+      "nameZh": "SCV",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "troop",
+      "stats": {
+        "hp": 30,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 3.6992,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranInfantryArmor",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.375
+      },
+      "cost": {
+        "minerals": 25,
+        "gas": 0,
+        "food": 1,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Light",
+        "Biological",
+        "Mechanical"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-unit-collection-scv-junker.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerHorner",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        },
+        {
+          "from": "HornerMineralCompound4",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        },
+        {
+          "from": "HornerMineralCompound8",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        },
+        {
+          "from": "HornerMineralCompound16",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        },
+        {
+          "from": "HornerMineralCompound32",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        },
+        {
+          "from": "HornerMineralCompound64",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        },
+        {
+          "from": "HornerMineralCompound128",
+          "abil": "HornerTrain",
+          "index": "Train1",
+          "kind": "train",
+          "time": 1
+        }
+      ],
+      "produces": [
+        "TheiaRaven",
+        "HornerMineralCompound4",
+        "HornerArmory",
+        "AirdropLauncher",
+        "GhostWall",
+        "HornerMineralCompound8",
+        "HornerMineralCompound16",
+        "HornerMineralCompound32",
+        "HornerMineralCompound64",
+        "HornerMineralCompound128"
+      ],
+      "iconCandidates": [
+        "btn-unit-collection-scv-junker.png",
+        "btn-unit-terran-scv.png"
+      ]
+    },
+    "AirdropBeaconTower": {
+      "id": "AirdropBeaconTower",
+      "nameZh": "空投信标塔",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 100,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 3,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.75
+      },
+      "cost": {
+        "minerals": 0,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-sensordome.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerHorner",
+          "abil": "BuildBeaconTower",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "BuildBeaconTower",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-sensordome.png",
+        "btn-building-terran-sensortower-covertops.png"
+      ]
+    },
+    "HornerPointDefenseDrone": {
+      "id": "HornerPointDefenseDrone",
+      "nameZh": "定点防御无人机",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 0,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 125,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 1,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0
+      },
+      "cost": {
+        "minerals": 50,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Air"
+      ],
+      "flags": [],
+      "icon": "btn-unit-terran-targetingdrone.png",
+      "weapons": [],
+      "upgrades": [
+        {
+          "family": "HornerAdvancedIntercept",
+          "nameZh": "研究高级拦截",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "energy"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerAdvancedIntercept",
+              "minerals": 1000,
+              "gas": 5,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearchAdditional",
+              "effects": [
+                {
+                  "ref": "Unit,HornerPointDefenseDrone,EnergyStart",
+                  "op": "Multiply",
+                  "value": 2
+                },
+                {
+                  "ref": "Unit,HornerPointDefenseDrone,EnergyMax",
+                  "op": "Multiply",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "HornerHorner",
+          "abil": "Horner1PointDefenseDrone",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": [
+        "btn-unit-terran-targetingdrone.png"
+      ]
+    },
+    "HornerDefensiveDrone": {
+      "id": "HornerDefensiveDrone",
+      "nameZh": "防御无人机",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 200,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 200,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 4,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0
+      },
+      "cost": {
+        "minerals": 0,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Light",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Air"
+      ],
+      "flags": [],
+      "icon": "btn-upgrade-terran-nova-defensivedrone.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerHorner",
+          "abil": "Horner2DefensiveMatrixDrone",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": [
+        "btn-upgrade-terran-nova-defensivedrone.png"
+      ]
+    },
+    "MagneticMine_SpawnerUnit": {
+      "id": "MagneticMine_SpawnerUnit",
+      "nameZh": "磁暴地雷生成单位",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "summon",
+      "stats": {
+        "hp": 0,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 0,
+        "armorName": "",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0
+      },
+      "cost": {
+        "minerals": 0,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [],
+      "planes": [],
+      "flags": [],
+      "icon": null,
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerHorner",
+          "abil": "Horner3DeployMagMine",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": []
+    },
+    "HornerSpaceStation": {
+      "id": "HornerSpaceStation",
+      "nameZh": "霍纳空间站",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "summon",
+      "stats": {
+        "hp": 1000,
+        "shield": 0,
+        "armor": 5,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 9,
+        "armorName": "TerranShipPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.75
+      },
+      "cost": {
+        "minerals": 1000,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Massive"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-doodad-spacestationmercenary.png",
+      "weapons": [],
+      "upgrades": [
+        {
+          "family": "HornerReinforceSpaceStation",
+          "nameZh": "研究强化空间站",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerReinforceSpaceStation",
+              "minerals": 10000,
+              "gas": 60,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearchAdditional",
+              "effects": [
+                {
+                  "ref": "Unit,HornerSpaceStation,LifeMax",
+                  "op": "Add",
+                  "value": 1500
+                },
+                {
+                  "ref": "Unit,HornerSpaceStation,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                },
+                {
+                  "ref": "Unit,HornerSpaceStation,LifeStart",
+                  "op": "Add",
+                  "value": 1500
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "HornerHorner",
+          "abil": "Horner6SpaceStationReallocation",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "produces": [
+        "HornerAssaultDrone"
+      ],
+      "iconCandidates": [
+        "btn-doodad-spacestationmercenary.png"
+      ]
+    },
+    "TheiaRaven": {
+      "id": "TheiaRaven",
+      "nameZh": "希亚地鸦",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "morph",
+      "stats": {
+        "hp": 150,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 100,
+        "speed": 2.5,
+        "creepSpeedMul": null,
+        "sight": 4,
+        "armorName": "TerranShipPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.625
+      },
+      "cost": {
+        "minerals": 225,
+        "gas": 5,
+        "food": 2,
+        "supplyProvided": 0,
+        "listed": {
+          "minerals": 225,
+          "gas": 5
+        },
+        "acquire": {
+          "minerals": 225,
+          "gas": 5,
+          "steps": [
+            {
+              "kind": "train",
+              "from": "HornerHorner",
+              "to": "HornerSCV",
+              "abil": "HornerTrain",
+              "minerals": 25,
+              "gas": 0
+            },
+            {
+              "kind": "morph",
+              "from": "HornerSCV",
+              "to": "TheiaRaven",
+              "abil": "UpgradeToTheiaRaven",
+              "minerals": 200,
+              "gas": 5
+            }
+          ]
+        }
+      },
+      "attributes": [
+        "Light",
+        "Mechanical",
+        "Psionic",
+        "Heroic"
+      ],
+      "planes": [
+        "Air"
+      ],
+      "flags": [],
+      "icon": "btn-unit-collection-raven-covertops.png",
+      "weapons": [],
+      "upgrades": [
+        {
+          "family": "HornerArmor",
+          "nameZh": "升级护甲",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "armor",
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerArmor1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,TheiaRaven,LifeStart",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TheiaRaven,LifeMax",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TheiaRaven,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "HornerArmor2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,TheiaRaven,LifeStart",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TheiaRaven,LifeMax",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TheiaRaven,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "HornerArmor3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,TheiaRaven,LifeStart",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TheiaRaven,LifeMax",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Unit,TheiaRaven,LifeArmor",
+                  "op": "Add",
+                  "value": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerCorvidReactor",
+          "nameZh": "研究地鸦反应堆",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "energy",
+            "energyRegen"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerCorvidReactor",
+              "minerals": 2500,
+              "gas": 25,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,TheiaRaven,EnergyMax",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Unit,TheiaRaven,EnergyRegenRate",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerIgniteAfterburners",
+          "nameZh": "研究后燃助推器",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "speed"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerIgniteAfterburners",
+              "minerals": 2500,
+              "gas": 25,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,TheiaRaven,Speed",
+                  "op": "Add",
+                  "value": 0.5
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "UpgradeToTheiaRaven",
+          "kind": "morph"
+        }
+      ],
+      "produces": [
+        "HornerSCV",
+        "HornerMineralCompound4",
+        "HornerArmory",
+        "AirdropLauncher",
+        "GhostWall",
+        "HornerMineralCompound8",
+        "HornerMineralCompound16",
+        "HornerMineralCompound32",
+        "HornerMineralCompound64",
+        "HornerMineralCompound128",
+        "AirdropBeaconTower",
+        "HornerHealingDrone",
+        "HornerAutoTurret"
+      ],
+      "iconCandidates": [
+        "btn-unit-collection-raven-covertops.png"
+      ]
+    },
+    "HornerMineralCompound4": {
+      "id": "HornerMineralCompound4",
+      "nameZh": "晶矿合成器+4",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 150,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-nukesilo.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build1",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "HornerMineralCompound8",
+        "HornerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-nukesilo.png"
+      ]
+    },
+    "HornerArmory": {
+      "id": "HornerArmory",
+      "nameZh": "军械库",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 200,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 0,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.25
+      },
+      "cost": {
+        "minerals": 150,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-tychustankdepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build2",
+          "kind": "build",
+          "time": 5
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build2",
+          "kind": "build",
+          "time": 5
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-tychustankdepot.png",
+        "btn-building-terran-armory-covertops.png"
+      ]
+    },
+    "AirdropLauncher": {
+      "id": "AirdropLauncher",
+      "nameZh": "空投发射器",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "building",
+      "stats": {
+        "hp": 200,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 500,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 0,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 500,
+        "gas": 10,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-tychusspecialistdepot.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build3",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build3",
+          "kind": "build",
+          "time": 10
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-tychusspecialistdepot.png",
+        "btn-building-nova-ghostacademy.png"
+      ]
+    },
+    "HornerMineralCompound8": {
+      "id": "HornerMineralCompound8",
+      "nameZh": "晶矿合成器+8",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 350,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-nukesilo.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build7",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build7",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "HornerMineralCompound4",
+          "abil": "HornerUpgradeMineralCompound8",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "HornerMineralCompound16",
+        "HornerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-nukesilo.png"
+      ]
+    },
+    "HornerMineralCompound16": {
+      "id": "HornerMineralCompound16",
+      "nameZh": "晶矿合成器+16",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 800,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-nukesilo.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build8",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build8",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "HornerMineralCompound8",
+          "abil": "HornerUpgradeMineralCompound16",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "HornerMineralCompound32",
+        "HornerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-nukesilo.png"
+      ]
+    },
+    "HornerMineralCompound32": {
+      "id": "HornerMineralCompound32",
+      "nameZh": "晶矿合成器+32",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 2000,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-nukesilo.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build9",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build9",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "HornerMineralCompound16",
+          "abil": "HornerUpgradeMineralCompound32",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "HornerMineralCompound64",
+        "HornerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-nukesilo.png"
+      ]
+    },
+    "HornerMineralCompound64": {
+      "id": "HornerMineralCompound64",
+      "nameZh": "晶矿合成器+64",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 4700,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-nukesilo.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build10",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build10",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "HornerMineralCompound32",
+          "abil": "HornerUpgradeMineralCompound64",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "HornerMineralCompound128",
+        "HornerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-nukesilo.png"
+      ]
+    },
+    "HornerMineralCompound128": {
+      "id": "HornerMineralCompound128",
+      "nameZh": "晶矿合成器+128",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "economy",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 2,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1.5
+      },
+      "cost": {
+        "minerals": 10700,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-nukesilo.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSCV",
+          "abil": "HornerBuild",
+          "index": "Build11",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerRavenBuild",
+          "index": "Build11",
+          "kind": "build",
+          "time": 10
+        },
+        {
+          "from": "HornerMineralCompound64",
+          "abil": "HornerUpgradeMineralCompound128",
+          "kind": "morph",
+          "time": 5
+        }
+      ],
+      "produces": [
+        "HornerSCV"
+      ],
+      "iconCandidates": [
+        "btn-building-terran-nukesilo.png"
+      ]
+    },
+    "HornerAssaultDrone": {
+      "id": "HornerAssaultDrone",
+      "nameZh": "突击无人机",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "troop",
+      "stats": {
+        "hp": 200,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 7.5,
+        "creepSpeedMul": null,
+        "sight": 7,
+        "armorName": "TerranShipPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.25
+      },
+      "cost": {
+        "minerals": 0,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Light",
+        "Mechanical"
+      ],
+      "planes": [
+        "Air"
+      ],
+      "flags": [
+        "Unselectable",
+        "Untargetable"
+      ],
+      "icon": "btn-unit-collection-interceptor-junker.png",
+      "weapons": [
+        {
+          "id": "HornerGriffon",
+          "nameZh": "霍纳狮鹫",
+          "period": 1,
+          "range": 2,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "HornerGriffonDamage",
+              "amount": 50,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": []
+        }
+      ],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "HornerSpaceStation",
+          "abil": "HornerMercSpaceStationHangar",
+          "index": "Ammo1",
+          "kind": "magazine"
+        }
+      ],
+      "iconCandidates": [
+        "btn-unit-collection-interceptor-junker.png"
+      ]
+    },
+    "HornerHealingDrone": {
+      "id": "HornerHealingDrone",
+      "nameZh": "治疗无人机",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "skill",
+      "stats": {
+        "hp": 50,
+        "shield": 0,
+        "armor": 0,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 2.25,
+        "creepSpeedMul": null,
+        "sight": 7,
+        "armorName": "TerranShipPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 0.625
+      },
+      "cost": {
+        "minerals": 100,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Light",
+        "Mechanical"
+      ],
+      "planes": [
+        "Air"
+      ],
+      "flags": [],
+      "icon": "btn-unit-terran-targetingdrone.png",
+      "weapons": [],
+      "upgrades": [],
+      "producedBy": [
+        {
+          "from": "TheiaRaven",
+          "abil": "BioMechanicalReparDrone",
+          "kind": "summon",
+          "count": 2
+        }
+      ],
+      "iconCandidates": [
+        "btn-unit-terran-targetingdrone.png"
+      ]
+    },
+    "HornerAutoTurret": {
+      "id": "HornerAutoTurret",
+      "nameZh": "自动炮塔",
+      "team": "Survivor",
+      "owners": [
+        "Horner"
+      ],
+      "category": "skill",
+      "stats": {
+        "hp": 250,
+        "shield": 0,
+        "armor": 1,
+        "shieldArmor": 0,
+        "hpRegen": 0,
+        "shieldRegen": 0,
+        "energy": 0,
+        "speed": 0,
+        "creepSpeedMul": null,
+        "sight": 5,
+        "armorName": "TerranBuildingPlating",
+        "armorLevel": 0,
+        "shieldArmorLevel": 0,
+        "radius": 1
+      },
+      "cost": {
+        "minerals": 25,
+        "gas": 0,
+        "food": 0,
+        "supplyProvided": 0
+      },
+      "attributes": [
+        "Armored",
+        "Mechanical",
+        "Structure"
+      ],
+      "planes": [
+        "Ground"
+      ],
+      "flags": [],
+      "icon": "btn-building-terran-autoturret.png",
+      "weapons": [
+        {
+          "id": "AutoTurret12mmGaussCannon",
+          "nameZh": "自动炮台 - 12mm高斯炮",
+          "period": 1,
+          "range": null,
+          "minRange": null,
+          "melee": false,
+          "suicide": false,
+          "targets": {
+            "ground": true,
+            "air": true,
+            "exclude": []
+          },
+          "vitalDamage": null,
+          "components": [
+            {
+              "effect": "AutoTurretTwinAutocannonsDamage",
+              "amount": 25,
+              "armorReduction": 1,
+              "hits": 1.0
+            }
+          ],
+          "unresolved": [],
+          "notes": []
+        }
+      ],
+      "upgrades": [
+        {
+          "family": "HornerArmor",
+          "nameZh": "升级护甲",
+          "category": null,
+          "kind": "combat",
+          "researchable": true,
+          "dimensions": [
+            "hp"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerArmor1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerAutoTurret,LifeStart",
+                  "op": "Add",
+                  "value": 250
+                },
+                {
+                  "ref": "Unit,HornerAutoTurret,LifeMax",
+                  "op": "Add",
+                  "value": 250
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "HornerArmor2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerAutoTurret,LifeStart",
+                  "op": "Add",
+                  "value": 250
+                },
+                {
+                  "ref": "Unit,HornerAutoTurret,LifeMax",
+                  "op": "Add",
+                  "value": 250
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "HornerArmor3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Unit,HornerAutoTurret,LifeStart",
+                  "op": "Add",
+                  "value": 250
+                },
+                {
+                  "ref": "Unit,HornerAutoTurret,LifeMax",
+                  "op": "Add",
+                  "value": 250
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "HornerAttack",
+          "nameZh": "升级武器",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "damage",
+            "period",
+            "range",
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "HornerAttack1",
+              "minerals": 500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Effect,AutoTurretTwinAutocannonsDamage,Amount",
+                  "op": "Add",
+                  "value": 25
+                },
+                {
+                  "ref": "Weapon,AutoTurret12mmGaussCannon,Period",
+                  "op": "Add",
+                  "value": 0
+                },
+                {
+                  "ref": "Weapon,AutoTurret12mmGaussCannon,Range",
+                  "op": "Add",
+                  "value": 1
+                },
+                {
+                  "ref": "Unit,HornerAutoTurret,Sight",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "upgrade": "HornerAttack2",
+              "minerals": 2500,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Effect,AutoTurretTwinAutocannonsDamage,Amount",
+                  "op": "Add",
+                  "value": 50
+                },
+                {
+                  "ref": "Weapon,AutoTurret12mmGaussCannon,Period",
+                  "op": "Add",
+                  "value": 0
+                },
+                {
+                  "ref": "Weapon,AutoTurret12mmGaussCannon,Range",
+                  "op": "Add",
+                  "value": 1
+                },
+                {
+                  "ref": "Unit,HornerAutoTurret,Sight",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "upgrade": "HornerAttack3",
+              "minerals": 10000,
+              "gas": 0,
+              "time": 5,
+              "researchedBy": "HornerArmoryResearch",
+              "effects": [
+                {
+                  "ref": "Effect,AutoTurretTwinAutocannonsDamage,Amount",
+                  "op": "Add",
+                  "value": 100
+                },
+                {
+                  "ref": "Weapon,AutoTurret12mmGaussCannon,Period",
+                  "op": "Add",
+                  "value": 0
+                },
+                {
+                  "ref": "Weapon,AutoTurret12mmGaussCannon,Range",
+                  "op": "Add",
+                  "value": 1
+                },
+                {
+                  "ref": "Unit,HornerAutoTurret,Sight",
+                  "op": "Add",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "producedBy": [
+        {
+          "from": "TheiaRaven",
+          "abil": "HornerPlaceAutoTurret",
+          "kind": "summon",
+          "count": 1
+        }
+      ],
+      "iconCandidates": [
+        "btn-building-terran-autoturret.png"
       ]
     }
   }

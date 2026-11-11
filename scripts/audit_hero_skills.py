@@ -47,12 +47,13 @@ def hero_unit_id(role):
 
 
 def index_raw_cunits(archive):
-    """unit id -> 原始 <CUnit>…</CUnit> XML 文本(取最后一个定义，胜出者)。"""
+    """unit id -> 原始 <CUnit>…</CUnit> XML 文本(取最后一个定义，胜出者)。
+    含 CUnitHero 等子类（霍纳 HornerHorner 即 <CUnitHero>），否则其命令卡解析不到。"""
     out = {}
     for xf in L.gamedata_xml_files(archive):
         d = archive.read_file(xf).decode('utf-8', 'ignore')
-        for mt in re.finditer(r'<CUnit id="([^"]+)">(.*?)</CUnit>', d, re.S):
-            out[mt.group(1)] = mt.group(0)
+        for mt in re.finditer(r'<(CUnit\w*) id="([^"]+)"[^>]*>(.*?)</\1>', d, re.S):
+            out[mt.group(2)] = mt.group(0)
     return out
 
 
