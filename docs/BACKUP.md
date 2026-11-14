@@ -24,7 +24,7 @@
 cd /opt/ks2-wiki && ./scripts/backup.sh
 ```
 
-首次赋可执行权限：`chmod +x scripts/backup.sh`。也可以在本地一键完成上传 + 赋权 + 跑一次：`KS2_PW=... python deploy_paramiko.py push-backup`。
+首次赋可执行权限：`chmod +x scripts/backup.sh`。也可以在本地一键完成上传 + 赋权 + 跑一次：`python deploy_paramiko.py push-backup`。
 建议装 sqlite3 以启用完整性校验：`apt-get install -y sqlite3`（Debian/Ubuntu）。
 
 ### 定时（每天一次）
@@ -35,7 +35,7 @@ cd /opt/ks2-wiki && ./scripts/backup.sh
 17 4 * * * cd /opt/ks2-wiki && ./scripts/backup.sh >> /opt/ks2-wiki/backups/backup.log 2>&1
 ```
 
-或在本地执行 `KS2_PW=... python deploy_paramiko.py cron`，它会幂等地装上这一行并回读确认。
+或在本地执行 `python deploy_paramiko.py cron`，它会幂等地装上这一行并回读确认。
 
 改保留份数：`KEEP=30 ./scripts/backup.sh`，或在 cron 行前加 `KEEP=30`。
 
@@ -75,7 +75,7 @@ sqlite3 /tmp/drill.db "PRAGMA integrity_check; SELECT count(*) FROM users; SELEC
 rm -f /tmp/drill.db
 ```
 
-能读出用户数和文章数即视为通过。本地一键版：`KS2_PW=... python deploy_paramiko.py drill`（只读，不碰线上库）。
+能读出用户数和文章数即视为通过。本地一键版：`python deploy_paramiko.py drill`（只读，不碰线上库）。
 
 ## 已知局限
 

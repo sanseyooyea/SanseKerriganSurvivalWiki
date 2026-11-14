@@ -205,6 +205,31 @@ MMR 历史走势，读 `data/stats.db` 的 `mmr_history`。缓存 5 分钟。库
 
 ---
 
+## 录像回放 `/api/replays`
+
+用户上传 `.SC2Replay`，服务端排队后用 `scripts/replay/parse_replay.py` 解析成回放 JSON（gzip 存盘）。
+`hash` = 原始文件 MD5（32 位小写十六进制），同一局重复上传直接复用。实现见 `server/utils/replays.ts`。
+
+状态：`queued` 排队 / `processing` 解析中 / `done` 完成 / `failed` 失败（`error` 为可读原因）。
+
+| 端点 | 权限 | 说明 |
+|---|---|---|
+| `POST /api/replays` | 登录 | 请求体为文件原始字节（`Content-Type: application/octet-stream`），文件名放 `X-File-Name`（encodeURIComponent）。≤5MB（流式封顶，chunked 也限）、须以 MPQ 头开头；普通用户每小时成功入队 20 个、请求 60 次，同时排队最多 3 个；全站排队超过 30 个返回 503。响应 `{ replay, duplicate }`，立即返回，不等解析 |
+| `GET /api/replays?page=&mine=1` | 公开 | 已完成的录像分页（每页 24）：`{ total, page, pageSize, replays: [{ hash, status, fileName, uploader, mine, summary }], mine }`。带 token 且 `mine=1` 时 `mine` 为自己未完成/失败的记录 |
+| `GET /api/replays/:hash/status` | 公开 | `{ replay, ahead }`，`ahead` 为排在前面的任务数。上传后前端每 2 秒轮询 |
+| `GET /api/replays/:hash/data` | 公开 | 回放 JSON（格式见 `utils/replay.ts`）。客户端支持 gzip 时原样下发磁盘上的 `.json.gz`（`Content-Encoding: gzip`，~300KB/局） |
+| `DELETE /api/replays/:hash` | 上传者 / admin | 删除记录与文件；解析中返回 409 |
+
+失败原因对应解析器退出码：2 = 不是 KS2 录像，3 = 文件损坏或版本不支持，4 = 超出内存上限；另有「解析超时」。
+
+**录像校验**（`parse_replay.precheck`，只读录像头，约 5ms，在完整解析之前）：
+
+- 拒收：地图标题不在 KS2 名单（`Kerrigan Survival` / `Kerrigan Survival 2` / `凯瑞甘生存2` / `凯瑞甘生存2 最新版`），或加载了扩展模组。
+- 记录但不拒收：地图文件 SHA-256 是否在 `data/ks2-map-hashes.json`（已知官方版本，由 `scripts/build_map_hashes.py` 从本机 Battle.net 缓存生成，`build_all.py` 会跑），以及依赖文件数是否为 12/13。结果在回放 JSON 的 `verify` 字段和列表摘要的 `mapKnown` 字段里。
+- 局限：SC2 录像没有签名，以上检查都只能说明「看起来是 KS2 录像」，挡不住改过内容的录像。页面上所有录像都标注「未经官方验证、仅供参考、不计入统计」。外服版本默认是「未知版本」，在游戏里打开一次对应录像、让客户端把地图拉进缓存后重跑 `build_map_hashes.py` 即可收录。
+
+---
+
 ## 建议反馈 `/api/feedback`
 
 分类：`feature` / `bug` / `data` / `other`；状态：`pending` / `accepted` / `done` / `rejected`。

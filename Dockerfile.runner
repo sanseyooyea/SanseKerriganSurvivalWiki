@@ -20,15 +20,27 @@ RUN set -e; \
     if [ -f /etc/apt/sources.list ]; then \
       sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g' /etc/apt/sources.list; \
     fi
+# python3 留在镜像里：录像解析器（scripts/replay/parse_replay.py）运行时要用。
+# 只卸编译工具链。python3 先标记为手动安装，否则 autoremove 会把它当作 g++ 的依赖一并清掉。
 RUN apt-get update \
  && apt-get install -y --no-install-recommends python3 make g++ \
+ && apt-mark manual python3 python3-minimal \
  && npm install --omit=dev --registry=https://registry.npmmirror.com \
  && npm cache clean --force \
- && apt-get purge -y python3 make g++ \
+ && apt-get purge -y make g++ \
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/*
 
-# 本地构建好的产物与数据
+# 录像解析器 + 随包依赖（sc2reader wheel、mpyq.py，见 scripts/replay/vendor/README.md）。
+# 构建期把 wheel 解压到 vendor/site 并预编译 .pyc：从 zip 导入时每次都要重新编译源码，
+# 在 2 核机器上每局白耗 ~0.5s CPU。最后跑一次 --help 冒烟，导入失败直接让 build 失败。
+COPY scripts/replay ./scripts/replay
+RUN cd scripts/replay/vendor \
+ && python3 -c "import zipfile; zipfile.ZipFile('sc2reader-1.8.0-py3-none-any.whl').extractall('site')" \
+ && python3 -m compileall -q site mpyq.py ../parse_replay.py \
+ && python3 -I ../parse_replay.py --help > /dev/null
+
+# 本地构建好的产物与数据（data/replays 是用户上传，走 bind mount，不进镜像，见 .dockerignore）
 COPY .output ./.output
 COPY data ./data
 

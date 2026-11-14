@@ -131,10 +131,58 @@ function initSchema(db: Database.Database) {
       created_at TEXT DEFAULT (datetime('now'))
     );
     CREATE INDEX IF NOT EXISTS idx_prt_user ON password_reset_tokens(user_id);
+
+    -- 用户上传的录像：hash = 原始文件 MD5（天然去重）。
+    -- status(queued排队/processing解析中/done完成/failed失败)；summary 为解析器 --summary 输出的列表摘要 JSON。
+    -- 文件在 data/replays/<hash>.SC2Replay 与 <hash>.json.gz，见 server/utils/replays.ts。
+    CREATE TABLE IF NOT EXISTS replays (
+      hash TEXT PRIMARY KEY,
+      status TEXT NOT NULL DEFAULT 'queued',
+      error TEXT NOT NULL DEFAULT '',
+      uploader_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+      file_name TEXT NOT NULL DEFAULT '',
+      size INTEGER NOT NULL DEFAULT 0,
+      json_size INTEGER NOT NULL DEFAULT 0,
+      summary TEXT,
+      created_at TEXT DEFAULT (datetime('now')),
+      parsed_at TEXT
+    );
+    CREATE INDEX IF NOT EXISTS idx_replays_status ON replays(status, created_at);
+    CREATE INDEX IF NOT EXISTS idx_replays_uploader ON replays(uploader_id, created_at);
+
+    -- 录像里每个玩家的战绩：从 replays.summary 拆出，供「玩家对局记录」按句柄查询。
+    -- 随 replays 行一起删（ON DELETE CASCADE）；可随时由 summary 重建（rebuildReplayPlayers）。
+    -- played_at = 录像里的对局时间（不是上传时间）。won 为 NULL 表示未分胜负（中途结束）。
+    CREATE TABLE IF NOT EXISTS replay_players (
+      hash TEXT NOT NULL REFERENCES replays(hash) ON DELETE CASCADE,
+      pid INTEGER NOT NULL,
+      handle TEXT NOT NULL,
+      name TEXT NOT NULL DEFAULT '',
+      role TEXT,
+      role_en TEXT,
+      team INTEGER,
+      won INTEGER,
+      mmr_before INTEGER,
+      mmr_after INTEGER,
+      hero_death_loop INTEGER,
+      kills INTEGER,
+      hero_damage INTEGER,
+      minerals INTEGER,
+      gas_fed INTEGER,
+      apm INTEGER,
+      upgrades INTEGER,
+      loops INTEGER,
+      map_key TEXT,
+      played_at TEXT,
+      PRIMARY KEY (hash, pid)
+    );
+    CREATE INDEX IF NOT EXISTS idx_rp_handle ON replay_players(handle COLLATE NOCASE, played_at);
   `)
 
   // ---- 增量列迁移（ALTER TABLE 不支持 IF NOT EXISTS，用 try/catch 保证幂等）----
   try { db.exec(`ALTER TABLE users ADD COLUMN email TEXT DEFAULT ''`) } catch {}
   try { db.exec(`ALTER TABLE users ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0`) } catch {}
   try { db.exec(`CREATE UNIQUE INDEX idx_users_email ON users(email) WHERE email != ''`) } catch {}
+  // 录像解析尝试次数：进程崩溃后重启不会对同一录像无限重试（见 server/utils/replays.ts）
+  try { db.exec(`ALTER TABLE replays ADD COLUMN attempts INTEGER NOT NULL DEFAULT 0`) } catch {}
 }

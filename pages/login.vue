@@ -52,6 +52,7 @@
 <script setup lang="ts">
 const { setAuth } = useAuth()
 const router = useRouter()
+const route = useRoute()
 
 const isRegister = ref(false)
 const username = ref('')
@@ -72,7 +73,9 @@ async function submit() {
       body
     })
     setAuth(res.token, res.user)
-    router.push('/')
+    // ?redirect= 只接受站内相对路径（以单个 / 开头），防开放重定向
+    const r = String(route.query.redirect || '')
+    router.push(/^\/(?![/\\])/.test(r) ? r : '/')
   } catch (e: any) {
     error.value = e.data?.message || '操作失败'
   } finally {

@@ -36,7 +36,8 @@ tar -xzf "$TAR_PATH" \
     --exclude='data/wiki.db' \
     --exclude='data/wiki.db-shm' \
     --exclude='data/wiki.db-wal' \
-    --exclude='backups'
+    --exclude='backups' \
+    --exclude='data/replays'
 
 # 3. 重新构建并启动
 echo "构建镜像..."

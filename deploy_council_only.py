@@ -4,7 +4,7 @@
 council-zh.json 是【运行时 readFileSync 读 + ./data:/app/data 卷挂载】，
 所以换单文件即生效，无需重打 255M 包 / 重新 build。
 
-用法：KS2_PW=*** /c/Python313/python.exe deploy_council_only.py
+用法：/c/Python313/python.exe deploy_council_only.py（SSH 密钥登录，见 deploy_paramiko.py）
 """
 import os
 from deploy_paramiko import connect, run, PROJECT

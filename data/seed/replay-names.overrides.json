@@ -1,0 +1,29 @@
+{
+  "_说明": "build_replay_names.py 的手工补表：地图数据里查不到的（暴雪原版小动物、引擎内置单位、地图没写名字的计数器升级）。优先级最高，会覆盖自动结果。icon 写 public/tech-icons 下的文件名，候选需能在 CascView 导出目录中找到。",
+  "units": {
+    "Sheep": { "nameZh": "绵羊", "icon": "wireframe-critter-sheep.png" },
+    "Moopy": { "nameZh": "毛皮兽", "icon": "wireframe-critter-moopy.png" },
+    "YetiMomma": { "nameZh": "雪兽母亲", "icon": "wireframe-critter-matriarchsnowbeast.png" },
+    "Anteplott": { "nameZh": "食蚁兽", "icon": "wireframe-critter-tastelope.png" },
+    "RedstoneLavaCritter": { "nameZh": "熔岩生物", "icon": "wireframe-critter-lavacritter.png" },
+    "RedstoneLavaCritterBurrowed": { "nameZh": "熔岩生物（钻地）", "icon": "wireframe-critter-lavacritter.png" },
+    "KS2SpineCrawlerUprooted": { "nameZh": "脊针爬虫（拔起）", "icon": "btn-building-zerg-spinecrawler.png" },
+    "SwarmHostSplitBPlacement": { "nameZh": "虫群宿主（放置中）", "icon": "btn-unit-zerg-swarmhost.png" },
+    "SwarmNydusWorm": { "icon": "btn-building-zerg-nydusworm.png" },
+    "ChewChewbieAmmo": { "nameZh": "秋伊小跟班弹药" },
+    "CollapsiblePurifierTowerDebris": { "nameZh": "净化者塔残骸" },
+    "GateTechnician": { "nameZh": "技术员的门", "icon": "btn-building-terran-supplydepot.png" },
+    "GateTechnicianLowered": { "nameZh": "技术员的门（降下）", "icon": "btn-building-terran-supplydepotlowered.png" }
+  },
+  "upgrades": {
+    "VoidStoryUnitGlobalUpgrade": { "nameZh": "虚空剧情单位全局升级（系统）" },
+    "GameTimeGreaterthan5Seconds": { "nameZh": "开局已超过 5 秒（系统）" },
+    "GhostAlternate": { "nameZh": "幽灵形态切换（系统）" },
+    "PVDJ": { "nameZh": "DJ 对战模式（系统）" },
+    "ChewSupply": { "nameZh": "秋伊人口" },
+    "ChewDecreaseCost": { "nameZh": "秋伊召唤降价" },
+    "ChewFlexIncrease": { "nameZh": "秋伊大显熊威增强" },
+    "MiraIncreaseSupplyL3": { "nameZh": "米拉人口上限 3级" },
+    "MiraIncreaseSupplyL4": { "nameZh": "米拉人口上限 4级" }
+  }
+}

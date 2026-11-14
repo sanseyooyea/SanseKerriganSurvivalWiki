@@ -31,7 +31,11 @@
         </div>
       </div>
     </div>
-    <div v-else-if="!playerData" class="text-center py-12 text-gray-400">未找到玩家数据</div>
+    <template v-else-if="!playerData">
+      <div class="text-center py-12 text-gray-400">未找到玩家数据</div>
+      <!-- 没有天梯数据的玩家也可能出现在上传的录像里 -->
+      <PlayerReplayHistory :handle="handle" />
+    </template>
     <template v-else>
       <!-- Visible page -->
       <div class="flex items-center justify-between mb-4">
@@ -158,6 +162,8 @@
           </div>
         </div>
       </div>
+
+      <PlayerReplayHistory :handle="handle" />
 
       <div v-if="creditsData" class="wiki-card p-5 mb-6">
         <div class="section-title">积分信息</div>

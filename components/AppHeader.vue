@@ -167,6 +167,7 @@ const NAV_GROUPS = [
       { to: '/units', label: '兵种数据库', icon: '⚔' },
       { to: '/skins', label: '皮肤模型', icon: '◈' },
       { to: '/terrain', label: '地图地形', icon: '⛰' },
+      { to: '/replays', label: '录像回放', icon: '▶' },
       { to: '/wiki', label: 'Wiki', icon: '#' },
     ],
   },
