@@ -626,7 +626,7 @@
   "ElementalistIceball": {
     "nameZh": "滚雪球",
     "nameEn": "Iceball",
-    "tooltip": "元素使将自己置于一个巨大的滚雪球中，并开始向前加速。滚雪球在被任何方式停止或持续时间结束时会被摧毁，引发冰爆炸，对 3 范围内造成伤害。<n/>滚雪球每秒获得 16 点能量，其伤害每点能量提高 2%。<n/>元素使可随时从滚雪球中卸载<n/>当旧的滚雪球仍存在时创建新的滚雪球会立刻引爆旧的滚雪球<n/>与当前生命值小于滚雪球当前生命值 3 倍的敌方单位碰撞时，滚雪球将受到该单位当前生命值 3 倍的伤害，并击杀该单位<n/><c val=\"FFFF00\">生命值</c>：150 + <c val=\"AAFFFF\">每个冰元素球增加 50（）</c> + 每个倍数增加 150 = <c val=\"FFFF00\">150</c><n/><c val=\"FFFF00\">伤害</c>：10 + <c val=\"AAFFFF\">每个冰元素球增加 20（）</c> = <c val=\"FFFF00\">10</c><n/><c val=\"FFFF00\">基础消耗</c>：100 + <c val=\"AAFFFF\">每个冰元素球增加 75（）</c> = <n/>次要效果倍数：(1)<n/><c val=\"FFFF00\">持续时间</c>：30秒<n/><c val=\"FFFF00\">消耗增加</c>：每个倍数-1增加 +20%",
+    "tooltip": "元素使将自己置于一个巨大的滚雪球中，并开始向前加速。滚雪球在被任何方式停止或持续时间结束时会被摧毁，引发冰爆炸，对 3 范围内造成伤害。<n/>滚雪球每秒获得 16 点能量，其伤害每点能量提高 2%。<n/>元素使可随时从滚雪球中卸载<n/>当旧的滚雪球仍存在时创建新的滚雪球会立刻引爆旧的滚雪球<n/>与当前生命值小于滚雪球当前生命值 3 倍的敌方单位碰撞时，滚雪球将受到该单位当前生命值 3 倍的伤害，并击杀该单位<n/><c val=\"FFFF00\">生命值</c>：150 + <c val=\"AAFFFF\">每个冰元素球增加 50（）</c> + 每个倍数增加 150 = <c val=\"FFFF00\">150</c><n/><c val=\"FFFF00\">伤害</c>：10 + <c val=\"AAFFFF\">每个冰元素球增加 20（）</c> = <c val=\"FFFF00\">10</c><n/><c val=\"FFFF00\">基础消耗</c>：100 + <c val=\"AAFFFF\">每个冰元素球增加 75（）</c> = <n/>次要效果倍数：(1)<n/><c val=\"FFFF00\">持续时间</c>：30s<n/><c val=\"FFFF00\">消耗增加</c>：每个倍数-1增加 +20%",
     "icon": "btn-research-terran-orbitalstrikerally.png"
   },
   "FreezingField": {
@@ -1445,7 +1445,7 @@
   "JunkerFireMissiles": {
     "nameZh": "导弹齐射",
     "nameEn": "Fire Missiles",
-    "tooltip": "立即向附近最多<c val=\"E6E6E6\">3</c>个敌方地面单位各发射一枚狂暴导弹，优先攻击当前生命值最高的目标。<n/><c val=\"FF8080\">伤害：</c>|||<n/><c val=\"E6E6E6\">射程：4</c><n/>储存<c val=\"E6E6E6\">1</c>次充能；拥有超频武装时储存<c val=\"E6E6E6\">2</c>次。每次充能需要<c val=\"E6E6E6\">6秒</c>才能恢复。",
+    "tooltip": "立即向最多<c val=\"E6E6E6\">3</c>个附近敌方地面单位各发射一枚狂暴导弹，优先攻击当前生命值最高的目标。<n/><c val=\"FF8080\">伤害： </c>|||<n/><c val=\"8FC7FF\">能量： </c><c val=\"8FC7FF\">30</c>|<c val=\"8FC7FF\">20</c>|<c val=\"8FC7FF\">10</c>|<c val=\"8FC7FF\">5</c><n/><c val=\"E6E6E6\">射程： 4</c><n/>储存<c val=\"E6E6E6\">1</c>次充能；拥有超频武装时储存<c val=\"E6E6E6\">2</c>次。每次充能需要<c val=\"E6E6E6\">6秒</c>恢复。<n/><c val=\"98FB98\">右键点击以切换自动施放。</c>",
     "icon": "btn-ability-terran-haywiremissile.png"
   },
   "JunkerOverchargeBase": {
@@ -1457,7 +1457,7 @@
   "JunkerJumpBase": {
     "nameZh": "喷射跳跃（未训练）",
     "nameEn": "Jump Jets (Untrained)",
-    "tooltip": "跳至目标地点且不造成伤害。初始即可用；学习喷射跳跃后增加落地伤害。<n/><c val=\"FF8080\">伤害：0</c><n/><c val=\"E6E6E6\">冷却时间：300秒。射程：6。</c>",
+    "tooltip": "跳至目标地点且不造成伤害。初始即可用；学习喷射跳跃后增加落地伤害。<n/><c val=\"FF8080\">伤害：0</c><n/><c val=\"E6E6E6\">冷却时间：300秒。射程：7。</c>",
     "icon": "btn-upgrade-terran-jumpjets.png"
   },
   "JunkerDeathNukePurchase": {
@@ -1493,37 +1493,37 @@
   "Horner1PointDefenseDrone": {
     "nameZh": "定点防御无人机",
     "nameEn": "Horner 1 Point Defense Drone",
-    "tooltip": "使用激光击落敌方导弹。<n/>无法瞄准特殊攻击。<n/>在30秒后失效。",
+    "tooltip": "使用激光击落敌方导弹。<n/>无法瞄准特殊攻击。<n/>在 30 秒后失效<n/>每提升1级，充能上限+2。",
     "icon": "btn-unit-terran-targetingdrone.png"
   },
   "Horner2DefensiveMatrixDrone": {
     "nameZh": "防御无人机",
     "nameEn": "Horner 2 Defensive Matrix Drone",
-    "tooltip": "为友方单位提供可吸收最多50点伤害的护盾。<n/>持续30秒。",
+    "tooltip": "为友方单位提供可吸收最多50点伤害的护盾。<n/>持续30秒。<n/>每提升1级，充能上限+2。",
     "icon": "btn-upgrade-terran-nova-defensivedrone.png"
   },
   "Horner3DeployMagMine": {
     "nameZh": "部署磁暴地雷",
     "nameEn": "Horner 3 Deploy Mag Mine",
-    "tooltip": "在目标位置部署 3 枚磁暴地雷。<n/>磁暴地雷会被敌方移动触发，并造成 100 点范围伤害。",
+    "tooltip": "在目标地点部署3个磁暴地雷。<n/>磁暴地雷会被敌方移动触发，并造成100点范围伤害。<n/>每提升1级，充能上限+2。",
     "icon": "btn-top-hornerhan-magmines.png"
   },
   "Horner4AreaBomb": {
     "nameZh": "精准打击",
     "nameEn": "Horner 4 AreaBomb",
-    "tooltip": "向目标位置发射打击战机，对目标区域内的敌方地面单位造成325点伤害。",
+    "tooltip": "向目标地点发射打击战机，对目标区域内的敌方地面单位造成325点伤害。<n/>每提升1级，充能上限+1。",
     "icon": "btn-top-hornerhan-bombers.png"
   },
   "Horner5AirFleet": {
     "nameZh": "空中舰队",
     "nameEn": "Horner 5 AirFleet",
-    "tooltip": "召唤霍纳的舰队提供近距离行星支援。<n/>舰队每秒对目标区域内的随机敌方单位造成75/0.2+450/2=600点伤害（对建筑物造成1/3伤害）。<n/>舰队将持续20秒。",
+    "tooltip": "呼叫霍纳的舰队进行近距离行星支援。<n/>舰队每秒对目标区域内的随机敌方单位造成75/0.2+450/2=600点伤害（对建筑和英雄造成1/3伤害）。<n/>舰队将持续10秒。<n/>每提升1级，充能上限+1。",
     "icon": "btn-progression-hornerhan-5-fleetcalldown.png"
   },
   "Horner6SpaceStationReallocation": {
     "nameZh": "霍纳空间站重新部署",
     "nameEn": "Horner 6 Space Station Reallocation",
-    "tooltip": "空间站对接触到的目标造成 150 点伤害。突击无人机将攻击附近的目标。持续 20 秒。",
+    "tooltip": "空间站对接触到的目标造成150点伤害。突击无人机会攻击附近的目标。持续20秒。<n/>每提升1级，充能上限+1。",
     "icon": "btn-progression-hornerhan-10-telefrag.png"
   },
   "GhostSwitch": {
