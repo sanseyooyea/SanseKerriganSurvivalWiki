@@ -8,7 +8,8 @@
  *   unit.ow     [loop, ownerPid, ...]          易主
  *   deaths      [loop, x, y, ownerPid, ...]    全部带坐标的死亡（按 loop 升序）
  *   cameras[p]  [loop, x, y, ...]
- *   perf[key]   [loop, value, ...]
+ *   perf[key]   [loop, value, ...]       地图每 60 游戏秒写一次（format≥2 已还原量级）
+ *   econ        [loop, 晶矿, 瓦斯, 晶矿/分, 瓦斯/分, 军队价值, ...]  引擎 PlayerStats，约 30 秒一笔
  */
 
 export const LOOPS_PER_SEC = 22.4
@@ -32,7 +33,11 @@ export interface ReplayPlayer {
   heroType: string | null
   heroId?: number
   perf: Record<string, number[]>
+  /** format ≥2：经济快照，扁平 [loop, 晶矿, 瓦斯, 晶矿速率, 瓦斯速率, 军队价值, ...]（stride 6，约 30 秒一笔） */
+  econ?: number[]
 }
+
+export const ECON_STRIDE = 6
 
 export interface ReplayUnitType {
   id: string

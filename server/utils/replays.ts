@@ -89,6 +89,7 @@ let recovered = false
 function recoverOnce() {
   if (recovered) return
   recovered = true
+  rebuildReplayPlayersOnce()
   const db = getDb()
   db.prepare(`
     UPDATE replays SET status = 'failed', error = '解析时服务异常中断', parsed_at = datetime('now')
@@ -129,6 +130,7 @@ async function drain() {
         db.prepare(`
           UPDATE replays SET status = 'done', error = '', summary = ?, json_size = ?, parsed_at = datetime('now')
           WHERE hash = ?`).run(res.summary, jsonSize, job.hash)
+        indexReplayPlayers(job.hash, res.summary)
         enforceQuota()
       } else {
         markFailed(job.hash, res.error)
@@ -229,7 +231,56 @@ export function deleteReplay(hash: string) {
   safeUnlink(rawPath(hash))
   safeUnlink(jsonPath(hash))
   safeUnlink(partPath(hash))
-  getDb().prepare(`DELETE FROM replays WHERE hash = ?`).run(hash)
+  const db = getDb()
+  db.prepare(`DELETE FROM replay_players WHERE hash = ?`).run(hash)
+  db.prepare(`DELETE FROM replays WHERE hash = ?`).run(hash)
+}
+
+// ---------------- 玩家战绩索引 ----------------
+
+/** 句柄格式：区服-S2-1-数字，如 5-S2-1-11514035 */
+export function isValidHandle(h: string) {
+  return /^[1-6]-S2-[12]-\d{1,12}$/i.test(h)
+}
+
+/** 把一局 summary 里的玩家战绩写进 replay_players（幂等：先删后插） */
+export function indexReplayPlayers(hash: string, summaryJson: string | null) {
+  if (!summaryJson) return
+  let s: any
+  try { s = JSON.parse(summaryJson) } catch { return }
+  const players: any[] = Array.isArray(s?.players) ? s.players : []
+  const db = getDb()
+  const ins = db.prepare(`
+    INSERT INTO replay_players (hash, pid, handle, name, role, role_en, team, won, mmr_before, mmr_after,
+      hero_death_loop, kills, hero_damage, minerals, gas_fed, apm, upgrades, loops, map_key, played_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+  const num = (v: any) => (typeof v === 'number' && Number.isFinite(v) ? v : null)
+  db.transaction(() => {
+    db.prepare(`DELETE FROM replay_players WHERE hash = ?`).run(hash)
+    for (const p of players) {
+      // 只收有效句柄的人类玩家（老格式 summary 没有 handle，跳过）
+      if (!p?.handle || !isValidHandle(p.handle)) continue
+      ins.run(
+        hash, num(p.pid) ?? 0, String(p.handle).toUpperCase(), String(p.name ?? '').slice(0, 64),
+        p.role ?? null, p.roleEn ?? null, num(p.team),
+        p.won === true ? 1 : p.won === false ? 0 : null,
+        num(p.mmrBefore), num(p.mmrAfter), num(p.heroDeathLoop), num(p.kills), num(p.heroDamage),
+        num(p.minerals), num(p.gasFed), num(p.apm), num(p.upgrades),
+        num(s.loops), s.mapKey ?? null, s.date ?? null,
+      )
+    }
+  })()
+}
+
+/** 用现有 summary 重建整张 replay_players（服务启动后首次调用；表结构变更或老数据补录用） */
+let rebuilt = false
+export function rebuildReplayPlayersOnce() {
+  if (rebuilt) return
+  rebuilt = true
+  const db = getDb()
+  const rows = db.prepare(`SELECT hash, summary FROM replays WHERE status = 'done'`).all() as
+    { hash: string; summary: string | null }[]
+  for (const r of rows) indexReplayPlayers(r.hash, r.summary)
 }
 
 /** 对外展示用：summary 字段从 JSON 字符串展开 */

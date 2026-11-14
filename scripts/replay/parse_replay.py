@@ -21,6 +21,7 @@ import argparse
 import gzip
 import hashlib
 import json
+import re
 import math
 import os
 import sys
@@ -57,7 +58,7 @@ class _ContextLoader(ContextLoader):
                 unit.location = (x, y)
                 event.units[unit] = unit.location
 
-FORMAT_VERSION = 1
+FORMAT_VERSION = 2  # 2: 全量性能指标(已还原量级) + econ 经济快照 + summary 带玩家战绩
 
 # 退出码（服务端据此给用户提示）
 EXIT_OK = 0
@@ -154,7 +155,32 @@ PERF_STATS = {
     "ReplayStatsUnitsOwned": "units",
     "ReplayStatsAPM": "apm",
     "ReplayStatsGasFedToZerg": "gasFed",
+    "ReplayStatsHeroDamageToZerg": "heroDamage",
+    "ReplayStatsStructuresRazed": "razed",
+    "ReplayStatsResourcesLost": "resLost",
+    "ReplayStatsVespeneSpent": "gasSpent",
+    "ReplayStatsUpgradesPurchased": "upgradeSpend",
+    "ReplayStatsStructuresBuilt": "built",
+    "ReplayStatsStructuresOwned": "structures",
+    "ReplayStatsUnitsTrained": "trained",
+    "ReplayStatsEnergySpent": "energy",
+    "ReplayStatsMineralsStockpiled": "mineralFloat",
+    "ReplayStatsVespeneStockpiled": "gasFloat",
+    "ReplayStatsMineralsKilled": "mineralsKilled",
+    "ReplayStatsMineralsValueofUnitsLost": "armyLost",
+    "ReplayStatsStructuresSalvaged": "salvaged",
+    "ReplayStatsLifeDamageTaken": "lifeTaken",
+    "ReplayStatsShieldDamageTaken": "shieldTaken",
 }
+# 地图写入前对部分指标做了整除以压进 0..62500（Scripts/replay/stats.galaxy gt_ReplayDataPeriodicRead），
+# 这里乘回去还原成游戏内的真实量级（会丢掉被整除掉的零头）
+PERF_SCALE = {
+    "minerals": 100, "resLost": 100, "army": 100, "mineralsKilled": 100, "armyLost": 100,
+    "damage": 100, "lifeTaken": 100, "shieldTaken": 100,
+    "heroDamage": 10, "energy": 10, "mineralFloat": 10,
+}
+# 每 60 游戏秒写一次；第一笔在开局（未选角色），全为 0 或脏值，丢掉
+PERF_SKIP_BEFORE_LOOP = 900
 
 # 不进回放画面的单位：数据单位、收入/统计占位、装饰/商店等
 SKIP_UNIT_PREFIX = ("ReplayStats", "CommonReplayStats", "CommonBasicIncome", "BasicIncomeDummy")
@@ -188,7 +214,8 @@ class WikiData:
     def __init__(self):
         roles = _load_json("roles.json", [])
         self.roles = {r["id"]: r for r in roles}
-        units = _load_json("units-v2.json", {}).get("units", {})
+        units_root = _load_json("units-v2.json", {})
+        units = units_root.get("units", {})
         self.units = units
         # 英雄 = 角色表登记的英雄单位 ∪ 单位表 category=hero；排除死亡后的幽灵观察者
         self.hero_types = ({u for r in roles for u in r.get("heroUnits", [])}
@@ -197,6 +224,39 @@ class WikiData:
         for hero in _load_json("tech.json", []):
             for up in hero.get("upgrades", []):
                 self.upgrades.setdefault(up["id"], {"nameZh": up.get("nameZh"), "icon": up.get("icon")})
+        # 分级科技（如 ZergMeleeAttacksLevel2）：单位表的 upgrade family 记录了每级的 upgrade id
+        self.upgrade_levels = {}
+        for fam in self._families(units_root):
+            for lv in fam.get("levels") or []:
+                if lv.get("upgrade"):
+                    self.upgrade_levels.setdefault(lv["upgrade"], (fam.get("nameZh"), lv.get("level"), fam.get("icon")))
+
+    @staticmethod
+    def _families(o):
+        stack = [o]
+        while stack:
+            x = stack.pop()
+            if isinstance(x, dict):
+                if "family" in x and "levels" in x:
+                    yield x
+                stack.extend(x.values())
+            elif isinstance(x, list):
+                stack.extend(x)
+
+    def upgrade_info(self, uid):
+        """科技中文名/图标。顺序：科技表精确 id → 单位表分级科技 → 科技表去掉 LevelN/数字后缀。"""
+        if uid in self.upgrades:
+            return self.upgrades[uid]
+        lv = self.upgrade_levels.get(uid)
+        if lv and lv[0]:
+            name, level, icon = lv
+            return {"nameZh": f"{name} {level}级" if level else name, "icon": icon}
+        base = re.sub(r"(Level)?\d+$", "", uid)
+        if base != uid and base in self.upgrades:
+            info = self.upgrades[base]
+            m = re.search(r"(\d+)$", uid)
+            return {"nameZh": f"{info['nameZh']} {m.group(1)}级" if info.get("nameZh") else None, "icon": info.get("icon")}
+        return {"nameZh": None, "icon": None}
 
     def role(self, rid):
         r = self.roles.get(rid)
@@ -250,6 +310,7 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
 
     game = {}
     perf = defaultdict(lambda: defaultdict(list))  # pid -> key -> [[loop, v], ...]
+    econ = defaultdict(list)  # pid -> [[loop, minerals, gas, mineralRate, gasRate, armyValue], ...]
 
     types: list[str] = []
     type_idx: dict[str, int] = {}
@@ -282,7 +343,9 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
                 players[e.upkeep_pid]["deathSec"] = _val(e)
                 continue
             if ut in PERF_STATS and e.upkeep_pid in players:
-                perf[e.upkeep_pid][PERF_STATS[ut]].append([loop, _val(e)])
+                if loop >= PERF_SKIP_BEFORE_LOOP:
+                    key = PERF_STATS[ut]
+                    perf[e.upkeep_pid][key].append([loop, _val(e) * PERF_SCALE.get(key, 1)])
                 continue
             if ut.startswith(SKIP_UNIT_PREFIX) or ut in SKIP_UNIT_EXACT:
                 continue
@@ -344,6 +407,16 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
             if e.pid not in players:
                 continue
             events.append({"t": loop, "kind": "upgrade", "pid": e.pid, "upgrade": name})
+        elif n == "PlayerStatsEvent":
+            # 引擎每 160 loop（10 游戏秒）给每个玩家一笔：当前资源、采集速率、军队价值。
+            # 比地图每 60 秒写的 ReplayStats 细得多，用于「某时刻经济」面板。
+            # 只保留 30 秒一笔即可（一局 ~100 笔/人），省体积
+            if e.pid in players and loop >= PERF_SKIP_BEFORE_LOOP and loop % 480 < 160:
+                econ[e.pid].append([
+                    loop, int(e.minerals_current), int(e.vespene_current),
+                    int(e.minerals_collection_rate), int(e.vespene_collection_rate),
+                    int(e.minerals_used_active_forces + e.vespene_used_active_forces),
+                ])
 
     # KS2 地图开局必写 ReplayStatsVersion / MapId 数据单位；都没有就不是 KS2（或开局前就退了）
     if "replayVersion" not in game and "mapId" not in game:
@@ -415,7 +488,12 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
         if pl["role"] is not None:
             r = wiki.role(pl["role"])
             pl["roleNameEn"], pl["roleNameZh"] = r["nameEn"], r["nameZh"]
-        pl["perf"] = {k: [v for pt in pts for v in pt] for k, pts in perf[pl["pid"]].items()}
+        # 开局（虫道出现）前的采样是大厅阶段残留的脏值（如 34 万晶矿），丢掉
+        pl["perf"] = {k: [v for pt in pts if pt[0] >= start_loop for v in pt]
+                      for k, pts in perf[pl["pid"]].items()}
+        econ[pl["pid"]] = [row for row in econ[pl["pid"]] if row[0] >= start_loop]
+        # 扁平：[loop, 晶矿, 瓦斯, 晶矿速率, 瓦斯速率, 军队价值, ...]（stride 6）
+        pl["econ"] = [v for row in econ[pl["pid"]] for v in row]
 
     map_id = game.get("mapId")
     map_enum = MAP_IDS[map_id] if map_id is not None and 0 <= map_id < len(MAP_IDS) else None
@@ -440,7 +518,7 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
         "verify": verify,
         "players": sorted(players.values(), key=lambda p: p["pid"]),
         "types": [wiki.unit_info(t) for t in types],
-        "upgrades": {u: wiki.upgrades.get(u, {"nameZh": None, "icon": None}) for u in sorted(upgrade_names)},
+        "upgrades": {u: wiki.upgrade_info(u) for u in sorted(upgrade_names)},
         "units": unit_rows,
         "deaths": [v for d in death_marks for v in d],
         "cameras": {str(pid): [v for pt in pts for v in pt] for pid, pts in cameras.items()},
@@ -593,18 +671,54 @@ def _limit_memory(mb: int):
     resource.setrlimit(resource.RLIMIT_AS, (lim, lim))
 
 
+def _last(flat, stride=2):
+    """扁平 [loop, v, ...] 序列的最后一个值"""
+    return flat[-1] if flat and len(flat) >= stride else None
+
+
+def _player_summary(p, data):
+    """单个玩家在本局的战绩摘要：进 summary，服务端据此拆表做「玩家对局记录」，不必再读整局 JSON。"""
+    perf = p.get("perf") or {}
+    hero_death = next((e["t"] for e in data["events"]
+                       if e["kind"] == "hero_death" and e.get("pid") == p["pid"]), None)
+    upgrades = sum(1 for e in data["events"] if e["kind"] == "upgrade" and e.get("pid") == p["pid"]
+                   and not e.get("team"))
+    win = data["meta"].get("winningTeam")
+    return {
+        "pid": p["pid"],
+        "name": p["name"],
+        "handle": p.get("handle"),
+        "role": p.get("roleNameZh") or p.get("roleNameEn"),
+        "roleEn": p.get("roleNameEn"),
+        "team": p["team"],
+        # 胜负以全局 winningTeam 为准（个人 outcome 在中途离开时可能缺失）
+        "won": (p["team"] == win) if (win in (0, 1) and p["team"] in (0, 1)) else None,
+        "mmrBefore": p.get("mmrBefore"),
+        "mmrAfter": p.get("mmrAfter"),
+        "heroDeathLoop": hero_death,
+        "leaveLoop": p.get("leaveLoop"),
+        "kills": _last(perf.get("kills")),
+        "heroDamage": _last(perf.get("heroDamage")),
+        "minerals": _last(perf.get("minerals")),
+        "gas": _last(perf.get("gas")),
+        "gasFed": _last(perf.get("gasFed")),
+        "apm": _last(perf.get("apm")),
+        "upgrades": upgrades,
+    }
+
+
 def _index_entry(data, file_name):
     m = data["meta"]
     return {
         "file": file_name,
         "hash": data["hash"],
+        "format": data.get("format"),
         "date": m["date"],
         "mapKey": m["mapKey"],
         "loops": m["loops"],
         "winningTeam": m.get("winningTeam"),
         "mapKnown": data.get("verify", {}).get("mapKnown", False),
-        "players": [{"name": p["name"], "role": p.get("roleNameZh") or p.get("roleNameEn"),
-                     "team": p["team"]} for p in data["players"]],
+        "players": [_player_summary(p, data) for p in data["players"]],
     }
 
 

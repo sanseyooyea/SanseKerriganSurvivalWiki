@@ -116,11 +116,15 @@
           </button>
         </div>
         <p class="text-[11px] leading-relaxed text-gray-400 dark:text-gray-500">
-          点击玩家可高亮其单位、筛选曲线。英雄位置在两次真实采样之间按玩家移动指令估算；
+          点击玩家查看其经济、科技等细节（随播放进度更新），并高亮其单位、筛选曲线。英雄位置在两次真实采样之间按玩家移动指令估算；
           虚线空心圈表示超过 20 秒没有位置数据，停在最后已知点。其他单位只在受伤采样（约每 10 秒）时有坐标。
         </p>
       </aside>
     </div>
+
+    <!-- 选中玩家的细节：随播放头更新 -->
+    <ReplayPlayerPanel v-if="focusPlayer" :data="data" :player="focusPlayer" :t="t"
+      @close="focusPid = null" @seek="seek" />
 
     <!-- 指标曲线 -->
     <div class="rounded-xl border border-surface-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 p-3">
@@ -162,6 +166,8 @@ const METRICS = [
   { key: 'damage', label: '造成伤害' },
   { key: 'minerals', label: '采集晶矿' },
   { key: 'gasFed', label: '喂气' },
+  { key: 'heroDamage', label: '对虫族伤害' },
+  { key: 'upgradeSpend', label: '科技花费' },
   { key: 'apm', label: 'APM' },
 ]
 const STATUS = {
@@ -181,6 +187,7 @@ const metric = ref('army')
 const show = reactive({ units: true, deaths: true, cameras: false, trails: true })
 
 const playersByPid = computed(() => Object.fromEntries(props.data.players.map(p => [p.pid, p])) as Record<number, ReplayPlayer>)
+const focusPlayer = computed(() => (focusPid.value != null ? playersByPid.value[focusPid.value] : null))
 const units = shallowRef<DecodedUnit[]>(decodeUnits(props.data))
 watch(() => props.data, d => {
   units.value = decodeUnits(d)

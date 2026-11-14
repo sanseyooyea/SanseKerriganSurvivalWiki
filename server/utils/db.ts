@@ -149,6 +149,34 @@ function initSchema(db: Database.Database) {
     );
     CREATE INDEX IF NOT EXISTS idx_replays_status ON replays(status, created_at);
     CREATE INDEX IF NOT EXISTS idx_replays_uploader ON replays(uploader_id, created_at);
+
+    -- 录像里每个玩家的战绩：从 replays.summary 拆出，供「玩家对局记录」按句柄查询。
+    -- 随 replays 行一起删（ON DELETE CASCADE）；可随时由 summary 重建（rebuildReplayPlayers）。
+    -- played_at = 录像里的对局时间（不是上传时间）。won 为 NULL 表示未分胜负（中途结束）。
+    CREATE TABLE IF NOT EXISTS replay_players (
+      hash TEXT NOT NULL REFERENCES replays(hash) ON DELETE CASCADE,
+      pid INTEGER NOT NULL,
+      handle TEXT NOT NULL,
+      name TEXT NOT NULL DEFAULT '',
+      role TEXT,
+      role_en TEXT,
+      team INTEGER,
+      won INTEGER,
+      mmr_before INTEGER,
+      mmr_after INTEGER,
+      hero_death_loop INTEGER,
+      kills INTEGER,
+      hero_damage INTEGER,
+      minerals INTEGER,
+      gas_fed INTEGER,
+      apm INTEGER,
+      upgrades INTEGER,
+      loops INTEGER,
+      map_key TEXT,
+      played_at TEXT,
+      PRIMARY KEY (hash, pid)
+    );
+    CREATE INDEX IF NOT EXISTS idx_rp_handle ON replay_players(handle COLLATE NOCASE, played_at);
   `)
 
   // ---- 增量列迁移（ALTER TABLE 不支持 IF NOT EXISTS，用 try/catch 保证幂等）----
