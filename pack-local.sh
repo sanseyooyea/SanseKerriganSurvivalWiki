@@ -23,9 +23,13 @@ echo "=== 2) 打包（含 .output；-h 跟随软链接很关键）==="
 tar -czhf "$TAR_NAME" \
   --exclude='*/node_modules/.cache' \
   --exclude='*.log' \
-  --exclude='./data/wiki.db' \
-  --exclude='./data/wiki.db-shm' \
-  --exclude='./data/wiki.db-wal' \
+  --exclude='data/wiki.db' \
+  --exclude='data/wiki.db-shm' \
+  --exclude='data/wiki.db-wal' \
+  --exclude='data/wiki.db.bak.*' \
+  --exclude='data/replays' \
+  --exclude='scripts/replay/vendor/site' \
+  --exclude='__pycache__' \
   .output package.runner.json Dockerfile.runner Dockerfile.runner.dockerignore docker-compose.runner.yml \
   data scripts public server components pages layouts composables assets \
   nuxt.config.ts package.json package-lock.json tsconfig.json app.vue \

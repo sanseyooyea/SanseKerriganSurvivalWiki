@@ -7,7 +7,9 @@ services:
     container_name: ks2-wiki
     restart: unless-stopped
     ports:
-      - "8080:3000"
+      # 只绑本机回环：宿主机 Nginx 反代过来即可。Docker 的 iptables 规则会绕过 ufw，
+      # 绑 0.0.0.0 时若安全组放行了 8080，请求能绕开 Nginx（及其 client_max_body_size）直达应用。
+      - "127.0.0.1:8080:3000"
     volumes:
       - ./data:/app/data
     # .env 全量注入容器（SMTP_*/APP_URL 供忘记密码发信；JWT_SECRET 亦在此）
@@ -16,6 +18,13 @@ services:
     environment:
       - NODE_ENV=production
       - JWT_SECRET=${JWT_SECRET:?需要在环境中设置 JWT_SECRET}
+      # 录像解析（server/utils/replays.ts）：单 worker 串行，同一时刻最多一个 Python 子进程。
+      # 预算：Node 常驻 ~150–250MB + 上传缓冲 ≤5MB（流式读取）+ 解析子进程 ≤380MB（实测峰值 RSS ~260MB）< 768m。
+      # PARSE_MEM_MB 是子进程地址空间（RLIMIT_AS）上限，超限子进程自己退出，不会触发 OOM killer。
+      - REPLAY_PARSE_MEM_MB=380
+      - REPLAY_PARSE_TIMEOUT_MS=90000
+      # data/replays 总量上限（原始录像 + 解析结果），超出按上传时间淘汰最旧的
+      - REPLAY_MAX_TOTAL_MB=2048
     # 2G 无 swap 机器兜底：单容器内存上限，防止一个容器把整机拖死
     mem_limit: 768m
     # 日志轮转，防止 json 日志无上限撑爆磁盘

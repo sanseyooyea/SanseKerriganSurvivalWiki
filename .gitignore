@@ -45,3 +45,7 @@ scripts/__pycache__/
 tmp_*
 *.tmp
 .apitmp/
+
+# 录像解析本地产物
+.replay-tmp/
+data/replays/

@@ -131,10 +131,30 @@ function initSchema(db: Database.Database) {
       created_at TEXT DEFAULT (datetime('now'))
     );
     CREATE INDEX IF NOT EXISTS idx_prt_user ON password_reset_tokens(user_id);
+
+    -- 用户上传的录像：hash = 原始文件 MD5（天然去重）。
+    -- status(queued排队/processing解析中/done完成/failed失败)；summary 为解析器 --summary 输出的列表摘要 JSON。
+    -- 文件在 data/replays/<hash>.SC2Replay 与 <hash>.json.gz，见 server/utils/replays.ts。
+    CREATE TABLE IF NOT EXISTS replays (
+      hash TEXT PRIMARY KEY,
+      status TEXT NOT NULL DEFAULT 'queued',
+      error TEXT NOT NULL DEFAULT '',
+      uploader_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+      file_name TEXT NOT NULL DEFAULT '',
+      size INTEGER NOT NULL DEFAULT 0,
+      json_size INTEGER NOT NULL DEFAULT 0,
+      summary TEXT,
+      created_at TEXT DEFAULT (datetime('now')),
+      parsed_at TEXT
+    );
+    CREATE INDEX IF NOT EXISTS idx_replays_status ON replays(status, created_at);
+    CREATE INDEX IF NOT EXISTS idx_replays_uploader ON replays(uploader_id, created_at);
   `)
 
   // ---- 增量列迁移（ALTER TABLE 不支持 IF NOT EXISTS，用 try/catch 保证幂等）----
   try { db.exec(`ALTER TABLE users ADD COLUMN email TEXT DEFAULT ''`) } catch {}
   try { db.exec(`ALTER TABLE users ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0`) } catch {}
   try { db.exec(`CREATE UNIQUE INDEX idx_users_email ON users(email) WHERE email != ''`) } catch {}
+  // 录像解析尝试次数：进程崩溃后重启不会对同一录像无限重试（见 server/utils/replays.ts）
+  try { db.exec(`ALTER TABLE replays ADD COLUMN attempts INTEGER NOT NULL DEFAULT 0`) } catch {}
 }

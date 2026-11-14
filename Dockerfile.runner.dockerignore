@@ -14,4 +14,11 @@ ks2-wiki-deploy.tar.gz
 data/wiki.db
 data/wiki.db-shm
 data/wiki.db-wal
+data/wiki.db.bak.*
+# 用户上传的录像：运行期由 ./data bind mount 提供，打进镜像只会拖慢构建、浪费磁盘
+data/replays
+# 本地开发产物
+.replay-tmp
+scripts/replay/vendor/site
+**/__pycache__
 

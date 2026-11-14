@@ -75,11 +75,27 @@ KS2_PW='...' bash refresh-and-deploy.sh
 
 ### Runner 镜像的三个坑
 
-`Dockerfile.runner` 只做一件事：为 `better-sqlite3` 装 Linux 原生二进制（换了阿里云 apt 源 + npmmirror；预编译包拉不到时用 python3/make/g++ 从源码编译，编完卸掉）。
+`Dockerfile.runner` 做两件事：为 `better-sqlite3` 装 Linux 原生二进制（换了阿里云 apt 源 + npmmirror；预编译包拉不到时用 make/g++ 从源码编译，编完卸掉），以及准备录像解析器的 Python 运行环境（见下节）。
 
 1. `tar` 必须加 `-h`：nitro 的 `.output/server/node_modules` 是指向 `.nitro/` 的**绝对路径软链接**，不解引用会导致容器里 `Cannot find module`（如 `entities/decode`，表现为 500）。
 2. 本地 `.output` 里的 `better_sqlite3.node` 是 Windows 二进制，`Dockerfile.runner` 会用容器内装出的 Linux 版覆盖。
 3. 默认 `.dockerignore` 排除了 `.output`，所以 runner 用专属的 `Dockerfile.runner.dockerignore`。
+
+### 录像解析（/replays 上传）
+
+用户上传的录像由 Node 起 Python 子进程解析（`scripts/replay/parse_replay.py`），针对 2C2G 无 swap 做了这些约束：
+
+- **Python 留在镜像里**：`apt-mark manual python3` 后只卸 make/g++。sc2reader、mpyq 两个纯 Python 依赖**随包带在 `scripts/replay/vendor/`**，不走 pip、不连 PyPI。构建时把 wheel 解压到 `vendor/site` 并预编译 `.pyc`，最后用 `parse_replay.py --help` 冒烟，导入失败会让 build 直接失败。
+- **单 worker 串行**：同一时刻最多一个解析子进程（峰值 RSS ~240–260MB，单局 1.5–2s），其余排队。全站队列上限 30，单用户同时最多 3 个。
+- **上传不经 multipart**：前端以 `application/octet-stream` 直传原始字节，服务端流式读取并按字节封顶（chunked 也拦得住）。h3 的 `readMultipartFormData` 逐字节解析，5MB 文件实测让 Node 暴涨 ~200MB，所以没用它。
+- **内存预算**：Node 常驻 ~150–250MB + 上传缓冲 ≤5MB + 解析子进程 ≤`REPLAY_PARSE_MEM_MB`（默认 380，地址空间上限）< `mem_limit: 768m`。子进程超限会自己报错退出（exit 4），不触发容器 OOM killer。另有 `REPLAY_PARSE_TIMEOUT_MS`（默认 90s）硬超时。
+- **崩溃不死循环**：每个任务最多尝试 2 次。解析中途容器被杀的话，重启后会重试一次，再中断就判失败，不会「解析 → 崩溃 → 重启 → 再解析」无限循环。
+- **磁盘配额**：文件在 `data/replays/`（bind mount，不进镜像、不进部署包、部署解压时排除，也不进定时备份，丢了可以重新上传）。`REPLAY_MAX_TOTAL_MB`（默认 2048）超出时按上传时间淘汰最旧的。每局约 0.5–2MB 原始文件 + ~300KB 解析结果，2GB 能存 1000 局以上。
+- **下发零 CPU**：解析结果直接存 gzip，`/api/replays/:hash/data` 原样以 `Content-Encoding: gzip` 下发。Nginx 遇到已带 `Content-Encoding` 的响应不会再压缩。
+- **宿主机 Nginx 必须改**：`client_max_body_size` 至少 `6m`。默认 1m 会把大多数录像（0.15–2MB）挡在外面，直接返回 413。
+- **端口只绑本机**：compose 里改成了 `127.0.0.1:8080:3000`。Docker 的 iptables 规则会绕过 ufw，绑 0.0.0.0 时若安全组放行了 8080，外部请求能绕开 Nginx 直达应用。宿主机 Nginx 本来就反代 `127.0.0.1:8080`，这样改不影响访问。
+
+升级 sc2reader：见 `scripts/replay/vendor/README.md`。解析器输出格式变了（`FORMAT_VERSION`）的话，已解析的录像要在服务器上重新跑一遍，或者让用户重新上传。
 
 ## 首次部署（新服务器）
 
