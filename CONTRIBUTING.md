@@ -34,35 +34,41 @@ fix: 修复 HTTP 访问下剪贴板复制失效
 
 ## 数据管线（重要）
 
-职业 / 技能 / 兵种 / 老兵等数据是**从游戏地图提取 + seed 构建**的，**不要直接手改 `data/*.json`**——它们是产物，会被重建覆盖。
+职业 / 技能 / 科技 / 兵种 / 军衔 / 地形等数据是**从游戏地图提取 + seed 构建**的，**不要直接手改这些 `data/*.json`**——它们是产物，会被重建覆盖。
 
 ### 正确流程
 
 ```
-改 data/seed/*.json  →  python scripts/build_all.py  →  npm run build 验证
+改 data/seed/*.json  →  python scripts/build_all.py  →  python scripts/validate_data.py  →  npm run build 验证
 ```
 
-`build_all.py` 的顺序：roles → abilities → resolve-tooltips → units → veterancy → technician-economy。
-数据来源：`D:\starcraft2\凯瑞甘生存2 最新版.SC2Map`（地图更新后重跑即可刷新）。
+`build_all.py` 的顺序：roles → abilities → resolve-tooltips → veterancy → technician / nova / nomad 经济 → tech → units_v2 → terrain，最后跑只读的 `sync_hero_skills.py` 漂移检查。
+数据来源：`D:\starcraft2\凯瑞甘生存2 最新版.SC2Map`（地图更新后重跑即可刷新，提交信息惯例 `data: 地图更新(YYYY-MM-DD)重新提取技能/单位/科技/地形数据`）。
 
-### 两个例外
+新英雄上线时：在 `data/seed/roles.seed.json` 加条目（英雄单位、分类、技能清单；暂时下线的英雄加 `status: "disabled"` + `statusNote`），补 `data/role-icon-map.json` / `data/role-name-map.json` 与 `public/icons/<两位id>.png`（如 `50.png`），再跑 `build_all.py` 和图标脚本。
 
-- **`data/economy.json`**：手工维护，**没有 seed**，`build_all.py` 不碰它。
-  用脚本改它时务必 `json.dump(..., indent=2, ensure_ascii=False)`——
-  缩进写错会导致整个文件重格式化，产生巨型无意义 diff。
-- **图标**：稳定，地图职业图标变了才单独跑 `extract_icons.py`。
+### 例外
+
+- **`data/economy.json`**：大部分条目手工维护，`build_all.py` 只重写技术员 / 诺娃团队 / 游牧民三个条目。
+  另有一批**单独运行**的英雄经济脚本（`build_champion_economy.py` / `build_critterlord_economy.py` /
+  `build_rattlesnake_economy.py` / `build_scion_economy.py` / `build_warden_economy.py`），按需重跑，只改写各自条目。
+  用脚本改它时务必 `json.dump(..., indent=2, ensure_ascii=False)`——缩进写错会导致整个文件重格式化，产生巨型无意义 diff。
+- **`data/spirit-economy.json` / `data/technician-economy.json`**：灵魂、技术员的专属经济，前者从地图 Galaxy 脚本人工核实。
+- **图标**：不在 `build_all` 里。地图新增科技/单位后依次跑 `extract_map_icons.py` → `build_tech_icons.py` → 再跑一次 `build_units_v2.py`；技能图标用 `build_ability_icons.py`。图标源是 CascView 导出的 `.dds`（仓库外 `D:/starcraft2/sc2_btn_icons_raw`）。
+- **皮肤**：`data/skins.json` + `public/skins/models/*.glb` 来自仓库外的 m3 → GLB 管线，见 [docs/SKINS_PIPELINE.md](docs/SKINS_PIPELINE.md)；Wiki 内只跑 `scripts/enrich_skins.py` 补跳转字段。
+- **钻石议会译文**：`data/council-zh.json` 由 `scripts/translate_council.py` 预翻译。
 
 ### 第二条管线：对局统计（胜率 / played_like）
 
-`data/balance.json` 和 `data/stats.db` 是**从官方生产库转储**生成的（`build_balance.py` / `build_stats_db.py`），**不走 `build_all.py`、也不从地图/seed 来**，只在拿到新转储时手动刷新。官方胜率口径、刷新流程详见 [docs/STATS_PIPELINE.md](docs/STATS_PIPELINE.md)。
+`data/balance.json`、`data/meta-history.json` 和 `data/stats.db` 是**从官方生产库转储**生成的（`build_balance.py` / `build_meta.py` / `build_stats_db.py`），**不走 `build_all.py`、也不从地图/seed 来**，只在拿到新转储时刷新（日常用 `refresh-and-deploy.sh`）。这类官方数据刷新提交按约定**直推 main、不走 PR**（维护者账号有 bypass）。官方胜率口径、刷新流程详见 [docs/STATS_PIPELINE.md](docs/STATS_PIPELINE.md)。
 
 ### 数值优先从地图提取，别硬编码
 
 写数据脚本（如 `build_technician_economy.py`）时，**数值应从地图 catalog / GameStrings 解析，不要手写常量或臆测公式**。
 教训：技术员转化产出曾被硬编码成"20%−级序%"递减公式，实际地图是固定 +20%（按钮文本「嬗变100矿物为120矿物」），
 与地图脱节且无人发现，直到玩家实测对不上。现已改为正则解析按钮文本，地图调整后重跑即同步。
-被动产矿型经济（Jinara/SgtHammer 等）的造价目前仍手工维护在 economy.json，地图改数值后需人工核对——
-若反复变动，考虑也做成脚本提取。
+被动产矿型经济已逐步脚本化（冠军 / 小动物主宰 / 响尾蛇 / 赛恩 / 监管者 / 诺娃团队 / 游牧民），其余（如 Jinara / SgtHammer）
+造价仍手工维护在 economy.json，地图改数值后需人工核对。
 
 ### 数据校验
 
@@ -70,6 +76,7 @@ fix: 修复 HTTP 访问下剪贴板复制失效
 - 所有 `data/*.json` 是合法 JSON
 - roles 引用的技能 id 都在 abilities.json 存在（**防断链**）
 - economy 的 hero 对得上 roles，建筑必填字段齐全
+- roles 的 id、nameEn 唯一
 
 CI 也会跑这个，断链等问题会拦在合并前。
 
@@ -79,8 +86,9 @@ CI 也会跑这个，断链等问题会拦在合并前。
 
 | 数据 | 路径 | 谁改 |
 |---|---|---|
-| 属性数值、技能列表、兵种/建筑数值 | git + seed | 开发者 |
-| 职业简介(description)、攻略(notes) | 网页在线编辑 → 数据库 | 数据维护员 |
+| 属性数值、技能列表、科技、兵种/建筑数值、经济 | git + seed | 开发者 |
+| 职业简介(description)、攻略(notes) | 网页在线编辑 → 数据库 | 数据维护员（editor） |
+| Wiki 文章 | 网页投稿 → 管理员审核 → 数据库 | 任何登录用户 |
 
 → 在线编辑**只能改文案**（description/notes），数值类一律走 git。
 这样数值有 CI 校验和 git 审计，文案能让非技术维护者灵活更新，两者不会互相覆盖。
@@ -93,6 +101,8 @@ CI 也会跑这个，断链等问题会拦在合并前。
 - **别动态拼接 Tailwind class**（purge 会清掉），用语义 class + scoped CSS
 - Wiki 文章排版**不用** prose 插件，在页面 scoped 样式里自定义
 - 玩家 MMR 与积分是**两个独立数据源**，各自判空
+- 新增可索引页面时同步 `server/routes/sitemap.xml.ts` 的 `STATIC_PAGES`
+- three.js 等资源走 npm 打包，CSP 不放行 CDN 脚本；需要 `blob:` 的场景要同时放行 `img-src` 与 `connect-src`
 
 ## 安全红线
 

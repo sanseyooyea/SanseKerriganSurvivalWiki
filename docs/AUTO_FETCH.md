@@ -1,10 +1,10 @@
 # 生产库转储自动拉取（Google Drive → 重建 → 提交）
 
-开发组每隔一段时间把新的生产库转储（`*.sql.gz` 的 `pg_dump`，~290MB）传到一个
+开发组每隔一段时间把新的生产库转储（`*.sql.gz` 的 `pg_dump`，2026-11 约 410MB）传到一个
 **需授权**的 Google Drive 共享文件夹。本管线把"手动下载 + 重建统计数据"自动化。
 
 > 这是 [STATS_PIPELINE.md](./STATS_PIPELINE.md) 那条**对局统计管线**的入料自动化：它负责把新转储
-> 落到 build 脚本默认读取的路径，然后驱动 `build_balance.py` / `build_stats_db.py`。
+> 落到 build 脚本默认读取的路径，然后驱动 `build_balance.py` / `build_stats_db.py` / `build_meta.py`。
 > 仍**不**并入 `build_all.py`（那条只依赖地图 + seed）。
 
 ## 组成
@@ -98,8 +98,10 @@ python scripts/fetch_dump.py --no-commit
 python scripts/fetch_dump.py --force
 ```
 
-脚本**只 commit、不 push**：拉到新转储重建后会自动 `git add data/balance.json data/stats.db`
-并 commit（提交信息带 `dump_through` 日期）。
+脚本**只 commit、不 push**：拉到新转储重建后会自动 `git add data/balance.json data/stats.db data/meta-history.json`
+并 commit（提交信息带 `dump_through` 日期）。提交前会尝试 fast-forward 到上游，分叉时只告警、在当前 HEAD 上继续。
+
+> 要一路走到推送 + 部署，用仓库根目录的 `refresh-and-deploy.sh`（见 [STATS_PIPELINE.md](./STATS_PIPELINE.md#刷新流程拿到新转储时)），它内部调用本脚本，数据无变化时整体跳过。
 
 **官方数据更新的发布约定**：这类数据刷新**不走 PR**——人工 review 确认无误后，
 直接 `git push origin HEAD:main`（main 设了"必须 PR"保护，但维护者账号有 bypass 权限可直推）。
@@ -126,7 +128,7 @@ schtasks /Delete /TN KS2WikiFetchDump /F
 - **OAuth token 过期**：若 Google 项目处于「测试」发布状态，refresh token 约 7 天失效。
   现象是定时任务突然开始失败、日志报授权错误。处理同上 `config reconnect`。
   长期免维护可自建 client_id 并把项目设为「正式」发布（见下）。
-- **下载成功但没提交**：说明重建后 `data/balance.json` / `data/stats.db` 内容没变化
+- **下载成功但没提交**：说明重建后 `data/balance.json` / `data/stats.db` / `data/meta-history.json` 内容没变化
   （同一份转储或数据一致），属正常，日志会写 `data files unchanged — no commit`。
 - **查日志**：`D:\starcraft2\tools\fetch_dump.log`。
 

@@ -41,7 +41,10 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 ## 功能模块
 
 ### 职业系统 `/classes`
-- 49个可选职业（另含「随机」与阵亡复活形态「幽灵」）的完整数据：属性、技能、科技研究、兵种与建筑、经济体系
+- 51 个职业（生存者 39 / 凯瑞甘 12，另含「随机」与阵亡复活形态「幽灵」）的完整数据：属性、技能、科技研究、兵种与建筑、经济体系
+- 暂时下线的英雄（如霍纳）照常收录，列表与详情页显示「暂时下线」标签与说明（seed 里 `status: "disabled"` + `statusNote`）
+- 情境技能：需满足条件才获得的技能（如拾荒者「试试手气」需先建黑市轮盘）单独标注前置条件
+- 幽灵按形态分组展示技能（观察者 / SCV / 医疗兵 / 诺娃…）
 - 属性成长系统（力量/敏捷/智力，每级加成）——**注意：并非所有英雄都有等级系统**，无等级的英雄（如灵魂/晋升者/赫利俄斯/米拉）不显示成长表
 - 能量恢复速度（受智力影响）
 - **科技研究**：每个生存方英雄的研究科技树（逐级成本/时间/效果，说明里的动态数值已代入地图真实值）
@@ -49,7 +52,7 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 - 按阵营（凯瑞甘/生存者）和分类（猎手/建造者/辅助/防御者）筛选
 
 ### 兵种数据库 `/units`
-- 生存方 + 凯瑞甘方全部单位（800+），可按阵营/类别/属性筛选、按 DPS 与性价比排序
+- 生存方 + 凯瑞甘方全部单位（889 个：生存方 794 / 凯瑞甘方 95），可按阵营/类别/属性筛选、按 DPS 与性价比排序
 - 单位数据直接从地图解析：造价/人口/生产来源、属性标签（轻甲/重甲/生物…）、完整武器（多段/溅射/属性加成/对空对地）
 - DPS 分「对轻甲 / 对重甲 / 对凯瑞甘」三种靶标；凯瑞甘方单位对凯瑞甘方英雄视为友军
 - **升级**：攻防科技按战力曲线逐级叠加，额外科技（射程/视野/解锁对空等）单独列出「只研究这一项」的变化
@@ -67,11 +70,11 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 - 贴图数、网格数、顶点/三角面实时统计，自动曝光明暗补偿
 
 ### 地图地形 `/terrain`
-- 多张地形的小地图与可通行区域（地图每次发布会从地形池里重新烘焙一张，这里收录所有见过的版本）
+- 多张地形的小地图与可通行区域（地图每次发布会从地形池里重新烘焙一张，这里收录所有见过的版本，目前 18 种地形 / 29 个版本，默认死亡谷）
 - 石头生成模拟与「石头死区」标注
 
 ### 经济系统 `/economy`
-- 常规英雄的经济建筑数据：收入/每秒效率/建造费用（晶矿+气体）/回本时间/加速回本
+- 38 个英雄条目的经济建筑数据：收入/每秒效率/建造费用（晶矿+气体）/回本时间/加速回本（含拾荒者、暂时下线的霍纳）
 - 投资回报比（每1矿/秒收入的成本），以及跨英雄的**经济投资比排行榜**（`/economy/leaderboard`）
 - 经济加速机制（时间加速倍率、消耗、持续时间）
 - **技术员**：独特的转化型经济（击杀得气 → 转化工厂放大），专属展示组件
@@ -79,7 +82,8 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
   含**经济路径规划器**——输入矿/气/剩余时间，按已核实的游戏数值推演最优发展路线
 
 ### Wiki文章系统 `/wiki`
-- Markdown编辑器
+- Markdown编辑器（实时预览），slug / 分类前后端双重校验（见 `docs/WIKI_CONVENTIONS.md`）
+- **先审后发**：任何登录用户都可投稿，非管理员的编辑进待审队列，管理员在后台审核通过后才发布
 - 版本历史与回滚
 - 评论系统
 - 内置治理文档（开发者行为准则、开发者申请指南）
@@ -106,7 +110,7 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 - 数据来自**生产库转储离线预计算**（`data/balance.json` / `data/meta-history.json`，见「对局统计数据管线」），运行时零外部依赖
 
 ### 玩家查询 `/lookup`
-- MMR段位查询（游客可用）
+- MMR段位查询（游客可用；官方网关故障时自动回退到 `stats.db` 的离线快照）
 - Lucy积分查询
 - 角色数据展示
 
@@ -117,16 +121,16 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 - 数据源 194823.xyz/api/leaderboard
 
 ### 玩家详情 `/player/[handle]`
-- 完整玩家数据展示
+- 完整玩家数据展示（MMR 来自离线快照时显示提示与「数据截至」日期）
 - **最近对局等效 MMR**（played_like）：玩家每局打出的等效水平，可按主力角色定位筛选（来自 `data/stats.db`）
 - **MMR 历史趋势**（mmr_history）
 - 分享图片生成（含角色娘化立绘）
 - HTTPS环境复制到剪贴板，HTTP降级为下载PNG
 
 ### 用户系统
-- 注册/登录（JWT认证），忘记密码（邮件重置链接）
+- 注册/登录（JWT认证），绑定邮箱，忘记密码（邮件重置链接，SMTP 未配置时链接打到日志）
 - 句柄绑定（关联游戏内角色）
-- 管理后台（用户管理、内容编辑）
+- 管理后台：用户管理（改角色 / 重置密码 / 改句柄）、Wiki 编辑审核（并排 diff）、建议反馈处理、流量统计（PV/UV、热门页面）
 - 深色模式
 
 ### 支持本站 `/support`
@@ -142,7 +146,7 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
     file:///D:/starcraft2/SanseKerriganSurvivalWiki/assets/og/og-default.html
   ```
 - **动态标题与描述**：首页、`/skins`、`/classes/[id]`、`/units/[id]` 用 `useHead(() => ({...}))` 按当前内容生成 `og:title` / `og:description` / `og:url`。OG 协议要求**绝对 URL**，`og:url` 与 `og:image` 必须写全 `https://wiki.ks2.top/...`。
-- **sitemap**：`server/routes/sitemap.xml.ts` 动态生成，覆盖静态页 + 51 个职业页 + 838 个单位页。数据直接读 `data/*.json`，不依赖外部接口。
+- **sitemap**：`server/routes/sitemap.xml.ts` 动态生成，覆盖静态页 + 全部职业页（53，含随机/幽灵）+ 全部单位页（889）。数据直接读 `data/*.json`，不依赖外部接口。
 - **robots**：`public/robots.txt` 放行全站，排除 `/admin`、`/settings`、`/api/` 等私有路径，并指向 sitemap。
 
 > 新增可索引页面时记得同步更新 `server/routes/sitemap.xml.ts` 里的 `STATIC_PAGES`。
@@ -175,12 +179,12 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 ├── utils/
 │   └── unitEngine.ts      # 兵种数值引擎：任意科技组合下的单位数值、DPS、对战模拟、升级曲线（前端现算）
 ├── server/api/            # 服务端API
-│   ├── auth/              # 认证（登录/注册/用户信息）
-│   ├── admin/             # 管理接口
+│   ├── auth/              # 认证（登录/注册/用户信息/句柄/邮箱/忘记密码）
+│   ├── admin/             # 管理接口（用户管理、流量统计）
 │   ├── classes/           # 职业数据API
-│   ├── wiki/              # Wiki文章API
+│   ├── wiki/              # Wiki文章API（含 reviews/ 编辑审核、revisions/ 历史修订）
 │   ├── feedback/          # 建议反馈API（列表/提交/点赞/管理）
-│   ├── mmr.get.ts         # MMR数据（代理 194823.xyz）
+│   ├── mmr.get.ts         # MMR数据（代理 194823.xyz，故障时回退 stats.db 快照）
 │   ├── mmr_history.get.ts # MMR历史趋势（读 data/stats.db）
 │   ├── played_like.get.ts # 最近对局等效MMR（读 data/stats.db）
 │   ├── credits.get.ts     # 积分数据
@@ -196,23 +200,26 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   │   ├── ability-names.seed.json
 │   │   ├── ability-face.seed.json  # 技能显示身份（指令卡按钮面）覆盖，含按英雄覆盖
 │   │   └── units.overrides.json    # 兵种自动发现的手工修正（排除 / 补脚本生成单位）
-│   ├── roles.json         # 职业定义（49个 + 随机 + 幽灵，由 build_roles 生成）
-│   ├── abilities.json     # 技能数据（约250个，由 build_abilities 生成）
+│   ├── roles.json         # 职业定义（51个 + 随机 + 幽灵，由 build_roles 生成）
+│   ├── abilities.json     # 技能数据（约270个，由 build_abilities 生成）
 │   ├── tech.json          # 科技研究树（由 build_tech 生成）
 │   ├── units-v2.json      # 兵种数据库：生产树/武器/升级/获取成本（由 build_units_v2 生成）
 │   ├── terrain.json       # 地形索引（由 build_terrain 生成，逐图数据在 public/terrain/）
-│   ├── economy.json       # 常规英雄经济数据（人工维护）
+│   ├── economy.json       # 英雄经济数据（38条，大部分人工维护，部分由 build_*_economy 重写）
 │   ├── technician-economy.json  # 技术员专属转化经济（人工维护）
 │   ├── spirit-economy.json # 灵魂专属金融经济：银行/股市/赌场/水晶球（从地图脚本核实）
 │   ├── veterancy.json     # 军衔成长数据（由 build_veterancy 生成）
 │   ├── balance.json       # 英雄/阵营胜率（由 build_balance 从生产库转储生成）
 │   ├── meta-history.json  # 跨版本 Meta 走势（由 build_meta 生成）
-│   ├── stats.db           # 对局统计只读库：played_like / mmr_history（由 build_stats_db 生成）
+│   ├── stats.db           # 对局统计只读库：played_like / mmr_history / player_mmr_current（由 build_stats_db 生成）
 │   ├── skins.json         # 皮肤 → 部件清单（含 hero / unitId 跳转字段，由 enrich_skins.py 富化）
-│   └── wiki.db            # SQLite数据库（用户/文章/评论/反馈，运行时写入）
+│   ├── council-zh.json    # 钻石议会提案中文译文（translate_council.py 生成）
+│   ├── role-name-map.json / role-icon-map.json  # 英文 role_name → 中文名 / 图标（统计类页面用）
+│   ├── sponsors.json      # 赞助者名单
+│   └── wiki.db            # SQLite数据库（用户/文章/修订/待审编辑/评论/反馈/访问统计，运行时写入，不入库）
 ├── public/
-│   ├── avatars/           # 48个角色娘化立绘 (1024x1024)
-│   ├── icons/             # 职业图标 (64x64)
+│   ├── avatars/           # 48个角色娘化立绘 (1024x1024，新英雄暂未补齐)
+│   ├── icons/             # 职业图标 (64x64，按两位 id 命名)
 │   ├── ability-icons/     # 技能图标（build_ability_icons 生成）
 │   ├── tech-icons/        # 科技与单位图标（build_tech_icons 生成）
 │   ├── maps/ + terrain/   # 地形小地图与逐图地形数据（build_terrain 生成）
@@ -221,15 +228,16 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 │   └── robots.txt         # 爬虫规则，指向 /sitemap.xml
 ├── scripts/               # 数据提取/刷新脚本（一键 build_all.py，见下方"数据刷新流程"）
 ├── docs/                  # 文档
-│   ├── API.md             # API文档
-│   ├── DEPLOY.md          # 部署指南
+│   ├── API.md             # API文档（全部端点、权限、审核流）
+│   ├── DEPLOY.md          # 部署指南（本地构建 + deploy_paramiko 各动作、.env）
 │   ├── STATS_PIPELINE.md  # 对局统计数据管线（胜率/played_like）
 │   ├── SKINS_PIPELINE.md  # 皮肤模型管线（m3 → Blender → GLB → 前端 3D）
 │   ├── AUTO_FETCH.md      # 生产库转储自动拉取
 │   ├── DATA_MAINTENANCE.md# 数据维护员指南（在线编辑）
 │   ├── WIKI_CONVENTIONS.md# Wiki 文章写作约定
 │   ├── BACKUP.md          # 服务器数据备份
-│   └── ROLES.md           # 角色与权限
+│   ├── ROLES.md           # 角色与权限
+│   └── markdown-guide.md  # Markdown 排版演示（站内文章源稿）
 ├── Dockerfile.runner      # 生产镜像：只装原生依赖，直接用本地构建好的 .output
 ├── docker-compose.runner.yml
 ├── pack-local.sh          # 本地 nuxt build + 打部署包（当前部署方式）
@@ -245,12 +253,14 @@ Wiki 文章（`/wiki/[slug]`）的 Markdown 正文排版**未使用** `@tailwind
 | 科技研究 | SC2Map 的 `CAbilResearch` + `CUpgrade` 直接解析（`build_tech.py`） |
 | 兵种数据库 | SC2Map 直接解析：从英雄单位沿生产/召唤/变形/合体链自动发现（`build_units_v2.py`），仅 `units.overrides.json` 做手工修正 |
 | 地形 | SC2Map 及历史版本地图的 Minimap + 寻路数据（`build_terrain.py`） |
-| 经济 | `data/economy.json`（常规英雄，人工维护）；技术员 `technician-economy.json`、灵魂 `spirit-economy.json`（灵魂数据从 SC2Map 的 Galaxy 脚本核实） |
+| 经济 | `data/economy.json`（大部分人工维护，技术员/诺娃/游牧民/冠军/小动物主宰/响尾蛇/赛恩/监管者等由脚本从地图提取）；技术员 `technician-economy.json`、灵魂 `spirit-economy.json`（灵魂数据从 SC2Map 的 Galaxy 脚本核实） |
 | 英雄胜率 / 平衡 | `data/balance.json` + `data/meta-history.json`（从官方生产库转储离线预计算，见「对局统计数据管线」） |
 | 等效MMR / MMR历史 | `data/stats.db`（played_like / mmr_history，从生产库转储生成） |
-| MMR数据 | 194823.xyz/api/player |
+| MMR数据 | 194823.xyz/api/player（故障时回退 `data/stats.db` 的 player_mmr_current 快照） |
 | 积分数据 | 194823.xyz/api/credits |
 | 天梯排行榜 | 194823.xyz/api/leaderboard |
+| 钻石议会 / 更新日志 | 194823.xyz/api/proposal_votes_cn.json（+ `council-zh.json` 译文）/ 194823.xyz/api/patchnotes |
+| 皮肤模型 | SC2Map `Shop.xml` + CASC，仓库外 m3 → Blender → GLB 管线（见 `docs/SKINS_PIPELINE.md`） |
 | 角色娘化图 | PackyAPI (gpt-image-2) 图生图 |
 
 ## 数据刷新流程
@@ -267,7 +277,7 @@ python scripts/build_all.py
 
 `build_roles` → `build_abilities` → `resolve-tooltips` → `build_veterancy` → `build_technician_economy` / `build_nova_economy` / `build_nomad_economy` → `build_tech` → `build_units_v2` → `build_terrain`，最后跑只读的 `sync_hero_skills.py` 漂移检查。
 
-- `economy.json` 大部分人工维护，只有技术员 / 诺娃团队 / 游牧民三个条目由脚本重写。
+- `economy.json` 大部分人工维护，`build_all` 只重写技术员 / 诺娃团队 / 游牧民三个条目；冠军 / 小动物主宰 / 响尾蛇 / 赛恩 / 监管者另有独立脚本（`build_<hero>_economy.py`），按需单独运行。
 - `build_units_v2` 依赖 `abilities.json`（技能召唤的名称取自这里），必须排在 `build_abilities` 之后。
 - 图标不在 `build_all` 里，地图新增科技/单位后单独跑：`extract_map_icons.py`（地图自带贴图）→ `build_tech_icons.py`（科技与单位图标）→ 再跑一次 `build_units_v2.py`（选上新转出的图标）。图标源是 CascView 从游戏目录导出的 `.dds`，放在仓库外的 `D:/starcraft2/sc2_btn_icons_raw`。
 - 角色图标稳定（`public/icons/`），仅当地图职业图标变动时才需单独提取。
@@ -276,7 +286,7 @@ python scripts/build_all.py
 
 | 文件 | 内容 |
 |------|------|
-| `roles.seed.json` | 49 职业：基础属性(血/速/甲/能量，策划值)、分类、阵营、英雄单位、图标/立绘、描述 key、技能清单 |
+| `roles.seed.json` | 51 职业 + 随机 + 幽灵：基础属性(血/速/甲/能量，策划值)、分类、阵营、英雄单位、图标/立绘、描述 key、技能清单 |
 | `units.overrides.json` | 兵种自动发现的手工修正：`exclude`（误收的占位单位）、`heroExtra`（脚本生成、生产链上找不到的单位） |
 | `ability-face.seed.json` | 技能显示身份覆盖：同一技能在不同英雄指令卡上用不同按钮面时（如亚顿/游牧民借用阿瑞斯的后燃充能），按英雄取正确的名字/图标/说明 |
 | `veterancy.seed.json` | 力/敏/智成长（策划值，与地图 CBehaviorVeterancy 不符，以种子为准）。**仅含真有等级系统的英雄**；build_veterancy 会校验各英雄单位是否真挂 veterancy 行为，发现残留误标会告警 |
@@ -292,7 +302,12 @@ python scripts/build_all.py
 - `resolve-tooltips.py` — 解析 tooltip 里的 `<d ref=...>` 数值占位符
 - `lib_tech.py` / `build_tech.py` — 研究科技树 → `tech.json`（逐级成本、动态数值代入、图标）
 - `lib_units.py` / `build_units_v2.py` — 兵种数据库 → `units-v2.json`。只存基础数值与升级效果引用；曲线、DPS、性价比、对战模拟都由前端 `utils/unitEngine.ts` 按任意科技组合现算（数据文件因此保持在约 2.5MB）
-- `build_*_economy.py` — 各英雄专属经济条目（技术员/诺娃/游牧民等）
+- `build_*_economy.py` — 各英雄专属经济条目（技术员/诺娃/游牧民在 build_all 内；冠军/小动物主宰/响尾蛇/赛恩/监管者单独运行）
+- `validate_data.py` — 数据校验（JSON 合法、技能断链、economy 对得上 roles、id/nameEn 唯一），CI 同样会跑
+- `enrich_skins.py` — 给 `skins.json` 补所属英雄与部件→兵种跳转
+- `translate_council.py` — 钻石议会提案预翻译 → `council-zh.json`
+- `backup.sh` — 服务器上 `wiki.db` 的一致性备份 + 轮转（见 `docs/BACKUP.md`）
+- `migrate_overrides.py` — 收窄在线编辑字段前的一次性核对脚本（已执行）
 - `build_terrain.py` / `harvest_terrains.py` — 地形数据；后者从战网缓存收集历史版本地图
 - `build_tech_icons.py` / `extract_map_icons.py` / `build_ability_icons.py` — 图标转换
 - `sync_hero_skills.py` / `audit_hero_skills.py` — 英雄技能 seed 与地图指令卡的漂移检查（只读；`--write` 前需人工核对，形态/子单位技能常被误判为废弃）
@@ -309,18 +324,18 @@ python scripts/build_all.py
 
 除了上面「地图 + seed」那条管线，Wiki 还有**第二条独立数据管线**，专门产出对局统计（英雄胜率、`played_like` 等效MMR、跨版本 Meta）。官方统计后端（代号 **Lucy**）只对外开放了少量网关端点，全局/聚合胜率与 `played_like` 历史并不暴露，因此这些数据改为**从官方生产库转储离线预计算**成静态文件，随仓库/部署包发布，运行时零外部依赖。
 
-- 数据源：`pg_dump` 转储（`*.sql.gz`，~283MB，**不入库**，由维护者私下保管）。
+- 数据源：`pg_dump` 转储（`*.sql.gz`，2026-11 约 410MB，**不入库**，由维护者私下保管）。
 - 胜率**必须照官方口径算**（去重 `balance_*` 表、`outcome IN (0,1)`、分英雄按 `roles.team == outcome` 判胜），否则与官方对不上。
 
 拿到新转储后手动运行（**不并入 `build_all.py`**）：
 
 ```bash
 python scripts/build_balance.py    # → data/balance.json（英雄/阵营胜率）
-python scripts/build_stats_db.py   # → data/stats.db（played_like / mmr_history）
+python scripts/build_stats_db.py   # → data/stats.db（played_like / mmr_history / player_mmr_current）
 python scripts/build_meta.py       # → data/meta-history.json（跨版本 Meta 走势）
 ```
 
-两个纯标准库脚本流式解析 `pg_dump` 的 `COPY ... FROM stdin` 块，内存聚合，无需 Postgres。转储的自动拉取（Google Drive → 重建 → 提交）由 `scripts/fetch_dump.py` + Windows 计划任务 `KS2WikiFetchDump` 处理（需本地代理访问 Google）。
+三个纯标准库脚本流式解析 `pg_dump` 的 `COPY ... FROM stdin` 块，内存聚合，无需 Postgres。转储的自动拉取（Google Drive → 重建 → 提交）由 `scripts/fetch_dump.py` + Windows 计划任务 `KS2WikiFetchDump` 处理（需本地代理访问 Google）。
 
 ### 一键刷新并部署
 
@@ -353,7 +368,10 @@ KS2_PW=*** bash refresh-and-deploy.sh --no-deploy  # 只刷新+提交+推送，�
 ```bash
 bash pack-local.sh                            # 本地 nuxt build + 打包 ks2-wiki-deploy.tar.gz
 KS2_PW=*** python deploy_paramiko.py deploy   # 上传 + 备份数据库 + 重建容器 + 清理旧镜像
+KS2_PW=*** python deploy_paramiko.py set-env  # 改了 .env 的 SMTP_*/APP_URL 后单独推送（deploy 不碰服务器 .env）
 ```
+
+环境变量见 `.env.example`：`JWT_SECRET` 必填；`SMTP_*` / `APP_URL` 用于忘记密码发信。
 
 `deploy_paramiko.py` 只上传现成的包、**不会构建**——改完代码一定先 `pack-local.sh`，否则会把旧包重新发上去（退出码照样是 0）。部署后访问一个本次新增的页面确认生效，不要只看首页 200。
 
