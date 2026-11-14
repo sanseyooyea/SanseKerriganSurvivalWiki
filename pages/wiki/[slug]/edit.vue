@@ -53,7 +53,7 @@
       </button>
       <span v-if="error" class="text-sm text-red-500">{{ error }}</span>
       <span v-if="saved" class="text-sm text-green-600">已保存</span>
-      <span v-if="submitted" class="text-sm text-green-600">已提交审核，等待管理员通过</span>
+      <span v-if="submitted" class="text-sm text-green-600">已提交审核，等待管理员通过 · <NuxtLink to="/settings#my-reviews" class="underline">查看我的投稿</NuxtLink></span>
     </div>
   </div>
   </ClientOnly>

@@ -56,6 +56,29 @@
         <p v-if="handleError" class="mt-2 text-xs text-red-500">{{ handleError }}</p>
         <p v-if="handleSuccess" class="mt-2 text-xs text-green-600">{{ handleSuccess }}</p>
       </div>
+      <div class="wiki-card p-5 mt-4" id="my-reviews">
+        <div class="section-title">我的投稿</div>
+        <p class="text-xs text-gray-400 mb-3">你提交的 Wiki 编辑及审核状态（管理员的编辑直接发布，不在此列）</p>
+        <p v-if="reviewsError" class="text-xs text-red-500">{{ reviewsError }}</p>
+        <div v-else-if="!myReviews.length" class="text-xs text-gray-400 py-4 text-center">
+          {{ reviewsLoading ? '加载中...' : '暂无投稿' }}
+        </div>
+        <ul v-else class="divide-y divide-gray-100 dark:divide-gray-700">
+          <li v-for="r in myReviews" :key="r.id" class="py-2.5 text-sm">
+            <div class="flex items-center gap-2">
+              <span class="wk-badge" :class="'wk-badge-' + r.status">{{ statusLabel[r.status] || r.status }}</span>
+              <span v-if="r.is_new" class="text-[0.65rem] text-kerrigan-600 dark:text-kerrigan-400">新建</span>
+              <NuxtLink v-if="r.status === 'approved'" :to="`/wiki/${r.slug}`"
+                class="font-medium text-survivor-600 hover:underline truncate">{{ r.title }}</NuxtLink>
+              <span v-else class="font-medium text-gray-900 dark:text-gray-100 truncate">{{ r.title }}</span>
+              <span class="text-xs text-gray-400 ml-auto whitespace-nowrap">{{ fmtDate(r.created_at) }}</span>
+            </div>
+            <div v-if="r.admin_note" class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+              管理员备注：{{ r.admin_note }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </ClientOnly>
 </template>
@@ -73,10 +96,46 @@ const savingEmail = ref(false)
 const emailError = ref('')
 const emailSuccess = ref('')
 
+interface MyReview {
+  id: number
+  slug: string
+  is_new: number
+  title: string
+  status: 'pending' | 'approved' | 'rejected'
+  admin_note: string | null
+  created_at: string
+}
+const myReviews = ref<MyReview[]>([])
+const reviewsLoading = ref(false)
+const reviewsError = ref('')
+const statusLabel: Record<string, string> = { pending: '待审', approved: '已通过', rejected: '已驳回' }
+
+function fmtDate(s: string) {
+  // SQLite datetime('now') 为 UTC、无时区标记
+  const d = new Date(s.replace(' ', 'T') + 'Z')
+  return isNaN(d.getTime()) ? s : d.toLocaleString('zh-CN', { hour12: false }).slice(0, 16)
+}
+
+async function loadMyReviews() {
+  if (!isLoggedIn.value) return
+  reviewsLoading.value = true
+  reviewsError.value = ''
+  try {
+    const res = await $fetch<{ reviews: MyReview[] }>('/api/wiki/reviews/mine', { headers: authHeaders.value })
+    myReviews.value = res.reviews
+  } catch (e: any) {
+    reviewsError.value = e.data?.message || '投稿记录加载失败'
+  } finally {
+    reviewsLoading.value = false
+  }
+}
+
 onMounted(() => {
   if (user.value?.handle) handleInput.value = user.value.handle
   if (user.value?.email) emailInput.value = user.value.email
+  loadMyReviews()
 })
+watch(isLoggedIn, (v) => { if (v) loadMyReviews() })
 
 async function saveEmail() {
   emailError.value = ''
@@ -120,3 +179,16 @@ async function bindHandle() {
   }
 }
 </script>
+
+<style scoped>
+.wk-badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.03em;
+  padding: 1px 7px; border: 1px solid currentColor; border-radius: 3px; flex-shrink: 0;
+}
+.wk-badge-pending { color: #6b7280; }
+.dark .wk-badge-pending { color: #9ca3af; }
+.wk-badge-approved { color: #16a34a; }
+.dark .wk-badge-approved { color: #4ade80; }
+.wk-badge-rejected { color: #9ca3af; text-decoration: line-through; }
+.dark .wk-badge-rejected { color: #6b7280; }
+</style>
