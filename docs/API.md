@@ -96,7 +96,7 @@ Authorization: Bearer <token>
 | `GET /api/wiki/reviews?status=` | admin | 审核列表（不含正文，最多 300 条，待审优先）。`status` 可选 `pending/approved/rejected`。响应 `{ reviews, pending }`，`pending` 为待审总数 |
 | `GET /api/wiki/reviews/:id` | admin | 详情：`{ review, current, stale }`。`current` 为当前线上页面（供并排 diff）；`stale=true` 表示投稿后线上页面已被别人改过，通过会覆盖最新内容 |
 | `PATCH /api/wiki/reviews/:id` | admin | 审批：`{ "status": "approved" \| "rejected", "admin_note": "可选" }`。已处理过的返回 409。通过时在事务内快照旧版并发布，署名记为投稿人 |
-| `GET /api/wiki/reviews/mine` | 登录 | 我提交的编辑及审核状态（最多 100 条） |
+| `GET /api/wiki/reviews/mine` | 登录 | 我提交的编辑及审核状态（最多 100 条），`/settings` 的「我的投稿」使用 |
 
 ---
 

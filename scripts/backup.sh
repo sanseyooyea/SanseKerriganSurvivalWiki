@@ -2,7 +2,8 @@
 # KS2 Wiki 定时备份脚本（在服务器 /opt/ks2-wiki 下由 cron 调用）
 #
 # 只备份唯一不可再生的用户数据：data/wiki.db
-# （stats.db / catalog.json / economy 等都能从 map 提取管线重建，不进备份。）
+# （其余 data/ 文件——stats.db、各 JSON 数据——都在 git 里，可由地图提取管线或生产库
+#   转储重建，不进备份。）
 #
 # 关键点：wiki.db 是 WAL 模式，最近提交的数据在 -wal 文件里。绝不能裸 cp 单个
 # wiki.db —— 会拷到缺最新写入甚至撕裂的文件。这里用 SQLite 联机备份（.backup /
