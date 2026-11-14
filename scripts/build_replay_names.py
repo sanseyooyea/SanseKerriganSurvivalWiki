@@ -151,6 +151,12 @@ def main():
                 cands += [actor_icons.get(v), *btn(produce_face.get(v)), *btn(v)]
         icon, all_c = pick_icon(cands)
         units[uid] = {'nameZh': resolve_name('Unit', uid), 'icon': icon, 'iconCandidates': all_c}
+        # 静止物：建筑/石头（Structure 属性且没有移动速度）。录像只在受伤时才记坐标，
+        # 静止物在出生点一直存在到死亡，前端据此持续绘制，而不是只闪一下
+        attrs = ent.indexed('Attributes')
+        if attrs.get('Structure') == '1' and not U._num(ent.value('Speed')):
+            units[uid]['static'] = 'rock' if re.search(r'Rock|Debris|Destructible', uid) else 'building'
+
 
     for (fam, upid), ent in gi.entries.items():
         if fam != 'Upgrade':

@@ -44,6 +44,8 @@ export interface ReplayUnitType {
   nameZh: string | null
   icon: string | null
   category: string | null
+  /** format ≥3：位置固定的建筑/石头。录像只在受伤时记坐标，静止物按出生点持续绘制 */
+  static?: 'building' | 'rock'
 }
 
 export interface ReplayUnitRow {
@@ -125,6 +127,8 @@ export interface DecodedUnit {
   type: number
   owner: number
   hero: boolean
+  /** 建筑/石头：位置不动，出生到死亡一直画 */
+  static: 'building' | 'rock' | null
   /** 可见区间：首个可信坐标 ~ 死亡 */
   from: number
   to: number
@@ -151,13 +155,15 @@ export function decodeUnits(data: ReplayData): DecodedUnit[] {
       type: u.t,
       owner: u.o,
       hero: !!u.h,
+      static: (!u.h && data.types[u.t]?.static) || null,
       from: Math.max(u.b, loops[0]),
       to: u.d ?? Number.POSITIVE_INFINITY,
       loops, xs, ys,
     })
   }
-  // 英雄最后画（压在最上层）
-  out.sort((a, b) => Number(a.hero) - Number(b.hero))
+  // 绘制层次：静止物在最下，普通单位居中，英雄最后画（压在最上层）
+  const layer = (u: DecodedUnit) => (u.hero ? 2 : u.static ? 0 : 1)
+  out.sort((a, b) => layer(a) - layer(b))
   return out
 }
 
@@ -181,6 +187,8 @@ export const MAX_INTERP_GAP = 20 * 22.4
  * 否则停在上一个已知点并标记 stale（前端画成空心，表示"位置不确定"）。
  */
 export function unitPosAt(u: DecodedUnit, t: number): [number, number, boolean] {
+  // 静止物不会移动：用出生/首个坐标，永不过期（中立石头死亡点即原地）
+  if (u.static) return [u.xs[0], u.ys[0], false]
   const i = lowerIndex(u.loops, t)
   if (i < 0) return [u.xs[0], u.ys[0], true]
   const t0 = u.loops[i]

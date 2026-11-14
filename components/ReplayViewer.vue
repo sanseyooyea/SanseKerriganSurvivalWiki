@@ -74,6 +74,7 @@
           <button type="button" @click="jumpEvent(1)" class="rp-btn" title="下一个关键事件 (→)">下一事件 ⏭</button>
           <div class="ml-auto flex flex-wrap items-center gap-3 text-xs text-gray-600 dark:text-gray-300">
             <label class="flex items-center gap-1"><input v-model="show.units" type="checkbox" class="accent-survivor-600" />单位</label>
+            <label class="flex items-center gap-1"><input v-model="show.statics" type="checkbox" class="accent-survivor-600" />建筑/石头</label>
             <label class="flex items-center gap-1"><input v-model="show.deaths" type="checkbox" class="accent-survivor-600" />阵亡</label>
             <label class="flex items-center gap-1"><input v-model="show.cameras" type="checkbox" class="accent-survivor-600" />镜头</label>
             <label class="flex items-center gap-1"><input v-model="show.trails" type="checkbox" class="accent-survivor-600" />英雄轨迹</label>
@@ -117,7 +118,8 @@
         </div>
         <p class="text-[11px] leading-relaxed text-gray-400 dark:text-gray-500">
           点击玩家查看其经济、科技等细节（随播放进度更新），并高亮其单位、筛选曲线。英雄位置在两次真实采样之间按玩家移动指令估算；
-          虚线空心圈表示超过 20 秒没有位置数据，停在最后已知点。其他单位只在受伤采样（约每 10 秒）时有坐标。
+          虚线空心圈表示超过 20 秒没有位置数据，停在最后已知点。其他单位只在受伤采样（约每 10 秒）时有坐标，长时间没有坐标的画成淡色空心圈（停在最后已知点）；
+          方块是建筑/石头，位置固定，出生到被摧毁一直显示。
         </p>
       </aside>
     </div>
@@ -184,7 +186,7 @@ const playing = ref(false)
 const speed = ref(4)
 const focusPid = ref<number | null>(null)
 const metric = ref('army')
-const show = reactive({ units: true, deaths: true, cameras: false, trails: true })
+const show = reactive({ units: true, statics: true, deaths: true, cameras: false, trails: true })
 
 const playersByPid = computed(() => Object.fromEntries(props.data.players.map(p => [p.pid, p])) as Record<number, ReplayPlayer>)
 const focusPlayer = computed(() => (focusPid.value != null ? playersByPid.value[focusPid.value] : null))
@@ -513,7 +515,7 @@ function draw() {
   const ring = isDark() ? '#0f172a' : '#0f172a'
   for (const u of US) {
     if (now < u.from || now > u.to) continue
-    if (!u.hero && !show.units) continue
+    if (u.static ? !show.statics : (!u.hero && !show.units)) continue
     const [x, y, stale] = unitPosAt(u, now)
     const [sx, sy] = toScreen(x, y)
     if (sx < -10 || sy < -10 || sx > size.value + 10 || sy > size.value + 10) continue
@@ -545,15 +547,33 @@ function draw() {
         ctx.fillStyle = '#f8fafc'
         ctx.fillText(label, sx, sy - r - 4)
       }
+    } else if (u.static) {
+      // 建筑：方块；石头：灰色方块（中立障碍，不按玩家着色）
+      const rock = u.static === 'rock'
+      const half = Math.max(2, cell * (rock ? 1.6 : 0.9))
+      ctx.globalAlpha = faded ? 0.15 : rock ? 0.85 : 0.75
+      ctx.fillStyle = rock ? '#78716c' : colorOf(u.owner)
+      ctx.fillRect(sx - half, sy - half, half * 2, half * 2)
+      ctx.strokeStyle = rock ? '#292524' : ring
+      ctx.lineWidth = 1
+      ctx.strokeRect(sx - half, sy - half, half * 2, half * 2)
     } else {
-      if (stale) continue
       const r = Math.max(1.5, cell * 0.45)
-      ctx.globalAlpha = faded ? 0.15 : 0.9
-      ctx.fillStyle = colorOf(u.owner)
-      ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2); ctx.fill()
-      ctx.strokeStyle = ring
-      ctx.lineWidth = 0.75
-      ctx.stroke()
+      ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2)
+      if (stale) {
+        // 录像只在单位受伤时记坐标：太久没数据就停在最后已知点，画成淡色空心圈（位置不确定）
+        ctx.globalAlpha = faded ? 0.08 : 0.4
+        ctx.strokeStyle = colorOf(u.owner)
+        ctx.lineWidth = 1
+        ctx.stroke()
+      } else {
+        ctx.globalAlpha = faded ? 0.15 : 0.9
+        ctx.fillStyle = colorOf(u.owner)
+        ctx.fill()
+        ctx.strokeStyle = ring
+        ctx.lineWidth = 0.75
+        ctx.stroke()
+      }
     }
     if (m) {
       const d = Math.hypot(sx - m.x, sy - m.y)

@@ -289,8 +289,11 @@ class WikiData:
     def unit_info(self, utype):
         u = self.units.get(utype) or {}
         fb = self.fallback_units.get(utype) or {}
-        return {"id": utype, "nameZh": u.get("nameZh") or fb.get("nameZh"), "icon": u.get("icon") or fb.get("icon"),
+        info = {"id": utype, "nameZh": u.get("nameZh") or fb.get("nameZh"), "icon": u.get("icon") or fb.get("icon"),
                 "category": u.get("category")}
+        if fb.get("static"):
+            info["static"] = fb["static"]   # building / rock：位置固定，前端持续绘制
+        return info
 
 
 def _has_cjk(s) -> bool:
@@ -490,7 +493,8 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
     unit_rows = []
     for rec in units.values():
         track = _dedupe_track(rec["track"])
-        if not rec["hero"] and (not track or (len(track) == 1 and track[0][0] == rec["died"])):
+        is_static = bool(wiki.unit_info(rec["type"]).get("static"))
+        if not rec["hero"] and not is_static and (not track or (len(track) == 1 and track[0][0] == rec["died"])):
             # 只在死亡瞬间有坐标（大部分跳虫）：死亡标记层已覆盖，画面不画
             continue
         row = {
