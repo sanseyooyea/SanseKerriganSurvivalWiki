@@ -13,7 +13,7 @@
 
 ## 服务器登录
 
-只用 SSH 密钥，**密码登录已在 sshd 禁用**。
+部署脚本一律用 SSH 密钥登录，不再使用 `KS2_PW` 密码。服务器 sshd 仍保留密码登录（人工应急用）。
 
 - 私钥：本机 `~/.ssh/ks2_server`（ed25519，无口令），对应公钥在服务器 `/root/.ssh/authorized_keys`。不要提交、不要外传。
 - 所有部署脚本（`deploy_paramiko.py`、`deploy_council_only.py`、`refresh-and-deploy.sh`）都默认用这把钥匙，可用环境变量 `KS2_SSH_KEY` 指向别的私钥。
