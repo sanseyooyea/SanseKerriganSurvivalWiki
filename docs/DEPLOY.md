@@ -2,14 +2,24 @@
 
 ## 线上环境
 
-- 服务器：阿里云 ECS，**2C2G、无 swap**，项目目录 `/opt/ks2-wiki`
-- 域名：`wiki.ks2.top`，宿主机 Nginx 反代到容器 `8080:3000`，HTTPS 用 Let's Encrypt（certbot nginx 插件自动续期）
-- 容器：`docker-compose.runner.yml`（服务名 `wiki`，容器名 `ks2-wiki`，`mem_limit: 768m`，日志 10MB×3 轮转），`./data` 挂载到 `/app/data`
+- 服务器：阿里云 ECS（Alibaba Cloud Linux 3），**2C2G + 4G swapfile**，项目目录 `/opt/ks2-wiki`
+- 域名：`wiki.ks2.top`，宿主机 Nginx（`/etc/nginx/conf.d/wiki.ks2.top.conf`）反代到 `127.0.0.1:8080`，HTTPS 用 Let's Encrypt（certbot nginx 插件自动续期）
+- 容器：`docker-compose.runner.yml`（服务名 `wiki`，容器名 `ks2-wiki`，端口只绑 `127.0.0.1:8080:3000`，`mem_limit: 768m`，日志 10MB×3 轮转），`./data` 挂载到 `/app/data`
 - Node.js 22（镜像内置）
 
-> ⚠️ **不要在服务器上跑 `nuxt build`**：2G 内存会 OOM，整机磁盘 IO 打满假死，只能控制台重启。
+> ⚠️ **不要在服务器上跑 `nuxt build`**：2G 内存会 OOM（swap 只会让它变成磁盘 IO 打满的假死），只能控制台重启。
 > 所以生产一律走下面的「本地构建部署」。仓库里的 `Dockerfile` / `docker-compose.yml` / `pack.sh` / `update.sh`
 > 是服务器端构建的旧方式，只适合内存充足的机器，见文末。
+
+## 服务器登录
+
+只用 SSH 密钥，**密码登录已在 sshd 禁用**。
+
+- 私钥：本机 `~/.ssh/ks2_server`（ed25519，无口令），对应公钥在服务器 `/root/.ssh/authorized_keys`。不要提交、不要外传。
+- 所有部署脚本（`deploy_paramiko.py`、`deploy_council_only.py`、`refresh-and-deploy.sh`）都默认用这把钥匙，可用环境变量 `KS2_SSH_KEY` 指向别的私钥。
+- 手动登录：`ssh -i ~/.ssh/ks2_server root@116.62.66.21`
+- 主机指纹已在 `~/.ssh/known_hosts`，脚本拒绝未知主机（`RejectPolicy`）。
+- **换电脑 / 钥匙丢了**：阿里云控制台 → 实例 →「远程连接」用 Workbench 登录（不依赖 SSH 密码），把新公钥追加到 `/root/.ssh/authorized_keys`。旧钥匙作废时记得删掉对应行。
 
 ## 环境变量 `.env`
 
@@ -24,7 +34,7 @@
 compose 用 `env_file: .env` 把整个文件注入容器。**`deploy` 不会覆盖服务器上的 `.env`**，改了环境变量要单独推：
 
 ```bash
-KS2_PW='...' python deploy_paramiko.py set-env
+python deploy_paramiko.py set-env
 ```
 
 它只推送本地 `.env` 里的 `SMTP_*` / `APP_URL`（保留服务器上的 `JWT_SECRET` 等其他键），先备份旧 `.env`，经 SFTP 写入（权限 600），同步 `docker-compose.runner.yml` 后 `up -d` 重启。
@@ -35,8 +45,8 @@ KS2_PW='...' python deploy_paramiko.py set-env
 # 1. 本地 nuxt build + 打包 ks2-wiki-deploy.tar.gz
 bash pack-local.sh
 
-# 2. 上传 + 远程部署（密码只走环境变量，绝不写进文件）
-KS2_PW='服务器密码' python deploy_paramiko.py deploy
+# 2. 上传 + 远程部署（SSH 密钥 ~/.ssh/ks2_server 登录，见下方「服务器登录」）
+python deploy_paramiko.py deploy
 ```
 
 `pack-local.sh` 内部执行 `NUXT_IGNORE_LOCK=1 npm run build`（可与 dev 服务器并存），然后把 `.output`、`data`（排除 `wiki.db*`）、`public`、`scripts` 及 runner 相关文件打成一个包。2026-11 时包约 320MB，大头是 `data/stats.db`（~70MB）、角色立绘（~86MB）、皮肤 GLB（~45MB）与各类图标。
@@ -56,19 +66,19 @@ KS2_PW='服务器密码' python deploy_paramiko.py deploy
 ### 其他动作
 
 ```bash
-KS2_PW='...' python deploy_paramiko.py precheck     # 只做预检（默认动作）
-KS2_PW='...' python deploy_paramiko.py ps           # 容器状态
-KS2_PW='...' python deploy_paramiko.py logs         # 最近 80 行日志
-KS2_PW='...' python deploy_paramiko.py set-env      # 推送 SMTP_*/APP_URL，见上
-KS2_PW='...' python deploy_paramiko.py push-backup  # 上传 scripts/backup.sh 并立即跑一次
-KS2_PW='...' python deploy_paramiko.py cron         # 安装每日 04:17 备份 crontab（幂等）
-KS2_PW='...' python deploy_paramiko.py drill        # 用最新备份做一次恢复演练
+python deploy_paramiko.py precheck     # 只做预检（默认动作）
+python deploy_paramiko.py ps           # 容器状态
+python deploy_paramiko.py logs         # 最近 80 行日志
+python deploy_paramiko.py set-env      # 推送 SMTP_*/APP_URL，见上
+python deploy_paramiko.py push-backup  # 上传 scripts/backup.sh 并立即跑一次
+python deploy_paramiko.py cron         # 安装每日 04:17 备份 crontab（幂等）
+python deploy_paramiko.py drill        # 用最新备份做一次恢复演练
 ```
 
 ### 对局统计一键刷新 + 部署
 
 ```bash
-KS2_PW='...' bash refresh-and-deploy.sh
+bash refresh-and-deploy.sh
 ```
 
 拉取新转储 → 重建 `balance.json` / `stats.db` / `meta-history.json` → 提交并直推 main → `pack-local.sh` → `deploy`。无新转储时直接退出。详见 [STATS_PIPELINE.md](STATS_PIPELINE.md)。
@@ -112,7 +122,7 @@ docker compose -f docker-compose.runner.yml build
 docker compose -f docker-compose.runner.yml up -d
 ```
 
-然后在本地 `KS2_PW=... python deploy_paramiko.py set-env` 推送邮件配置，`cron` 装定时备份，再配好宿主机 Nginx + certbot。访问站点，**第一个注册的用户自动成为 admin**。
+然后在本地 `python deploy_paramiko.py set-env` 推送邮件配置，`cron` 装定时备份，再配好宿主机 Nginx + certbot。访问站点，**第一个注册的用户自动成为 admin**。
 
 ## 常用命令（服务器上）
 

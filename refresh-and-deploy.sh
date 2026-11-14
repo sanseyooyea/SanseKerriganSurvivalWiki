@@ -14,16 +14,17 @@
 # 拉取只能在有 VPN 的本地做（见 scripts/fetch_dump.py 注释）。本脚本把本地这一串
 # 手动操作变成一条命令，这是当前约束下最省事的形态。
 #
-# 用法（需要服务器部署密码）：
-#   KS2_PW=*** bash refresh-and-deploy.sh            # 常规：无新 dump 则不部署
-#   KS2_PW=*** bash refresh-and-deploy.sh --force    # 强制重下最新 dump 再走全流程
-#   KS2_PW=*** bash refresh-and-deploy.sh --no-deploy  # 只刷新+提交+推送，不部署
+# 用法（SSH 密钥 ~/.ssh/ks2_server 登录服务器，见 deploy_paramiko.py）：
+#   bash refresh-and-deploy.sh            # 常规：无新 dump 则不部署
+#   bash refresh-and-deploy.sh --force    # 强制重下最新 dump 再走全流程
+#   bash refresh-and-deploy.sh --no-deploy  # 只刷新+提交+推送，不部署
 #
 # 透传给 fetch_dump.py 的参数：--force / --no-build / --no-commit（见该脚本）。
 set -euo pipefail
 cd "$(dirname "$0")"
 
-: "${KS2_PW:?需要设置 KS2_PW（服务器部署密码）——例：KS2_PW=*** bash refresh-and-deploy.sh}"
+KEY="${KS2_SSH_KEY:-$HOME/.ssh/ks2_server}"
+[ -f "$KEY" ] || { echo "找不到部署用 SSH 私钥 $KEY（可用 KS2_SSH_KEY 指定）"; exit 2; }
 PROXY="${HTTPS_PROXY:-http://127.0.0.1:7890}"   # fetch 和 git push 都走它翻墙
 PY="${PY:-python}"
 
@@ -53,7 +54,7 @@ git -c http.proxy="$PROXY" -c https.proxy="$PROXY" push origin HEAD:main
 
 if [ "$DEPLOY" = "0" ]; then
   echo ""
-  echo "--no-deploy：已刷新并推送，未部署。稍后可执行：KS2_PW=*** $PY deploy_paramiko.py deploy"
+  echo "--no-deploy：已刷新并推送，未部署。稍后可执行：$PY deploy_paramiko.py deploy"
   exit 0
 fi
 

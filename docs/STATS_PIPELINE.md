@@ -131,9 +131,9 @@ python scripts/build_meta.py [path/to/dump.sql.gz]
 日常直接用一键脚本（拉取 → 重建 → 提交 → 推送 → 打包 → 部署，无新转储时自动跳过）：
 
 ```bash
-KS2_PW=*** bash refresh-and-deploy.sh            # 常规
-KS2_PW=*** bash refresh-and-deploy.sh --force    # 强制重下最新转储
-KS2_PW=*** bash refresh-and-deploy.sh --no-deploy
+bash refresh-and-deploy.sh            # 常规
+bash refresh-and-deploy.sh --force    # 强制重下最新转储
+bash refresh-and-deploy.sh --no-deploy
 ```
 
 拉取细节见 [AUTO_FETCH.md](./AUTO_FETCH.md)。等价的手动步骤：

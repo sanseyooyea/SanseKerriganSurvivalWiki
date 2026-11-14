@@ -342,9 +342,9 @@ python scripts/build_meta.py       # → data/meta-history.json（跨版本 Meta
 日常刷新对局数据推荐用编排脚本，把「拉取转储 → 重建 → 提交 → 推送 → 打包 → 部署」收敛成一条命令：
 
 ```bash
-KS2_PW=*** bash refresh-and-deploy.sh              # 常规：无新转储则自动跳过部署
-KS2_PW=*** bash refresh-and-deploy.sh --force      # 强制重下最新转储再走全流程
-KS2_PW=*** bash refresh-and-deploy.sh --no-deploy  # 只刷新+提交+推送，不部署
+bash refresh-and-deploy.sh              # 常规：无新转储则自动跳过部署
+bash refresh-and-deploy.sh --force      # 强制重下最新转储再走全流程
+bash refresh-and-deploy.sh --no-deploy  # 只刷新+提交+推送，不部署
 ```
 
 数据无变化时（`fetch_dump.py` 未产生新提交）脚本干净退出，不会白跑打包/部署。
@@ -367,8 +367,8 @@ KS2_PW=*** bash refresh-and-deploy.sh --no-deploy  # 只刷新+提交+推送，�
 
 ```bash
 bash pack-local.sh                            # 本地 nuxt build + 打包 ks2-wiki-deploy.tar.gz
-KS2_PW=*** python deploy_paramiko.py deploy   # 上传 + 备份数据库 + 重建容器 + 清理旧镜像
-KS2_PW=*** python deploy_paramiko.py set-env  # 改了 .env 的 SMTP_*/APP_URL 后单独推送（deploy 不碰服务器 .env）
+python deploy_paramiko.py deploy   # 上传 + 备份数据库 + 重建容器 + 清理旧镜像
+python deploy_paramiko.py set-env  # 改了 .env 的 SMTP_*/APP_URL 后单独推送（deploy 不碰服务器 .env）
 ```
 
 环境变量见 `.env.example`：`JWT_SECRET` 必填；`SMTP_*` / `APP_URL` 用于忘记密码发信。
