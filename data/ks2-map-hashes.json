@@ -1,0 +1,633 @@
+{
+ "note": "已知 KS2 官方地图文件 SHA-256（来自本机 Battle.net 缓存），由 scripts/build_map_hashes.py 生成",
+ "maps": {
+  "0403bba8df9f845287353fa3f5e3bee7a29f17dbb0d016df39152c9c3886268a": {
+   "terrain": "four_seasons",
+   "seen": "2025-10-25"
+  },
+  "4d46ce25102ce22a6803de18abd17ed748d56bb30f349a503c1e7ef70de10215": {
+   "terrain": "celestial_skylines",
+   "seen": "2025-12-05"
+  },
+  "3195d55abad8ba12228bfc953dd4162edb7b5af3276bc3f544a019affe151e62": {
+   "terrain": "last_sanctuary",
+   "seen": "2025-12-06"
+  },
+  "104e73f28c4dec66b3a0cd9158a7ef482af27c32801400617c988a5c139bf04f": {
+   "terrain": "snow_prism",
+   "seen": "2025-12-15"
+  },
+  "986ae4c782834b95762960ed5cffb12e0109fea5170196feb1b713eda330ce7f": {
+   "terrain": "sand_fort",
+   "seen": "2025-12-24"
+  },
+  "266fb30a00115426b9d1d2086d3f13032959fc1a4d0c74749f821b0cc96bc642": {
+   "terrain": "four_seasons",
+   "seen": "2025-12-26"
+  },
+  "aae260d37ad67be39c89b209660c407d682b51e5f4a70198cfda40c919f6e69c": {
+   "terrain": "duck_map",
+   "seen": "2026-01-09"
+  },
+  "482960bd4ee5890e2ab330c48e0a4c753bc7158d9fb42e91ebb75a6301bad2bb": {
+   "terrain": "snow_prism",
+   "seen": "2026-01-17"
+  },
+  "962a481818836962ceaffc968a0556f3021e737be52ca5de073912e308371b22": {
+   "terrain": "snow_prism",
+   "seen": "2026-01-20"
+  },
+  "b94596064ad2e027809a5c92313b2918f2ba380d05d1025fe6a17b552dbf8096": {
+   "terrain": "snow_prism",
+   "seen": "2026-01-20"
+  },
+  "ebc3ce02693c137d1964214f626ebdbca0fa0e91476c0eca4ea02cd8330aaeda": {
+   "terrain": "snow_prism",
+   "seen": "2026-01-23"
+  },
+  "be40280b892b0ee14d684f982f385ac925bebc42136553d833ef9a916998e9aa": {
+   "terrain": "aduns_forgotten_temple",
+   "seen": "2026-01-24"
+  },
+  "e7a8419ebe3d4c8b7ed9020691f7aa3563bff9aaaa67c91a6b222aa22d11bd9c": {
+   "terrain": "aduns_forgotten_temple",
+   "seen": "2026-01-27"
+  },
+  "f60f251370cb84fb871ebe13cd2b8914cd0f91c061a2b37aee7dace5e3b96a6b": {
+   "terrain": "aduns_forgotten_temple",
+   "seen": "2026-01-27"
+  },
+  "b8692d6756fdf673bb5cc03377094e8985e7190fa2e8133ab8a7c5e635ac98f6": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-02-01"
+  },
+  "f9044b75d60e54e41bf204f5544a484e84b4768a999188a8d69c084f75d83914": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-02-01"
+  },
+  "574ab0ddbfe08da8ce8d97965fdae0471619d7a506c35a084bb8a6a91e1e61c3": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-02-02"
+  },
+  "d1756031536824a26e10fcaded1892a0886d4fe0097d2d6ca1edfdcee4e213d0": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-02-03"
+  },
+  "598c1fa90abb04bf8b9a05250c8e653270d4612a9eed5e6a84577dbe7d03144e": {
+   "terrain": "no_hope",
+   "seen": "2026-02-06"
+  },
+  "b73235aecb0e9b26488b676c9706da96f0927305e6867f076c6ba782b20099c5": {
+   "terrain": "no_hope",
+   "seen": "2026-02-06"
+  },
+  "9afee161957bb63e051ad869f9015c72e957578e5287b7d2e1f0a4b2498f7b9d": {
+   "terrain": "no_hope",
+   "seen": "2026-02-08"
+  },
+  "b0cc95ee97f3bfa50e73419a67394a4e8304e7de231d082d5d3e47ced04c1a60": {
+   "terrain": "no_hope",
+   "seen": "2026-02-09"
+  },
+  "0acb1e10ac35cb8e49bd618f2f946843dfc5dabf2af9eb8f1e814049a5ea6524": {
+   "terrain": "no_hope",
+   "seen": "2026-02-10"
+  },
+  "8e654e4129e3a57ab3effbb7e9db130531f8ede55676d683a094bb5b4c40a2b6": {
+   "terrain": "no_hope",
+   "seen": "2026-02-11"
+  },
+  "31d1c13658f4457105c0945acca5f1ccb07f0bf0c8f437bc3a22ec73ebb25d71": {
+   "terrain": "kaldir_cliffs",
+   "seen": "2026-02-13"
+  },
+  "c566b810c7c7764734d514a0aceb785296b817573a6d92b5084c643d809dec3c": {
+   "terrain": "vintage_shores",
+   "seen": "2026-02-13"
+  },
+  "5c65bd3ec4f0a31927e6c629879bfbd3ca862cd10e60b863ffa53b18418588b2": {
+   "terrain": "sand_fort",
+   "seen": "2026-02-24"
+  },
+  "cd1517bbe6f8b719ee3336637daee118a033a5087675a57a659263c4ed5950bf": {
+   "terrain": "sand_fort",
+   "seen": "2026-02-24"
+  },
+  "e6458f866f36fa54401edf70359b7ecb7bcf1bc3f749bdd1e0e7808a4b62e92e": {
+   "terrain": "sand_fort",
+   "seen": "2026-02-25"
+  },
+  "b0a47908952bc42a537da51556be99ee00f36d032685c7c1fa82a057f8815d36": {
+   "terrain": "sand_fort",
+   "seen": "2026-02-26"
+  },
+  "b97d7f972ab1b7a73b5993a920754404bb266b29137f925d2b6fe6f9ef878a8b": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-01"
+  },
+  "37029c0418974d265d939f68607539837ed717c5e288df162cc7bd2f6c519852": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-02"
+  },
+  "c5f11a7282cdae1eae56b19ae9c1022ba4350782633add8173b54c1871963cc8": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-02"
+  },
+  "2c12a6e87cc224bb8dbb03611868722e91b7b730e70d0390f314eaed4ff41558": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-03"
+  },
+  "34d26bd048b3203fde0841a806ef4ebbc2888852876e965811e4bf1e4664f8d3": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-03"
+  },
+  "5edde4db0dfc547ed0187bc9521d5dd0f0c7128f3fa482052534c78b6aa15a13": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-03"
+  },
+  "eda22e0af6c85b2a78f9269f26841f3abdd6a000b752fa5a6f1ed5271bc464d5": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-04"
+  },
+  "9c5d7d5be0a69b4b52983430d9ee4f646f32cc8587f760b4d12875bc1735d9ff": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-05"
+  },
+  "bf37b15ef08f29b71ce16f80cb7ccaa5c33808181c2205a2469fc6bf025d6822": {
+   "terrain": "four_seasons",
+   "seen": "2026-03-05"
+  },
+  "57a62386c1c8b19f4d2c09c0a19eee9c58d2567d4f5443a09efd108101395bf9": {
+   "terrain": "duck_map",
+   "seen": "2026-03-09"
+  },
+  "b56c4aa3bf5c2f5c74eb022c2d157402d260c49a88a8f965ab2dd1afcc499711": {
+   "terrain": "duck_map",
+   "seen": "2026-03-13"
+  },
+  "10e96f6837bdd2889a402a83e6ab21dbe0d999349c27479791ce837987addb6b": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-14"
+  },
+  "e77e18d4fceb700a264e6bade2c6bbc2b029b99498f7adcf29df2fbed6cbc881": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-15"
+  },
+  "9e31215c79d7d3f85f3c97144ba2ab08dee303c307f1c66b04a3d0905bdb5bcd": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-16"
+  },
+  "70251fb36d519c16e3782b1597a6aa9e8a07db3350dab10b3415d0404806882e": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-17"
+  },
+  "838868102183189cb84128305df9770baff055524afedd4f5a92db4dc250da17": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-17"
+  },
+  "8c11573164a343ce7b22d8d485a96e7065e41bd9aa10919ad938f71053b4f53a": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-18"
+  },
+  "ba0d3ff43bb7cba9537eb8753eea8064f61890601033eaccf56dc73fca0bacec": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-19"
+  },
+  "00b94ce8bc33561d1620853ca0cafdb013b8e1c03f133fb8eefd1e25157b3f41": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-20"
+  },
+  "4d93ab540fa58ca69d23088d0749abd416bd3bc5fc4ee219e72b65003b1306c2": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-20"
+  },
+  "b33248eb9d5ef9962691c2ac3a112f892d57e99bd097f0e0feb15f5fcb302436": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-20"
+  },
+  "ea8853e87bf5c3fc4b5697fa65d77ca978a6f5d3caf5222cb5df78259e25eb15": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-03-20"
+  },
+  "0eeba09c4d84d590a57fe2c645523c10138305550345aef49a30b84e3dd25da3": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-21"
+  },
+  "c999959c21af93fc718cb8dead616953504beb3dc9b0c9d58a90fceb0190ac0c": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-21"
+  },
+  "48fab1ed5a5abbafd48a5443895213befd2efa3842342492227787f8600265d7": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-22"
+  },
+  "9147abd0796a439974971e44e4726c55d1dac903e0aeb52d14d386a3908c4679": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-22"
+  },
+  "ef1a1531e0f56f7c696364b4f9e083f9fd3e478222c0c4b3289582c626a0725f": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-22"
+  },
+  "9ca12f061ffd873cc52b07b081fe2da7e250a69389da4b138a0c650d43c4d000": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-25"
+  },
+  "09c34c8d1595060faa87426a363079864053aaaae9a8a256326560d146d635cc": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-26"
+  },
+  "321acdfe60d40207f23f2ce0a2e2f1e33017d37e6e508b50866335d304a14920": {
+   "terrain": "classic",
+   "seen": "2026-03-27"
+  },
+  "86be64f9ef900da6255edf88ac28c47a49a329025c62f037bb7f9ad09e4a2c5a": {
+   "terrain": "snow_prism",
+   "seen": "2026-03-27"
+  },
+  "9ea5cf149be4f99bf38cc05ad70595264d9855a99867bd74cb0f21d0a38201be": {
+   "terrain": "classic",
+   "seen": "2026-03-29"
+  },
+  "c4f477d72998733f449688db5fdde371b1489c146f142a0f03e1d6c8fdcc338c": {
+   "terrain": "classic",
+   "seen": "2026-03-30"
+  },
+  "435e02a84189357f42232bebc125fe2d340ed1cfecb8a17592a5da3a58dea1d4": {
+   "terrain": "classic",
+   "seen": "2026-04-01"
+  },
+  "a73aada582bfebd67155f0efe355d45cbe6a6ee798b1b1cae55ac158324c7829": {
+   "terrain": "classic",
+   "seen": "2026-04-01"
+  },
+  "d10d206d332ec3c9c38691903924224f15b79712d0cdc96a1cec5f8ab97890a8": {
+   "terrain": "classic",
+   "seen": "2026-04-03"
+  },
+  "fc990f682da4d6c92d209b8db81dfe7eb1d213cb24cb9138ce979e046a889b7c": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-04-03"
+  },
+  "99530073ec715b8ae61907790712b5c833ccfa7d2c5aa126501b73fbe5213113": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-04-07"
+  },
+  "ca394c6ebc266acf92d939760552de2bc12b4f813c51378c18c044f22bb1aa9e": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-04-08"
+  },
+  "df09066b8042ccbdfc023acc8c002526e1013bc95504fc664c842f99189e96bf": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-04-10"
+  },
+  "b31c40a08521df128a43ef560075c8fa210f059da3799a802cac09c7d677e430": {
+   "terrain": "lost_tides",
+   "seen": "2026-04-14"
+  },
+  "1bdaad32fea66e237b380359eeecb2313bb129426c7ede591d5c06c38bcf2f64": {
+   "terrain": "lost_tides",
+   "seen": "2026-04-15"
+  },
+  "85dd9342aaaef30fe16b82a7a458585fa28035dcface00c1dd650939a7c0460e": {
+   "terrain": "lost_tides",
+   "seen": "2026-04-17"
+  },
+  "e084c8b113c93cdde810ac4ca725e04c82f449b67c436053e64c4d12072e053c": {
+   "terrain": "sand_fort",
+   "seen": "2026-04-18"
+  },
+  "4b12c4e05cf0cd051651fc17715790143b7cefbbfd801a1d51ca5e09515bbf4e": {
+   "terrain": "sand_fort",
+   "seen": "2026-04-20"
+  },
+  "c0afe1c2e6af935570481313fb46bb939dfcbd3e86f755c9425104a93ca7dbd5": {
+   "terrain": "sand_fort",
+   "seen": "2026-04-23"
+  },
+  "aff4dcd4b57cdcca0d488c2b5fa31237a1272b03bff4e8eaf2f076b48fa49a4e": {
+   "terrain": "four_seasons",
+   "seen": "2026-04-24"
+  },
+  "329fe998875f8c795a867d99531157d9b5d01f77f143af6bd0421478cbad9ac6": {
+   "terrain": "four_seasons",
+   "seen": "2026-04-27"
+  },
+  "d2ade1d88d7695cc636c11a21c28772633303bdc238d371172fba7c894ac8647": {
+   "terrain": "four_seasons",
+   "seen": "2026-04-29"
+  },
+  "d1d547e86d0ec554af313bb81c13bec52cd3c1878d363b8a240f214e7e116f96": {
+   "terrain": "four_seasons",
+   "seen": "2026-04-30"
+  },
+  "1b3e0335ab61f95b47c89279e0a6ec85b7608253dbb19c1316020da12518256b": {
+   "terrain": "four_seasons",
+   "seen": "2026-05-01"
+  },
+  "322a45d5b5f363bd7a4b1969ba98734d824a3e536d1f33fab5f918d17e759898": {
+   "terrain": "duck_map",
+   "seen": "2026-05-01"
+  },
+  "110770b7e8043f7f80407556eb389fd85aec434426b6a397d65932180a6f7cab": {
+   "terrain": "duck_map",
+   "seen": "2026-05-03"
+  },
+  "736a4b4680773a1adaeb1381bf8690930f4c86d059f3137872e1dbc3d33008f2": {
+   "terrain": "duck_map",
+   "seen": "2026-05-04"
+  },
+  "5053f5944be1e6d34991808e44ec97e5b4b73c74943e58921b17405efef383b0": {
+   "terrain": "duck_map",
+   "seen": "2026-05-07"
+  },
+  "fb3b87d1ae5a87214b4cdf7ca059565776c6c07a7499d5726df80b4eab3fdec2": {
+   "terrain": "duck_map",
+   "seen": "2026-05-08"
+  },
+  "feba407d8e244232e450f0c7c7d0f2bbec18fad08925cfc4cce87b5b94a0e5fa": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-05-09"
+  },
+  "7c38eea39f2e649449ca1774b7c04e050071ac3dd926ac1a4ac734705a04ba06": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-05-10"
+  },
+  "8ebc8de9131c855438120443ffa0d47cdafd1c9add9cf8911453645431793ecc": {
+   "terrain": "snow_prism",
+   "seen": "2026-05-16"
+  },
+  "6bdabb41535049891a7b386cc07e2d924f6d42f987f36e96e0e2314aabc1d823": {
+   "terrain": "snow_prism",
+   "seen": "2026-05-18"
+  },
+  "3ce27886bfd5556b211b5416cc6a7b152f8769eb23c54f1eaf9a0ae5033b4bf6": {
+   "terrain": "death_valley",
+   "seen": "2026-05-23"
+  },
+  "2a34e984ab688af584be8fbbb36e53fd7c039ac53ab151b82ab2f9ae3897b756": {
+   "terrain": "death_valley",
+   "seen": "2026-05-25"
+  },
+  "e8714cb88d1ab6255720673329d27c6ee116ee40cd1b21902d4be37c6a93857b": {
+   "terrain": "death_valley",
+   "seen": "2026-05-26"
+  },
+  "c0914770b08b378377e556cb850fc43a1629bb03bb9c5591e3bc38985263f2cc": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-05-29"
+  },
+  "dbcd75a0defa26b5e072a4ede6b21532a81b5aad85e7ccfdb62ff1bf633774ec": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-05-29"
+  },
+  "9bfa52b3f5c4b4725116e685a011d52512503604c0ba364f530c7847e59b29d8": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-05-31"
+  },
+  "8b6f2c4525ec484330107915e0006d759f2c8ea92cd505eeed18e3899323f325": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-06-02"
+  },
+  "1820ee994c26b1e4fbd036eb59799ad1d41254810563db20f30f24a5970886a2": {
+   "terrain": "four_seasons",
+   "seen": "2026-06-06"
+  },
+  "ed72d9034923fec67a7ce4763bd5e1737ed4fc47050bc9c302d53d25a530af95": {
+   "terrain": "four_seasons",
+   "seen": "2026-06-07"
+  },
+  "19ca7fbb32980a3584d72542bc0d7c6aa1d2d29f40302b828de5478da0c30cf0": {
+   "terrain": "four_seasons",
+   "seen": "2026-06-08"
+  },
+  "2f1962b7d393485ad532aa167a4aef92fcba96358043021c0b0e3a69d373f3e7": {
+   "terrain": "four_seasons",
+   "seen": "2026-06-09"
+  },
+  "4559d6260ce8f879f5c145e74b0ac4dab392c7cdfc4e2b33187d78befabb4627": {
+   "terrain": "four_seasons",
+   "seen": "2026-06-10"
+  },
+  "7b201a9a2e8c65a3a5269202c8eee4e409fcf7fded6a73c8e4d8118dc79ed3e2": {
+   "terrain": "four_seasons",
+   "seen": "2026-06-11"
+  },
+  "df3f8108b59ae380c65ff530aea022843d0f152781ebf83a1cb6c0b856c41a91": {
+   "terrain": "duck_map",
+   "seen": "2026-06-15"
+  },
+  "c400bc5c0ad1e7211b5324f18f68fdd627f96e2b60d33ddfbd8745c46fbbc9b4": {
+   "terrain": "duck_map",
+   "seen": "2026-06-18"
+  },
+  "95d556dc4870e8932ae1ebddd860bb31272cd6dbac06ffc4e4a3731c5e9dcd0d": {
+   "terrain": "duck_map",
+   "seen": "2026-06-19"
+  },
+  "a7e8160e879034996963b7d0a212b2e80ba781873561d3357d324885d644a104": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-06-20"
+  },
+  "6d98499a21b3e0e38c4f1165d28a2feb9f37e74ca74578341323c88fd70a863e": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-06-25"
+  },
+  "3ad171791cc057626a6e777a0d607d1555ff9361a66d828e630cd97a94f56a0b": {
+   "terrain": "snow_prism",
+   "seen": "2026-07-01"
+  },
+  "8cb8ff0e7b355f25c1c1a5d02c2c298e44a0b0bfb09ff9e22f1a4a4b48cda442": {
+   "terrain": "sand_fort",
+   "seen": "2026-07-06"
+  },
+  "abda06f0c1c57028f9c67c326dda071b1f0304b886b08bf036c614c85abf5cfd": {
+   "terrain": "sand_fort",
+   "seen": "2026-07-08"
+  },
+  "c05a5245d931c9ec5dd310dc91fc546ad831732ab7aa820e314d848789683ff0": {
+   "terrain": "sand_fort",
+   "seen": "2026-07-10"
+  },
+  "23599898f4d53daddba79d30ddb27b624c23b339bd8b06482e036da02bf319cd": {
+   "terrain": "four_seasons",
+   "seen": "2026-07-12"
+  },
+  "e9995d93caec8d66aca3afa488cf938d94c3729bcc6ce55426cb47e69556a9b2": {
+   "terrain": "four_seasons",
+   "seen": "2026-07-13"
+  },
+  "cddd531d279bd1fa72695dc76f7a4c59a09941268b658efcb05b5bc2a236064a": {
+   "terrain": "duck_map",
+   "seen": "2026-07-21"
+  },
+  "638581e66a1be693c51ac2d511933f29711493a8fdc81ef7b3145a21f657aceb": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-07-29"
+  },
+  "83871df43e3f6e7a855e9442563f2877e3b11e67826f8cf2acaee0b7944e01b4": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-07-30"
+  },
+  "9de719274e40e7a7006afc241d847abb35af6f443a691ff8eb1df535cf22f4d6": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-07-30"
+  },
+  "c2e448bb4ce98ff69e1d6c7bc8f1c76e050c8cd5eb549a5fc9d612b7fc2c40ea": {
+   "terrain": "snow_prism",
+   "seen": "2026-08-04"
+  },
+  "376727e54e15d2bad8bb045c1ed99d236c32e6b17773a9f5da71e883e2637603": {
+   "terrain": "sand_fort",
+   "seen": "2026-08-09"
+  },
+  "1e846be1021897577929b96ac5cc79bc0b3c5b6b994aac825b1d4cdb174ee6f0": {
+   "terrain": "last_sanctuary",
+   "seen": "2026-08-11"
+  },
+  "85633d91d260d62048a53d286c52da3a63ae2c22d4bfc71cb6a7d27324eab267": {
+   "terrain": "maze",
+   "seen": "2026-08-11"
+  },
+  "e7b8b00445d71af7acf0a99b374feeaf10bb77ba57080c8bae7fb580f1db4944": {
+   "terrain": "maze",
+   "seen": "2026-08-13"
+  },
+  "2c5fcc91e1c62bbe80f6a25dc9ca0ef82e2d1e882e9699461c16df322baf64fa": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-08-15"
+  },
+  "bdf33f102db4c02412484b02e25466002c4962d722f9e83c02a15a55ff0c4369": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-08-16"
+  },
+  "5b3a4c232d156e1396c612bb21add528c6c5b1903c84d912e16eea38ffbaa4b3": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-08-18"
+  },
+  "d4bc3da7cef5bc6ba94f36f89e266d3c06efb86e485a0bc4833481c68a4e2073": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-08-19"
+  },
+  "c25f98143b10dfad4f01d07b0f22321a4ff61430b9f155d379357188d029dd4f": {
+   "terrain": "no_hope",
+   "seen": "2026-08-22"
+  },
+  "e0b1ada8597acf03dae4d1c887311d70abb1c41031247f02c1dba0af563103b4": {
+   "terrain": "no_hope",
+   "seen": "2026-08-26"
+  },
+  "fcadfca74fcaf4a98865ec8a09b6ecf8054b14bb12e690f4d5d1006e83f9c173": {
+   "terrain": "no_hope",
+   "seen": "2026-08-26"
+  },
+  "6d5305c67d2c0cf84127e79bcc4c7b832dae2a9ad5f1eb1131d12d2d51971e25": {
+   "terrain": "no_hope",
+   "seen": "2026-08-28"
+  },
+  "8bc5f1163056fabcfcbe768c0797467394c10b7e5c4c72311feecbc6ec6823db": {
+   "terrain": "aiur_fountains",
+   "seen": "2026-09-01"
+  },
+  "329dcf0edde66f2778c57022f42d1a420fc0c92dcd7fdf4beac7da53d619ec59": {
+   "terrain": "aduns_forgotten_temple",
+   "seen": "2026-09-11"
+  },
+  "9b56bc4a2a546e4588c860f06f3a9f68bc0f8266e8a51e43677a46ca21b784e7": {
+   "terrain": "zerus_volcanoes",
+   "seen": "2026-09-13"
+  },
+  "c901bbdd693416fdd6efae307bdad80edbf1043fc631fa2781d814adf385c29e": {
+   "terrain": "zerus_volcanoes",
+   "seen": "2026-09-16"
+  },
+  "3cb18bd42ec00368685e8ba2325593d0c779e3ac61803ac323bf902dbbb105ca": {
+   "terrain": "zerus_volcanoes",
+   "seen": "2026-09-18"
+  },
+  "ded55efdb0d14881ff44e5b02733cc6d987c1421549e9c40f8c72dc9ea8fe52b": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-09-19"
+  },
+  "2efbeb56b287a4970176a5c2e502bf6f427e36166c13609d36a359e693b4f89e": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-09-20"
+  },
+  "b932a28bb592b227a726c6997d2b20987adbdbc4712da69adab2840685daced0": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-09-21"
+  },
+  "c6b3693f4ab9dbb9d0dbf5518d45dd25e46d6e56beab25489a5fca75bd4b7e0d": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-09-23"
+  },
+  "7da1b46d7dd016de1d65a2227139896d9d75187a72a92d8b5a0c2266da585663": {
+   "terrain": "mar_sara_wastelands",
+   "seen": "2026-09-24"
+  },
+  "ef4427153b523e497a47127cdf997af527741300602b8224a9d11445833ad9f0": {
+   "terrain": "no_hope",
+   "seen": "2026-09-28"
+  },
+  "dc53ab97e3efa48b24ceeff148985beea2402f7d9cf83a03ec39964dceb6857b": {
+   "terrain": "no_hope",
+   "seen": "2026-10-03"
+  },
+  "d610caec0d17b4ed6ce775593f2dd5c1bfa7adbf34f29077d914d97ce3f6f501": {
+   "terrain": "aduns_forgotten_temple",
+   "seen": "2026-10-04"
+  },
+  "f81dbe7492ea94fff9b128ec728f906cba896fea87a29a85e92756a3d8b3fdd1": {
+   "terrain": "aduns_forgotten_temple",
+   "seen": "2026-10-08"
+  },
+  "79abd4804ba266c3651ed71fadc14b2a4ed49c0f0bedc4cc50363e8abe3cc363": {
+   "terrain": "aduns_forgotten_temple",
+   "seen": "2026-10-09"
+  },
+  "6d1c60036652a68cf11b78492bb7383dd466574ec0cf1f152d5f6f5490cd4d26": {
+   "terrain": "zerus_volcanoes",
+   "seen": "2026-10-12"
+  },
+  "98f79b4a4b20ddb565f007191b387efd997f5bf7f6e13179abbd3ac3fbf9ebfd": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-10-24"
+  },
+  "9c5ca150a1e6d805687d5f3eb3d16db3fef70e3357bb4846eb3d0b0ae41f1ce9": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-10-26"
+  },
+  "1018252247232f772fb25d0fcd68241dfd8e7bb39e500f1fc43761a537aac52e": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-10-27"
+  },
+  "05b6b1f56ce5f50c25c3e4c4c4e519b2933101fdffac18ea42e1dc348b0c5132": {
+   "terrain": "ruins_of_imladoon",
+   "seen": "2026-10-29"
+  },
+  "0a5bec9ac8f94f3e92684cd3562ba1a3848f23f300056018a64c05eca8cc3ad7": {
+   "terrain": "sand_fort",
+   "seen": "2026-11-04"
+  },
+  "6bb25735f2a288ef80b244a34883b20cef01772bce65835bb0e5947cf7d5f4bf": {
+   "terrain": "four_seasons",
+   "seen": "2026-11-09"
+  },
+  "13a6cc4810dc90cee8fc82064718671004acc22b2e3a919cded56eb4225a3e90": {
+   "terrain": "four_seasons",
+   "seen": "2026-11-12"
+  },
+  "be525f20ffe84a4e7419e0ff5e49eec8babd8a925cc086ad84dbf8aa9934a2b6": {
+   "terrain": "four_seasons",
+   "seen": "2026-11-13"
+  },
+  "414ee126f044fa6a78c24dc2b030bf92e45d8272967ccb78408eab05f5a50ac7": {
+   "terrain": "canal",
+   "seen": "2026-11-14"
+  },
+  "a1c187e9e03f025a3c222d96cdc3cd365e752b296f88eca92501d7aa951f0683": {
+   "terrain": "death_valley",
+   "seen": "2026-11-14"
+  }
+ }
+}

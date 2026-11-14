@@ -65,6 +65,16 @@ export type ReplayEvent =
   | { t: number; kind: 'chat'; pid: number; text: string; toAll: boolean }
   | { t: number; kind: 'ping'; pid: number; x: number; y: number }
 
+export interface ReplayVerify {
+  mapHash: string | null
+  /** 地图文件哈希在已知官方版本清单（data/ks2-map-hashes.json）里 */
+  mapKnown: boolean
+  dependencyCount: number
+  dependenciesOk: boolean
+  /** 录像是否带可验证签名。SC2 录像没有签名机制，目前恒为 false */
+  signed: boolean
+}
+
 export interface ReplayData {
   format: number
   hash: string
@@ -83,6 +93,8 @@ export interface ReplayData {
     winningTeam?: 0 | 1
     rockPercentage?: number
   }
+  /** 头部校验信息（parse_replay.precheck）。老数据可能没有 */
+  verify?: ReplayVerify
   players: ReplayPlayer[]
   types: ReplayUnitType[]
   upgrades: Record<string, { nameZh: string | null; icon: string | null }>

@@ -39,6 +39,7 @@ STEPS = [
     'build_tech.py',
     'build_units_v2.py',
     'build_terrain.py',
+    'build_map_hashes.py',   # 录像上传校验用的已知 KS2 地图版本清单（依赖缓存，须在 build_terrain 之后）
 ]
 
 

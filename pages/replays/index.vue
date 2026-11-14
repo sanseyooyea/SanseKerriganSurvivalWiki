@@ -4,6 +4,7 @@
     <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
       上传凯瑞甘生存2的 <code class="text-xs">.SC2Replay</code> 录像，在地形底图上回放英雄走位与交战，
       英雄阵亡、科技、离开等关键事件标注在时间轴上。
+      录像由玩家上传、未经官方验证，内容仅供参考，不计入本站任何统计。
     </p>
 
     <!-- 上传 -->
@@ -69,6 +70,8 @@
               {{ r.summary.winningTeam === 1 ? '凯瑞甘胜' : '幸存者胜' }}
             </span>
             <span v-else class="ml-auto px-1.5 py-0.5 rounded text-[11px] bg-surface-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400">未完赛</span>
+            <span v-if="r.summary && r.summary.mapKnown === false" title="地图文件不在本站收录的官方版本里"
+              class="px-1.5 py-0.5 rounded text-[11px] bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-200">未知版本</span>
           </div>
           <div class="text-xs text-gray-400 mt-0.5">
             {{ r.summary ? fmtDate(r.summary.date) : '' }}
@@ -107,6 +110,7 @@ interface Summary {
   loops: number
   date: string
   winningTeam: 0 | 1 | null
+  mapKnown?: boolean
   players: { name: string; role: string | null; team: 0 | 1 | null }[]
 }
 interface Row {

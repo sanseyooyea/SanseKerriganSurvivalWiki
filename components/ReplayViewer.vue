@@ -15,6 +15,24 @@
       <span v-if="!terrain" class="text-xs text-amber-600 dark:text-amber-400">未找到该地图地形底图，以网格代替</span>
     </div>
 
+    <!-- 可信度说明：录像没有签名，内容可能被改过；如实告知，不暗示是官方认证对局 -->
+    <div class="flex items-start gap-2 rounded-lg px-3 py-2 text-xs leading-relaxed"
+      :class="verifyLevel === 'unknown'
+        ? 'bg-amber-50 text-amber-800 dark:bg-amber-900/20 dark:text-amber-200'
+        : 'bg-surface-50 text-gray-500 dark:bg-gray-800/60 dark:text-gray-400'">
+      <span aria-hidden="true" class="mt-px">{{ verifyLevel === 'unknown' ? '⚠' : 'ⓘ' }}</span>
+      <span>
+        <template v-if="verifyLevel === 'unknown'">
+          <b class="font-medium">未知地图版本</b>：本局使用的地图文件不在本站已收录的凯瑞甘生存2官方版本里，
+          可能是外服版本、本站未收录的旧版本，也可能是被修改过的地图。
+        </template>
+        <template v-else-if="verifyLevel === 'known'">
+          地图文件与本站收录的凯瑞甘生存2官方版本一致。
+        </template>
+        录像由玩家上传，未经官方验证，内容可能被修改过，玩家、胜负与数据<b class="font-medium">仅供参考</b>，不计入本站任何统计。
+      </span>
+    </div>
+
     <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]">
       <!-- 地图画布 -->
       <div class="space-y-2 min-w-0">
@@ -181,6 +199,13 @@ const mapName = computed(() => {
   return m?.nameZh || props.data.meta.mapEnum || props.data.meta.mapTitle
 })
 const dateText = computed(() => new Date(props.data.meta.date).toLocaleString('zh-CN', { hour12: false }))
+// known = 地图哈希在已知官方版本清单里；unknown = 不在；legacy = 旧数据没有校验信息
+const verifyLevel = computed<'known' | 'unknown' | 'legacy'>(() => {
+  const v = props.data.verify
+  if (!v) return 'legacy'
+  return v.mapKnown && v.dependenciesOk ? 'known' : 'unknown'
+})
+
 const winnerText = computed(() => {
   const w = props.data.meta.winningTeam
   return w === 0 ? '幸存者胜利' : w === 1 ? '凯瑞甘方胜利' : ''

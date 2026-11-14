@@ -42,6 +42,21 @@ import sc2reader  # noqa: E402
 from sc2reader.engine import GameEngine
 from sc2reader.engine.plugins import ContextLoader, SelectionTracker
 
+
+class _ContextLoader(ContextLoader):
+    """修 sc2reader 1.8 的 bug：位置采样引用了不存在的单位时，它打错误日志用的是
+    UnitPositionsEvent 根本没有的 event.killer_pid，直接 AttributeError 让整局解析失败。
+    这里改为跳过这类孤立坐标（只影响那一个采样点）。"""
+
+    def handleUnitPositionsEvent(self, event, replay):
+        if not replay.datapack:
+            return
+        for unit_index, (x, y) in event.positions:
+            unit = replay.active_units.get(unit_index)
+            if unit is not None:
+                unit.location = (x, y)
+                event.units[unit] = unit.location
+
 FORMAT_VERSION = 1
 
 # 退出码（服务端据此给用户提示）
@@ -53,9 +68,55 @@ EXIT_NO_MEMORY = 4    # 超出内存上限
 
 class NotKS2Replay(Exception):
     pass
+
+
 LOOPS_PER_GAME_SEC = 16.0
 WIKI_ROOT = Path(__file__).resolve().parents[2]
 DATA = WIKI_ROOT / "data"
+
+# 与 ksreplayanalyzer 的 AUTHORIZED_MAPS 一致：KS2 各区服 / 各时期用过的地图标题
+KS2_MAP_TITLES = {"Kerrigan Survival", "Kerrigan Survival 2", "凯瑞甘生存2", "凯瑞甘生存2 最新版"}
+# 依赖文件数：官方 KS2 恒为 12（国服偶见 13）。多出来通常是挂了别的模组
+KS2_DEPENDENCY_COUNTS = {12, 13}
+
+
+def _known_map_hashes() -> dict:
+    p = DATA / "ks2-map-hashes.json"
+    try:
+        with open(p, encoding="utf-8") as f:
+            return json.load(f).get("maps", {})
+    except (OSError, ValueError):
+        return {}
+
+
+def precheck(path: str) -> dict:
+    """只读录像头（~10ms，不解析事件流）判断是不是 KS2，并给出校验信息。
+
+    硬性条件（不满足 -> NotKS2Replay，直接拒收）：
+      - 地图标题在 KS2_MAP_TITLES 里
+      - 没有加载扩展模组
+    软性信息（记录下来供页面提示，不拒收）：
+      - 地图文件哈希是否在已知官方版本清单里
+      - 依赖文件数是否为官方的 12/13
+    注意：这些都只能说明「看起来是 KS2 录像」，录像本身没有签名，内容仍可能被改过。
+    """
+    head = sc2reader.load_replay(path, load_level=1)
+    title = head.map_name or ""
+    if title not in KS2_MAP_TITLES:
+        raise NotKS2Replay(f"不是凯瑞甘生存2录像（地图：{title or '未知'}）")
+    gd = head.raw_data.get("replay.initData", {}).get("game_description", {})
+    if gd.get("has_extension_mod") or gd.get("has_nonBlizzardExtensionMod"):
+        raise NotKS2Replay("录像加载了扩展模组，不是标准的凯瑞甘生存2对局")
+    handles = head.raw_data.get("replay.details", {}).get("cache_handles", [])
+    map_hash = handles[-1].hash.lower() if handles else None
+    known = _known_map_hashes()
+    return {
+        "mapHash": map_hash,
+        "mapKnown": bool(map_hash and map_hash in known),
+        "dependencyCount": len(handles),
+        "dependenciesOk": len(handles) in KS2_DEPENDENCY_COUNTS,
+        "signed": False,  # SC2 录像没有签名机制；留字段，若将来地图写入签名可在此校验
+    }
 
 # ks_constants.maps.Map 的索引顺序（ReplayStatsMapId 的值）。小写即 wiki 地形 key。
 MAP_IDS = [
@@ -160,12 +221,14 @@ def _off_map(x, y) -> bool:
 
 def parse(path: str, wiki: WikiData | None = None) -> dict:
     wiki = wiki or WikiData()
+    # 先做头部快速校验：非 KS2 录像在这里就被拒，不浪费完整解析的 1–2 秒
+    verify = precheck(path)
     with open(path, "rb") as f:
         raw = f.read()
     file_hash = hashlib.md5(raw).hexdigest()
 
     replay = sc2reader.load_replay(
-        path, load_level=4, engine=GameEngine(plugins=[ContextLoader(), SelectionTracker()]))
+        path, load_level=4, engine=GameEngine(plugins=[_ContextLoader(), SelectionTracker()]))
     # sc2reader 引擎会把插件内的异常（含 MemoryError）吞成 PluginExit 继续跑，这里显式检查
     for plugin, (code, details) in getattr(replay, "plugin_result", {}).items():
         if code != 0 and "MemoryError" in str(details):
@@ -374,6 +437,7 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
             "loopsPerSecond": 22.4,
             **game,
         },
+        "verify": verify,
         "players": sorted(players.values(), key=lambda p: p["pid"]),
         "types": [wiki.unit_info(t) for t in types],
         "upgrades": {u: wiki.upgrades.get(u, {"nameZh": None, "icon": None}) for u in sorted(upgrade_names)},
@@ -538,6 +602,7 @@ def _index_entry(data, file_name):
         "mapKey": m["mapKey"],
         "loops": m["loops"],
         "winningTeam": m.get("winningTeam"),
+        "mapKnown": data.get("verify", {}).get("mapKnown", False),
         "players": [{"name": p["name"], "role": p.get("roleNameZh") or p.get("roleNameEn"),
                      "team": p["team"]} for p in data["players"]],
     }

@@ -222,6 +222,12 @@ MMR 历史走势，读 `data/stats.db` 的 `mmr_history`。缓存 5 分钟。库
 
 失败原因对应解析器退出码：2 = 不是 KS2 录像，3 = 文件损坏或版本不支持，4 = 超出内存上限；另有「解析超时」。
 
+**录像校验**（`parse_replay.precheck`，只读录像头，约 5ms，在完整解析之前）：
+
+- 拒收：地图标题不在 KS2 名单（`Kerrigan Survival` / `Kerrigan Survival 2` / `凯瑞甘生存2` / `凯瑞甘生存2 最新版`），或加载了扩展模组。
+- 记录但不拒收：地图文件 SHA-256 是否在 `data/ks2-map-hashes.json`（已知官方版本，由 `scripts/build_map_hashes.py` 从本机 Battle.net 缓存生成，`build_all.py` 会跑），以及依赖文件数是否为 12/13。结果在回放 JSON 的 `verify` 字段和列表摘要的 `mapKnown` 字段里。
+- 局限：SC2 录像没有签名，以上检查都只能说明「看起来是 KS2 录像」，挡不住改过内容的录像。页面上所有录像都标注「未经官方验证、仅供参考、不计入统计」。外服版本默认是「未知版本」，在游戏里打开一次对应录像、让客户端把地图拉进缓存后重跑 `build_map_hashes.py` 即可收录。
+
 ---
 
 ## 建议反馈 `/api/feedback`
