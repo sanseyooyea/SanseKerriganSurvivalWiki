@@ -150,7 +150,8 @@ const allUpgrades = computed(() => {
     .map((e) => {
       seen[e.upgrade] = (seen[e.upgrade] || 0) + 1
       const info = props.data.upgrades[e.upgrade]
-      return { t: e.t, name: info?.nameZh || e.upgrade, icon: info?.icon || null, level: seen[e.upgrade] }
+      // 地图没给图标的（天赋/被动类）用玩家职业头像，不留空白
+      return { t: e.t, name: info?.nameZh || e.upgrade, icon: info?.icon || icon.value, level: seen[e.upgrade] }
     })
 })
 const doneUpgrades = computed(() => allUpgrades.value.filter(u => u.t <= props.t))

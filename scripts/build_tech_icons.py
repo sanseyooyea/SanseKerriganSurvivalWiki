@@ -58,6 +58,15 @@ def needed_icons():
             for icon in [u.get('icon'), *(u.get('iconCandidates') or [])]:
                 if icon and not icon.startswith('/'):
                     need.add(icon)
+    # 录像回放的全量名表（build_replay_names.py）：只转每个条目的首个候选，避免把整套美术都搬进来
+    replay_names = os.path.join(ROOT, 'data', 'replay-names.json')
+    if os.path.exists(replay_names):
+        rn = json.load(open(replay_names, encoding='utf-8'))
+        for d in rn.values():
+            for v in d.values():
+                for icon in (v.get('iconCandidates') or [])[:2]:
+                    if icon and not icon.startswith('/'):
+                        need.add(icon)
     return need
 
 

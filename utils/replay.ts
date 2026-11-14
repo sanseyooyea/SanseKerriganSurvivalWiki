@@ -1,5 +1,5 @@
 /**
- * 录像回放数据模型 + 解码。数据由 scripts/replay/parse_replay.py 生成（format 1）。
+ * 录像回放数据模型 + 解码。数据由 scripts/replay/parse_replay.py 生成（当前 format 3）。
  *
  * 时间单位一律为 game loop；游戏内计时器 = loop / 22.4（"更快"速度）。
  * 扁平数组约定（省体积）：

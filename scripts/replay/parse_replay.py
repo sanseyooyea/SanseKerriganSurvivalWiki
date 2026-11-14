@@ -58,7 +58,7 @@ class _ContextLoader(ContextLoader):
                 unit.location = (x, y)
                 event.units[unit] = unit.location
 
-FORMAT_VERSION = 2  # 2: 全量性能指标(已还原量级) + econ 经济快照 + summary 带玩家战绩
+FORMAT_VERSION = 3  # 3: 全量中文名/图标、过滤系统计数器升级； 2: 全量性能指标(已还原量级) + econ 经济快照 + summary 带玩家战绩
 
 # 退出码（服务端据此给用户提示）
 EXIT_OK = 0
@@ -190,6 +190,10 @@ SKIP_UNIT_EXACT = {
 }
 # 外观/商店解锁类"科技"，不是对局事件
 COSMETIC_UPGRADE_PREFIX = ("Unlock", "Use", "ShopUnlock", "ShopUse", "Reward", "Skin")
+# 地图内部的记账/状态计数器（天赋点余额、法球等级上限、开局计时……），不是玩家购买的科技
+SYSTEM_UPGRADE_RE = re.compile(
+    r"(?:PointsAvailable|PointsSpent|LevelTooHigh)$|^(?:BlinkedOnce|GameTimeGreaterthan\d+Seconds|"
+    r"VoidStoryUnitGlobalUpgrade|GhostAlternate|PVDJ)$")
 BOSS_UNITS = {"SwarmBrutalisk", "SwarmSOMF", "SwarmOmegalisk"}
 POINT_MOVE_ABILITIES = {"", "RightClick", "Move", "Attack", "AttackMove", "MoveHoldPosition"}
 DEFAULT_HERO_SPEED = 2.75
@@ -224,6 +228,10 @@ class WikiData:
         for hero in _load_json("tech.json", []):
             for up in hero.get("upgrades", []):
                 self.upgrades.setdefault(up["id"], {"nameZh": up.get("nameZh"), "icon": up.get("icon")})
+        # 全量名表（scripts/build_replay_names.py 从地图直接读的所有单位/升级），上面查不到时兜底
+        rn = _load_json("replay-names.json", {})
+        self.fallback_units = rn.get("units", {})
+        self.fallback_upgrades = rn.get("upgrades", {})
         # 分级科技（如 ZergMeleeAttacksLevel2）：单位表的 upgrade family 记录了每级的 upgrade id
         self.upgrade_levels = {}
         for fam in self._families(units_root):
@@ -244,6 +252,16 @@ class WikiData:
                 stack.extend(x)
 
     def upgrade_info(self, uid):
+        info = dict(self._upgrade_info(uid))
+        fb = self.fallback_upgrades.get(uid) or {}
+        # 单位表里有些分级科技族的「中文名」其实还是英文 id（DJRadiusIncrease），这时用地图名表的
+        if fb.get("nameZh") and not _has_cjk(info.get("nameZh")):
+            info["nameZh"] = fb.get("nameZh")
+        if not info.get("icon"):
+            info["icon"] = fb.get("icon")
+        return info
+
+    def _upgrade_info(self, uid):
         """科技中文名/图标。顺序：科技表精确 id → 单位表分级科技 → 科技表去掉 LevelN/数字后缀。"""
         if uid in self.upgrades:
             return self.upgrades[uid]
@@ -270,8 +288,13 @@ class WikiData:
 
     def unit_info(self, utype):
         u = self.units.get(utype) or {}
-        return {"id": utype, "nameZh": u.get("nameZh"), "icon": u.get("icon"),
+        fb = self.fallback_units.get(utype) or {}
+        return {"id": utype, "nameZh": u.get("nameZh") or fb.get("nameZh"), "icon": u.get("icon") or fb.get("icon"),
                 "category": u.get("category")}
+
+
+def _has_cjk(s) -> bool:
+    return bool(s) and any("一" <= ch <= "鿿" for ch in s)
 
 
 def _off_map(x, y) -> bool:
@@ -402,7 +425,7 @@ def parse(path: str, wiki: WikiData | None = None) -> dict:
                     rec["track"].append([loop, float(x), float(y)])
         elif n == "UpgradeCompleteEvent":
             name = e.upgrade_type_name
-            if e.count <= 0 or name.startswith(COSMETIC_UPGRADE_PREFIX):
+            if e.count <= 0 or name.startswith(COSMETIC_UPGRADE_PREFIX) or SYSTEM_UPGRADE_RE.search(name):
                 continue
             if e.pid not in players:
                 continue
