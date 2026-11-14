@@ -134,6 +134,18 @@
       "date": "2026-08-28"
     },
     {
+      "key": "canal",
+      "map": "Canal",
+      "nameZh": "运河",
+      "tileset": "Canal",
+      "worldSize": 256,
+      "minimap": "/maps/canal.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 96,
+      "date": "2026-08-14"
+    },
+    {
       "key": "maze",
       "map": "Maze",
       "nameZh": "迷宫",
