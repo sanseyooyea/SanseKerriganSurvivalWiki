@@ -1,6 +1,18 @@
 {
-  "defaultMap": "four_seasons",
+  "defaultMap": "death_valley",
   "maps": [
+    {
+      "key": "death_valley",
+      "map": "DeathValley",
+      "nameZh": "死亡谷",
+      "tileset": "DeathValleyTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/death_valley.png",
+      "rockModel": "ZerusVolcanoesRock",
+      "rockProbDefault": 0.5,
+      "candidateCount": 175,
+      "date": null
+    },
     {
       "key": "four_seasons",
       "map": "FourSeasons",
@@ -11,7 +23,7 @@
       "rockModel": null,
       "rockProbDefault": 0.5,
       "candidateCount": 171,
-      "date": null
+      "date": "2026-11-10"
     },
     {
       "key": "sand_fort",
@@ -182,12 +194,12 @@
       "date": "2026-06-02"
     },
     {
-      "key": "death_valley",
+      "key": "death_valley_20260526",
       "map": "DeathValley",
       "nameZh": "死亡谷",
       "tileset": "DeathValleyTerrainType",
       "worldSize": 256,
-      "minimap": "/maps/death_valley.png",
+      "minimap": "/maps/death_valley_20260526.png",
       "rockModel": "ZerusVolcanoesRock",
       "rockProbDefault": 0.5,
       "candidateCount": 175,

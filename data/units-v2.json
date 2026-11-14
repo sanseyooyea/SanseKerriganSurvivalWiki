@@ -46427,7 +46427,7 @@
           "from": "HornerHorner",
           "abil": "Horner3DeployMagMine",
           "kind": "summon",
-          "cooldown": 5,
+          "cooldown": 10,
           "count": 1,
           "units": [
             "MagneticMine_SpawnerUnit"
@@ -46437,7 +46437,7 @@
           "from": "HornerHorner",
           "abil": "Horner6SpaceStationReallocation",
           "kind": "summon",
-          "cooldown": 10,
+          "cooldown": 15,
           "count": 1,
           "units": [
             "HornerSpaceStation"
@@ -127840,8 +127840,7 @@
         }
       ],
       "iconCandidates": [
-        "btn-ability-protoss-psionicorb.png",
-        "btn-ability-stetmann-garytravelingdamageorb.png"
+        "btn-ability-protoss-psionicorb.png"
       ]
     },
     "IceOrb": {
@@ -127999,8 +127998,7 @@
       ],
       "iconCandidates": [
         "btn-ability-stetmann-garytravelingdamageorb.png",
-        "btn-ability-protoss-shadowcannon.png",
-        "btn-ability-mengsk-marauder-selfabsorbshield.png"
+        "btn-ability-protoss-shadowcannon.png"
       ]
     },
     "StormOrb": {
@@ -128080,8 +128078,7 @@
       ],
       "iconCandidates": [
         "btn-ability-stetmann-garytravelingdamageorb.png",
-        "btn-ability-kerrigan-crushinggrip.png",
-        "btn-ability-terran-electricfield.png"
+        "btn-ability-kerrigan-crushinggrip.png"
       ]
     },
     "BrakkBrakk": {
@@ -205239,7 +205236,7 @@
         "radius": 1
       },
       "cost": {
-        "minerals": 100,
+        "minerals": 110,
         "gas": 1,
         "food": 0,
         "supplyProvided": 0
@@ -205310,7 +205307,7 @@
         "radius": 1
       },
       "cost": {
-        "minerals": 275,
+        "minerals": 300,
         "gas": 3,
         "food": 0,
         "supplyProvided": 0
@@ -205381,7 +205378,7 @@
         "radius": 1
       },
       "cost": {
-        "minerals": 600,
+        "minerals": 625,
         "gas": 8,
         "food": 0,
         "supplyProvided": 0
@@ -205977,7 +205974,7 @@
       "category": "troop",
       "stats": {
         "hp": 100,
-        "shield": 100,
+        "shield": 90,
         "armor": 0,
         "shieldArmor": 0,
         "hpRegen": 0,
@@ -208522,7 +208519,7 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 10,
+        "minerals": 15,
         "gas": 0,
         "food": 0,
         "supplyProvided": 0
@@ -209737,23 +209734,23 @@
         "energy": 0,
         "speed": 0,
         "creepSpeedMul": null,
-        "sight": 6,
+        "sight": 8,
         "armorName": "TerranBuildingPlating",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
         "radius": 0.75
       },
       "cost": {
-        "minerals": 85,
+        "minerals": 115,
         "gas": 0,
         "food": 1,
         "supplyProvided": 0,
         "listed": {
-          "minerals": 85,
+          "minerals": 100,
           "gas": 0
         },
         "acquire": {
-          "minerals": 85,
+          "minerals": 115,
           "gas": 0,
           "steps": [
             {
@@ -209761,7 +209758,7 @@
               "from": "JunkerSCV",
               "to": "JunkerLightbulb",
               "abil": "JunkerSCVBuild",
-              "minerals": 10,
+              "minerals": 15,
               "gas": 0
             },
             {
@@ -209769,7 +209766,7 @@
               "from": "JunkerLightbulb",
               "to": "JunkerLightBeacon",
               "abil": "JunkerUpgradeLightbulb",
-              "minerals": 75,
+              "minerals": 100,
               "gas": 0
             }
           ]
@@ -210443,7 +210440,7 @@
           "id": "LaserBattery",
           "nameZh": "激光炮台",
           "period": 0.4,
-          "range": 6,
+          "range": 4,
           "minRange": null,
           "melee": false,
           "suicide": false,
@@ -210483,7 +210480,7 @@
               "upgrade": "HornerArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210508,7 +210505,7 @@
               "upgrade": "HornerArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210533,7 +210530,7 @@
               "upgrade": "HornerArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210571,7 +210568,7 @@
               "upgrade": "HornerAttack1",
               "minerals": 500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210586,7 +210583,7 @@
               "upgrade": "HornerAttack2",
               "minerals": 2500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210601,7 +210598,7 @@
               "upgrade": "HornerAttack3",
               "minerals": 10000,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210630,7 +210627,7 @@
               "upgrade": "HornerCorvidReactor",
               "minerals": 2500,
               "gas": 25,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210664,7 +210661,7 @@
               "upgrade": "HornerFireControlSystem",
               "minerals": 3000,
               "gas": 30,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210699,7 +210696,7 @@
               "upgrade": "HornerForceShield",
               "minerals": 2500,
               "gas": 25,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -210742,13 +210739,13 @@
               "upgrade": "HornerIgniteAfterburners",
               "minerals": 2500,
               "gas": 25,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
                   "ref": "Unit,HornerHorner,Speed",
                   "op": "Add",
-                  "value": 0.5
+                  "value": 0.25
                 }
               ]
             }
@@ -210909,7 +210906,7 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 0,
+        "minerals": 25,
         "gas": 0,
         "food": 0,
         "supplyProvided": 0
@@ -211258,7 +211255,7 @@
       "cost": {
         "minerals": 225,
         "gas": 5,
-        "food": 2,
+        "food": 3,
         "supplyProvided": 0,
         "listed": {
           "minerals": 225,
@@ -211317,7 +211314,7 @@
               "upgrade": "HornerArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -211342,7 +211339,7 @@
               "upgrade": "HornerArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -211367,7 +211364,7 @@
               "upgrade": "HornerArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -211406,7 +211403,7 @@
               "upgrade": "HornerCorvidReactor",
               "minerals": 2500,
               "gas": 25,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -211439,13 +211436,13 @@
               "upgrade": "HornerIgniteAfterburners",
               "minerals": 2500,
               "gas": 25,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
                   "ref": "Unit,TheiaRaven,Speed",
                   "op": "Add",
-                  "value": 0.5
+                  "value": 0.25
                 }
               ]
             }
@@ -212247,7 +212244,7 @@
               "upgrade": "HornerArmor1",
               "minerals": 500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -212267,7 +212264,7 @@
               "upgrade": "HornerArmor2",
               "minerals": 2500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -212287,7 +212284,7 @@
               "upgrade": "HornerArmor3",
               "minerals": 10000,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -212323,7 +212320,7 @@
               "upgrade": "HornerAttack1",
               "minerals": 500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -212353,7 +212350,7 @@
               "upgrade": "HornerAttack2",
               "minerals": 2500,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
@@ -212383,7 +212380,7 @@
               "upgrade": "HornerAttack3",
               "minerals": 10000,
               "gas": 0,
-              "time": 5,
+              "time": 10,
               "researchedBy": "HornerArmoryResearch",
               "effects": [
                 {
