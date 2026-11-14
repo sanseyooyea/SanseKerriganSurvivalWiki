@@ -1,167 +1,129 @@
 # 部署指南
 
-## 环境要求
+## 线上环境
 
-- 服务器：Linux (推荐 2C2G+)
-- Docker + Docker Compose
-- 开放端口：8080（或80）
-- Node.js 22+（Nuxt 3.21要求，Docker镜像已包含）
+- 服务器：阿里云 ECS，**2C2G、无 swap**，项目目录 `/opt/ks2-wiki`
+- 域名：`wiki.ks2.top`，宿主机 Nginx 反代到容器 `8080:3000`，HTTPS 用 Let's Encrypt（certbot nginx 插件自动续期）
+- 容器：`docker-compose.runner.yml`（服务名 `wiki`，容器名 `ks2-wiki`，`mem_limit: 768m`，日志 10MB×3 轮转），`./data` 挂载到 `/app/data`
+- Node.js 22（镜像内置）
 
-## 打包
+> ⚠️ **不要在服务器上跑 `nuxt build`**：2G 内存会 OOM，整机磁盘 IO 打满假死，只能控制台重启。
+> 所以生产一律走下面的「本地构建部署」。仓库里的 `Dockerfile` / `docker-compose.yml` / `pack.sh` / `update.sh`
+> 是服务器端构建的旧方式，只适合内存充足的机器，见文末。
 
-在本地项目目录执行：
+## 环境变量 `.env`
+
+复制 `.env.example` 为 `.env`（已被 `.gitignore` 排除）：
+
+| 键 | 必填 | 说明 |
+|---|---|---|
+| `JWT_SECRET` | 是 | JWT 签名密钥，生产缺失会拒绝启动。`openssl rand -base64 48` |
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` / `SMTP_FROM` | 否 | 忘记密码发信。`SMTP_HOST` 为空时不发信，重置链接打到容器日志。端口 465 自动走 SSL |
+| `APP_URL` | 否 | 站点公开地址（重置链接前缀，末尾不带 `/`），如 `https://wiki.ks2.top` |
+
+compose 用 `env_file: .env` 把整个文件注入容器。**`deploy` 不会覆盖服务器上的 `.env`**，改了环境变量要单独推：
 
 ```bash
-bash pack.sh
+KS2_PW='...' python deploy_paramiko.py set-env
 ```
 
-生成 `ks2-wiki-deploy.tar.gz`（约86MB，含角色立绘和 catalog 数据），已排除 node_modules、构建产物及用户数据库。
+它只推送本地 `.env` 里的 `SMTP_*` / `APP_URL`（保留服务器上的 `JWT_SECRET` 等其他键），先备份旧 `.env`，经 SFTP 写入（权限 600），同步 `docker-compose.runner.yml` 后 `up -d` 重启。
 
-## 首次部署
-
-```bash
-# 上传到服务器
-scp ks2-wiki-deploy.tar.gz root@服务器IP:/opt/
-
-# SSH到服务器
-ssh root@服务器IP
-mkdir -p /opt/ks2-wiki && cd /opt/ks2-wiki
-tar -xzf /opt/ks2-wiki-deploy.tar.gz
-
-# 生成密钥
-echo "JWT_SECRET=$(openssl rand -hex 32)" > .env
-
-# 构建并启动
-docker compose build
-docker compose up -d
-```
-
-访问 `http://服务器IP:8080`，第一个注册的用户自动成为admin。
-
-## 更新部署（保留用户数据）
-
-> ⚠️ **2G 内存服务器必读**：生产服务器内存仅 2G 且无 swap，**不能在容器内跑 `nuxt build`**
-> （会 OOM 把整机磁盘 IO 打满假死，需控制台重启）。请改用下方「本地构建部署」。原始的
-> 服务器端构建方式（`Dockerfile` + `docker-compose.yml`）仅适合内存充足的机器。
-
-### 本地构建部署（推荐，绕开服务器 OOM）
-
-本机（内存充足）先 `nuxt build` 出 `.output`，打进部署包；服务器端只用 `Dockerfile.runner`
-安装唯一的原生依赖 `better-sqlite3`（Linux 预编译二进制），**不在服务器跑 nuxt build**。
+## 本地构建部署（日常）
 
 ```bash
-# 1. 本地构建 + 打包（pack-local.sh 内部已 npm run build，并用 tar -h 解引用 nitro 软链接）
+# 1. 本地 nuxt build + 打包 ks2-wiki-deploy.tar.gz
 bash pack-local.sh
 
-# 2. 上传 + 远程部署（密码走环境变量，绝不写进文件）
+# 2. 上传 + 远程部署（密码只走环境变量，绝不写进文件）
 KS2_PW='服务器密码' python deploy_paramiko.py deploy
-# 也可先 precheck / 查状态 / 看日志：
-KS2_PW='...' python deploy_paramiko.py precheck
-KS2_PW='...' python deploy_paramiko.py logs
 ```
 
-关键文件：`Dockerfile.runner`、`Dockerfile.runner.dockerignore`（不排除 `.output`）、
-`docker-compose.runner.yml`、`package.runner.json`。三个易踩的坑：
-1. `tar` 必须加 `-h`：nitro 的 `.output/server/node_modules` 是指向 `.nitro/` 的**绝对路径软链接**，
-   不解引用会导致 Linux 容器里 `Cannot find module`（如 `entities/decode`，表现为 500）。
-2. 本地 `.output` 里的 `better_sqlite3.node` 是 Windows 二进制，`Dockerfile.runner` 会用容器内
-   `npm install` 出的 Linux 版覆盖它。
-3. 默认 `.dockerignore` 排除了 `.output`，所以用专属的 `Dockerfile.runner.dockerignore`。
+`pack-local.sh` 内部执行 `NUXT_IGNORE_LOCK=1 npm run build`（可与 dev 服务器并存），然后把 `.output`、`data`（排除 `wiki.db*`）、`public`、`scripts` 及 runner 相关文件打成一个包。2026-11 时包约 320MB，大头是 `data/stats.db`（~70MB）、角色立绘（~86MB）、皮肤 GLB（~45MB）与各类图标。
 
-`deploy_paramiko.py deploy` 会：上传 → 备份 `wiki.db` → 排除用户数据解压 → `docker compose
--f docker-compose.runner.yml build`（仅装原生依赖，秒级）→ `up -d` → 清理。全程不跑 nuxt build。
+`deploy_paramiko.py deploy` 的步骤：
 
-### 服务器端构建部署（仅限内存充足的机器）
+1. 预检（目录 / `JWT_SECRET` / docker 版本）
+2. SFTP 上传包
+3. 备份 `data/wiki.db` → `data/wiki.db.bak.<时间戳>`（裸 cp，仅作部署回滚兜底；定时备份见 [BACKUP.md](BACKUP.md)）
+4. 解压，排除 `data/wiki.db*` 与 `backups/`
+5. `docker compose -f docker-compose.runner.yml build --pull`——`--pull` 强制拉新 `node:22-slim`，避免复用带漏洞的旧运行时
+6. `up -d`
+7. 清理：删上传包、`wiki.db.bak.*` 只留最近 5 份、`docker image prune` + `docker builder prune`（悬空镜像堆积曾撑满磁盘，导致 Nginx `ERR_CONTENT_LENGTH_MISMATCH`）
 
-更新流程已封装进 `update.sh`，会自动备份数据库、排除用户数据、重建并重启容器。
+**它只上传现成的包，不会构建**——改完代码一定先跑 `pack-local.sh`，否则会把旧包再发一次，退出码照样是 0。部署后请打开一个本次新增或改动的页面确认生效，不要只看首页返回 200。
 
-**1. 本地打包**
+### 其他动作
 
 ```bash
-bash pack.sh
+KS2_PW='...' python deploy_paramiko.py precheck     # 只做预检（默认动作）
+KS2_PW='...' python deploy_paramiko.py ps           # 容器状态
+KS2_PW='...' python deploy_paramiko.py logs         # 最近 80 行日志
+KS2_PW='...' python deploy_paramiko.py set-env      # 推送 SMTP_*/APP_URL，见上
+KS2_PW='...' python deploy_paramiko.py push-backup  # 上传 scripts/backup.sh 并立即跑一次
+KS2_PW='...' python deploy_paramiko.py cron         # 安装每日 04:17 备份 crontab（幂等）
+KS2_PW='...' python deploy_paramiko.py drill        # 用最新备份做一次恢复演练
 ```
 
-`pack.sh` 已排除 `data/wiki.db`（含 `-shm`/`-wal`），打出的包不含任何用户数据。
-
-**2. 上传到服务器**
+### 对局统计一键刷新 + 部署
 
 ```bash
-scp ks2-wiki-deploy.tar.gz root@your-server-ip:/opt/ks2-wiki-deploy.tar.gz
+KS2_PW='...' bash refresh-and-deploy.sh
 ```
 
-**3. 服务器上执行更新**
+拉取新转储 → 重建 `balance.json` / `stats.db` / `meta-history.json` → 提交并直推 main → `pack-local.sh` → `deploy`。无新转储时直接退出。详见 [STATS_PIPELINE.md](STATS_PIPELINE.md)。
+
+### Runner 镜像的三个坑
+
+`Dockerfile.runner` 只做一件事：为 `better-sqlite3` 装 Linux 原生二进制（换了阿里云 apt 源 + npmmirror；预编译包拉不到时用 python3/make/g++ 从源码编译，编完卸掉）。
+
+1. `tar` 必须加 `-h`：nitro 的 `.output/server/node_modules` 是指向 `.nitro/` 的**绝对路径软链接**，不解引用会导致容器里 `Cannot find module`（如 `entities/decode`，表现为 500）。
+2. 本地 `.output` 里的 `better_sqlite3.node` 是 Windows 二进制，`Dockerfile.runner` 会用容器内装出的 Linux 版覆盖。
+3. 默认 `.dockerignore` 排除了 `.output`，所以 runner 用专属的 `Dockerfile.runner.dockerignore`。
+
+## 首次部署（新服务器）
 
 ```bash
-ssh root@your-server-ip 'cd /opt/ks2-wiki && ./update.sh'
+# 本地
+bash pack-local.sh
+scp ks2-wiki-deploy.tar.gz root@服务器IP:/opt/
+
+# 服务器
+mkdir -p /opt/ks2-wiki && cd /opt/ks2-wiki
+tar -xzf /opt/ks2-wiki-deploy.tar.gz
+echo "JWT_SECRET=$(openssl rand -hex 32)" > .env && chmod 600 .env
+docker compose -f docker-compose.runner.yml build
+docker compose -f docker-compose.runner.yml up -d
 ```
 
-`update.sh` 会依次：
-1. 给 `data/wiki.db` 打一份带时间戳的备份（保留最近 5 份）
-2. 解压新包，三重 `--exclude` 确保不覆盖用户数据库
-3. `docker compose build` 重建镜像
-4. `docker compose up -d` 重启服务
-5. 清理上传包与过期备份
+然后在本地 `KS2_PW=... python deploy_paramiko.py set-env` 推送邮件配置，`cron` 装定时备份，再配好宿主机 Nginx + certbot。访问站点，**第一个注册的用户自动成为 admin**。
 
-关键：用户数据存放在数据卷挂载的 `data/wiki.db`，打包和解压都已排除该文件，更新不会影响已注册账号、绑定句柄、Wiki 文章和评论。
-
-> 首次给 `update.sh` 添加可执行权限：`chmod +x update.sh`（包内已是脚本文件，解压后若无执行位则补一次）。
-
-## Docker镜像拉取问题（国内服务器）
-
-Dockerfile使用 `docker.1ms.run` 作为镜像代理。如果失效，替换Dockerfile中的前缀：
-
-```dockerfile
-FROM docker.1ms.run/library/node:22 AS builder
-```
-
-可选代理：
-- `docker.1ms.run`
-- `docker.xuanyuan.me`
-- `dhub.kubesre.xyz`
-
-测试哪个可用：`docker pull docker.1ms.run/library/node:22`
-
-## 常用命令
+## 常用命令（服务器上）
 
 ```bash
-# 查看状态
-docker compose ps
-
-# 查看日志
-docker compose logs -f
-
-# 重启
-docker compose restart
-
-# 停止
-docker compose down
-
-# 进入容器
+cd /opt/ks2-wiki
+docker compose -f docker-compose.runner.yml ps
+docker compose -f docker-compose.runner.yml logs -f
+docker compose -f docker-compose.runner.yml restart
 docker exec -it ks2-wiki sh
 ```
 
-## 数据备份
+## 国内镜像源
 
-数据库文件位于 `/opt/ks2-wiki/data/wiki.db`，定期备份：
+Dockerfile 用 `docker.1ms.run` 作为 Docker Hub 代理。失效时替换 `FROM` 前缀，备选 `docker.xuanyuan.me`、`dhub.kubesre.xyz`。测试：`docker pull docker.1ms.run/library/node:22-slim`。
+
+## 旧方式：服务器端构建（仅限内存充足的机器）
 
 ```bash
-cp /opt/ks2-wiki/data/wiki.db /opt/ks2-wiki/data/wiki.db.bak
+bash pack.sh                                            # 本地打源码包（不含 .output）
+scp ks2-wiki-deploy.tar.gz root@IP:/opt/ks2-wiki-deploy.tar.gz
+ssh root@IP 'cd /opt/ks2-wiki && ./update.sh'           # 备份 wiki.db → 解压 → docker compose build/up
 ```
 
-## 端口修改
-
-编辑 `docker-compose.yml` 中的端口映射：
-
-```yaml
-ports:
-  - "80:3000"   # 改为80直接访问
-```
-
-记得在阿里云安全组放行对应端口。
+使用 `Dockerfile` + `docker-compose.yml`，在容器里跑 `nuxt build`。**生产服务器不要用。**
 
 ## 注意事项
 
-- 分享图片的"复制到剪贴板"功能需要HTTPS环境，HTTP下会自动降级为下载PNG
-- `public/avatars/` 目录包含48个角色娘化立绘（约85MB），打包时会包含在内
-- 首次注册的用户自动成为admin
-- 句柄绑定会调用194823.xyz验证玩家是否存在
+- 分享图片「复制到剪贴板」需要 HTTPS，HTTP 下自动降级为下载 PNG。
+- 用户数据只有 `data/wiki.db`（WAL 模式），打包和解压都排除它；其余 `data/` 文件随包覆盖。
+- 句柄绑定会请求 194823.xyz 验证玩家是否存在。

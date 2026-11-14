@@ -2,9 +2,9 @@
 
 ## 备份什么
 
-只备份 **`data/wiki.db`** —— 唯一不可再生的用户数据（账号、Wiki 文章与修订、评论、反馈、投票、流量统计）。
+只备份 **`data/wiki.db`** —— 唯一不可再生的用户数据（账号与邮箱、Wiki 文章与修订、待审编辑、职业文案覆盖、评论、反馈与点赞、流量统计）。
 
-其余数据文件（`stats.db`、`catalog.json`、各 economy / units / balance JSON）都能从 map 提取管线重新生成，**不进备份**。
+其余数据文件（`stats.db`、各 economy / units / tech / balance / meta-history JSON 等）都在 git 里，可从地图提取管线或生产库转储重新生成，**不进备份**。
 
 > WAL 注意：`wiki.db` 是 WAL 模式，最新提交的数据在 `-wal` 文件里。**不要**用 `cp` 拷单个
 > `wiki.db`，会拿到缺最新写入甚至撕裂的文件。`backup.sh` 用 SQLite 联机备份（`.backup`），
@@ -24,7 +24,7 @@
 cd /opt/ks2-wiki && ./scripts/backup.sh
 ```
 
-首次赋可执行权限：`chmod +x scripts/backup.sh`。
+首次赋可执行权限：`chmod +x scripts/backup.sh`。也可以在本地一键完成上传 + 赋权 + 跑一次：`KS2_PW=... python deploy_paramiko.py push-backup`。
 建议装 sqlite3 以启用完整性校验：`apt-get install -y sqlite3`（Debian/Ubuntu）。
 
 ### 定时（每天一次）
@@ -34,6 +34,8 @@ cd /opt/ks2-wiki && ./scripts/backup.sh
 ```cron
 17 4 * * * cd /opt/ks2-wiki && ./scripts/backup.sh >> /opt/ks2-wiki/backups/backup.log 2>&1
 ```
+
+或在本地执行 `KS2_PW=... python deploy_paramiko.py cron`，它会幂等地装上这一行并回读确认。
 
 改保留份数：`KEEP=30 ./scripts/backup.sh`，或在 cron 行前加 `KEEP=30`。
 
@@ -45,7 +47,7 @@ cd /opt/ks2-wiki && ./scripts/backup.sh
 cd /opt/ks2-wiki
 
 # 1. 停服务，避免写入竞争
-docker compose -f docker-compose.runner.yml down     # 或 docker compose down
+docker compose -f docker-compose.runner.yml down
 
 # 2. 保命：先把现有数据库挪走（连 WAL/SHM 一起）
 mkdir -p /tmp/wiki-before-restore
@@ -73,12 +75,12 @@ sqlite3 /tmp/drill.db "PRAGMA integrity_check; SELECT count(*) FROM users; SELEC
 rm -f /tmp/drill.db
 ```
 
-能读出用户数和文章数即视为通过。
+能读出用户数和文章数即视为通过。本地一键版：`KS2_PW=... python deploy_paramiko.py drill`（只读，不碰线上库）。
 
 ## 已知局限
 
 - **只做本机轮转**：备份和线上库在同一台机器同一块盘。可防误删、误改、DB 损坏、坏部署，
   **防不了整机/磁盘丢失**。等有第二台机器或对象存储时，再给 `backup.sh` 末尾加一步把
   `backups/` 最新快照推到异地（rsync-over-SSH 或 rclone）。
-- 部署时 `update.sh` / `deploy_paramiko.py` 另有一份 `wiki.db.bak.<时间戳>` 部署前快照
+- 部署时 `deploy_paramiko.py deploy`（以及旧的 `update.sh`）另有一份 `wiki.db.bak.<时间戳>` 部署前快照
   （裸 cp，仅作部署回滚兜底），与本套定时备份相互独立、互不覆盖。

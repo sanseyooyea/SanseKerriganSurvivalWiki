@@ -45,52 +45,58 @@ Slug 是页面在浏览器地址栏中显示的标识，如 `wiki.ks2.top/wiki/r
 |--------|------|
 | `kerrigan` | 凯瑞甘 |
 | `scientist` | 科学家 |
-| `dark-templar` | 黑暗圣堂 |
+| `dark-templar` | 黑暗圣堂武士 |
 | `ascendant` | 晋升者 |
 | `spirit` | 灵魂 |
-| `ares` | 战神 |
+| `ares` | 阿瑞斯 |
 | `prophet` | 先知 |
-| `stukov` | 斯图科夫 |
+| `stukov` | 斯托科夫 |
 | `artanis` | 阿塔尼斯 |
 | `zagara` | 扎加拉 |
 | `engineer` | 工程师 |
 | `team-nova` | 诺娃团队 |
 | `nomad` | 游牧民 |
 | `dehaka` | 德哈卡 |
-| `helios` | 太阳神 |
-| `thakras` | 萨克拉斯 |
+| `helios` | 赫利俄斯 |
+| `thakras` | 塔克拉斯 |
 | `swann` | 斯旺 |
-| `warden` | 典狱长 |
-| `selendis` | 瑟兰迪斯 |
-| `niadra` | 妮雅德拉 |
+| `warden` | 监管者 |
+| `selendis` | 塞兰迪斯 |
+| `niadra` | 尼亚德拉 |
 | `mira` | 米拉 |
-| `scion` | 子嗣 |
+| `scion` | 赛恩 |
 | `technician` | 技术员 |
 | `warfield` | 沃菲尔德 |
 | `champion` | 冠军 |
-| `elementalist` | 元素师 |
-| `brakk` | 布拉克 |
-| `glevig` | 格莱维格 |
+| `elementalist` | 元素使 |
+| `brakk` | 巴拉克 |
+| `glevig` | 格里维格 |
 | `delta-squad` | 三角洲小队 |
 | `phaegore` | 菲戈尔 |
 | `alarak` | 阿拉纳克 |
 | `izsha` | 伊兹莎 |
-| `malus` | 马鲁斯 |
+| `malus` | 马吕斯 |
 | `kraith` | 克雷斯 |
-| `energizer` | 充能体 |
-| `andor` | 安多尔 |
+| `energizer` | 激励者 |
+| `andor` | 亚顿 |
 | `dj` | DJ |
 | `rattlesnake` | 响尾蛇 |
-| `sgthammer` | 锤兵中士 |
+| `sgthammer` | 重锤军士 |
 | `chew` | 秋伊 |
-| `aewyn` | 艾雯 |
-| `critter-lord` | 小动物领主 |
+| `aewyn` | 艾尔文 |
+| `critter-lord` | 小动物主宰 |
 | `nightingale` | 南丁格尔 |
-| `sjlerk` | 斯杰勒克 |
+| `sjlerk` | 斯加拉克 |
 | `sophia` | 索菲亚 |
-| `jinara` | 吉纳拉 |
-| `sir-roachington` | 蟑螂爵士 |
-| `skitter` | 疾行者 |
+| `jinara` | 吉娜拉 |
+| `sir-roachington` | 洛奇顿 |
+| `skitter` | 斯基特 |
+| `visionary` | 魔法视野化 |
+| `junker` | 拾荒者 |
+| `horner` | 霍纳（暂时下线） |
+| `ghost` | 幽灵（阵亡复活形态） |
+
+> 该列表**不需要手工维护**：前端 `composables/useWikiCategories.ts` 与后端 `server/utils/wiki-categories.ts` 都从 `data/roles.json` 自动生成（排除「随机」），新英雄进 roles 后即可选。上表为 2026-11 的快照。
 
 ### 通用分类
 
@@ -108,3 +114,12 @@ Slug 是页面在浏览器地址栏中显示的标识，如 `wiki.ks2.top/wiki/r
 - 使用简洁的中文标题
 - 不要把分类信息重复写进标题（如不要写「[响尾蛇] 响尾蛇教学」，直接写「响尾蛇教学」）
 - 标题应能独立表达文章主题
+
+---
+
+## 提交与审核
+
+- 任何登录用户都可以新建或编辑文章。
+- 非管理员点「提交审核」后，内容进入待审队列，**线上页面不会立刻变化**；管理员通过后才发布，署名记为投稿人。
+- 被驳回时管理员可能留下备注，按备注修改后重新提交即可。
+- 每次发布前旧版本都会存入修订历史，可在文章的「历史」页查看。
