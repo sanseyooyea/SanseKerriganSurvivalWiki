@@ -11,7 +11,9 @@
     "SwarmHostSplitBPlacement": { "nameZh": "虫群宿主（放置中）", "icon": "btn-unit-zerg-swarmhost.png" },
     "SwarmNydusWorm": { "icon": "btn-building-zerg-nydusworm.png" },
     "ChewChewbieAmmo": { "nameZh": "秋伊小跟班弹药" },
-    "CollapsiblePurifierTowerDebris": { "nameZh": "净化者塔残骸" }
+    "CollapsiblePurifierTowerDebris": { "nameZh": "净化者塔残骸" },
+    "GateTechnician": { "nameZh": "技术员的门", "icon": "btn-building-terran-supplydepot.png" },
+    "GateTechnicianLowered": { "nameZh": "技术员的门（降下）", "icon": "btn-building-terran-supplydepotlowered.png" }
   },
   "upgrades": {
     "VoidStoryUnitGlobalUpgrade": { "nameZh": "虚空剧情单位全局升级（系统）" },
