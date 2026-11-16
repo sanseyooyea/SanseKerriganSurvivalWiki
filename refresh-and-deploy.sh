@@ -40,13 +40,30 @@ before=$(git rev-parse HEAD)
 echo "=== 1) 拉取最新 dump + 重建数据 + 提交（无 push） ==="
 HTTPS_PROXY="$PROXY" "$PY" scripts/fetch_dump.py "${FETCH_ARGS[@]}"
 
-after=$(git rev-parse HEAD)
-if [ "$before" = "$after" ]; then
+# 不能只看本次 HEAD 是否移动：计划任务 KS2WikiFetchDump 会独立跑 fetch_dump.py，
+# 先一步下载+提交（但不 push）。之后再跑本脚本时 dump 已是最新、HEAD 不动，
+# 那条 data commit 就会永远卡在本地。所以改为看「本地是否领先 origin/main」。
+git -c http.proxy="$PROXY" -c https.proxy="$PROXY" fetch -q origin main
+ahead=$(git rev-list --count origin/main..HEAD)
+if [ "$ahead" = "0" ]; then
   echo ""
-  echo "数据无变化（HEAD 未移动）——跳过 push / 打包 / 部署。"
+  echo "数据无变化（本地与 origin/main 一致）——跳过 push / 打包 / 部署。"
   exit 0
 fi
-echo "新提交: $(git log --oneline -1)"
+# 只自动推送 data commit；混有其他未推送提交时不替人做决定。
+non_data=$(git log --format='%h %s' origin/main..HEAD | grep -v '^[0-9a-f]* data: ' || true)
+if [ -n "$non_data" ]; then
+  echo ""
+  echo "本地领先 origin/main 的提交里有非 data 提交，未自动推送："
+  echo "$non_data"
+  exit 3
+fi
+if [ "$before" = "$(git rev-parse HEAD)" ]; then
+  echo "本次无新 dump，但有 $ahead 条此前（如计划任务）产生、尚未推送的 data commit："
+else
+  echo "新提交："
+fi
+git log --oneline origin/main..HEAD
 
 echo ""
 echo "=== 2) 推送 data commit 到 origin/main ==="
