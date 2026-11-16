@@ -161,7 +161,11 @@
 
 .wk-article a, .wk-preview a {
   color: #2563eb;
-  text-decoration: underline 1px rgba(37,99,235,0.3);
+  /* 用长属性而非 `underline 1px <color>` 简写：旧 Safari 不认简写里的粗细值，
+     会丢掉整条声明，而 Tailwind preflight 已把 a 的下划线清掉 → 链接无下划线 */
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(37,99,235,0.3);
   text-underline-offset: 0.2em;
   transition: text-decoration-color 0.15s;
 }
