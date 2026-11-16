@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     head: {
       script: [
         {
-          innerHTML: `(function(){try{var m=localStorage.getItem('color-mode');if(m==='dark'||(!m&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+          innerHTML: `(function(){try{var m=localStorage.getItem('color-mode');if(m==='dark'||(!m&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}}catch(e){}})()`,
           type: 'text/javascript',
         }
       ],

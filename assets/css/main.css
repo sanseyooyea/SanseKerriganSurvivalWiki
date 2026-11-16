@@ -118,6 +118,11 @@
 .stagger-item:nth-child(9) { animation-delay: 320ms; }
 .stagger-item:nth-child(n+10) { animation-delay: 350ms; }
 
+/* 系统开启「减少动态效果」时关闭列表入场动画 */
+@media (prefers-reduced-motion: reduce) {
+  .stagger-item { animation: none; }
+}
+
 /* ===== Wiki 文章正文排版（全局，替代失效的 prose 类，终端手册风格）=====
    全局类，供文章展示页(.wk-article)与编辑页预览(.wk-preview)共用，
    保证「预览 = 真实效果」。全局 CSS 直接穿透 v-html 内容，无需 :deep()。 */
@@ -155,11 +160,18 @@
 .dark .wk-article em, .dark .wk-preview em { color: #60a5fa; }
 
 .wk-article a, .wk-preview a {
-  color: #2563eb; text-decoration: none; border-bottom: 1px solid rgba(37,99,235,0.3);
-  transition: border-color 0.15s;
+  color: #2563eb;
+  /* 用长属性而非 `underline 1px <color>` 简写：旧 Safari 不认简写里的粗细值，
+     会丢掉整条声明，而 Tailwind preflight 已把 a 的下划线清掉 → 链接无下划线 */
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(37,99,235,0.3);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.15s;
 }
-.wk-article a:hover, .wk-preview a:hover { border-bottom-color: #2563eb; }
-.dark .wk-article a, .dark .wk-preview a { color: #60a5fa; border-bottom-color: rgba(96,165,250,0.3); }
+.wk-article a:hover, .wk-preview a:hover { text-decoration-color: #2563eb; }
+.dark .wk-article a, .dark .wk-preview a { color: #60a5fa; text-decoration-color: rgba(96,165,250,0.3); }
+.dark .wk-article a:hover, .dark .wk-preview a:hover { text-decoration-color: #60a5fa; }
 
 .wk-article ul, .wk-article ol, .wk-preview ul, .wk-preview ol { margin: 0.85rem 0; padding-left: 1.5rem; }
 .wk-article li, .wk-preview li { margin: 0.4rem 0; }
