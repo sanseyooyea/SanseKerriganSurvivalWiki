@@ -13524,6 +13524,11 @@
 "btn-building-terran-artillerymengsk.png"
 ]
 },
+"MengskOrdnanceRagnarokUnlocked":{
+"nameZh":"蒙斯克等级22",
+"icon":null,
+"iconCandidates":[]
+},
 "MengskRapidMobilization":{
 "nameZh":"快速动员",
 "icon":"btn-upgrade-raynor-replenishablemagazine.png",
