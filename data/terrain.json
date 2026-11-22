@@ -182,18 +182,6 @@
       "date": "2026-08-04"
     },
     {
-      "key": "duck_map",
-      "map": "DuckMap",
-      "nameZh": "鸭子地图",
-      "tileset": "DuckMapTerrainType",
-      "worldSize": 256,
-      "minimap": "/maps/duck_map.png",
-      "rockModel": "CommonRockBlackStones",
-      "rockProbDefault": 0.5,
-      "candidateCount": 159,
-      "date": "2026-07-21"
-    },
-    {
       "key": "ruins_of_imladoon_20260602",
       "map": "RuinsOfImladoon",
       "nameZh": "伊姆拉顿废墟",
@@ -360,6 +348,18 @@
       "rockProbDefault": 0.5,
       "candidateCount": 199,
       "date": "2025-12-05"
+    },
+    {
+      "key": "duck_map",
+      "map": "DuckMap",
+      "nameZh": "鸭子地图",
+      "tileset": "DuckMapTerrainType",
+      "worldSize": 256,
+      "minimap": "/maps/duck_map.png",
+      "rockModel": "CommonRockBlackStones",
+      "rockProbDefault": 0.5,
+      "candidateCount": 159,
+      "date": null
     }
   ]
 }

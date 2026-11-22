@@ -170050,7 +170050,7 @@
         "armorName": "ProtossArmor",
         "armorLevel": 0,
         "shieldArmorLevel": 0,
-        "radius": 0.75
+        "radius": 0.875
       },
       "cost": {
         "minerals": 400,
@@ -198885,6 +198885,34 @@
               ]
             }
           ]
+        },
+        {
+          "family": "JinaraPsionicSight",
+          "nameZh": "研究心灵视野",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "sight"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JinaraPsionicSight",
+              "minerals": 3000,
+              "gas": 50,
+              "time": 5,
+              "researchedBy": "JinaraResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JinaraJinara,Sight",
+                  "op": "Add",
+                  "value": 3
+                }
+              ]
+            }
+          ]
         }
       ],
       "producedBy": [
@@ -199206,7 +199234,7 @@
                 {
                   "ref": "Unit,JinaraSupplicant,CostResource[Minerals]",
                   "op": "Add",
-                  "value": 75
+                  "value": 50
                 }
               ]
             }
@@ -199245,7 +199273,7 @@
                 {
                   "ref": "Unit,JinaraSupplicant,CostResource[Minerals]",
                   "op": "Add",
-                  "value": 75
+                  "value": 50
                 }
               ]
             }
@@ -199744,7 +199772,7 @@
       },
       "cost": {
         "minerals": 475,
-        "gas": 10,
+        "gas": 9,
         "food": 0,
         "supplyProvided": 0
       },
@@ -199823,7 +199851,7 @@
       },
       "cost": {
         "minerals": 1175,
-        "gas": 35,
+        "gas": 33,
         "food": 0,
         "supplyProvided": 0
       },
@@ -200336,8 +200364,8 @@
       ],
       "category": "troop",
       "stats": {
-        "hp": 250,
-        "shield": 350,
+        "hp": 175,
+        "shield": 275,
         "armor": 0,
         "shieldArmor": 0,
         "hpRegen": 0,
@@ -200420,22 +200448,22 @@
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeMax",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeStart",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,ShieldsMax",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,ShieldsStart",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeArmor",
@@ -200460,22 +200488,22 @@
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeMax",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeStart",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,ShieldsMax",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,ShieldsStart",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeArmor",
@@ -200500,22 +200528,22 @@
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeMax",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeStart",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,ShieldsMax",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,ShieldsStart",
                   "op": "Add",
-                  "value": 25
+                  "value": 50
                 },
                 {
                   "ref": "Unit,JinaraBloodHunter,LifeArmor",
@@ -200590,6 +200618,39 @@
           ]
         },
         {
+          "family": "JinaraBloodShields",
+          "nameZh": "研究血肉护盾",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "shield"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JinaraBloodShields",
+              "minerals": 2500,
+              "gas": 20,
+              "time": 1,
+              "researchedBy": "JinaraResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JinaraBloodHunter,ShieldsStart",
+                  "op": "Add",
+                  "value": 75
+                },
+                {
+                  "ref": "Unit,JinaraBloodHunter,ShieldsMax",
+                  "op": "Add",
+                  "value": 75
+                }
+              ]
+            }
+          ]
+        },
+        {
           "family": "JinaraPsionicSight",
           "nameZh": "研究心灵视野",
           "category": null,
@@ -200603,7 +200664,7 @@
             {
               "level": 1,
               "upgrade": "JinaraPsionicSight",
-              "minerals": 5000,
+              "minerals": 3000,
               "gas": 50,
               "time": 5,
               "researchedBy": "JinaraResearch",
@@ -200639,7 +200700,40 @@
                 {
                   "ref": "Unit,JinaraBloodHunter,Speed",
                   "op": "Add",
-                  "value": 0.75
+                  "value": 0.6015
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "family": "JinaraSoulAugmentation",
+          "nameZh": "研究灵魂增幅",
+          "category": null,
+          "kind": "option",
+          "researchable": true,
+          "dimensions": [
+            "shield"
+          ],
+          "unmodeled": [],
+          "levels": [
+            {
+              "level": 1,
+              "upgrade": "JinaraSoulAugmentation",
+              "minerals": 5000,
+              "gas": 30,
+              "time": 1,
+              "researchedBy": "JinaraResearch",
+              "effects": [
+                {
+                  "ref": "Unit,JinaraBloodHunter,ShieldsMax",
+                  "op": "Add",
+                  "value": 75
+                },
+                {
+                  "ref": "Unit,JinaraBloodHunter,ShieldsStart",
+                  "op": "Add",
+                  "value": 75
                 }
               ]
             }
@@ -200705,8 +200799,8 @@
         "radius": 1.25
       },
       "cost": {
-        "minerals": 2000,
-        "gas": 25,
+        "minerals": 1750,
+        "gas": 15,
         "food": 8,
         "supplyProvided": 0
       },
@@ -201009,8 +201103,8 @@
             {
               "level": 1,
               "upgrade": "JinaraMatterDispersion",
-              "minerals": 5000,
-              "gas": 30,
+              "minerals": 3000,
+              "gas": 20,
               "time": 5,
               "researchedBy": "JinaraResearch",
               "effects": [
@@ -201037,7 +201131,7 @@
             {
               "level": 1,
               "upgrade": "JinaraPsionicSight",
-              "minerals": 5000,
+              "minerals": 3000,
               "gas": 50,
               "time": 5,
               "researchedBy": "JinaraResearch",
@@ -202912,8 +203006,8 @@
       ],
       "category": "troop",
       "stats": {
-        "hp": 150,
-        "shield": 50,
+        "hp": 125,
+        "shield": 75,
         "armor": 0,
         "shieldArmor": 0,
         "hpRegen": 0,

@@ -628,6 +628,18 @@
   "a1c187e9e03f025a3c222d96cdc3cd365e752b296f88eca92501d7aa951f0683": {
    "terrain": "death_valley",
    "seen": "2026-11-14"
+  },
+  "f0465a04e46cf7c9a4be0dd34254d5833c42972101ce06cd6967be440e8012f7": {
+   "terrain": "death_valley",
+   "seen": "2026-11-15"
+  },
+  "86429c20c3fbc116f73676ca905d86df763a75f043b2dea8771fb5efe6e432d1": {
+   "terrain": "death_valley",
+   "seen": "2026-11-17"
+  },
+  "ba96beccf0a9f8e86119b8cc19895ef5c3e0d05b050d6d924788f2a83049d098": {
+   "terrain": "duck_map",
+   "seen": "2026-11-21"
   }
  }
 }
