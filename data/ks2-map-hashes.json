@@ -640,6 +640,10 @@
   "ba96beccf0a9f8e86119b8cc19895ef5c3e0d05b050d6d924788f2a83049d098": {
    "terrain": "duck_map",
    "seen": "2026-11-21"
+  },
+  "5e1b890a56a7e479eeb8d21388a93c0502541b47a7b61f92abbad266a4be038a": {
+   "terrain": "duck_map",
+   "seen": "2026-11-24"
   }
  }
 }

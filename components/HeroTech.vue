@@ -43,6 +43,10 @@
                 <span v-if="u.levels[0].time" class="font-mono text-gray-400 dark:text-gray-500 shrink-0">{{ u.levels[0].time }}s</span>
                 <span class="text-gray-600 dark:text-gray-300 whitespace-pre-line leading-relaxed">{{ u.levels[0].descZh || '—' }}</span>
               </div>
+              <!-- 逐级递增费用（地图 galaxy 动态改价，如灵魂锻造厂） -->
+              <div v-if="u.costByLevel && u.costByLevel.length" class="mt-1 text-[0.7rem] text-gray-500 dark:text-gray-400">
+                逐级费用(矿)：<span class="font-mono tabular-nums">{{ u.costByLevel.map((c, i) => `${i + 1}级 ${c}`).join(' / ') }}</span>
+              </div>
 
               <!-- 多级：逐级堆叠 -->
               <div v-else class="space-y-1">

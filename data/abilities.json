@@ -519,7 +519,7 @@
   "ScionDefensiveAugment": {
     "nameZh": "防御提升",
     "nameEn": "Defensive Augment",
-    "tooltip": "为已完成的友军建筑添加护盾和护盾护甲。<n/><c val=\"87CEEB\">护盾</c>: <c val=\"87CEEB\">200</c>|<c val=\"87CEEB\">400</c>|<c val=\"87CEEB\">800</c>|<c val=\"87CEEB\">1600</c><n/><c val=\"87CEEB\">护盾护甲</c>: <c val=\"87CEEB\">4</c>|<c val=\"87CEEB\">8</c>|<c val=\"87CEEB\">12</c>|<c val=\"87CEEB\">16</c><n/><c val=\"E6E6E6\">持续时间</c>: <c val=\"E6E6E6\">15</c>|<c val=\"E6E6E6\">20</c>|<c val=\"E6E6E6\">25</c>|<c val=\"E6E6E6\">30</c><n/><c val=\"E6E6E6\">充能</c>: <c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c>|<c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c><n/><c val=\"8FC7FF\">能量消耗</c>: <c val=\"8FC7FF\">20</c>",
+    "tooltip": "为一个已完成的友方建筑添加护盾和护盾护甲。根据防御增强等级，永久使其瓦斯赏金值提高1|2|3|4。重复施放会叠加此加成。<n/><c val=\"87CEEB\">护盾</c>： <c val=\"87CEEB\">200</c>|<c val=\"87CEEB\">400</c>|<c val=\"87CEEB\">800</c>|<c val=\"87CEEB\">1600</c><n/><c val=\"87CEEB\">护盾护甲</c>： <c val=\"87CEEB\">2</c>|<c val=\"87CEEB\">4</c>|<c val=\"87CEEB\">8</c>|<c val=\"87CEEB\">16</c><n/><c val=\"E6E6E6\">持续时间</c>： <c val=\"E6E6E6\">15</c>|<c val=\"E6E6E6\">20</c>|<c val=\"E6E6E6\">25</c>|<c val=\"E6E6E6\">30</c><n/><c val=\"E6E6E6\">充能次数</c>： <c val=\"E6E6E6\">3</c>|<c val=\"E6E6E6\">4</c>|<c val=\"E6E6E6\">5</c>|<c val=\"E6E6E6\">6</c><n/><c val=\"8FC7FF\">能量消耗</c>： <c val=\"8FC7FF\">20</c>",
     "icon": "btn-ability-protoss-dualgravitonbeam.png"
   },
   "ScionKineticMatrix": {
@@ -1457,7 +1457,7 @@
   "JunkerJumpBase": {
     "nameZh": "喷射跳跃（未训练）",
     "nameEn": "Jump Jets (Untrained)",
-    "tooltip": "跳至目标地点且不造成伤害。初始即可用；学习喷射跳跃后增加落地伤害。<n/><c val=\"FF8080\">伤害：0</c><n/><c val=\"E6E6E6\">冷却时间：300秒。射程：7。</c>",
+    "tooltip": "跳跃至目标点，空中期间无敌，但不会造成伤害。初始即可使用；学习喷射跳跃后可增加落地伤害。<n/><c val=\"FF8080\">伤害：0</c><n/><c val=\"E6E6E6\">冷却时间：300秒。射程：7。</c>",
     "icon": "btn-upgrade-terran-jumpjets.png"
   },
   "JunkerDeathNukePurchase": {
