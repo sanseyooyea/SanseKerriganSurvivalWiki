@@ -27,6 +27,7 @@ export interface TechUpgrade {
   category: string | null
   icon: string | null
   levels: TechLevel[]
+  costByLevel?: number[]  // galaxy 动态逐级费用（如灵魂锻造厂）
 }
 // 秋伊专属：galaxy 驱动的「小进化」次要强化（升级时可选，英文说明，与研究科技树独立）
 export interface ChewolutionUpgrade {

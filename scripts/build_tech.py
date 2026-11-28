@@ -91,7 +91,8 @@ def build_entry(archive, hero_en, xml_path, gs_name, gs_tip):
         return None
     effects = T.build_upgrade_effects(root)
     btn_icons = T.build_button_icons(root)
-    groups = T.group_upgrades(research, effects, gs_name, gs_tip, btn_icons)
+    groups = T.group_upgrades(research, effects, gs_name, gs_tip, btn_icons,
+                              T.build_field_index(root))
     groups = [g for g in groups if not _is_junk_group(g)]
     if not groups:
         return None
@@ -102,9 +103,38 @@ def build_entry(archive, hero_en, xml_path, gs_name, gs_tip):
         'researchAbilities': abilities,
         'upgrades': groups,
     }
+    if hero_en == SPIRIT_HERO:
+        apply_spirit_forge_costs(archive, entry)
     if hero_en == CHEW_HERO:
         entry['chewolution'] = extract_chewolution(archive)
     return entry
+
+
+# 灵魂锻造厂：研究费用由 galaxy 按已完成等级动态改写 InfoArray 成本（XML 里只有首级价）。
+# 解析 spirit_unsplit.galaxy 的 lv_upgrade 映射 + 费用公式，逐级算出真实费用写进 costByLevel。
+SPIRIT_HERO = 'Spirit'
+SPIRIT_GALAXY = r'Scripts\hero\spirit\spirit_unsplit.galaxy'
+_SPIRIT_UPG_RE = re.compile(r'lv_upgrade\s*=\s*"(\w+)"')
+_SPIRIT_COST_RE = re.compile(
+    r'if \(lv_level < (\d+)\) \{\s*lv_cost = (\d+) \+ (\d+) \* lv_level \* \(lv_level \+ 1\);')
+
+
+def apply_spirit_forge_costs(archive, entry):
+    """给灵魂锻造厂科技组补 costByLevel（第 1..maxLevel 级的晶体矿费用）。公式不匹配时不动。"""
+    raw = archive.read_file(SPIRIT_GALAXY)
+    if not raw:
+        return
+    txt = raw.decode('utf-8', 'replace')
+    m = _SPIRIT_COST_RE.search(txt)
+    if not m:
+        print('  WARN: spirit forge cost formula not found; costByLevel skipped')
+        return
+    max_lv, base, step = (int(x) for x in m.groups())
+    upgrades = set(_SPIRIT_UPG_RE.findall(txt[max(0, m.start() - 1500):m.start()]))
+    costs = [base + step * lv * (lv + 1) for lv in range(max_lv)]
+    for g in entry['upgrades']:
+        if g['id'] in upgrades and len(g['levels']) == 1:
+            g['costByLevel'] = costs
 
 
 def write_all(entries):

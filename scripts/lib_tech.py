@@ -75,6 +75,67 @@ def extract_research(root):
     return out
 
 
+def build_field_index(root):
+    prefixes = (
+        ('CEffect', 'Effect'),
+        ('CBehavior', 'Behavior'),
+        ('CUnit', 'Unit'),
+        ('CWeapon', 'Weapon'),
+        ('CAbil', 'Abil'),
+        ('CUpgrade', 'Upgrade'),
+        ('CValidator', 'Validator'),
+        ('CActor', 'Actor'),
+        ('CMover', 'Mover'),
+        ('CButton', 'Button'),
+    )
+
+    entries = {}
+    for elem in root:
+        cat = None
+        tag = elem.tag
+        for prefix, name in prefixes:
+            if tag.startswith(prefix):
+                cat = name
+                break
+        if cat is None:
+            continue
+        eid = elem.get('id')
+        if eid is None:
+            continue
+        entries[(cat, eid)] = elem
+
+    def collect(cat, eid, stack):
+        key = (cat, eid)
+        if key in stack:
+            return {}
+        elem = entries.get(key)
+        if elem is None:
+            return {}
+
+        direct = {}
+        for child in elem:
+            value = child.get('value')
+            if value is not None and child.tag not in direct:
+                direct[child.tag] = value
+
+        inherited = {}
+        parent_id = elem.get('parent')
+        if parent_id:
+            parent_key = (cat, parent_id)
+            if parent_key in entries:
+                inherited = collect(cat, parent_id, stack | {key})
+
+        fields = dict(inherited)
+        fields.update(direct)
+        return fields
+
+    result = {}
+    for (cat, eid), elem in entries.items():
+        for field, value in collect(cat, eid, set()).items():
+            result[f'{cat},{eid},{field}'] = value
+    return result
+
+
 def build_upgrade_effects(root):
     """upgradeId -> {effects:{referenceStr:value}, maxLevel, category, icon}.
     effects powers $UpgradeEffectArrayValue$ token resolution."""
@@ -129,7 +190,14 @@ def _fmt(value, precision, mult):
     return int(n) if float(n) == int(n) else round(n, 4)
 
 
-def render_tooltip(raw, upgrade_effects, upgrade_id=None):
+_SIMPLE_D = re.compile(
+    r'<d\s+ref\s*=\s*"([A-Za-z0-9_@]+),([A-Za-z0-9_@]+),([A-Za-z0-9_@]+)"'
+    r'(?:\s+precision\s*=\s*"([0-9]+)")?\s*/>',
+    re.IGNORECASE,
+)
+
+
+def render_tooltip(raw, upgrade_effects, upgrade_id=None, field_index=None):
     """Resolve dynamic tokens against upgrade EffectArray values and strip markup.
 
     `upgrade_effects` = build_upgrade_effects() output. Token carries its own
@@ -148,6 +216,16 @@ def render_tooltip(raw, upgrade_effects, upgrade_id=None):
         return str(out) if out is not None else ''
 
     text = _DTOKEN.sub(_sub, text)
+    # 简单目录引用 <d ref="Effect,X,Amount"/>：用本英雄 XML 的字段值代入（查不到保留，交给 _ANYD 删）
+    if field_index is not None:
+        def _simple_sub(m):
+            cat, entry, field, prec = m.group(1), m.group(2), m.group(3), m.group(4)
+            val = field_index.get(f'{cat},{entry},{field}')
+            if val is None:
+                return m.group(0)
+            out = _fmt(val, prec, None)
+            return str(out) if out is not None else m.group(0)
+        text = _SIMPLE_D.sub(_simple_sub, text)
     text = _NTAG.sub('\n', text)
     text = _CTAG.sub('', text)
     text = _ANYD.sub('', text)     # drop any other <d> (compound formulas / BehaviorStackCount) we don't resolve
@@ -218,7 +296,8 @@ def _icon_png_name(dds_path):
     return base + '.png'
 
 
-def group_upgrades(research, upgrade_effects, gs_name, gs_tooltip, button_icons=None):
+def group_upgrades(research, upgrade_effects, gs_name, gs_tooltip, button_icons=None,
+                   field_index=None):
     """Merge research slots into per-family multi-level upgrade groups.
 
     research: extract_research() output.
@@ -251,7 +330,7 @@ def group_upgrades(research, upgrade_effects, gs_name, gs_tooltip, button_icons=
         for i, opt in enumerate(opts, 1):
             f = opt.get('buttonFace')
             tip = render_tooltip(gs_tooltip.get(f, '') if f else '',
-                                 upgrade_effects, opt['upgrade'])
+                                 upgrade_effects, opt['upgrade'], field_index)
             levels.append({
                 'level': i,
                 'cost': opt['minerals'],

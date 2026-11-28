@@ -46018,6 +46018,7 @@
           "index": "Build4",
           "kind": "build",
           "time": 5,
+          "requirements": "JunkerBlackMarketLimit",
           "button": "JunkerBuildBlackMarket",
           "units": [
             "JunkerBlackMarket"
@@ -52314,7 +52315,7 @@
       ],
       "category": "troop",
       "stats": {
-        "hp": 600,
+        "hp": 650,
         "shield": 0,
         "armor": 0,
         "shieldArmor": 0,
@@ -55466,8 +55467,8 @@
         "food": 0,
         "supplyProvided": 0,
         "listed": {
-          "minerals": 50,
-          "gas": 50
+          "minerals": 75,
+          "gas": 75
         },
         "hire": {
           "minerals": 25.0,
@@ -55496,7 +55497,7 @@
         {
           "id": "SwarmVirophageBombardment",
           "nameZh": "轰炸",
-          "period": 7,
+          "period": 5,
           "range": 20,
           "minRange": null,
           "melee": false,
@@ -55661,12 +55662,12 @@
                 {
                   "ref": "Unit,SwarmVirophage,CostResource[Minerals]",
                   "op": "Set",
-                  "value": 75
+                  "value": 100
                 },
                 {
                   "ref": "Unit,SwarmVirophage,CostResource[Vespene]",
                   "op": "Set",
-                  "value": 75
+                  "value": 100
                 },
                 {
                   "ref": "Weapon,SwarmVirophageBombardment,Range",
@@ -55691,12 +55692,12 @@
                 {
                   "ref": "Unit,SwarmVirophage,CostResource[Minerals]",
                   "op": "Set",
-                  "value": 150
+                  "value": 125
                 },
                 {
                   "ref": "Unit,SwarmVirophage,CostResource[Vespene]",
                   "op": "Set",
-                  "value": 150
+                  "value": 125
                 },
                 {
                   "ref": "Weapon,SwarmVirophageBombardment,Range",
@@ -55721,12 +55722,12 @@
                 {
                   "ref": "Unit,SwarmVirophage,CostResource[Minerals]",
                   "op": "Set",
-                  "value": 300
+                  "value": 150
                 },
                 {
                   "ref": "Unit,SwarmVirophage,CostResource[Vespene]",
                   "op": "Set",
-                  "value": 300
+                  "value": 150
                 },
                 {
                   "ref": "Weapon,SwarmVirophageBombardment,Range",
@@ -56687,7 +56688,7 @@
       ],
       "category": "troop",
       "stats": {
-        "hp": 1200,
+        "hp": 1300,
         "shield": 0,
         "armor": 0,
         "shieldArmor": 0,
@@ -57835,7 +57836,7 @@
             {
               "level": 1,
               "upgrade": "ScientistCombatShield",
-              "minerals": 1000,
+              "minerals": 500,
               "gas": 15,
               "time": 10,
               "researchedBy": "ScientistResearch",
@@ -66794,7 +66795,7 @@
             {
               "level": 1,
               "upgrade": "SpiritLife",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -66953,7 +66954,7 @@
             {
               "level": 1,
               "upgrade": "SpiritEnergy",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -66988,7 +66989,7 @@
             {
               "level": 1,
               "upgrade": "SpiritLife",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67037,7 +67038,7 @@
             {
               "level": 1,
               "upgrade": "SpiritSight",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67381,7 +67382,7 @@
             {
               "level": 1,
               "upgrade": "SpiritAttackSpeed",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67415,7 +67416,7 @@
             {
               "level": 1,
               "upgrade": "SpiritDamage",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67448,7 +67449,7 @@
             {
               "level": 1,
               "upgrade": "SpiritEnergy",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67483,7 +67484,7 @@
             {
               "level": 1,
               "upgrade": "SpiritLife",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67532,7 +67533,7 @@
             {
               "level": 1,
               "upgrade": "SpiritRange",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67566,7 +67567,7 @@
             {
               "level": 1,
               "upgrade": "SpiritSight",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67659,7 +67660,7 @@
             {
               "level": 1,
               "upgrade": "SpiritEnergy",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67714,7 +67715,7 @@
             {
               "level": 1,
               "upgrade": "SpiritLife",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67763,7 +67764,7 @@
             {
               "level": 1,
               "upgrade": "SpiritSight",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67883,7 +67884,7 @@
             {
               "level": 1,
               "upgrade": "SpiritAttackSpeed",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67917,7 +67918,7 @@
             {
               "level": 1,
               "upgrade": "SpiritDamage",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67950,7 +67951,7 @@
             {
               "level": 1,
               "upgrade": "SpiritEnergy",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -67985,7 +67986,7 @@
             {
               "level": 1,
               "upgrade": "SpiritLife",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68034,7 +68035,7 @@
             {
               "level": 1,
               "upgrade": "SpiritRange",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68068,7 +68069,7 @@
             {
               "level": 1,
               "upgrade": "SpiritSight",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68250,7 +68251,7 @@
             {
               "level": 1,
               "upgrade": "SpiritAttackSpeed",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68284,7 +68285,7 @@
             {
               "level": 1,
               "upgrade": "SpiritDamage",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68317,7 +68318,7 @@
             {
               "level": 1,
               "upgrade": "SpiritEnergy",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68352,7 +68353,7 @@
             {
               "level": 1,
               "upgrade": "SpiritLife",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68401,7 +68402,7 @@
             {
               "level": 1,
               "upgrade": "SpiritRange",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68435,7 +68436,7 @@
             {
               "level": 1,
               "upgrade": "SpiritSight",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -68542,7 +68543,7 @@
             {
               "level": 1,
               "upgrade": "SpiritLife",
-              "minerals": 100,
+              "minerals": 75,
               "gas": 0,
               "time": 15,
               "researchedBy": "SpiritResearch",
@@ -209044,9 +209045,9 @@
           "components": [
             {
               "effect": "JunkerReaperDamage",
-              "amount": 15,
+              "amount": 25,
               "bonus": {
-                "Light": 20
+                "Light": 5
               },
               "armorReduction": 1,
               "hits": 1.0,
@@ -209288,9 +209289,9 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 750,
+        "minerals": 850,
         "gas": 7,
-        "food": 6,
+        "food": 4,
         "supplyProvided": 0
       },
       "attributes": [
@@ -209546,7 +209547,7 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 250,
+        "minerals": 200,
         "gas": 3,
         "food": 3,
         "supplyProvided": 0
@@ -210006,7 +210007,7 @@
         "radius": 0.75
       },
       "cost": {
-        "minerals": 250,
+        "minerals": 200,
         "gas": 3,
         "food": 3,
         "supplyProvided": 0
